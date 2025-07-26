@@ -28,14 +28,12 @@ import {
   BarChart3Icon
 } from "lucide-react";
 import { Link } from "wouter";
-import { Navigation } from "@/components/Navigation";
 
 export function Header() {
   const { user } = useAuth();
 
   return (
-    <>
-      <header className="glass-morphism border-b border-gray-200/50 sticky top-0 z-50">
+    <header className="glass-morphism border-b border-gray-200/50 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
@@ -220,9 +218,5 @@ export function Header() {
           </div>
         </div>
       </header>
-      
-      {/* Navigation Bar */}
-      <Navigation />
-    </>
   );
 }
