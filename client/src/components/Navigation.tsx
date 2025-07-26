@@ -478,57 +478,7 @@ export function Navigation() {
             </div>
           ))}
 
-          {/* Additional Categories */}
-          <Link href="/marketplace?vertical=jobs">
-            <Button 
-              variant="ghost" 
-              className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium"
-              data-testid="nav-jobs"
-            >
-              Jobs
-            </Button>
-          </Link>
-
-          <Link href="/marketplace?vertical=real-estate">
-            <Button 
-              variant="ghost" 
-              className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium"
-              data-testid="nav-real-estate"
-            >
-              Real Estate
-            </Button>
-          </Link>
-
-          <Link href="/marketplace?vertical=cars">
-            <Button 
-              variant="ghost" 
-              className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium"
-              data-testid="nav-cars"
-            >
-              Cars
-            </Button>
-          </Link>
-
-          <Link href="/marketplace?vertical=boats">
-            <Button 
-              variant="ghost" 
-              className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium"
-              data-testid="nav-boats"
-            >
-              Boats
-            </Button>
-          </Link>
-
-          <Link href="/marketplace?vertical=services">
-            <Button 
-              variant="ghost" 
-              className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium"
-              data-testid="nav-services"
-            >
-              Services
-            </Button>
-          </Link>
-
+          {/* Sports & Outdoors */}
           <Link href="/marketplace?vertical=sports">
             <Button 
               variant="ghost" 

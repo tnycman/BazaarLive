@@ -19,7 +19,12 @@ import {
   UserIcon,
   LogOutIcon,
   SettingsIcon,
-  HeartIcon
+  HeartIcon,
+  BriefcaseIcon,
+  HomeIcon,
+  CarIcon,
+  AnchorIcon,
+  WrenchIcon
 } from "lucide-react";
 import { Link } from "wouter";
 import { Navigation } from "@/components/Navigation";
@@ -59,6 +64,40 @@ export function Header() {
                   <SearchIcon className="w-4 h-4" />
                 </Button>
               </div>
+            </div>
+
+            {/* Vertical Categories */}
+            <div className="flex items-center space-x-4 text-sm text-gray-600 dark:text-gray-400">
+              <Link href="/marketplace?vertical=jobs">
+                <Button variant="ghost" size="sm" className="flex items-center gap-1 hover:text-purple-600" data-testid="header-jobs">
+                  <BriefcaseIcon className="w-4 h-4" />
+                  Jobs
+                </Button>
+              </Link>
+              <Link href="/marketplace?vertical=real-estate">
+                <Button variant="ghost" size="sm" className="flex items-center gap-1 hover:text-purple-600" data-testid="header-real-estate">
+                  <HomeIcon className="w-4 h-4" />
+                  Real Estate
+                </Button>
+              </Link>
+              <Link href="/marketplace?vertical=cars">
+                <Button variant="ghost" size="sm" className="flex items-center gap-1 hover:text-purple-600" data-testid="header-cars">
+                  <CarIcon className="w-4 h-4" />
+                  Cars
+                </Button>
+              </Link>
+              <Link href="/marketplace?vertical=boats">
+                <Button variant="ghost" size="sm" className="flex items-center gap-1 hover:text-purple-600" data-testid="header-boats">
+                  <AnchorIcon className="w-4 h-4" />
+                  Boats
+                </Button>
+              </Link>
+              <Link href="/marketplace?vertical=services">
+                <Button variant="ghost" size="sm" className="flex items-center gap-1 hover:text-purple-600" data-testid="header-services">
+                  <WrenchIcon className="w-4 h-4" />
+                  Services
+                </Button>
+              </Link>
             </div>
 
             {/* Right side actions */}
