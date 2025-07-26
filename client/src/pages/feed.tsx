@@ -394,7 +394,7 @@ function ListingCard({ listing, showSeller = true }: ListingCardProps) {
                 </span>
               </div>
               <span className="text-xs text-gray-400">
-                {new Date(listing.createdAt).toLocaleDateString()}
+                {listing.createdAt ? new Date(listing.createdAt).toLocaleDateString() : 'Today'}
               </span>
             </div>
           </div>
