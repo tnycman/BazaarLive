@@ -316,3 +316,6 @@ export type Message = typeof messages.$inferSelect;
 export type InsertMessage = z.infer<typeof insertMessageSchema>;
 
 export type Transaction = typeof transactions.$inferSelect;
+
+// Export analytics tables
+export * from './analytics-schema';

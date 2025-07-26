@@ -13,6 +13,7 @@ import Marketplace from "@/pages/marketplace";
 import CreateListing from "@/pages/create-listing";
 import Profile from "@/pages/profile";
 import VerticalPage from "@/pages/marketplace/VerticalPage";
+import AnalyticsDashboard from "@/pages/analytics/AnalyticsDashboard";
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
@@ -29,6 +30,7 @@ function Router() {
           <Route path="/marketplace" component={Marketplace} />
           <Route path="/create-listing" component={CreateListing} />
           <Route path="/profile/:username?" component={Profile} />
+          <Route path="/analytics" component={AnalyticsDashboard} />
           
           {/* Dynamic marketplace vertical routes */}
           {routeConfigService.getAllVerticalRoutes().map(verticalRoute => (
