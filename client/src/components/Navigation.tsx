@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { ChevronDownIcon } from "lucide-react";
+import { routeConfigService } from "@/services/routing/RouteConfigService";
+import { navigationService } from "@/services/routing/NavigationService";
 
 const navigationData = {
   Women: {
@@ -622,7 +624,7 @@ export function Navigation() {
                             <ul className="space-y-2">
                               {section.items.map((item, itemIndex) => (
                                 <li key={itemIndex}>
-                                  <Link href={`/marketplace?category=${encodeURIComponent(item)}`}>
+                                  <Link href={navigationService.generateCategoryRoute(category, item)}>
                                     <Button 
                                       variant="ghost" 
                                       className="text-xs text-gray-600 dark:text-gray-400 hover:text-purple-600 h-auto p-0 font-normal justify-start"
@@ -635,7 +637,7 @@ export function Navigation() {
                               ))}
                             </ul>
                             {section.shopAll && (
-                              <Link href={`/marketplace?section=${encodeURIComponent(section.title)}`}>
+                              <Link href={navigationService.generateSectionRoute(section.title, category.toLowerCase())}>
                                 <Button 
                                   variant="ghost" 
                                   className="text-xs text-purple-600 hover:text-purple-700 h-auto p-0 font-semibold mt-3"
