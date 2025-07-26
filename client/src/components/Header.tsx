@@ -2,6 +2,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Input } from "@/components/ui/input";
 import { 
   DropdownMenu,
   DropdownMenuContent,
@@ -21,65 +22,47 @@ import {
   HeartIcon
 } from "lucide-react";
 import { Link } from "wouter";
+import { Navigation } from "@/components/Navigation";
 
 export function Header() {
   const { user } = useAuth();
 
   return (
-    <header className="glass-morphism border-b border-gray-200/50 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link href="/">
-              <div className="text-2xl font-bold text-gradient cursor-pointer" data-testid="logo-header">
-                BazaarLive
+    <>
+      <header className="glass-morphism border-b border-gray-200/50 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            {/* Logo */}
+            <div className="flex-shrink-0">
+              <Link href="/">
+                <div className="text-2xl font-bold text-gradient cursor-pointer" data-testid="logo-header">
+                  BazaarLive
+                </div>
+              </Link>
+            </div>
+            
+            {/* Search Bar */}
+            <div className="flex-1 max-w-lg mx-8">
+              <div className="relative">
+                <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                <Input
+                  type="text"
+                  placeholder="Search Listings"
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  data-testid="search-input"
+                />
+                <Button
+                  size="sm"
+                  className="absolute right-1 top-1/2 transform -translate-y-1/2 bg-purple-600 hover:bg-purple-700 text-white rounded-full px-4"
+                  data-testid="search-button"
+                >
+                  <SearchIcon className="w-4 h-4" />
+                </Button>
               </div>
-            </Link>
-          </div>
-          
-          {/* Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/feed">
-              <Button 
-                variant="ghost" 
-                className="text-gray-700 hover:text-primary font-medium transition-colors duration-200"
-                data-testid="nav-feed"
-              >
-                Feed
-              </Button>
-            </Link>
-            <Link href="/marketplace">
-              <Button 
-                variant="ghost" 
-                className="text-gray-700 hover:text-primary font-medium transition-colors duration-200"
-                data-testid="nav-marketplace"
-              >
-                Marketplace
-              </Button>
-            </Link>
-            <Link href="/create-listing">
-              <Button 
-                variant="ghost"
-                className="text-gray-700 hover:text-primary font-medium transition-colors duration-200"
-                data-testid="nav-create-listing"
-              >
-                Sell
-              </Button>
-            </Link>
-            <Link href={`/profile/${user?.username || user?.id}`}>
-              <Button 
-                variant="ghost"
-                className="text-gray-700 hover:text-primary font-medium transition-colors duration-200"
-                data-testid="nav-profile"
-              >
-                My Closet
-              </Button>
-            </Link>
-          </nav>
+            </div>
 
-          {/* Actions */}
-          <div className="flex items-center space-x-4">
+            {/* Right side actions */}
+            <div className="flex items-center space-x-4">
             {/* Create Listing Button */}
             <Button 
               className="gradient-primary text-white font-medium rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-200 hidden sm:flex"
@@ -136,12 +119,12 @@ export function Header() {
                 >
                   <Avatar className="h-10 w-10">
                     <AvatarImage 
-                      src={user?.profileImageUrl || undefined} 
-                      alt={user?.firstName || user?.username || 'User'}
+                      src={(user as any)?.profileImageUrl || undefined} 
+                      alt={(user as any)?.firstName || (user as any)?.username || 'User'}
                       data-testid="img-user-avatar"
                     />
                     <AvatarFallback className="gradient-primary text-white font-semibold" data-testid="avatar-fallback">
-                      {(user?.firstName?.[0] || user?.username?.[0] || 'U').toUpperCase()}
+                      {((user as any)?.firstName?.[0] || (user as any)?.username?.[0] || 'U').toUpperCase()}
                     </AvatarFallback>
                   </Avatar>
                 </Button>
@@ -150,19 +133,19 @@ export function Header() {
                 <DropdownMenuLabel data-testid="label-user-info">
                   <div className="flex flex-col space-y-1">
                     <p className="text-sm font-medium leading-none" data-testid="text-user-name">
-                      {user?.firstName && user?.lastName 
-                        ? `${user.firstName} ${user.lastName}`
-                        : user?.username || 'User'
+                      {(user as any)?.firstName && (user as any)?.lastName 
+                        ? `${(user as any).firstName} ${(user as any).lastName}`
+                        : (user as any)?.username || 'User'
                       }
                     </p>
                     <p className="text-xs leading-none text-muted-foreground" data-testid="text-user-email">
-                      {user?.email}
+                      {(user as any)?.email}
                     </p>
                   </div>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem asChild data-testid="menu-item-profile">
-                  <Link href={`/profile/${user?.username || user?.id}`} className="cursor-pointer">
+                  <Link href={`/profile/${(user as any)?.username || (user as any)?.id}`} className="cursor-pointer">
                     <UserIcon className="mr-2 h-4 w-4" />
                     <span>My Profile</span>
                   </Link>
@@ -186,9 +169,13 @@ export function Header() {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+      
+      {/* Navigation Bar */}
+      <Navigation />
+    </>
   );
 }
