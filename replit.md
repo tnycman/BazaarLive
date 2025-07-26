@@ -2,7 +2,7 @@
 
 ## Overview
 
-BazaarLive is a comprehensive full-stack marketplace platform inspired by Poshmark, built with modern web technologies. The application supports multiple verticals including fashion, jobs, real estate, cars, boats, and services, with features for social commerce, live selling, and user-generated content.
+BazaarLive is a comprehensive full-stack marketplace platform inspired by Poshmark, built with modern web technologies. The application supports multiple verticals including fashion, jobs, real estate, cars, boats, and services, with features for social commerce, live selling, and user-generated content. The platform now features a personalized feed system as the main authenticated user experience.
 
 ## User Preferences
 
@@ -47,6 +47,9 @@ Preferred communication style: Simple, everyday language.
 - Social commerce features (likes, comments, follows)
 - Image upload and management for listings
 - View tracking and engagement metrics
+- Personalized feed system with "For You" and "Following" tabs
+- Brand-based content organization and discovery
+- Trending items and user suggestions
 
 #### Social Features
 - User-to-user messaging system
@@ -81,6 +84,7 @@ Preferred communication style: Simple, everyday language.
 2. User session stored in PostgreSQL via connect-pg-simple
 3. Session validation middleware protects API routes
 4. Frontend uses React Query for auth state management
+5. Authenticated users are redirected to personalized feed as default experience
 
 ### Content Management Flow
 1. Users create listings through form validation (React Hook Form + Zod)

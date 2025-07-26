@@ -21,7 +21,7 @@ import {
   type Transaction,
 } from "@shared/schema";
 import { db } from "./db";
-import { eq, desc, and, or, ilike, count, sql } from "drizzle-orm";
+import { eq, desc, and, or, ilike, count, sql, ne, not, exists, isNotNull } from "drizzle-orm";
 
 // Interface for storage operations
 export interface IStorage {
@@ -76,6 +76,17 @@ export interface IStorage {
   createTransaction(transaction: Omit<Transaction, 'id' | 'createdAt'>): Promise<Transaction>;
   getTransactions(userId: string): Promise<Transaction[]>;
   updateTransactionStatus(id: string, status: string): Promise<Transaction>;
+  
+  // Feed operations
+  getFeedData(userId: string): Promise<{
+    forYouListings: Listing[];
+    followingListings: Listing[];
+    likedListings: Listing[];
+    recentlyViewed: Listing[];
+    trendingItems: Listing[];
+    suggestedUsers: User[];
+  }>;
+  getBrandCounts(): Promise<Record<string, number>>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -155,7 +166,27 @@ export class DatabaseStorage implements IStorage {
   } = {}): Promise<Listing[]> {
     const { category, search, sellerId, limit = 50, offset = 0 } = options;
     
-    let query = db
+    let conditions = [eq(listings.status, 'active')];
+    
+    if (category) {
+      conditions.push(eq(listings.category, category as any));
+    }
+    
+    if (search) {
+      conditions.push(
+        or(
+          ilike(listings.title, `%${search}%`),
+          ilike(listings.description, `%${search}%`),
+          ilike(listings.brand, `%${search}%`)
+        )
+      );
+    }
+    
+    if (sellerId) {
+      conditions.push(eq(listings.sellerId, sellerId));
+    }
+    
+    return await db
       .select({
         id: listings.id,
         sellerId: listings.sellerId,
@@ -191,30 +222,7 @@ export class DatabaseStorage implements IStorage {
       })
       .from(listings)
       .leftJoin(users, eq(listings.sellerId, users.id))
-      .where(eq(listings.status, 'active'));
-    
-    if (category) {
-      query = query.where(and(eq(listings.status, 'active'), eq(listings.category, category as any)));
-    }
-    
-    if (search) {
-      query = query.where(
-        and(
-          eq(listings.status, 'active'),
-          or(
-            ilike(listings.title, `%${search}%`),
-            ilike(listings.description, `%${search}%`),
-            ilike(listings.brand, `%${search}%`)
-          )
-        )
-      );
-    }
-    
-    if (sellerId) {
-      query = query.where(and(eq(listings.status, 'active'), eq(listings.sellerId, sellerId)));
-    }
-    
-    return await query
+      .where(conditions.length > 0 ? and(...conditions) : undefined)
       .orderBy(desc(listings.isPromoted), desc(listings.createdAt))
       .limit(limit)
       .offset(offset);
@@ -613,6 +621,170 @@ export class DatabaseStorage implements IStorage {
     }
     
     return transaction;
+  }
+  
+  // Feed operations
+  
+  async getFeedData(userId: string): Promise<{
+    forYouListings: Listing[];
+    followingListings: Listing[];
+    likedListings: Listing[];
+    recentlyViewed: Listing[];
+    trendingItems: Listing[];
+    suggestedUsers: User[];
+  }> {
+    // Get for you listings (trending and recommended)
+    const forYouListings = await this.getListings({ limit: 20 });
+    
+    // Get listings from users that the current user follows
+    const followingUsers = await db
+      .select({ followingId: follows.followingId })
+      .from(follows)
+      .where(eq(follows.followerId, userId));
+      
+    const followingUserIds = followingUsers.map(f => f.followingId);
+    
+    let followingListings: Listing[] = [];
+    if (followingUserIds.length > 0) {
+      followingListings = await db
+        .select({
+          id: listings.id,
+          sellerId: listings.sellerId,
+          title: listings.title,
+          description: listings.description,
+          category: listings.category,
+          subcategory: listings.subcategory,
+          brand: listings.brand,
+          size: listings.size,
+          color: listings.color,
+          condition: listings.condition,
+          price: listings.price,
+          originalPrice: listings.originalPrice,
+          images: listings.images,
+          tags: listings.tags,
+          status: listings.status,
+          isPromoted: listings.isPromoted,
+          viewsCount: listings.viewsCount,
+          likesCount: listings.likesCount,
+          sharesCount: listings.sharesCount,
+          commentsCount: listings.commentsCount,
+          location: listings.location,
+          createdAt: listings.createdAt,
+          updatedAt: listings.updatedAt,
+          seller: {
+            id: users.id,
+            username: users.username,
+            firstName: users.firstName,
+            lastName: users.lastName,
+            profileImageUrl: users.profileImageUrl,
+            isVerified: users.isVerified,
+          }
+        })
+        .from(listings)
+        .leftJoin(users, eq(listings.sellerId, users.id))
+        .where(
+          and(
+            eq(listings.status, 'active'),
+            or(...followingUserIds.map(id => eq(listings.sellerId, id)))
+          )
+        )
+        .orderBy(desc(listings.createdAt))
+        .limit(20);
+    }
+    
+    // Get user's liked listings
+    const likedListings = await this.getLikedListings(userId);
+    
+    // Get trending items (most liked/viewed recently)
+    const trendingItems = await db
+      .select({
+        id: listings.id,
+        sellerId: listings.sellerId,
+        title: listings.title,
+        description: listings.description,
+        category: listings.category,
+        subcategory: listings.subcategory,
+        brand: listings.brand,
+        size: listings.size,
+        color: listings.color,
+        condition: listings.condition,
+        price: listings.price,
+        originalPrice: listings.originalPrice,
+        images: listings.images,
+        tags: listings.tags,
+        status: listings.status,
+        isPromoted: listings.isPromoted,
+        viewsCount: listings.viewsCount,
+        likesCount: listings.likesCount,
+        sharesCount: listings.sharesCount,
+        commentsCount: listings.commentsCount,
+        location: listings.location,
+        createdAt: listings.createdAt,
+        updatedAt: listings.updatedAt,
+        seller: {
+          id: users.id,
+          username: users.username,
+          firstName: users.firstName,
+          lastName: users.lastName,
+          profileImageUrl: users.profileImageUrl,
+          isVerified: users.isVerified,
+        }
+      })
+      .from(listings)
+      .leftJoin(users, eq(listings.sellerId, users.id))
+      .where(eq(listings.status, 'active'))
+      .orderBy(desc(listings.likesCount), desc(listings.viewsCount))
+      .limit(10);
+    
+    // Get suggested users (users with similar interests or popular users)
+    const suggestedUsers = await db
+      .select()
+      .from(users)
+      .where(and(
+        ne(users.id, userId),
+        // Users not already followed
+        not(
+          exists(
+            db.select()
+              .from(follows)
+              .where(
+                and(
+                  eq(follows.followerId, userId),
+                  eq(follows.followingId, users.id)
+                )
+              )
+          )
+        )
+      ))
+      .orderBy(desc(users.followersCount))
+      .limit(10);
+    
+    return {
+      forYouListings,
+      followingListings,
+      likedListings: likedListings.slice(0, 10),
+      recentlyViewed: [], // TODO: Track user views
+      trendingItems,
+      suggestedUsers,
+    };
+  }
+  
+  async getBrandCounts(): Promise<Record<string, number>> {
+    const result = await db
+      .select({
+        brand: listings.brand,
+        count: count()
+      })
+      .from(listings)
+      .where(and(eq(listings.status, 'active'), isNotNull(listings.brand)))
+      .groupBy(listings.brand)
+      .orderBy(desc(count()))
+      .limit(20);
+      
+    return result.reduce((acc, { brand, count }) => {
+      if (brand) acc[brand] = Number(count);
+      return acc;
+    }, {} as Record<string, number>);
   }
 }
 

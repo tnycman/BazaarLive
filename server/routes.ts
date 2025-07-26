@@ -370,6 +370,28 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Feed routes
+  app.get('/api/feed', isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const feedData = await storage.getFeedData(userId);
+      res.json(feedData);
+    } catch (error) {
+      console.error("Error fetching feed data:", error);
+      res.status(500).json({ message: "Failed to fetch feed data" });
+    }
+  });
+
+  app.get('/api/feed/brand-counts', async (req, res) => {
+    try {
+      const brandCounts = await storage.getBrandCounts();
+      res.json(brandCounts);
+    } catch (error) {
+      console.error("Error fetching brand counts:", error);
+      res.status(500).json({ message: "Failed to fetch brand counts" });
+    }
+  });
+
   // Transaction routes
   app.post('/api/transactions', isAuthenticated, async (req: any, res) => {
     try {
