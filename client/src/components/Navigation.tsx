@@ -435,43 +435,136 @@ export function Navigation() {
 
               {/* Dropdown Menu */}
               {activeDropdown === category && (
-                <div className="absolute top-full left-0 w-screen max-w-5xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 shadow-xl z-50 -ml-32">
-                  <div className="p-8">
-                    <div className="grid grid-cols-4 gap-8">
-                      {navigationData[category as keyof typeof navigationData].sections.map((section, index) => (
-                        <div key={index} className="space-y-3">
-                          <h3 className="text-xs font-bold text-purple-600 uppercase tracking-wide">
-                            {section.title}
-                          </h3>
-                          <ul className="space-y-2">
-                            {section.items.map((item, itemIndex) => (
-                              <li key={itemIndex}>
-                                <Link href={`/marketplace?category=${encodeURIComponent(item)}`}>
-                                  <Button 
-                                    variant="ghost" 
-                                    className="text-xs text-gray-600 dark:text-gray-400 hover:text-purple-600 h-auto p-0 font-normal justify-start"
-                                    data-testid={`nav-item-${item.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                                  >
-                                    {item}
-                                  </Button>
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                          {section.shopAll && (
-                            <Link href={`/marketplace?section=${encodeURIComponent(section.title)}`}>
-                              <Button 
-                                variant="ghost" 
-                                className="text-xs text-purple-600 hover:text-purple-700 h-auto p-0 font-semibold mt-3"
-                                data-testid={`nav-shop-all-${section.title.toLowerCase().replace(/ /g, '-')}`}
-                              >
-                                {section.shopAll} →
-                              </Button>
-                            </Link>
-                          )}
+                <div className="fixed top-32 left-0 w-full bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-xl z-50">
+                  <div className="max-w-7xl mx-auto p-8">
+                    {category === 'Brands' ? (
+                      // Special layout for Brands dropdown
+                      <div className="grid grid-cols-12 gap-8">
+                        {/* Left sidebar */}
+                        <div className="col-span-3 space-y-6">
+                          <div>
+                            <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-4">Brands</h3>
+                            <Button variant="ghost" className="text-sm text-gray-600 dark:text-gray-400 hover:text-purple-600 h-auto p-0 font-normal justify-start mb-6">
+                              ALL BRANDS
+                            </Button>
+                          </div>
+                          
+                          <div>
+                            <h4 className="text-sm font-medium text-gray-900 dark:text-white mb-2">My Likes</h4>
+                            <Button variant="ghost" className="text-xs text-purple-600 hover:text-purple-700 h-auto p-0 font-semibold">
+                              ALL LIKES
+                            </Button>
+                          </div>
+                          
+                          <div>
+                            <h4 className="text-sm font-medium text-gray-900 dark:text-white mb-2">Recent Views</h4>
+                            <Button variant="ghost" className="text-xs text-purple-600 hover:text-purple-700 h-auto p-0 font-semibold">
+                              RECENTLY VIEWED
+                            </Button>
+                          </div>
                         </div>
-                      ))}
-                    </div>
+                        
+                        {/* Center content */}
+                        <div className="col-span-6">
+                          <div className="flex mb-6">
+                            <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-2 rounded-full mr-4">
+                              FOR YOU
+                            </Button>
+                            <Button variant="outline" className="border-gray-300 text-gray-600 px-8 py-2 rounded-full">
+                              FOLLOWING
+                            </Button>
+                          </div>
+                        </div>
+                        
+                        {/* Right sidebar with brand categories */}
+                        <div className="col-span-3 grid grid-cols-1 gap-8">
+                          <div>
+                            <h4 className="text-xs font-bold text-purple-600 uppercase tracking-wide mb-3">WOMEN'S BRANDS</h4>
+                            <ul className="space-y-2">
+                              {["lululemon athletica", "Coach", "Michael Kors", "Louis Vuitton", "Nike", "Tory Burch", "kate spade", "CHANEL", "Free People"].map((brand, idx) => (
+                                <li key={idx}>
+                                  <Button variant="ghost" className="text-xs text-gray-600 dark:text-gray-400 hover:text-purple-600 h-auto p-0 font-normal justify-start">
+                                    {brand}
+                                  </Button>
+                                </li>
+                              ))}
+                            </ul>
+                            <Button variant="ghost" className="text-xs text-purple-600 hover:text-purple-700 h-auto p-0 font-semibold mt-3">
+                              Shop All Women's Brands →
+                            </Button>
+                          </div>
+                          
+                          <div>
+                            <h4 className="text-xs font-bold text-purple-600 uppercase tracking-wide mb-3">MEN'S BRANDS</h4>
+                            <ul className="space-y-2">
+                              {["Nike", "Gucci", "The North Face", "Banana Republic", "Levi's", "adidas", "True Religion", "J. Crew", "Jordan", "Polo by Ralph Lauren"].map((brand, idx) => (
+                                <li key={idx}>
+                                  <Button variant="ghost" className="text-xs text-gray-600 dark:text-gray-400 hover:text-purple-600 h-auto p-0 font-normal justify-start">
+                                    {brand}
+                                  </Button>
+                                </li>
+                              ))}
+                            </ul>
+                            <Button variant="ghost" className="text-xs text-purple-600 hover:text-purple-700 h-auto p-0 font-semibold mt-3">
+                              Shop All Men's Brands →
+                            </Button>
+                          </div>
+                          
+                          <div>
+                            <h4 className="text-xs font-bold text-purple-600 uppercase tracking-wide mb-3">ELECTRONICS BRANDS</h4>
+                            <ul className="space-y-2">
+                              {["Apple", "Sony", "Microsoft", "Fujifilm", "google", "Samsung", "GE", "HP", "LG", "Canon"].map((brand, idx) => (
+                                <li key={idx}>
+                                  <Button variant="ghost" className="text-xs text-gray-600 dark:text-gray-400 hover:text-purple-600 h-auto p-0 font-normal justify-start">
+                                    {brand}
+                                  </Button>
+                                </li>
+                              ))}
+                            </ul>
+                            <Button variant="ghost" className="text-xs text-purple-600 hover:text-purple-700 h-auto p-0 font-semibold mt-3">
+                              Shop All Electronics Brands →
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      // Regular layout for other dropdowns
+                      <div className="grid grid-cols-4 gap-8">
+                        {navigationData[category as keyof typeof navigationData].sections.map((section, index) => (
+                          <div key={index} className="space-y-3">
+                            <h3 className="text-xs font-bold text-purple-600 uppercase tracking-wide">
+                              {section.title}
+                            </h3>
+                            <ul className="space-y-2">
+                              {section.items.map((item, itemIndex) => (
+                                <li key={itemIndex}>
+                                  <Link href={`/marketplace?category=${encodeURIComponent(item)}`}>
+                                    <Button 
+                                      variant="ghost" 
+                                      className="text-xs text-gray-600 dark:text-gray-400 hover:text-purple-600 h-auto p-0 font-normal justify-start"
+                                      data-testid={`nav-item-${item.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+                                    >
+                                      {item}
+                                    </Button>
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                            {section.shopAll && (
+                              <Link href={`/marketplace?section=${encodeURIComponent(section.title)}`}>
+                                <Button 
+                                  variant="ghost" 
+                                  className="text-xs text-purple-600 hover:text-purple-700 h-auto p-0 font-semibold mt-3"
+                                  data-testid={`nav-shop-all-${section.title.toLowerCase().replace(/ /g, '-')}`}
+                                >
+                                  {section.shopAll} →
+                                </Button>
+                              </Link>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
               )}
