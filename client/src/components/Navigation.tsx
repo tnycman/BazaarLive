@@ -405,20 +405,7 @@ export function Navigation() {
   return (
     <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 sticky top-16 z-40">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center space-x-8 py-3">
-          {/* POSH MARKETS - All */}
-          <div className="relative">
-            <Button 
-              variant="ghost" 
-              className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium flex items-center gap-1"
-              data-testid="nav-all-markets"
-            >
-              <div className="text-xs text-purple-600 font-bold">POSH MARKETS</div>
-              <div className="ml-1">All</div>
-              <ChevronDownIcon className="w-3 h-3" />
-            </Button>
-          </div>
-
+        <div className="flex items-center space-x-6 py-3">
           {/* Main Navigation Items */}
           <Link href="/feed">
             <Button 
@@ -490,6 +477,67 @@ export function Navigation() {
               )}
             </div>
           ))}
+
+          {/* Additional Categories */}
+          <Link href="/marketplace?vertical=jobs">
+            <Button 
+              variant="ghost" 
+              className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium"
+              data-testid="nav-jobs"
+            >
+              Jobs
+            </Button>
+          </Link>
+
+          <Link href="/marketplace?vertical=real-estate">
+            <Button 
+              variant="ghost" 
+              className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium"
+              data-testid="nav-real-estate"
+            >
+              Real Estate
+            </Button>
+          </Link>
+
+          <Link href="/marketplace?vertical=cars">
+            <Button 
+              variant="ghost" 
+              className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium"
+              data-testid="nav-cars"
+            >
+              Cars
+            </Button>
+          </Link>
+
+          <Link href="/marketplace?vertical=boats">
+            <Button 
+              variant="ghost" 
+              className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium"
+              data-testid="nav-boats"
+            >
+              Boats
+            </Button>
+          </Link>
+
+          <Link href="/marketplace?vertical=services">
+            <Button 
+              variant="ghost" 
+              className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium"
+              data-testid="nav-services"
+            >
+              Services
+            </Button>
+          </Link>
+
+          <Link href="/marketplace?vertical=sports">
+            <Button 
+              variant="ghost" 
+              className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium"
+              data-testid="nav-sports-outdoors"
+            >
+              Sports & Outdoors
+            </Button>
+          </Link>
 
 
         </div>
