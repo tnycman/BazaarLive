@@ -8,6 +8,11 @@ import {
   AnalyticsPeriod,
   AnalyticsPeriodType
 } from '@shared/analytics-schema';
+import { 
+  requireAnalyticsRole,
+  addUserRole,
+  AuthenticatedRequest
+} from '../middleware/roleMiddleware';
 
 const analyticsRouter = Router();
 
@@ -57,8 +62,8 @@ analyticsRouter.post('/events', async (req, res) => {
   }
 });
 
-// GET /api/analytics/platform - Get platform-wide metrics
-analyticsRouter.get('/platform', isAuthenticated, async (req, res) => {
+// GET /api/analytics/platform - Get platform-wide metrics (requires platform access)
+analyticsRouter.get('/platform', isAuthenticated, ...requireAnalyticsRole('platform'), async (req, res) => {
   try {
     const query = MetricsQuerySchema.parse(req.query);
     
@@ -82,8 +87,8 @@ analyticsRouter.get('/platform', isAuthenticated, async (req, res) => {
   }
 });
 
-// GET /api/analytics/categories - Get category performance metrics
-analyticsRouter.get('/categories', isAuthenticated, async (req, res) => {
+// GET /api/analytics/categories - Get category performance metrics (requires category access)
+analyticsRouter.get('/categories', isAuthenticated, ...requireAnalyticsRole('category'), async (req, res) => {
   try {
     const query = MetricsQuerySchema.parse(req.query);
     
@@ -98,8 +103,8 @@ analyticsRouter.get('/categories', isAuthenticated, async (req, res) => {
   }
 });
 
-// GET /api/analytics/users/:userId - Get user-specific metrics
-analyticsRouter.get('/users/:userId', isAuthenticated, async (req, res) => {
+// GET /api/analytics/users/:userId - Get user-specific metrics (requires personal access)
+analyticsRouter.get('/users/:userId', isAuthenticated, addUserRole, async (req, res) => {
   try {
     const { userId } = req.params;
     const query = MetricsQuerySchema.parse(req.query);
@@ -123,8 +128,8 @@ analyticsRouter.get('/users/:userId', isAuthenticated, async (req, res) => {
   }
 });
 
-// GET /api/analytics/realtime - Get real-time metrics
-analyticsRouter.get('/realtime', isAuthenticated, async (req, res) => {
+// GET /api/analytics/realtime - Get real-time metrics (requires platform access)
+analyticsRouter.get('/realtime', isAuthenticated, ...requireAnalyticsRole('platform'), async (req, res) => {
   try {
     const realtimeMetrics = await generateRealtimeMetrics();
     
