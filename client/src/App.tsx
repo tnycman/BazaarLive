@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { useAuth } from "@/hooks/useAuth";
 import NotFound from "@/pages/not-found";
 import Landing from "@/pages/landing";
+import Feed from "@/pages/feed";
 import Home from "@/pages/home";
 import Marketplace from "@/pages/marketplace";
 import CreateListing from "@/pages/create-listing";
@@ -20,7 +21,9 @@ function Router() {
         <Route path="/" component={Landing} />
       ) : (
         <>
-          <Route path="/" component={Home} />
+          <Route path="/" component={Feed} />
+          <Route path="/feed" component={Feed} />
+          <Route path="/home" component={Home} />
           <Route path="/marketplace" component={Marketplace} />
           <Route path="/create-listing" component={CreateListing} />
           <Route path="/profile/:username?" component={Profile} />
