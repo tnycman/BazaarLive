@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { setupAuth, isAuthenticated } from "./replitAuth";
 import { marketplaceRouter } from "./routes/marketplace";
+import { analyticsRouter } from "./routes/analytics";
 import { 
   insertListingSchema, 
   insertCommentSchema, 
@@ -433,6 +434,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // Marketplace routes
   app.use('/api/marketplace', marketplaceRouter);
+  
+  // Analytics routes
+  app.use('/api/analytics', analyticsRouter);
 
   const httpServer = createServer(app);
   return httpServer;
