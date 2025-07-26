@@ -439,92 +439,152 @@ export function Navigation() {
                   <div className="max-w-7xl mx-auto p-8">
                     {category === 'Brands' ? (
                       // Special layout for Brands dropdown
-                      <div className="grid grid-cols-12 gap-8">
-                        {/* Left sidebar */}
-                        <div className="col-span-3 space-y-6">
-                          <div>
-                            <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-4">Brands</h3>
-                            <Button variant="ghost" className="text-sm text-gray-600 dark:text-gray-400 hover:text-purple-600 h-auto p-0 font-normal justify-start mb-6">
-                              ALL BRANDS
-                            </Button>
-                          </div>
-                          
-                          <div>
-                            <h4 className="text-sm font-medium text-gray-900 dark:text-white mb-2">My Likes</h4>
-                            <Button variant="ghost" className="text-xs text-purple-600 hover:text-purple-700 h-auto p-0 font-semibold">
-                              ALL LIKES
-                            </Button>
-                          </div>
-                          
-                          <div>
-                            <h4 className="text-sm font-medium text-gray-900 dark:text-white mb-2">Recent Views</h4>
-                            <Button variant="ghost" className="text-xs text-purple-600 hover:text-purple-700 h-auto p-0 font-semibold">
-                              RECENTLY VIEWED
-                            </Button>
-                          </div>
+                      <div className="grid grid-cols-5 gap-8">
+                        <div>
+                          <h4 className="text-xs font-bold text-purple-600 uppercase tracking-wide mb-3">WOMEN'S BRANDS</h4>
+                          <ul className="space-y-2">
+                            {["lululemon athletica", "Coach", "Michael Kors", "Louis Vuitton", "Nike", "Tory Burch", "kate spade", "CHANEL", "Free People", "J. Crew"].map((brand, idx) => (
+                              <li key={idx}>
+                                <Button variant="ghost" className="text-xs text-gray-600 dark:text-gray-400 hover:text-purple-600 h-auto p-0 font-normal justify-start">
+                                  {brand}
+                                </Button>
+                              </li>
+                            ))}
+                          </ul>
+                          <Button variant="ghost" className="text-xs text-purple-600 hover:text-purple-700 h-auto p-0 font-semibold mt-3">
+                            Shop All WOMEN'S BRANDS
+                          </Button>
                         </div>
                         
-                        {/* Center content */}
-                        <div className="col-span-6">
-                          <div className="flex mb-6">
-                            <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-2 rounded-full mr-4">
-                              FOR YOU
-                            </Button>
-                            <Button variant="outline" className="border-gray-300 text-gray-600 px-8 py-2 rounded-full">
-                              FOLLOWING
-                            </Button>
-                          </div>
+                        <div>
+                          <h4 className="text-xs font-bold text-purple-600 uppercase tracking-wide mb-3">MEN'S BRANDS</h4>
+                          <ul className="space-y-2">
+                            {["Nike", "Gucci", "The North Face", "Banana Republic", "Levi's", "adidas", "True Religion", "J. Crew", "Jordan", "Polo by Ralph Lauren"].map((brand, idx) => (
+                              <li key={idx}>
+                                <Button variant="ghost" className="text-xs text-gray-600 dark:text-gray-400 hover:text-purple-600 h-auto p-0 font-normal justify-start">
+                                  {brand}
+                                </Button>
+                              </li>
+                            ))}
+                          </ul>
+                          <Button variant="ghost" className="text-xs text-purple-600 hover:text-purple-700 h-auto p-0 font-semibold mt-3">
+                            Shop All MEN'S BRANDS
+                          </Button>
                         </div>
                         
-                        {/* Right sidebar with brand categories */}
-                        <div className="col-span-3 grid grid-cols-1 gap-8">
-                          <div>
-                            <h4 className="text-xs font-bold text-purple-600 uppercase tracking-wide mb-3">WOMEN'S BRANDS</h4>
-                            <ul className="space-y-2">
-                              {["lululemon athletica", "Coach", "Michael Kors", "Louis Vuitton", "Nike", "Tory Burch", "kate spade", "CHANEL", "Free People"].map((brand, idx) => (
-                                <li key={idx}>
-                                  <Button variant="ghost" className="text-xs text-gray-600 dark:text-gray-400 hover:text-purple-600 h-auto p-0 font-normal justify-start">
-                                    {brand}
-                                  </Button>
-                                </li>
-                              ))}
-                            </ul>
-                            <Button variant="ghost" className="text-xs text-purple-600 hover:text-purple-700 h-auto p-0 font-semibold mt-3">
-                              Shop All Women's Brands →
-                            </Button>
-                          </div>
-                          
-                          <div>
-                            <h4 className="text-xs font-bold text-purple-600 uppercase tracking-wide mb-3">MEN'S BRANDS</h4>
-                            <ul className="space-y-2">
-                              {["Nike", "Gucci", "The North Face", "Banana Republic", "Levi's", "adidas", "True Religion", "J. Crew", "Jordan", "Polo by Ralph Lauren"].map((brand, idx) => (
-                                <li key={idx}>
-                                  <Button variant="ghost" className="text-xs text-gray-600 dark:text-gray-400 hover:text-purple-600 h-auto p-0 font-normal justify-start">
-                                    {brand}
-                                  </Button>
-                                </li>
-                              ))}
-                            </ul>
-                            <Button variant="ghost" className="text-xs text-purple-600 hover:text-purple-700 h-auto p-0 font-semibold mt-3">
-                              Shop All Men's Brands →
-                            </Button>
-                          </div>
-                          
-                          <div>
-                            <h4 className="text-xs font-bold text-purple-600 uppercase tracking-wide mb-3">ELECTRONICS BRANDS</h4>
-                            <ul className="space-y-2">
-                              {["Apple", "Sony", "Microsoft", "Fujifilm", "google", "Samsung", "GE", "HP", "LG", "Canon"].map((brand, idx) => (
-                                <li key={idx}>
-                                  <Button variant="ghost" className="text-xs text-gray-600 dark:text-gray-400 hover:text-purple-600 h-auto p-0 font-normal justify-start">
-                                    {brand}
-                                  </Button>
-                                </li>
-                              ))}
-                            </ul>
-                            <Button variant="ghost" className="text-xs text-purple-600 hover:text-purple-700 h-auto p-0 font-semibold mt-3">
-                              Shop All Electronics Brands →
-                            </Button>
-                          </div>
+                        <div>
+                          <h4 className="text-xs font-bold text-purple-600 uppercase tracking-wide mb-3">KID'S BRANDS</h4>
+                          <ul className="space-y-2">
+                            {["Gap", "Carter's", "Nike", "Children's Place", "Gymboree", "OshKosh B'gosh", "Converse", "Ralph Lauren", "Justice", "Old Navy"].map((brand, idx) => (
+                              <li key={idx}>
+                                <Button variant="ghost" className="text-xs text-gray-600 dark:text-gray-400 hover:text-purple-600 h-auto p-0 font-normal justify-start">
+                                  {brand}
+                                </Button>
+                              </li>
+                            ))}
+                          </ul>
+                          <Button variant="ghost" className="text-xs text-purple-600 hover:text-purple-700 h-auto p-0 font-semibold mt-3">
+                            Shop All KID'S BRANDS
+                          </Button>
+                        </div>
+                        
+                        <div>
+                          <h4 className="text-xs font-bold text-purple-600 uppercase tracking-wide mb-3">HOME BRANDS</h4>
+                          <ul className="space-y-2">
+                            {["Crate & Barrel", "IKEA", "Jonathan Adler", "Paper Source", "Pier 1", "Pottery Barn", "Restoration Hardware", "Sur La Table", "Target", "The Container Store", "West Elm", "Williams Sonoma", "Z Gallerie"].map((brand, idx) => (
+                              <li key={idx}>
+                                <Button variant="ghost" className="text-xs text-gray-600 dark:text-gray-400 hover:text-purple-600 h-auto p-0 font-normal justify-start">
+                                  {brand}
+                                </Button>
+                              </li>
+                            ))}
+                          </ul>
+                          <Button variant="ghost" className="text-xs text-purple-600 hover:text-purple-700 h-auto p-0 font-semibold mt-3">
+                            Shop All HOME BRANDS
+                          </Button>
+                        </div>
+                        
+                        <div>
+                          <h4 className="text-xs font-bold text-purple-600 uppercase tracking-wide mb-3">ELECTRONICS BRANDS</h4>
+                          <ul className="space-y-2">
+                            {["Apple", "Sony", "Microsoft", "Fujifilm", "Google", "Samsung", "Dell", "HP", "Nikon", "Canon"].map((brand, idx) => (
+                              <li key={idx}>
+                                <Button variant="ghost" className="text-xs text-gray-600 dark:text-gray-400 hover:text-purple-600 h-auto p-0 font-normal justify-start">
+                                  {brand}
+                                </Button>
+                              </li>
+                            ))}
+                          </ul>
+                          <Button variant="ghost" className="text-xs text-purple-600 hover:text-purple-700 h-auto p-0 font-semibold mt-3">
+                            Shop All ELECTRONICS BRANDS
+                          </Button>
+                        </div>
+                      </div>
+                    ) : category === 'Sports & Outdoors' ? (
+                      // Special layout for Sports & Outdoors dropdown
+                      <div className="grid grid-cols-4 gap-8">
+                        <div>
+                          <h4 className="text-xs font-bold text-purple-600 uppercase tracking-wide mb-3">SPORTS</h4>
+                          <ul className="space-y-2">
+                            {["Football", "Basketball", "Baseball", "Soccer"].map((sport, idx) => (
+                              <li key={idx}>
+                                <Button variant="ghost" className="text-xs text-gray-600 dark:text-gray-400 hover:text-purple-600 h-auto p-0 font-normal justify-start">
+                                  {sport}
+                                </Button>
+                              </li>
+                            ))}
+                          </ul>
+                          <Button variant="ghost" className="text-xs text-purple-600 hover:text-purple-700 h-auto p-0 font-semibold mt-3">
+                            Shop All SPORTS
+                          </Button>
+                        </div>
+                        
+                        <div>
+                          <h4 className="text-xs font-bold text-purple-600 uppercase tracking-wide mb-3">OUTDOORS</h4>
+                          <ul className="space-y-2">
+                            {["Camping", "Hiking", "Fishing", "Cycling"].map((outdoor, idx) => (
+                              <li key={idx}>
+                                <Button variant="ghost" className="text-xs text-gray-600 dark:text-gray-400 hover:text-purple-600 h-auto p-0 font-normal justify-start">
+                                  {outdoor}
+                                </Button>
+                              </li>
+                            ))}
+                          </ul>
+                          <Button variant="ghost" className="text-xs text-purple-600 hover:text-purple-700 h-auto p-0 font-semibold mt-3">
+                            Shop All OUTDOORS
+                          </Button>
+                        </div>
+                        
+                        <div>
+                          <h4 className="text-xs font-bold text-purple-600 uppercase tracking-wide mb-3">ACCESSORIES</h4>
+                          <ul className="space-y-2">
+                            {["Sports Bags", "Outdoor Gear", "Sports Equipment"].map((accessory, idx) => (
+                              <li key={idx}>
+                                <Button variant="ghost" className="text-xs text-gray-600 dark:text-gray-400 hover:text-purple-600 h-auto p-0 font-normal justify-start">
+                                  {accessory}
+                                </Button>
+                              </li>
+                            ))}
+                          </ul>
+                          <Button variant="ghost" className="text-xs text-purple-600 hover:text-purple-700 h-auto p-0 font-semibold mt-3">
+                            Shop All ACCESSORIES
+                          </Button>
+                        </div>
+                        
+                        <div>
+                          <h4 className="text-xs font-bold text-purple-600 uppercase tracking-wide mb-3">TRENDING STYLES</h4>
+                          <ul className="space-y-2">
+                            {["Active Wear", "Outdoor Gear", "Sports Equipment"].map((trend, idx) => (
+                              <li key={idx}>
+                                <Button variant="ghost" className="text-xs text-gray-600 dark:text-gray-400 hover:text-purple-600 h-auto p-0 font-normal justify-start">
+                                  {trend}
+                                </Button>
+                              </li>
+                            ))}
+                          </ul>
+                          <Button variant="ghost" className="text-xs text-purple-600 hover:text-purple-700 h-auto p-0 font-semibold mt-3">
+                            Shop All TRENDING STYLES
+                          </Button>
                         </div>
                       </div>
                     ) : (
