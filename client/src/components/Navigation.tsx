@@ -344,6 +344,30 @@ const navigationData = {
       }
     ]
   },
+  "Sports & Outdoors": {
+    sections: [
+      {
+        title: "SPORTS",
+        items: ["Football", "Basketball", "Baseball", "Soccer"],
+        shopAll: "Shop All Sports"
+      },
+      {
+        title: "OUTDOORS", 
+        items: ["Camping", "Hiking", "Fishing", "Cycling"],
+        shopAll: "Shop All Outdoors"
+      },
+      {
+        title: "ACCESSORIES",
+        items: ["Sports Bags", "Outdoor Gear", "Sports Equipment"],
+        shopAll: "Shop All Accessories"
+      },
+      {
+        title: "TRENDING STYLES",
+        items: ["Active Wear", "Outdoor Gear", "Sports Equipment"],
+        shopAll: "Shop All Trending Styles"
+      }
+    ]
+  },
   Brands: {
     sections: [
       {
@@ -631,16 +655,7 @@ export function Navigation() {
             </div>
           ))}
 
-          {/* Sports & Outdoors */}
-          <Link href="/marketplace?vertical=sports">
-            <Button 
-              variant="ghost" 
-              className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium"
-              data-testid="nav-sports-outdoors"
-            >
-              Sports & Outdoors
-            </Button>
-          </Link>
+
 
 
         </div>
