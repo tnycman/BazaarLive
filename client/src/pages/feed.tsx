@@ -184,31 +184,271 @@ export default function Feed() {
               </TabsContent>
 
               <TabsContent value="following" className="space-y-8">
-                {currentListings.length > 0 ? (
-                  <FeedSection
-                    title="From People You Follow"
-                    subtitle="Latest Updates"
-                    listings={currentListings}
-                    showBrandHeader={false}
-                  />
-                ) : (
-                  <Card className="glass-card">
-                    <CardContent className="p-8 text-center">
-                      <Users className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                        No posts from people you follow
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-400 mb-4">
-                        Discover and follow sellers to see their latest listings here.
-                      </p>
-                      <Link href="/marketplace">
-                        <Button className="bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700">
-                          Explore Marketplace
-                        </Button>
-                      </Link>
-                    </CardContent>
-                  </Card>
-                )}
+                <div className="space-y-8">
+                  {/* People You Follow: New Listings */}
+                  <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm">
+                    <div className="flex items-center justify-between mb-6">
+                      <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+                        People You Follow: New Listings
+                      </h2>
+                      <div className="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                        + New Feed Items
+                      </div>
+                    </div>
+                    
+                    {/* Following Users Avatars */}
+                    <div className="flex items-center space-x-4 mb-6 overflow-x-auto pb-2">
+                      {[
+                        { id: '1', username: 'melissamorris', avatar: 'https://images.unsplash.com/photo-1494790108755-2616b332c723?w=100&h=100&fit=crop&crop=face' },
+                        { id: '2', username: 'maggieG', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face' },
+                        { id: '3', username: 'sweetdeal', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face' },
+                        { id: '4', username: 'chic3', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=face' },
+                        { id: '5', username: 'summer', avatar: 'https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=100&h=100&fit=crop&crop=face' },
+                        { id: '6', username: 'campus', avatar: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=100&h=100&fit=crop&crop=face' },
+                        { id: '7', username: 'alicestyle', avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop&crop=face' },
+                        { id: '8', username: 'boho', avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=face' }
+                      ].map((user) => (
+                        <div key={user.id} className="flex flex-col items-center space-y-2 min-w-[80px]">
+                          <div className="relative">
+                            <img 
+                              src={user.avatar} 
+                              alt={user.username}
+                              className="w-14 h-14 rounded-full object-cover border-2 border-gray-200 dark:border-gray-700"
+                            />
+                          </div>
+                          <span className="text-sm text-gray-600 dark:text-gray-400 text-center">
+                            {user.username}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* User Activity Feeds */}
+                  <div className="space-y-8">
+                    {/* cwpritchard shared listings */}
+                    <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-sm">
+                      <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+                        <div className="flex items-center space-x-3 mb-4">
+                          <img 
+                            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" 
+                            alt="cwpritchard"
+                            className="w-12 h-12 rounded-full object-cover"
+                          />
+                          <div>
+                            <p className="text-gray-900 dark:text-white font-medium">
+                              <span className="font-semibold">cwpritchard</span> shared 12 listings from their closet
+                            </p>
+                            <p className="text-sm text-gray-500">2 secs ago</p>
+                          </div>
+                        </div>
+                        
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                          {[
+                            { id: '1', image: 'https://images.unsplash.com/photo-1521498542256-5aeb47ba2b36?w=300&h=400&fit=crop', price: '$45', likes: 8 },
+                            { id: '2', image: 'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=300&h=400&fit=crop', price: '$32', likes: 12 },
+                            { id: '3', image: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=300&h=400&fit=crop', price: '$28', likes: 6 },
+                            { id: '4', image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=300&h=400&fit=crop', price: '$58', likes: 15 }
+                          ].map((item) => (
+                            <div key={item.id} className="relative group cursor-pointer">
+                              <div className="aspect-[3/4] rounded-lg overflow-hidden bg-gray-100">
+                                <img 
+                                  src={item.image} 
+                                  alt="Listing"
+                                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                />
+                              </div>
+                              <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between">
+                                <span className="bg-black/70 text-white px-2 py-1 rounded text-sm font-medium">
+                                  {item.price}
+                                </span>
+                                <div className="flex items-center space-x-1 bg-black/70 text-white px-2 py-1 rounded">
+                                  <Heart className="w-3 h-3" />
+                                  <span className="text-sm">{item.likes}</span>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                        
+                        <button className="mt-4 text-purple-600 hover:text-purple-700 font-medium text-sm">
+                          SHOP CWPRITCHARD'S CLOSET
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* myvintagevanity shared listings */}
+                    <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-sm">
+                      <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+                        <div className="flex items-center space-x-3 mb-4">
+                          <img 
+                            src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=100&h=100&fit=crop&crop=face" 
+                            alt="myvintagevanity"
+                            className="w-12 h-12 rounded-full object-cover"
+                          />
+                          <div>
+                            <p className="text-gray-900 dark:text-white font-medium">
+                              <span className="font-semibold">myvintagevanity</span> shared 3 listings from their closet
+                            </p>
+                            <p className="text-sm text-gray-500">4 secs ago</p>
+                          </div>
+                        </div>
+                        
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                          {[
+                            { id: '1', image: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=300&h=400&fit=crop', price: '$85', likes: 22 },
+                            { id: '2', image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&h=400&fit=crop', price: '$120', likes: 18 },
+                            { id: '3', image: 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=300&h=400&fit=crop', price: '$35', likes: 9 }
+                          ].map((item) => (
+                            <div key={item.id} className="relative group cursor-pointer">
+                              <div className="aspect-[3/4] rounded-lg overflow-hidden bg-gray-100">
+                                <img 
+                                  src={item.image} 
+                                  alt="Listing"
+                                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                />
+                              </div>
+                              <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between">
+                                <span className="bg-black/70 text-white px-2 py-1 rounded text-sm font-medium">
+                                  {item.price}
+                                </span>
+                                <div className="flex items-center space-x-1 bg-black/70 text-white px-2 py-1 rounded">
+                                  <Heart className="w-3 h-3" />
+                                  <span className="text-sm">{item.likes}</span>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                        
+                        <button className="mt-4 text-purple-600 hover:text-purple-700 font-medium text-sm">
+                          SHOP MYVINTAGEVANITY'S CLOSET
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* alixbydesign shared listings */}
+                    <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-sm">
+                      <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+                        <div className="flex items-center space-x-3 mb-4">
+                          <img 
+                            src="https://images.unsplash.com/photo-1494790108755-2616b332c723?w=100&h=100&fit=crop&crop=face" 
+                            alt="alixbydesign"
+                            className="w-12 h-12 rounded-full object-cover"
+                          />
+                          <div>
+                            <p className="text-gray-900 dark:text-white font-medium">
+                              <span className="font-semibold">alixbydesign</span> shared 6 listings from their closet
+                            </p>
+                            <p className="text-sm text-gray-500">2 secs ago</p>
+                          </div>
+                        </div>
+                        
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                          {[
+                            { id: '1', image: 'https://images.unsplash.com/photo-1621072156002-e2fccdc0b176?w=300&h=400&fit=crop', price: '$75', likes: 14 },
+                            { id: '2', image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=300&h=400&fit=crop', price: '$95', likes: 28 },
+                            { id: '3', image: 'https://images.unsplash.com/photo-1583743814966-8936f37cd379?w=300&h=400&fit=crop', price: '$42', likes: 11 },
+                            { id: '4', image: 'https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=300&h=400&fit=crop', price: '$68', likes: 19 }
+                          ].map((item) => (
+                            <div key={item.id} className="relative group cursor-pointer">
+                              <div className="aspect-[3/4] rounded-lg overflow-hidden bg-gray-100">
+                                <img 
+                                  src={item.image} 
+                                  alt="Listing"
+                                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                />
+                              </div>
+                              <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between">
+                                <span className="bg-black/70 text-white px-2 py-1 rounded text-sm font-medium">
+                                  {item.price}
+                                </span>
+                                <div className="flex items-center space-x-1 bg-black/70 text-white px-2 py-1 rounded">
+                                  <Heart className="w-3 h-3" />
+                                  <span className="text-sm">{item.likes}</span>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                        
+                        <button className="mt-4 text-purple-600 hover:text-purple-700 font-medium text-sm">
+                          SHOP ALIXBYDESIGN'S CLOSET
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* heidismithaz shared listings */}
+                    <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-sm">
+                      <div className="p-6">
+                        <div className="flex items-center space-x-3 mb-4">
+                          <img 
+                            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" 
+                            alt="heidismithaz"
+                            className="w-12 h-12 rounded-full object-cover"
+                          />
+                          <div>
+                            <p className="text-gray-900 dark:text-white font-medium">
+                              <span className="font-semibold">heidismithaz</span> shared 3 listings from their closet
+                            </p>
+                            <p className="text-sm text-gray-500">5 secs ago</p>
+                          </div>
+                        </div>
+                        
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                          {[
+                            { id: '1', image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=400&fit=crop', price: '$25', likes: 7 },
+                            { id: '2', image: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=300&h=400&fit=crop', price: '$18', likes: 4 },
+                            { id: '3', image: 'https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=300&h=400&fit=crop', price: '$45', likes: 12 }
+                          ].map((item) => (
+                            <div key={item.id} className="relative group cursor-pointer">
+                              <div className="aspect-[3/4] rounded-lg overflow-hidden bg-gray-100">
+                                <img 
+                                  src={item.image} 
+                                  alt="Listing"
+                                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                />
+                              </div>
+                              <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between">
+                                <span className="bg-black/70 text-white px-2 py-1 rounded text-sm font-medium">
+                                  {item.price}
+                                </span>
+                                <div className="flex items-center space-x-1 bg-black/70 text-white px-2 py-1 rounded">
+                                  <Heart className="w-3 h-3" />
+                                  <span className="text-sm">{item.likes}</span>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                        
+                        <button className="mt-4 text-purple-600 hover:text-purple-700 font-medium text-sm">
+                          SHOP HEIDISMITHAZ'S CLOSET
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Empty state when no following users */}
+                  {currentListings.length === 0 && (
+                    <Card className="glass-card">
+                      <CardContent className="p-8 text-center">
+                        <Users className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                          Follow People You Love
+                        </h3>
+                        <p className="text-gray-600 dark:text-gray-400 mb-4">
+                          Start following users to see their latest listings here
+                        </p>
+                        <Link href="/marketplace">
+                          <Button className="bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700">
+                            Discover Users
+                          </Button>
+                        </Link>
+                      </CardContent>
+                    </Card>
+                  )}
+                </div>
               </TabsContent>
             </Tabs>
           </div>
