@@ -4,6 +4,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { useAuth } from "@/hooks/useAuth";
+import { routeConfigService } from "@/services/routing/RouteConfigService";
 import NotFound from "@/pages/not-found";
 import Landing from "@/pages/landing";
 import Feed from "@/pages/feed";
@@ -11,6 +12,7 @@ import Home from "@/pages/home";
 import Marketplace from "@/pages/marketplace";
 import CreateListing from "@/pages/create-listing";
 import Profile from "@/pages/profile";
+import VerticalPage from "@/pages/marketplace/VerticalPage";
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
@@ -27,6 +29,27 @@ function Router() {
           <Route path="/marketplace" component={Marketplace} />
           <Route path="/create-listing" component={CreateListing} />
           <Route path="/profile/:username?" component={Profile} />
+          
+          {/* Dynamic marketplace vertical routes */}
+          {routeConfigService.getAllVerticalRoutes().map(verticalRoute => (
+            <Route 
+              key={verticalRoute.vertical}
+              path={`/marketplace/${verticalRoute.vertical}`}
+              component={() => <VerticalPage vertical={verticalRoute.vertical} />}
+            />
+          ))}
+          
+          {/* Catch-all dynamic routes */}
+          <Route 
+            path="/marketplace/:vertical/:category?"
+            component={({ params }) => {
+              const vertical = params?.vertical;
+              if (vertical && routeConfigService.getVerticalRoute(vertical)) {
+                return <VerticalPage vertical={vertical} />;
+              }
+              return <NotFound />;
+            }}
+          />
         </>
       )}
       <Route component={NotFound} />

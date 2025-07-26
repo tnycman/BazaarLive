@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { setupAuth, isAuthenticated } from "./replitAuth";
+import { marketplaceRouter } from "./routes/marketplace";
 import { 
   insertListingSchema, 
   insertCommentSchema, 
@@ -429,6 +430,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({ message: "Failed to update transaction status" });
     }
   });
+
+  // Marketplace routes
+  app.use('/api/marketplace', marketplaceRouter);
 
   const httpServer = createServer(app);
   return httpServer;
