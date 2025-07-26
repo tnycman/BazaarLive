@@ -529,16 +529,6 @@ export function Navigation() {
             </Button>
           </Link>
 
-          <Link href="/marketplace?vertical=sports">
-            <Button 
-              variant="ghost" 
-              className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium"
-              data-testid="nav-sports-outdoors"
-            >
-              Sports & Outdoors
-            </Button>
-          </Link>
-
 
         </div>
       </div>
