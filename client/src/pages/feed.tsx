@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "@/hooks/useAuth";
 import { Header } from "@/components/Header";
 import { Card, CardContent } from "@/components/ui/card";
@@ -6,61 +7,24 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Skeleton } from "@/components/ui/skeleton";
 import { Heart, MessageCircle, Share2, Eye, ShoppingBag, TrendingUp, Users, Calendar } from "lucide-react";
 import { Link } from "wouter";
+import type { Listing, User } from "@shared/schema";
 
-// Mock data for UI demonstration
-const mockBrands = {
-  "Nike": 143,
-  "Adidas": 89,
-  "Lululemon": 67,
-  "Free People": 54,
-  "Zara": 43,
-  "H&M": 38,
-  "Urban Outfitters": 32,
-  "Anthropologie": 28,
-  "Reformation": 24,
-  "Brandy Melville": 21
-};
+interface ListingWithSeller extends Listing {
+  seller: User;
+  isLiked?: boolean;
+}
 
-const mockListings = [
-  {
-    id: "1",
-    title: "Nike Air Force 1 White",
-    price: 89.99,
-    brand: "Nike",
-    size: "US 8",
-    seller: "fashionista_23",
-    likes: 12,
-    comments: 3
-  },
-  {
-    id: "2", 
-    title: "Lululemon Align Leggings",
-    price: 78.00,
-    brand: "Lululemon",
-    size: "M",
-    seller: "yoga_lover",
-    likes: 28,
-    comments: 7
-  },
-  {
-    id: "3",
-    title: "Free People Maxi Dress",
-    price: 95.50,
-    brand: "Free People", 
-    size: "S",
-    seller: "boho_vibes",
-    likes: 45,
-    comments: 12
-  }
-];
-
-const mockSuggestedUsers = [
-  { username: "style_maven", followers: 1200, avatar: "" },
-  { username: "vintage_finds", followers: 845, avatar: "" },
-  { username: "sneaker_head", followers: 2100, avatar: "" }
-];
+interface FeedData {
+  forYouListings: ListingWithSeller[];
+  followingListings: ListingWithSeller[];
+  likedListings: ListingWithSeller[];
+  recentlyViewed: ListingWithSeller[];
+  trendingItems: ListingWithSeller[];
+  suggestedUsers: User[];
+}
 
 export default function Feed() {
   const { user } = useAuth();
