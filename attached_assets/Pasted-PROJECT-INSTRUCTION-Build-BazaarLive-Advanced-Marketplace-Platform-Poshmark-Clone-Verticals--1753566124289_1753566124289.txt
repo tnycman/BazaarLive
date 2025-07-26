@@ -1,0 +1,221 @@
+PROJECT INSTRUCTION: Build “BazaarLive” – Advanced Marketplace Platform (Poshmark Clone + Verticals + Live Selling)
+1. OBJECTIVE
+Create a full-featured, scalable, and future-proof marketplace web platform that:
+
+Replicates core features and user experience of Poshmark.com (social commerce, fashion, closets, selling/buying, discovery, etc.)
+
+Extends with additional independent verticals: Jobs, Real Estate, Cars, Boats, Services (each with their own section and listing logic)
+
+Supports modern features: live selling/streaming, advanced filters, user profiles, mobile responsiveness, and comprehensive admin tools
+
+2. REQUIRED CORE MODULES
+Frontend (User-facing):
+
+Home, Feed, Categories, Search, Product/Listing Pages
+
+Jobs, Real Estate, Cars, Boats, Services (dedicated landing pages and flows)
+
+Seller Tools, “My Closet” (or equivalent), Shopping Cart
+
+Live Selling/Streaming (for sellers)
+
+User Auth (Login, Signup, Social Auth, Two-Factor)
+
+Profile & Wallet (order tracking, sales, payouts, etc.)
+
+Backend (API + Business Logic):
+
+Listings CRUD, Category Management (all verticals)
+
+User & Seller Management
+
+Payments & Payouts (integration ready)
+
+Messaging (buyer-seller, notifications)
+
+Live Selling Streams (WebSocket/RTMP or integration)
+
+Content Moderation, Reporting, Dispute Management
+
+Admin Dashboard (Backoffice):
+
+Full control over users, listings, categories
+
+Analytics (sales, user growth, engagement, reporting)
+
+CMS (featured items, banners, curation)
+
+Transaction monitoring, disputes, refunds, manual actions
+
+Settings (fees, policies, notifications)
+
+3. TECHNOLOGY STACK (RECOMMENDATION – 2025 Best Practices)
+Frontend:
+React 18+ with TypeScript
+
+Next.js (App Router, SSR/SSG, API routes for edge logic)
+
+Tailwind CSS for utility-first styling (customizable, fast)
+
+shadcn/ui for modern component primitives (highly customizable, accessible)
+
+Redux Toolkit or Zustand for state management (if needed)
+
+Framer Motion for animations
+
+React Query/TanStack Query for data fetching/caching
+
+Live Selling: Mux, [Agora.io], or [Twilio Live] for video streaming integration
+
+Backend:
+Node.js (18+) + TypeScript
+
+NestJS (structured, scalable, modular server-side framework)
+
+Prisma ORM (for database, type-safety, migrations)
+
+PostgreSQL (primary DB; relational, scalable)
+
+Redis for caching, queues, pub/sub (real-time features)
+
+WebSocket (socket.io or native) for messaging and live updates
+
+Stripe or Adyen for payments
+
+AWS S3 for file/image storage
+
+Admin Backend:
+Next.js (admin panel as a separate Next.js app or subdomain)
+
+tRPC or REST/GraphQL for internal APIs
+
+React Admin/shadcn/ui for rapid admin UI prototyping
+
+DevOps/Infra:
+Docker for containerization
+
+Kubernetes for orchestration (if needed for scale)
+
+AWS (ECS, RDS, S3, CloudFront) or GCP/Azure equivalent
+
+CI/CD: GitHub Actions, GitLab CI, or CircleCI
+
+Monitoring: Sentry (errors), Datadog or Grafana (metrics/logs)
+
+Testing: Jest (unit), Playwright/Cypress (E2E)
+
+4. ARCHITECTURAL BEST PRACTICES
+Monorepo (Turborepo or Nx) for shared types and code (front, back, admin)
+
+API-First: OpenAPI/Swagger specs for all endpoints
+
+Strong Type Safety: TypeScript everywhere (frontend, backend, shared)
+
+Modularization: Each vertical (Jobs, Real Estate, etc.) is a module/package
+
+Extensible Data Models: Abstract listing/item model with per-vertical fields
+
+Role-Based Access Control (RBAC): for admin/user/seller permissions
+
+Scalable Auth: JWT + OAuth2, refresh tokens, 2FA support
+
+Automated Testing: 100% coverage goal, test first approach
+
+CI/CD Pipelines: Automated linting, tests, build, deploy (staging/prod)
+
+Code Quality: Prettier, ESLint, commit hooks, code reviews required
+
+5. PHASED TASK BREAKDOWN
+PHASE 1: INITIAL PROJECT SETUP
+Bootstrap monorepo (Turborepo), setup TypeScript, Next.js, NestJS, Prisma
+
+Configure database schema (User, Listing, Category, etc.)
+
+Implement core APIs (User CRUD, Auth, Listing CRUD)
+
+Set up Dockerized local/dev environments
+
+PHASE 2: CORE MARKETPLACE (Poshmark Clone)
+Build core frontend (Home, Feed, Search, Category, Listing, Profile, Auth)
+
+Implement listing flows (sell, buy, offer, message, payment, shipment)
+
+Add reviews, ratings, following, feed (infinite scroll)
+
+Build seller tools and buyer checkout flows
+
+Basic admin panel (user/listing management)
+
+PHASE 3: VERTICALS
+Implement Jobs, Real Estate, Cars, Boats, Services as modular verticals
+
+Each vertical gets:
+
+Dedicated landing page and navigation
+
+Listing submission flow (vertical-specific fields)
+
+Filtering and discovery
+
+Extend backend to support vertical-specific logic
+
+PHASE 4: LIVE SELLING/STREAMING
+Integrate live selling platform (Mux/Agora/Twilio)
+
+Seller can host streams, buyers can join, comment, buy in real-time
+
+Moderation and admin tools for live events
+
+PHASE 5: ADMIN DASHBOARD & ANALYTICS
+Full-featured admin backend (users, items, content, moderation, reports)
+
+Real-time analytics dashboard
+
+Advanced permissions (multi-admin, roles)
+
+PHASE 6: POLISH, TEST, DEPLOY
+End-to-end testing (unit, integration, e2e)
+
+Security hardening, performance optimization
+
+Deploy to production cloud (AWS/GCP/Azure)
+
+Ongoing monitoring, error tracking
+
+6. CRITICAL NOTES & WARNINGS
+NO SHORTCUTS. Follow strict engineering and security best practices—NO “quick hacks,” no unapproved libraries, no outdated methods.
+
+DOCUMENT EVERYTHING: All code must have comments, architectural decisions documented, and onboarding docs for each repo.
+
+FUTURE-PROOF: All systems must be designed for scaling up (multi-region, sharding possible, horizontal scaling, API versioning).
+
+APPROVAL CHECKPOINTS: No deployment or major architectural decisions without review and sign-off.
+
+7. DELIVERABLES
+Monorepo with:
+
+frontend/ (Next.js app)
+
+backend/ (NestJS API)
+
+admin/ (Admin Next.js app)
+
+shared/ (types, utils)
+
+Full ERD/Data models documentation
+
+API specs (OpenAPI)
+
+Admin handbook
+
+Testing/coverage reports
+
+Deployment/infra guides
+
+8. INSTRUCTION TO AGENT
+Begin project only after presenting a detailed technical plan for review.
+Provide weekly progress updates with demo URLs and documentation.
+Log and report any blockers, edge case decisions, or tradeoffs.
+Absolutely NO deviation from approved tech stack or architecture without written sign-off.
+All third-party service choices must be reviewed and approved.
+
