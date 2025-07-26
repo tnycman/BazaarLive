@@ -28,6 +28,10 @@ export const sessions = pgTable(
 
 // User storage table.
 // (IMPORTANT) This table is mandatory for Replit Auth, don't drop it.
+// Role and analytics access enums
+export const userRoleEnum = pgEnum('user_role', ['user', 'moderator', 'admin']);
+export const analyticsAccessEnum = pgEnum('analytics_access', ['personal', 'category', 'platform']);
+
 export const users = pgTable("users", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
   email: varchar("email").unique(),
@@ -41,6 +45,8 @@ export const users = pgTable("users", {
   followingCount: integer("following_count").default(0),
   listingsCount: integer("listings_count").default(0),
   salesCount: integer("sales_count").default(0),
+  role: userRoleEnum("role").default("user").notNull(),
+  analyticsAccess: analyticsAccessEnum("analytics_access").default("personal").notNull(),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
 });
