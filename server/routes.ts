@@ -173,8 +173,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Follow routes
-  app.post('/api/follow', isEnterpriseAuthenticated, async (req: any, res) => {
+  // Follow routes with AOP integration
+  app.post('/api/follow', createAOPAuthMiddleware('follow-user'), async (req: any, res) => {
     try {
       const followerId = req.user.claims.sub;
       const { followingId } = insertFollowSchema.parse({ ...req.body, followerId });
@@ -194,7 +194,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.delete('/api/follow/:followingId', isEnterpriseAuthenticated, async (req: any, res) => {
+  app.delete('/api/follow/:followingId', createAOPAuthMiddleware('unfollow-user'), async (req: any, res) => {
     try {
       const followerId = req.user.claims.sub;
       const { followingId } = req.params;
@@ -229,7 +229,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get('/api/follow/status/:followingId', isEnterpriseAuthenticated, async (req: any, res) => {
+  app.get('/api/follow/status/:followingId', createAOPAuthMiddleware('follow-status'), async (req: any, res) => {
     try {
       const followerId = req.user.claims.sub;
       const { followingId } = req.params;
@@ -241,8 +241,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Like routes
-  app.post('/api/likes', isEnterpriseAuthenticated, async (req: any, res) => {
+  // Like routes with AOP integration
+  app.post('/api/likes', createAOPAuthMiddleware('like-listing'), async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const { listingId } = insertLikeSchema.parse({ ...req.body, userId });
@@ -258,7 +258,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.delete('/api/likes/:listingId', isEnterpriseAuthenticated, async (req: any, res) => {
+  app.delete('/api/likes/:listingId', createAOPAuthMiddleware('unlike-listing'), async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const { listingId } = req.params;
@@ -271,7 +271,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get('/api/likes/:listingId/status', isEnterpriseAuthenticated, async (req: any, res) => {
+  app.get('/api/likes/:listingId/status', createAOPAuthMiddleware('like-status'), async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const { listingId } = req.params;
@@ -294,8 +294,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Comment routes
-  app.post('/api/comments', isEnterpriseAuthenticated, async (req: any, res) => {
+  // Comment routes with AOP integration
+  app.post('/api/comments', createAOPAuthMiddleware('add-comment'), async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const commentData = insertCommentSchema.parse({ ...req.body, userId });
@@ -322,7 +322,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.delete('/api/comments/:id', isEnterpriseAuthenticated, async (req: any, res) => {
+  app.delete('/api/comments/:id', createAOPAuthMiddleware('delete-comment'), async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const { id } = req.params;
@@ -336,8 +336,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Message routes
-  app.post('/api/messages', isEnterpriseAuthenticated, async (req: any, res) => {
+  // Message routes with AOP integration
+  app.post('/api/messages', createAOPAuthMiddleware('send-message'), async (req: any, res) => {
     try {
       const senderId = req.user.claims.sub;
       const messageData = insertMessageSchema.parse({ ...req.body, senderId });
@@ -353,7 +353,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get('/api/conversations/:partnerId', isEnterpriseAuthenticated, async (req: any, res) => {
+  app.get('/api/conversations/:partnerId', createAOPAuthMiddleware('get-conversation'), async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const { partnerId } = req.params;
@@ -366,7 +366,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get('/api/conversations', isEnterpriseAuthenticated, async (req: any, res) => {
+  app.get('/api/conversations', createAOPAuthMiddleware('get-conversations'), async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const conversations = await storage.getConversations(userId);
@@ -377,7 +377,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.put('/api/messages/:id/read', isEnterpriseAuthenticated, async (req: any, res) => {
+  app.put('/api/messages/:id/read', createAOPAuthMiddleware('mark-message-read'), async (req: any, res) => {
     try {
       const { id } = req.params;
       await storage.markMessageAsRead(id);
@@ -388,8 +388,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Feed routes
-  app.get('/api/feed', isEnterpriseAuthenticated, async (req: any, res) => {
+  // Feed routes with AOP integration
+  app.get('/api/feed', createAOPAuthMiddleware('get-feed'), async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const feedData = await storage.getFeedData(userId);
@@ -410,8 +410,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Transaction routes
-  app.post('/api/transactions', isEnterpriseAuthenticated, async (req: any, res) => {
+  // Transaction routes with AOP integration
+  app.post('/api/transactions', createAOPAuthMiddleware('create-transaction'), async (req: any, res) => {
     try {
       const buyerId = req.user.claims.sub;
       const transactionData = { ...req.body, buyerId };
@@ -424,7 +424,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get('/api/transactions', isEnterpriseAuthenticated, async (req: any, res) => {
+  app.get('/api/transactions', createAOPAuthMiddleware('get-transactions'), async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const transactions = await storage.getTransactions(userId);
@@ -435,7 +435,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.put('/api/transactions/:id/status', isEnterpriseAuthenticated, async (req: any, res) => {
+  app.put('/api/transactions/:id/status', createAOPAuthMiddleware('update-transaction-status'), async (req: any, res) => {
     try {
       const { id } = req.params;
       const { status } = req.body;
