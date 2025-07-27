@@ -22,10 +22,12 @@ import {
 import { 
   CategoryRepository,
   CategoryHierarchyRepository,
-  InMemoryCategoryDataSource,
+  InMemoryCategoryDataSource
+} from './CategoryRepository';
+import { 
   ICategoryRepository,
   ICategoryHierarchyRepository
-} from './CategoryRepository';
+} from './CategoryDomainService';
 import { CategoryAspectCoordinator } from './CategoryAspects';
 
 // ============================================================================
