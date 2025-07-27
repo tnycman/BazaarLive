@@ -429,55 +429,65 @@ export function Navigation() {
   };
 
   return (
-    <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 sticky top-16 z-40">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center space-x-6 py-3">
-          {/* Main Navigation Items */}
-          <Link href="/feed">
-            <Button 
-              variant="ghost" 
-              className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium"
-              data-testid="nav-feed"
-            >
-              Feed
-            </Button>
-          </Link>
+    <div className="relative">
+      <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 sticky top-16 z-40">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex items-center space-x-6 py-3">
+            {/* Main Navigation Items */}
+            <Link href="/feed">
+              <Button 
+                variant="ghost" 
+                className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium"
+                data-testid="nav-feed"
+              >
+                Feed
+              </Button>
+            </Link>
 
-          {/* All categories with dropdowns including Women */}
-          {Object.keys(navigationData).map((category) => (
-            <div 
-              key={category}
-              className="relative"
-              onMouseEnter={() => handleMouseEnter(category)}
-              onMouseLeave={handleMouseLeave}
-            >
-              {category === 'Women' ? (
-                <Link href="/fashion/women">
+            {/* All categories with dropdowns including Women */}
+            {Object.keys(navigationData).map((category) => (
+              <div 
+                key={category}
+                className="relative"
+                onMouseEnter={() => handleMouseEnter(category)}
+                onMouseLeave={handleMouseLeave}
+              >
+                {category === 'Women' ? (
+                  <Link href="/fashion/women">
+                    <Button 
+                      variant="ghost" 
+                      className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium flex items-center gap-1"
+                      data-testid="nav-women"
+                    >
+                      {category}
+                      <ChevronDownIcon className="w-3 h-3" />
+                    </Button>
+                  </Link>
+                ) : (
                   <Button 
                     variant="ghost" 
                     className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium flex items-center gap-1"
-                    data-testid="nav-women"
+                    data-testid={`nav-${category.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`}
                   >
                     {category}
                     <ChevronDownIcon className="w-3 h-3" />
                   </Button>
-                </Link>
-              ) : (
-                <Button 
-                  variant="ghost" 
-                  className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium flex items-center gap-1"
-                  data-testid={`nav-${category.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`}
-                >
-                  {category}
-                  <ChevronDownIcon className="w-3 h-3" />
-                </Button>
-              )}
-
-              {/* Dropdown Menu */}
-              {activeDropdown === category && (
-                <div className="fixed top-32 left-0 w-screen bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-xl z-40">
-                  <div className="w-full px-0 py-8">
-                    {category === 'Brands' ? (
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </nav>
+      
+      {/* Full-width dropdown menu */}
+      {activeDropdown && (
+        <div 
+          className="absolute top-full left-0 w-screen bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-xl z-40"
+          onMouseEnter={() => setActiveDropdown(activeDropdown)}
+          onMouseLeave={handleMouseLeave}
+        >
+          <div className="w-full px-0 py-8">
+            {activeDropdown === 'Brands' ? (
                       // Special layout for Brands dropdown
                       <div className="grid grid-cols-5 gap-8 px-8">
                         <div>
@@ -560,7 +570,7 @@ export function Navigation() {
                           </Button>
                         </div>
                       </div>
-                    ) : category === 'Sports & Outdoors' ? (
+            ) : activeDropdown === 'Sports & Outdoors' ? (
                       // Special layout for Sports & Outdoors dropdown
                       <div className="grid grid-cols-4 gap-8 px-8">
                         <div>
@@ -630,7 +640,7 @@ export function Navigation() {
                     ) : (
                       // Regular layout for other dropdowns
                       <div className="grid grid-cols-4 gap-8 px-8">
-                        {navigationData[category as keyof typeof navigationData].sections.map((section, index) => (
+                        {navigationData[activeDropdown as keyof typeof navigationData].sections.map((section, index) => (
                           <div key={index} className="space-y-3">
                             <h3 className="text-xs font-bold text-purple-600 uppercase tracking-wide">
                               {section.title}
@@ -638,7 +648,7 @@ export function Navigation() {
                             <ul className="space-y-2">
                               {section.items.map((item, itemIndex) => (
                                 <li key={itemIndex}>
-                                  <Link href={navigationService.generateCategoryRoute(category, item)}>
+                                  <Link href={navigationService.generateCategoryRoute(activeDropdown, item)}>
                                     <Button 
                                       variant="ghost" 
                                       className="text-xs text-gray-600 dark:text-gray-400 hover:text-purple-600 h-auto p-0 font-normal justify-start"
@@ -651,7 +661,7 @@ export function Navigation() {
                               ))}
                             </ul>
                             {section.shopAll && (
-                              <Link href={navigationService.generateSectionRoute(section.title, category.toLowerCase())}>
+                              <Link href={navigationService.generateSectionRoute(section.title, activeDropdown.toLowerCase())}>
                                 <Button 
                                   variant="ghost" 
                                   className="text-xs text-purple-600 hover:text-purple-700 h-auto p-0 font-semibold mt-3"
@@ -665,17 +675,9 @@ export function Navigation() {
                         ))}
                       </div>
                     )}
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
-
-
-
-
+          </div>
         </div>
-      </div>
-    </nav>
+      )}
+    </div>
   );
 }
