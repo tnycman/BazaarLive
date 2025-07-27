@@ -5,7 +5,7 @@ import { Navigation } from '@/components/Navigation';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { SearchIcon } from 'lucide-react';
-import { FilterSidebar } from '@/components/filters/FilterSidebar';
+import { HierarchicalCategorySidebar } from '@/components/filters/HierarchicalCategorySidebar';
 import { ProductGrid } from '@/components/filters/ProductGrid';
 import { filterService, type FilterCriteriaType } from '@/services/filtering/FilterService';
 
@@ -13,6 +13,7 @@ export default function WomenPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState('just_shared');
   const [filterCriteria, setFilterCriteria] = useState<FilterCriteriaType>({});
+  const [selectedCategory, setSelectedCategory] = useState<string | undefined>();
 
   // Fetch women's listings
   const { data: listings, isLoading } = useQuery({
@@ -74,12 +75,23 @@ export default function WomenPage() {
       <Navigation />
       
       <div className="flex">
-        {/* Left Sidebar - Filters */}
-        <FilterSidebar
-          onFilterChange={handleFilterChange}
-          appliedFiltersCount={appliedFiltersCount}
-          isLoading={isLoading}
-          category="women"
+        {/* Left Sidebar - Hierarchical Categories */}
+        <HierarchicalCategorySidebar
+          vertical="women"
+          currentCategory={selectedCategory}
+          onSelectionChange={(selection) => {
+            // Convert hierarchical selection to filter criteria
+            const newCriteria: FilterCriteriaType = {};
+            if (selection.level3) {
+              newCriteria.categories = [selection.level3];
+            } else if (selection.level2) {
+              newCriteria.categories = [selection.level2];
+            } else if (selection.level1) {
+              newCriteria.categories = [selection.level1];
+            }
+            handleFilterChange(newCriteria);
+            setSelectedCategory(selection.level3 || selection.level2 || selection.level1);
+          }}
         />
 
         {/* Main Content Area */}
