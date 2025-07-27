@@ -1,9 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { ChevronDownIcon } from "lucide-react";
 import { routeConfigService } from "@/services/routing/RouteConfigService";
 import { navigationService } from "@/services/routing/NavigationService";
+import { 
+  navigationAOP, 
+  NavigationContext 
+} from "@/services/navigation/NavigationAspects";
+import { 
+  navigationStateManager, 
+  NavigationState,
+  ShowDropdownCommand,
+  HideDropdownCommand 
+} from "@/services/navigation/NavigationStateManager";
+import { 
+  dropdownLayoutEngine,
+  DropdownDimensions 
+} from "@/services/navigation/DropdownLayoutEngine";
 
 const navigationData = {
   Women: {
@@ -417,20 +431,107 @@ const navigationData = {
   }
 };
 
+/**
+ * Enterprise Navigation Component with AOP Implementation
+ * Uses Command Pattern, Strategy Pattern, and Aspect-Oriented Programming
+ */
 export function Navigation() {
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  // State management using enterprise state manager
+  const [navigationState, setNavigationState] = useState<NavigationState>(() => 
+    navigationStateManager.getState()
+  );
+  
+  // Layout dimensions from layout engine
+  const [layoutDimensions, setLayoutDimensions] = useState<DropdownDimensions | null>(null);
 
-  const handleMouseEnter = (category: string) => {
-    setActiveDropdown(category);
-  };
+  // Subscribe to navigation state changes
+  useEffect(() => {
+    const unsubscribe = navigationStateManager.subscribe((newState) => {
+      setNavigationState(newState);
+    });
+    
+    return unsubscribe;
+  }, []);
 
-  const handleMouseLeave = () => {
-    setActiveDropdown(null);
-  };
+  // Memoized navigation handlers with AOP integration
+  const handleMouseEnter = useCallback((category: string) => {
+    const context: NavigationContext = {
+      action: 'hover',
+      category,
+      timestamp: Date.now(),
+      metadata: { viewport: { width: window.innerWidth, height: window.innerHeight } }
+    };
 
+    navigationAOP.executeWithAspects(context, () => {
+      const command = new ShowDropdownCommand(navigationStateManager, category);
+      const success = navigationStateManager.executeCommand(command);
+      
+      if (success) {
+        // Calculate layout for the dropdown
+        const layout = dropdownLayoutEngine.getResponsiveLayout(category);
+        setLayoutDimensions(layout);
+      }
+      
+      return success;
+    });
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    const context: NavigationContext = {
+      action: 'leave',
+      category: navigationState.activeDropdown || '',
+      timestamp: Date.now(),
+      metadata: { previousCategory: navigationState.previousDropdown }
+    };
+
+    navigationAOP.executeWithAspects(context, () => {
+      const command = new HideDropdownCommand(navigationStateManager);
+      const success = navigationStateManager.executeCommand(command);
+      
+      if (success) {
+        setLayoutDimensions(null);
+      }
+      
+      return success;
+    });
+  }, [navigationState.activeDropdown, navigationState.previousDropdown]);
+
+  // Handle viewport resize for responsive layout
+  useEffect(() => {
+    const handleResize = () => {
+      if (navigationState.activeDropdown) {
+        const layout = dropdownLayoutEngine.getResponsiveLayout(navigationState.activeDropdown);
+        setLayoutDimensions(layout);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [navigationState.activeDropdown]);
+
+  // Memoized dropdown styles based on layout engine calculations
+  const dropdownStyles = useMemo(() => {
+    if (!layoutDimensions) return {};
+    
+    return {
+      width: `${layoutDimensions.width}px`,
+      maxWidth: '100vw', // Ensure it never exceeds viewport
+      left: '0', // Always start from the left edge
+      transform: 'none', // No centering transform needed
+      gridTemplateColumns: `repeat(${layoutDimensions.columns}, 1fr)`,
+      gap: `${layoutDimensions.gap}px`,
+      padding: `${layoutDimensions.padding.top}px ${layoutDimensions.padding.right}px ${layoutDimensions.padding.bottom}px ${layoutDimensions.padding.left}px`
+    };
+  }, [layoutDimensions]);
+
+  // Render navigation with enterprise architecture
   return (
-    <div className="relative">
-      <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 sticky top-16 z-40">
+    <div className="relative" data-testid="navigation-container">
+      <nav 
+        className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 sticky top-16 z-40"
+        role="navigation"
+        aria-label="Main navigation"
+      >
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center space-x-6 py-3">
             {/* Main Navigation Items */}
@@ -439,38 +540,60 @@ export function Navigation() {
                 variant="ghost" 
                 className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium"
                 data-testid="nav-feed"
+                aria-label="Go to feed"
               >
                 Feed
               </Button>
             </Link>
 
-            {/* All categories with dropdowns including Women */}
+            {/* Enterprise-grade category navigation with AOP integration */}
             {Object.keys(navigationData).map((category) => (
               <div 
                 key={category}
                 className="relative"
                 onMouseEnter={() => handleMouseEnter(category)}
                 onMouseLeave={handleMouseLeave}
+                data-testid={`nav-category-${category.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`}
               >
                 {category === 'Women' ? (
                   <Link href="/fashion/women">
                     <Button 
                       variant="ghost" 
-                      className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium flex items-center gap-1"
+                      className={`text-sm font-medium flex items-center gap-1 transition-all duration-200 ${
+                        navigationState.activeDropdown === category 
+                          ? 'text-purple-600 bg-purple-50 dark:bg-purple-900/20' 
+                          : 'text-gray-700 dark:text-gray-300 hover:text-purple-600'
+                      } ${navigationState.isTransitioning ? 'opacity-70' : ''}`}
                       data-testid="nav-women"
+                      aria-label="Go to women's section"
+                      aria-expanded={navigationState.activeDropdown === category}
                     >
                       {category}
-                      <ChevronDownIcon className="w-3 h-3" />
+                      <ChevronDownIcon 
+                        className={`w-3 h-3 transition-transform duration-200 ${
+                          navigationState.activeDropdown === category ? 'rotate-180' : ''
+                        }`}
+                      />
                     </Button>
                   </Link>
                 ) : (
                   <Button 
                     variant="ghost" 
-                    className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium flex items-center gap-1"
+                    className={`text-sm font-medium flex items-center gap-1 transition-all duration-200 ${
+                      navigationState.activeDropdown === category 
+                        ? 'text-purple-600 bg-purple-50 dark:bg-purple-900/20' 
+                        : 'text-gray-700 dark:text-gray-300 hover:text-purple-600'
+                    } ${navigationState.isTransitioning ? 'opacity-70' : ''}`}
                     data-testid={`nav-${category.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`}
+                    aria-label={`Browse ${category.toLowerCase()} section`}
+                    aria-expanded={navigationState.activeDropdown === category}
                   >
                     {category}
-                    <ChevronDownIcon className="w-3 h-3" />
+                    <ChevronDownIcon 
+                      className={`w-3 h-3 transition-transform duration-200 ${
+                        navigationState.activeDropdown === category ? 'rotate-180' : ''
+                      }`}
+                    />
                   </Button>
                 )}
               </div>
@@ -479,15 +602,27 @@ export function Navigation() {
         </div>
       </nav>
       
-      {/* Full-width dropdown menu */}
-      {activeDropdown && (
+      {/* Enterprise full-width dropdown with layout engine integration */}
+      {navigationState.activeDropdown && layoutDimensions && (
         <div 
-          className="absolute top-full left-0 w-screen bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-xl z-40"
-          onMouseEnter={() => setActiveDropdown(activeDropdown)}
+          className={`absolute top-full bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-xl z-40 transition-all duration-300 ${
+            navigationState.isTransitioning ? 'opacity-0 translate-y-[-10px]' : 'opacity-100 translate-y-0'
+          }`}
+          style={dropdownStyles}
+          onMouseEnter={() => handleMouseEnter(navigationState.activeDropdown!)}
           onMouseLeave={handleMouseLeave}
+          data-testid={`dropdown-${navigationState.activeDropdown.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`}
+          role="menu"
+          aria-label={`${navigationState.activeDropdown} navigation menu`}
         >
-          <div className="w-full px-0 py-8">
-            {activeDropdown === 'Brands' ? (
+          <div 
+            className="grid"
+            style={{ 
+              gridTemplateColumns: dropdownStyles.gridTemplateColumns,
+              gap: dropdownStyles.gap 
+            }}
+          >
+            {navigationState.activeDropdown === 'Brands' ? (
                       // Special layout for Brands dropdown
                       <div className="grid grid-cols-5 gap-8 px-8">
                         <div>
@@ -570,7 +705,7 @@ export function Navigation() {
                           </Button>
                         </div>
                       </div>
-            ) : activeDropdown === 'Sports & Outdoors' ? (
+            ) : navigationState.activeDropdown === 'Sports & Outdoors' ? (
                       // Special layout for Sports & Outdoors dropdown
                       <div className="grid grid-cols-4 gap-8 px-8">
                         <div>
@@ -640,7 +775,7 @@ export function Navigation() {
                     ) : (
                       // Regular layout for other dropdowns
                       <div className="grid grid-cols-4 gap-8 px-8">
-                        {navigationData[activeDropdown as keyof typeof navigationData].sections.map((section, index) => (
+                        {navigationData[navigationState.activeDropdown as keyof typeof navigationData].sections.map((section, index) => (
                           <div key={index} className="space-y-3">
                             <h3 className="text-xs font-bold text-purple-600 uppercase tracking-wide">
                               {section.title}
@@ -648,11 +783,12 @@ export function Navigation() {
                             <ul className="space-y-2">
                               {section.items.map((item, itemIndex) => (
                                 <li key={itemIndex}>
-                                  <Link href={navigationService.generateCategoryRoute(activeDropdown, item)}>
+                                  <Link href={navigationService.generateCategoryRoute(navigationState.activeDropdown!, item)}>
                                     <Button 
                                       variant="ghost" 
-                                      className="text-xs text-gray-600 dark:text-gray-400 hover:text-purple-600 h-auto p-0 font-normal justify-start"
+                                      className="text-xs text-gray-600 dark:text-gray-400 hover:text-purple-600 h-auto p-0 font-normal justify-start transition-colors duration-150"
                                       data-testid={`nav-item-${item.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+                                      role="menuitem"
                                     >
                                       {item}
                                     </Button>
@@ -661,11 +797,12 @@ export function Navigation() {
                               ))}
                             </ul>
                             {section.shopAll && (
-                              <Link href={navigationService.generateSectionRoute(section.title, activeDropdown.toLowerCase())}>
+                              <Link href={navigationService.generateSectionRoute(section.title, navigationState.activeDropdown!.toLowerCase())}>
                                 <Button 
                                   variant="ghost" 
-                                  className="text-xs text-purple-600 hover:text-purple-700 h-auto p-0 font-semibold mt-3"
+                                  className="text-xs text-purple-600 hover:text-purple-700 h-auto p-0 font-semibold mt-3 transition-colors duration-150"
                                   data-testid={`nav-shop-all-${section.title.toLowerCase().replace(/ /g, '-')}`}
+                                  role="menuitem"
                                 >
                                   {section.shopAll} →
                                 </Button>
