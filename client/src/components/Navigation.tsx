@@ -461,7 +461,7 @@ export function Navigation() {
 
               {/* Dropdown Menu */}
               {activeDropdown === category && (
-                <div className="fixed top-32 left-0 w-full bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-xl z-50">
+                <div className="fixed top-32 left-0 w-full bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-xl z-40">
                   <div className="max-w-7xl mx-auto p-8">
                     {category === 'Brands' ? (
                       // Special layout for Brands dropdown
