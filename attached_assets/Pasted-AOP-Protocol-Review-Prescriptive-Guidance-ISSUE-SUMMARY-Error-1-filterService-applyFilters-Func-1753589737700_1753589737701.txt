@@ -1,0 +1,125 @@
+AOP Protocol Review & Prescriptive Guidance
+ISSUE SUMMARY
+Error 1: filterService.applyFilters() Function Argument Mismatch
+Symptom:
+filterService.applyFilters(rawListings, { searchQuery, category, ...filterCriteria })
+
+Error: Expects 1 argument, receives 2.
+
+Root Cause:
+The method signature for applyFilters does not match its call in the component.
+
+Either the function was refactored to accept a single parameter (likely an object containing all data), or
+
+The second argument ({ searchQuery, ... }) should be merged into the first (if the method expects a complex object), or
+
+The wrong method is being called.
+
+Error 2: FilterSidebar Props Interface Mismatch
+Symptom:
+<FilterSidebar ... vertical={actualVertical} ... />
+
+Error: vertical prop does not exist on FilterSidebarProps.
+
+Root Cause:
+The interface for FilterSidebar does not include a vertical prop; passing it is a TypeScript violation.
+
+The category prop does exist, but check type compatibility.
+
+isLoading is an optional prop in the interface.
+
+Impact
+COMPILATION BLOCKED:
+Type errors prevent React/TypeScript from building.
+
+No preview, no bundle, complete page failure.
+
+SEVERITY: CRITICAL.
+Must be fixed to restore all UI function.
+
+BEST PRACTICE FIX PLAN
+1. Verify Actual Function Signatures
+DO NOT GUESS—Check the actual definition of both filterService.applyFilters and FilterSidebarProps.
+Open the implementation or type definition for both.
+
+2. Correct the applyFilters Call
+A. If applyFilters Expects ONE Argument:
+ts
+Copy
+Edit
+// Example signature: applyFilters(options: { listings: Listing[]; searchQuery?: string; category?: string; ... })
+const filteredListings = useMemo(() => {
+  return filterService.applyFilters({
+    listings: rawListings,
+    searchQuery,
+    category: selectedCategory === 'all' ? undefined : selectedCategory,
+    ...filterCriteria,
+  });
+}, [rawListings, searchQuery, selectedCategory, filterCriteria]);
+B. If applyFilters Expects ONLY LISTINGS:
+ts
+Copy
+Edit
+// Example signature: applyFilters(listings: Listing[])
+const filteredListings = useMemo(() => {
+  return filterService.applyFilters(rawListings);
+}, [rawListings]);
+ACTION:
+
+Update the call to match the exact required parameter shape.
+
+If unsure, always refer to the latest implementation in filterService.
+
+3. Fix the FilterSidebar Props
+A. Remove the Unsupported Prop
+Remove vertical={actualVertical} (does not exist in the prop interface).
+
+Ensure category prop type matches interface. Adjust type if needed.
+
+B. Example:
+tsx
+Copy
+Edit
+<FilterSidebar
+  onFilterChange={handleFilterChange}
+  appliedFiltersCount={appliedFiltersCount}
+  category={actualCategory}
+  isLoading={isLoading}
+/>
+4. Audit ProductGrid Import & Usage
+Verify the ProductGrid import and prop interface to ensure it exists and is correct.
+
+If errors, repeat the same process: open implementation, check props, correct all usage to match.
+
+5. Full Lint, Build, and Test
+Run tsc (TypeScript compiler) and full linter after changes.
+
+Do not ignore warnings.
+
+Test in the browser to confirm the preview works and the UI loads as expected.
+
+6. Document the Fix
+Comment in code where changes were made:
+
+“AOP: Corrected props to match interface.”
+
+“AOP: Updated filterService.applyFilters call to match expected signature.”
+
+STRICT INSTRUCTIONS FOR THE AGENT
+NO shortcuts, NO ‘any’ type casts, NO guessing at function signatures.
+
+DO NOT merge or deploy until type-check and preview pass 100%.
+
+If unsure of any interface, open the file and read the actual implementation.
+
+If further errors appear, repeat this review for each.
+
+Optional Next Step
+If you want, I can provide a ready-to-paste code patch for the two main errors once you confirm the actual signature of applyFilters.
+Would you like that?
+
+WAITING FOR AGENT CONFIRMATION:
+
+Acknowledge receipt, describe which solution (A or B) matches your codebase, and confirm you will update all interface usages as specified.
+
+If anything remains ambiguous, STOP and escalate for clarification.
