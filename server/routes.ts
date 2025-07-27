@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { setupEnterpriseAuth, isEnterpriseAuthenticated } from "./auth/EnterpriseAuthSetup";
+import { AuthenticationMiddlewareIntegration } from "./aop/AuthenticationMiddlewareIntegration";
 import { marketplaceRouter } from "./routes/marketplace";
 import { analyticsRouter } from "./routes/analytics";
 import vectorSearchRouter from "./routes/vector-search";
@@ -15,15 +16,25 @@ import {
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Enterprise Auth middleware
+  // Enterprise Auth middleware with AOP integration
   const authSetupResult = await setupEnterpriseAuth(app);
   if (authSetupResult.isError()) {
     console.error('[ROUTES] Enterprise auth setup failed:', authSetupResult.error);
     throw new Error(`Authentication setup failed: ${authSetupResult.error.message}`);
   }
 
-  // Auth routes
-  app.get('/api/auth/user', isEnterpriseAuthenticated, async (req: any, res) => {
+  // Get AOP middleware integration for route protection
+  const aopIntegration = AuthenticationMiddlewareIntegration.getInstance();
+  
+  // Create AOP-enabled authentication middleware
+  const createAOPAuthMiddleware = (middlewareName: string) => {
+    return aopIntegration.isIntegrationInitialized() 
+      ? aopIntegration.createAOPMiddleware(middlewareName, isEnterpriseAuthenticated)
+      : isEnterpriseAuthenticated;
+  };
+
+  // Auth routes with AOP integration
+  app.get('/api/auth/user', createAOPAuthMiddleware('auth-user'), async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const user = await storage.getUser(userId);
@@ -34,8 +45,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // User routes
-  app.put('/api/users/profile', isEnterpriseAuthenticated, async (req: any, res) => {
+  // User routes with AOP integration
+  app.put('/api/users/profile', createAOPAuthMiddleware('user-profile'), async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const updates = req.body;
@@ -72,8 +83,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Listing routes
-  app.post('/api/listings', isEnterpriseAuthenticated, async (req: any, res) => {
+  // Listing routes with AOP integration
+  app.post('/api/listings', createAOPAuthMiddleware('create-listing'), async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const listingData = insertListingSchema.parse(req.body);
@@ -123,7 +134,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.put('/api/listings/:id', isEnterpriseAuthenticated, async (req: any, res) => {
+  app.put('/api/listings/:id', createAOPAuthMiddleware('update-listing'), async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const { id } = req.params;
@@ -143,7 +154,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.delete('/api/listings/:id', isEnterpriseAuthenticated, async (req: any, res) => {
+  app.delete('/api/listings/:id', createAOPAuthMiddleware('delete-listing'), async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const { id } = req.params;

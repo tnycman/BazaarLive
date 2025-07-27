@@ -12,6 +12,7 @@ import memoize from "memoizee";
 import connectPg from "connect-pg-simple";
 import { storage } from "../storage";
 import { EnterpriseAuthenticationIntegration } from './EnterpriseAuthenticationIntegration';
+import { AuthenticationMiddlewareIntegration } from '../aop/AuthenticationMiddlewareIntegration';
 import { Result } from '../domain/Hostname';
 
 // Enterprise Auth Setup Error Types
@@ -329,7 +330,28 @@ export async function setupEnterpriseAuth(app: Express): Promise<Result<void, En
       return envValidation;
     }
 
-    // Step 2: Initialize enterprise integration
+    // Step 2: Initialize AOP middleware integration
+    const aopIntegration = AuthenticationMiddlewareIntegration.getInstance({
+      enableAspectOrchestration: true,
+      enablePreProcessing: true,
+      enablePostProcessing: true,
+      enableErrorHandling: true,
+      enablePerformanceTracking: true,
+      logLevel: 'info',
+      bootstrapConfiguration: {
+        enableLogging: true,
+        enableValidation: true,
+        enableSecurity: true,
+        enablePerformance: true
+      }
+    });
+
+    const aopResult = await aopIntegration.initialize();
+    if (aopResult.isError()) {
+      console.warn('[ENTERPRISE-AUTH] AOP integration failed, continuing with basic setup:', aopResult.error);
+    }
+
+    // Step 3: Initialize enterprise integration
     const enterpriseIntegration = EnterpriseAuthenticationIntegration.getInstance();
     const integrationResult = await enterpriseIntegration.initialize(app);
     if (integrationResult.isError()) {
@@ -337,22 +359,39 @@ export async function setupEnterpriseAuth(app: Express): Promise<Result<void, En
       // Continue with setup even if enterprise integration fails
     }
 
-    // Step 3: Configure Express middleware
+    // Step 4: Configure Express middleware with AOP integration
     app.set("trust proxy", 1);
-    app.use(getEnterpriseSession());
-    app.use(passport.initialize());
-    app.use(passport.session());
+    
+    // Use AOP-enabled session middleware
+    const sessionMiddleware = aopResult.isSuccess() 
+      ? aopIntegration.createAOPMiddleware('session', getEnterpriseSession())
+      : getEnterpriseSession();
+    app.use(sessionMiddleware);
 
-    // Step 4: Add enterprise authentication middleware
+    // Use AOP-enabled passport middleware
+    const passportInitMiddleware = aopResult.isSuccess()
+      ? aopIntegration.createAOPMiddleware('passport-init', passport.initialize())
+      : passport.initialize();
+    app.use(passportInitMiddleware);
+
+    const passportSessionMiddleware = aopResult.isSuccess()
+      ? aopIntegration.createAOPMiddleware('passport-session', passport.session())
+      : passport.session();
+    app.use(passportSessionMiddleware);
+
+    // Step 5: Add enterprise authentication middleware
     if (integrationResult.isSuccess()) {
-      app.use(enterpriseIntegration.createMiddleware());
+      const enterpriseMiddleware = aopResult.isSuccess()
+        ? aopIntegration.createAOPMiddleware('enterprise-auth', enterpriseIntegration.createMiddleware())
+        : enterpriseIntegration.createMiddleware();
+      app.use(enterpriseMiddleware);
     }
 
-    // Step 5: Get OIDC configuration
+    // Step 6: Get OIDC configuration
     const config = await getOidcConfig();
 
-    // Step 6: Configure passport verify function
-    const verify: VerifyFunction = async (
+    // Step 7: Configure AOP-enabled passport verify function
+    const baseVerify: VerifyFunction = async (
       tokens: client.TokenEndpointResponse & client.TokenEndpointResponseHelpers,
       verified: passport.AuthenticateCallback
     ) => {
@@ -367,7 +406,12 @@ export async function setupEnterpriseAuth(app: Express): Promise<Result<void, En
       }
     };
 
-    // Step 7: Register authentication strategies
+    // Wrap verify function with AOP if available
+    const verify = aopResult.isSuccess() 
+      ? aopIntegration.createAOPMiddleware('passport-verify', baseVerify)
+      : baseVerify;
+
+    // Step 8: Register AOP-enabled authentication strategies
     const strategyResult = await registerAuthenticationStrategies(app, config, verify);
     if (strategyResult.isError()) {
       return Result.error(new EnterpriseAuthSetupError(
