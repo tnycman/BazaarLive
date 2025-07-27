@@ -14,7 +14,7 @@ import {
   type UserPreferenceEmbedding,
   type SemanticSearchQuery
 } from '@shared/schema';
-import { Result } from '../../domain/Hostname';
+import { Result } from '../domain/VectorSearchDomainService';
 import {
   VectorEmbedding,
   SearchResult,
@@ -38,13 +38,13 @@ export class VectorSearchRepository implements IVectorSearchRepository {
     threshold: number,
     limit: number,
     filters: SearchFilters
-  ): Promise<Result<SearchResult[]>> {
+  ): Promise<Result<SearchResult[], string>> {
     try {
       // Build dynamic WHERE conditions based on filters
       const whereConditions = [];
       
       if (filters.category) {
-        whereConditions.push(eq(listings.category, filters.category));
+        whereConditions.push(sql`${listings.category} = ${filters.category}`);
       }
       
       if (filters.priceRange) {
@@ -110,7 +110,7 @@ export class VectorSearchRepository implements IVectorSearchRepository {
   /**
    * Get listing embedding by ID
    */
-  async getListingEmbedding(listingId: string): Promise<Result<VectorEmbedding>> {
+  async getListingEmbedding(listingId: string): Promise<Result<VectorEmbedding, string>> {
     try {
       const embeddingRecord = await db
         .select({
@@ -131,14 +131,14 @@ export class VectorSearchRepository implements IVectorSearchRepository {
       }
 
       const record = embeddingRecord[0];
-      const embeddingValues = this.parseVectorFromDB(record.embedding);
+      const embeddingValues = Array.isArray(record.embedding) ? record.embedding : JSON.parse(record.embedding as string);
       
       const embeddingResult = VectorEmbedding.create(embeddingValues, record.model || 'text-embedding-ada-002');
       if (!embeddingResult.isSuccess) {
         return Result.failure(`Invalid embedding data: ${embeddingResult.error}`);
       }
 
-      return Result.success(embeddingResult.data);
+      return Result.success(embeddingResult.value);
 
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Unknown database error';
@@ -153,7 +153,7 @@ export class VectorSearchRepository implements IVectorSearchRepository {
     referenceEmbedding: VectorEmbedding,
     threshold: number,
     limit: number
-  ): Promise<Result<SearchResult[]>> {
+  ): Promise<Result<SearchResult[], string>> {
     try {
       const similarResults = await db
         .select({
@@ -200,7 +200,7 @@ export class VectorSearchRepository implements IVectorSearchRepository {
   /**
    * Get user preference embedding
    */
-  async getUserPreferenceEmbedding(userId: string): Promise<Result<VectorEmbedding>> {
+  async getUserPreferenceEmbedding(userId: string): Promise<Result<VectorEmbedding, string>> {
     try {
       const preferenceRecord = await db
         .select({
@@ -214,14 +214,16 @@ export class VectorSearchRepository implements IVectorSearchRepository {
         return Result.failure(`No preference embedding found for user: ${userId}`);
       }
 
-      const embeddingValues = this.parseVectorFromDB(preferenceRecord[0].preferenceEmbedding);
+      const embeddingValues = Array.isArray(preferenceRecord[0].preferenceEmbedding) ? 
+        preferenceRecord[0].preferenceEmbedding : 
+        JSON.parse(preferenceRecord[0].preferenceEmbedding as string);
       const embeddingResult = VectorEmbedding.create(embeddingValues, 'text-embedding-ada-002');
       
       if (!embeddingResult.isSuccess) {
         return Result.failure(`Invalid preference embedding: ${embeddingResult.error}`);
       }
 
-      return Result.success(embeddingResult.data);
+      return Result.success(embeddingResult.value);
 
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Unknown database error';
@@ -236,7 +238,7 @@ export class VectorSearchRepository implements IVectorSearchRepository {
     userEmbedding: VectorEmbedding,
     preferences: UserPreferences,
     limit: number
-  ): Promise<Result<SearchResult[]>> {
+  ): Promise<Result<SearchResult[], string>> {
     try {
       // Get base recommendations using user embedding
       const baseRecommendations = await db
@@ -298,7 +300,7 @@ export class VectorSearchRepository implements IVectorSearchRepository {
         .insert(userPreferenceEmbeddings)
         .values({
           userId,
-          preferenceEmbedding: this.formatVectorForDB(preferenceEmbedding),
+          preferenceEmbedding: preferenceEmbedding,
           interactionWeights: preferences.interactionWeights,
           categoryPreferences: preferences.categoryWeights,
           priceRange: preferences.priceRanges,
@@ -308,7 +310,7 @@ export class VectorSearchRepository implements IVectorSearchRepository {
         .onConflictDoUpdate({
           target: userPreferenceEmbeddings.userId,
           set: {
-            preferenceEmbedding: this.formatVectorForDB(preferenceEmbedding),
+            preferenceEmbedding: preferenceEmbedding,
             interactionWeights: preferences.interactionWeights,
             categoryPreferences: preferences.categoryWeights,
             priceRange: preferences.priceRanges,
@@ -339,19 +341,19 @@ export class VectorSearchRepository implements IVectorSearchRepository {
       const embeddingRecords = [
         {
           listingId,
-          embedding: this.formatVectorForDB(titleEmbedding.values),
+          embedding: titleEmbedding.values,
           embeddingType: 'title' as const,
           model: titleEmbedding.model
         },
         {
           listingId,
-          embedding: this.formatVectorForDB(descriptionEmbedding.values),
+          embedding: descriptionEmbedding.values,
           embeddingType: 'description' as const,
           model: descriptionEmbedding.model
         },
         {
           listingId,
-          embedding: this.formatVectorForDB(combinedEmbedding.values),
+          embedding: combinedEmbedding.values,
           embeddingType: 'combined' as const,
           model: combinedEmbedding.model
         }
@@ -474,11 +476,11 @@ export class VectorSearchRepository implements IVectorSearchRepository {
       await db.insert(semanticSearchQueries).values({
         userId,
         query,
-        queryEmbedding: this.formatVectorForDB(queryEmbedding.values),
+        queryEmbedding: queryEmbedding.values,
         results: {
           count: results.length,
           topSimilarity: results[0]?.similarity || 0,
-          categories: [...new Set(results.map(r => r.category))]
+          categories: Array.from(new Set(results.map(r => r.category)))
         },
         sessionId,
         createdAt: new Date()
