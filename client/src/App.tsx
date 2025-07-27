@@ -14,17 +14,7 @@ import CreateListing from "@/pages/create-listing";
 import Profile from "@/pages/profile";
 import VerticalPage from "@/pages/marketplace/VerticalPage";
 import AnalyticsDashboard from "@/pages/analytics/AnalyticsDashboard";
-
-// Fashion subcategory pages
-import WomenPage from "@/pages/fashion/WomenPage";
-import MenPage from "@/pages/fashion/MenPage";
-import KidsPage from "@/pages/fashion/KidsPage";
-import HomePage from "@/pages/fashion/HomePage";
-import ElectronicsPage from "@/pages/fashion/ElectronicsPage";
-import PetsPage from "@/pages/fashion/PetsPage";
-import BeautyWellnessPage from "@/pages/fashion/BeautyWellnessPage";
-import SportsOutdoorsPage from "@/pages/fashion/SportsOutdoorsPage";
-import BrandsPage from "@/pages/fashion/BrandsPage";
+import DynamicCategoryPage from "@/pages/DynamicCategoryPage";
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
@@ -32,15 +22,12 @@ function Router() {
   return (
     <Switch>
       {/* Public routes - accessible to all users */}
-      <Route path="/fashion/women" component={WomenPage} />
-      <Route path="/fashion/men" component={MenPage} />
-      <Route path="/fashion/kids" component={KidsPage} />
-      <Route path="/fashion/home" component={HomePage} />
-      <Route path="/fashion/electronics" component={ElectronicsPage} />
-      <Route path="/fashion/pets" component={PetsPage} />
-      <Route path="/fashion/beauty-wellness" component={BeautyWellnessPage} />
-      <Route path="/fashion/sports-outdoors" component={SportsOutdoorsPage} />
-      <Route path="/fashion/brands" component={BrandsPage} />
+      <Route path="/fashion/:category/:subcategory?" component={({ params }) => (
+        <DynamicCategoryPage vertical="fashion" category={params?.category} subcategory={params?.subcategory} />
+      )} />
+      <Route path="/marketplace/:vertical/:category/:subcategory?" component={({ params }) => (
+        <DynamicCategoryPage vertical={params?.vertical} category={params?.category} subcategory={params?.subcategory} />
+      )} />
       <Route path="/marketplace" component={Marketplace} />
       
       {/* Dynamic marketplace vertical routes - public */}
@@ -54,7 +41,7 @@ function Router() {
       
       {/* Catch-all dynamic routes - public */}
       <Route 
-        path="/marketplace/:vertical/:category?"
+        path="/marketplace/:vertical"
         component={({ params }) => {
           const vertical = params?.vertical;
           if (vertical && routeConfigService.getVerticalRoute(vertical)) {
