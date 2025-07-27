@@ -15,6 +15,17 @@ import Profile from "@/pages/profile";
 import VerticalPage from "@/pages/marketplace/VerticalPage";
 import AnalyticsDashboard from "@/pages/analytics/AnalyticsDashboard";
 
+// Fashion subcategory pages
+import WomenPage from "@/pages/fashion/WomenPage";
+import MenPage from "@/pages/fashion/MenPage";
+import KidsPage from "@/pages/fashion/KidsPage";
+import HomePage from "@/pages/fashion/HomePage";
+import ElectronicsPage from "@/pages/fashion/ElectronicsPage";
+import PetsPage from "@/pages/fashion/PetsPage";
+import BeautyWellnessPage from "@/pages/fashion/BeautyWellnessPage";
+import SportsOutdoorsPage from "@/pages/fashion/SportsOutdoorsPage";
+import BrandsPage from "@/pages/fashion/BrandsPage";
+
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
 
@@ -31,6 +42,17 @@ function Router() {
           <Route path="/create-listing" component={CreateListing} />
           <Route path="/profile/:username?" component={Profile} />
           <Route path="/analytics" component={AnalyticsDashboard} />
+          
+          {/* Fashion subcategory routes */}
+          <Route path="/fashion/women" component={WomenPage} />
+          <Route path="/fashion/men" component={MenPage} />
+          <Route path="/fashion/kids" component={KidsPage} />
+          <Route path="/fashion/home" component={HomePage} />
+          <Route path="/fashion/electronics" component={ElectronicsPage} />
+          <Route path="/fashion/pets" component={PetsPage} />
+          <Route path="/fashion/beauty-wellness" component={BeautyWellnessPage} />
+          <Route path="/fashion/sports-outdoors" component={SportsOutdoorsPage} />
+          <Route path="/fashion/brands" component={BrandsPage} />
           
           {/* Dynamic marketplace vertical routes */}
           {routeConfigService.getAllVerticalRoutes().map(verticalRoute => (
