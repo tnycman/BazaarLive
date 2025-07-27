@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Header } from '@/components/Header';
+import { Navigation } from '@/components/Navigation';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { SearchIcon } from 'lucide-react';
@@ -70,6 +71,7 @@ export default function WomenPage() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <Header />
+      <Navigation />
       
       <div className="flex">
         {/* Left Sidebar - Filters */}
