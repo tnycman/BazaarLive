@@ -603,28 +603,21 @@ export function Navigation() {
       </nav>
       
       {/* Enterprise full-width dropdown with layout engine integration */}
-      {navigationState.activeDropdown && layoutDimensions && (
+      {navigationState.activeDropdown && (
         <div 
-          className={`absolute top-full bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-xl z-40 transition-all duration-300 ${
+          className={`absolute top-full left-0 w-screen bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-xl z-40 transition-all duration-300 ${
             navigationState.isTransitioning ? 'opacity-0 translate-y-[-10px]' : 'opacity-100 translate-y-0'
           }`}
-          style={dropdownStyles}
           onMouseEnter={() => handleMouseEnter(navigationState.activeDropdown!)}
           onMouseLeave={handleMouseLeave}
           data-testid={`dropdown-${navigationState.activeDropdown.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`}
           role="menu"
           aria-label={`${navigationState.activeDropdown} navigation menu`}
         >
-          <div 
-            className="grid"
-            style={{ 
-              gridTemplateColumns: dropdownStyles.gridTemplateColumns,
-              gap: dropdownStyles.gap 
-            }}
-          >
+          <div className="w-full py-8 px-8">
             {navigationState.activeDropdown === 'Brands' ? (
-                      // Special layout for Brands dropdown
-                      <div className="grid grid-cols-5 gap-8 px-8">
+              // Special layout for Brands dropdown
+              <div className="grid grid-cols-5 gap-8">
                         <div>
                           <h4 className="text-xs font-bold text-purple-600 uppercase tracking-wide mb-3">WOMEN'S BRANDS</h4>
                           <ul className="space-y-2">
@@ -706,8 +699,8 @@ export function Navigation() {
                         </div>
                       </div>
             ) : navigationState.activeDropdown === 'Sports & Outdoors' ? (
-                      // Special layout for Sports & Outdoors dropdown
-                      <div className="grid grid-cols-4 gap-8 px-8">
+              // Special layout for Sports & Outdoors dropdown
+              <div className="grid grid-cols-4 gap-8">
                         <div>
                           <h4 className="text-xs font-bold text-purple-600 uppercase tracking-wide mb-3">SPORTS</h4>
                           <ul className="space-y-2">
@@ -772,9 +765,9 @@ export function Navigation() {
                           </Button>
                         </div>
                       </div>
-                    ) : (
-                      // Regular layout for other dropdowns
-                      <div className="grid grid-cols-4 gap-8 px-8">
+            ) : (
+              // Regular layout for other dropdowns
+              <div className="grid grid-cols-4 gap-8">
                         {navigationData[navigationState.activeDropdown as keyof typeof navigationData].sections.map((section, index) => (
                           <div key={index} className="space-y-3">
                             <h3 className="text-xs font-bold text-purple-600 uppercase tracking-wide">
@@ -809,9 +802,9 @@ export function Navigation() {
                               </Link>
                             )}
                           </div>
-                        ))}
-                      </div>
-                    )}
+            ))}
+              </div>
+            )}
           </div>
         </div>
       )}
