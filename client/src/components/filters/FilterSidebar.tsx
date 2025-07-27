@@ -6,6 +6,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { Link } from 'wouter';
 import { 
   ChevronDownIcon, 
   ChevronUpIcon,
@@ -329,13 +330,36 @@ export function FilterSidebar({ onFilterChange, appliedFiltersCount, isLoading =
             
             {/* Other Category Groups */}
             <div className="mt-3 space-y-1">
-              {['Women', 'Men', 'Kids', 'Home', 'Pets', 'Electronics'].filter(cat => cat.toLowerCase() !== category.toLowerCase()).map((categoryGroup) => (
-                <div key={categoryGroup} className="py-2">
-                  <span className="text-sm text-gray-700 dark:text-gray-300 cursor-pointer hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
-                    {categoryGroup}
-                  </span>
-                </div>
-              ))}
+              {['Women', 'Men', 'Kids', 'Home', 'Pets', 'Electronics'].filter(cat => cat.toLowerCase() !== category.toLowerCase()).map((categoryGroup) => {
+                const getRoute = (cat: string) => {
+                  switch (cat.toLowerCase()) {
+                    case 'women':
+                      return '/fashion/women';
+                    case 'men':
+                      return '/fashion/men';
+                    case 'kids':
+                      return '/fashion/kids';
+                    default:
+                      return `#${cat.toLowerCase()}`;
+                  }
+                };
+
+                return (
+                  <div key={categoryGroup} className="py-2">
+                    {(categoryGroup.toLowerCase() === 'women' || categoryGroup.toLowerCase() === 'men') ? (
+                      <Link href={getRoute(categoryGroup)}>
+                        <span className="text-sm text-gray-700 dark:text-gray-300 cursor-pointer hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+                          {categoryGroup}
+                        </span>
+                      </Link>
+                    ) : (
+                      <span className="text-sm text-gray-700 dark:text-gray-300 cursor-pointer hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+                        {categoryGroup}
+                      </span>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </CollapsibleContent>
         </Collapsible>

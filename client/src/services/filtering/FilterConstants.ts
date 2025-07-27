@@ -21,6 +21,26 @@ export const FILTER_OPTIONS = {
       { id: 'hair', name: 'Hair', count: 1456 },
       { id: 'bath_body', name: 'Bath & Body', count: 1234 },
       { id: 'global_traditional', name: 'Global & Traditional Wear', count: 567 }
+    ],
+    men: [
+      { id: 'accessories', name: 'Accessories', count: 4521 },
+      { id: 'bags', name: 'Bags', count: 3234 },
+      { id: 'jackets_coats', name: 'Jackets & Coats', count: 2845 },
+      { id: 'jeans', name: 'Jeans', count: 3567 },
+      { id: 'pants', name: 'Pants', count: 2945 },
+      { id: 'shirts', name: 'Shirts', count: 4890 },
+      { id: 'shoes', name: 'Shoes', count: 5890 },
+      { id: 'shorts', name: 'Shorts', count: 1834 },
+      { id: 'suits_blazers', name: 'Suits & Blazers', count: 1567 },
+      { id: 'sweaters', name: 'Sweaters', count: 2567 },
+      { id: 'swim', name: 'Swim', count: 967 },
+      { id: 'underwear_socks', name: 'Underwear & Socks', count: 1234 },
+      { id: 'ties', name: 'Ties', count: 789 },
+      { id: 'watches', name: 'Watches', count: 1456 },
+      { id: 'belts', name: 'Belts', count: 867 },
+      { id: 'hats', name: 'Hats', count: 734 },
+      { id: 'sunglasses', name: 'Sunglasses', count: 945 },
+      { id: 'grooming', name: 'Grooming', count: 567 }
     ]
   },
   
