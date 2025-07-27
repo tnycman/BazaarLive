@@ -292,11 +292,50 @@ export function FilterSidebar({ onFilterChange, appliedFiltersCount, isLoading =
 
         <Separator />
 
-        {/* Categories Section */}
+        {/* Categories Section - Poshmark Style */}
         <Collapsible open={collapsedSections.categories}>
           {renderSectionHeader('CATEGORIES', 'categories')}
           <CollapsibleContent className="pt-2">
-            {renderCheckboxList(FILTER_OPTIONS.categories.women, 'categories')}
+            {/* Women Expandable Section */}
+            <Collapsible defaultOpen={true}>
+              <CollapsibleTrigger className="flex items-center justify-between w-full py-2 text-left group">
+                <span className="font-medium text-purple-600 dark:text-purple-400 text-sm">Women</span>
+                <ChevronDownIcon className="w-4 h-4 text-gray-500 group-data-[state=open]:rotate-180 transition-transform" />
+              </CollapsibleTrigger>
+              <CollapsibleContent className="ml-2 space-y-1 mt-1">
+                {FILTER_OPTIONS.categories.women.map((category) => (
+                  <div key={category.id} className="flex items-center space-x-2 py-1">
+                    <Checkbox
+                      id={`categories-${category.id}`}
+                      checked={(criteria.categories as string[])?.includes(category.id) || false}
+                      onCheckedChange={() => toggleArrayFilter('categories', category.id)}
+                      className="h-4 w-4"
+                      data-testid={`checkbox-categories-${category.id}`}
+                    />
+                    <label
+                      htmlFor={`categories-${category.id}`}
+                      className="text-sm text-gray-700 dark:text-gray-300 flex-1 cursor-pointer flex items-center justify-between hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+                    >
+                      <span>{category.name}</span>
+                      {category.count && (
+                        <span className="text-xs text-gray-500">{category.count.toLocaleString()}</span>
+                      )}
+                    </label>
+                  </div>
+                ))}
+              </CollapsibleContent>
+            </Collapsible>
+            
+            {/* Other Category Groups */}
+            <div className="mt-3 space-y-1">
+              {['Men', 'Kids', 'Home', 'Pets', 'Electronics'].map((categoryGroup) => (
+                <div key={categoryGroup} className="py-2">
+                  <span className="text-sm text-gray-700 dark:text-gray-300 cursor-pointer hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
+                    {categoryGroup}
+                  </span>
+                </div>
+              ))}
+            </div>
           </CollapsibleContent>
         </Collapsible>
 
