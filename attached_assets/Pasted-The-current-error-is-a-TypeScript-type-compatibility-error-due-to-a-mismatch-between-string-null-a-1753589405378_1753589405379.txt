@@ -1,0 +1,117 @@
+The current error is a TypeScript type compatibility error due to a mismatch between string | null and string | undefined in route parameter handling.
+
+Zod .optional() infers string | undefined for subcategory.
+
+sanitizeString() currently returns string | null.
+
+This violates TypeScript strict mode:
+
+Cannot assign string | null to a variable/property of type string | undefined.
+
+STRICT RESOLUTION PLAN
+A. Root Cause Correction
+You must align the return type of sanitizeString() with the expected property type (string | undefined).
+
+MANDATORY: Do NOT
+Do NOT loosen TypeScript types.
+
+Do NOT suppress errors or add any/type casts as a workaround.
+
+Do NOT change the schema to allow null (unless instructed).
+
+Do NOT “fudge” with as unknown as ...—strict conversion only.
+
+Do NOT leave any null/undefined ambiguity in the returned values.
+
+B. Required Implementation Steps
+1. Update sanitizeString Signature
+Change the return type of sanitizeString() from:
+
+ts
+Copy
+Edit
+private static sanitizeString(input: string): string | null
+TO:
+
+ts
+Copy
+Edit
+private static sanitizeString(input: string): string | undefined
+All return points inside sanitizeString() must now return either a string or undefined (never null).
+
+Example Implementation:
+
+ts
+Copy
+Edit
+private static sanitizeString(input: string): string | undefined {
+  if (!input || typeof input !== "string") return undefined;
+  // ... sanitization logic ...
+  const sanitized = input.trim(); // or your actual logic
+  return sanitized.length > 0 ? sanitized : undefined;
+}
+2. Audit All Usages
+At all call sites (Lines 513, 523, 533 and any others), verify the assignment is to a property typed as string | undefined.
+
+If a property is required (i.e., string not string | undefined), ensure sanitizeString cannot return undefined for that property, or provide a fallback/validation upstream.
+
+3. Strict Null/Undefined Audit
+Search entire file for any use of null relating to route params, and eliminate.
+
+Document (inline comment) why returning undefined is correct for all optional parameters.
+
+C. Optional (if upstream code expects nulls):
+Only if there is a strict legacy need for null elsewhere in the codebase (very rare, confirm with tech lead):
+
+Add a “conversion bridge” at the API boundary (never at the core logic):
+E.g. undefinedToNull(str?: string): string | null { return str === undefined ? null : str; }
+
+D. Automated Type-Guard & Test
+Add or update a unit test to confirm that sanitizeString() never returns null.
+
+Add a type assertion or TypeScript test:
+
+ts
+Copy
+Edit
+const result: string | undefined = sanitizeString("example");
+// Should compile, should never return null.
+E. Documentation
+Update JSDoc for sanitizeString to reflect new contract.
+
+Log all changes with explicit reasoning in code comments:
+// AOP: sanitizeString now returns string | undefined for strict type compatibility with Zod schema.
+
+F. Engineering Principles:
+No lazy code.
+
+No type lies.
+
+No “quick” type casts.
+
+No patchwork.
+
+100% strict AOP compliance.
+
+All code changes must be fully documented and reviewed.
+
+APPROVAL BLOCK
+Do NOT deploy or merge until:
+
+ All code is reviewed and passes type-check
+
+ All unit tests pass (including new/updated ones for null/undefined handling)
+
+ Code review log is updated with rationale for changes
+
+Summary Table
+Area	Old	New	Comment
+sanitizeString return	string | null	string | undefined	Strict Zod/type compatibility
+Property assignments	Accepts null	Only undefined or string	Aligns with Zod schema
+Null/undefined usage	null allowed	Only undefined allowed	Consistency & safety
+Type handling	Inconsistent	Fully consistent	No ambiguity
+
+End of Instruction
+WAITING FOR AGENT CONFIRMATION:
+Acknowledge receipt and outline planned steps before executing.
+Ask if you have any ambiguity or need clarification.
