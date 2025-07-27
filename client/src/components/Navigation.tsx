@@ -588,6 +588,10 @@ export function Navigation() {
                       data-testid="nav-men"
                       aria-label="Go to men's section"
                       aria-expanded={navigationState.activeDropdown === category}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.location.href = '/fashion/men';
+                      }}
                     >
                       {category}
                       <ChevronDownIcon 
