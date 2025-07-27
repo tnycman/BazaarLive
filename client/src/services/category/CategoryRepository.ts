@@ -76,7 +76,7 @@ export class InMemoryCategoryDataSource implements ICategoryDataSource {
       'findByVertical',
       async (verticalStr: string) => {
         const result: CategoryRawData[] = [];
-        for (const category of this.categories.values()) {
+        for (const category of Array.from(this.categories.values())) {
           if (category.vertical_id === verticalStr) {
             result.push({ ...category });
           }
@@ -93,7 +93,7 @@ export class InMemoryCategoryDataSource implements ICategoryDataSource {
       'findByParent',
       async (parentCategoryId: string) => {
         const result: CategoryRawData[] = [];
-        for (const category of this.categories.values()) {
+        for (const category of Array.from(this.categories.values())) {
           if (category.parent_category_id === parentCategoryId) {
             result.push({ ...category });
           }
@@ -174,7 +174,7 @@ export class InMemoryCategoryDataSource implements ICategoryDataSource {
       'countByVertical',
       async (verticalStr: string) => {
         let count = 0;
-        for (const category of this.categories.values()) {
+        for (const category of Array.from(this.categories.values())) {
           if (category.vertical_id === verticalStr) {
             count++;
           }
@@ -556,7 +556,7 @@ export class CategoryHierarchyRepository implements ICategoryHierarchyRepository
     let oldestTimestamp = Date.now();
     const verticals: string[] = [];
 
-    for (const [vertical, cached] of this.hierarchyCache) {
+    for (const [vertical, cached] of Array.from(this.hierarchyCache.entries())) {
       verticals.push(vertical);
       if (cached.timestamp < oldestTimestamp) {
         oldestTimestamp = cached.timestamp;
