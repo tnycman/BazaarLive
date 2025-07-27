@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { SearchIcon, FilterIcon, GridIcon, ListIcon, SlidersIcon } from "lucide-react";
 import { Link } from "wouter";
+import { FashionCategoryButton } from "@/components/ui/CategorySelectionButton";
 
 const homeCategories = [
   { id: 'all', name: 'All Home', count: '15K+' },
@@ -128,19 +129,15 @@ export default function HomePage() {
           {/* Category Filters */}
           <div className="flex flex-wrap gap-2 mb-6">
             {homeCategories.map((category) => (
-              <Button
+              <FashionCategoryButton
                 key={category.id}
-                variant={selectedCategory === category.id ? 'default' : 'outline'}
-                size="sm"
+                categoryId={category.id}
+                categoryName={category.name}
+                count={category.count}
+                isSelected={selectedCategory === category.id}
                 onClick={() => setSelectedCategory(category.id)}
-                className="flex items-center gap-2"
                 data-testid={`button-category-${category.id}`}
-              >
-                {category.name}
-                <Badge variant="secondary" className="text-xs">
-                  {category.count}
-                </Badge>
-              </Button>
+              />
             ))}
           </div>
         </div>
