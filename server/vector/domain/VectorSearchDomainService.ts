@@ -302,7 +302,7 @@ export class VectorSearchDomainService {
   async updateUserPreferences(userId: string, interactions: UserInteractions): Promise<Result<UserPreferences, string>> {
     try {
       // Convert interactions to preferences
-      const preferences = this.convertInteractionsToPreferences(interactions);
+      const preferences = this.convertInteractionsToPreferences(userId, interactions);
       
       // Update preferences in repository
       const updateResult = await this.vectorRepository.updateUserPreferences(userId, preferences);
@@ -320,14 +320,44 @@ export class VectorSearchDomainService {
    * Generate embeddings for a listing
    */
   async generateListingEmbeddings(listingId: string, title: string, description: string): Promise<Result<void, string>> {
-    return this.storeListingEmbeddings(listingId, title, description);
+    try {
+      // Generate embeddings for title, description, and combined
+      const titleEmbeddingResult = await this.embeddingService.generateEmbedding(title);
+      if (!titleEmbeddingResult.isSuccess) {
+        return Result.failure(`Failed to generate title embedding: ${titleEmbeddingResult.error}`);
+      }
+
+      const descriptionEmbeddingResult = await this.embeddingService.generateEmbedding(description);
+      if (!descriptionEmbeddingResult.isSuccess) {
+        return Result.failure(`Failed to generate description embedding: ${descriptionEmbeddingResult.error}`);
+      }
+
+      const combinedText = `${title} ${description}`;
+      const combinedEmbeddingResult = await this.embeddingService.generateEmbedding(combinedText);
+      if (!combinedEmbeddingResult.isSuccess) {
+        return Result.failure(`Failed to generate combined embedding: ${combinedEmbeddingResult.error}`);
+      }
+
+      // Store all embeddings
+      const storeResult = await this.vectorRepository.storeListingEmbeddings(
+        listingId,
+        titleEmbeddingResult.value,
+        descriptionEmbeddingResult.value,
+        combinedEmbeddingResult.value
+      );
+
+      return storeResult;
+    } catch (error) {
+      return Result.failure(error instanceof Error ? error.message : 'Embedding generation failed');
+    }
   }
 
   // Helper method for preference conversion
-  private convertInteractionsToPreferences(interactions: UserInteractions): UserPreferences {
+  private convertInteractionsToPreferences(userId: string, interactions: UserInteractions): UserPreferences {
     const preferenceWeights = this.computePreferenceWeights(interactions);
     
     return {
+      userId,
       categoryWeights: preferenceWeights.categories,
       brandPreferences: preferenceWeights.brands,
       stylePreferences: preferenceWeights.styles,
@@ -337,10 +367,6 @@ export class VectorSearchDomainService {
         views: preferenceWeights.views,
         purchases: preferenceWeights.purchases,
         searches: preferenceWeights.searches
-      },
-      embedding: {
-        values: new Array(1536).fill(0),
-        model: 'text-embedding-ada-002'
       }
     };
   }
@@ -417,9 +443,9 @@ export class VectorSearchDomainService {
       if (!generatedEmbeddingResult.isSuccess) {
         return Result.failure(`Failed to generate user preferences: ${generatedEmbeddingResult.error}`);
       }
-      userEmbedding = generatedEmbeddingResult.data;
+      userEmbedding = generatedEmbeddingResult.value;
     } else {
-      userEmbedding = userEmbeddingResult.data;
+      userEmbedding = userEmbeddingResult.value;
     }
 
     // Find recommended listings
@@ -434,9 +460,9 @@ export class VectorSearchDomainService {
     }
 
     context.success = true;
-    context.resultCount = recommendations.data.length;
+    context.resultCount = recommendations.value.length;
 
-    return Result.success(recommendations.data);
+    return Result.success(recommendations.value);
   }
 
   private async performPreferenceUpdate(userId: string, interactions: UserInteractions, context: VectorSearchContext): Promise<Result<UserPreferences>> {
