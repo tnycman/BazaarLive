@@ -106,6 +106,7 @@ export default function WomenPage() {
             appliedFiltersCount={appliedFiltersCount}
             onSortChange={handleSortChange}
             currentSort={sortBy}
+            category="women"
           />
         </div>
       </div>
