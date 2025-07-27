@@ -173,13 +173,14 @@ export class DatabaseStorage implements IStorage {
     }
     
     if (search) {
-      conditions.push(
-        or(
-          ilike(listings.title, `%${search}%`),
-          ilike(listings.description, `%${search}%`),
-          ilike(listings.brand, `%${search}%`)
-        )
+      const searchCondition = or(
+        ilike(listings.title, `%${search}%`),
+        ilike(listings.description, `%${search}%`),
+        ilike(listings.brand, `%${search}%`)
       );
+      if (searchCondition) {
+        conditions.push(searchCondition);
+      }
     }
     
     if (sellerId) {
@@ -366,6 +367,8 @@ export class DatabaseStorage implements IStorage {
         followingCount: users.followingCount,
         listingsCount: users.listingsCount,
         salesCount: users.salesCount,
+        role: users.role,
+        analyticsAccess: users.analyticsAccess,
         createdAt: users.createdAt,
         updatedAt: users.updatedAt,
       })
@@ -389,6 +392,8 @@ export class DatabaseStorage implements IStorage {
         followingCount: users.followingCount,
         listingsCount: users.listingsCount,
         salesCount: users.salesCount,
+        role: users.role,
+        analyticsAccess: users.analyticsAccess,
         createdAt: users.createdAt,
         updatedAt: users.updatedAt,
       })
