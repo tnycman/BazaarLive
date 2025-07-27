@@ -79,6 +79,7 @@ export default function MenPage() {
           onFilterChange={handleFilterChange}
           appliedFiltersCount={appliedFiltersCount}
           isLoading={isLoading}
+          category="men"
         />
 
         {/* Main Content Area */}

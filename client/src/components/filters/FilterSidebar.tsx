@@ -20,13 +20,14 @@ interface FilterSidebarProps {
   onFilterChange: (criteria: FilterCriteriaType) => void;
   appliedFiltersCount: number;
   isLoading?: boolean;
+  category?: string;
 }
 
 interface CollapsibleState {
   [key: string]: boolean;
 }
 
-export function FilterSidebar({ onFilterChange, appliedFiltersCount, isLoading = false }: FilterSidebarProps) {
+export function FilterSidebar({ onFilterChange, appliedFiltersCount, isLoading = false, category = 'women' }: FilterSidebarProps) {
   const [criteria, setCriteria] = useState<FilterCriteriaType>({});
   const [collapsedSections, setCollapsedSections] = useState<CollapsibleState>(() => {
     const initialState: CollapsibleState = {};
@@ -292,43 +293,43 @@ export function FilterSidebar({ onFilterChange, appliedFiltersCount, isLoading =
 
         <Separator />
 
-        {/* Categories Section - Poshmark Style */}
+        {/* Categories Section - Dynamic by Category */}
         <Collapsible open={collapsedSections.categories}>
           {renderSectionHeader('CATEGORIES', 'categories')}
           <CollapsibleContent className="pt-2">
-            {/* Women Expandable Section */}
+            {/* Main Category Expandable Section */}
             <Collapsible defaultOpen={true}>
               <CollapsibleTrigger className="flex items-center justify-between w-full py-2 text-left group">
-                <span className="font-medium text-purple-600 dark:text-purple-400 text-sm">Women</span>
+                <span className="font-medium text-purple-600 dark:text-purple-400 text-sm capitalize">{category}</span>
                 <ChevronDownIcon className="w-4 h-4 text-gray-500 group-data-[state=open]:rotate-180 transition-transform" />
               </CollapsibleTrigger>
               <CollapsibleContent className="ml-2 space-y-1 mt-1">
-                {FILTER_OPTIONS.categories.women.map((category) => (
-                  <div key={category.id} className="flex items-center space-x-2 py-1">
+                {FILTER_OPTIONS.categories[category as keyof typeof FILTER_OPTIONS.categories]?.map((categoryItem: any) => (
+                  <div key={categoryItem.id} className="flex items-center space-x-2 py-1">
                     <Checkbox
-                      id={`categories-${category.id}`}
-                      checked={(criteria.categories as string[])?.includes(category.id) || false}
-                      onCheckedChange={() => toggleArrayFilter('categories', category.id)}
+                      id={`categories-${categoryItem.id}`}
+                      checked={(criteria.categories as string[])?.includes(categoryItem.id) || false}
+                      onCheckedChange={() => toggleArrayFilter('categories', categoryItem.id)}
                       className="h-4 w-4"
-                      data-testid={`checkbox-categories-${category.id}`}
+                      data-testid={`checkbox-categories-${categoryItem.id}`}
                     />
                     <label
-                      htmlFor={`categories-${category.id}`}
+                      htmlFor={`categories-${categoryItem.id}`}
                       className="text-sm text-gray-700 dark:text-gray-300 flex-1 cursor-pointer flex items-center justify-between hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
                     >
-                      <span>{category.name}</span>
-                      {category.count && (
-                        <span className="text-xs text-gray-500">{category.count.toLocaleString()}</span>
+                      <span>{categoryItem.name}</span>
+                      {categoryItem.count && (
+                        <span className="text-xs text-gray-500">{categoryItem.count.toLocaleString()}</span>
                       )}
                     </label>
                   </div>
-                ))}
+                )) || []}
               </CollapsibleContent>
             </Collapsible>
             
             {/* Other Category Groups */}
             <div className="mt-3 space-y-1">
-              {['Men', 'Kids', 'Home', 'Pets', 'Electronics'].map((categoryGroup) => (
+              {['Women', 'Men', 'Kids', 'Home', 'Pets', 'Electronics'].filter(cat => cat.toLowerCase() !== category.toLowerCase()).map((categoryGroup) => (
                 <div key={categoryGroup} className="py-2">
                   <span className="text-sm text-gray-700 dark:text-gray-300 cursor-pointer hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
                     {categoryGroup}
