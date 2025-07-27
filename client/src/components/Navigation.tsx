@@ -443,7 +443,19 @@ export function Navigation() {
             </Button>
           </Link>
 
-          {Object.keys(navigationData).map((category) => (
+          {/* Women - Direct Link */}
+          <Link href="/fashion/women">
+            <Button 
+              variant="ghost" 
+              className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium"
+              data-testid="nav-women"
+            >
+              Women
+            </Button>
+          </Link>
+
+          {/* Other categories with dropdowns */}
+          {Object.keys(navigationData).filter(category => category !== 'Women').map((category) => (
             <div 
               key={category}
               className="relative"
