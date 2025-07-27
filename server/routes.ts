@@ -4,6 +4,7 @@ import { storage } from "./storage";
 import { setupAuth, isAuthenticated } from "./replitAuth";
 import { marketplaceRouter } from "./routes/marketplace";
 import { analyticsRouter } from "./routes/analytics";
+import vectorSearchRouter from "./routes/vector-search";
 import { 
   insertListingSchema, 
   insertCommentSchema, 
@@ -437,6 +438,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
   
   // Analytics routes
   app.use('/api/analytics', analyticsRouter);
+  
+  // Vector search routes
+  app.use('/api/vector-search', vectorSearchRouter);
 
   const httpServer = createServer(app);
   return httpServer;
