@@ -83,20 +83,28 @@ export default function MenPage() {
 
         {/* Main Content Area */}
         <div className="flex-1 flex flex-col min-h-screen">
-          {/* Search Bar */}
-          <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-4">
-            <form onSubmit={handleSearchSubmit} className="max-w-2xl">
-              <div className="relative">
-                <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                <Input
-                  placeholder="Search brands..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 h-10 text-sm bg-gray-50 dark:bg-gray-700 border-gray-200 dark:border-gray-600"
-                  data-testid="input-main-search"
-                />
-              </div>
-            </form>
+          {/* Page Header */}
+          <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-6">
+            <div className="max-w-2xl">
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                Men's Fashion
+              </h1>
+              <p className="text-gray-600 dark:text-gray-400 mb-4">
+                Discover the latest in men's clothing, shoes, and accessories
+              </p>
+              <form onSubmit={handleSearchSubmit}>
+                <div className="relative">
+                  <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                  <Input
+                    placeholder="Search men's fashion..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="pl-10 h-10 text-sm bg-gray-50 dark:bg-gray-700 border-gray-200 dark:border-gray-600"
+                    data-testid="input-men-search"
+                  />
+                </div>
+              </form>
+            </div>
           </div>
 
           {/* Product Grid */}
