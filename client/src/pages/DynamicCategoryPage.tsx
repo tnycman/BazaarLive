@@ -76,7 +76,7 @@ export default function DynamicCategoryPage({ vertical = 'fashion', category = '
     // Update filter criteria in service state first
     filterService.updateCriteria({
       searchQuery,
-      category: selectedCategory === 'all' ? undefined : selectedCategory,
+      categories: selectedCategory === 'all' ? undefined : [selectedCategory],
       ...filterCriteria
     });
     // Then apply filters using the correct single-parameter signature

@@ -21,7 +21,21 @@ function Router() {
 
   return (
     <Switch>
-      {/* Public routes - accessible to all users */}
+      {/* Specific fashion routes - higher priority than dynamic routes */}
+      <Route path="/fashion/women" component={() => {
+        const WomenPageEnterprise = require('@/pages/fashion/WomenPageEnterprise');
+        return <WomenPageEnterprise.default />;
+      }} />
+      <Route path="/fashion/men" component={() => {
+        const MenPageEnterprise = require('@/pages/fashion/MenPageEnterprise');
+        return <MenPageEnterprise.default />;
+      }} />
+      <Route path="/fashion/kids" component={() => {
+        const KidsPageEnterprise = require('@/pages/fashion/KidsPageEnterprise');
+        return <KidsPageEnterprise.default />;
+      }} />
+      
+      {/* Dynamic fashion routes - lower priority fallback */}
       <Route path="/fashion/:category/:subcategory?" component={({ params }) => (
         <DynamicCategoryPage vertical="fashion" category={params?.category} subcategory={params?.subcategory} />
       )} />
