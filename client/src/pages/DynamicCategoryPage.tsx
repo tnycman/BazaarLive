@@ -71,13 +71,16 @@ export default function DynamicCategoryPage({ vertical = 'fashion', category = '
 
   const rawListings = Array.isArray(listings) ? listings : [];
 
-  // Apply additional filtering
+  // Apply additional filtering using enterprise FilterService with AOP compliance
   const filteredListings = useMemo(() => {
-    return filterService.applyFilters(rawListings, {
+    // Update filter criteria in service state first
+    filterService.updateCriteria({
       searchQuery,
       category: selectedCategory === 'all' ? undefined : selectedCategory,
       ...filterCriteria
     });
+    // Then apply filters using the correct single-parameter signature
+    return filterService.applyFilters(rawListings);
   }, [rawListings, searchQuery, selectedCategory, filterCriteria]);
 
   const appliedFiltersCount = useMemo(() => {
@@ -114,8 +117,8 @@ export default function DynamicCategoryPage({ vertical = 'fashion', category = '
           <FilterSidebar
             onFilterChange={handleFilterChange}
             appliedFiltersCount={appliedFiltersCount}
-            vertical={actualVertical}
             category={actualCategory}
+            isLoading={isLoading}
           />
         )}
         

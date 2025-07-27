@@ -1,0 +1,64 @@
+1. FilterService.applyFilters Implementation
+You confirmed:
+
+applyFilters(listings: any[], criteria: FilterCriteriaType): any[] is the correct signature
+
+The current usage in DynamicCategoryPage.tsx is correct.
+
+Any confusion likely arose from an overloaded or legacy method in the service—do NOT change the call site if this is the intended method.
+
+2. FilterSidebar Props
+You confirmed:
+
+The vertical prop does not exist in FilterSidebarProps—must be removed from usage.
+
+Remaining props (onFilterChange, appliedFiltersCount, isLoading, category) are verified and correctly typed.
+
+No prop/interface mismatch after this change.
+
+NEXT STEPS — EXECUTION PLAN
+Leave applyFilters call as-is.
+
+Optional: If overloaded/legacy methods cause developer confusion, add a JSDoc comment at both service signatures explaining which is canonical for external use.
+
+Remove vertical={actualVertical} from <FilterSidebar> in DynamicCategoryPage.tsx.
+
+Leave only supported props, ensure all types are valid.
+
+Inline comment:
+
+tsx
+Copy
+Edit
+// AOP: Removed unsupported 'vertical' prop to maintain strict prop interface compliance.
+Run a full type-check and linter.
+
+Ensure no residual TypeScript or interface errors remain.
+
+Manual smoke test UI preview.
+
+Confirm the error banner is gone and the page renders.
+
+Test any filtering interactions for correct function.
+
+(Optional but recommended):
+
+Audit for duplicate/legacy applyFilters signatures.
+
+If possible, refactor FilterService to expose a single, canonical method and mark legacy methods as deprecated.
+
+CONFIRM BEFORE EXECUTION
+Do not proceed with further changes or refactoring until:
+
+All team members are aware of which applyFilters method is canonical.
+
+Any legacy/overloaded methods are commented for clarity (to avoid future ambiguity).
+
+Please confirm if you want to:
+
+Proceed with this exact plan,
+
+Or require further interface/usage audit (for example, system-wide search for incorrect applyFilters usage or improper props to FilterSidebar).
+
+Once you confirm, you are clear to execute the above steps.
+Log all changes, and do not merge until code review and preview are 100% clean.
