@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { setupAuth, isAuthenticated } from "./replitAuth";
+import { setupEnterpriseAuth, isEnterpriseAuthenticated } from "./auth/EnterpriseAuthSetup";
 import { marketplaceRouter } from "./routes/marketplace";
 import { analyticsRouter } from "./routes/analytics";
 import vectorSearchRouter from "./routes/vector-search";
@@ -15,11 +15,15 @@ import {
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Auth middleware
-  await setupAuth(app);
+  // Enterprise Auth middleware
+  const authSetupResult = await setupEnterpriseAuth(app);
+  if (authSetupResult.isError()) {
+    console.error('[ROUTES] Enterprise auth setup failed:', authSetupResult.error);
+    throw new Error(`Authentication setup failed: ${authSetupResult.error.message}`);
+  }
 
   // Auth routes
-  app.get('/api/auth/user', isAuthenticated, async (req: any, res) => {
+  app.get('/api/auth/user', isEnterpriseAuthenticated, async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const user = await storage.getUser(userId);
@@ -31,7 +35,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // User routes
-  app.put('/api/users/profile', isAuthenticated, async (req: any, res) => {
+  app.put('/api/users/profile', isEnterpriseAuthenticated, async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const updates = req.body;
@@ -69,7 +73,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Listing routes
-  app.post('/api/listings', isAuthenticated, async (req: any, res) => {
+  app.post('/api/listings', isEnterpriseAuthenticated, async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const listingData = insertListingSchema.parse(req.body);
@@ -119,7 +123,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.put('/api/listings/:id', isAuthenticated, async (req: any, res) => {
+  app.put('/api/listings/:id', isEnterpriseAuthenticated, async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const { id } = req.params;
@@ -139,7 +143,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.delete('/api/listings/:id', isAuthenticated, async (req: any, res) => {
+  app.delete('/api/listings/:id', isEnterpriseAuthenticated, async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const { id } = req.params;
@@ -159,7 +163,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Follow routes
-  app.post('/api/follow', isAuthenticated, async (req: any, res) => {
+  app.post('/api/follow', isEnterpriseAuthenticated, async (req: any, res) => {
     try {
       const followerId = req.user.claims.sub;
       const { followingId } = insertFollowSchema.parse({ ...req.body, followerId });
@@ -179,7 +183,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.delete('/api/follow/:followingId', isAuthenticated, async (req: any, res) => {
+  app.delete('/api/follow/:followingId', isEnterpriseAuthenticated, async (req: any, res) => {
     try {
       const followerId = req.user.claims.sub;
       const { followingId } = req.params;
@@ -214,7 +218,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get('/api/follow/status/:followingId', isAuthenticated, async (req: any, res) => {
+  app.get('/api/follow/status/:followingId', isEnterpriseAuthenticated, async (req: any, res) => {
     try {
       const followerId = req.user.claims.sub;
       const { followingId } = req.params;
@@ -227,7 +231,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Like routes
-  app.post('/api/likes', isAuthenticated, async (req: any, res) => {
+  app.post('/api/likes', isEnterpriseAuthenticated, async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const { listingId } = insertLikeSchema.parse({ ...req.body, userId });
@@ -243,7 +247,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.delete('/api/likes/:listingId', isAuthenticated, async (req: any, res) => {
+  app.delete('/api/likes/:listingId', isEnterpriseAuthenticated, async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const { listingId } = req.params;
@@ -256,7 +260,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get('/api/likes/:listingId/status', isAuthenticated, async (req: any, res) => {
+  app.get('/api/likes/:listingId/status', isEnterpriseAuthenticated, async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const { listingId } = req.params;
@@ -280,7 +284,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Comment routes
-  app.post('/api/comments', isAuthenticated, async (req: any, res) => {
+  app.post('/api/comments', isEnterpriseAuthenticated, async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const commentData = insertCommentSchema.parse({ ...req.body, userId });
@@ -307,7 +311,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.delete('/api/comments/:id', isAuthenticated, async (req: any, res) => {
+  app.delete('/api/comments/:id', isEnterpriseAuthenticated, async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const { id } = req.params;
@@ -322,7 +326,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Message routes
-  app.post('/api/messages', isAuthenticated, async (req: any, res) => {
+  app.post('/api/messages', isEnterpriseAuthenticated, async (req: any, res) => {
     try {
       const senderId = req.user.claims.sub;
       const messageData = insertMessageSchema.parse({ ...req.body, senderId });
@@ -338,7 +342,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get('/api/conversations/:partnerId', isAuthenticated, async (req: any, res) => {
+  app.get('/api/conversations/:partnerId', isEnterpriseAuthenticated, async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const { partnerId } = req.params;
@@ -351,7 +355,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get('/api/conversations', isAuthenticated, async (req: any, res) => {
+  app.get('/api/conversations', isEnterpriseAuthenticated, async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const conversations = await storage.getConversations(userId);
@@ -362,7 +366,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.put('/api/messages/:id/read', isAuthenticated, async (req: any, res) => {
+  app.put('/api/messages/:id/read', isEnterpriseAuthenticated, async (req: any, res) => {
     try {
       const { id } = req.params;
       await storage.markMessageAsRead(id);
@@ -374,7 +378,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Feed routes
-  app.get('/api/feed', isAuthenticated, async (req: any, res) => {
+  app.get('/api/feed', isEnterpriseAuthenticated, async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const feedData = await storage.getFeedData(userId);
@@ -396,7 +400,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Transaction routes
-  app.post('/api/transactions', isAuthenticated, async (req: any, res) => {
+  app.post('/api/transactions', isEnterpriseAuthenticated, async (req: any, res) => {
     try {
       const buyerId = req.user.claims.sub;
       const transactionData = { ...req.body, buyerId };
@@ -409,7 +413,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get('/api/transactions', isAuthenticated, async (req: any, res) => {
+  app.get('/api/transactions', isEnterpriseAuthenticated, async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const transactions = await storage.getTransactions(userId);
@@ -420,7 +424,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.put('/api/transactions/:id/status', isAuthenticated, async (req: any, res) => {
+  app.put('/api/transactions/:id/status', isEnterpriseAuthenticated, async (req: any, res) => {
     try {
       const { id } = req.params;
       const { status } = req.body;
