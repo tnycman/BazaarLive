@@ -41,6 +41,28 @@ export const FILTER_OPTIONS = {
       { id: 'hats', name: 'Hats', count: 734 },
       { id: 'sunglasses', name: 'Sunglasses', count: 945 },
       { id: 'grooming', name: 'Grooming', count: 567 }
+    ],
+    kids: [
+      { id: 'accessories', name: 'Accessories', count: 2134 },
+      { id: 'bags', name: 'Bags', count: 1567 },
+      { id: 'bottoms', name: 'Bottoms', count: 3456 },
+      { id: 'dresses', name: 'Dresses', count: 2890 },
+      { id: 'jackets_coats', name: 'Jackets & Coats', count: 1845 },
+      { id: 'matching_sets', name: 'Matching Sets', count: 1234 },
+      { id: 'one_pieces', name: 'One Pieces', count: 987 },
+      { id: 'pajamas', name: 'Pajamas', count: 1456 },
+      { id: 'shirts_tops', name: 'Shirts & Tops', count: 3678 },
+      { id: 'shoes', name: 'Shoes', count: 2890 },
+      { id: 'swim', name: 'Swim', count: 765 },
+      { id: 'toys', name: 'Toys', count: 4567 },
+      { id: 'baby_walker', name: 'Baby & Walker', count: 1123 },
+      { id: 'boots', name: 'Boots', count: 567 },
+      { id: 'dress_shoes', name: 'Dress Shoes', count: 345 },
+      { id: 'moccasins', name: 'Moccasins', count: 234 },
+      { id: 'sandals', name: 'Sandals', count: 789 },
+      { id: 'sneakers', name: 'Sneakers', count: 1890 },
+      { id: 'hair_accessories', name: 'Hair Accessories', count: 456 },
+      { id: 'jewelry', name: 'Jewelry', count: 234 }
     ]
   },
   
