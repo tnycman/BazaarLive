@@ -346,7 +346,7 @@ export function FilterSidebar({ onFilterChange, appliedFiltersCount, isLoading =
 
                 return (
                   <div key={categoryGroup} className="py-2">
-                    {(categoryGroup.toLowerCase() === 'women' || categoryGroup.toLowerCase() === 'men') ? (
+                    {(categoryGroup.toLowerCase() === 'women' || categoryGroup.toLowerCase() === 'men' || categoryGroup.toLowerCase() === 'kids') ? (
                       <Link href={getRoute(categoryGroup)}>
                         <span className="text-sm text-gray-700 dark:text-gray-300 cursor-pointer hover:text-purple-600 dark:hover:text-purple-400 transition-colors">
                           {categoryGroup}

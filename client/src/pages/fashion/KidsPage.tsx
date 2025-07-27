@@ -1,196 +1,124 @@
-import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { Header } from "@/components/Header";
-import { Navigation } from "@/components/Navigation";
-import { ListingCard } from "@/components/ListingCard";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { SearchIcon, FilterIcon, GridIcon, ListIcon, SlidersIcon } from "lucide-react";
-import { Link } from "wouter";
-
-const kidsCategories = [
-  { id: 'all', name: 'All Kids', count: '12K+' },
-  { id: 'accessories', name: 'Accessories', count: '2K+' },
-  { id: 'clothing', name: 'Clothing', count: '6K+' },
-  { id: 'shoes', name: 'Shoes', count: '3K+' },
-  { id: 'toys', name: 'Toys', count: '4K+' },
-  { id: 'trending', name: 'Trending Styles', count: '800+' }
-];
-
-const sortOptions = [
-  { value: 'newest', label: 'Newest First' },
-  { value: 'price_low', label: 'Price: Low to High' },
-  { value: 'price_high', label: 'Price: High to Low' },
-  { value: 'most_liked', label: 'Most Liked' },
-  { value: 'trending', label: 'Trending' }
-];
+import { useState, useCallback } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { Header } from '@/components/Header';
+import { Navigation } from '@/components/Navigation';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { SearchIcon } from 'lucide-react';
+import { FilterSidebar } from '@/components/filters/FilterSidebar';
+import { ProductGrid } from '@/components/filters/ProductGrid';
+import { filterService, type FilterCriteriaType } from '@/services/filtering/FilterService';
 
 export default function KidsPage() {
-  const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [sortBy, setSortBy] = useState('newest');
-  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
-  const [showFilters, setShowFilters] = useState(false);
+  const [sortBy, setSortBy] = useState('just_shared');
+  const [filterCriteria, setFilterCriteria] = useState<FilterCriteriaType>({});
 
+  // Fetch kids' listings
   const { data: listings, isLoading } = useQuery({
-    queryKey: ["/api/listings", { 
-      category: 'fashion',
-      subcategory: selectedCategory === 'all' ? undefined : selectedCategory,
-      search: searchQuery || undefined,
-      limit: 50 
-    }],
+    queryKey: ['/api/listings', 'fashion', 'kids', searchQuery, sortBy],
+    queryFn: async () => {
+      const params = new URLSearchParams();
+      params.append('category', 'fashion');
+      params.append('subcategory', 'kids');
+      if (searchQuery) params.append('search', searchQuery);
+      if (sortBy) params.append('sortBy', sortBy);
+      params.append('limit', '100');
+      
+      const response = await fetch(`/api/listings?${params.toString()}`);
+      if (!response.ok) throw new Error('Failed to fetch listings');
+      return response.json();
+    }
   });
 
-  const filteredListings = Array.isArray(listings) ? listings : [];
+  const rawListings = Array.isArray(listings) ? listings : [];
+
+  // Apply filters using the FilterService
+  const filteredListings = filterService.applyFilters(rawListings.filter(listing => {
+    // Additional search query filtering
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      return (
+        listing.title?.toLowerCase().includes(query) ||
+        listing.description?.toLowerCase().includes(query) ||
+        listing.brand?.toLowerCase().includes(query) ||
+        listing.category?.toLowerCase().includes(query)
+      );
+    }
+    return true;
+  }));
+
+  const appliedFiltersCount = filterService.getAppliedFiltersCount();
+
+  // Handle filter changes
+  const handleFilterChange = useCallback((criteria: FilterCriteriaType) => {
+    filterService.updateCriteria(criteria);
+    setFilterCriteria(criteria);
+  }, []);
+
+  // Handle sort changes
+  const handleSortChange = useCallback((newSortBy: string) => {
+    setSortBy(newSortBy);
+    filterService.updateCriteria({ sortBy: newSortBy as any });
+  }, []);
+
+  // Handle search
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    filterService.updateCriteria({ searchQuery });
+  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-white to-orange-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <Header />
       <Navigation />
       
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Header Section */}
-        <div className="mb-8">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2" data-testid="text-kids-title">
-                Kids' Fashion & Toys
+      <div className="flex">
+        {/* Left Sidebar - Filters */}
+        <FilterSidebar
+          onFilterChange={handleFilterChange}
+          appliedFiltersCount={appliedFiltersCount}
+          isLoading={isLoading}
+          category="kids"
+        />
+
+        {/* Main Content Area */}
+        <div className="flex-1 flex flex-col min-h-screen">
+          {/* Page Header */}
+          <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-6">
+            <div className="max-w-2xl">
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                Kids' Fashion
               </h1>
-              <p className="text-gray-600 dark:text-gray-400" data-testid="text-kids-subtitle">
+              <p className="text-gray-600 dark:text-gray-400 mb-4">
                 Discover clothes, shoes, toys and accessories for children of all ages
               </p>
-            </div>
-            
-            <div className="mt-4 lg:mt-0 flex items-center space-x-3">
-              <Button
-                variant={viewMode === 'grid' ? 'default' : 'outline'}
-                size="icon"
-                onClick={() => setViewMode('grid')}
-                data-testid="button-grid-view"
-              >
-                <GridIcon className="w-4 h-4" />
-              </Button>
-              <Button
-                variant={viewMode === 'list' ? 'default' : 'outline'}
-                size="icon"
-                onClick={() => setViewMode('list')}
-                data-testid="button-list-view"
-              >
-                <ListIcon className="w-4 h-4" />
-              </Button>
+              <form onSubmit={handleSearchSubmit}>
+                <div className="relative">
+                  <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                  <Input
+                    placeholder="Search kids' fashion..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="pl-10 h-10 text-sm bg-gray-50 dark:bg-gray-700 border-gray-200 dark:border-gray-600"
+                    data-testid="input-kids-search"
+                  />
+                </div>
+              </form>
             </div>
           </div>
 
-          {/* Search and Filters */}
-          <Card className="mb-6" data-testid="card-search-filters">
-            <CardContent className="p-4">
-              <div className="flex flex-col lg:flex-row gap-4">
-                <div className="flex-1">
-                  <div className="relative">
-                    <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                    <Input
-                      placeholder="Search kids' items..."
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      className="pl-10"
-                      data-testid="input-search"
-                    />
-                  </div>
-                </div>
-                <div className="flex gap-3">
-                  <Select value={sortBy} onValueChange={setSortBy}>
-                    <SelectTrigger className="w-[180px]" data-testid="select-sort">
-                      <SelectValue placeholder="Sort by" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {sortOptions.map((option) => (
-                        <SelectItem key={option.value} value={option.value}>
-                          {option.label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <Button
-                    variant="outline"
-                    onClick={() => setShowFilters(!showFilters)}
-                    data-testid="button-filters"
-                  >
-                    <FilterIcon className="w-4 h-4 mr-2" />
-                    Filters
-                  </Button>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Category Filters */}
-          <div className="flex flex-wrap gap-2 mb-6">
-            {kidsCategories.map((category) => (
-              <Button
-                key={category.id}
-                variant={selectedCategory === category.id ? 'default' : 'outline'}
-                size="sm"
-                onClick={() => setSelectedCategory(category.id)}
-                className="flex items-center gap-2"
-                data-testid={`button-category-${category.id}`}
-              >
-                {category.name}
-                <Badge variant="secondary" className="text-xs">
-                  {category.count}
-                </Badge>
-              </Button>
-            ))}
-          </div>
+          {/* Product Grid */}
+          <ProductGrid
+            listings={filteredListings}
+            isLoading={isLoading}
+            appliedFiltersCount={appliedFiltersCount}
+            onSortChange={handleSortChange}
+            currentSort={sortBy}
+            category="kids"
+          />
         </div>
-
-        {/* Listings Grid */}
-        {isLoading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {Array.from({ length: 12 }).map((_, i) => (
-              <div key={i} className="animate-pulse">
-                <div className="bg-gray-200 dark:bg-gray-700 aspect-[3/4] rounded-lg mb-4"></div>
-                <div className="space-y-2">
-                  <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded"></div>
-                  <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-2/3"></div>
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : filteredListings.length > 0 ? (
-          <div className={`grid ${viewMode === 'grid' 
-            ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' 
-            : 'grid-cols-1'} gap-6`}>
-            {filteredListings.map((listing: any) => (
-              <ListingCard
-                key={listing.id}
-                listing={listing}
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-12">
-            <div className="max-w-md mx-auto">
-              <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center">
-                <SlidersIcon className="w-8 h-8 text-gray-400" />
-              </div>
-              <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
-                No items found
-              </h3>
-              <p className="text-gray-500 dark:text-gray-400 mb-4">
-                Try adjusting your search or filters to find what you're looking for.
-              </p>
-              <Button asChild>
-                <Link href="/create-listing">
-                  List an Item
-                </Link>
-              </Button>
-            </div>
-          </div>
-        )}
-      </main>
+      </div>
     </div>
   );
 }

@@ -216,6 +216,13 @@ export function ProductGrid({
           gradient: 'from-blue-100 to-indigo-100 dark:from-blue-900/20 dark:to-indigo-900/20',
           colors: ['from-blue-200 to-indigo-200', 'from-slate-200 to-gray-200', 'from-green-200 to-emerald-200']
         };
+      case 'kids':
+        return {
+          title: 'Kids',
+          subtitle: 'Fun fashion for little ones',
+          gradient: 'from-yellow-100 to-orange-100 dark:from-yellow-900/20 dark:to-orange-900/20',
+          colors: ['from-yellow-200 to-orange-200', 'from-green-200 to-lime-200', 'from-cyan-200 to-blue-200']
+        };
       case 'women':
       default:
         return {
