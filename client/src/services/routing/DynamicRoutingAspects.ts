@@ -501,6 +501,8 @@ export class RouteSecurityAspect {
 
   /**
    * Sanitize route parameters to prevent XSS and injection attacks
+   * AOP: Returns RouteParameters | null where null indicates complete sanitization failure
+   * Individual properties use string | undefined as per Zod schema requirements
    */
   static sanitizeRouteParameters(params: Partial<RouteParameters>): RouteParameters | null {
     const startTime = Date.now();
@@ -508,7 +510,7 @@ export class RouteSecurityAspect {
     try {
       const sanitized: Partial<RouteParameters> = {};
 
-      // Sanitize vertical
+      // AOP: Sanitize vertical - required field, sanitization failure means complete failure
       if (params.vertical) {
         sanitized.vertical = this.sanitizeString(params.vertical);
         if (!sanitized.vertical) {
@@ -518,7 +520,7 @@ export class RouteSecurityAspect {
         }
       }
 
-      // Sanitize category
+      // AOP: Sanitize category - required field, sanitization failure means complete failure
       if (params.category) {
         sanitized.category = this.sanitizeString(params.category);
         if (!sanitized.category) {
@@ -528,18 +530,20 @@ export class RouteSecurityAspect {
         }
       }
 
-      // Sanitize subcategory
+      // AOP: Sanitize subcategory - optional field, undefined result is acceptable
       if (params.subcategory) {
         sanitized.subcategory = this.sanitizeString(params.subcategory);
-        if (!sanitized.subcategory) {
-          RouteLoggingAspect.logError('sanitization_failed', 
-            new Error('Invalid subcategory after sanitization'), { original: params.subcategory });
-          return null;
+        // Note: For optional subcategory, undefined is acceptable and doesn't cause failure
+        if (sanitized.subcategory === undefined) {
+          RouteLoggingAspect.logError('sanitization_warning', 
+            new Error('Subcategory sanitization resulted in undefined'), { original: params.subcategory });
+          // Continue processing - undefined subcategory is valid for optional field
         }
       }
 
       RouteLoggingAspect.logPerformanceMetrics('route_sanitization', Date.now() - startTime);
 
+      // AOP: Only return complete RouteParameters if required fields (vertical, category) are present
       return sanitized.vertical && sanitized.category ? sanitized as RouteParameters : null;
     } catch (error) {
       RouteLoggingAspect.logError('route_sanitization', error as Error, { params });
@@ -579,9 +583,12 @@ export class RouteSecurityAspect {
 
   /**
    * Sanitize individual string parameter
+   * AOP: Returns string | undefined for strict type compatibility with Zod schema
+   * Ensures no null values are returned to maintain type safety
    */
-  private static sanitizeString(input: string): string | null {
-    if (typeof input !== 'string') return null;
+  private static sanitizeString(input: string): string | undefined {
+    // AOP: Return undefined (not null) for invalid input types to match Zod optional schema
+    if (typeof input !== 'string') return undefined;
 
     // Remove potentially dangerous characters
     const sanitized = input
@@ -593,9 +600,9 @@ export class RouteSecurityAspect {
       .replace(/-+/g, '-') // Collapse multiple hyphens
       .replace(/^-+|-+$/g, ''); // Remove leading/trailing hyphens
 
-    // Validate length and content
+    // AOP: Return undefined (not null) for invalid sanitized results to maintain type consistency
     if (sanitized.length === 0 || sanitized.length > 50) {
-      return null;
+      return undefined;
     }
 
     return sanitized;
