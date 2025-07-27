@@ -476,10 +476,10 @@ export function Navigation() {
               {/* Dropdown Menu */}
               {activeDropdown === category && (
                 <div className="fixed top-32 left-0 w-screen bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-xl z-40">
-                  <div className="w-full px-8 py-8">
+                  <div className="w-full px-0 py-8">
                     {category === 'Brands' ? (
                       // Special layout for Brands dropdown
-                      <div className="grid grid-cols-5 gap-8">
+                      <div className="grid grid-cols-5 gap-8 px-8">
                         <div>
                           <h4 className="text-xs font-bold text-purple-600 uppercase tracking-wide mb-3">WOMEN'S BRANDS</h4>
                           <ul className="space-y-2">
@@ -562,7 +562,7 @@ export function Navigation() {
                       </div>
                     ) : category === 'Sports & Outdoors' ? (
                       // Special layout for Sports & Outdoors dropdown
-                      <div className="grid grid-cols-4 gap-8">
+                      <div className="grid grid-cols-4 gap-8 px-8">
                         <div>
                           <h4 className="text-xs font-bold text-purple-600 uppercase tracking-wide mb-3">SPORTS</h4>
                           <ul className="space-y-2">
@@ -629,7 +629,7 @@ export function Navigation() {
                       </div>
                     ) : (
                       // Regular layout for other dropdowns
-                      <div className="grid grid-cols-4 gap-8">
+                      <div className="grid grid-cols-4 gap-8 px-8">
                         {navigationData[category as keyof typeof navigationData].sections.map((section, index) => (
                           <div key={index} className="space-y-3">
                             <h3 className="text-xs font-bold text-purple-600 uppercase tracking-wide">
