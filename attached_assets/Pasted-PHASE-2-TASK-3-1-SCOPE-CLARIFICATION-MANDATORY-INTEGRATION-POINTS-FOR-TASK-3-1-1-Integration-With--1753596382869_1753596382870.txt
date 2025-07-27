@@ -1,0 +1,57 @@
+PHASE 2 TASK 3.1 SCOPE CLARIFICATION
+MANDATORY INTEGRATION POINTS FOR TASK 3.1:
+1. Integration With Existing Auth Middleware Layer
+Integrate the new AuthenticationMiddlewareIntegration into all critical Express authentication middleware layers.
+
+Location: EnterpriseAuthSetup.ts (or equivalent main auth middleware file)
+
+Goal: Every authentication request (session, token, etc.) must pass through the new AOP-enabled middleware, invoking all registered aspects via the AuthenticationAspectManager.
+
+Remove or bypass any legacy middleware not using aspect orchestration.
+
+2. All Authentication Routes
+Wrap all routes in server/routes.ts (or equivalent) that require authentication with the new AOP-enabled middleware.
+
+Goal: No protected route should bypass aspect-enabled checks, logging, validation, performance, or security aspects.
+
+If any routes use Passport.js directly, wrap the Passport callbacks in the new aspect-enabled middleware as well.
+
+3. Passport Strategy Setup (if used)
+Integrate the AOP middleware at the point where Passport.js strategies are initialized or invoked.
+
+Goal: Aspect management and error handling must apply to all authentication strategy executions, not just route-level guards.
+
+4. New AOP-Enabled Middleware Functions
+Provide a standard, reusable factory for generating AOP-enabled Express middleware for any new or custom authentication flows.
+
+Usage: Team members should use only these new middleware wrappers when creating future auth endpoints.
+
+DELIVERABLES REQUIRED FOR TASK 3.1
+File/Module	Action
+EnterpriseAuthSetup.ts	Replace/upgrade all main auth middleware to use AOP version
+server/routes.ts	Ensure all protected routes use AOP-enabled middleware
+EnterpriseAuthenticationIntegration.ts	Wrap/upgrade Passport or any other strategy entry points
+AuthenticationMiddlewareIntegration.ts	Factory method for AOP-enabled middleware
+Docs/README	Usage instructions for team
+
+REQUIRED COMPLETION CRITERIA
+No authentication code path bypasses AOP middleware and aspect management.
+
+Legacy or direct Express/Passport middleware is deprecated or migrated.
+
+All routes, endpoints, and authentication strategies are aspect-enabled.
+
+Code is fully type-checked and documented.
+
+Full regression and integration tests passing.
+
+NEXT STEP
+Proceed to:
+
+Integrate the AOP-enabled middleware into all relevant points as above.
+
+Remove or mark as deprecated any legacy authentication middlewares not using the aspect manager.
+
+Deliver code, inline documentation, and a short developer usage guide.
+
+Log completion and request approval before merging or rolling out to production.

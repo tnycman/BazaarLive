@@ -54,23 +54,23 @@ export interface MiddlewareIntegrationConfiguration {
 }
 
 export interface MiddlewareIntegrationResult {
-  readonly success: boolean;
+  success: boolean;
   readonly orchestrationResults: {
     before?: OrchestrationResult;
     after?: OrchestrationResult;
     error?: OrchestrationResult;
     finally?: OrchestrationResult;
   };
-  readonly totalDuration: number;
+  totalDuration: number;
   readonly errors: AspectError[];
-  readonly middlewareExecuted: boolean;
-  readonly aspectsExecuted: number;
+  middlewareExecuted: boolean;
+  aspectsExecuted: number;
 }
 
 // Integration Health Status
 export interface MiddlewareIntegrationHealth {
-  readonly isHealthy: boolean;
-  readonly aspectManager: {
+  isHealthy: boolean;
+  aspectManager: {
     isInitialized: boolean;
     registeredAspects: number;
     activeAspects: number;
@@ -88,15 +88,15 @@ export interface MiddlewareIntegrationHealth {
     failedRequests: number;
     avgProcessingTime: number;
   };
-  readonly lastHealthCheck: Date;
+  lastHealthCheck: Date;
 }
 
 // Integration Statistics
 export interface MiddlewareIntegrationStatistics {
-  readonly totalRequests: number;
-  readonly successfulRequests: number;
-  readonly failedRequests: number;
-  readonly avgProcessingTime: number;
+  totalRequests: number;
+  successfulRequests: number;
+  failedRequests: number;
+  avgProcessingTime: number;
   readonly aspectExecutionStats: {
     totalExecutions: number;
     successfulExecutions: number;
@@ -459,7 +459,7 @@ export class AuthenticationMiddlewareIntegration {
     startTime: number
   ): MiddlewareIntegrationContext {
     return {
-      operationId: `middleware:${middlewareName}`,
+      operation: `middleware:${middlewareName}`,
       userId: (req as any).user?.id || 'anonymous',
       sessionId: (req as any).sessionID || 'no-session',
       timestamp: new Date(),
@@ -494,6 +494,14 @@ export class AuthenticationMiddlewareIntegration {
       target: middlewareFunction,
       args,
       context,
+      getTarget: () => middlewareFunction,
+      getMethod: () => middlewareFunction.name || 'anonymous',
+      getArgs: () => args,
+      setArgs: (newArgs: [Request, Response, NextFunction]) => {
+        args[0] = newArgs[0];
+        args[1] = newArgs[1];
+        args[2] = newArgs[2];
+      },
       proceed: async () => {
         // This would be called by around aspects
         await this.executeMiddlewareDirectly(

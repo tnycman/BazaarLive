@@ -11,7 +11,8 @@ import {
   JoinPoint,
   AspectError
 } from './IAuthenticationAspect';
-import { ValidationResult, ValidationError } from '../domain/AuthenticationStrategy';
+import { ValidationResult } from '../domain/AuthenticationStrategy';
+import { ValidationError } from '../domain/Hostname';
 import { Result } from '../domain/Hostname';
 
 // Security Event Types
