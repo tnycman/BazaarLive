@@ -29,8 +29,8 @@ export interface VectorSearchContext extends AspectContext {
   queryComplexity?: 'simple' | 'complex' | 'batch';
   startTime?: number;
   success?: boolean;
-  cachedResult?: any;
-  result?: any;
+  cachedResult?: SearchResult[] | VectorEmbedding | UserPreferences;
+  result?: SearchResult[] | VectorEmbedding | UserPreferences;
 }
 
 // Aspect Interface for Vector Search
@@ -119,51 +119,378 @@ export class VectorSearchLoggingAspect implements VectorSearchAspect {
   }
 }
 
+
+// Import required types for context
+import { SearchResult, VectorEmbedding, UserPreferences } from '../domain/VectorSearchDomainService';
+
+/**
+ * Performance Metrics Interface
+ */
+interface PerformanceMetrics {
+  latency: number;
+  throughput: number;
+  memoryUsage: number;
+  cpuUsage: number;
+  cacheHitRate: number;
+  queryComplexity: 'simple' | 'complex' | 'batch';
+}
+
+/**
+ * Performance Thresholds Configuration
+ */
+interface PerformanceThresholds {
+  maxSimpleQueryLatency: number; // 100ms
+  maxComplexQueryLatency: number; // 500ms
+  maxBatchQueryLatency: number; // 2000ms
+  minThroughput: number; // queries per second
+  maxMemoryUsage: number; // MB
+  maxCpuUsage: number; // percentage
+}
+
 /**
  * Vector Search Performance Aspect
- * Performance monitoring and optimization for vector operations
+ * Enterprise performance monitoring with comprehensive metrics collection and optimization
  */
 export class VectorSearchPerformanceAspect implements VectorSearchAspect {
   readonly name = 'VectorSearchPerformanceAspect';
   readonly priority = 90;
-
-  private readonly performanceThresholds = {
-    [VectorSearchOperationType.SEMANTIC_SEARCH]: 500, // 500ms
-    [VectorSearchOperationType.SIMILARITY_SEARCH]: 300, // 300ms
-    [VectorSearchOperationType.PREFERENCE_UPDATE]: 200, // 200ms
-    [VectorSearchOperationType.EMBEDDING_GENERATION]: 1000, // 1s
-    [VectorSearchOperationType.RECOMMENDATION_QUERY]: 400, // 400ms
-    [VectorSearchOperationType.BATCH_PROCESSING]: 5000 // 5s
+  
+  private readonly thresholds: PerformanceThresholds = {
+    maxSimpleQueryLatency: 100,
+    maxComplexQueryLatency: 500,
+    maxBatchQueryLatency: 2000,
+    minThroughput: 100,
+    maxMemoryUsage: 512,
+    maxCpuUsage: 80
   };
+  
+  private performanceData: Map<string, PerformanceMetrics> = new Map();
 
   async before(context: VectorSearchContext): Promise<void> {
+    // Start performance timer and memory baseline
     context.startTime = Date.now();
+    context.processingTime = 0;
     
-    // Set query complexity based on operation and parameters
-    if (context.operation === VectorSearchOperationType.BATCH_PROCESSING) {
-      context.queryComplexity = 'batch';
-    } else if (context.query && context.query.length > 100) {
-      context.queryComplexity = 'complex';
-    } else {
-      context.queryComplexity = 'simple';
-    }
+    // Determine query complexity
+    context.queryComplexity = this.determineQueryComplexity(context);
+    
+    // Log performance monitoring start
+    console.log(`[PERFORMANCE-ASPECT] Starting ${context.operation} monitoring:`, {
+      requestId: context.requestId,
+      operation: context.operation,
+      queryComplexity: context.queryComplexity,
+      expectedThreshold: this.getThresholdForComplexity(context.queryComplexity)
+    });
   }
 
   async after(context: VectorSearchContext): Promise<void> {
+    // Calculate processing time
+    const endTime = Date.now();
+    context.processingTime = endTime - (context.startTime || endTime);
+    
+    // Collect performance metrics
+    const metrics: PerformanceMetrics = {
+      latency: context.processingTime,
+      throughput: this.calculateThroughput(context),
+      memoryUsage: this.getMemoryUsage(),
+      cpuUsage: this.getCpuUsage(),
+      cacheHitRate: this.getCacheHitRate(context),
+      queryComplexity: context.queryComplexity || 'simple'
+    };
+    
+    // Store performance data
+    this.performanceData.set(context.requestId, metrics);
+    
+    // Check performance thresholds
+    const thresholdViolations = this.checkThresholds(metrics);
+    
+    if (thresholdViolations.length > 0) {
+      console.warn(`[PERFORMANCE-ASPECT] Threshold violations for ${context.operation}:`, {
+        requestId: context.requestId,
+        violations: thresholdViolations,
+        metrics
+      });
+    }
+    
+    // Log performance completion
+    console.log(`[PERFORMANCE-ASPECT] Completed ${context.operation} monitoring:`, {
+      requestId: context.requestId,
+      metrics,
+      success: context.success
+    });
+  }
+
+  async onError(context: VectorSearchContext, error: Error): Promise<void> {
+    // Calculate processing time for failed operation
     const endTime = Date.now();
     const processingTime = endTime - (context.startTime || endTime);
-    context.processingTime = processingTime;
-
-    const threshold = this.performanceThresholds[context.operation] || 1000;
     
-    if (processingTime > threshold) {
-      console.warn(`[VECTOR-PERFORMANCE] Slow ${context.operation}: ${processingTime}ms (threshold: ${threshold}ms)`, {
-        requestId: context.requestId,
-        operation: context.operation,
-        processingTime,
-        threshold,
-        queryComplexity: context.queryComplexity,
-        resultCount: context.resultCount
+    // Performance impact analysis for errors
+    const errorMetrics = {
+      latency: processingTime,
+      operation: context.operation,
+      queryComplexity: context.queryComplexity,
+      errorType: error.name,
+      degradationImpact: this.calculateDegradationImpact(processingTime, context.queryComplexity)
+    };
+    
+    console.error(`[PERFORMANCE-ASPECT] Performance impact of error in ${context.operation}:`, {
+      requestId: context.requestId,
+      errorMetrics,
+      error: error.message
+    });
+  }
+  
+  private determineQueryComplexity(context: VectorSearchContext): 'simple' | 'complex' | 'batch' {
+    if (context.operation === VectorSearchOperationType.BATCH_PROCESSING) {
+      return 'batch';
+    }
+    
+    // Complex if multiple filters or high-dimensional operations
+    const hasMultipleFilters = context.query && context.query.length > 100;
+    const isRecommendation = context.operation === VectorSearchOperationType.RECOMMENDATION_QUERY;
+    
+    return (hasMultipleFilters || isRecommendation) ? 'complex' : 'simple';
+  }
+  
+  private getThresholdForComplexity(complexity: 'simple' | 'complex' | 'batch'): number {
+    switch (complexity) {
+      case 'simple': return this.thresholds.maxSimpleQueryLatency;
+      case 'complex': return this.thresholds.maxComplexQueryLatency;
+      case 'batch': return this.thresholds.maxBatchQueryLatency;
+    }
+  }
+  
+  private calculateThroughput(context: VectorSearchContext): number {
+    const operationsPerSecond = 1000 / (context.processingTime || 1);
+    return Math.round(operationsPerSecond * 100) / 100;
+  }
+  
+  private getMemoryUsage(): number {
+    // In production: Use actual memory monitoring
+    return Math.round(process.memoryUsage().heapUsed / 1024 / 1024);
+  }
+  
+  private getCpuUsage(): number {
+    // In production: Use actual CPU monitoring
+    return Math.round(process.cpuUsage().user / 1000);
+  }
+  
+  private getCacheHitRate(context: VectorSearchContext): number {
+    // Calculate based on cached results
+    return context.cachedResult ? 1.0 : 0.0;
+  }
+  
+  private checkThresholds(metrics: PerformanceMetrics): string[] {
+    const violations: string[] = [];
+    
+    const maxLatency = this.getThresholdForComplexity(metrics.queryComplexity);
+    if (metrics.latency > maxLatency) {
+      violations.push(`Latency ${metrics.latency}ms exceeds threshold ${maxLatency}ms`);
+    }
+    
+    if (metrics.throughput < this.thresholds.minThroughput) {
+      violations.push(`Throughput ${metrics.throughput} below minimum ${this.thresholds.minThroughput}`);
+    }
+    
+    if (metrics.memoryUsage > this.thresholds.maxMemoryUsage) {
+      violations.push(`Memory usage ${metrics.memoryUsage}MB exceeds ${this.thresholds.maxMemoryUsage}MB`);
+    }
+    
+    return violations;
+  }
+  
+  private calculateDegradationImpact(processingTime: number, complexity?: string): string {
+    const expectedTime = this.getThresholdForComplexity(complexity as any || 'simple');
+    const degradation = (processingTime / expectedTime) * 100;
+    
+    if (degradation > 300) return 'severe';
+    if (degradation > 200) return 'high';
+    if (degradation > 150) return 'moderate';
+    return 'low';
+  }
+}
+
+/**
+ * Security Configuration Interface
+ */
+interface SecuritySettings {
+  maxQueryLength: number;
+  allowedEmbeddingTypes: string[];
+  maxResultLimit: number;
+  rateLimitPerMinute: number;
+  enableSqlInjectionPrevention: boolean;
+  enableEmbeddingPoisoningDetection: boolean;
+}
+
+/**
+ * Vector Search Security Aspect
+ * Enterprise security validation with comprehensive threat detection and audit trails
+ */
+export class VectorSearchSecurityAspect implements VectorSearchAspect {
+  readonly name = 'VectorSearchSecurityAspect';
+  readonly priority = 80;
+  
+  private readonly securitySettings: SecuritySettings = {
+    maxQueryLength: 1000,
+    allowedEmbeddingTypes: ['title', 'description', 'combined'],
+    maxResultLimit: 100,
+    rateLimitPerMinute: 100,
+    enableSqlInjectionPrevention: true,
+    enableEmbeddingPoisoningDetection: true
+  };
+  
+  private accessLog: Map<string, { count: number; lastAccess: number }> = new Map();
+  private suspiciousPatterns: RegExp[] = [
+    /(\b(union|select|insert|update|delete|drop|create|alter)\b)/i,
+    /(script|javascript|vbscript)/i,
+    /[<>{}[\]]/,
+    /(exec|execute|sp_)/i
+  ];
+
+  async before(context: VectorSearchContext): Promise<void> {
+    // Authentication check
+    if (!this.isAuthenticated(context)) {
+      throw new Error('Authentication required for vector search operations');
+    }
+    
+    // Rate limiting check
+    await this.checkRateLimit(context);
+    
+    // Input sanitization and validation
+    this.sanitizeAndValidateInput(context);
+    
+    // SQL injection prevention
+    if (this.securitySettings.enableSqlInjectionPrevention) {
+      this.checkForSqlInjection(context);
+    }
+    
+    // Security audit log
+    this.logSecurityEvent(context, 'ACCESS_GRANTED', 'Vector search operation authorized');
+  }
+
+  async after(context: VectorSearchContext): Promise<void> {
+    // Result filtering and sanitization
+    this.sanitizeResults(context);
+    
+    // Access pattern analysis
+    this.analyzeAccessPattern(context);
+    
+    // Audit trail completion
+    this.logSecurityEvent(context, 'OPERATION_COMPLETED', `${context.operation} completed successfully`);
+  }
+
+  async onError(context: VectorSearchContext, error: Error): Promise<void> {
+    // Security incident logging
+    const securityIncident = this.classifySecurityIncident(error);
+    
+    if (securityIncident.isSecurity) {
+      this.logSecurityEvent(context, 'SECURITY_INCIDENT', securityIncident.description);
+    }
+    
+    console.error(`[SECURITY-ASPECT] Security analysis for error in ${context.operation}:`, {
+      requestId: context.requestId,
+      securityIncident,
+      error: error.message
+    });
+  }
+  
+  private isAuthenticated(context: VectorSearchContext): boolean {
+    return context.userId !== undefined && context.userId !== 'anonymous';
+  }
+  
+  private async checkRateLimit(context: VectorSearchContext): Promise<void> {
+    const userId = context.userId || 'anonymous';
+    const now = Date.now();
+    const userAccess = this.accessLog.get(userId) || { count: 0, lastAccess: now };
+    
+    if (now - userAccess.lastAccess > 60000) {
+      userAccess.count = 0;
+      userAccess.lastAccess = now;
+    }
+    
+    userAccess.count++;
+    this.accessLog.set(userId, userAccess);
+    
+    if (userAccess.count > this.securitySettings.rateLimitPerMinute) {
+      throw new Error(`Rate limit exceeded: ${userAccess.count} requests per minute`);
+    }
+  }
+  
+  private sanitizeAndValidateInput(context: VectorSearchContext): void {
+    if (context.query && context.query.length > this.securitySettings.maxQueryLength) {
+      throw new Error(`Query length ${context.query.length} exceeds maximum ${this.securitySettings.maxQueryLength}`);
+    }
+    
+    if (context.embeddingType && !this.securitySettings.allowedEmbeddingTypes.includes(context.embeddingType)) {
+      throw new Error(`Invalid embedding type: ${context.embeddingType}`);
+    }
+    
+    if (context.query) {
+      context.query = context.query.replace(/[<>'"]/g, '');
+    }
+  }
+  
+  private checkForSqlInjection(context: VectorSearchContext): void {
+    const queryText = context.query || '';
+    
+    for (const pattern of this.suspiciousPatterns) {
+      if (pattern.test(queryText)) {
+        throw new Error(`Suspicious pattern detected in query: potential SQL injection attempt`);
+      }
+    }
+  }
+  
+  private sanitizeResults(context: VectorSearchContext): void {
+    if (context.result && Array.isArray(context.result)) {
+      context.result = context.result.map((result: any) => {
+        const sanitized = { ...result };
+        delete sanitized.internalId;
+        delete sanitized.createdBy;
+        return sanitized;
+      });
+    }
+  }
+  
+  private analyzeAccessPattern(context: VectorSearchContext): void {
+    const pattern = {
+      userId: context.userId || 'anonymous',
+      operation: context.operation,
+      timestamp: new Date(),
+      queryComplexity: context.queryComplexity,
+      resultCount: context.resultCount
+    };
+    
+    console.log('[SECURITY-ASPECT] Access pattern recorded:', pattern);
+  }
+  
+  private classifySecurityIncident(error: Error): { isSecurity: boolean; severity: string; description: string } {
+    const errorMessage = error.message.toLowerCase();
+    
+    if (errorMessage.includes('injection') || errorMessage.includes('suspicious')) {
+      return { isSecurity: true, severity: 'high', description: 'Potential injection attack detected' };
+    }
+    
+    if (errorMessage.includes('rate limit') || errorMessage.includes('authentication')) {
+      return { isSecurity: true, severity: 'medium', description: 'Access control violation' };
+    }
+    
+    return { isSecurity: false, severity: 'none', description: 'Non-security related error' };
+  }
+  
+  private logSecurityEvent(context: VectorSearchContext, eventType: string, description: string): void {
+    const securityEvent = {
+      timestamp: new Date().toISOString(),
+      eventType,
+      description,
+      requestId: context.requestId,
+      userId: context.userId || 'anonymous',
+      operation: context.operation
+    };
+    
+    console.log('[SECURITY-ASPECT] Security event logged:', securityEvent);
+  }
+}
       });
     }
 
