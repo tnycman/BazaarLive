@@ -3,10 +3,47 @@
  * Enterprise domain-driven design for pgvector integration with pure business logic
  */
 
-import { Result } from '../../domain/Hostname';
 import { VectorSearchOperationType, VectorSearchContext } from '../aspects/VectorSearchAspects';
-import { AspectManager } from '../../aspects/AspectManager';
 import { z } from 'zod';
+
+// Enterprise Result Pattern for Vector Search Domain
+export class Result<T, E = string> {
+  private constructor(
+    private readonly _isSuccess: boolean,
+    private readonly _value?: T,
+    private readonly _error?: E
+  ) {}
+
+  static success<T, E = string>(value: T): Result<T, E> {
+    return new Result<T, E>(true, value, undefined);
+  }
+
+  static failure<T, E = string>(error: E): Result<T, E> {
+    return new Result<T, E>(false, undefined, error);
+  }
+
+  get isSuccess(): boolean {
+    return this._isSuccess;
+  }
+
+  get isFailure(): boolean {
+    return !this._isSuccess;
+  }
+
+  get value(): T {
+    if (!this._isSuccess) {
+      throw new Error('Cannot get value from failed result');
+    }
+    return this._value!;
+  }
+
+  get error(): E {
+    if (this._isSuccess) {
+      throw new Error('Cannot get error from successful result');
+    }
+    return this._error!;
+  }
+}
 
 // Vector Search Value Objects
 export class VectorEmbedding {
@@ -23,7 +60,7 @@ export class VectorEmbedding {
     }
   }
 
-  static create(values: number[], model: string = 'text-embedding-ada-002'): Result<VectorEmbedding> {
+  static create(values: number[], model: string = 'text-embedding-ada-002'): Result<VectorEmbedding, string> {
     try {
       const embedding = new VectorEmbedding(values, 1536, model);
       return Result.success(embedding);
@@ -70,7 +107,7 @@ export class SearchQuery {
     }
   }
 
-  static create(text: string, embeddingType: 'title' | 'description' | 'combined' = 'combined', filters: SearchFilters = {}): Result<SearchQuery> {
+  static create(text: string, embeddingType: 'title' | 'description' | 'combined' = 'combined', filters: SearchFilters = {}): Result<SearchQuery, string> {
     try {
       const query = new SearchQuery(text, embeddingType, filters);
       return Result.success(query);
@@ -94,7 +131,7 @@ export class SimilarityThreshold {
     }
   }
 
-  static create(value: number): Result<SimilarityThreshold> {
+  static create(value: number): Result<SimilarityThreshold, string> {
     try {
       const threshold = new SimilarityThreshold(value);
       return Result.success(threshold);
@@ -181,7 +218,6 @@ const semanticSearchRequestSchema = z.object({
  */
 export class VectorSearchDomainService {
   constructor(
-    private readonly aspectManager: AspectManager,
     private readonly embeddingService: EmbeddingService,
     private readonly vectorRepository: VectorSearchRepository
   ) {}
@@ -189,24 +225,24 @@ export class VectorSearchDomainService {
   /**
    * Execute semantic search with comprehensive business logic
    */
-  async executeSemanticSearch(request: SemanticSearchRequest): Promise<Result<SearchResult[]>> {
-    const context: VectorSearchContext = {
-      requestId: `search-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-      operation: VectorSearchOperationType.SEMANTIC_SEARCH,
-      query: request.query.text,
-      embeddingType: request.query.embeddingType,
-      similarityThreshold: request.threshold.value,
-      resultCount: request.limit,
-      userId: request.userId,
-      success: false,
-      queryComplexity: request.query.getComplexity()
-    };
-
+  async executeSemanticSearch(request: SemanticSearchRequest): Promise<Result<SearchResult[], string>> {
     try {
-      return await this.aspectManager.executeWithAspects(
-        context,
-        async () => await this.performSemanticSearch(request, context)
+      // Generate embedding for search query
+      const queryEmbedding = await this.embeddingService.generateEmbedding(request.query.text);
+      if (!queryEmbedding.isSuccess) {
+        return Result.failure(`Failed to generate query embedding: ${queryEmbedding.error}`);
+      }
+
+      // Execute semantic search through repository
+      const searchResult = await this.vectorRepository.semanticSearch(
+        queryEmbedding.value,
+        request.query.embeddingType,
+        request.threshold.value,
+        request.limit,
+        request.query.filters
       );
+
+      return searchResult;
     } catch (error) {
       return Result.failure(error instanceof Error ? error.message : 'Semantic search failed');
     }
@@ -215,21 +251,22 @@ export class VectorSearchDomainService {
   /**
    * Find similar listings based on a reference listing
    */
-  async findSimilarListings(listingId: string, threshold: SimilarityThreshold, limit: number): Promise<Result<SearchResult[]>> {
-    const context: VectorSearchContext = {
-      requestId: `similar-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-      operation: VectorSearchOperationType.SIMILARITY_SEARCH,
-      listingId,
-      similarityThreshold: threshold.value,
-      resultCount: limit,
-      success: false
-    };
-
+  async findSimilarListings(listingId: string, threshold: SimilarityThreshold, limit: number): Promise<Result<SearchResult[], string>> {
     try {
-      return await this.aspectManager.executeWithAspects(
-        context,
-        async () => await this.performSimilaritySearch(listingId, threshold, limit, context)
+      // Get the listing's embedding first
+      const embeddingResult = await this.vectorRepository.getListingEmbedding(listingId);
+      if (!embeddingResult.isSuccess) {
+        return Result.failure(`Failed to get listing embedding: ${embeddingResult.error}`);
+      }
+
+      // Find similar listings using the embedding
+      const similarResult = await this.vectorRepository.findSimilarListings(
+        embeddingResult.value,
+        threshold.value,
+        limit
       );
+
+      return similarResult;
     } catch (error) {
       return Result.failure(error instanceof Error ? error.message : 'Similarity search failed');
     }
@@ -238,20 +275,22 @@ export class VectorSearchDomainService {
   /**
    * Generate personalized recommendations for a user
    */
-  async generateRecommendations(userId: string, preferences: UserPreferences, limit: number): Promise<Result<SearchResult[]>> {
-    const context: VectorSearchContext = {
-      requestId: `recommendations-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-      operation: VectorSearchOperationType.RECOMMENDATION_QUERY,
-      userId,
-      resultCount: limit,
-      success: false
-    };
-
+  async generateRecommendations(userId: string, preferences: UserPreferences, limit: number): Promise<Result<SearchResult[], string>> {
     try {
-      return await this.aspectManager.executeWithAspects(
-        context,
-        async () => await this.performRecommendationQuery(userId, preferences, limit, context)
+      // Get user preference embedding
+      const userEmbeddingResult = await this.vectorRepository.getUserPreferenceEmbedding(userId);
+      if (!userEmbeddingResult.isSuccess) {
+        return Result.failure(`Failed to get user preferences: ${userEmbeddingResult.error}`);
+      }
+
+      // Generate personalized recommendations
+      const recommendationsResult = await this.vectorRepository.getPersonalizedRecommendations(
+        userEmbeddingResult.value,
+        preferences,
+        limit
       );
+
+      return recommendationsResult;
     } catch (error) {
       return Result.failure(error instanceof Error ? error.message : 'Recommendation generation failed');
     }
@@ -260,19 +299,18 @@ export class VectorSearchDomainService {
   /**
    * Update user preferences based on interactions
    */
-  async updateUserPreferences(userId: string, interactions: UserInteractions): Promise<Result<UserPreferences>> {
-    const context: VectorSearchContext = {
-      requestId: `preferences-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-      operation: VectorSearchOperationType.PREFERENCE_UPDATE,
-      userId,
-      success: false
-    };
-
+  async updateUserPreferences(userId: string, interactions: UserInteractions): Promise<Result<UserPreferences, string>> {
     try {
-      return await this.aspectManager.executeWithAspects(
-        context,
-        async () => await this.performPreferenceUpdate(userId, interactions, context)
-      );
+      // Convert interactions to preferences
+      const preferences = this.convertInteractionsToPreferences(interactions);
+      
+      // Update preferences in repository
+      const updateResult = await this.vectorRepository.updateUserPreferences(userId, preferences);
+      if (!updateResult.isSuccess) {
+        return Result.failure(`Failed to update preferences: ${updateResult.error}`);
+      }
+
+      return Result.success(preferences);
     } catch (error) {
       return Result.failure(error instanceof Error ? error.message : 'Preference update failed');
     }
@@ -281,24 +319,30 @@ export class VectorSearchDomainService {
   /**
    * Generate embeddings for a listing
    */
-  async generateListingEmbeddings(listingId: string, title: string, description: string): Promise<Result<void>> {
-    const context: VectorSearchContext = {
-      requestId: `embedding-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-      operation: VectorSearchOperationType.EMBEDDING_GENERATION,
-      listingId,
-      vectorDimensions: 1536,
-      embeddingModel: 'text-embedding-ada-002',
-      success: false
-    };
+  async generateListingEmbeddings(listingId: string, title: string, description: string): Promise<Result<void, string>> {
+    return this.storeListingEmbeddings(listingId, title, description);
+  }
 
-    try {
-      return await this.aspectManager.executeWithAspects(
-        context,
-        async () => await this.performEmbeddingGeneration(listingId, title, description, context)
-      );
-    } catch (error) {
-      return Result.failure(error instanceof Error ? error.message : 'Embedding generation failed');
-    }
+  // Helper method for preference conversion
+  private convertInteractionsToPreferences(interactions: UserInteractions): UserPreferences {
+    const preferenceWeights = this.computePreferenceWeights(interactions);
+    
+    return {
+      categoryWeights: preferenceWeights.categories,
+      brandPreferences: preferenceWeights.brands,
+      stylePreferences: preferenceWeights.styles,
+      priceRanges: preferenceWeights.priceRanges,
+      interactionWeights: {
+        likes: preferenceWeights.likes,
+        views: preferenceWeights.views,
+        purchases: preferenceWeights.purchases,
+        searches: preferenceWeights.searches
+      },
+      embedding: {
+        values: new Array(1536).fill(0),
+        model: 'text-embedding-ada-002'
+      }
+    };
   }
 
   // Private implementation methods with pure business logic
@@ -318,7 +362,7 @@ export class VectorSearchDomainService {
 
     // Execute vector search
     const searchResults = await this.vectorRepository.semanticSearch(
-      queryEmbeddingResult.data,
+      queryEmbeddingResult.value,
       request.query.embeddingType,
       request.threshold.value,
       request.limit,
@@ -330,7 +374,7 @@ export class VectorSearchDomainService {
     }
 
     // Apply business rules and scoring
-    const processedResults = this.applyBusinessRules(searchResults.data, request);
+    const processedResults = this.applyBusinessRules(searchResults.value, request);
     
     context.success = true;
     context.resultCount = processedResults.length;
@@ -347,7 +391,7 @@ export class VectorSearchDomainService {
 
     // Find similar listings
     const similarResults = await this.vectorRepository.findSimilarListings(
-      referenceEmbeddingResult.data,
+      referenceEmbeddingResult.value,
       threshold.value,
       limit
     );
@@ -357,9 +401,9 @@ export class VectorSearchDomainService {
     }
 
     context.success = true;
-    context.resultCount = similarResults.data.length;
+    context.resultCount = similarResults.value.length;
 
-    return Result.success(similarResults.data);
+    return Result.success(similarResults.value);
   }
 
   private async performRecommendationQuery(userId: string, preferences: UserPreferences, limit: number, context: VectorSearchContext): Promise<Result<SearchResult[]>> {
@@ -437,9 +481,9 @@ export class VectorSearchDomainService {
     // Store embeddings
     const storeResult = await this.vectorRepository.storeListingEmbeddings(
       listingId,
-      titleEmbeddingResult.data,
-      descriptionEmbeddingResult.data,
-      combinedEmbeddingResult.data
+      titleEmbeddingResult.value,
+      descriptionEmbeddingResult.value,
+      combinedEmbeddingResult.value
     );
 
     if (!storeResult.isSuccess) {
