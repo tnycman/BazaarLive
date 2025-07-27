@@ -21,6 +21,11 @@ import {
   getCategoriesUnderVertical,
   type CategoryItem 
 } from '@/services/filtering/HierarchicalCategoryData';
+import { 
+  categoryStylingCoordinator,
+  type CategoryStylingContext,
+  type CategoryStylingResult 
+} from '@/services/styling/CategoryStylingAspects';
 
 // ============================================================================
 // INTERFACES & TYPES
@@ -340,18 +345,95 @@ const CategoryNode: React.FC<CategoryNodeProps> = ({
   const hasChildren = node.children.length > 0;
   const isSelected = isNodeSelected(node, selection);
   const indentLevel = (level - 1) * 16; // 16px per level
+  
+  // Enterprise AOP-based styling computation
+  const [stylingResult, setStylingResult] = useState<CategoryStylingResult | null>(null);
+  const [isHovered, setIsHovered] = useState(false);
+  
+  // Compute styling using AOP aspects
+  useEffect(() => {
+    const computeStyling = async () => {
+      try {
+        const context: CategoryStylingContext = {
+          nodeId: node.id,
+          nodeName: node.name,
+          level,
+          isSelected,
+          isHovered,
+          isExpanded: node.isExpanded,
+          hasChildren,
+          theme: document.documentElement.classList.contains('dark') ? 'dark' : 'light',
+          selectionPath: getSelectionPath(selection),
+          metadata: node.metadata
+        };
+        
+        const result = await categoryStylingCoordinator.computeCompleteStyle(context);
+        setStylingResult(result);
+      } catch (error) {
+        console.error('[CategoryNode] Error computing styling:', error);
+        // Fallback to default styling
+        setStylingResult({
+          textColor: isSelected ? '#8B5CF6' : '#374151',
+          hoverColor: '#A78BFA',
+          transitionDuration: '150ms',
+          accessibilityAttributes: {},
+          cssClassNames: ['transition-colors', 'duration-150'],
+          metadata: {
+            timestamp: Date.now(),
+            aspectsApplied: [],
+            performanceMetrics: { computationTime: 0, cacheHit: false }
+          }
+        });
+      }
+    };
+    
+    computeStyling();
+  }, [node.id, node.name, level, isSelected, isHovered, node.isExpanded, hasChildren, selection, node.metadata]);
+
+  // Get selection path helper
+  const getSelectionPath = (sel: CategorySelection): string[] => {
+    const path: string[] = [];
+    if (sel.level1) path.push(sel.level1);
+    if (sel.level2) path.push(sel.level2);
+    if (sel.level3) path.push(sel.level3);
+    return path;
+  };
+
+  // Handle mouse events for hover styling
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => setIsHovered(false);
+
+  if (!stylingResult) {
+    // Loading state while computing styling
+    return (
+      <div style={{ marginLeft: `${indentLevel}px` }} className="py-2 px-2">
+        <div className="animate-pulse bg-gray-200 dark:bg-gray-700 h-4 rounded"></div>
+      </div>
+    );
+  }
+
+  // Apply computed styling
+  const textColor = isHovered ? stylingResult.hoverColor : stylingResult.textColor;
+  const cssClasses = stylingResult.cssClassNames.join(' ');
 
   return (
     <div>
       <div
-        className={`flex items-center justify-between py-2 px-2 rounded-md cursor-pointer transition-colors ${
-          isSelected
-            ? 'bg-purple-100 dark:bg-purple-900/20 text-purple-700 dark:text-purple-300'
-            : 'hover:bg-gray-50 dark:hover:bg-gray-800'
-        }`}
-        style={{ marginLeft: `${indentLevel}px` }}
+        className={`flex items-center justify-between py-2 px-2 cursor-pointer ${cssClasses}`}
+        style={{ 
+          marginLeft: `${indentLevel}px`,
+          color: textColor
+        }}
         onClick={() => onSelect(node)}
-        data-testid={`category-node-${node.id}`}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        role={stylingResult.accessibilityAttributes.role}
+        aria-label={stylingResult.accessibilityAttributes['aria-label']}
+        aria-level={stylingResult.accessibilityAttributes['aria-level']}
+        aria-expanded={stylingResult.accessibilityAttributes['aria-expanded']}
+        aria-selected={stylingResult.accessibilityAttributes['aria-selected']}
+        tabIndex={parseInt(stylingResult.accessibilityAttributes.tabIndex || '0')}
+        data-testid={stylingResult.accessibilityAttributes['data-testid']}
       >
         <div className="flex items-center flex-1 min-w-0">
           {hasChildren && (
@@ -360,8 +442,9 @@ const CategoryNode: React.FC<CategoryNodeProps> = ({
                 e.stopPropagation();
                 onToggle(node.id);
               }}
-              className="flex-shrink-0 p-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded mr-1"
+              className="flex-shrink-0 p-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded mr-1 transition-colors duration-150"
               data-testid={`toggle-${node.id}`}
+              aria-label={`${node.isExpanded ? 'Collapse' : 'Expand'} ${node.name} category`}
             >
               {node.isExpanded ? (
                 <ChevronDownIcon className="w-3 h-3 text-gray-500" />
@@ -371,7 +454,10 @@ const CategoryNode: React.FC<CategoryNodeProps> = ({
             </button>
           )}
           
-          <span className="text-sm font-medium truncate flex-1">
+          <span 
+            className="text-sm font-medium truncate flex-1"
+            style={{ color: textColor }}
+          >
             {node.name}
           </span>
         </div>
