@@ -443,33 +443,35 @@ export function Navigation() {
             </Button>
           </Link>
 
-          {/* Women - Direct Link */}
-          <Link href="/fashion/women">
-            <Button 
-              variant="ghost" 
-              className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium"
-              data-testid="nav-women"
-            >
-              Women
-            </Button>
-          </Link>
-
-          {/* Other categories with dropdowns */}
-          {Object.keys(navigationData).filter(category => category !== 'Women').map((category) => (
+          {/* All categories with dropdowns including Women */}
+          {Object.keys(navigationData).map((category) => (
             <div 
               key={category}
               className="relative"
               onMouseEnter={() => handleMouseEnter(category)}
               onMouseLeave={handleMouseLeave}
             >
-              <Button 
-                variant="ghost" 
-                className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium flex items-center gap-1"
-                data-testid={`nav-${category.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`}
-              >
-                {category}
-                <ChevronDownIcon className="w-3 h-3" />
-              </Button>
+              {category === 'Women' ? (
+                <Link href="/fashion/women">
+                  <Button 
+                    variant="ghost" 
+                    className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium flex items-center gap-1"
+                    data-testid="nav-women"
+                  >
+                    {category}
+                    <ChevronDownIcon className="w-3 h-3" />
+                  </Button>
+                </Link>
+              ) : (
+                <Button 
+                  variant="ghost" 
+                  className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium flex items-center gap-1"
+                  data-testid={`nav-${category.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`}
+                >
+                  {category}
+                  <ChevronDownIcon className="w-3 h-3" />
+                </Button>
+              )}
 
               {/* Dropdown Menu */}
               {activeDropdown === category && (
