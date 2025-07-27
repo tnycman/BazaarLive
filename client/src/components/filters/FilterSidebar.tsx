@@ -263,7 +263,7 @@ export function FilterSidebar({ onFilterChange, appliedFiltersCount, isLoading =
   };
 
   return (
-    <div className="w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700 h-full overflow-y-auto">
+    <div className="w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700 h-full overflow-y-auto relative z-50">
       <div className="p-4 space-y-4">
         {/* Filter Header */}
         <div className="flex items-center justify-between">
