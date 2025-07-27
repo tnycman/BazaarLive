@@ -19,6 +19,7 @@ interface ProductGridProps {
   appliedFiltersCount: number;
   onSortChange: (sortBy: string) => void;
   currentSort: string;
+  category?: string;
 }
 
 interface ListingCardProps {
@@ -183,7 +184,8 @@ export function ProductGrid({
   isLoading, 
   appliedFiltersCount, 
   onSortChange, 
-  currentSort 
+  currentSort,
+  category = 'women'
 }: ProductGridProps) {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   
@@ -204,28 +206,47 @@ export function ProductGrid({
     );
   }
 
+  // Category-specific styling and content
+  const getCategoryConfig = (cat: string) => {
+    switch (cat.toLowerCase()) {
+      case 'men':
+        return {
+          title: 'Men',
+          subtitle: 'Discover your style',
+          gradient: 'from-blue-100 to-indigo-100 dark:from-blue-900/20 dark:to-indigo-900/20',
+          colors: ['from-blue-200 to-indigo-200', 'from-slate-200 to-gray-200', 'from-green-200 to-emerald-200']
+        };
+      case 'women':
+      default:
+        return {
+          title: 'Women',
+          subtitle: 'Discover your style',
+          gradient: 'from-pink-100 to-purple-100 dark:from-pink-900/20 dark:to-purple-900/20',
+          colors: ['from-pink-200 to-purple-200', 'from-blue-200 to-indigo-200', 'from-amber-200 to-orange-200']
+        };
+    }
+  };
+
+  const categoryConfig = getCategoryConfig(category);
+
   return (
     <div className="flex-1 flex flex-col">
-      {/* Hero Banner - Women Category */}
-      <div className="relative h-32 bg-gradient-to-r from-pink-100 to-purple-100 dark:from-pink-900/20 dark:to-purple-900/20 mb-6">
+      {/* Hero Banner - Dynamic Category */}
+      <div className={`relative h-32 bg-gradient-to-r ${categoryConfig.gradient} mb-6`}>
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center">
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Women</h1>
-            <p className="text-gray-600 dark:text-gray-400">Discover your style</p>
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{categoryConfig.title}</h1>
+            <p className="text-gray-600 dark:text-gray-400">{categoryConfig.subtitle}</p>
           </div>
         </div>
         
         {/* Sample product images overlay */}
         <div className="absolute right-4 top-1/2 transform -translate-y-1/2 hidden lg:flex space-x-2">
-          <div className="w-16 h-16 bg-white rounded-lg shadow-md overflow-hidden">
-            <div className="w-full h-full bg-gradient-to-br from-pink-200 to-purple-200"></div>
-          </div>
-          <div className="w-16 h-16 bg-white rounded-lg shadow-md overflow-hidden">
-            <div className="w-full h-full bg-gradient-to-br from-blue-200 to-indigo-200"></div>
-          </div>
-          <div className="w-16 h-16 bg-white rounded-lg shadow-md overflow-hidden">
-            <div className="w-full h-full bg-gradient-to-br from-amber-200 to-orange-200"></div>
-          </div>
+          {categoryConfig.colors.map((color, index) => (
+            <div key={index} className="w-16 h-16 bg-white rounded-lg shadow-md overflow-hidden">
+              <div className={`w-full h-full bg-gradient-to-br ${color}`}></div>
+            </div>
+          ))}
         </div>
       </div>
 

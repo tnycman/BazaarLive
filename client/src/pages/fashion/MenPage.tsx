@@ -114,6 +114,7 @@ export default function MenPage() {
             appliedFiltersCount={appliedFiltersCount}
             onSortChange={handleSortChange}
             currentSort={sortBy}
+            category="men"
           />
         </div>
       </div>
