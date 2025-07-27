@@ -27,7 +27,7 @@ import {
 interface CategorySelectionButtonProps {
   categoryId: string;
   categoryName: string;
-  count?: number;
+  count?: number | string;
   isSelected: boolean;
   level?: number;
   onClick: (categoryId: string) => void;
@@ -180,7 +180,7 @@ export const CategorySelectionButton: React.FC<CategorySelectionButtonProps> = (
             variant="secondary" 
             className="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400"
           >
-            {count.toLocaleString()}
+            {typeof count === 'number' ? count.toLocaleString() : count}
           </Badge>
         )}
       </div>
