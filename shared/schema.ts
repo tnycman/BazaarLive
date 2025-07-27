@@ -10,6 +10,7 @@ import {
   decimal,
   boolean,
   pgEnum,
+  vector,
 } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
@@ -109,6 +110,10 @@ export const listings = pgTable("listings", {
   sharesCount: integer("shares_count").default(0),
   commentsCount: integer("comments_count").default(0),
   location: varchar("location"),
+  // Vector embeddings for AI-powered search
+  titleEmbedding: vector("title_embedding", { dimensions: 1536 }),
+  descriptionEmbedding: vector("description_embedding", { dimensions: 1536 }),
+  combinedEmbedding: vector("combined_embedding", { dimensions: 1536 }),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
 });
@@ -158,6 +163,46 @@ export const transactions = pgTable("transactions", {
   amount: decimal("amount", { precision: 10, scale: 2 }).notNull(),
   commission: decimal("commission", { precision: 10, scale: 2 }).notNull(),
   status: varchar("status").default('pending'),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+// Vector Search Tables for AI-powered recommendations and semantic search
+
+// Product embeddings table for semantic product search
+export const productEmbeddings = pgTable("product_embeddings", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  listingId: varchar("listing_id").notNull().references(() => listings.id, { onDelete: 'cascade' }),
+  embedding: vector("embedding", { dimensions: 1536 }).notNull(),
+  embeddingType: varchar("embedding_type").notNull(), // 'title', 'description', 'combined'
+  model: varchar("model").default('text-embedding-ada-002'),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+// User preference embeddings for personalized recommendations
+export const userPreferenceEmbeddings = pgTable("user_preference_embeddings", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  userId: varchar("user_id").notNull().references(() => users.id, { onDelete: 'cascade' }),
+  preferenceEmbedding: vector("preference_embedding", { dimensions: 1536 }).notNull(),
+  interactionWeights: jsonb("interaction_weights"), // weights for likes, views, purchases, etc.
+  categoryPreferences: jsonb("category_preferences"), // category-specific preferences
+  priceRange: jsonb("price_range"), // preferred price ranges by category
+  stylePreferences: jsonb("style_preferences"), // brand, color, style preferences
+  lastUpdated: timestamp("last_updated").defaultNow(),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+// Semantic search queries for analytics and optimization
+export const semanticSearchQueries = pgTable("semantic_search_queries", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  userId: varchar("user_id").references(() => users.id, { onDelete: 'set null' }),
+  query: text("query").notNull(),
+  queryEmbedding: vector("query_embedding", { dimensions: 1536 }).notNull(),
+  results: jsonb("results"), // search results and relevance scores
+  clickedResults: jsonb("clicked_results"), // which results were clicked
+  sessionId: varchar("session_id"),
+  categoryFilter: varchar("category_filter"),
+  priceFilter: jsonb("price_filter"),
   createdAt: timestamp("created_at").defaultNow(),
 });
 
@@ -254,6 +299,28 @@ export const transactionsRelations = relations(transactions, ({ one }) => ({
   }),
 }));
 
+// Vector table relations
+export const productEmbeddingsRelations = relations(productEmbeddings, ({ one }) => ({
+  listing: one(listings, {
+    fields: [productEmbeddings.listingId],
+    references: [listings.id],
+  }),
+}));
+
+export const userPreferenceEmbeddingsRelations = relations(userPreferenceEmbeddings, ({ one }) => ({
+  user: one(users, {
+    fields: [userPreferenceEmbeddings.userId],
+    references: [users.id],
+  }),
+}));
+
+export const semanticSearchQueriesRelations = relations(semanticSearchQueries, ({ one }) => ({
+  user: one(users, {
+    fields: [semanticSearchQueries.userId],
+    references: [users.id],
+  }),
+}));
+
 // Insert schemas
 export const insertUserSchema = createInsertSchema(users).omit({
   id: true,
@@ -276,6 +343,9 @@ export const insertListingSchema = createInsertSchema(listings).omit({
   likesCount: true,
   sharesCount: true,
   commentsCount: true,
+  titleEmbedding: true,
+  descriptionEmbedding: true,
+  combinedEmbedding: true,
   createdAt: true,
   updatedAt: true,
 });
@@ -322,6 +392,16 @@ export type Message = typeof messages.$inferSelect;
 export type InsertMessage = z.infer<typeof insertMessageSchema>;
 
 export type Transaction = typeof transactions.$inferSelect;
+
+// Vector table types
+export type ProductEmbedding = typeof productEmbeddings.$inferSelect;
+export type InsertProductEmbedding = typeof productEmbeddings.$inferInsert;
+
+export type UserPreferenceEmbedding = typeof userPreferenceEmbeddings.$inferSelect;
+export type InsertUserPreferenceEmbedding = typeof userPreferenceEmbeddings.$inferInsert;
+
+export type SemanticSearchQuery = typeof semanticSearchQueries.$inferSelect;
+export type InsertSemanticSearchQuery = typeof semanticSearchQueries.$inferInsert;
 
 // Export analytics tables
 export * from './analytics-schema';

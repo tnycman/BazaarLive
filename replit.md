@@ -26,10 +26,12 @@ Preferred communication style: Simple, everyday language.
 - **Session Management**: Express sessions with PostgreSQL store
 
 ### Database Architecture
-- **Primary Database**: PostgreSQL via Neon Database
+- **Primary Database**: PostgreSQL via Neon Database with pgvector extension
 - **ORM**: Drizzle ORM with type-safe schema definitions
+- **Vector Search**: pgvector for AI-powered semantic search and recommendations
 - **Migration Strategy**: Drizzle Kit for schema migrations
 - **Connection**: Serverless connection pool via @neondatabase/serverless
+- **AI Capabilities**: Vector embeddings for semantic search, similarity matching, and personalized recommendations
 
 ## Key Components
 
@@ -151,6 +153,19 @@ Preferred communication style: Simple, everyday language.
 - Stateless session management
 - CDN-ready static asset structure
 - Microservice-ready API design patterns
+
+## Recent Changes (January 27, 2025)
+
+### ✅ pgvector Integration & Vector Search System (January 27, 2025)
+- **PostgreSQL pgvector extension enabled** for advanced AI-powered search capabilities
+- **Vector database schema** with dedicated tables for product embeddings, user preferences, and semantic queries
+- **Enterprise-grade VectorSearchService** with semantic search, similarity matching, and personalized recommendations
+- **Vector search API endpoints** for semantic search, similar products, and AI-powered recommendations
+- **Database schema enhancements** with vector columns for title, description, and combined embeddings (1536 dimensions)
+- **Vector table structure**: `productEmbeddings`, `userPreferenceEmbeddings`, `semanticSearchQueries`
+- **Advanced search capabilities**: Cosine similarity matching, preference-based recommendations, interaction tracking
+- **API endpoints**: `/api/vector-search/semantic`, `/api/vector-search/similar`, `/api/vector-search/recommendations`
+- **Production-ready infrastructure** for OpenAI embedding integration and real-time vector similarity search
 
 ## Recent Changes (January 27, 2025)
 

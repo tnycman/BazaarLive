@@ -40,6 +40,8 @@ export interface IStorage {
     category?: string; 
     search?: string; 
     sellerId?: string;
+    status?: string;
+    sortBy?: string;
     limit?: number;
     offset?: number;
   }): Promise<Listing[]>;
@@ -47,6 +49,11 @@ export interface IStorage {
   updateListing(id: string, updates: Partial<Listing>): Promise<Listing>;
   deleteListing(id: string): Promise<void>;
   incrementListingViews(id: string): Promise<void>;
+  searchListings(query: string, options?: { 
+    category?: string; 
+    exclude?: string;
+    limit?: number; 
+  }): Promise<Listing[]>;
   
   // Social operations
   followUser(followerId: string, followingId: string): Promise<Follow>;
@@ -161,12 +168,14 @@ export class DatabaseStorage implements IStorage {
     category?: string; 
     search?: string; 
     sellerId?: string;
+    status?: string;
+    sortBy?: string;
     limit?: number;
     offset?: number;
   } = {}): Promise<Listing[]> {
-    const { category, search, sellerId, limit = 50, offset = 0 } = options;
+    const { category, search, sellerId, status = 'active', sortBy = 'recent', limit = 50, offset = 0 } = options;
     
-    let conditions = [eq(listings.status, 'active')];
+    let conditions = [eq(listings.status, status as any)];
     
     if (category) {
       conditions.push(eq(listings.category, category as any));
@@ -224,7 +233,13 @@ export class DatabaseStorage implements IStorage {
       .from(listings)
       .leftJoin(users, eq(listings.sellerId, users.id))
       .where(conditions.length > 0 ? and(...conditions) : undefined)
-      .orderBy(desc(listings.isPromoted), desc(listings.createdAt))
+      .orderBy(
+        desc(listings.isPromoted),
+        sortBy === 'popular' ? desc(listings.likesCount) :
+        sortBy === 'price_low' ? listings.price :
+        sortBy === 'price_high' ? desc(listings.price) :
+        desc(listings.createdAt)
+      )
       .limit(limit)
       .offset(offset);
   }
@@ -304,6 +319,66 @@ export class DatabaseStorage implements IStorage {
       .update(listings)
       .set({ viewsCount: sql`${listings.viewsCount} + 1` })
       .where(eq(listings.id, id));
+  }
+  
+  async searchListings(query: string, options: { 
+    category?: string; 
+    exclude?: string;
+    limit?: number; 
+  } = {}): Promise<Listing[]> {
+    const { category, exclude, limit = 20 } = options;
+    
+    let conditions = [eq(listings.status, 'active')];
+    
+    if (query.trim()) {
+      const searchCondition = or(
+        ilike(listings.title, `%${query}%`),
+        ilike(listings.description, `%${query}%`),
+        ilike(listings.brand, `%${query}%`)
+      );
+      if (searchCondition) {
+        conditions.push(searchCondition);
+      }
+    }
+    
+    if (category) {
+      conditions.push(eq(listings.category, category as any));
+    }
+    
+    if (exclude) {
+      conditions.push(ne(listings.id, exclude));
+    }
+    
+    return await db
+      .select({
+        id: listings.id,
+        sellerId: listings.sellerId,
+        title: listings.title,
+        description: listings.description,
+        category: listings.category,
+        subcategory: listings.subcategory,
+        brand: listings.brand,
+        size: listings.size,
+        color: listings.color,
+        condition: listings.condition,
+        price: listings.price,
+        originalPrice: listings.originalPrice,
+        images: listings.images,
+        tags: listings.tags,
+        status: listings.status,
+        isPromoted: listings.isPromoted,
+        viewsCount: listings.viewsCount,
+        likesCount: listings.likesCount,
+        sharesCount: listings.sharesCount,
+        commentsCount: listings.commentsCount,
+        location: listings.location,
+        createdAt: listings.createdAt,
+        updatedAt: listings.updatedAt,
+      })
+      .from(listings)
+      .where(conditions.length > 0 ? and(...conditions) : undefined)
+      .orderBy(desc(listings.likesCount), desc(listings.createdAt))
+      .limit(limit);
   }
   
   // Social operations
