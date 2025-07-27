@@ -4,7 +4,7 @@ export const FILTER_OPTIONS = {
     women: [
       { id: 'accessories', name: 'Accessories', count: 8542 },
       { id: 'bags', name: 'Bags', count: 6234 },
-      { id: 'clothing', name: 'Clothing', count: 12456 },
+      { id: 'dresses', name: 'Dresses', count: 5234 },
       { id: 'intimates_sleepwear', name: 'Intimates & Sleepwear', count: 2134 },
       { id: 'jackets_coats', name: 'Jackets & Coats', count: 3245 },
       { id: 'jeans', name: 'Jeans', count: 4567 },
