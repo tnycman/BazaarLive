@@ -535,6 +535,17 @@ export function Navigation() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center space-x-6 py-3">
             {/* Main Navigation Items */}
+            <Link href="/home">
+              <Button 
+                variant="ghost" 
+                className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium"
+                data-testid="nav-home"
+                aria-label="Go to home"
+              >
+                Home
+              </Button>
+            </Link>
+
             <Link href="/feed">
               <Button 
                 variant="ghost" 
