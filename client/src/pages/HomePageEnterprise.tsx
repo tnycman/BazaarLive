@@ -219,7 +219,9 @@ export default function HomePageEnterprise() {
         categoryValidation: {
           isValid: true,
           confidence: 0.8,
-          validationRules: ['home_aggregation_rules']
+          validationRules: ['home_aggregation_rules'],
+          errors: [],
+          warnings: []
         },
         recommendedFilters: ['category', 'price', 'condition']
       }));
