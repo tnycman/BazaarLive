@@ -25,7 +25,8 @@ import {
   CarIcon,
   AnchorIcon,
   WrenchIcon,
-  BarChart3Icon
+  BarChart3Icon,
+  Bot
 } from "lucide-react";
 import { Link } from "wouter";
 
@@ -146,6 +147,19 @@ export function Header() {
               >
                 2
               </Badge>
+            </Button>
+
+            {/* AI Assistant */}
+            <Button 
+              variant="ghost" 
+              size="icon"
+              className="relative"
+              asChild
+              data-testid="button-ai-assistant"
+            >
+              <Link href="/ai-assistant">
+                <Bot className="w-5 h-5" />
+              </Link>
             </Button>
 
             {/* User Menu */}

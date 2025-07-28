@@ -545,6 +545,17 @@ export function Navigation() {
                 Feed
               </Button>
             </Link>
+            
+            <Link href="/ai-assistant">
+              <Button 
+                variant="ghost" 
+                className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium"
+                data-testid="nav-ai-assistant"
+                aria-label="Chat with AI Assistant"
+              >
+                AI Assistant
+              </Button>
+            </Link>
 
             {/* Enterprise-grade category navigation with AOP integration */}
             {Object.keys(navigationData).map((category) => (
