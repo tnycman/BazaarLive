@@ -535,17 +535,6 @@ export function Navigation() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center space-x-6 py-3">
             {/* Main Navigation Items */}
-            <Link href="/home">
-              <Button 
-                variant="ghost" 
-                className="text-sm text-gray-700 dark:text-gray-300 hover:text-purple-600 font-medium"
-                data-testid="nav-home"
-                aria-label="Go to home"
-              >
-                Home
-              </Button>
-            </Link>
-
             <Link href="/feed">
               <Button 
                 variant="ghost" 
@@ -634,6 +623,27 @@ export function Navigation() {
                       } ${navigationState.isTransitioning ? 'opacity-70' : ''}`}
                       data-testid="nav-kids"
                       aria-label="Go to kids' section"
+                      aria-expanded={navigationState.activeDropdown === category}
+                    >
+                      {category}
+                      <ChevronDownIcon 
+                        className={`w-3 h-3 transition-transform duration-200 ${
+                          navigationState.activeDropdown === category ? 'rotate-180' : ''
+                        }`}
+                      />
+                    </Button>
+                  </Link>
+                ) : category === 'Home' ? (
+                  <Link href="/home">
+                    <Button 
+                      variant="ghost" 
+                      className={`text-sm font-medium flex items-center gap-1 transition-all duration-200 ${
+                        navigationState.activeDropdown === category 
+                          ? 'text-purple-600 bg-purple-50 dark:bg-purple-900/20' 
+                          : 'text-gray-700 dark:text-gray-300 hover:text-purple-600'
+                      } ${navigationState.isTransitioning ? 'opacity-70' : ''}`}
+                      data-testid="nav-home"
+                      aria-label="Go to home section"
                       aria-expanded={navigationState.activeDropdown === category}
                     >
                       {category}

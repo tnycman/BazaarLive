@@ -8,6 +8,7 @@ import { CategoryStrategy, CategoryDomain, CategoryDomainFactory } from './Categ
 import { WomenCategoryStrategy } from './strategies/WomenCategoryStrategy';
 import { MenCategoryStrategy } from './strategies/MenCategoryStrategy';
 import { KidsCategoryStrategy } from './strategies/KidsCategoryStrategy';
+import { HomeCategoryStrategy } from './strategies/HomeCategoryStrategy';
 import { categoryAspectManager, CategoryAspectManager } from './aspects/CategoryAspectManager';
 
 // Strategy Factory Interface
@@ -57,6 +58,13 @@ export class CategoryStrategyFactory implements ICategoryStrategyFactory {
         vertical: 'fashion',
         category: 'kids',
         strategyClass: KidsCategoryStrategy,
+        priority: 1,
+        isActive: true
+      },
+      {
+        vertical: 'home',
+        category: 'home',
+        strategyClass: HomeCategoryStrategy,
         priority: 1,
         isActive: true
       }
