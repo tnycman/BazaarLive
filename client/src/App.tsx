@@ -17,6 +17,7 @@ import AnalyticsDashboard from "@/pages/analytics/AnalyticsDashboard";
 import DynamicCategoryPage from "@/pages/DynamicCategoryPage";
 import AIAssistant from "@/pages/ai-assistant";
 import WomenPageEnterprise from "@/pages/fashion/WomenPageEnterprise";
+import WomenPageEnterpriseFixed from "@/pages/fashion/WomenPageEnterpriseFixed";
 import MenPageEnterprise from "@/pages/fashion/MenPageEnterprise";
 import KidsPageEnterprise from "@/pages/fashion/KidsPageEnterprise";
 
@@ -26,7 +27,7 @@ function Router() {
   return (
     <Switch>
       {/* Enterprise fashion routes - using sophisticated domain-driven components */}
-      <Route path="/fashion/women" component={WomenPageEnterprise} />
+      <Route path="/fashion/women" component={WomenPageEnterpriseFixed} />
       <Route path="/fashion/men" component={MenPageEnterprise} />
       <Route path="/fashion/kids" component={KidsPageEnterprise} />
       
