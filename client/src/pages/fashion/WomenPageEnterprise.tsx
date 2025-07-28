@@ -425,6 +425,158 @@ export default function WomenPageEnterprise() {
                   </div>
                 </div>
               )}
+
+              {/* Brand Filter */}
+              {filterConfig?.availableFilters?.includes && filterConfig.availableFilters.includes('brand') && (
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    Brand
+                  </label>
+                  <div className="space-y-2 max-h-40 overflow-y-auto">
+                    {['Nike', 'Adidas', 'Zara', 'H&M', 'Uniqlo', 'Forever 21'].map((brand) => (
+                      <label key={brand} className="flex items-center">
+                        <input
+                          type="checkbox"
+                          checked={filterCriteria.brands?.includes && filterCriteria.brands.includes(brand) || false}
+                          onChange={(e) => {
+                            const currentBrands = filterCriteria.brands || [];
+                            const newBrands = e.target.checked
+                              ? [...currentBrands, brand]
+                              : currentBrands.filter(b => b !== brand);
+                            
+                            handleFilterChange({
+                              ...filterCriteria,
+                              brands: newBrands.length > 0 ? newBrands : undefined
+                            });
+                          }}
+                          className="mr-2 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+                        />
+                        <span className="text-sm text-gray-700 dark:text-gray-300">{brand}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Condition Filter */}
+              {filterConfig?.availableFilters?.includes && filterConfig.availableFilters.includes('condition') && (
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    Condition
+                  </label>
+                  <div className="space-y-2">
+                    {['new_with_tags', 'new_without_tags', 'excellent', 'good', 'fair'].map((condition) => (
+                      <label key={condition} className="flex items-center">
+                        <input
+                          type="checkbox"
+                          checked={filterCriteria.condition?.includes && filterCriteria.condition.includes(condition) || false}
+                          onChange={(e) => {
+                            const currentConditions = filterCriteria.condition || [];
+                            const newConditions = e.target.checked
+                              ? [...currentConditions, condition]
+                              : currentConditions.filter(c => c !== condition);
+                            
+                            handleFilterChange({
+                              ...filterCriteria,
+                              condition: newConditions.length > 0 ? newConditions : undefined
+                            });
+                          }}
+                          className="mr-2 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+                        />
+                        <span className="text-sm text-gray-700 dark:text-gray-300 capitalize">
+                          {condition.replace(/_/g, ' ')}
+                        </span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Price Range Filter */}
+              {filterConfig?.availableFilters?.includes && filterConfig.availableFilters.includes('priceRange') && (
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    Price Range
+                  </label>
+                  <div className="space-y-3">
+                    <div>
+                      <label className="block text-xs text-gray-500 dark:text-gray-400">Min Price</label>
+                      <input
+                        type="number"
+                        min="0"
+                        value={filterCriteria.priceRange?.min || ''}
+                        onChange={(e) => {
+                          const min = e.target.value ? parseInt(e.target.value) : undefined;
+                          handleFilterChange({
+                            ...filterCriteria,
+                            priceRange: {
+                              ...filterCriteria.priceRange,
+                              min
+                            }
+                          });
+                        }}
+                        className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        placeholder="0"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs text-gray-500 dark:text-gray-400">Max Price</label>
+                      <input
+                        type="number"
+                        min="0"
+                        value={filterCriteria.priceRange?.max || ''}
+                        onChange={(e) => {
+                          const max = e.target.value ? parseInt(e.target.value) : undefined;
+                          handleFilterChange({
+                            ...filterCriteria,
+                            priceRange: {
+                              ...filterCriteria.priceRange,
+                              max
+                            }
+                          });
+                        }}
+                        className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        placeholder="1000"
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Color Filter */}
+              {filterConfig?.availableFilters?.includes && filterConfig.availableFilters.includes('color') && (
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    Color
+                  </label>
+                  <div className="grid grid-cols-6 gap-2">
+                    {['black', 'white', 'red', 'blue', 'green', 'yellow', 'pink', 'purple', 'gray', 'brown', 'navy', 'beige'].map((color) => (
+                      <button
+                        key={color}
+                        onClick={() => {
+                          const currentColors = filterCriteria.colors || [];
+                          const newColors = currentColors.includes && currentColors.includes(color)
+                            ? currentColors.filter(c => c !== color)
+                            : [...currentColors, color];
+                          
+                          handleFilterChange({
+                            ...filterCriteria,
+                            colors: newColors.length > 0 ? newColors : undefined
+                          });
+                        }}
+                        className={`w-8 h-8 rounded-full border-2 ${
+                          filterCriteria.colors?.includes && filterCriteria.colors.includes(color)
+                            ? 'border-purple-600 ring-2 ring-purple-200'
+                            : 'border-gray-300 dark:border-gray-600'
+                        }`}
+                        style={{ backgroundColor: color === 'navy' ? '#1a1a2e' : color }}
+                        title={color}
+                        data-testid={`button-color-${color}`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
