@@ -27,7 +27,7 @@ function Router() {
   return (
     <Switch>
       {/* Enterprise fashion routes - using sophisticated domain-driven components */}
-      <Route path="/fashion/women" component={WomenPageEnterprise} />
+      <Route path="/fashion/women" component={WomenPageEnterpriseFixed} />
       <Route path="/fashion/men" component={MenPageEnterprise} />
       <Route path="/fashion/kids" component={KidsPageEnterprise} />
       

@@ -17,6 +17,9 @@ import { DataValidationAspect } from '@/aspects/DataValidationAspect';
 
 // Enterprise page component with proper domain separation
 export default function WomenPageEnterprise() {
+  // Early return for safety during development
+  if (typeof window === 'undefined') return null;
+  
   // AOP aspect initialization
   const dataValidationAspect = useMemo(() => DataValidationAspect.getInstance(), []);
   
@@ -45,10 +48,16 @@ export default function WomenPageEnterprise() {
         inferSubcategory: (listing: any) => 'general',
         classifyStyle: (listing: any) => 'casual',
         domain: { 
-          metadata: { gradient: 'from-pink-50 to-rose-100' },
+          metadata: { 
+            gradient: 'from-pink-50 to-rose-100',
+            title: 'Women\'s Fashion',
+            description: 'Discover women\'s fashion',
+            placeholder: 'Search women\'s fashion...'
+          },
           vertical: 'fashion',
           category: 'women',
-          subcategories: []
+          subcategories: [],
+          sizeChart: { sizes: ['XS', 'S', 'M', 'L', 'XL'] }
         }
       } as unknown as WomenCategoryStrategy;
     }
@@ -122,6 +131,10 @@ export default function WomenPageEnterprise() {
 
   // Apply enterprise filtering with AOP validation
   const filteredListings = useMemo(() => {
+    if (!transformedListings || !Array.isArray(transformedListings)) {
+      return [];
+    }
+    
     const context = dataValidationAspect.createContext('WomenPageEnterprise', 'filteredListings');
     
     return dataValidationAspect.validateFilteringOperation(
@@ -162,16 +175,16 @@ export default function WomenPageEnterprise() {
         }
         
         // Apply additional filter criteria with AOP validation
-        if (filterCriteria.sizes?.length && Array.isArray(filterCriteria.sizes)) {
+        if (filterCriteria?.sizes?.length && Array.isArray(filterCriteria.sizes)) {
           const listingSize = DomainSafetyService.safePropertyAccess(listing, 'size', '');
-          if (listingSize && !filterCriteria.sizes.includes(listingSize)) {
+          if (listingSize && filterCriteria.sizes.includes && !filterCriteria.sizes.includes(listingSize)) {
             return false;
           }
         }
         
-        if (filterCriteria.brands?.length && Array.isArray(filterCriteria.brands)) {
+        if (filterCriteria?.brands?.length && Array.isArray(filterCriteria.brands)) {
           const listingBrand = DomainSafetyService.safePropertyAccess(listing, 'brand', '');
-          if (listingBrand && !filterCriteria.brands.includes(listingBrand)) {
+          if (listingBrand && filterCriteria.brands.includes && !filterCriteria.brands.includes(listingBrand)) {
             return false;
           }
         }
@@ -292,9 +305,18 @@ export default function WomenPageEnterprise() {
     setSortBy(newSort);
   }, []);
 
-  // Get domain metadata
-  const domainMetadata = strategy.domain.metadata;
-  const filterConfig = strategy.getFilterConfiguration();
+  // Get domain metadata with safe access
+  const domainMetadata = strategy?.domain?.metadata || { 
+    gradient: 'from-pink-50 to-rose-100',
+    title: 'Women\'s Fashion',
+    description: 'Discover women\'s fashion',
+    placeholder: 'Search women\'s fashion...'
+  };
+  const filterConfig = strategy?.getFilterConfiguration ? strategy.getFilterConfiguration() : {
+    availableFilters: [],
+    defaultFilters: {},
+    filterValidationRules: {}
+  };
 
   // Analytics tracking
   useEffect(() => {
