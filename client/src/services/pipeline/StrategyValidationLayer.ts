@@ -334,7 +334,7 @@ export class EnterpriseStrategyValidationOrchestrator {
           if (errorResult.success) {
             return errorResult;
           }
-          return result as Result<CategorySpecificListingData[], Error>;
+          return result as unknown as Result<CategorySpecificListingData[], Error>;
         }
         transformedData = result.value;
       }

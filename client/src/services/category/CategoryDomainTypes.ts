@@ -169,16 +169,19 @@ export interface ValidationRule {
 }
 
 export interface RawListingData {
-  readonly id: string;
-  readonly title: string;
-  readonly description: string;
-  readonly price: string;
-  readonly category: string;
+  readonly id?: string;
+  readonly title?: string;
+  readonly description?: string;
+  readonly price?: string;
+  readonly category?: string;
   readonly subcategory?: string;
   readonly brand?: string;
   readonly size?: string;
   readonly condition?: string;
   readonly images?: readonly string[];
+  readonly userId?: string;
+  readonly createdAt?: string;
+  readonly updatedAt?: string;
   readonly metadata?: Record<string, any>;
 }
 

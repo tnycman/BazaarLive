@@ -11,7 +11,8 @@ import { Navigation } from '@/components/Navigation';
 import { categoryStrategyFactory } from '@/services/category/CategoryStrategyFactory';
 import { KidsCategoryStrategy } from '@/services/category/strategies/KidsCategoryStrategy';
 import { FilterCriteriaType } from '@/services/filtering/FilterService';
-import { RawListingData, CategorySelection } from '@/services/category/CategoryDomainTypes';
+import { RawListingData, CategorySelection, CategorySpecificListingData } from '@/services/category/CategoryDomainTypes';
+import { listingValidationOrchestrator } from '@/services/aop/ListingDataValidationOrchestrator';
 
 export default function KidsPageEnterprise() {
   const strategy = useMemo(() => {
@@ -54,12 +55,44 @@ export default function KidsPageEnterprise() {
   });
 
   const transformedListings = useMemo(() => {
-    if (!rawListings || !Array.isArray(rawListings)) return [];
+    if (!rawListings || !Array.isArray(rawListings)) {
+      console.warn('[KidsPageEnterprise] Invalid or missing raw listings data');
+      return [];
+    }
+
     try {
-      const result = strategy.transformListingData(rawListings);
-      return Array.isArray(result) ? result : [];
+      console.log('[KidsPageEnterprise] Starting AOP-compliant data transformation');
+      
+      // Use direct aspect access for synchronous validation
+      const context = listingValidationOrchestrator.dataIntegrityAspect.createContext(
+        'transformedListings',
+        'KidsPageEnterprise',
+        'RawListingData[]'
+      );
+      
+      const integrityResult = listingValidationOrchestrator.dataIntegrityAspect.validateDataIntegrity(rawListings, context);
+
+      if (!integrityResult?.success) {
+        console.error('[KidsPageEnterprise] Data integrity validation failed:', integrityResult?.error?.message);
+        return [];
+      }
+
+      const transformedResult = strategy.transformListingData(integrityResult.value as RawListingData[]);
+      
+      if (!Array.isArray(transformedResult)) {
+        console.error('[KidsPageEnterprise] Strategy transformation returned non-array data:', typeof transformedResult);
+        return [];
+      }
+
+      console.log('[KidsPageEnterprise] Data transformation completed successfully:', {
+        rawCount: rawListings.length,
+        validatedCount: integrityResult.value.length,
+        transformedCount: transformedResult.length
+      });
+
+      return transformedResult;
     } catch (error) {
-      console.error('Error transforming listings:', error);
+      console.error('[KidsPageEnterprise] Critical error in data transformation:', error);
       return [];
     }
   }, [rawListings, strategy]);
