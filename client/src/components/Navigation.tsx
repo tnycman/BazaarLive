@@ -655,7 +655,7 @@ export function Navigation() {
                     </Button>
                   </Link>
                 ) : category === 'Electronics' ? (
-                  <Link href="/electronics">
+                  <Link href="/fashion/electronics">
                     <Button 
                       variant="ghost" 
                       className={`text-sm font-medium flex items-center gap-1 transition-all duration-200 ${
