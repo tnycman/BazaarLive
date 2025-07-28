@@ -654,6 +654,27 @@ export function Navigation() {
                       />
                     </Button>
                   </Link>
+                ) : category === 'Electronics' ? (
+                  <Link href="/electronics">
+                    <Button 
+                      variant="ghost" 
+                      className={`text-sm font-medium flex items-center gap-1 transition-all duration-200 ${
+                        navigationState.activeDropdown === category 
+                          ? 'text-purple-600 bg-purple-50 dark:bg-purple-900/20' 
+                          : 'text-gray-700 dark:text-gray-300 hover:text-purple-600'
+                      } ${navigationState.isTransitioning ? 'opacity-70' : ''}`}
+                      data-testid="nav-electronics"
+                      aria-label="Go to electronics section"
+                      aria-expanded={navigationState.activeDropdown === category}
+                    >
+                      {category}
+                      <ChevronDownIcon 
+                        className={`w-3 h-3 transition-transform duration-200 ${
+                          navigationState.activeDropdown === category ? 'rotate-180' : ''
+                        }`}
+                      />
+                    </Button>
+                  </Link>
                 ) : (
                   <Button 
                     variant="ghost" 
