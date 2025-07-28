@@ -20,9 +20,29 @@ export default function WomenPageEnterprise() {
   // AOP aspect initialization
   const dataValidationAspect = useMemo(() => DataValidationAspect.getInstance(), []);
   
-  // Domain strategy initialization
+  // Domain strategy initialization with error handling
   const strategy = useMemo(() => {
-    return categoryStrategyFactory.createStrategy('fashion', 'women') as WomenCategoryStrategy;
+    try {
+      const strategyInstance = categoryStrategyFactory.createStrategy('fashion', 'women') as WomenCategoryStrategy;
+      if (!strategyInstance) {
+        console.error('[WomenPageEnterprise] Failed to create strategy instance');
+        throw new Error('Strategy creation failed');
+      }
+      return strategyInstance;
+    } catch (error) {
+      console.error('[WomenPageEnterprise] Strategy initialization error:', error);
+      // Return a minimal fallback strategy to prevent crashes
+      return {
+        transformListingData: (data: any[]) => Array.isArray(data) ? data : [],
+        validateSelection: () => ({ isValid: true, errors: [] }),
+        getFilterConfiguration: () => ({
+          availableFilters: [],
+          defaultFilters: {},
+          filterValidationRules: {}
+        }),
+        domain: { metadata: { gradient: 'from-pink-50 to-rose-100' } }
+      } as WomenCategoryStrategy;
+    }
   }, []);
 
   // Component state with type safety
@@ -71,13 +91,24 @@ export default function WomenPageEnterprise() {
     retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
   });
 
-  // Transform raw listings using domain strategy
+  // Transform raw listings using domain strategy with error handling
   const transformedListings = useMemo(() => {
     if (!rawListings || !Array.isArray(rawListings)) {
       return [];
     }
     
-    return strategy.transformListingData(rawListings);
+    try {
+      if (!strategy || typeof strategy.transformListingData !== 'function') {
+        console.warn('[WomenPageEnterprise] Strategy or transformListingData method unavailable');
+        return rawListings; // Return raw data as fallback
+      }
+      
+      const transformed = strategy.transformListingData(rawListings);
+      return Array.isArray(transformed) ? transformed : [];
+    } catch (error) {
+      console.error('[WomenPageEnterprise] Data transformation error:', error);
+      return rawListings; // Return raw data as fallback
+    }
   }, [rawListings, strategy]);
 
   // Apply enterprise filtering with AOP validation
@@ -123,16 +154,16 @@ export default function WomenPageEnterprise() {
         }
         
         // Apply additional filter criteria with AOP validation
-        if (filterCriteria.sizes?.length) {
+        if (filterCriteria.sizes?.length && Array.isArray(filterCriteria.sizes)) {
           const listingSize = DomainSafetyService.safePropertyAccess(listing, 'size', '');
-          if (!filterCriteria.sizes.includes(listingSize)) {
+          if (listingSize && !filterCriteria.sizes.includes(listingSize)) {
             return false;
           }
         }
         
-        if (filterCriteria.brands?.length) {
+        if (filterCriteria.brands?.length && Array.isArray(filterCriteria.brands)) {
           const listingBrand = DomainSafetyService.safePropertyAccess(listing, 'brand', '');
-          if (!filterCriteria.brands.includes(listingBrand)) {
+          if (listingBrand && !filterCriteria.brands.includes(listingBrand)) {
             return false;
           }
         }
@@ -147,9 +178,9 @@ export default function WomenPageEnterprise() {
           }
         }
         
-        if (filterCriteria.condition?.length) {
+        if (filterCriteria.condition?.length && Array.isArray(filterCriteria.condition)) {
           const listingCondition = DomainSafetyService.safePropertyAccess(listing, 'condition', 'good');
-          if (!filterCriteria.condition.includes(listingCondition as any)) {
+          if (listingCondition && !filterCriteria.condition.includes(listingCondition as any)) {
             return false;
           }
         }
