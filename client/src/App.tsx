@@ -16,22 +16,19 @@ import VerticalPage from "@/pages/marketplace/VerticalPage";
 import AnalyticsDashboard from "@/pages/analytics/AnalyticsDashboard";
 import DynamicCategoryPage from "@/pages/DynamicCategoryPage";
 import AIAssistant from "@/pages/ai-assistant";
+import WomenPageEnterprise from "@/pages/fashion/WomenPageEnterprise";
+import MenPageEnterprise from "@/pages/fashion/MenPageEnterprise";
+import KidsPageEnterprise from "@/pages/fashion/KidsPageEnterprise";
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
 
   return (
     <Switch>
-      {/* Specific fashion routes - higher priority than dynamic routes */}
-      <Route path="/fashion/women" component={() => (
-        <DynamicCategoryPage vertical="fashion" category="women" />
-      )} />
-      <Route path="/fashion/men" component={() => (
-        <DynamicCategoryPage vertical="fashion" category="men" />
-      )} />
-      <Route path="/fashion/kids" component={() => (
-        <DynamicCategoryPage vertical="fashion" category="kids" />
-      )} />
+      {/* Enterprise fashion routes - using sophisticated domain-driven components */}
+      <Route path="/fashion/women" component={WomenPageEnterprise} />
+      <Route path="/fashion/men" component={MenPageEnterprise} />
+      <Route path="/fashion/kids" component={KidsPageEnterprise} />
       
       {/* Dynamic fashion routes - lower priority fallback */}
       <Route path="/fashion/:category/:subcategory?" component={({ params }) => (
