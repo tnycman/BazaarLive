@@ -12,9 +12,14 @@ import { categoryStrategyFactory } from '@/services/category/CategoryStrategyFac
 import { WomenCategoryStrategy } from '@/services/category/strategies/WomenCategoryStrategy';
 import { FilterCriteriaType } from '@/services/filtering/FilterService';
 import { RawListingData, CategorySelection } from '@/services/category/CategoryDomainTypes';
+import { DomainSafetyService } from '@/services/domain/DomainSafetyService';
+import { DataValidationAspect } from '@/aspects/DataValidationAspect';
 
 // Enterprise page component with proper domain separation
 export default function WomenPageEnterprise() {
+  // AOP aspect initialization
+  const dataValidationAspect = useMemo(() => DataValidationAspect.getInstance(), []);
+  
   // Domain strategy initialization
   const strategy = useMemo(() => {
     return categoryStrategyFactory.createStrategy('fashion', 'women') as WomenCategoryStrategy;
@@ -75,66 +80,94 @@ export default function WomenPageEnterprise() {
     return strategy.transformListingData(rawListings);
   }, [rawListings, strategy]);
 
-  // Apply enterprise filtering
+  // Apply enterprise filtering with AOP validation
   const filteredListings = useMemo(() => {
-    let filtered = transformedListings;
+    const context = dataValidationAspect.createContext('WomenPageEnterprise', 'filteredListings');
     
-    // Apply search query filtering
-    if (searchQuery.trim()) {
-      const query = searchQuery.toLowerCase();
-      filtered = filtered.filter(listing => 
-        listing.title?.toLowerCase().includes(query) ||
-        listing.description?.toLowerCase().includes(query) ||
-        listing.brand?.toLowerCase().includes(query) ||
-        listing.domainSpecificData?.styleClassification?.some((style: string) => 
-          style.toLowerCase().includes(query)
-        )
-      );
-    }
-    
-    // Apply category selection filtering
-    if (categorySelection.level2) {
-      filtered = filtered.filter(listing => 
-        listing.subcategory === categorySelection.level2 ||
-        listing.domainSpecificData?.inferredSubcategory === categorySelection.level2
-      );
-    }
-    
-    // Apply additional filter criteria
-    const filterConfig = strategy.getFilterConfiguration();
-    
-    if (filterCriteria.sizes?.length) {
-      filtered = filtered.filter(listing => 
-        filterCriteria.sizes!.includes(listing.size || '')
-      );
-    }
-    
-    if (filterCriteria.brands?.length) {
-      filtered = filtered.filter(listing => 
-        filterCriteria.brands!.includes(listing.brand || '')
-      );
-    }
-    
-    if (filterCriteria.priceRange) {
-      const { min, max } = filterCriteria.priceRange;
-      filtered = filtered.filter(listing => {
-        const price = parseFloat(listing.price.replace(/[^0-9.]/g, ''));
-        return (!min || price >= min) && (!max || price <= max);
-      });
-    }
-    
-    if (filterCriteria.condition?.length) {
-      filtered = filtered.filter(listing => 
-        filterCriteria.condition!.includes(listing.condition as any || '')
-      );
-    }
-    
-    return filtered;
-  }, [transformedListings, searchQuery, categorySelection, filterCriteria, strategy]);
+    return dataValidationAspect.validateFilteringOperation(
+      transformedListings,
+      (listing) => {
+        // Apply search query filtering with enterprise safety
+        if (searchQuery.trim()) {
+          const query = searchQuery.toLowerCase();
+          
+          // AOP-validated string operations
+          const titleMatch = DomainSafetyService.safeStringIncludes(listing.title, query);
+          const descMatch = DomainSafetyService.safeStringIncludes(listing.description, query);
+          const brandMatch = DomainSafetyService.safeStringIncludes(listing.brand, query);
+          
+          // AOP-validated style classification access
+          const styleMatch = dataValidationAspect.validateStyleClassificationAccess(
+            listing.domainSpecificData,
+            query,
+            context
+          );
+          
+          if (!(titleMatch || descMatch || brandMatch || styleMatch)) {
+            return false;
+          }
+        }
+        
+        // Apply category selection filtering with AOP validation
+        if (categorySelection.level2) {
+          const subcategoryMatch = listing.subcategory === categorySelection.level2;
+          const inferredMatch = DomainSafetyService.safePropertyAccess(
+            listing.domainSpecificData,
+            'inferredSubcategory',
+            ''
+          ) === categorySelection.level2;
+          
+          if (!(subcategoryMatch || inferredMatch)) {
+            return false;
+          }
+        }
+        
+        // Apply additional filter criteria with AOP validation
+        if (filterCriteria.sizes?.length) {
+          const listingSize = DomainSafetyService.safePropertyAccess(listing, 'size', '');
+          if (!filterCriteria.sizes.includes(listingSize)) {
+            return false;
+          }
+        }
+        
+        if (filterCriteria.brands?.length) {
+          const listingBrand = DomainSafetyService.safePropertyAccess(listing, 'brand', '');
+          if (!filterCriteria.brands.includes(listingBrand)) {
+            return false;
+          }
+        }
+        
+        if (filterCriteria.priceRange) {
+          const { min, max } = filterCriteria.priceRange;
+          const priceStr = DomainSafetyService.safePropertyAccess(listing, 'price', '0');
+          const price = parseFloat(priceStr.replace(/[^0-9.]/g, ''));
+          
+          if ((min && price < min) || (max && price > max)) {
+            return false;
+          }
+        }
+        
+        if (filterCriteria.condition?.length) {
+          const listingCondition = DomainSafetyService.safePropertyAccess(listing, 'condition', '');
+          if (!filterCriteria.condition.includes(listingCondition)) {
+            return false;
+          }
+        }
+        
+        return true;
+      },
+      context
+    );
+  }, [transformedListings, searchQuery, categorySelection, filterCriteria, dataValidationAspect]);
 
-  // Sort filtered listings
+  // Sort filtered listings with AOP validation
   const sortedListings = useMemo(() => {
-    const sorted = [...filteredListings];
+    const context = dataValidationAspect.createContext('WomenPageEnterprise', 'sortedListings');
+    const validatedListings = dataValidationAspect.validateArrayOperations(
+      () => filteredListings,
+      context
+    );
+    const sorted = [...validatedListings];
     
     switch (sortBy) {
       case 'newest':
