@@ -9,6 +9,7 @@ import NotFound from "@/pages/not-found";
 import Landing from "@/pages/landing";
 import Feed from "@/pages/feed";
 import Home from "@/pages/home";
+import HomePageEnterprise from "@/pages/HomePageEnterprise";
 import Marketplace from "@/pages/marketplace";
 import CreateListing from "@/pages/create-listing";
 import Profile from "@/pages/profile";
@@ -68,7 +69,7 @@ function Router() {
         <>
           <Route path="/" component={Feed} />
           <Route path="/feed" component={Feed} />
-          <Route path="/home" component={Home} />
+          <Route path="/home" component={HomePageEnterprise} />
           <Route path="/create-listing" component={CreateListing} />
           <Route path="/profile/:username?" component={Profile} />
           <Route path="/analytics" component={AnalyticsDashboard} />
