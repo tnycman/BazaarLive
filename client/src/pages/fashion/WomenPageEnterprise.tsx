@@ -148,8 +148,8 @@ export default function WomenPageEnterprise() {
         }
         
         if (filterCriteria.condition?.length) {
-          const listingCondition = DomainSafetyService.safePropertyAccess(listing, 'condition', '');
-          if (!filterCriteria.condition.includes(listingCondition)) {
+          const listingCondition = DomainSafetyService.safePropertyAccess(listing, 'condition', 'good');
+          if (!filterCriteria.condition.includes(listingCondition as any)) {
             return false;
           }
         }
