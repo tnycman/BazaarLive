@@ -9,6 +9,7 @@ import { WomenCategoryStrategy } from './strategies/WomenCategoryStrategy';
 import { MenCategoryStrategy } from './strategies/MenCategoryStrategy';
 import { KidsCategoryStrategy } from './strategies/KidsCategoryStrategy';
 import { HomeCategoryStrategy } from './strategies/HomeCategoryStrategy';
+import { ElectronicsCategoryStrategy } from './strategies/ElectronicsCategoryStrategy';
 import { categoryAspectManager, CategoryAspectManager } from './aspects/CategoryAspectManager';
 
 // Strategy Factory Interface
@@ -65,6 +66,13 @@ export class CategoryStrategyFactory implements ICategoryStrategyFactory {
         vertical: 'home',
         category: 'home',
         strategyClass: HomeCategoryStrategy,
+        priority: 1,
+        isActive: true
+      },
+      {
+        vertical: 'fashion',
+        category: 'electronics',
+        strategyClass: ElectronicsCategoryStrategy,
         priority: 1,
         isActive: true
       }
