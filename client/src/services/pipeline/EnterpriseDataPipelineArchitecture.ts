@@ -443,9 +443,9 @@ export class EnterpriseDataPipelineOrchestrator {
         if (!result.success) {
           const errorResult = aspect.onError(result.error as Error, context);
           if (errorResult.success) {
-            return errorResult as Result<U[], Error>;
+            return errorResult as unknown as Result<U[], Error>;
           }
-          return result as Result<U[], Error>;
+          return result as unknown as Result<U[], Error>;
         }
       }
 
@@ -483,9 +483,9 @@ export class EnterpriseDataPipelineOrchestrator {
         if (!result.success) {
           const errorResult = aspect.onError(result.error as Error, context);
           if (errorResult.success) {
-            return errorResult as Result<U[], Error>;
+            return errorResult as unknown as Result<U[], Error>;
           }
-          return result as Result<U[], Error>;
+          return result as unknown as Result<U[], Error>;
         }
       }
 
@@ -503,7 +503,7 @@ export class EnterpriseDataPipelineOrchestrator {
       for (const aspect of this.aspects) {
         const result = aspect.onError(error as Error, context);
         if (result.success) {
-          return result as Result<U[], Error>;
+          return result as unknown as Result<U[], Error>;
         }
       }
 

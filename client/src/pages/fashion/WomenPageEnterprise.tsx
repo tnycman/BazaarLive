@@ -465,7 +465,7 @@ export default function WomenPageEnterprise() {
                     Condition
                   </label>
                   <div className="space-y-2">
-                    {['new_with_tags', 'new_without_tags', 'excellent', 'good', 'fair'].map((condition) => (
+                    {(['new_with_tags', 'new_without_tags', 'excellent', 'good', 'fair'] as const).map((condition) => (
                       <label key={condition} className="flex items-center">
                         <input
                           type="checkbox"
@@ -478,7 +478,7 @@ export default function WomenPageEnterprise() {
                             
                             handleFilterChange({
                               ...filterCriteria,
-                              condition: newConditions.length > 0 ? newConditions : undefined
+                              condition: newConditions.length > 0 ? newConditions as typeof newConditions : undefined
                             });
                           }}
                           className="mr-2 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
