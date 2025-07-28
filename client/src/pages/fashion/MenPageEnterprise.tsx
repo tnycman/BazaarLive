@@ -55,10 +55,17 @@ export default function MenPageEnterprise() {
 
   const transformedListings = useMemo(() => {
     if (!rawListings || !Array.isArray(rawListings)) return [];
-    return strategy.transformListingData(rawListings);
+    try {
+      const result = strategy.transformListingData(rawListings);
+      return Array.isArray(result) ? result : [];
+    } catch (error) {
+      console.error('Error transforming listings:', error);
+      return [];
+    }
   }, [rawListings, strategy]);
 
   const filteredListings = useMemo(() => {
+    if (!Array.isArray(transformedListings)) return [];
     let filtered = transformedListings;
     
     if (searchQuery.trim()) {
@@ -87,6 +94,7 @@ export default function MenPageEnterprise() {
   }, [transformedListings, searchQuery, categorySelection, filterCriteria]);
 
   const sortedListings = useMemo(() => {
+    if (!Array.isArray(filteredListings)) return [];
     const sorted = [...filteredListings];
     
     switch (sortBy) {
