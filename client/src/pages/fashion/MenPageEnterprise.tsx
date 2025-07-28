@@ -11,7 +11,8 @@ import { Navigation } from '@/components/Navigation';
 import { categoryStrategyFactory } from '@/services/category/CategoryStrategyFactory';
 import { MenCategoryStrategy } from '@/services/category/strategies/MenCategoryStrategy';
 import { FilterCriteriaType } from '@/services/filtering/FilterService';
-import { RawListingData, CategorySelection } from '@/services/category/CategoryDomainTypes';
+import { RawListingData, CategorySelection, CategorySpecificListingData } from '@/services/category/CategoryDomainTypes';
+import { listingValidationOrchestrator } from '@/services/aop/ListingDataValidationOrchestrator';
 
 export default function MenPageEnterprise() {
   const strategy = useMemo(() => {
@@ -54,12 +55,78 @@ export default function MenPageEnterprise() {
   });
 
   const transformedListings = useMemo(() => {
-    if (!rawListings || !Array.isArray(rawListings)) return [];
+    const processDataWithAOP = async () => {
+      if (!rawListings) {
+        console.log('[MenPageEnterprise] No raw listings data available');
+        return [];
+      }
+
+      try {
+        console.log('[MenPageEnterprise] Starting AOP-compliant data validation and transformation');
+        
+        const validationResult = await listingValidationOrchestrator.validateCategorySpecificData(
+          rawListings,
+          strategy,
+          'MenPageEnterprise',
+          'standard'
+        );
+
+        if (!validationResult.success) {
+          console.error('[MenPageEnterprise] Validation failed:', validationResult.validationReport.errors);
+          return [];
+        }
+
+        console.log('[MenPageEnterprise] AOP validation completed successfully:', {
+          totalItems: validationResult.validationReport.totalItems,
+          validItems: validationResult.validationReport.validItems,
+          warnings: validationResult.validationReport.warnings.length,
+          executionTime: validationResult.performanceMetrics.totalExecutionTime
+        });
+
+        return validationResult.data;
+      } catch (error) {
+        console.error('[MenPageEnterprise] Critical error in AOP data processing:', error);
+        return [];
+      }
+    };
+
+    // Since we can't use async in useMemo, we'll handle this differently
+    if (!rawListings || !Array.isArray(rawListings)) {
+      console.warn('[MenPageEnterprise] Invalid or missing raw listings data');
+      return [];
+    }
+
     try {
-      const result = strategy.transformListingData(rawListings);
-      return Array.isArray(result) ? result : [];
+      // Use direct aspect access for synchronous validation
+      const context = listingValidationOrchestrator.dataIntegrityAspect.createContext(
+        'transformedListings',
+        'MenPageEnterprise',
+        'RawListingData[]'
+      );
+      
+      const integrityResult = listingValidationOrchestrator.dataIntegrityAspect.validateDataIntegrity(rawListings, context);
+
+      if (!integrityResult?.success) {
+        console.error('[MenPageEnterprise] Data integrity validation failed');
+        return [];
+      }
+
+      const transformedResult = strategy.transformListingData(integrityResult.value as RawListingData[]);
+      
+      if (!Array.isArray(transformedResult)) {
+        console.error('[MenPageEnterprise] Strategy transformation returned non-array data');
+        return [];
+      }
+
+      console.log('[MenPageEnterprise] Data transformation completed successfully:', {
+        rawCount: rawListings.length,
+        validatedCount: integrityResult.value.length,
+        transformedCount: transformedResult.length
+      });
+
+      return transformedResult;
     } catch (error) {
-      console.error('Error transforming listings:', error);
+      console.error('[MenPageEnterprise] Error in data transformation:', error);
       return [];
     }
   }, [rawListings, strategy]);

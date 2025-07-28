@@ -11,7 +11,8 @@ import { Navigation } from '@/components/Navigation';
 import { categoryStrategyFactory } from '@/services/category/CategoryStrategyFactory';
 import { WomenCategoryStrategy } from '@/services/category/strategies/WomenCategoryStrategy';
 import { FilterCriteriaType } from '@/services/filtering/FilterService';
-import { RawListingData, CategorySelection } from '@/services/category/CategoryDomainTypes';
+import { RawListingData, CategorySelection, CategorySpecificListingData } from '@/services/category/CategoryDomainTypes';
+import { listingValidationOrchestrator } from '@/services/aop/ListingDataValidationOrchestrator';
 import { DomainSafetyService } from '@/services/domain/DomainSafetyService';
 import { DataValidationAspect } from '@/aspects/DataValidationAspect';
 
