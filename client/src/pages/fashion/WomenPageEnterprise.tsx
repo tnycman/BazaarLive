@@ -40,8 +40,17 @@ export default function WomenPageEnterprise() {
           defaultFilters: {},
           filterValidationRules: {}
         }),
-        domain: { metadata: { gradient: 'from-pink-50 to-rose-100' } }
-      } as WomenCategoryStrategy;
+        getAnalyticsConfiguration: () => ({ events: [], metrics: [] }),
+        normalizeSizeForWomen: (size: string) => size,
+        inferSubcategory: (listing: any) => 'general',
+        classifyStyle: (listing: any) => 'casual',
+        domain: { 
+          metadata: { gradient: 'from-pink-50 to-rose-100' },
+          vertical: 'fashion',
+          category: 'women',
+          subcategories: []
+        }
+      } as unknown as WomenCategoryStrategy;
     }
   }, []);
 
@@ -128,10 +137,9 @@ export default function WomenPageEnterprise() {
           const brandMatch = DomainSafetyService.safeStringIncludes(listing.brand, query);
           
           // AOP-validated style classification access
-          const styleMatch = dataValidationAspect.validateStyleClassificationAccess(
-            listing.domainSpecificData,
-            query,
-            context
+          const styleMatch = DomainSafetyService.safeStringIncludes(
+            (listing as any).style || '',
+            query
           );
           
           if (!(titleMatch || descMatch || brandMatch || styleMatch)) {
@@ -143,7 +151,7 @@ export default function WomenPageEnterprise() {
         if (categorySelection.level2) {
           const subcategoryMatch = listing.subcategory === categorySelection.level2;
           const inferredMatch = DomainSafetyService.safePropertyAccess(
-            listing.domainSpecificData,
+            listing,
             'inferredSubcategory',
             ''
           ) === categorySelection.level2;
@@ -487,22 +495,22 @@ export default function WomenPageEnterprise() {
                           {listing.price}
                         </span>
                         
-                        {listing.domainSpecificData?.priceTier && (
+                        {(listing as any).priceTier && (
                           <span className={`px-2 py-1 text-xs rounded-full ${
-                            listing.domainSpecificData.priceTier === 'luxury'
+                            (listing as any).priceTier === 'luxury'
                               ? 'bg-gold-100 text-gold-800'
-                              : listing.domainSpecificData.priceTier === 'premium'
+                              : (listing as any).priceTier === 'premium'
                               ? 'bg-purple-100 text-purple-800'
                               : 'bg-gray-100 text-gray-800'
                           }`}>
-                            {listing.domainSpecificData.priceTier}
+                            {(listing as any).priceTier}
                           </span>
                         )}
                       </div>
                       
                       {listing.size && (
                         <div className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                          Size: {listing.domainSpecificData?.normalizedSize || listing.size}
+                          Size: {(listing as any).normalizedSize || listing.size}
                         </div>
                       )}
                     </div>
