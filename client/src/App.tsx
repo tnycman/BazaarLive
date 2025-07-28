@@ -23,18 +23,15 @@ function Router() {
   return (
     <Switch>
       {/* Specific fashion routes - higher priority than dynamic routes */}
-      <Route path="/fashion/women" component={() => {
-        const WomenPageEnterprise = require('@/pages/fashion/WomenPageEnterprise');
-        return <WomenPageEnterprise.default />;
-      }} />
-      <Route path="/fashion/men" component={() => {
-        const MenPageEnterprise = require('@/pages/fashion/MenPageEnterprise');
-        return <MenPageEnterprise.default />;
-      }} />
-      <Route path="/fashion/kids" component={() => {
-        const KidsPageEnterprise = require('@/pages/fashion/KidsPageEnterprise');
-        return <KidsPageEnterprise.default />;
-      }} />
+      <Route path="/fashion/women" component={() => (
+        <DynamicCategoryPage vertical="fashion" category="women" />
+      )} />
+      <Route path="/fashion/men" component={() => (
+        <DynamicCategoryPage vertical="fashion" category="men" />
+      )} />
+      <Route path="/fashion/kids" component={() => (
+        <DynamicCategoryPage vertical="fashion" category="kids" />
+      )} />
       
       {/* Dynamic fashion routes - lower priority fallback */}
       <Route path="/fashion/:category/:subcategory?" component={({ params }) => (
