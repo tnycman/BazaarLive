@@ -199,9 +199,9 @@ export default function WomenPageEnterprise() {
           }
         }
         
-        if (filterCriteria.condition?.length && Array.isArray(filterCriteria.condition)) {
+        if (filterCriteria?.condition?.length && Array.isArray(filterCriteria.condition)) {
           const listingCondition = DomainSafetyService.safePropertyAccess(listing, 'condition', 'good');
-          if (listingCondition && !filterCriteria.condition.includes(listingCondition as any)) {
+          if (listingCondition && filterCriteria.condition.includes && !filterCriteria.condition.includes(listingCondition as any)) {
             return false;
           }
         }
@@ -214,12 +214,9 @@ export default function WomenPageEnterprise() {
 
   // Sort filtered listings with AOP validation
   const sortedListings = useMemo(() => {
-    const context = dataValidationAspect.createContext('WomenPageEnterprise', 'sortedListings');
-    const validatedListings = dataValidationAspect.validateArrayOperations(
-      () => filteredListings,
-      context
-    );
-    const sorted = [...validatedListings];
+    if (!Array.isArray(filteredListings)) return [];
+    
+    const sorted = [...filteredListings];
     
     switch (sortBy) {
       case 'newest':
@@ -297,7 +294,7 @@ export default function WomenPageEnterprise() {
   const handleSortChange = useCallback((newSort: string) => {
     const validSorts = ['newest', 'price_low', 'price_high', 'most_liked', 'trending'];
     
-    if (!validSorts.includes(newSort)) {
+    if (validSorts && validSorts.includes && !validSorts.includes(newSort)) {
       console.warn('Invalid sort option:', newSort);
       return;
     }
@@ -395,7 +392,7 @@ export default function WomenPageEnterprise() {
               </h3>
               
               {/* Size Filter */}
-              {filterConfig.availableFilters.includes('size') && (
+              {filterConfig?.availableFilters?.includes && filterConfig.availableFilters.includes('size') && (
                 <div>
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     Size
@@ -406,7 +403,7 @@ export default function WomenPageEnterprise() {
                         key={size}
                         onClick={() => {
                           const currentSizes = filterCriteria.sizes || [];
-                          const newSizes = currentSizes.includes(size)
+                          const newSizes = currentSizes?.includes && currentSizes.includes(size)
                             ? currentSizes.filter(s => s !== size)
                             : [...currentSizes, size];
                           
@@ -416,7 +413,7 @@ export default function WomenPageEnterprise() {
                           });
                         }}
                         className={`p-2 text-xs border rounded ${
-                          filterCriteria.sizes?.includes(size)
+                          filterCriteria.sizes?.includes && filterCriteria.sizes.includes(size)
                             ? 'bg-purple-600 text-white border-purple-600'
                             : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600'
                         }`}
