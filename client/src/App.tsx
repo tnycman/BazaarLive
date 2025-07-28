@@ -15,6 +15,7 @@ import Profile from "@/pages/profile";
 import VerticalPage from "@/pages/marketplace/VerticalPage";
 import AnalyticsDashboard from "@/pages/analytics/AnalyticsDashboard";
 import DynamicCategoryPage from "@/pages/DynamicCategoryPage";
+import AIAssistant from "@/pages/ai-assistant";
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
@@ -76,6 +77,7 @@ function Router() {
           <Route path="/create-listing" component={CreateListing} />
           <Route path="/profile/:username?" component={Profile} />
           <Route path="/analytics" component={AnalyticsDashboard} />
+          <Route path="/ai-assistant" component={AIAssistant} />
         </>
       )}
       <Route component={NotFound} />

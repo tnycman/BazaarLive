@@ -206,6 +206,36 @@ export const semanticSearchQueries = pgTable("semantic_search_queries", {
   createdAt: timestamp("created_at").defaultNow(),
 });
 
+// AI Assistant Tables
+
+// AI Assistant Conversations table
+export const aiConversations = pgTable("ai_conversations", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  userId: varchar("user_id").references(() => users.id, { onDelete: 'cascade' }).notNull(),
+  title: varchar("title"),
+  lastMessage: text("last_message"),
+  messageCount: integer("message_count").default(0),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+}, (table) => [
+  index("idx_ai_conversations_user").on(table.userId),
+  index("idx_ai_conversations_updated").on(table.updatedAt),
+]);
+
+// AI Assistant Messages table
+export const aiMessages = pgTable("ai_messages", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  conversationId: varchar("conversation_id").references(() => aiConversations.id, { onDelete: 'cascade' }).notNull(),
+  role: varchar("role", { enum: ['user', 'assistant', 'system'] }).notNull(),
+  content: text("content").notNull(),
+  suggestions: jsonb("suggestions").$type<string[]>(),
+  relatedProducts: jsonb("related_products").$type<any[]>(),
+  createdAt: timestamp("created_at").defaultNow(),
+}, (table) => [
+  index("idx_ai_messages_conversation").on(table.conversationId),
+  index("idx_ai_messages_created").on(table.createdAt),
+]);
+
 // Relations
 export const usersRelations = relations(users, ({ many }) => ({
   listings: many(listings),
@@ -217,6 +247,7 @@ export const usersRelations = relations(users, ({ many }) => ({
   receivedMessages: many(messages, { relationName: "receivedMessages" }),
   purchases: many(transactions, { relationName: "purchases" }),
   sales: many(transactions, { relationName: "sales" }),
+  aiConversations: many(aiConversations),
 }));
 
 export const listingsRelations = relations(listings, ({ one, many }) => ({
@@ -321,6 +352,22 @@ export const semanticSearchQueriesRelations = relations(semanticSearchQueries, (
   }),
 }));
 
+// AI Assistant Relations
+export const aiConversationsRelations = relations(aiConversations, ({ one, many }) => ({
+  user: one(users, {
+    fields: [aiConversations.userId],
+    references: [users.id],
+  }),
+  messages: many(aiMessages),
+}));
+
+export const aiMessagesRelations = relations(aiMessages, ({ one }) => ({
+  conversation: one(aiConversations, {
+    fields: [aiMessages.conversationId],
+    references: [aiConversations.id],
+  }),
+}));
+
 // Insert schemas
 export const insertUserSchema = createInsertSchema(users).omit({
   id: true,
@@ -402,6 +449,24 @@ export type InsertUserPreferenceEmbedding = typeof userPreferenceEmbeddings.$inf
 
 export type SemanticSearchQuery = typeof semanticSearchQueries.$inferSelect;
 export type InsertSemanticSearchQuery = typeof semanticSearchQueries.$inferInsert;
+
+// AI Assistant schemas and types
+export const insertAiConversationSchema = createInsertSchema(aiConversations).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
+export const insertAiMessageSchema = createInsertSchema(aiMessages).omit({
+  id: true,
+  createdAt: true,
+});
+
+export type AiConversation = typeof aiConversations.$inferSelect;
+export type InsertAiConversation = z.infer<typeof insertAiConversationSchema>;
+
+export type AiMessage = typeof aiMessages.$inferSelect;
+export type InsertAiMessage = z.infer<typeof insertAiMessageSchema>;
 
 // Export analytics tables
 export * from './analytics-schema';

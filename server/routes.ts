@@ -6,6 +6,7 @@ import { AuthenticationMiddlewareIntegration } from "./aop/AuthenticationMiddlew
 import { marketplaceRouter } from "./routes/marketplace";
 import { analyticsRouter } from "./routes/analytics";
 import vectorSearchRouter from "./routes/vector-search";
+import { registerAiAssistantRoutes } from "./routes/aiAssistantRoutes";
 import { 
   insertListingSchema, 
   insertCommentSchema, 
@@ -456,6 +457,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
   
   // Vector search routes
   app.use('/api/vector-search', vectorSearchRouter);
+
+  // AI Assistant routes
+  registerAiAssistantRoutes(app, createAOPAuthMiddleware('ai-assistant'));
 
   const httpServer = createServer(app);
   return httpServer;
