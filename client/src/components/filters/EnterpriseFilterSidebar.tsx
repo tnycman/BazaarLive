@@ -374,7 +374,26 @@ const CATEGORIES_DATA: readonly FilterCategory[] = [
           { id: 'sarongs', name: 'Sarongs', level: 2, isExpandable: false }
         ]
       },
-      { id: 'tops', name: 'Tops', level: 1, isExpandable: false },
+      {
+        id: 'tops',
+        name: 'Tops',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'blouses', name: 'Blouses', level: 2, isExpandable: false },
+          { id: 'bodysuits', name: 'Bodysuits', level: 2, isExpandable: false },
+          { id: 'button-down-shirts', name: 'Button Down Shirts', level: 2, isExpandable: false },
+          { id: 'camisoles', name: 'Camisoles', level: 2, isExpandable: false },
+          { id: 'crop-tops', name: 'Crop Tops', level: 2, isExpandable: false },
+          { id: 'jerseys', name: 'Jerseys', level: 2, isExpandable: false },
+          { id: 'muscle-tees', name: 'Muscle Tees', level: 2, isExpandable: false },
+          { id: 'sweatshirts-hoodies', name: 'Sweatshirts & Hoodies', level: 2, isExpandable: false },
+          { id: 'tank-tops', name: 'Tank Tops', level: 2, isExpandable: false },
+          { id: 'tees-long-sleeve', name: 'Tees - Long Sleeve', level: 2, isExpandable: false },
+          { id: 'tees-short-sleeve', name: 'Tees - Short Sleeve', level: 2, isExpandable: false },
+          { id: 'tunics', name: 'Tunics', level: 2, isExpandable: false }
+        ]
+      },
       { id: 'skincare', name: 'Skincare', level: 1, isExpandable: false },
       { id: 'hair', name: 'Hair', level: 1, isExpandable: false },
       { id: 'bath-body', name: 'Bath & Body', level: 1, isExpandable: false },
