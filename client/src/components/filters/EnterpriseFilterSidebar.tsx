@@ -138,7 +138,27 @@ const CATEGORIES_DATA: readonly FilterCategory[] = [
           { id: 'watches', name: 'Watches', level: 2, isExpandable: false }
         ]
       },
-      { id: 'bags', name: 'Bags', level: 1, isExpandable: false },
+      {
+        id: 'bags',
+        name: 'Bags',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'baby-bags', name: 'Baby Bags', level: 2, isExpandable: false },
+          { id: 'backpacks', name: 'Backpacks', level: 2, isExpandable: false },
+          { id: 'clutches-wristlets', name: 'Clutches & Wristlets', level: 2, isExpandable: false },
+          { id: 'cosmetic-bags-cases', name: 'Cosmetic Bags & Cases', level: 2, isExpandable: false },
+          { id: 'crossbody-bags', name: 'Crossbody Bags', level: 2, isExpandable: false },
+          { id: 'hobos', name: 'Hobos', level: 2, isExpandable: false },
+          { id: 'laptop-bags', name: 'Laptop Bags', level: 2, isExpandable: false },
+          { id: 'mini-bags', name: 'Mini Bags', level: 2, isExpandable: false },
+          { id: 'satchels', name: 'Satchels', level: 2, isExpandable: false },
+          { id: 'shoulder-bags', name: 'Shoulder Bags', level: 2, isExpandable: false },
+          { id: 'totes', name: 'Totes', level: 2, isExpandable: false },
+          { id: 'travel-bags', name: 'Travel Bags', level: 2, isExpandable: false },
+          { id: 'wallets', name: 'Wallets', level: 2, isExpandable: false }
+        ]
+      },
       { id: 'dresses', name: 'Dresses', level: 1, isExpandable: false },
       { id: 'intimates-sleepwear', name: 'Intimates & Sleepwear', level: 1, isExpandable: false },
       { id: 'jackets-coats', name: 'Jackets & Coats', level: 1, isExpandable: false },
