@@ -430,7 +430,23 @@ const CATEGORIES_DATA: readonly FilterCategory[] = [
           { id: 'wigs-extensions', name: 'Wigs & Extensions', level: 2, isExpandable: false }
         ]
       },
-      { id: 'bath-body', name: 'Bath & Body', level: 1, isExpandable: false },
+      {
+        id: 'bath-body',
+        name: 'Bath & Body',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'bath-soak-bubbles', name: 'Bath Soak & Bubbles', level: 2, isExpandable: false },
+          { id: 'body-wash', name: 'Body Wash', level: 2, isExpandable: false },
+          { id: 'exfoliant-scrub', name: 'Exfoliant & Scrub', level: 2, isExpandable: false },
+          { id: 'hair-removal', name: 'Hair Removal', level: 2, isExpandable: false },
+          { id: 'hand-foot-care', name: 'Hand & Foot Care', level: 2, isExpandable: false },
+          { id: 'hand-soap', name: 'Hand Soap', level: 2, isExpandable: false },
+          { id: 'moisturizer-body-oil', name: 'Moisturizer & Body Oil', level: 2, isExpandable: false },
+          { id: 'suncare-tanning', name: 'Suncare & Tanning', level: 2, isExpandable: false },
+          { id: 'bath-tools', name: 'Tools', level: 2, isExpandable: false }
+        ]
+      },
       { id: 'global-traditional', name: 'Global & Traditional Wear', level: 1, isExpandable: false }
     ]
   },
