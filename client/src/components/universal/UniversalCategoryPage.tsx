@@ -6,7 +6,7 @@
 
 import React, { useState, useCallback, useMemo, memo } from 'react';
 import { Header } from '@/components/Header';
-import { Navigation } from '@/components/Navigation';
+
 import EnterprisePageLayout from '@/components/layout/EnterprisePageLayout';
 import EnterpriseFilterSidebar from '@/components/filters/EnterpriseFilterSidebar';
 import EnterpriseProductGrid from '@/components/grid/EnterpriseProductGrid';
@@ -310,7 +310,6 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
-      <Navigation />
       
       <EnterprisePageLayout
         leftSidebar={
