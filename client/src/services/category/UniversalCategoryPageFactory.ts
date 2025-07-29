@@ -2627,7 +2627,7 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
           avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop'
         },
         stats: { likes: 98, comments: 15, shares: 8 },
-        condition: 'very_good',
+        condition: 'good',
         isLiked: true,
         createdAt: '2024-01-23T09:15:00Z'
       },
@@ -2663,7 +2663,7 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
           avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
         },
         stats: { likes: 123, comments: 19, shares: 12 },
-        condition: 'very_good',
+        condition: 'good',
         isLiked: true,
         createdAt: '2024-01-21T13:20:00Z'
       },
@@ -2717,7 +2717,7 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
           avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop'
         },
         stats: { likes: 92, comments: 14, shares: 9 },
-        condition: 'very_good',
+        condition: 'good',
         isLiked: false,
         createdAt: '2024-01-18T10:25:00Z'
       },
