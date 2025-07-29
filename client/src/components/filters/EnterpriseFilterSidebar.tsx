@@ -159,7 +159,25 @@ const CATEGORIES_DATA: readonly FilterCategory[] = [
           { id: 'wallets', name: 'Wallets', level: 2, isExpandable: false }
         ]
       },
-      { id: 'dresses', name: 'Dresses', level: 1, isExpandable: false },
+      {
+        id: 'dresses',
+        name: 'Dresses',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'asymmetrical', name: 'Asymmetrical', level: 2, isExpandable: false },
+          { id: 'backless', name: 'Backless', level: 2, isExpandable: false },
+          { id: 'high-low', name: 'High Low', level: 2, isExpandable: false },
+          { id: 'long-sleeve', name: 'Long Sleeve', level: 2, isExpandable: false },
+          { id: 'maxi', name: 'Maxi', level: 2, isExpandable: false },
+          { id: 'midi', name: 'Midi', level: 2, isExpandable: false },
+          { id: 'mini', name: 'Mini', level: 2, isExpandable: false },
+          { id: 'one-shoulder', name: 'One Shoulder', level: 2, isExpandable: false },
+          { id: 'prom', name: 'Prom', level: 2, isExpandable: false },
+          { id: 'strapless', name: 'Strapless', level: 2, isExpandable: false },
+          { id: 'wedding', name: 'Wedding', level: 2, isExpandable: false }
+        ]
+      },
       { id: 'intimates-sleepwear', name: 'Intimates & Sleepwear', level: 1, isExpandable: false },
       { id: 'jackets-coats', name: 'Jackets & Coats', level: 1, isExpandable: false },
       { id: 'jeans', name: 'Jeans', level: 1, isExpandable: false },
