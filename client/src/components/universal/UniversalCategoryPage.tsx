@@ -89,9 +89,9 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
     console.log('[UniversalCategoryPage] Getting configuration for:', { category, subcategory });
     const result = universalCategoryPageFactory.getConfiguration(category, subcategory);
     console.log('[UniversalCategoryPage] Configuration result:', { 
-      isSuccess: result.isSuccess, 
+      isSuccess: result.isSuccess(), 
       hasValue: !!result.value,
-      sampleProductsCount: result.isSuccess ? result.value?.sampleProducts?.length : 0
+      sampleProductsCount: result.isSuccess() ? result.value?.sampleProducts?.length : 0
     });
     return result;
   }, [category, subcategory]);
