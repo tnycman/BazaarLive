@@ -124,6 +124,7 @@ export function Header() {
 
   // Enterprise dropdown handlers with AOP aspects
   const handleDropdownShow = useCallback((categoryId: string, event: React.MouseEvent) => {
+    console.log('[Header] handleDropdownShow called for category:', categoryId);
     const rect = event.currentTarget.getBoundingClientRect();
     const position = { x: rect.left, y: rect.bottom };
     
@@ -135,6 +136,7 @@ export function Header() {
     };
 
     headerAOP.executeWithAspects(context, () => {
+      console.log('[Header] Setting active dropdown to:', categoryId);
       setActiveDropdown(categoryId);
       setDropdownPosition(position);
       return true;
@@ -396,7 +398,10 @@ export function Header() {
                         size="sm"
                         className="text-sm text-gray-700 font-medium hover:text-purple-600"
                         data-testid={`nav-${category.id}`}
-                        onMouseEnter={(e) => handleDropdownShow(category.id, e)}
+                        onMouseEnter={(e) => {
+                          console.log('[Header] Mouse enter on category:', category.name);
+                          handleDropdownShow(category.id, e);
+                        }}
                         onClick={() => handleNavigation(category.path, category.id)}
                       >
                         {category.name}
