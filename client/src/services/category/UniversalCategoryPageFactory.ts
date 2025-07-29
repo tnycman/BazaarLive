@@ -99,7 +99,48 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
         color: z.array(z.string())
       }
     },
-    sampleProducts: []
+    sampleProducts: [
+      {
+        id: 'women-1',
+        title: 'Designer Silk Blouse',
+        category: 'fashion',
+        subcategory: 'women',
+        brand: 'Theory',
+        price: '$89',
+        originalPrice: '$165',
+        size: 'M',
+        images: ['https://images.unsplash.com/photo-1544441893-675973e31985?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller1',
+          username: 'fashionista_jane',
+          avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 24, comments: 8, shares: 3 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-25T10:30:00Z'
+      },
+      {
+        id: 'women-2',
+        title: 'Vintage Denim Jacket',
+        category: 'fashion',
+        subcategory: 'women',
+        brand: 'Levi\'s',
+        price: '$65',
+        originalPrice: '$98',
+        size: 'S',
+        images: ['https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller2',
+          username: 'vintage_lover',
+          avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 18, comments: 5, shares: 2 },
+        condition: 'good',
+        isLiked: true,
+        createdAt: '2024-01-24T15:45:00Z'
+      }
+    ]
   },
   'fashion-men': {
     category: 'fashion',
@@ -138,7 +179,48 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
         color: z.array(z.string())
       }
     },
-    sampleProducts: []
+    sampleProducts: [
+      {
+        id: 'men-1',
+        title: 'Classic Oxford Shirt',
+        category: 'fashion',
+        subcategory: 'men',
+        brand: 'Brooks Brothers',
+        price: '$79',
+        originalPrice: '$120',
+        size: 'L',
+        images: ['https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller3',
+          username: 'classic_style',
+          avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 15, comments: 3, shares: 1 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-23T12:15:00Z'
+      },
+      {
+        id: 'men-2',
+        title: 'Wool Blend Blazer',
+        category: 'fashion',
+        subcategory: 'men',
+        brand: 'Hugo Boss',
+        price: '$145',
+        originalPrice: '$285',
+        size: 'M',
+        images: ['https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller4',
+          username: 'business_pro',
+          avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 22, comments: 6, shares: 4 },
+        condition: 'excellent',
+        isLiked: true,
+        createdAt: '2024-01-22T16:30:00Z'
+      }
+    ]
   },
   'fashion-kids': {
     category: 'fashion',
@@ -194,7 +276,48 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
         ageGroup: z.array(z.string())
       }
     },
-    sampleProducts: []
+    sampleProducts: [
+      {
+        id: 'kids-1',
+        title: 'Rainbow Unicorn Dress',
+        category: 'fashion',
+        subcategory: 'kids',
+        brand: 'Disney',
+        price: '$25',
+        originalPrice: '$45',
+        size: '4T',
+        images: ['https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller5',
+          username: 'kids_fashion',
+          avatar: 'https://images.unsplash.com/photo-1494790108755-2616c9fe3e23?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 32, comments: 12, shares: 8 },
+        condition: 'new_with_tags',
+        isLiked: false,
+        createdAt: '2024-01-25T09:00:00Z'
+      },
+      {
+        id: 'kids-2',
+        title: 'Superhero Cape Set',
+        category: 'fashion',
+        subcategory: 'kids',
+        brand: 'DC Comics',
+        price: '$18',
+        originalPrice: '$32',
+        size: '6',
+        images: ['https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller6',
+          username: 'superhero_mom',
+          avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 28, comments: 9, shares: 5 },
+        condition: 'excellent',
+        isLiked: true,
+        createdAt: '2024-01-24T11:20:00Z'
+      }
+    ]
   },
   home: {
     category: 'home',
