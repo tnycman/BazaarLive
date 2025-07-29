@@ -71,75 +71,134 @@ export class HeaderDropdownService {
   private initializeDropdownCategories(): void {
     const categories: DropdownCategory[] = [
       {
-        id: 'jobs',
-        name: 'Jobs',
-        path: '/marketplace/jobs',
+        id: 'women',
+        name: 'Women',
+        path: '/fashion/women',
         subcategories: [
-          { id: 'tech', name: 'Technology', path: '/marketplace/jobs/technology', isPopular: true },
-          { id: 'healthcare', name: 'Healthcare', path: '/marketplace/jobs/healthcare', isPopular: true },
-          { id: 'finance', name: 'Finance', path: '/marketplace/jobs/finance' },
-          { id: 'education', name: 'Education', path: '/marketplace/jobs/education' },
-          { id: 'retail', name: 'Retail', path: '/marketplace/jobs/retail' },
-          { id: 'remote', name: 'Remote Work', path: '/marketplace/jobs/remote', isPopular: true },
-          { id: 'internships', name: 'Internships', path: '/marketplace/jobs/internships' },
-          { id: 'freelance', name: 'Freelance', path: '/marketplace/jobs/freelance' }
+          { id: 'dresses', name: 'Dresses', path: '/fashion/women/dresses', isPopular: true },
+          { id: 'tops', name: 'Tops & Blouses', path: '/fashion/women/tops', isPopular: true },
+          { id: 'bottoms', name: 'Pants & Jeans', path: '/fashion/women/bottoms', isPopular: true },
+          { id: 'shoes', name: 'Shoes', path: '/fashion/women/shoes', isPopular: true },
+          { id: 'bags', name: 'Handbags', path: '/fashion/women/bags' },
+          { id: 'jewelry', name: 'Jewelry', path: '/fashion/women/jewelry' },
+          { id: 'accessories', name: 'Accessories', path: '/fashion/women/accessories' },
+          { id: 'activewear', name: 'Activewear', path: '/fashion/women/activewear' },
+          { id: 'swimwear', name: 'Swimwear', path: '/fashion/women/swimwear' },
+          { id: 'outerwear', name: 'Jackets & Coats', path: '/fashion/women/outerwear' }
         ]
       },
       {
-        id: 'real-estate',
-        name: 'Real Estate',
-        path: '/marketplace/real-estate',
+        id: 'men',
+        name: 'Men',
+        path: '/fashion/men',
         subcategories: [
-          { id: 'houses', name: 'Houses for Sale', path: '/marketplace/real-estate/houses', isPopular: true },
-          { id: 'apartments', name: 'Apartments', path: '/marketplace/real-estate/apartments', isPopular: true },
-          { id: 'condos', name: 'Condos', path: '/marketplace/real-estate/condos' },
-          { id: 'rentals', name: 'Rentals', path: '/marketplace/real-estate/rentals', isPopular: true },
-          { id: 'commercial', name: 'Commercial', path: '/marketplace/real-estate/commercial' },
-          { id: 'land', name: 'Land & Lots', path: '/marketplace/real-estate/land' },
-          { id: 'vacation', name: 'Vacation Homes', path: '/marketplace/real-estate/vacation' }
+          { id: 'shirts', name: 'Shirts', path: '/fashion/men/shirts', isPopular: true },
+          { id: 'pants', name: 'Pants & Jeans', path: '/fashion/men/pants', isPopular: true },
+          { id: 'shoes', name: 'Shoes', path: '/fashion/men/shoes', isPopular: true },
+          { id: 'suits', name: 'Suits & Blazers', path: '/fashion/men/suits' },
+          { id: 'accessories', name: 'Accessories', path: '/fashion/men/accessories' },
+          { id: 'activewear', name: 'Activewear', path: '/fashion/men/activewear' },
+          { id: 'outerwear', name: 'Jackets & Coats', path: '/fashion/men/outerwear' },
+          { id: 'underwear', name: 'Underwear', path: '/fashion/men/underwear' },
+          { id: 'watches', name: 'Watches', path: '/fashion/men/watches' }
         ]
       },
       {
-        id: 'cars',
-        name: 'Cars',
-        path: '/marketplace/cars',
+        id: 'kids',
+        name: 'Kids',
+        path: '/fashion/kids',
         subcategories: [
-          { id: 'new', name: 'New Cars', path: '/marketplace/cars/new', isPopular: true },
-          { id: 'used', name: 'Used Cars', path: '/marketplace/cars/used', isPopular: true },
-          { id: 'luxury', name: 'Luxury Cars', path: '/marketplace/cars/luxury' },
-          { id: 'electric', name: 'Electric Vehicles', path: '/marketplace/cars/electric', isPopular: true },
-          { id: 'trucks', name: 'Trucks & SUVs', path: '/marketplace/cars/trucks' },
-          { id: 'motorcycles', name: 'Motorcycles', path: '/marketplace/cars/motorcycles' },
-          { id: 'classic', name: 'Classic Cars', path: '/marketplace/cars/classic' }
+          { id: 'girls', name: 'Girls (2-16)', path: '/fashion/kids/girls', isPopular: true },
+          { id: 'boys', name: 'Boys (2-16)', path: '/fashion/kids/boys', isPopular: true },
+          { id: 'baby', name: 'Baby (0-24m)', path: '/fashion/kids/baby', isPopular: true },
+          { id: 'shoes', name: 'Kids Shoes', path: '/fashion/kids/shoes' },
+          { id: 'accessories', name: 'Kids Accessories', path: '/fashion/kids/accessories' },
+          { id: 'school', name: 'School Uniforms', path: '/fashion/kids/school' },
+          { id: 'toys', name: 'Toys & Games', path: '/fashion/kids/toys' }
         ]
       },
       {
-        id: 'boats',
-        name: 'Boats',
-        path: '/marketplace/boats',
+        id: 'home',
+        name: 'Home',
+        path: '/fashion/home',
         subcategories: [
-          { id: 'sailboats', name: 'Sailboats', path: '/marketplace/boats/sailboats', isPopular: true },
-          { id: 'motorboats', name: 'Motor Boats', path: '/marketplace/boats/motorboats', isPopular: true },
-          { id: 'yachts', name: 'Yachts', path: '/marketplace/boats/yachts' },
-          { id: 'fishing', name: 'Fishing Boats', path: '/marketplace/boats/fishing' },
-          { id: 'pontoon', name: 'Pontoon Boats', path: '/marketplace/boats/pontoon' },
-          { id: 'jetski', name: 'Jet Skis', path: '/marketplace/boats/jetski' },
-          { id: 'kayaks', name: 'Kayaks & Canoes', path: '/marketplace/boats/kayaks' }
+          { id: 'furniture', name: 'Furniture', path: '/fashion/home/furniture', isPopular: true },
+          { id: 'decor', name: 'Home Decor', path: '/fashion/home/decor', isPopular: true },
+          { id: 'kitchen', name: 'Kitchen & Dining', path: '/fashion/home/kitchen', isPopular: true },
+          { id: 'bedding', name: 'Bedding & Bath', path: '/fashion/home/bedding' },
+          { id: 'lighting', name: 'Lighting', path: '/fashion/home/lighting' },
+          { id: 'storage', name: 'Storage & Organization', path: '/fashion/home/storage' },
+          { id: 'garden', name: 'Garden & Outdoor', path: '/fashion/home/garden' }
         ]
       },
       {
-        id: 'services',
-        name: 'Services',
-        path: '/marketplace/services',
+        id: 'electronics',
+        name: 'Electronics',
+        path: '/fashion/electronics',
         subcategories: [
-          { id: 'home', name: 'Home Services', path: '/marketplace/services/home', isPopular: true },
-          { id: 'auto', name: 'Auto Services', path: '/marketplace/services/auto', isPopular: true },
-          { id: 'professional', name: 'Professional Services', path: '/marketplace/services/professional' },
-          { id: 'beauty', name: 'Beauty & Wellness', path: '/marketplace/services/beauty' },
-          { id: 'tutoring', name: 'Tutoring', path: '/marketplace/services/tutoring' },
-          { id: 'pet', name: 'Pet Services', path: '/marketplace/services/pet' },
-          { id: 'event', name: 'Event Planning', path: '/marketplace/services/event' },
-          { id: 'cleaning', name: 'Cleaning', path: '/marketplace/services/cleaning', isPopular: true }
+          { id: 'phones', name: 'Mobile Phones', path: '/fashion/electronics/phones', isPopular: true },
+          { id: 'laptops', name: 'Laptops & Computers', path: '/fashion/electronics/laptops', isPopular: true },
+          { id: 'gaming', name: 'Gaming', path: '/fashion/electronics/gaming', isPopular: true },
+          { id: 'audio', name: 'Audio & Headphones', path: '/fashion/electronics/audio' },
+          { id: 'cameras', name: 'Cameras', path: '/fashion/electronics/cameras' },
+          { id: 'smart-home', name: 'Smart Home', path: '/fashion/electronics/smart-home' },
+          { id: 'wearables', name: 'Wearables', path: '/fashion/electronics/wearables' }
+        ]
+      },
+      {
+        id: 'pets',
+        name: 'Pets',
+        path: '/fashion/pets',
+        subcategories: [
+          { id: 'dogs', name: 'Dogs', path: '/fashion/pets/dogs', isPopular: true },
+          { id: 'cats', name: 'Cats', path: '/fashion/pets/cats', isPopular: true },
+          { id: 'food', name: 'Pet Food', path: '/fashion/pets/food', isPopular: true },
+          { id: 'toys', name: 'Pet Toys', path: '/fashion/pets/toys' },
+          { id: 'accessories', name: 'Pet Accessories', path: '/fashion/pets/accessories' },
+          { id: 'care', name: 'Pet Care', path: '/fashion/pets/care' },
+          { id: 'other', name: 'Other Pets', path: '/fashion/pets/other' }
+        ]
+      },
+      {
+        id: 'beauty',
+        name: 'Beauty & Wellness',
+        path: '/fashion/beauty',
+        subcategories: [
+          { id: 'skincare', name: 'Skincare', path: '/fashion/beauty/skincare', isPopular: true },
+          { id: 'makeup', name: 'Makeup', path: '/fashion/beauty/makeup', isPopular: true },
+          { id: 'haircare', name: 'Hair Care', path: '/fashion/beauty/haircare', isPopular: true },
+          { id: 'fragrance', name: 'Fragrance', path: '/fashion/beauty/fragrance' },
+          { id: 'wellness', name: 'Wellness', path: '/fashion/beauty/wellness' },
+          { id: 'tools', name: 'Beauty Tools', path: '/fashion/beauty/tools' },
+          { id: 'nails', name: 'Nail Care', path: '/fashion/beauty/nails' }
+        ]
+      },
+      {
+        id: 'sports',
+        name: 'Sports & Outdoors',
+        path: '/fashion/sports',
+        subcategories: [
+          { id: 'fitness', name: 'Fitness & Gym', path: '/fashion/sports/fitness', isPopular: true },
+          { id: 'running', name: 'Running', path: '/fashion/sports/running', isPopular: true },
+          { id: 'outdoor', name: 'Outdoor Activities', path: '/fashion/sports/outdoor', isPopular: true },
+          { id: 'team-sports', name: 'Team Sports', path: '/fashion/sports/team-sports' },
+          { id: 'water-sports', name: 'Water Sports', path: '/fashion/sports/water-sports' },
+          { id: 'winter-sports', name: 'Winter Sports', path: '/fashion/sports/winter-sports' },
+          { id: 'yoga', name: 'Yoga & Pilates', path: '/fashion/sports/yoga' }
+        ]
+      },
+      {
+        id: 'brands',
+        name: 'Brands',
+        path: '/fashion/brands',
+        subcategories: [
+          { id: 'luxury', name: 'Luxury Brands', path: '/fashion/brands/luxury', isPopular: true },
+          { id: 'designer', name: 'Designer', path: '/fashion/brands/designer', isPopular: true },
+          { id: 'streetwear', name: 'Streetwear', path: '/fashion/brands/streetwear', isPopular: true },
+          { id: 'sustainable', name: 'Sustainable Brands', path: '/fashion/brands/sustainable' },
+          { id: 'vintage', name: 'Vintage', path: '/fashion/brands/vintage' },
+          { id: 'emerging', name: 'Emerging Brands', path: '/fashion/brands/emerging' },
+          { id: 'international', name: 'International', path: '/fashion/brands/international' }
         ]
       }
     ];

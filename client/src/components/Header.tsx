@@ -194,41 +194,70 @@ export function Header() {
 
           {/* Right Header Actions */}
           <div className="flex items-center space-x-4 text-sm text-gray-600">
-            {/* Category Dropdowns */}
-            {dropdownCategories.map((category) => {
-              const IconComponent = {
-                jobs: BriefcaseIcon,
-                'real-estate': HomeIcon,
-                cars: CarIcon,
-                boats: AnchorIcon,
-                services: WrenchIcon
-              }[category.id] || BriefcaseIcon;
-
-              return (
-                <div key={category.id} className="relative">
-                  <Link href={category.path}>
-                    <Button 
-                      variant="ghost" 
-                      size="sm" 
-                      className="flex items-center gap-1 hover:text-purple-600" 
-                      data-testid={`header-${category.id}`}
-                      onMouseEnter={(e) => handleDropdownShow(category.id, e)}
-                      onClick={() => handleNavigation(category.path, category.id)}
-                    >
-                      <IconComponent className="w-4 h-4" />
-                      {category.name}
-                    </Button>
-                  </Link>
-                  
-                  {/* Dropdown */}
-                  <HeaderDropdown
-                    category={category}
-                    isVisible={activeDropdown === category.id}
-                    onClose={handleDropdownHide}
-                  />
-                </div>
-              );
-            })}
+            <Link href="/marketplace/jobs">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="flex items-center gap-1 hover:text-purple-600" 
+                data-testid="header-jobs"
+                onClick={() => handleNavigation('/marketplace/jobs', 'jobs')}
+              >
+                <BriefcaseIcon className="w-4 h-4" />
+                Jobs
+              </Button>
+            </Link>
+            
+            <Link href="/marketplace/real-estate">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="flex items-center gap-1 hover:text-purple-600" 
+                data-testid="header-real-estate"
+                onClick={() => handleNavigation('/marketplace/real-estate', 'real-estate')}
+              >
+                <HomeIcon className="w-4 h-4" />
+                Real Estate
+              </Button>
+            </Link>
+            
+            <Link href="/marketplace/cars">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="flex items-center gap-1 hover:text-purple-600" 
+                data-testid="header-cars"
+                onClick={() => handleNavigation('/marketplace/cars', 'cars')}
+              >
+                <CarIcon className="w-4 h-4" />
+                Cars
+              </Button>
+            </Link>
+            
+            <Link href="/marketplace/boats">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="flex items-center gap-1 hover:text-purple-600" 
+                data-testid="header-boats"
+                onClick={() => handleNavigation('/marketplace/boats', 'boats')}
+              >
+                <AnchorIcon className="w-4 h-4" />
+                Boats
+              </Button>
+            </Link>
+            
+            <Link href="/marketplace/services">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="flex items-center gap-1 hover:text-purple-600" 
+                data-testid="header-services"
+                onClick={() => handleNavigation('/marketplace/services', 'services')}
+              >
+                <WrenchIcon className="w-4 h-4" />
+                Services
+              </Button>
+            </Link>
 
             {/* Action Icons */}
             <Button 
@@ -338,113 +367,30 @@ export function Header() {
               </Button>
             </Link>
             
-            <Link href="/fashion/women">
-              <Button 
-                variant="ghost" 
-                size="sm"
-                className="text-sm text-gray-700 font-medium hover:text-purple-600"
-                data-testid="nav-women"
-                onClick={() => handleNavigation('/fashion/women', 'women')}
-              >
-                Women
-              </Button>
-            </Link>
-            
-            <Link href="/fashion/men">
-              <Button 
-                variant="ghost" 
-                size="sm"
-                className="text-sm text-gray-700 font-medium hover:text-purple-600"
-                data-testid="nav-men"
-                onClick={() => handleNavigation('/fashion/men', 'men')}
-              >
-                Men
-              </Button>
-            </Link>
-            
-            <Link href="/fashion/kids">
-              <Button 
-                variant="ghost" 
-                size="sm"
-                className="text-sm text-gray-700 font-medium hover:text-purple-600"
-                data-testid="nav-kids"
-                onClick={() => handleNavigation('/fashion/kids', 'kids')}
-              >
-                Kids
-              </Button>
-            </Link>
-            
-            <Link href="/fashion/home">
-              <Button 
-                variant="ghost" 
-                size="sm"
-                className="text-sm text-gray-700 font-medium hover:text-purple-600"
-                data-testid="nav-home"
-                onClick={() => handleNavigation('/fashion/home', 'home')}
-              >
-                Home
-              </Button>
-            </Link>
-            
-            <Link href="/fashion/electronics">
-              <Button 
-                variant="ghost" 
-                size="sm"
-                className="text-sm text-gray-700 font-medium hover:text-purple-600"
-                data-testid="nav-electronics"
-                onClick={() => handleNavigation('/fashion/electronics', 'electronics')}
-              >
-                Electronics
-              </Button>
-            </Link>
-            
-            <Link href="/fashion/pets">
-              <Button 
-                variant="ghost" 
-                size="sm"
-                className="text-sm text-gray-700 font-medium hover:text-purple-600"
-                data-testid="nav-pets"
-                onClick={() => handleNavigation('/fashion/pets', 'pets')}
-              >
-                Pets
-              </Button>
-            </Link>
-            
-            <Link href="/fashion/beauty">
-              <Button 
-                variant="ghost" 
-                size="sm"
-                className="text-sm text-gray-700 font-medium hover:text-purple-600"
-                data-testid="nav-beauty"
-                onClick={() => handleNavigation('/fashion/beauty', 'beauty')}
-              >
-                Beauty & Wellness
-              </Button>
-            </Link>
-            
-            <Link href="/fashion/sports">
-              <Button 
-                variant="ghost" 
-                size="sm"
-                className="text-sm text-gray-700 font-medium hover:text-purple-600"
-                data-testid="nav-sports"
-                onClick={() => handleNavigation('/fashion/sports', 'sports')}
-              >
-                Sports & Outdoors
-              </Button>
-            </Link>
-            
-            <Link href="/fashion/brands">
-              <Button 
-                variant="ghost" 
-                size="sm"
-                className="text-sm text-gray-700 font-medium hover:text-purple-600"
-                data-testid="nav-brands"
-                onClick={() => handleNavigation('/fashion/brands', 'brands')}
-              >
-                Brands
-              </Button>
-            </Link>
+            {/* Category Dropdowns for Bottom Navigation */}
+            {dropdownCategories.map((category) => (
+              <div key={category.id} className="relative">
+                <Link href={category.path}>
+                  <Button 
+                    variant="ghost" 
+                    size="sm"
+                    className="text-sm text-gray-700 font-medium hover:text-purple-600"
+                    data-testid={`nav-${category.id}`}
+                    onMouseEnter={(e) => handleDropdownShow(category.id, e)}
+                    onClick={() => handleNavigation(category.path, category.id)}
+                  >
+                    {category.name}
+                  </Button>
+                </Link>
+                
+                {/* Dropdown */}
+                <HeaderDropdown
+                  category={category}
+                  isVisible={activeDropdown === category.id}
+                  onClose={handleDropdownHide}
+                />
+              </div>
+            ))}
 
             <div className="flex-1"></div>
 
