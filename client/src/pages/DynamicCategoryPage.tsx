@@ -2,7 +2,7 @@ import { useState, useCallback, useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'wouter';
 import { Header } from '@/components/Header';
-// import { Navigation } from '@/components/Navigation'; // REMOVED: Dropdowns now in Header
+import { Navigation } from '@/components/Navigation';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -109,6 +109,7 @@ export default function DynamicCategoryPage({ vertical = 'fashion', category, su
   return (
     <div className={`min-h-screen bg-gradient-to-br ${categoryConfig.gradient}`}>
       <Header />
+      <Navigation />
       
       <div className="flex">
         {/* Sidebar */}
