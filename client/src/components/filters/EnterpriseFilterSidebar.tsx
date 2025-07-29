@@ -331,7 +331,23 @@ const CATEGORIES_DATA: readonly FilterCategory[] = [
           { id: 'skorts', name: 'Skorts', level: 2, isExpandable: false }
         ]
       },
-      { id: 'skirts', name: 'Skirts', level: 1, isExpandable: false },
+      {
+        id: 'skirts',
+        name: 'Skirts',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'a-line-full', name: 'A-Line or Full', level: 2, isExpandable: false },
+          { id: 'asymmetrical', name: 'Asymmetrical', level: 2, isExpandable: false },
+          { id: 'circle-skater', name: 'Circle & Skater', level: 2, isExpandable: false },
+          { id: 'high-low', name: 'High Low', level: 2, isExpandable: false },
+          { id: 'maxi', name: 'Maxi', level: 2, isExpandable: false },
+          { id: 'midi', name: 'Midi', level: 2, isExpandable: false },
+          { id: 'mini', name: 'Mini', level: 2, isExpandable: false },
+          { id: 'pencil', name: 'Pencil', level: 2, isExpandable: false },
+          { id: 'skirt-sets', name: 'Skirt Sets', level: 2, isExpandable: false }
+        ]
+      },
       { id: 'sweaters', name: 'Sweaters', level: 1, isExpandable: false },
       { id: 'swim', name: 'Swim', level: 1, isExpandable: false },
       { id: 'tops', name: 'Tops', level: 1, isExpandable: false },
