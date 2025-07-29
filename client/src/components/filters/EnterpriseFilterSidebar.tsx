@@ -605,8 +605,8 @@ const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
   }, []);
 
   const handleCategoryToggle = useCallback((categoryId: string) => {
-    // Handle navigation categories (top-level categories that should navigate to different pages)
-    const navigationCategories = ['men', 'kids', 'home', 'pets', 'electronics'];
+    // Handle navigation categories (ALL top-level categories that should navigate to different pages)
+    const navigationCategories = ['women', 'men', 'kids', 'home', 'pets', 'electronics'];
     
     if (navigationCategories.includes(categoryId)) {
       // Navigate to the category page instead of filtering
