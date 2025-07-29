@@ -245,7 +245,33 @@ const CATEGORIES_DATA: readonly FilterCategory[] = [
           { id: 'rings', name: 'Rings', level: 2, isExpandable: false }
         ]
       },
-      { id: 'makeup', name: 'Makeup', level: 1, isExpandable: false },
+      {
+        id: 'makeup',
+        name: 'Makeup',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'blush', name: 'Blush', level: 2, isExpandable: false },
+          { id: 'bronzer-contour', name: 'Bronzer & Contour', level: 2, isExpandable: false },
+          { id: 'brows', name: 'Brows', level: 2, isExpandable: false },
+          { id: 'brushes-tools', name: 'Brushes & Tools', level: 2, isExpandable: false },
+          { id: 'concealer', name: 'Concealer', level: 2, isExpandable: false },
+          { id: 'eye-primer', name: 'Eye Primer', level: 2, isExpandable: false },
+          { id: 'eyeliner', name: 'Eyeliner', level: 2, isExpandable: false },
+          { id: 'eyeshadow', name: 'Eyeshadow', level: 2, isExpandable: false },
+          { id: 'foundation', name: 'Foundation', level: 2, isExpandable: false },
+          { id: 'highlighter', name: 'Highlighter', level: 2, isExpandable: false },
+          { id: 'lashes', name: 'Lashes', level: 2, isExpandable: false },
+          { id: 'lip-balm-gloss', name: 'Lip Balm & Gloss', level: 2, isExpandable: false },
+          { id: 'lip-liner', name: 'Lip Liner', level: 2, isExpandable: false },
+          { id: 'lipstick', name: 'Lipstick', level: 2, isExpandable: false },
+          { id: 'mascara', name: 'Mascara', level: 2, isExpandable: false },
+          { id: 'nail-tools', name: 'Nail Tools', level: 2, isExpandable: false },
+          { id: 'press-on-nails', name: 'Press-On Nails', level: 2, isExpandable: false },
+          { id: 'primer', name: 'Primer', level: 2, isExpandable: false },
+          { id: 'setting-powder-spray', name: 'Setting Powder & Spray', level: 2, isExpandable: false }
+        ]
+      },
       { id: 'pants-jumpsuits', name: 'Pants & Jumpsuits', level: 1, isExpandable: false },
       { id: 'shoes', name: 'Shoes', level: 1, isExpandable: false },
       { id: 'shorts', name: 'Shorts', level: 1, isExpandable: false },
