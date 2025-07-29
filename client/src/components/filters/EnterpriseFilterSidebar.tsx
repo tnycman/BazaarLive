@@ -232,7 +232,19 @@ const CATEGORIES_DATA: readonly FilterCategory[] = [
           { id: 'straight-leg', name: 'Straight Leg', level: 2, isExpandable: false }
         ]
       },
-      { id: 'jewelry', name: 'Jewelry', level: 1, isExpandable: false },
+      {
+        id: 'jewelry',
+        name: 'Jewelry',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'bracelets', name: 'Bracelets', level: 2, isExpandable: false },
+          { id: 'brooches', name: 'Brooches', level: 2, isExpandable: false },
+          { id: 'earrings', name: 'Earrings', level: 2, isExpandable: false },
+          { id: 'necklaces', name: 'Necklaces', level: 2, isExpandable: false },
+          { id: 'rings', name: 'Rings', level: 2, isExpandable: false }
+        ]
+      },
       { id: 'makeup', name: 'Makeup', level: 1, isExpandable: false },
       { id: 'pants-jumpsuits', name: 'Pants & Jumpsuits', level: 1, isExpandable: false },
       { id: 'shoes', name: 'Shoes', level: 1, isExpandable: false },
