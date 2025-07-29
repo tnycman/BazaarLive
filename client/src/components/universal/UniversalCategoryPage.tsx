@@ -21,6 +21,7 @@ import type { ProductItem } from '@/components/grid/EnterpriseProductGrid';
 interface UniversalCategoryPageProps {
   readonly category: string;
   readonly subcategory?: string;
+  readonly subSubcategory?: string;
   readonly className?: string;
 }
 
@@ -36,6 +37,7 @@ interface CategoryPageState {
 const UniversalCategoryPagePropsSchema = z.object({
   category: z.string().min(1),
   subcategory: z.string().optional(),
+  subSubcategory: z.string().optional(),
   className: z.string().optional()
 });
 
@@ -61,6 +63,7 @@ const CategoryPageStateSchema = z.object({
 const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
   category,
   subcategory,
+  subSubcategory,
   className = ''
 }) => {
   // Early return for safety during SSR
@@ -68,8 +71,8 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
 
   // Validate props using enterprise validation
   const propsValidation = useMemo(() => {
-    return UniversalCategoryPagePropsSchema.safeParse({ category, subcategory, className });
-  }, [category, subcategory, className]);
+    return UniversalCategoryPagePropsSchema.safeParse({ category, subcategory, subSubcategory, className });
+  }, [category, subcategory, subSubcategory, className]);
 
   if (!propsValidation.success) {
     console.error('[UniversalCategoryPage] Invalid props:', propsValidation.error);
@@ -85,15 +88,15 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
 
   // Get universal page configuration using factory with enterprise validation
   const configurationResult = useMemo(() => {
-    console.log('[UniversalCategoryPage] Getting configuration for:', { category, subcategory });
-    const result = universalCategoryPageFactory.getConfiguration(category, subcategory);
+    console.log('[UniversalCategoryPage] Getting configuration for:', { category, subcategory, subSubcategory });
+    const result = universalCategoryPageFactory.getConfiguration(category, subcategory, subSubcategory);
     console.log('[UniversalCategoryPage] Configuration result:', { 
       isSuccess: result.isSuccess(), 
       hasValue: !!result.value,
       sampleProductsCount: result.isSuccess() ? result.value?.sampleProducts?.length : 0
     });
     return result;
-  }, [category, subcategory]);
+  }, [category, subcategory, subSubcategory]);
 
   // Handle configuration errors
   if (configurationResult.isError()) {
