@@ -303,6 +303,15 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
     );
   }
 
+  // Add debug logging for troubleshooting
+  console.log('[UniversalCategoryPage] Rendering with:', {
+    category,
+    subcategory,
+    title: pageConfiguration.metadata.title,
+    filteredProductsCount: filteredProducts.length,
+    isLoading
+  });
+
   // Render universal three-column layout matching original Women's page structure
   return (
     <div className="min-h-screen bg-gray-50">
@@ -326,6 +335,7 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
             onShare={handleShare}
             isLoading={isLoading}
             title={pageConfiguration.metadata.title}
+            gridColumns={4}
           />
         }
         rightSidebar={
