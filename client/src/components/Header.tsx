@@ -45,15 +45,11 @@ import {
   headerDropdownService, 
   DropdownCategory 
 } from "@/services/header/HeaderDropdownService";
-
-console.log('[Header] HeaderDropdownService imported:', headerDropdownService);
 import { HeaderDropdown } from "@/components/HeaderDropdown";
 
 // ===== ENTERPRISE HEADER COMPONENT =====
 export function Header() {
-  console.log('[Header] Component starting to render...');
   const { user } = useAuth();
-  console.log('[Header] Auth user:', user);
   
   // Enterprise state management with AOP integration
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -124,7 +120,6 @@ export function Header() {
 
   // Enterprise dropdown handlers with AOP aspects
   const handleDropdownShow = useCallback((categoryId: string, event: React.MouseEvent) => {
-    console.log('[Header] handleDropdownShow called for category:', categoryId);
     const rect = event.currentTarget.getBoundingClientRect();
     const position = { x: rect.left, y: rect.bottom };
     
@@ -136,7 +131,6 @@ export function Header() {
     };
 
     headerAOP.executeWithAspects(context, () => {
-      console.log('[Header] Setting active dropdown to:', categoryId);
       setActiveDropdown(categoryId);
       setDropdownPosition(position);
       return true;
@@ -159,21 +153,9 @@ export function Header() {
 
   // Get dropdown categories
   const dropdownCategories = useMemo(() => {
-    console.log('[Header] Getting dropdown categories...');
-    try {
-      const categoriesResult = headerDropdownService.getAllDropdownCategories();
-      console.log('[Header] Categories result:', categoriesResult);
-      const categories = categoriesResult.isSuccess() ? categoriesResult.value : [];
-      console.log('[Header] Dropdown categories loaded:', categories.length, categories.map(c => c.name));
-      return categories;
-    } catch (error) {
-      console.error('[Header] Error loading dropdown categories:', error);
-      return [];
-    }
+    const categoriesResult = headerDropdownService.getAllDropdownCategories();
+    return categoriesResult.isSuccess() ? categoriesResult.value : [];
   }, []);
-
-  // Add debug logging for render
-  console.log('[Header] About to render with categories:', dropdownCategories.length);
 
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
@@ -386,42 +368,29 @@ export function Header() {
             </Link>
             
             {/* Category Dropdowns for Bottom Navigation */}
-            {(() => {
-              console.log('[Header] Rendering categories in bottom nav, count:', dropdownCategories.length);
-              return dropdownCategories.map((category) => {
-                console.log('[Header] Rendering category button:', category.name, 'path:', category.path);
-                return (
-                  <div 
-                    key={category.id} 
-                    className="relative"
-                    onMouseEnter={(e) => {
-                      console.log('[Header] Mouse enter on category:', category.name);
-                      handleDropdownShow(category.id, e);
-                    }}
-                    onMouseLeave={handleDropdownHide}
+            {dropdownCategories.map((category) => (
+              <div key={category.id} className="relative">
+                <Link href={category.path}>
+                  <Button 
+                    variant="ghost" 
+                    size="sm"
+                    className="text-sm text-gray-700 font-medium hover:text-purple-600"
+                    data-testid={`nav-${category.id}`}
+                    onMouseEnter={(e) => handleDropdownShow(category.id, e)}
+                    onClick={() => handleNavigation(category.path, category.id)}
                   >
-                    <Link href={category.path}>
-                      <Button 
-                        variant="ghost" 
-                        size="sm"
-                        className="text-sm text-gray-700 font-medium hover:text-purple-600"
-                        data-testid={`nav-${category.id}`}
-                        onClick={() => handleNavigation(category.path, category.id)}
-                      >
-                        {category.name}
-                      </Button>
-                    </Link>
-                  
-                    {/* Dropdown */}
-                    <HeaderDropdown
-                      category={category}
-                      isVisible={activeDropdown === category.id}
-                      onClose={handleDropdownHide}
-                    />
-                  </div>
-                );
-              });
-            })()}
+                    {category.name}
+                  </Button>
+                </Link>
+                
+                {/* Dropdown */}
+                <HeaderDropdown
+                  category={category}
+                  isVisible={activeDropdown === category.id}
+                  onClose={handleDropdownHide}
+                />
+              </div>
+            ))}
 
             <div className="flex-1"></div>
 

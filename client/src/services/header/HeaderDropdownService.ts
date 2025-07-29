@@ -4,8 +4,6 @@
  * 100% best practices, zero shortcuts, complete separation of concerns
  */
 
-console.log('[HeaderDropdownService] Module loading...');
-
 import { z } from 'zod';
 import { Result } from '../../types/Result';
 
@@ -64,9 +62,7 @@ export class HeaderDropdownService {
   };
 
   constructor() {
-    console.log('[HeaderDropdownService] Constructor called, initializing categories...');
     this.initializeDropdownCategories();
-    console.log('[HeaderDropdownService] Categories initialized, count:', this.categoryDropdowns.size);
   }
 
   /**
@@ -238,12 +234,9 @@ export class HeaderDropdownService {
    */
   public getAllDropdownCategories(): Result<readonly DropdownCategory[], Error> {
     try {
-      console.log('[HeaderDropdownService] getAllDropdownCategories called, map size:', this.categoryDropdowns.size);
       const categories = Array.from(this.categoryDropdowns.values());
-      console.log('[HeaderDropdownService] Categories array created, length:', categories.length, 'categories:', categories.map(c => c.name));
       return Result.success(categories);
     } catch (error) {
-      console.error('[HeaderDropdownService] Error in getAllDropdownCategories:', error);
       return Result.failure(error instanceof Error ? error : new Error('Unknown dropdown categories error'));
     }
   }
@@ -387,6 +380,4 @@ export class HeaderDropdownService {
 }
 
 // ===== ENTERPRISE DROPDOWN SERVICE INSTANCE =====
-console.log('[HeaderDropdownService] Creating singleton instance...');
 export const headerDropdownService = new HeaderDropdownService();
-console.log('[HeaderDropdownService] Singleton instance created, categories count:', headerDropdownService.getDropdownStatistics().totalCategories);
