@@ -32,7 +32,7 @@ interface DynamicCategoryPageProps {
   subcategory?: string;
 }
 
-export default function DynamicCategoryPage({ vertical = 'fashion', category = 'women', subcategory }: DynamicCategoryPageProps) {
+export default function DynamicCategoryPage({ vertical = 'fashion', category, subcategory }: DynamicCategoryPageProps) {
   const params = useParams();
   const actualVertical = params?.vertical || vertical;
   const actualCategory = params?.category || category;
