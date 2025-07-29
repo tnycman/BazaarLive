@@ -5,7 +5,7 @@
  */
 
 import React, { useState, useCallback, useMemo, useEffect, memo } from 'react';
-import { ChevronDown, ChevronUp, Search, Minus, Plus } from 'lucide-react';
+import { ChevronDown, ChevronUp, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -452,22 +452,6 @@ const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
           }}
         >
           <div className="flex items-center flex-1 min-w-0">
-            {hasSubcategories && (
-              <button
-                className="flex-shrink-0 p-1 mr-1 hover:bg-gray-100 rounded"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleSectionToggle(category.id);
-                }}
-                data-testid={`category-toggle-${category.id}`}
-              >
-                {isExpanded ? (
-                  <Minus className="w-3 h-3 text-gray-600" />
-                ) : (
-                  <Plus className="w-3 h-3 text-gray-600" />
-                )}
-              </button>
-            )}
             <span 
               className={`text-sm truncate ${
                 isSelected 
