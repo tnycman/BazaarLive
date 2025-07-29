@@ -2481,6 +2481,301 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
         createdAt: '2024-01-26T13:10:00Z'
       }
     ]
+  },
+
+  // ===== WOMEN'S ACCESSORIES SUBCATEGORY CONFIGURATION =====
+  'fashion-women-accessories': {
+    category: 'fashion',
+    subcategory: 'women',
+    subSubcategory: 'accessories',
+    metadata: {
+      title: 'Women\'s Accessories',
+      description: 'Complete your look with designer jewelry, scarves, belts, and fashion accessories from top brands',
+      gradient: 'from-pink-50 via-rose-100 to-pink-200',
+      placeholder: 'Search women\'s accessories...',
+      seoKeywords: ['women accessories', 'designer jewelry', 'luxury scarves', 'designer belts', 'fashion accessories', 'handbags', 'sunglasses', 'watches']
+    },
+    filterConfiguration: {
+      availableFilters: ['brand', 'color', 'price', 'condition', 'accessory-type', 'material', 'size'],
+      categorySpecificFilters: [
+        {
+          id: 'accessory-types',
+          name: 'Accessory Type',
+          type: 'checkbox',
+          options: [
+            { id: 'jewelry', name: 'Jewelry', count: 1245 },
+            { id: 'scarves', name: 'Scarves', count: 892 },
+            { id: 'belts', name: 'Belts', count: 756 },
+            { id: 'hats', name: 'Hats', count: 634 },
+            { id: 'sunglasses', name: 'Sunglasses', count: 523 },
+            { id: 'watches', name: 'Watches', count: 445 },
+            { id: 'hair-accessories', name: 'Hair Accessories', count: 387 },
+            { id: 'gloves', name: 'Gloves', count: 234 },
+            { id: 'ties', name: 'Ties & Bowties', count: 189 }
+          ],
+          validation: z.array(z.string())
+        },
+        {
+          id: 'materials',
+          name: 'Material',
+          type: 'checkbox',
+          options: [
+            { id: 'gold', name: 'Gold', count: 567 },
+            { id: 'silver', name: 'Silver', count: 432 },
+            { id: 'leather', name: 'Leather', count: 1203 },
+            { id: 'silk', name: 'Silk', count: 345 },
+            { id: 'cotton', name: 'Cotton', count: 289 },
+            { id: 'metal', name: 'Metal', count: 234 },
+            { id: 'plastic', name: 'Plastic', count: 156 },
+            { id: 'cashmere', name: 'Cashmere', count: 123 },
+            { id: 'wool', name: 'Wool', count: 198 }
+          ],
+          validation: z.array(z.string())
+        },
+        {
+          id: 'jewelry-types',
+          name: 'Jewelry Type',
+          type: 'checkbox',
+          options: [
+            { id: 'necklaces', name: 'Necklaces', count: 456 },
+            { id: 'earrings', name: 'Earrings', count: 389 },
+            { id: 'bracelets', name: 'Bracelets', count: 267 },
+            { id: 'rings', name: 'Rings', count: 234 },
+            { id: 'brooches', name: 'Brooches', count: 123 },
+            { id: 'anklets', name: 'Anklets', count: 89 }
+          ],
+          validation: z.array(z.string())
+        }
+      ],
+      defaultFilters: {
+        condition: ['new_with_tags', 'excellent'],
+        availability: ['all-items']
+      },
+      filterValidationRules: {
+        accessoryType: z.array(z.string()),
+        material: z.array(z.string()),
+        jewelryType: z.array(z.string()),
+        size: z.array(z.string())
+      }
+    },
+    sampleProducts: [
+      {
+        id: 'accessories-1',
+        title: 'Tiffany & Co. Return to Tiffany Heart Tag Necklace',
+        brand: 'Tiffany & Co.',
+        price: '$295',
+        originalPrice: '$450',
+        size: '16"',
+        images: ['https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller-acc1',
+          username: 'luxury_jewelry_co',
+          avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 189, comments: 28, shares: 15 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-26T16:20:00Z'
+      },
+      {
+        id: 'accessories-2',
+        title: 'Hermès Twilly Silk Scarf - Zebra Pegasus Print',
+        brand: 'Hermès',
+        price: '$185',
+        originalPrice: '$290',
+        size: '86cm x 5cm',
+        images: ['https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller-acc2',
+          username: 'designer_resale_boutique',
+          avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 234, comments: 42, shares: 28 },
+        condition: 'new_with_tags',
+        isLiked: true,
+        createdAt: '2024-01-25T11:45:00Z'
+      },
+      {
+        id: 'accessories-3',
+        title: 'Gucci GG Marmont Leather Belt - Black',
+        brand: 'Gucci',
+        price: '$320',
+        originalPrice: '$490',
+        size: '85cm',
+        images: ['https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller-acc3',
+          username: 'authentic_designer_goods',
+          avatar: 'https://images.unsplash.com/photo-1494790108755-2616c9fe3e23?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 156, comments: 23, shares: 18 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-24T14:30:00Z'
+      },
+      {
+        id: 'accessories-4',
+        title: 'Ray-Ban Aviator Classic Sunglasses - Gold Frame',
+        brand: 'Ray-Ban',
+        price: '$89',
+        originalPrice: '$154',
+        size: '58mm',
+        images: ['https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller-acc4',
+          username: 'sunglass_warehouse',
+          avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 98, comments: 15, shares: 8 },
+        condition: 'very_good',
+        isLiked: true,
+        createdAt: '2024-01-23T09:15:00Z'
+      },
+      {
+        id: 'accessories-5',
+        title: 'Apple Watch Series 9 - Gold Stainless Steel',
+        brand: 'Apple',
+        price: '$425',
+        originalPrice: '$749',
+        size: '41mm',
+        images: ['https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller-acc5',
+          username: 'tech_accessories_pro',
+          avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 267, comments: 45, shares: 32 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-22T18:45:00Z'
+      },
+      {
+        id: 'accessories-6',
+        title: 'Chanel Camellia Flower Hair Clip - Pearl White',
+        brand: 'Chanel',
+        price: '$145',
+        originalPrice: '$220',
+        size: '7cm',
+        images: ['https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller-acc6',
+          username: 'vintage_chanel_collection',
+          avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 123, comments: 19, shares: 12 },
+        condition: 'very_good',
+        isLiked: true,
+        createdAt: '2024-01-21T13:20:00Z'
+      },
+      {
+        id: 'accessories-7',
+        title: 'Louis Vuitton Cashmere Monogram Scarf - Brown',
+        brand: 'Louis Vuitton',
+        price: '$235',
+        originalPrice: '$365',
+        size: '140cm x 140cm',
+        images: ['https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller-acc7',
+          username: 'luxury_scarves_boutique',
+          avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 178, comments: 31, shares: 22 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-20T16:10:00Z'
+      },
+      {
+        id: 'accessories-8',
+        title: 'Cartier Love Bracelet - Rose Gold',
+        brand: 'Cartier',
+        price: '$1,250',
+        originalPrice: '$1,890',
+        size: '17cm',
+        images: ['https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller-acc8',
+          username: 'fine_jewelry_authenticated',
+          avatar: 'https://images.unsplash.com/photo-1494790108755-2616c9fe3e23?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 345, comments: 67, shares: 48 },
+        condition: 'new_with_tags',
+        isLiked: true,
+        createdAt: '2024-01-19T12:35:00Z'
+      },
+      {
+        id: 'accessories-9',
+        title: 'Burberry Check Pattern Wool Beret - Beige',
+        brand: 'Burberry',
+        price: '$89',
+        originalPrice: '$145',
+        size: 'One Size',
+        images: ['https://images.unsplash.com/photo-1521369909029-2afed882baee?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller-acc9',
+          username: 'british_fashion_house',
+          avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 92, comments: 14, shares: 9 },
+        condition: 'very_good',
+        isLiked: false,
+        createdAt: '2024-01-18T10:25:00Z'
+      },
+      {
+        id: 'accessories-10',
+        title: 'Prada Saffiano Leather Gloves - Black',
+        brand: 'Prada',
+        price: '$125',
+        originalPrice: '$195',
+        size: 'Size 7',
+        images: ['https://images.unsplash.com/photo-1544966503-7cc5ac882d5e?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller-acc10',
+          username: 'italian_leather_goods',
+          avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 76, comments: 11, shares: 6 },
+        condition: 'excellent',
+        isLiked: true,
+        createdAt: '2024-01-17T15:50:00Z'
+      },
+      {
+        id: 'accessories-11',
+        title: 'Van Cleef & Arpels Alhambra Pearl Earrings',
+        brand: 'Van Cleef & Arpels',
+        price: '$895',
+        originalPrice: '$1,350',
+        size: '1.2cm',
+        images: ['https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller-acc11',
+          username: 'haute_joaillerie',
+          avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 234, comments: 38, shares: 25 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-16T14:15:00Z'
+      },
+      {
+        id: 'accessories-12',
+        title: 'Hermès Oran Sandals Charm Bag Accessory',
+        brand: 'Hermès',
+        price: '$165',
+        originalPrice: '$250',
+        size: '5cm',
+        images: ['https://images.unsplash.com/photo-1544966503-7cc5ac882d5e?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller-acc12',
+          username: 'hermes_collector',
+          avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 145, comments: 22, shares: 16 },
+        condition: 'new_with_tags',
+        isLiked: true,
+        createdAt: '2024-01-15T11:40:00Z'
+      }
+    ]
   }
 };
 
