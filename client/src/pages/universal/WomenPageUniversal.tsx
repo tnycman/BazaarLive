@@ -10,7 +10,8 @@ import UniversalCategoryPage from '@/components/universal/UniversalCategoryPage'
 const WomenPageUniversal: React.FC = () => {
   return (
     <UniversalCategoryPage
-      category="women"
+      category="fashion"
+      subcategory="women"
       className="women-page-universal"
     />
   );

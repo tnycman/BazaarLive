@@ -63,8 +63,8 @@ const UniversalPageConfigurationSchema = z.object({
 
 // ===== ENTERPRISE CATEGORY CONFIGURATIONS =====
 const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfiguration> = {
-  women: {
-    category: 'women',
+  'fashion-women': {
+    category: 'fashion',
     metadata: {
       title: 'Women\'s Fashion',
       description: 'Discover the latest in women\'s fashion, accessories, and style',
@@ -101,8 +101,8 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
     },
     sampleProducts: []
   },
-  men: {
-    category: 'men',
+  'fashion-men': {
+    category: 'fashion',
     metadata: {
       title: 'Men\'s Fashion',
       description: 'Explore men\'s clothing, accessories, and contemporary style',
@@ -140,8 +140,8 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
     },
     sampleProducts: []
   },
-  kids: {
-    category: 'kids',
+  'fashion-kids': {
+    category: 'fashion',
     metadata: {
       title: 'Kids\' Fashion',
       description: 'Adorable and comfortable clothing for children of all ages',
@@ -413,10 +413,13 @@ export class UniversalCategoryPageFactory {
         return Result.success(cachedConfig);
       }
 
+      // Create configuration key
+      const configKey = subcategory ? `${category}-${subcategory}` : category;
+      
       // Get base configuration
-      const baseConfig = UNIVERSAL_CATEGORY_CONFIGURATIONS[category];
+      const baseConfig = UNIVERSAL_CATEGORY_CONFIGURATIONS[configKey];
       if (!baseConfig) {
-        return Result.failure(new Error(`Configuration not found for category: ${category}`));
+        return Result.failure(new Error(`Configuration not found for category: ${configKey}`));
       }
 
       // Apply subcategory modifications if needed

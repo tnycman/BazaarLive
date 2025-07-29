@@ -124,7 +124,7 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
       selectedAvailability: ['all-items'],
       selectedTypes: ['all-types'],
       brandSearchQuery: '',
-      expandedSections: ['categories', category]
+      expandedSections: ['categories', subcategory || category]
     },
     isLoading: false,
     error: null
@@ -203,7 +203,7 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
         if (!(titleMatch || brandMatch)) return false;
       }
 
-      // Apply category filtering
+      // Apply category filtering (use the correct database category)
       if (pageState.filterState.selectedCategories.length > 0 && 
           !pageState.filterState.selectedCategories.includes(category)) {
         return false;
@@ -306,7 +306,7 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
       <EnterprisePageLayout
         leftSidebar={
           <EnterpriseFilterSidebar
-            currentCategory={category}
+            currentCategory={subcategory || category}
             onFilterChange={handleFilterChange}
             isLoading={isLoading}
           />
