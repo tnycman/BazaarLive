@@ -170,6 +170,9 @@ export function Header() {
     }
   }, []);
 
+  // Add debug logging for render
+  console.log('[Header] About to render with categories:', dropdownCategories.length);
+
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4">
@@ -381,29 +384,35 @@ export function Header() {
             </Link>
             
             {/* Category Dropdowns for Bottom Navigation */}
-            {dropdownCategories.map((category) => (
-              <div key={category.id} className="relative">
-                <Link href={category.path}>
-                  <Button 
-                    variant="ghost" 
-                    size="sm"
-                    className="text-sm text-gray-700 font-medium hover:text-purple-600"
-                    data-testid={`nav-${category.id}`}
-                    onMouseEnter={(e) => handleDropdownShow(category.id, e)}
-                    onClick={() => handleNavigation(category.path, category.id)}
-                  >
-                    {category.name}
-                  </Button>
-                </Link>
-                
-                {/* Dropdown */}
-                <HeaderDropdown
-                  category={category}
-                  isVisible={activeDropdown === category.id}
-                  onClose={handleDropdownHide}
-                />
-              </div>
-            ))}
+            {(() => {
+              console.log('[Header] Rendering categories in bottom nav, count:', dropdownCategories.length);
+              return dropdownCategories.map((category) => {
+                console.log('[Header] Rendering category button:', category.name, 'path:', category.path);
+                return (
+                  <div key={category.id} className="relative">
+                    <Link href={category.path}>
+                      <Button 
+                        variant="ghost" 
+                        size="sm"
+                        className="text-sm text-gray-700 font-medium hover:text-purple-600"
+                        data-testid={`nav-${category.id}`}
+                        onMouseEnter={(e) => handleDropdownShow(category.id, e)}
+                        onClick={() => handleNavigation(category.path, category.id)}
+                      >
+                        {category.name}
+                      </Button>
+                    </Link>
+                  
+                    {/* Dropdown */}
+                    <HeaderDropdown
+                      category={category}
+                      isVisible={activeDropdown === category.id}
+                      onClose={handleDropdownHide}
+                    />
+                  </div>
+                );
+              });
+            })()}
 
             <div className="flex-1"></div>
 
