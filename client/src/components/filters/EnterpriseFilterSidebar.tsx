@@ -875,7 +875,213 @@ const CATEGORIES_DATA: readonly FilterCategory[] = [
       }
     ]
   },
-  { id: 'home', name: 'Home', level: 0, isExpandable: false },
+  {
+    id: 'home',
+    name: 'Home',
+    level: 0,
+    isExpandable: true,
+    subcategories: [
+      {
+        id: 'home-accents',
+        name: 'Accents',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'home-candles', name: 'Candles', level: 2, isExpandable: false },
+          { id: 'home-decorative-bowls', name: 'Decorative Bowls', level: 2, isExpandable: false },
+          { id: 'home-figurines', name: 'Figurines', level: 2, isExpandable: false },
+          { id: 'home-picture-frames', name: 'Picture Frames', level: 2, isExpandable: false },
+          { id: 'home-sculptures', name: 'Sculptures', level: 2, isExpandable: false },
+          { id: 'home-throw-pillows', name: 'Throw Pillows', level: 2, isExpandable: false },
+          { id: 'home-vases', name: 'Vases', level: 2, isExpandable: false },
+          { id: 'home-decorative-objects', name: 'Decorative Objects', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'home-art',
+        name: 'Art',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'home-canvas-art', name: 'Canvas Art', level: 2, isExpandable: false },
+          { id: 'home-framed-prints', name: 'Framed Prints', level: 2, isExpandable: false },
+          { id: 'home-metal-art', name: 'Metal Art', level: 2, isExpandable: false },
+          { id: 'home-photography', name: 'Photography', level: 2, isExpandable: false },
+          { id: 'home-posters', name: 'Posters', level: 2, isExpandable: false },
+          { id: 'home-wall-art', name: 'Wall Art', level: 2, isExpandable: false },
+          { id: 'home-watercolor-art', name: 'Watercolor Art', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'home-bath',
+        name: 'Bath',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'home-bath-mats', name: 'Bath Mats', level: 2, isExpandable: false },
+          { id: 'home-bath-towels', name: 'Bath Towels', level: 2, isExpandable: false },
+          { id: 'home-hand-towels', name: 'Hand Towels', level: 2, isExpandable: false },
+          { id: 'home-shower-curtains', name: 'Shower Curtains', level: 2, isExpandable: false },
+          { id: 'home-soap-dispensers', name: 'Soap Dispensers', level: 2, isExpandable: false },
+          { id: 'home-toilet-paper-holders', name: 'Toilet Paper Holders', level: 2, isExpandable: false },
+          { id: 'home-toothbrush-holders', name: 'Toothbrush Holders', level: 2, isExpandable: false },
+          { id: 'home-washcloths', name: 'Washcloths', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'home-bedding',
+        name: 'Bedding',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'home-bed-sheets', name: 'Bed Sheets', level: 2, isExpandable: false },
+          { id: 'home-blankets', name: 'Blankets', level: 2, isExpandable: false },
+          { id: 'home-comforters', name: 'Comforters', level: 2, isExpandable: false },
+          { id: 'home-duvet-covers', name: 'Duvet Covers', level: 2, isExpandable: false },
+          { id: 'home-mattress-pads', name: 'Mattress Pads', level: 2, isExpandable: false },
+          { id: 'home-pillow-cases', name: 'Pillow Cases', level: 2, isExpandable: false },
+          { id: 'home-pillows', name: 'Pillows', level: 2, isExpandable: false },
+          { id: 'home-quilts', name: 'Quilts', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'home-design',
+        name: 'Design',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'home-area-rugs', name: 'Area Rugs', level: 2, isExpandable: false },
+          { id: 'home-curtains', name: 'Curtains', level: 2, isExpandable: false },
+          { id: 'home-furniture', name: 'Furniture', level: 2, isExpandable: false },
+          { id: 'home-lamps', name: 'Lamps', level: 2, isExpandable: false },
+          { id: 'home-lighting', name: 'Lighting', level: 2, isExpandable: false },
+          { id: 'home-mirrors', name: 'Mirrors', level: 2, isExpandable: false },
+          { id: 'home-window-treatments', name: 'Window Treatments', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'home-dining',
+        name: 'Dining',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'home-dinnerware', name: 'Dinnerware', level: 2, isExpandable: false },
+          { id: 'home-drinkware', name: 'Drinkware', level: 2, isExpandable: false },
+          { id: 'home-flatware', name: 'Flatware', level: 2, isExpandable: false },
+          { id: 'home-placemats', name: 'Placemats', level: 2, isExpandable: false },
+          { id: 'home-serving-dishes', name: 'Serving Dishes', level: 2, isExpandable: false },
+          { id: 'home-table-linens', name: 'Table Linens', level: 2, isExpandable: false },
+          { id: 'home-table-runners', name: 'Table Runners', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'home-games',
+        name: 'Games',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'home-board-games', name: 'Board Games', level: 2, isExpandable: false },
+          { id: 'home-card-games', name: 'Card Games', level: 2, isExpandable: false },
+          { id: 'home-chess-sets', name: 'Chess Sets', level: 2, isExpandable: false },
+          { id: 'home-party-games', name: 'Party Games', level: 2, isExpandable: false },
+          { id: 'home-puzzle-games', name: 'Puzzle Games', level: 2, isExpandable: false },
+          { id: 'home-strategy-games', name: 'Strategy Games', level: 2, isExpandable: false },
+          { id: 'home-trivia-games', name: 'Trivia Games', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'home-holiday',
+        name: 'Holiday',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'home-christmas-decor', name: 'Christmas Decor', level: 2, isExpandable: false },
+          { id: 'home-easter-decor', name: 'Easter Decor', level: 2, isExpandable: false },
+          { id: 'home-halloween-decor', name: 'Halloween Decor', level: 2, isExpandable: false },
+          { id: 'home-holiday-lights', name: 'Holiday Lights', level: 2, isExpandable: false },
+          { id: 'home-ornaments', name: 'Ornaments', level: 2, isExpandable: false },
+          { id: 'home-seasonal-decor', name: 'Seasonal Decor', level: 2, isExpandable: false },
+          { id: 'home-thanksgiving-decor', name: 'Thanksgiving Decor', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'home-kitchen',
+        name: 'Kitchen',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'home-appliances', name: 'Appliances', level: 2, isExpandable: false },
+          { id: 'home-bakeware', name: 'Bakeware', level: 2, isExpandable: false },
+          { id: 'home-cookware', name: 'Cookware', level: 2, isExpandable: false },
+          { id: 'home-cutting-boards', name: 'Cutting Boards', level: 2, isExpandable: false },
+          { id: 'home-kitchen-gadgets', name: 'Kitchen Gadgets', level: 2, isExpandable: false },
+          { id: 'home-kitchen-linens', name: 'Kitchen Linens', level: 2, isExpandable: false },
+          { id: 'home-kitchen-tools', name: 'Kitchen Tools', level: 2, isExpandable: false },
+          { id: 'home-storage-containers', name: 'Storage Containers', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'home-office',
+        name: 'Office',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'home-desk-accessories', name: 'Desk Accessories', level: 2, isExpandable: false },
+          { id: 'home-filing-systems', name: 'Filing Systems', level: 2, isExpandable: false },
+          { id: 'home-notebooks', name: 'Notebooks', level: 2, isExpandable: false },
+          { id: 'home-office-chairs', name: 'Office Chairs', level: 2, isExpandable: false },
+          { id: 'home-office-decor', name: 'Office Decor', level: 2, isExpandable: false },
+          { id: 'home-pen-holders', name: 'Pen Holders', level: 2, isExpandable: false },
+          { id: 'home-stationery', name: 'Stationery', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'home-party-supplies',
+        name: 'Party Supplies',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'home-balloons', name: 'Balloons', level: 2, isExpandable: false },
+          { id: 'home-banners', name: 'Banners', level: 2, isExpandable: false },
+          { id: 'home-disposable-tableware', name: 'Disposable Tableware', level: 2, isExpandable: false },
+          { id: 'home-party-decorations', name: 'Party Decorations', level: 2, isExpandable: false },
+          { id: 'home-party-favors', name: 'Party Favors', level: 2, isExpandable: false },
+          { id: 'home-streamers', name: 'Streamers', level: 2, isExpandable: false },
+          { id: 'home-table-decorations', name: 'Table Decorations', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'home-storage-organization',
+        name: 'Storage & Organization',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'home-baskets', name: 'Baskets', level: 2, isExpandable: false },
+          { id: 'home-bins', name: 'Bins', level: 2, isExpandable: false },
+          { id: 'home-closet-organizers', name: 'Closet Organizers', level: 2, isExpandable: false },
+          { id: 'home-drawer-organizers', name: 'Drawer Organizers', level: 2, isExpandable: false },
+          { id: 'home-hooks', name: 'Hooks', level: 2, isExpandable: false },
+          { id: 'home-shelving', name: 'Shelving', level: 2, isExpandable: false },
+          { id: 'home-storage-boxes', name: 'Storage Boxes', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'home-wall-decor',
+        name: 'Wall Decor',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'home-clocks', name: 'Clocks', level: 2, isExpandable: false },
+          { id: 'home-floating-shelves', name: 'Floating Shelves', level: 2, isExpandable: false },
+          { id: 'home-photo-displays', name: 'Photo Displays', level: 2, isExpandable: false },
+          { id: 'home-wall-hangings', name: 'Wall Hangings', level: 2, isExpandable: false },
+          { id: 'home-wall-sconces', name: 'Wall Sconces', level: 2, isExpandable: false },
+          { id: 'home-wall-stickers', name: 'Wall Stickers', level: 2, isExpandable: false },
+          { id: 'home-wallpaper', name: 'Wallpaper', level: 2, isExpandable: false }
+        ]
+      }
+    ]
+  },
   { id: 'pets', name: 'Pets', level: 0, isExpandable: false },
   { id: 'electronics', name: 'Electronics', level: 0, isExpandable: false }
 ] as const;
