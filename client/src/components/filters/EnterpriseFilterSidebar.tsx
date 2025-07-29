@@ -191,10 +191,11 @@ const AVAILABILITY_DATA: readonly FilterAvailability[] = [
   { id: 'sold-items', name: 'Sold Items', isSelected: false }
 ] as const;
 
-const TYPE_DATA: readonly FilterType[] = [
-  { id: 'all-types', name: 'All Types', isSelected: true },
-  { id: 'closet', name: 'Closet', isSelected: false },
-  { id: 'boutique', name: 'Boutique', isSelected: false }
+const CONDITION_DATA: readonly FilterType[] = [
+  { id: 'all-conditions', name: 'All Conditions', isSelected: true },
+  { id: 'new-with-tags', name: 'New With Tags', isSelected: false },
+  { id: 'like-new', name: 'Like New', isSelected: false },
+  { id: 'used', name: 'Used', isSelected: false }
 ] as const;
 
 const COLORS_DATA: readonly FilterColor[] = [
@@ -237,7 +238,7 @@ const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
     selectedColors: [],
     selectedPrices: [],
     selectedAvailability: ['all-items'],
-    selectedTypes: ['all-types'],
+    selectedTypes: ['all-conditions'],
     brandSearchQuery: '',
     expandedSections: ['categories', 'women', 'accessories']
   });
@@ -739,7 +740,7 @@ const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
           {/* Condition Section */}
           {renderCollapsibleSection('condition', (
             <div className="space-y-2">
-              {TYPE_DATA.map(type => (
+              {CONDITION_DATA.map(type => (
                 <div key={type.id} className="flex items-center space-x-2" data-testid={`condition-item-${type.id}`}>
                   <Checkbox
                     id={type.id}
