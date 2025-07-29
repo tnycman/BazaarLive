@@ -194,7 +194,27 @@ const CATEGORIES_DATA: readonly FilterCategory[] = [
           { id: 'sports-bras', name: 'Sports Bras', level: 2, isExpandable: false }
         ]
       },
-      { id: 'jackets-coats', name: 'Jackets & Coats', level: 1, isExpandable: false },
+      {
+        id: 'jackets-coats',
+        name: 'Jackets & Coats',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'blazers-suit-jackets', name: 'Blazers & Suit Jackets', level: 2, isExpandable: false },
+          { id: 'bomber-jackets', name: 'Bomber Jackets', level: 2, isExpandable: false },
+          { id: 'capes', name: 'Capes', level: 2, isExpandable: false },
+          { id: 'jean-jackets', name: 'Jean Jackets', level: 2, isExpandable: false },
+          { id: 'leather-jackets', name: 'Leather Jackets', level: 2, isExpandable: false },
+          { id: 'pea-coats', name: 'Pea Coats', level: 2, isExpandable: false },
+          { id: 'puffers', name: 'Puffers', level: 2, isExpandable: false },
+          { id: 'ski-snow-jackets', name: 'Ski & Snow Jackets', level: 2, isExpandable: false },
+          { id: 'teddy-jackets', name: 'Teddy Jackets', level: 2, isExpandable: false },
+          { id: 'trench-coats', name: 'Trench Coats', level: 2, isExpandable: false },
+          { id: 'utility-jackets', name: 'Utility Jackets', level: 2, isExpandable: false },
+          { id: 'varsity-jackets', name: 'Varsity Jackets', level: 2, isExpandable: false },
+          { id: 'vests', name: 'Vests', level: 2, isExpandable: false }
+        ]
+      },
       { id: 'jeans', name: 'Jeans', level: 1, isExpandable: false },
       { id: 'jewelry', name: 'Jewelry', level: 1, isExpandable: false },
       { id: 'makeup', name: 'Makeup', level: 1, isExpandable: false },
