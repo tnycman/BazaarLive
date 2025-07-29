@@ -53,10 +53,27 @@ interface FilterType {
   readonly description?: string;
 }
 
+interface FilterColor {
+  readonly id: string;
+  readonly name: string;
+  readonly hexCode: string;
+  readonly isSelected: boolean;
+}
+
+interface FilterPrice {
+  readonly id: string;
+  readonly name: string;
+  readonly minPrice?: number;
+  readonly maxPrice?: number;
+  readonly isSelected: boolean;
+}
+
 interface FilterState {
   readonly selectedCategories: readonly string[];
   readonly selectedBrands: readonly string[];
   readonly selectedSizes: readonly string[];
+  readonly selectedColors: readonly string[];
+  readonly selectedPrices: readonly string[];
   readonly selectedAvailability: readonly string[];
   readonly selectedTypes: readonly string[];
   readonly brandSearchQuery: string;
@@ -75,6 +92,8 @@ const FilterStateSchema = z.object({
   selectedCategories: z.array(z.string()),
   selectedBrands: z.array(z.string()),
   selectedSizes: z.array(z.string()),
+  selectedColors: z.array(z.string()),
+  selectedPrices: z.array(z.string()),
   selectedAvailability: z.array(z.string()),
   selectedTypes: z.array(z.string()),
   brandSearchQuery: z.string(),
@@ -178,6 +197,31 @@ const TYPE_DATA: readonly FilterType[] = [
   { id: 'boutique', name: 'Boutique', isSelected: false }
 ] as const;
 
+const COLORS_DATA: readonly FilterColor[] = [
+  { id: 'all-colors', name: 'All Colors', hexCode: '#ffffff', isSelected: false },
+  { id: 'black', name: 'Black', hexCode: '#000000', isSelected: false },
+  { id: 'blue', name: 'Blue', hexCode: '#0066cc', isSelected: false },
+  { id: 'pink', name: 'Pink', hexCode: '#ff6b9d', isSelected: false },
+  { id: 'yellow', name: 'Yellow', hexCode: '#ffd700', isSelected: false },
+  { id: 'brown', name: 'Brown', hexCode: '#8b4513', isSelected: false },
+  { id: 'red', name: 'Red', hexCode: '#dc2626', isSelected: false },
+  { id: 'gray', name: 'Gray', hexCode: '#6b7280', isSelected: false },
+  { id: 'green', name: 'Green', hexCode: '#16a34a', isSelected: false },
+  { id: 'tan', name: 'Tan', hexCode: '#d2b48c', isSelected: false },
+  { id: 'purple', name: 'Purple', hexCode: '#9333ea', isSelected: false },
+  { id: 'orange', name: 'Orange', hexCode: '#ea580c', isSelected: false }
+] as const;
+
+const PRICE_DATA: readonly FilterPrice[] = [
+  { id: 'all-prices', name: 'All Prices', isSelected: false },
+  { id: 'under-25', name: 'Under $25', maxPrice: 25, isSelected: false },
+  { id: '25-50', name: '$25 - $50', minPrice: 25, maxPrice: 50, isSelected: false },
+  { id: '50-100', name: '$50 - $100', minPrice: 50, maxPrice: 100, isSelected: false },
+  { id: '100-250', name: '$100 - $250', minPrice: 100, maxPrice: 250, isSelected: false },
+  { id: '250-500', name: '$250 - $500', minPrice: 250, maxPrice: 500, isSelected: false },
+  { id: 'over-500', name: 'Over $500', minPrice: 500, isSelected: false }
+] as const;
+
 // ===== ENTERPRISE COMPONENT IMPLEMENTATION =====
 const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
   currentCategory = 'women',
@@ -190,6 +234,8 @@ const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
     selectedCategories: [currentCategory],
     selectedBrands: [],
     selectedSizes: [],
+    selectedColors: [],
+    selectedPrices: [],
     selectedAvailability: ['all-items'],
     selectedTypes: ['all-types'],
     brandSearchQuery: '',
@@ -215,6 +261,24 @@ const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
     size: {
       id: 'size',
       title: 'SIZE',
+      isCollapsible: true,
+      defaultExpanded: false
+    },
+    color: {
+      id: 'color',
+      title: 'COLOR',
+      isCollapsible: true,
+      defaultExpanded: false
+    },
+    price: {
+      id: 'price',
+      title: 'PRICE',
+      isCollapsible: true,
+      defaultExpanded: false
+    },
+    shopping: {
+      id: 'shopping',
+      title: 'SHOPPING',
       isCollapsible: true,
       defaultExpanded: false
     },
@@ -313,6 +377,34 @@ const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
       ...prev,
       selectedTypes: [typeId] // Single selection
     }));
+  }, []);
+
+  const handleColorToggle = useCallback((colorId: string) => {
+    setFilterState(prev => {
+      const isSelected = prev.selectedColors.includes(colorId);
+      const newSelectedColors = isSelected
+        ? prev.selectedColors.filter(id => id !== colorId)
+        : [...prev.selectedColors, colorId];
+
+      return {
+        ...prev,
+        selectedColors: newSelectedColors
+      };
+    });
+  }, []);
+
+  const handlePriceToggle = useCallback((priceId: string) => {
+    setFilterState(prev => {
+      const isSelected = prev.selectedPrices.includes(priceId);
+      const newSelectedPrices = isSelected
+        ? prev.selectedPrices.filter(id => id !== priceId)
+        : [...prev.selectedPrices, priceId];
+
+      return {
+        ...prev,
+        selectedPrices: newSelectedPrices
+      };
+    });
   }, []);
 
   // ===== ENTERPRISE EFFECTS =====
@@ -508,6 +600,67 @@ const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
 
           <Separator />
 
+          {/* Color Section */}
+          {renderCollapsibleSection('color', (
+            <div className="space-y-3">
+              <div className="grid grid-cols-6 gap-2">
+                {COLORS_DATA.map(color => (
+                  <button
+                    key={color.id}
+                    onClick={() => handleColorToggle(color.id)}
+                    className={`
+                      w-8 h-8 rounded-full border-2 transition-all duration-200 hover:scale-110
+                      ${filterState.selectedColors.includes(color.id) 
+                        ? 'border-purple-600 ring-2 ring-purple-200' 
+                        : 'border-gray-300 hover:border-gray-400'
+                      }
+                    `}
+                    style={{ backgroundColor: color.hexCode === '#ffffff' ? '#f8f9fa' : color.hexCode }}
+                    title={color.name}
+                    data-testid={`color-swatch-${color.id}`}
+                  >
+                    {color.hexCode === '#ffffff' && (
+                      <div className="w-full h-full rounded-full border border-gray-200" />
+                    )}
+                  </button>
+                ))}
+              </div>
+              <div className="text-xs text-gray-500">
+                Select colors to filter results
+              </div>
+            </div>
+          ))}
+
+          <Separator />
+
+          {/* Price Section */}
+          {renderCollapsibleSection('price', (
+            <div className="space-y-2">
+              {PRICE_DATA.map(price => (
+                <div key={price.id} className="flex items-center space-x-2" data-testid={`price-item-${price.id}`}>
+                  <Checkbox
+                    id={price.id}
+                    checked={filterState.selectedPrices.includes(price.id)}
+                    onCheckedChange={() => handlePriceToggle(price.id)}
+                    className="data-[state=checked]:bg-purple-600 data-[state=checked]:border-purple-600"
+                    data-testid={`price-checkbox-${price.id}`}
+                  />
+                  <label
+                    htmlFor={price.id}
+                    className="text-sm text-gray-700 cursor-pointer flex-1"
+                  >
+                    {price.name}
+                  </label>
+                </div>
+              ))}
+              <div className="pt-2 text-xs text-gray-500">
+                Choose your price range
+              </div>
+            </div>
+          ))}
+
+          <Separator />
+
           {/* Availability Section */}
           {renderCollapsibleSection('availability', (
             <div className="space-y-2">
@@ -528,6 +681,56 @@ const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
                   </label>
                 </div>
               ))}
+            </div>
+          ))}
+
+          <Separator />
+
+          {/* Shopping Section */}
+          {renderCollapsibleSection('shopping', (
+            <div className="space-y-2">
+              <div className="flex items-center space-x-2" data-testid="shopping-item-all-items">
+                <Checkbox
+                  id="all-items-shopping"
+                  checked={true}
+                  className="data-[state=checked]:bg-purple-600 data-[state=checked]:border-purple-600"
+                  data-testid="shopping-checkbox-all-items"
+                />
+                <label
+                  htmlFor="all-items-shopping"
+                  className="text-sm text-gray-700 cursor-pointer flex-1"
+                >
+                  All Items
+                </label>
+              </div>
+              <div className="flex items-center space-x-2" data-testid="shopping-item-free">
+                <Checkbox
+                  id="free-shipping"
+                  checked={false}
+                  className="data-[state=checked]:bg-purple-600 data-[state=checked]:border-purple-600"
+                  data-testid="shopping-checkbox-free"
+                />
+                <label
+                  htmlFor="free-shipping"
+                  className="text-sm text-gray-700 cursor-pointer flex-1"
+                >
+                  Free
+                </label>
+              </div>
+              <div className="flex items-center space-x-2" data-testid="shopping-item-discounted">
+                <Checkbox
+                  id="discounted-free"
+                  checked={false}
+                  className="data-[state=checked]:bg-purple-600 data-[state=checked]:border-purple-600"
+                  data-testid="shopping-checkbox-discounted"
+                />
+                <label
+                  htmlFor="discounted-free"
+                  className="text-sm text-gray-700 cursor-pointer flex-1"
+                >
+                  Discounted + Free
+                </label>
+              </div>
             </div>
           ))}
 
@@ -594,5 +797,5 @@ const EnhancedEnterpriseFilterSidebar = withEnterpriseInterceptors(EnterpriseFil
 
 // ===== EXPORTS =====
 export default EnhancedEnterpriseFilterSidebar;
-export type { FilterState, FilterSidebarProps, FilterCategory, FilterBrand };
+export type { FilterState, FilterSidebarProps, FilterCategory, FilterBrand, FilterColor, FilterPrice };
 export { FilterStateSchema, FilterSidebarPropsSchema };
