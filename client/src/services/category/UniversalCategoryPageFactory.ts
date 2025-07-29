@@ -359,6 +359,7 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
       }
     },
     sampleProducts: [
+      // Row 1
       {
         id: 'men-1',
         title: 'Classic Oxford Shirt',
@@ -394,6 +395,188 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
         condition: 'excellent',
         isLiked: true,
         createdAt: '2024-01-22T16:30:00Z'
+      },
+      {
+        id: 'men-3',
+        title: 'Leather Dress Shoes',
+        brand: 'Cole Haan',
+        price: '$180',
+        originalPrice: '$295',
+        size: '10',
+        images: ['https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller13',
+          username: 'shoe_expert',
+          avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 67, comments: 16, shares: 9 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-26T09:45:00Z'
+      },
+      {
+        id: 'men-4',
+        title: 'Wool Sweater',
+        brand: 'Patagonia',
+        price: '$89',
+        originalPrice: '$145',
+        size: 'L',
+        images: ['https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller14',
+          username: 'outdoor_gear',
+          avatar: 'https://images.unsplash.com/photo-1522075469751-3847ae946b67?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 34, comments: 8, shares: 4 },
+        condition: 'new_with_tags',
+        isLiked: true,
+        createdAt: '2024-01-25T16:20:00Z'
+      },
+      // Row 2
+      {
+        id: 'men-5',
+        title: 'Denim Jeans',
+        brand: 'Levi\'s',
+        price: '$78',
+        originalPrice: '$118',
+        size: '32',
+        images: ['https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller15',
+          username: 'denim_collector',
+          avatar: 'https://images.unsplash.com/photo-1566492031773-4f4e44671d66?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 28, comments: 6, shares: 3 },
+        condition: 'good',
+        isLiked: false,
+        createdAt: '2024-01-24T14:10:00Z'
+      },
+      {
+        id: 'men-6',
+        title: 'Winter Parka',
+        brand: 'Canada Goose',
+        price: '$485',
+        originalPrice: '$695',
+        size: 'M',
+        images: ['https://images.unsplash.com/photo-1551105719-999ad3b22db8?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller16',
+          username: 'winter_wear',
+          avatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 89, comments: 24, shares: 15 },
+        condition: 'excellent',
+        isLiked: true,
+        createdAt: '2024-01-26T11:30:00Z'
+      },
+      {
+        id: 'men-7',
+        title: 'Polo Shirt',
+        brand: 'Ralph Lauren',
+        price: '$68',
+        originalPrice: '$98',
+        size: 'L',
+        images: ['https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller17',
+          username: 'preppy_style',
+          avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 22, comments: 5, shares: 2 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-25T08:45:00Z'
+      },
+      {
+        id: 'men-8',
+        title: 'Sports Watch',
+        brand: 'Seiko',
+        price: '$195',
+        originalPrice: '$285',
+        size: 'One Size',
+        images: ['https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller18',
+          username: 'watch_collector',
+          avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 56, comments: 14, shares: 8 },
+        condition: 'new_with_tags',
+        isLiked: true,
+        createdAt: '2024-01-26T13:15:00Z'
+      },
+      // Row 3
+      {
+        id: 'men-9',
+        title: 'Leather Belt',
+        brand: 'Coach',
+        price: '$125',
+        originalPrice: '$195',
+        size: '34',
+        images: ['https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller19',
+          username: 'leather_goods',
+          avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 41, comments: 9, shares: 5 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-24T19:50:00Z'
+      },
+      {
+        id: 'men-10',
+        title: 'Casual Sneakers',
+        brand: 'Adidas',
+        price: '$85',
+        originalPrice: '$125',
+        size: '11',
+        images: ['https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller20',
+          username: 'sneaker_head',
+          avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 73, comments: 18, shares: 11 },
+        condition: 'good',
+        isLiked: true,
+        createdAt: '2024-01-23T15:25:00Z'
+      },
+      {
+        id: 'men-11',
+        title: 'Business Briefcase',
+        brand: 'Tumi',
+        price: '$295',
+        originalPrice: '$450',
+        size: 'Large',
+        images: ['https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller21',
+          username: 'business_pro',
+          avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 38, comments: 7, shares: 4 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-25T10:40:00Z'
+      },
+      {
+        id: 'men-12',
+        title: 'Cashmere Scarf',
+        brand: 'Burberry',
+        price: '$245',
+        originalPrice: '$395',
+        size: 'One Size',
+        images: ['https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller22',
+          username: 'luxury_mens',
+          avatar: 'https://images.unsplash.com/photo-1566492031773-4f4e44671d66?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 64, comments: 13, shares: 7 },
+        condition: 'new_with_tags',
+        isLiked: true,
+        createdAt: '2024-01-26T17:05:00Z'
       }
     ]
   },
@@ -452,6 +635,7 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
       }
     },
     sampleProducts: [
+      // Row 1
       {
         id: 'kids-1',
         title: 'Rainbow Unicorn Dress',
@@ -487,6 +671,188 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
         condition: 'excellent',
         isLiked: true,
         createdAt: '2024-01-24T11:20:00Z'
+      },
+      {
+        id: 'kids-3',
+        title: 'Cozy Dinosaur Pajamas',
+        brand: 'Carter\'s',
+        price: '$22',
+        originalPrice: '$36',
+        size: '3T',
+        images: ['https://images.unsplash.com/photo-1607522370275-f14206abe5d3?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller23',
+          username: 'sleepy_time',
+          avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 47, comments: 15, shares: 9 },
+        condition: 'new_with_tags',
+        isLiked: false,
+        createdAt: '2024-01-26T07:30:00Z'
+      },
+      {
+        id: 'kids-4',
+        title: 'School Backpack',
+        brand: 'JanSport',
+        price: '$35',
+        originalPrice: '$55',
+        size: 'One Size',
+        images: ['https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller24',
+          username: 'back_to_school',
+          avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 19, comments: 4, shares: 2 },
+        condition: 'excellent',
+        isLiked: true,
+        createdAt: '2024-01-25T13:45:00Z'
+      },
+      // Row 2
+      {
+        id: 'kids-5',
+        title: 'Princess Tutu Skirt',
+        brand: 'Melissa & Doug',
+        price: '$28',
+        originalPrice: '$42',
+        size: '5T',
+        images: ['https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller25',
+          username: 'princess_play',
+          avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 41, comments: 11, shares: 6 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-24T16:20:00Z'
+      },
+      {
+        id: 'kids-6',
+        title: 'Soccer Cleats',
+        brand: 'Nike',
+        price: '$45',
+        originalPrice: '$75',
+        size: '2Y',
+        images: ['https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller26',
+          username: 'sports_kid',
+          avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 23, comments: 6, shares: 3 },
+        condition: 'good',
+        isLiked: true,
+        createdAt: '2024-01-25T10:15:00Z'
+      },
+      {
+        id: 'kids-7',
+        title: 'Winter Snow Jacket',
+        brand: 'Columbia',
+        price: '$68',
+        originalPrice: '$98',
+        size: '8',
+        images: ['https://images.unsplash.com/photo-1551105719-999ad3b22db8?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller27',
+          username: 'winter_kids',
+          avatar: 'https://images.unsplash.com/photo-1494790108755-2616c9fe3e23?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 56, comments: 14, shares: 8 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-26T12:00:00Z'
+      },
+      {
+        id: 'kids-8',
+        title: 'Art Supply Set',
+        brand: 'Crayola',
+        price: '$32',
+        originalPrice: '$48',
+        size: 'One Size',
+        images: ['https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller28',
+          username: 'creative_kids',
+          avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 38, comments: 9, shares: 5 },
+        condition: 'new_with_tags',
+        isLiked: true,
+        createdAt: '2024-01-25T14:30:00Z'
+      },
+      // Row 3
+      {
+        id: 'kids-9',
+        title: 'Light-Up Sneakers',
+        brand: 'Skechers',
+        price: '$42',
+        originalPrice: '$65',
+        size: '1Y',
+        images: ['https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller29',
+          username: 'fun_shoes',
+          avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 67, comments: 18, shares: 12 },
+        condition: 'good',
+        isLiked: false,
+        createdAt: '2024-01-23T18:45:00Z'
+      },
+      {
+        id: 'kids-10',
+        title: 'Denim Overalls',
+        brand: 'OshKosh B\'gosh',
+        price: '$38',
+        originalPrice: '$58',
+        size: '6',
+        images: ['https://images.unsplash.com/photo-1582418702059-97ebafb35d09?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller30',
+          username: 'classic_kids',
+          avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 29, comments: 7, shares: 4 },
+        condition: 'excellent',
+        isLiked: true,
+        createdAt: '2024-01-24T08:20:00Z'
+      },
+      {
+        id: 'kids-11',
+        title: 'Swimming Goggles',
+        brand: 'Speedo',
+        price: '$15',
+        originalPrice: '$25',
+        size: 'Youth',
+        images: ['https://images.unsplash.com/photo-1566492031773-4f4e44671d66?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller31',
+          username: 'swim_coach',
+          avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 21, comments: 5, shares: 2 },
+        condition: 'new_with_tags',
+        isLiked: false,
+        createdAt: '2024-01-26T09:10:00Z'
+      },
+      {
+        id: 'kids-12',
+        title: 'Plush Teddy Bear',
+        brand: 'Build-A-Bear',
+        price: '$28',
+        originalPrice: '$42',
+        size: 'Medium',
+        images: ['https://images.unsplash.com/photo-1607522370275-f14206abe5d3?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller32',
+          username: 'teddy_collection',
+          avatar: 'https://images.unsplash.com/photo-1494790108755-2616c9fe3e23?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 84, comments: 22, shares: 15 },
+        condition: 'excellent',
+        isLiked: true,
+        createdAt: '2024-01-25T19:55:00Z'
       }
     ]
   },
