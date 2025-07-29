@@ -908,7 +908,227 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
         color: z.array(z.string())
       }
     },
-    sampleProducts: []
+    sampleProducts: [
+      // Row 1
+      {
+        id: 'home-1',
+        title: 'Modern Throw Pillows',
+        brand: 'West Elm',
+        price: '$39',
+        originalPrice: '$65',
+        size: '18x18',
+        images: ['https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller33',
+          username: 'home_stylist',
+          avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 45, comments: 12, shares: 7 },
+        condition: 'new_with_tags',
+        isLiked: false,
+        createdAt: '2024-01-26T08:15:00Z'
+      },
+      {
+        id: 'home-2',
+        title: 'Vintage Coffee Table',
+        brand: 'CB2',
+        price: '$295',
+        originalPrice: '$450',
+        size: '48x24',
+        images: ['https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller34',
+          username: 'vintage_home',
+          avatar: 'https://images.unsplash.com/photo-1494790108755-2616c9fe3e23?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 78, comments: 19, shares: 12 },
+        condition: 'excellent',
+        isLiked: true,
+        createdAt: '2024-01-25T14:30:00Z'
+      },
+      {
+        id: 'home-3',
+        title: 'Ceramic Dinnerware Set',
+        brand: 'Williams Sonoma',
+        price: '$189',
+        originalPrice: '$285',
+        size: '12-piece',
+        images: ['https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller35',
+          username: 'kitchen_essentials',
+          avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 52, comments: 14, shares: 8 },
+        condition: 'new_with_tags',
+        isLiked: false,
+        createdAt: '2024-01-26T11:45:00Z'
+      },
+      {
+        id: 'home-4',
+        title: 'Floor Standing Mirror',
+        brand: 'Urban Outfitters',
+        price: '$158',
+        originalPrice: '$245',
+        size: '60x20',
+        images: ['https://images.unsplash.com/photo-1503602642458-232111445657?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller36',
+          username: 'mirror_collection',
+          avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 63, comments: 16, shares: 10 },
+        condition: 'excellent',
+        isLiked: true,
+        createdAt: '2024-01-25T16:20:00Z'
+      },
+      // Row 2
+      {
+        id: 'home-5',
+        title: 'Scented Candle Collection',
+        brand: 'Yankee Candle',
+        price: '$48',
+        originalPrice: '$75',
+        size: 'Set of 3',
+        images: ['https://images.unsplash.com/photo-1602874801006-8a4d9aa5bb77?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller37',
+          username: 'candle_lover',
+          avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 34, comments: 8, shares: 5 },
+        condition: 'new_with_tags',
+        isLiked: false,
+        createdAt: '2024-01-24T13:10:00Z'
+      },
+      {
+        id: 'home-6',
+        title: 'Bamboo Kitchen Utensils',
+        brand: 'Crate & Barrel',
+        price: '$35',
+        originalPrice: '$55',
+        size: '7-piece',
+        images: ['https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller38',
+          username: 'eco_kitchen',
+          avatar: 'https://images.unsplash.com/photo-1494790108755-2616c9fe3e23?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 27, comments: 6, shares: 3 },
+        condition: 'excellent',
+        isLiked: true,
+        createdAt: '2024-01-25T09:30:00Z'
+      },
+      {
+        id: 'home-7',
+        title: 'Indoor Plant Collection',
+        brand: 'The Sill',
+        price: '$125',
+        originalPrice: '$185',
+        size: '3 plants',
+        images: ['https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller39',
+          username: 'plant_parent',
+          avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 89, comments: 23, shares: 15 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-26T15:45:00Z'
+      },
+      {
+        id: 'home-8',
+        title: 'Velvet Accent Chair',
+        brand: 'Article',
+        price: '$389',
+        originalPrice: '$595',
+        size: '32x30',
+        images: ['https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller40',
+          username: 'furniture_find',
+          avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 95, comments: 25, shares: 18 },
+        condition: 'excellent',
+        isLiked: true,
+        createdAt: '2024-01-25T12:15:00Z'
+      },
+      // Row 3
+      {
+        id: 'home-9',
+        title: 'Persian Area Rug',
+        brand: 'Rugs USA',
+        price: '$245',
+        originalPrice: '$395',
+        size: '8x10',
+        images: ['https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller41',
+          username: 'rug_gallery',
+          avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 67, comments: 17, shares: 11 },
+        condition: 'good',
+        isLiked: false,
+        createdAt: '2024-01-24T18:25:00Z'
+      },
+      {
+        id: 'home-10',
+        title: 'Smart LED Light Strips',
+        brand: 'Philips Hue',
+        price: '$89',
+        originalPrice: '$135',
+        size: '6.5 feet',
+        images: ['https://images.unsplash.com/photo-1602874801006-8a4d9aa5bb77?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller42',
+          username: 'smart_home',
+          avatar: 'https://images.unsplash.com/photo-1494790108755-2616c9fe3e23?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 43, comments: 11, shares: 7 },
+        condition: 'new_with_tags',
+        isLiked: true,
+        createdAt: '2024-01-26T10:50:00Z'
+      },
+      {
+        id: 'home-11',
+        title: 'Marble Cutting Board',
+        brand: 'Sur La Table',
+        price: '$68',
+        originalPrice: '$98',
+        size: '12x16',
+        images: ['https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller43',
+          username: 'kitchen_marble',
+          avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 38, comments: 9, shares: 5 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-25T07:40:00Z'
+      },
+      {
+        id: 'home-12',
+        title: 'Luxury Bath Towel Set',
+        brand: 'Pottery Barn',
+        price: '$95',
+        originalPrice: '$145',
+        size: '6-piece',
+        images: ['https://images.unsplash.com/photo-1503602642458-232111445657?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller44',
+          username: 'luxury_bath',
+          avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 51, comments: 13, shares: 8 },
+        condition: 'new_with_tags',
+        isLiked: true,
+        createdAt: '2024-01-26T19:30:00Z'
+      }
+    ]
   },
   electronics: {
     category: 'electronics',
@@ -946,7 +1166,227 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
         brand: z.array(z.string())
       }
     },
-    sampleProducts: []
+    sampleProducts: [
+      // Row 1
+      {
+        id: 'electronics-1',
+        title: 'iPhone 15 Pro Max',
+        brand: 'Apple',
+        price: '$899',
+        originalPrice: '$1199',
+        size: '256GB',
+        images: ['https://images.unsplash.com/photo-1592286872002-2d2d2e4b3b5b?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller45',
+          username: 'tech_guru',
+          avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 156, comments: 34, shares: 28 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-26T14:20:00Z'
+      },
+      {
+        id: 'electronics-2',
+        title: 'MacBook Air M3',
+        brand: 'Apple',
+        price: '$1299',
+        originalPrice: '$1599',
+        size: '13-inch',
+        images: ['https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller46',
+          username: 'laptop_deals',
+          avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 203, comments: 45, shares: 32 },
+        condition: 'new_with_tags',
+        isLiked: true,
+        createdAt: '2024-01-25T11:45:00Z'
+      },
+      {
+        id: 'electronics-3',
+        title: 'Sony WH-1000XM5',
+        brand: 'Sony',
+        price: '$299',
+        originalPrice: '$399',
+        size: 'Over-ear',
+        images: ['https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller47',
+          username: 'audio_expert',
+          avatar: 'https://images.unsplash.com/photo-1566492031773-4f4e44671d66?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 89, comments: 19, shares: 12 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-26T16:30:00Z'
+      },
+      {
+        id: 'electronics-4',
+        title: 'Samsung 4K Smart TV',
+        brand: 'Samsung',
+        price: '$649',
+        originalPrice: '$899',
+        size: '55-inch',
+        images: ['https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller48',
+          username: 'home_theater',
+          avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 134, comments: 28, shares: 19 },
+        condition: 'excellent',
+        isLiked: true,
+        createdAt: '2024-01-25T09:15:00Z'
+      },
+      // Row 2
+      {
+        id: 'electronics-5',
+        title: 'Nintendo Switch OLED',
+        brand: 'Nintendo',
+        price: '$289',
+        originalPrice: '$349',
+        size: 'Console',
+        images: ['https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller49',
+          username: 'gaming_zone',
+          avatar: 'https://images.unsplash.com/photo-1522075469751-3847ae946b67?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 198, comments: 42, shares: 31 },
+        condition: 'new_with_tags',
+        isLiked: false,
+        createdAt: '2024-01-24T19:45:00Z'
+      },
+      {
+        id: 'electronics-6',
+        title: 'Canon EOS R6 Mark II',
+        brand: 'Canon',
+        price: '$1999',
+        originalPrice: '$2499',
+        size: 'Body Only',
+        images: ['https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller50',
+          username: 'photo_pro',
+          avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 145, comments: 31, shares: 22 },
+        condition: 'excellent',
+        isLiked: true,
+        createdAt: '2024-01-26T13:20:00Z'
+      },
+      {
+        id: 'electronics-7',
+        title: 'iPad Pro 12.9"',
+        brand: 'Apple',
+        price: '$899',
+        originalPrice: '$1199',
+        size: '512GB',
+        images: ['https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller51',
+          username: 'tablet_trader',
+          avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 167, comments: 38, shares: 25 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-25T15:10:00Z'
+      },
+      {
+        id: 'electronics-8',
+        title: 'Dyson V15 Detect',
+        brand: 'Dyson',
+        price: '$599',
+        originalPrice: '$749',
+        size: 'Cordless',
+        images: ['https://images.unsplash.com/photo-1558618666-7a28b2a4b228?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller52',
+          username: 'clean_tech',
+          avatar: 'https://images.unsplash.com/photo-1494790108755-2616c9fe3e23?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 78, comments: 16, shares: 11 },
+        condition: 'new_with_tags',
+        isLiked: true,
+        createdAt: '2024-01-26T08:45:00Z'
+      },
+      // Row 3
+      {
+        id: 'electronics-9',
+        title: 'Apple Watch Series 9',
+        brand: 'Apple',
+        price: '$329',
+        originalPrice: '$429',
+        size: '45mm',
+        images: ['https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller53',
+          username: 'watch_world',
+          avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 112, comments: 24, shares: 17 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-24T12:30:00Z'
+      },
+      {
+        id: 'electronics-10',
+        title: 'Tesla Powerwall',
+        brand: 'Tesla',
+        price: '$8999',
+        originalPrice: '$11500',
+        size: '13.5 kWh',
+        images: ['https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller54',
+          username: 'solar_solutions',
+          avatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 234, comments: 56, shares: 41 },
+        condition: 'new_with_tags',
+        isLiked: true,
+        createdAt: '2024-01-25T17:25:00Z'
+      },
+      {
+        id: 'electronics-11',
+        title: 'Bose SoundLink Max',
+        brand: 'Bose',
+        price: '$199',
+        originalPrice: '$279',
+        size: 'Portable',
+        images: ['https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller55',
+          username: 'sound_system',
+          avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 67, comments: 14, shares: 9 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-26T11:15:00Z'
+      },
+      {
+        id: 'electronics-12',
+        title: 'DJI Mini 4 Pro Drone',
+        brand: 'DJI',
+        price: '$759',
+        originalPrice: '$999',
+        size: 'Mini Size',
+        images: ['https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller56',
+          username: 'drone_pilot',
+          avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 189, comments: 41, shares: 29 },
+        condition: 'new_with_tags',
+        isLiked: true,
+        createdAt: '2024-01-25T20:40:00Z'
+      }
+    ]
   },
   pets: {
     category: 'pets',
@@ -996,7 +1436,227 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
         brand: z.array(z.string())
       }
     },
-    sampleProducts: []
+    sampleProducts: [
+      // Row 1
+      {
+        id: 'pets-1',
+        title: 'Premium Dog Food',
+        brand: 'Blue Buffalo',
+        price: '$58',
+        originalPrice: '$78',
+        size: '24 lbs',
+        images: ['https://images.unsplash.com/photo-1551717743-49959800b1f6?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller57',
+          username: 'pet_nutrition',
+          avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 89, comments: 18, shares: 12 },
+        condition: 'new_with_tags',
+        isLiked: false,
+        createdAt: '2024-01-26T09:30:00Z'
+      },
+      {
+        id: 'pets-2',
+        title: 'Interactive Cat Tower',
+        brand: 'PetSafe',
+        price: '$125',
+        originalPrice: '$189',
+        size: '6 feet',
+        images: ['https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller58',
+          username: 'cat_kingdom',
+          avatar: 'https://images.unsplash.com/photo-1494790108755-2616c9fe3e23?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 156, comments: 32, shares: 24 },
+        condition: 'excellent',
+        isLiked: true,
+        createdAt: '2024-01-25T13:45:00Z'
+      },
+      {
+        id: 'pets-3',
+        title: 'Dog Leash & Harness Set',
+        brand: 'Ruffwear',
+        price: '$45',
+        originalPrice: '$68',
+        size: 'Large',
+        images: ['https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller59',
+          username: 'adventure_pup',
+          avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 67, comments: 14, shares: 9 },
+        condition: 'new_with_tags',
+        isLiked: false,
+        createdAt: '2024-01-26T15:20:00Z'
+      },
+      {
+        id: 'pets-4',
+        title: 'Aquarium Starter Kit',
+        brand: 'Fluval',
+        price: '$189',
+        originalPrice: '$275',
+        size: '20 gallon',
+        images: ['https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller60',
+          username: 'aquatic_world',
+          avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 98, comments: 21, shares: 15 },
+        condition: 'excellent',
+        isLiked: true,
+        createdAt: '2024-01-25T11:10:00Z'
+      },
+      // Row 2
+      {
+        id: 'pets-5',
+        title: 'Bird Cage Deluxe',
+        brand: 'Prevue Pet',
+        price: '$245',
+        originalPrice: '$359',
+        size: 'Large',
+        images: ['https://images.unsplash.com/photo-1452570053594-1b985d6ea890?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller61',
+          username: 'feathered_friends',
+          avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 134, comments: 28, shares: 18 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-24T16:35:00Z'
+      },
+      {
+        id: 'pets-6',
+        title: 'Pet Camera with Treats',
+        brand: 'Furbo',
+        price: '$159',
+        originalPrice: '$229',
+        size: 'Wireless',
+        images: ['https://images.unsplash.com/photo-1551717743-49959800b1f6?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller62',
+          username: 'smart_pet_tech',
+          avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 187, comments: 39, shares: 27 },
+        condition: 'new_with_tags',
+        isLiked: true,
+        createdAt: '2024-01-26T08:50:00Z'
+      },
+      {
+        id: 'pets-7',
+        title: 'Grooming Kit Professional',
+        brand: 'Wahl',
+        price: '$89',
+        originalPrice: '$135',
+        size: 'Complete Set',
+        images: ['https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller63',
+          username: 'pet_groomer',
+          avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 76, comments: 16, shares: 11 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-25T19:25:00Z'
+      },
+      {
+        id: 'pets-8',
+        title: 'Puzzle Feeder for Dogs',
+        brand: 'Nina Ottosson',
+        price: '$32',
+        originalPrice: '$48',
+        size: 'Medium',
+        images: ['https://images.unsplash.com/photo-1551717743-49959800b1f6?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller64',
+          username: 'brain_games',
+          avatar: 'https://images.unsplash.com/photo-1494790108755-2616c9fe3e23?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 43, comments: 9, shares: 6 },
+        condition: 'new_with_tags',
+        isLiked: true,
+        createdAt: '2024-01-26T12:40:00Z'
+      },
+      // Row 3
+      {
+        id: 'pets-9',
+        title: 'Heated Pet Bed',
+        brand: 'K&H Pet Products',
+        price: '$78',
+        originalPrice: '$115',
+        size: 'Large',
+        images: ['https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller65',
+          username: 'cozy_pets',
+          avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 112, comments: 23, shares: 16 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-24T14:15:00Z'
+      },
+      {
+        id: 'pets-10',
+        title: 'Reptile Terrarium Kit',
+        brand: 'Exo Terra',
+        price: '$234',
+        originalPrice: '$329',
+        size: '40 gallon',
+        images: ['https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller66',
+          username: 'reptile_habitat',
+          avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 89, comments: 19, shares: 13 },
+        condition: 'new_with_tags',
+        isLiked: true,
+        createdAt: '2024-01-25T17:30:00Z'
+      },
+      {
+        id: 'pets-11',
+        title: 'Automatic Water Fountain',
+        brand: 'PetSafe Drinkwell',
+        price: '$65',
+        originalPrice: '$95',
+        size: '50 oz',
+        images: ['https://images.unsplash.com/photo-1551717743-49959800b1f6?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller67',
+          username: 'fresh_water',
+          avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 91, comments: 18, shares: 12 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-26T10:05:00Z'
+      },
+      {
+        id: 'pets-12',
+        title: 'Small Animal Playpen',
+        brand: 'Tespo',
+        price: '$42',
+        originalPrice: '$65',
+        size: '12 panels',
+        images: ['https://images.unsplash.com/photo-1452570053594-1b985d6ea890?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller68',
+          username: 'small_pets',
+          avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 67, comments: 14, shares: 9 },
+        condition: 'new_with_tags',
+        isLiked: true,
+        createdAt: '2024-01-25T21:45:00Z'
+      }
+    ]
   },
   beauty: {
     category: 'beauty',
@@ -1047,7 +1707,498 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
         brand: z.array(z.string())
       }
     },
-    sampleProducts: []
+    sampleProducts: [
+      // Row 1
+      {
+        id: 'beauty-1',
+        title: 'Vitamin C Serum',
+        brand: 'The Ordinary',
+        price: '$28',
+        originalPrice: '$42',
+        size: '30ml',
+        images: ['https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller69',
+          username: 'skincare_guru',
+          avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 203, comments: 45, shares: 32 },
+        condition: 'new_with_tags',
+        isLiked: false,
+        createdAt: '2024-01-26T14:25:00Z'
+      },
+      {
+        id: 'beauty-2',
+        title: 'Eyeshadow Palette',
+        brand: 'Urban Decay',
+        price: '$45',
+        originalPrice: '$65',
+        size: '12 shades',
+        images: ['https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller70',
+          username: 'makeup_artist',
+          avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 156, comments: 34, shares: 24 },
+        condition: 'excellent',
+        isLiked: true,
+        createdAt: '2024-01-25T16:40:00Z'
+      },
+      {
+        id: 'beauty-3',
+        title: 'Hair Straightener Pro',
+        brand: 'GHD',
+        price: '$189',
+        originalPrice: '$265',
+        size: 'Professional',
+        images: ['https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller71',
+          username: 'hair_stylist',
+          avatar: 'https://images.unsplash.com/photo-1494790108755-2616c9fe3e23?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 89, comments: 19, shares: 13 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-26T11:15:00Z'
+      },
+      {
+        id: 'beauty-4',
+        title: 'Premium Perfume Set',
+        brand: 'Chanel',
+        price: '$298',
+        originalPrice: '$425',
+        size: '100ml',
+        images: ['https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller72',
+          username: 'fragrance_lover',
+          avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 234, comments: 52, shares: 38 },
+        condition: 'new_with_tags',
+        isLiked: true,
+        createdAt: '2024-01-25T13:30:00Z'
+      },
+      // Row 2
+      {
+        id: 'beauty-5',
+        title: 'Face Mask Collection',
+        brand: 'Laneige',
+        price: '$68',
+        originalPrice: '$95',
+        size: '5-pack',
+        images: ['https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller73',
+          username: 'spa_at_home',
+          avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 167, comments: 35, shares: 26 },
+        condition: 'new_with_tags',
+        isLiked: false,
+        createdAt: '2024-01-24T18:20:00Z'
+      },
+      {
+        id: 'beauty-6',
+        title: 'Makeup Brush Set',
+        brand: 'Real Techniques',
+        price: '$35',
+        originalPrice: '$55',
+        size: '12 brushes',
+        images: ['https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller74',
+          username: 'beauty_tools',
+          avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 98, comments: 21, shares: 15 },
+        condition: 'excellent',
+        isLiked: true,
+        createdAt: '2024-01-26T09:45:00Z'
+      },
+      {
+        id: 'beauty-7',
+        title: 'Essential Oil Diffuser',
+        brand: 'Young Living',
+        price: '$89',
+        originalPrice: '$125',
+        size: 'Ultrasonic',
+        images: ['https://images.unsplash.com/photo-1555955018-70d04acc3833?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller75',
+          username: 'wellness_life',
+          avatar: 'https://images.unsplash.com/photo-1494790108755-2616c9fe3e23?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 134, comments: 28, shares: 19 },
+        condition: 'new_with_tags',
+        isLiked: false,
+        createdAt: '2024-01-25T15:55:00Z'
+      },
+      {
+        id: 'beauty-8',
+        title: 'Anti-Aging Night Cream',
+        brand: 'Olay',
+        price: '$42',
+        originalPrice: '$65',
+        size: '50ml',
+        images: ['https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller76',
+          username: 'age_gracefully',
+          avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 112, comments: 24, shares: 17 },
+        condition: 'excellent',
+        isLiked: true,
+        createdAt: '2024-01-26T12:10:00Z'
+      },
+      // Row 3
+      {
+        id: 'beauty-9',
+        title: 'Luxury Lipstick Set',
+        brand: 'MAC',
+        price: '$78',
+        originalPrice: '$115',
+        size: '4 shades',
+        images: ['https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller77',
+          username: 'lip_queen',
+          avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 189, comments: 41, shares: 29 },
+        condition: 'new_with_tags',
+        isLiked: false,
+        createdAt: '2024-01-24T20:35:00Z'
+      },
+      {
+        id: 'beauty-10',
+        title: 'Jade Facial Roller',
+        brand: 'Gua Sha',
+        price: '$25',
+        originalPrice: '$38',
+        size: 'Natural Stone',
+        images: ['https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller78',
+          username: 'natural_beauty',
+          avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 145, comments: 31, shares: 22 },
+        condition: 'excellent',
+        isLiked: true,
+        createdAt: '2024-01-25T08:25:00Z'
+      },
+      {
+        id: 'beauty-11',
+        title: 'Professional Hair Dryer',
+        brand: 'Dyson',
+        price: '$329',
+        originalPrice: '$429',
+        size: 'Supersonic',
+        images: ['https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller79',
+          username: 'salon_quality',
+          avatar: 'https://images.unsplash.com/photo-1494790108755-2616c9fe3e23?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 267, comments: 58, shares: 41 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-26T17:50:00Z'
+      },
+      {
+        id: 'beauty-12',
+        title: 'Meditation Crystal Set',
+        brand: 'Healing Crystals',
+        price: '$48',
+        originalPrice: '$72',
+        size: '7 stones',
+        images: ['https://images.unsplash.com/photo-1555955018-70d04acc3833?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller80',
+          username: 'zen_wellness',
+          avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 87, comments: 18, shares: 12 },
+        condition: 'new_with_tags',
+        isLiked: true,
+        createdAt: '2024-01-25T19:15:00Z'
+      }
+    ]
+  },
+  sports: {
+    category: 'sports',
+    metadata: {
+      title: 'Sports & Outdoors',
+      description: 'Athletic gear, outdoor equipment, and fitness essentials for your active lifestyle',
+      gradient: 'from-emerald-50 via-green-100 to-blue-100',
+      placeholder: 'Search sports & outdoors...'
+    },
+    filterConfiguration: {
+      availableFilters: ['subcategory', 'brand', 'price', 'condition', 'availability', 'sport-type', 'activity-level'],
+      categorySpecificFilters: [
+        {
+          id: 'sport-types',
+          name: 'Sport Type',
+          type: 'checkbox',
+          options: [
+            { id: 'fitness', name: 'Fitness' },
+            { id: 'outdoor', name: 'Outdoor' },
+            { id: 'team-sports', name: 'Team Sports' },
+            { id: 'water-sports', name: 'Water Sports' },
+            { id: 'winter-sports', name: 'Winter Sports' },
+            { id: 'cycling', name: 'Cycling' },
+            { id: 'running', name: 'Running' }
+          ],
+          validation: z.array(z.string())
+        },
+        {
+          id: 'activity-levels',
+          name: 'Activity Level',
+          type: 'checkbox',
+          options: [
+            { id: 'beginner', name: 'Beginner' },
+            { id: 'intermediate', name: 'Intermediate' },
+            { id: 'advanced', name: 'Advanced' },
+            { id: 'professional', name: 'Professional' }
+          ],
+          validation: z.array(z.string())
+        }
+      ],
+      defaultFilters: {
+        condition: ['new_with_tags', 'excellent'],
+        availability: ['all-items']
+      },
+      filterValidationRules: {
+        sportType: z.array(z.string()),
+        activityLevel: z.array(z.string()),
+        brand: z.array(z.string())
+      }
+    },
+    sampleProducts: [
+      // Row 1
+      {
+        id: 'sports-1',
+        title: 'Nike Air Max Running Shoes',
+        brand: 'Nike',
+        price: '$89',
+        originalPrice: '$130',
+        size: '10.5',
+        images: ['https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller81',
+          username: 'running_pro',
+          avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 234, comments: 45, shares: 32 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-26T14:30:00Z'
+      },
+      {
+        id: 'sports-2',
+        title: 'Premium Yoga Mat',
+        brand: 'Lululemon',
+        price: '$68',
+        originalPrice: '$98',
+        size: '6mm thick',
+        images: ['https://images.unsplash.com/photo-1588286840104-8957b019727f?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller82',
+          username: 'yoga_zen',
+          avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 178, comments: 34, shares: 24 },
+        condition: 'new_with_tags',
+        isLiked: true,
+        createdAt: '2024-01-25T16:45:00Z'
+      },
+      {
+        id: 'sports-3',
+        title: 'Mountain Bike Helmet',
+        brand: 'Giro',
+        price: '$125',
+        originalPrice: '$185',
+        size: 'Large',
+        images: ['https://images.unsplash.com/photo-1558618666-7a28b2a4b228?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller83',
+          username: 'mountain_rider',
+          avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 98, comments: 19, shares: 13 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-26T11:20:00Z'
+      },
+      {
+        id: 'sports-4',
+        title: 'Professional Tennis Racket',
+        brand: 'Wilson',
+        price: '$189',
+        originalPrice: '$275',
+        size: 'Grip 4 3/8',
+        images: ['https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller84',
+          username: 'tennis_ace',
+          avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 156, comments: 28, shares: 19 },
+        condition: 'new_with_tags',
+        isLiked: true,
+        createdAt: '2024-01-25T13:15:00Z'
+      },
+      // Row 2
+      {
+        id: 'sports-5',
+        title: 'Camping Backpack 50L',
+        brand: 'The North Face',
+        price: '$245',
+        originalPrice: '$350',
+        size: '50 Liter',
+        images: ['https://images.unsplash.com/photo-1551524164-5cf5ac2bfe2d?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller85',
+          username: 'outdoor_explorer',
+          avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 267, comments: 52, shares: 38 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-24T18:40:00Z'
+      },
+      {
+        id: 'sports-6',
+        title: 'Basketball Official Size',
+        brand: 'Spalding',
+        price: '$35',
+        originalPrice: '$55',
+        size: 'Size 7',
+        images: ['https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller86',
+          username: 'hoop_dreams',
+          avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 89, comments: 16, shares: 11 },
+        condition: 'new_with_tags',
+        isLiked: true,
+        createdAt: '2024-01-26T09:25:00Z'
+      },
+      {
+        id: 'sports-7',
+        title: 'Fishing Rod Combo',
+        brand: 'Penn',
+        price: '$158',
+        originalPrice: '$225',
+        size: '7 foot',
+        images: ['https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller87',
+          username: 'fishing_master',
+          avatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 134, comments: 24, shares: 17 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-25T15:30:00Z'
+      },
+      {
+        id: 'sports-8',
+        title: 'Adjustable Dumbbells',
+        brand: 'Bowflex',
+        price: '$389',
+        originalPrice: '$549',
+        size: '5-52.5 lbs',
+        images: ['https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller88',
+          username: 'home_gym',
+          avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 298, comments: 58, shares: 42 },
+        condition: 'new_with_tags',
+        isLiked: true,
+        createdAt: '2024-01-26T12:50:00Z'
+      },
+      // Row 3
+      {
+        id: 'sports-9',
+        title: 'Swimming Goggles Pro',
+        brand: 'Speedo',
+        price: '$45',
+        originalPrice: '$68',
+        size: 'Adult',
+        images: ['https://images.unsplash.com/photo-1566492031773-4f4e44671d66?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller89',
+          username: 'swim_coach',
+          avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 67, comments: 13, shares: 9 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-24T20:15:00Z'
+      },
+      {
+        id: 'sports-10',
+        title: 'Golf Club Set',
+        brand: 'Callaway',
+        price: '$789',
+        originalPrice: '$1200',
+        size: 'Right Handed',
+        images: ['https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller90',
+          username: 'golf_pro_shop',
+          avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 234, comments: 47, shares: 33 },
+        condition: 'excellent',
+        isLiked: true,
+        createdAt: '2024-01-25T08:45:00Z'
+      },
+      {
+        id: 'sports-11',
+        title: 'Snowboard with Bindings',
+        brand: 'Burton',
+        price: '$456',
+        originalPrice: '$650',
+        size: '158cm',
+        images: ['https://images.unsplash.com/photo-1551524164-6cf7aa72bdf1?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller91',
+          username: 'powder_rider',
+          avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 189, comments: 36, shares: 26 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-26T17:20:00Z'
+      },
+      {
+        id: 'sports-12',
+        title: 'Resistance Band Set',
+        brand: 'Bodylastics',
+        price: '$28',
+        originalPrice: '$45',
+        size: '5 bands',
+        images: ['https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller92',
+          username: 'fitness_gear',
+          avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 112, comments: 22, shares: 15 },
+        condition: 'new_with_tags',
+        isLiked: true,
+        createdAt: '2024-01-25T19:35:00Z'
+      }
+    ]
   }
 };
 

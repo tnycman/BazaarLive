@@ -1,19 +1,15 @@
-/**
- * Electronics Page - Universal Category Page Implementation
- * Demonstrates universal three-column layout for Electronics category
- * 100% AOP compliance, zero shortcuts
- */
-
 import React from 'react';
 import UniversalCategoryPage from '@/components/universal/UniversalCategoryPage';
 
-const ElectronicsPageUniversal: React.FC = () => {
+/**
+ * Universal Electronics Page - Enterprise AOP Implementation
+ * Uses UniversalCategoryPageFactory configuration for consistent layout
+ */
+export default function ElectronicsPageUniversal() {
   return (
-    <UniversalCategoryPage
+    <UniversalCategoryPage 
       category="electronics"
-      className="electronics-page-universal"
+      data-testid="page-electronics-universal"
     />
   );
-};
-
-export default ElectronicsPageUniversal;
+}

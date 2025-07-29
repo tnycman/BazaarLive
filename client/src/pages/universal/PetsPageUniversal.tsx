@@ -1,19 +1,15 @@
-/**
- * Pets Page - Universal Category Page Implementation
- * Demonstrates universal three-column layout for Pet Supplies category
- * 100% AOP compliance, zero shortcuts
- */
-
 import React from 'react';
 import UniversalCategoryPage from '@/components/universal/UniversalCategoryPage';
 
-const PetsPageUniversal: React.FC = () => {
+/**
+ * Universal Pets Page - Enterprise AOP Implementation
+ * Uses UniversalCategoryPageFactory configuration for consistent layout
+ */
+export default function PetsPageUniversal() {
   return (
-    <UniversalCategoryPage
+    <UniversalCategoryPage 
       category="pets"
-      className="pets-page-universal"
+      data-testid="page-pets-universal"
     />
   );
-};
-
-export default PetsPageUniversal;
+}
