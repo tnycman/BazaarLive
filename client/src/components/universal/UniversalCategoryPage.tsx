@@ -86,7 +86,10 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
 
   // Get universal page configuration using factory
   const configurationResult = useMemo(() => {
-    return universalCategoryPageFactory.getConfiguration(category, subcategory);
+    console.log(`[UniversalCategoryPage] Getting configuration for category: ${category}, subcategory: ${subcategory}`);
+    const result = universalCategoryPageFactory.getConfiguration(category, subcategory);
+    console.log(`[UniversalCategoryPage] Configuration result:`, result);
+    return result;
   }, [category, subcategory]);
 
   // Handle configuration errors
