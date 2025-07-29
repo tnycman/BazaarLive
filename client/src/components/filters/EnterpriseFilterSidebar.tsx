@@ -276,9 +276,9 @@ const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
       isCollapsible: true,
       defaultExpanded: false
     },
-    shopping: {
-      id: 'shopping',
-      title: 'SHOPPING',
+    shipping: {
+      id: 'shipping',
+      title: 'SHIPPING',
       isCollapsible: true,
       defaultExpanded: false
     },
@@ -288,9 +288,9 @@ const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
       isCollapsible: true,
       defaultExpanded: false
     },
-    type: {
-      id: 'type',
-      title: 'TYPE',
+    condition: {
+      id: 'condition',
+      title: 'CONDITION',
       isCollapsible: true,
       defaultExpanded: false
     }
@@ -686,29 +686,29 @@ const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
 
           <Separator />
 
-          {/* Shopping Section */}
-          {renderCollapsibleSection('shopping', (
+          {/* Shipping Section */}
+          {renderCollapsibleSection('shipping', (
             <div className="space-y-2">
-              <div className="flex items-center space-x-2" data-testid="shopping-item-all-items">
+              <div className="flex items-center space-x-2" data-testid="shipping-item-all-items">
                 <Checkbox
-                  id="all-items-shopping"
+                  id="all-items-shipping"
                   checked={true}
                   className="data-[state=checked]:bg-purple-600 data-[state=checked]:border-purple-600"
-                  data-testid="shopping-checkbox-all-items"
+                  data-testid="shipping-checkbox-all-items"
                 />
                 <label
-                  htmlFor="all-items-shopping"
+                  htmlFor="all-items-shipping"
                   className="text-sm text-gray-700 cursor-pointer flex-1"
                 >
                   All Items
                 </label>
               </div>
-              <div className="flex items-center space-x-2" data-testid="shopping-item-free">
+              <div className="flex items-center space-x-2" data-testid="shipping-item-free">
                 <Checkbox
                   id="free-shipping"
                   checked={false}
                   className="data-[state=checked]:bg-purple-600 data-[state=checked]:border-purple-600"
-                  data-testid="shopping-checkbox-free"
+                  data-testid="shipping-checkbox-free"
                 />
                 <label
                   htmlFor="free-shipping"
@@ -717,12 +717,12 @@ const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
                   Free
                 </label>
               </div>
-              <div className="flex items-center space-x-2" data-testid="shopping-item-discounted">
+              <div className="flex items-center space-x-2" data-testid="shipping-item-discounted">
                 <Checkbox
                   id="discounted-free"
                   checked={false}
                   className="data-[state=checked]:bg-purple-600 data-[state=checked]:border-purple-600"
-                  data-testid="shopping-checkbox-discounted"
+                  data-testid="shipping-checkbox-discounted"
                 />
                 <label
                   htmlFor="discounted-free"
@@ -736,17 +736,17 @@ const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
 
           <Separator />
 
-          {/* Type Section */}
-          {renderCollapsibleSection('type', (
+          {/* Condition Section */}
+          {renderCollapsibleSection('condition', (
             <div className="space-y-2">
               {TYPE_DATA.map(type => (
-                <div key={type.id} className="flex items-center space-x-2" data-testid={`type-item-${type.id}`}>
+                <div key={type.id} className="flex items-center space-x-2" data-testid={`condition-item-${type.id}`}>
                   <Checkbox
                     id={type.id}
                     checked={filterState.selectedTypes.includes(type.id)}
                     onCheckedChange={() => handleTypeToggle(type.id)}
                     className="data-[state=checked]:bg-purple-600 data-[state=checked]:border-purple-600"
-                    data-testid={`type-checkbox-${type.id}`}
+                    data-testid={`condition-checkbox-${type.id}`}
                   />
                   <label
                     htmlFor={type.id}
