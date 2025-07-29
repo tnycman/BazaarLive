@@ -348,7 +348,20 @@ const CATEGORIES_DATA: readonly FilterCategory[] = [
           { id: 'skirt-sets', name: 'Skirt Sets', level: 2, isExpandable: false }
         ]
       },
-      { id: 'sweaters', name: 'Sweaters', level: 1, isExpandable: false },
+      {
+        id: 'sweaters',
+        name: 'Sweaters',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'cardigans', name: 'Cardigans', level: 2, isExpandable: false },
+          { id: 'cowl-turtlenecks', name: 'Cowl & Turtlenecks', level: 2, isExpandable: false },
+          { id: 'crew-scoop-necks', name: 'Crew & Scoop Necks', level: 2, isExpandable: false },
+          { id: 'off-shoulder-sweaters', name: 'Off-the-Shoulder Sweaters', level: 2, isExpandable: false },
+          { id: 'shrugs-ponchos', name: 'Shrugs & Ponchos', level: 2, isExpandable: false },
+          { id: 'v-necks', name: 'V-Necks', level: 2, isExpandable: false }
+        ]
+      },
       { id: 'swim', name: 'Swim', level: 1, isExpandable: false },
       { id: 'tops', name: 'Tops', level: 1, isExpandable: false },
       { id: 'skincare', name: 'Skincare', level: 1, isExpandable: false },
