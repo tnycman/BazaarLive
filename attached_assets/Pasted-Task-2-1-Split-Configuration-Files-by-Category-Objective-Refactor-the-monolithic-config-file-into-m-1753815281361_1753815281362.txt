@@ -1,0 +1,93 @@
+Task 2.1: Split Configuration Files by Category
+Objective
+Refactor the monolithic config file into modular, per-category files, each extending the new base templates.
+Lay the groundwork for dynamic import, easier collaboration, and maintainability.
+
+Task Instructions
+Task 2.1: Split Configuration Files by Category
+Steps
+Create a modular directory structure:
+
+Example:
+
+swift
+Copy
+Edit
+client/src/services/category/configs/
+    fashion/
+        women.ts
+        men.ts
+        kids.ts
+        home.ts
+        electronics.ts
+        pets.ts
+        beauty.ts
+        sports.ts
+        women-accessories.ts
+    marketplace/
+        cars.ts
+        jobs.ts
+    electronics/
+        computers.ts
+    services/
+        professional.ts
+For each category file:
+
+Import the relevant base template/type.
+
+Define only the overrides or extensions (diff from base).
+
+Export the final config object (TS-typed).
+
+Add JSDoc or comments referencing the template it extends.
+
+Refactor the UniversalCategoryPageFactory:
+
+Remove all in-file configs.
+
+Replace with imports from the new modular config files.
+
+Optionally, create a loader/registry object for mapping keys to imports.
+
+Update the mapping logic:
+
+Ensure that the mapping function uses the new modular structure to resolve category configs.
+
+Verify LSP/TypeScript:
+
+Ensure all new configs pass type checks and linting.
+
+No runtime errors when loading any category.
+
+Document:
+
+Add/extend a README or in-line docs to explain the modular structure for future devs.
+
+Deliverables
+New per-category config files (all current categories refactored)
+
+Updated UniversalCategoryPageFactory (now modular)
+
+Updated mapping logic/registry
+
+Short summary of the new directory structure and import flow
+
+(Optional) Short list of any issues encountered
+
+Progress Tracking
+
+Task #	Description	Status
+2.1	Split config files by category	Not started
+2.2	Implement inheritance logic	Blocked until 2.1 done
+
+When you complete Task 2.1:
+
+Log the new directory structure (tree/list format is fine)
+
+Show one or two example category config files (with imports and overrides)
+
+Confirm TS/LSP/type safety
+
+STOP after 2.1 and report for review before proceeding to 2.2!
+
+You may begin Task 2.1 now.

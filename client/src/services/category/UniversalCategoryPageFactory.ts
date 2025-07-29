@@ -63,8 +63,13 @@ const UniversalPageConfigurationSchema = z.object({
   sampleProducts: z.array(z.any())
 });
 
-// ===== ENTERPRISE CATEGORY CONFIGURATIONS =====
-const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfiguration> = {
+// Import modular configurations
+import { configurationRegistry, ConfigurationLoader } from './configs/ConfigurationRegistry';
+
+// ===== LEGACY CONFIGURATIONS (TO BE REMOVED) =====
+// Configurations moved to modular files in client/src/services/category/configs/
+// This section will be removed after successful migration validation
+const LEGACY_UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfiguration> = {
   'fashion-women': {
     category: 'fashion',
     metadata: {
@@ -2804,8 +2809,8 @@ export class UniversalCategoryPageFactory {
         return Result.success(cachedConfig);
       }
 
-      // Get configuration directly from the configurations map
-      const baseConfig = UNIVERSAL_CATEGORY_CONFIGURATIONS[cacheKey];
+      // Get configuration from modular configuration registry
+      const baseConfig = configurationRegistry.getConfiguration(cacheKey);
       if (!baseConfig) {
         return Result.failure(new Error(`Configuration not found for category: ${cacheKey}`));
       }
@@ -2832,7 +2837,7 @@ export class UniversalCategoryPageFactory {
    */
   public getAvailableCategories(): Result<readonly string[], Error> {
     try {
-      const categories = Object.keys(UNIVERSAL_CATEGORY_CONFIGURATIONS);
+      const categories = configurationRegistry.getAllKeys();
       return Result.success(categories);
     } catch (error) {
       return Result.failure(error instanceof Error ? error : new Error('Unknown error in getAvailableCategories'));
