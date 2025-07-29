@@ -25,6 +25,7 @@ import HomePageUniversal from "@/pages/universal/HomePageUniversal";
 import ElectronicsPageUniversal from "@/pages/universal/ElectronicsPageUniversal";
 import PetsPageUniversal from "@/pages/universal/PetsPageUniversal";
 import BeautyPageUniversal from "@/pages/universal/BeautyPageUniversal";
+import SportsPageUniversal from "@/pages/universal/SportsPageUniversal";
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
@@ -39,6 +40,7 @@ function Router() {
       <Route path="/fashion/electronics" component={ElectronicsPageUniversal} />
       <Route path="/fashion/pets" component={PetsPageUniversal} />
       <Route path="/fashion/beauty" component={BeautyPageUniversal} />
+      <Route path="/fashion/sports" component={SportsPageUniversal} />
       
       {/* Dynamic fashion routes - lower priority fallback - ONLY for subcategory routes */}
       <Route path="/fashion/:category/:subcategory" component={({ params }) => (
