@@ -394,7 +394,25 @@ const CATEGORIES_DATA: readonly FilterCategory[] = [
           { id: 'tunics', name: 'Tunics', level: 2, isExpandable: false }
         ]
       },
-      { id: 'skincare', name: 'Skincare', level: 1, isExpandable: false },
+      {
+        id: 'skincare',
+        name: 'Skincare',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'acne-blemish', name: 'Acne & Blemish', level: 2, isExpandable: false },
+          { id: 'cleanser-exfoliant', name: 'Cleanser & Exfoliant', level: 2, isExpandable: false },
+          { id: 'eye-cream', name: 'Eye Cream', level: 2, isExpandable: false },
+          { id: 'makeup-remover', name: 'Makeup Remover', level: 2, isExpandable: false },
+          { id: 'mask', name: 'Mask', level: 2, isExpandable: false },
+          { id: 'moisturizer', name: 'Moisturizer', level: 2, isExpandable: false },
+          { id: 'peel', name: 'Peel', level: 2, isExpandable: false },
+          { id: 'serum-face-oil', name: 'Serum & Face Oil', level: 2, isExpandable: false },
+          { id: 'suncare', name: 'Suncare', level: 2, isExpandable: false },
+          { id: 'toner', name: 'Toner', level: 2, isExpandable: false },
+          { id: 'tools', name: 'Tools', level: 2, isExpandable: false }
+        ]
+      },
       { id: 'hair', name: 'Hair', level: 1, isExpandable: false },
       { id: 'bath-body', name: 'Bath & Body', level: 1, isExpandable: false },
       { id: 'global-traditional', name: 'Global & Traditional Wear', level: 1, isExpandable: false }
