@@ -272,7 +272,25 @@ const CATEGORIES_DATA: readonly FilterCategory[] = [
           { id: 'setting-powder-spray', name: 'Setting Powder & Spray', level: 2, isExpandable: false }
         ]
       },
-      { id: 'pants-jumpsuits', name: 'Pants & Jumpsuits', level: 1, isExpandable: false },
+      {
+        id: 'pants-jumpsuits',
+        name: 'Pants & Jumpsuits',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'ankle-cropped-pants', name: 'Ankle & Cropped', level: 2, isExpandable: false },
+          { id: 'boot-cut-flare', name: 'Boot Cut & Flare', level: 2, isExpandable: false },
+          { id: 'capris', name: 'Capris', level: 2, isExpandable: false },
+          { id: 'jumpsuits-rompers', name: 'Jumpsuits & Rompers', level: 2, isExpandable: false },
+          { id: 'leggings', name: 'Leggings', level: 2, isExpandable: false },
+          { id: 'pantsuits', name: 'Pantsuits', level: 2, isExpandable: false },
+          { id: 'skinny-pants', name: 'Skinny', level: 2, isExpandable: false },
+          { id: 'straight-leg-pants', name: 'Straight Leg', level: 2, isExpandable: false },
+          { id: 'track-pants-joggers', name: 'Track Pants & Joggers', level: 2, isExpandable: false },
+          { id: 'trousers', name: 'Trousers', level: 2, isExpandable: false },
+          { id: 'wide-leg-pants', name: 'Wide Leg', level: 2, isExpandable: false }
+        ]
+      },
       { id: 'shoes', name: 'Shoes', level: 1, isExpandable: false },
       { id: 'shorts', name: 'Shorts', level: 1, isExpandable: false },
       { id: 'skirts', name: 'Skirts', level: 1, isExpandable: false },
