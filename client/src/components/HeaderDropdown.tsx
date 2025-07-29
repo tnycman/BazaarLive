@@ -78,7 +78,6 @@ export function HeaderDropdown({ category, isVisible, onClose }: HeaderDropdownP
     };
   }, [isVisible, category.id, onClose]);
 
-  console.log('[HeaderDropdown] Rendering for category:', category.name, 'visible:', isVisible, 'subcategories:', category.subcategories.length);
   if (!isVisible) return null;
 
   // Separate popular and regular subcategories
