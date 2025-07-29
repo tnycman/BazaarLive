@@ -1,6 +1,6 @@
 import { useAuth } from "@/hooks/useAuth";
 import { Header } from "@/components/Header";
-import { Navigation } from "@/components/Navigation";
+// import { Navigation } from "@/components/Navigation"; // REMOVED: Dropdowns now in Header
 import { CategoryCard } from "@/components/CategoryCard";
 import { ListingCard } from "@/components/ListingCard";
 import { UserCard } from "@/components/UserCard";
@@ -26,7 +26,6 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
-      <Navigation />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Welcome Section */}
