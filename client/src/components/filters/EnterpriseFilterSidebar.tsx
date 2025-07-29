@@ -413,7 +413,23 @@ const CATEGORIES_DATA: readonly FilterCategory[] = [
           { id: 'tools', name: 'Tools', level: 2, isExpandable: false }
         ]
       },
-      { id: 'hair', name: 'Hair', level: 1, isExpandable: false },
+      {
+        id: 'hair',
+        name: 'Hair',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'color', name: 'Color', level: 2, isExpandable: false },
+          { id: 'conditioner', name: 'Conditioner', level: 2, isExpandable: false },
+          { id: 'hairspray', name: 'Hairspray', level: 2, isExpandable: false },
+          { id: 'heat-protectant', name: 'Heat Protectant', level: 2, isExpandable: false },
+          { id: 'shampoo', name: 'Shampoo', level: 2, isExpandable: false },
+          { id: 'styling', name: 'Styling', level: 2, isExpandable: false },
+          { id: 'hair-tools', name: 'Tools', level: 2, isExpandable: false },
+          { id: 'treatment-mask', name: 'Treatment & Mask', level: 2, isExpandable: false },
+          { id: 'wigs-extensions', name: 'Wigs & Extensions', level: 2, isExpandable: false }
+        ]
+      },
       { id: 'bath-body', name: 'Bath & Body', level: 1, isExpandable: false },
       { id: 'global-traditional', name: 'Global & Traditional Wear', level: 1, isExpandable: false }
     ]
