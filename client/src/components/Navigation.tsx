@@ -630,7 +630,7 @@ export function Navigation() {
                     </Button>
                   </Link>
                 ) : category === 'Home' ? (
-                  <Link href="/home">
+                  <Link href="/fashion/home">
                     <Button 
                       variant="ghost" 
                       className={`text-sm font-medium flex items-center gap-1 transition-all duration-200 ${
