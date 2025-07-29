@@ -49,7 +49,9 @@ import { HeaderDropdown } from "@/components/HeaderDropdown";
 
 // ===== ENTERPRISE HEADER COMPONENT =====
 export function Header() {
+  console.log('[Header] Component starting to render...');
   const { user } = useAuth();
+  console.log('[Header] Auth user:', user);
   
   // Enterprise state management with AOP integration
   const [searchQuery, setSearchQuery] = useState<string>("");
