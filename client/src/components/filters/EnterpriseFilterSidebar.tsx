@@ -1195,7 +1195,197 @@ const CATEGORIES_DATA: readonly FilterCategory[] = [
       }
     ]
   },
-  { id: 'electronics', name: 'Electronics', level: 0, isExpandable: false }
+  {
+    id: 'electronics',
+    name: 'Electronics',
+    level: 0,
+    isExpandable: true,
+    subcategories: [
+      {
+        id: 'electronics-cameras-photo-video',
+        name: 'Cameras, Photo & Video',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'electronics-digital-cameras', name: 'Digital Cameras', level: 2, isExpandable: false },
+          { id: 'electronics-dslr-cameras', name: 'DSLR Cameras', level: 2, isExpandable: false },
+          { id: 'electronics-mirrorless-cameras', name: 'Mirrorless Cameras', level: 2, isExpandable: false },
+          { id: 'electronics-action-cameras', name: 'Action Cameras', level: 2, isExpandable: false },
+          { id: 'electronics-instant-cameras', name: 'Instant Cameras', level: 2, isExpandable: false },
+          { id: 'electronics-camcorders', name: 'Camcorders', level: 2, isExpandable: false },
+          { id: 'electronics-camera-lenses', name: 'Camera Lenses', level: 2, isExpandable: false },
+          { id: 'electronics-camera-accessories', name: 'Camera Accessories', level: 2, isExpandable: false },
+          { id: 'electronics-tripods', name: 'Tripods', level: 2, isExpandable: false },
+          { id: 'electronics-lighting-equipment', name: 'Lighting Equipment', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'electronics-computers-laptops-parts',
+        name: 'Computers, Laptops & Parts',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'electronics-desktop-computers', name: 'Desktop Computers', level: 2, isExpandable: false },
+          { id: 'electronics-laptops', name: 'Laptops', level: 2, isExpandable: false },
+          { id: 'electronics-gaming-laptops', name: 'Gaming Laptops', level: 2, isExpandable: false },
+          { id: 'electronics-monitors', name: 'Monitors', level: 2, isExpandable: false },
+          { id: 'electronics-keyboards', name: 'Keyboards', level: 2, isExpandable: false },
+          { id: 'electronics-mice', name: 'Mice', level: 2, isExpandable: false },
+          { id: 'electronics-computer-speakers', name: 'Computer Speakers', level: 2, isExpandable: false },
+          { id: 'electronics-computer-parts', name: 'Computer Parts', level: 2, isExpandable: false },
+          { id: 'electronics-hard-drives', name: 'Hard Drives', level: 2, isExpandable: false },
+          { id: 'electronics-memory-ram', name: 'Memory (RAM)', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'electronics-cell-phones-accessories',
+        name: 'Cell Phones & Accessories',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'electronics-smartphones', name: 'Smartphones', level: 2, isExpandable: false },
+          { id: 'electronics-phone-cases', name: 'Phone Cases', level: 2, isExpandable: false },
+          { id: 'electronics-screen-protectors', name: 'Screen Protectors', level: 2, isExpandable: false },
+          { id: 'electronics-phone-chargers', name: 'Phone Chargers', level: 2, isExpandable: false },
+          { id: 'electronics-power-banks', name: 'Power Banks', level: 2, isExpandable: false },
+          { id: 'electronics-wireless-chargers', name: 'Wireless Chargers', level: 2, isExpandable: false },
+          { id: 'electronics-phone-stands', name: 'Phone Stands', level: 2, isExpandable: false },
+          { id: 'electronics-car-phone-mounts', name: 'Car Phone Mounts', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'electronics-car-audio-video-gps',
+        name: 'Car Audio, Video & GPS',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'electronics-car-stereos', name: 'Car Stereos', level: 2, isExpandable: false },
+          { id: 'electronics-car-speakers', name: 'Car Speakers', level: 2, isExpandable: false },
+          { id: 'electronics-car-amplifiers', name: 'Car Amplifiers', level: 2, isExpandable: false },
+          { id: 'electronics-gps-navigation', name: 'GPS Navigation', level: 2, isExpandable: false },
+          { id: 'electronics-dash-cameras', name: 'Dash Cameras', level: 2, isExpandable: false },
+          { id: 'electronics-backup-cameras', name: 'Backup Cameras', level: 2, isExpandable: false },
+          { id: 'electronics-car-video-players', name: 'Car Video Players', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'electronics-wearables',
+        name: 'Wearables',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'electronics-smartwatches', name: 'Smartwatches', level: 2, isExpandable: false },
+          { id: 'electronics-fitness-trackers', name: 'Fitness Trackers', level: 2, isExpandable: false },
+          { id: 'electronics-smart-rings', name: 'Smart Rings', level: 2, isExpandable: false },
+          { id: 'electronics-smart-glasses', name: 'Smart Glasses', level: 2, isExpandable: false },
+          { id: 'electronics-watch-bands', name: 'Watch Bands', level: 2, isExpandable: false },
+          { id: 'electronics-wearable-accessories', name: 'Wearable Accessories', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'electronics-tablets-accessories',
+        name: 'Tablets & Accessories',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'electronics-tablets', name: 'Tablets', level: 2, isExpandable: false },
+          { id: 'electronics-ipad', name: 'iPad', level: 2, isExpandable: false },
+          { id: 'electronics-android-tablets', name: 'Android Tablets', level: 2, isExpandable: false },
+          { id: 'electronics-tablet-cases', name: 'Tablet Cases', level: 2, isExpandable: false },
+          { id: 'electronics-tablet-keyboards', name: 'Tablet Keyboards', level: 2, isExpandable: false },
+          { id: 'electronics-stylus-pens', name: 'Stylus Pens', level: 2, isExpandable: false },
+          { id: 'electronics-tablet-stands', name: 'Tablet Stands', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'electronics-video-games-consoles',
+        name: 'Video Games & Consoles',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'electronics-gaming-consoles', name: 'Gaming Consoles', level: 2, isExpandable: false },
+          { id: 'electronics-playstation', name: 'PlayStation', level: 2, isExpandable: false },
+          { id: 'electronics-xbox', name: 'Xbox', level: 2, isExpandable: false },
+          { id: 'electronics-nintendo', name: 'Nintendo', level: 2, isExpandable: false },
+          { id: 'electronics-video-games', name: 'Video Games', level: 2, isExpandable: false },
+          { id: 'electronics-gaming-controllers', name: 'Gaming Controllers', level: 2, isExpandable: false },
+          { id: 'electronics-gaming-headsets', name: 'Gaming Headsets', level: 2, isExpandable: false },
+          { id: 'electronics-gaming-accessories', name: 'Gaming Accessories', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'electronics-vr-ar-accessories',
+        name: 'VR, AR & Accessories',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'electronics-vr-headsets', name: 'VR Headsets', level: 2, isExpandable: false },
+          { id: 'electronics-ar-glasses', name: 'AR Glasses', level: 2, isExpandable: false },
+          { id: 'electronics-vr-controllers', name: 'VR Controllers', level: 2, isExpandable: false },
+          { id: 'electronics-vr-accessories', name: 'VR Accessories', level: 2, isExpandable: false },
+          { id: 'electronics-vr-games', name: 'VR Games', level: 2, isExpandable: false },
+          { id: 'electronics-motion-tracking', name: 'Motion Tracking', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'electronics-media',
+        name: 'Media',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'electronics-streaming-devices', name: 'Streaming Devices', level: 2, isExpandable: false },
+          { id: 'electronics-smart-tv-boxes', name: 'Smart TV Boxes', level: 2, isExpandable: false },
+          { id: 'electronics-media-players', name: 'Media Players', level: 2, isExpandable: false },
+          { id: 'electronics-dvd-players', name: 'DVD Players', level: 2, isExpandable: false },
+          { id: 'electronics-blu-ray-players', name: 'Blu-ray Players', level: 2, isExpandable: false },
+          { id: 'electronics-projectors', name: 'Projectors', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'electronics-networking',
+        name: 'Networking',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'electronics-routers', name: 'Routers', level: 2, isExpandable: false },
+          { id: 'electronics-modems', name: 'Modems', level: 2, isExpandable: false },
+          { id: 'electronics-wifi-extenders', name: 'WiFi Extenders', level: 2, isExpandable: false },
+          { id: 'electronics-network-switches', name: 'Network Switches', level: 2, isExpandable: false },
+          { id: 'electronics-ethernet-cables', name: 'Ethernet Cables', level: 2, isExpandable: false },
+          { id: 'electronics-network-adapters', name: 'Network Adapters', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'electronics-headphones',
+        name: 'Headphones',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'electronics-wireless-headphones', name: 'Wireless Headphones', level: 2, isExpandable: false },
+          { id: 'electronics-wired-headphones', name: 'Wired Headphones', level: 2, isExpandable: false },
+          { id: 'electronics-earbuds', name: 'Earbuds', level: 2, isExpandable: false },
+          { id: 'electronics-noise-cancelling', name: 'Noise Cancelling', level: 2, isExpandable: false },
+          { id: 'electronics-over-ear-headphones', name: 'Over-Ear Headphones', level: 2, isExpandable: false },
+          { id: 'electronics-on-ear-headphones', name: 'On-Ear Headphones', level: 2, isExpandable: false },
+          { id: 'electronics-sports-headphones', name: 'Sports Headphones', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'electronics-portable-audio-video',
+        name: 'Portable Audio & Video',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'electronics-bluetooth-speakers', name: 'Bluetooth Speakers', level: 2, isExpandable: false },
+          { id: 'electronics-portable-speakers', name: 'Portable Speakers', level: 2, isExpandable: false },
+          { id: 'electronics-mp3-players', name: 'MP3 Players', level: 2, isExpandable: false },
+          { id: 'electronics-portable-radios', name: 'Portable Radios', level: 2, isExpandable: false },
+          { id: 'electronics-voice-recorders', name: 'Voice Recorders', level: 2, isExpandable: false },
+          { id: 'electronics-boomboxes', name: 'Boomboxes', level: 2, isExpandable: false }
+        ]
+      }
+    ]
+  }
 ] as const;
 
 const BRANDS_DATA: readonly FilterBrand[] = [
