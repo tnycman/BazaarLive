@@ -55,8 +55,8 @@ export default function DynamicCategoryPage({ vertical = 'fashion', category, su
     queryKey: ['/api/listings', actualVertical || 'fashion', actualCategory || 'women', actualSubcategory, searchQuery, sortBy, selectedCategory],
     queryFn: async () => {
       const params = new URLSearchParams();
-      params.append('category', actualVertical);
-      if (actualCategory !== 'all') params.append('subcategory', actualCategory);
+      params.append('category', actualVertical || 'fashion');
+      if (actualCategory && actualCategory !== 'all') params.append('subcategory', actualCategory);
       if (actualSubcategory) params.append('subsubcategory', actualSubcategory);
       if (selectedCategory !== 'all') params.append('categoryFilter', selectedCategory);
       if (searchQuery) params.append('search', searchQuery);
