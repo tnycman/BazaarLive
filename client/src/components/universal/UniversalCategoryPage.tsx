@@ -172,7 +172,7 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
     // Return category-specific sample products from configuration
     const products = pageConfiguration.sampleProducts || [];
     console.log('[UniversalCategoryPage] Sample products from configuration:', products);
-    return products;
+    return [...products]; // Convert readonly array to mutable array
   }, [pageConfiguration]);
 
   // Use sample products if no real data available

@@ -200,6 +200,8 @@ export default function WomenPageEnterprise() {
     selectedCategories: ['women'],
     selectedBrands: [],
     selectedSizes: [],
+    selectedColors: [],
+    selectedPrices: [],
     selectedAvailability: ['all-items'],
     selectedTypes: ['all-types'],
     brandSearchQuery: '',
