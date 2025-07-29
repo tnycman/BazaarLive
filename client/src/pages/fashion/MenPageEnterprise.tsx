@@ -198,6 +198,8 @@ export default function MenPageEnterprise() {
     selectedCategories: ['men'],
     selectedBrands: [],
     selectedSizes: [],
+    selectedColors: [],
+    selectedPrices: [],
     selectedAvailability: ['all-items'],
     selectedTypes: ['all-types'],
     brandSearchQuery: '',

@@ -44,6 +44,7 @@ interface ProductBadge {
 }
 
 interface ProductGridProps {
+  readonly title?: string;
   readonly products: readonly ProductItem[];
   readonly onProductClick: (product: ProductItem) => void;
   readonly onLikeToggle: (productId: string) => void;
@@ -98,6 +99,7 @@ const ProductItemSchema = z.object({
 });
 
 const ProductGridPropsSchema = z.object({
+  title: z.string().optional(),
   products: z.array(ProductItemSchema),
   onProductClick: z.function(),
   onLikeToggle: z.function(),
@@ -105,7 +107,7 @@ const ProductGridPropsSchema = z.object({
   onShare: z.function(),
   isLoading: z.boolean().optional(),
   className: z.string().optional(),
-  gridColumns: z.enum([2, 3, 4, 5]).optional()
+  gridColumns: z.enum(['2', '3', '4', '5']).optional()
 });
 
 // ===== CONSTANTS =====
@@ -372,6 +374,7 @@ EnterpriseProductCard.displayName = 'EnterpriseProductCard';
 
 // ===== ENTERPRISE PRODUCT GRID COMPONENT =====
 const EnterpriseProductGrid: React.FC<ProductGridProps> = memo(({
+  title = 'Products',
   products,
   onProductClick,
   onLikeToggle,
@@ -466,7 +469,7 @@ const EnterpriseProductGrid: React.FC<ProductGridProps> = memo(({
   return (
     <div className={`w-full ${className}`} data-testid="enterprise-product-grid">
       <EnterpriseGridHeader
-        title="Women"
+        title={title}
         itemCount={products.length}
         sortBy={sortBy}
         onSortChange={handleSortChange}
