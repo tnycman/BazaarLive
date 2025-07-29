@@ -345,6 +345,7 @@ export default function MenPageEnterprise() {
         }
         mainContent={
           <EnterpriseProductGrid
+            title="Men's Fashion"
             products={filteredProducts}
             onProductClick={handleProductClick}
             onLikeToggle={handleLikeToggle}
