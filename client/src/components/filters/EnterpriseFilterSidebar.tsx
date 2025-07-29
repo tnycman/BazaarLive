@@ -450,7 +450,220 @@ const CATEGORIES_DATA: readonly FilterCategory[] = [
       { id: 'global-traditional', name: 'Global & Traditional Wear', level: 1, isExpandable: false }
     ]
   },
-  { id: 'men', name: 'Men', level: 0, isExpandable: false },
+  {
+    id: 'men',
+    name: 'Men',
+    level: 0,
+    isExpandable: true,
+    subcategories: [
+      {
+        id: 'men-accessories',
+        name: 'Accessories',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'men-belts', name: 'Belts', level: 2, isExpandable: false },
+          { id: 'men-cufflinks', name: 'Cufflinks', level: 2, isExpandable: false },
+          { id: 'men-gloves-mittens', name: 'Gloves & Mittens', level: 2, isExpandable: false },
+          { id: 'men-hats', name: 'Hats', level: 2, isExpandable: false },
+          { id: 'men-keychains', name: 'Keychains', level: 2, isExpandable: false },
+          { id: 'men-scarves', name: 'Scarves', level: 2, isExpandable: false },
+          { id: 'men-sunglasses', name: 'Sunglasses', level: 2, isExpandable: false },
+          { id: 'men-ties', name: 'Ties', level: 2, isExpandable: false },
+          { id: 'men-wallets', name: 'Wallets', level: 2, isExpandable: false },
+          { id: 'men-watches', name: 'Watches', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'men-bags',
+        name: 'Bags',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'men-backpacks', name: 'Backpacks', level: 2, isExpandable: false },
+          { id: 'men-briefcases', name: 'Briefcases', level: 2, isExpandable: false },
+          { id: 'men-crossbody-bags', name: 'Crossbody Bags', level: 2, isExpandable: false },
+          { id: 'men-duffel-bags', name: 'Duffel Bags', level: 2, isExpandable: false },
+          { id: 'men-laptop-bags', name: 'Laptop Bags', level: 2, isExpandable: false },
+          { id: 'men-messenger-bags', name: 'Messenger Bags', level: 2, isExpandable: false },
+          { id: 'men-tote-bags', name: 'Tote Bags', level: 2, isExpandable: false },
+          { id: 'men-travel-bags', name: 'Travel Bags', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'men-jackets-coats',
+        name: 'Jackets & Coats',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'men-blazers', name: 'Blazers', level: 2, isExpandable: false },
+          { id: 'men-bomber-jackets', name: 'Bomber Jackets', level: 2, isExpandable: false },
+          { id: 'men-denim-jackets', name: 'Denim Jackets', level: 2, isExpandable: false },
+          { id: 'men-down-jackets', name: 'Down Jackets', level: 2, isExpandable: false },
+          { id: 'men-leather-jackets', name: 'Leather Jackets', level: 2, isExpandable: false },
+          { id: 'men-overcoats', name: 'Overcoats', level: 2, isExpandable: false },
+          { id: 'men-parkas', name: 'Parkas', level: 2, isExpandable: false },
+          { id: 'men-peacoats', name: 'Peacoats', level: 2, isExpandable: false },
+          { id: 'men-rain-jackets', name: 'Rain Jackets', level: 2, isExpandable: false },
+          { id: 'men-sport-jackets', name: 'Sport Jackets', level: 2, isExpandable: false },
+          { id: 'men-trench-coats', name: 'Trench Coats', level: 2, isExpandable: false },
+          { id: 'men-windbreakers', name: 'Windbreakers', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'men-jeans',
+        name: 'Jeans',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'men-bootcut-jeans', name: 'Bootcut', level: 2, isExpandable: false },
+          { id: 'men-distressed-jeans', name: 'Distressed', level: 2, isExpandable: false },
+          { id: 'men-relaxed-jeans', name: 'Relaxed', level: 2, isExpandable: false },
+          { id: 'men-skinny-jeans', name: 'Skinny', level: 2, isExpandable: false },
+          { id: 'men-slim-jeans', name: 'Slim', level: 2, isExpandable: false },
+          { id: 'men-straight-jeans', name: 'Straight', level: 2, isExpandable: false },
+          { id: 'men-tapered-jeans', name: 'Tapered', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'men-pants',
+        name: 'Pants',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'men-cargo-pants', name: 'Cargo Pants', level: 2, isExpandable: false },
+          { id: 'men-chinos', name: 'Chinos', level: 2, isExpandable: false },
+          { id: 'men-dress-pants', name: 'Dress Pants', level: 2, isExpandable: false },
+          { id: 'men-joggers', name: 'Joggers', level: 2, isExpandable: false },
+          { id: 'men-khakis', name: 'Khakis', level: 2, isExpandable: false },
+          { id: 'men-leather-pants', name: 'Leather Pants', level: 2, isExpandable: false },
+          { id: 'men-sweatpants', name: 'Sweatpants', level: 2, isExpandable: false },
+          { id: 'men-track-pants', name: 'Track Pants', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'men-shirts',
+        name: 'Shirts',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'men-button-down-shirts', name: 'Button Down Shirts', level: 2, isExpandable: false },
+          { id: 'men-dress-shirts', name: 'Dress Shirts', level: 2, isExpandable: false },
+          { id: 'men-flannel-shirts', name: 'Flannel Shirts', level: 2, isExpandable: false },
+          { id: 'men-henley-shirts', name: 'Henley Shirts', level: 2, isExpandable: false },
+          { id: 'men-polo-shirts', name: 'Polo Shirts', level: 2, isExpandable: false },
+          { id: 'men-tank-tops', name: 'Tank Tops', level: 2, isExpandable: false },
+          { id: 'men-tees-long-sleeve', name: 'Tees - Long Sleeve', level: 2, isExpandable: false },
+          { id: 'men-tees-short-sleeve', name: 'Tees - Short Sleeve', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'men-shoes',
+        name: 'Shoes',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'men-athletic-shoes', name: 'Athletic Shoes', level: 2, isExpandable: false },
+          { id: 'men-boots', name: 'Boots', level: 2, isExpandable: false },
+          { id: 'men-dress-shoes', name: 'Dress Shoes', level: 2, isExpandable: false },
+          { id: 'men-loafers', name: 'Loafers', level: 2, isExpandable: false },
+          { id: 'men-oxfords', name: 'Oxfords', level: 2, isExpandable: false },
+          { id: 'men-sandals', name: 'Sandals', level: 2, isExpandable: false },
+          { id: 'men-slip-ons', name: 'Slip Ons', level: 2, isExpandable: false },
+          { id: 'men-sneakers', name: 'Sneakers', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'men-shorts',
+        name: 'Shorts',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'men-athletic-shorts', name: 'Athletic Shorts', level: 2, isExpandable: false },
+          { id: 'men-board-shorts', name: 'Board Shorts', level: 2, isExpandable: false },
+          { id: 'men-cargo-shorts', name: 'Cargo Shorts', level: 2, isExpandable: false },
+          { id: 'men-chino-shorts', name: 'Chino Shorts', level: 2, isExpandable: false },
+          { id: 'men-denim-shorts', name: 'Denim Shorts', level: 2, isExpandable: false },
+          { id: 'men-dress-shorts', name: 'Dress Shorts', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'men-suits-blazers',
+        name: 'Suits & Blazers',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'men-blazers-sport-coats', name: 'Blazers & Sport Coats', level: 2, isExpandable: false },
+          { id: 'men-suit-jackets', name: 'Suit Jackets', level: 2, isExpandable: false },
+          { id: 'men-suit-separates', name: 'Suit Separates', level: 2, isExpandable: false },
+          { id: 'men-suits', name: 'Suits', level: 2, isExpandable: false },
+          { id: 'men-tuxedos', name: 'Tuxedos', level: 2, isExpandable: false },
+          { id: 'men-vests', name: 'Vests', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'men-sweaters',
+        name: 'Sweaters',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'men-cardigans', name: 'Cardigans', level: 2, isExpandable: false },
+          { id: 'men-crew-necks', name: 'Crew Necks', level: 2, isExpandable: false },
+          { id: 'men-hoodies', name: 'Hoodies', level: 2, isExpandable: false },
+          { id: 'men-pullovers', name: 'Pullovers', level: 2, isExpandable: false },
+          { id: 'men-sweatshirts', name: 'Sweatshirts', level: 2, isExpandable: false },
+          { id: 'men-turtlenecks', name: 'Turtlenecks', level: 2, isExpandable: false },
+          { id: 'men-v-necks', name: 'V-Necks', level: 2, isExpandable: false },
+          { id: 'men-zip-ups', name: 'Zip-Ups', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'men-swim',
+        name: 'Swim',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'men-board-shorts-swim', name: 'Board Shorts', level: 2, isExpandable: false },
+          { id: 'men-rashguards', name: 'Rashguards', level: 2, isExpandable: false },
+          { id: 'men-swim-briefs', name: 'Swim Briefs', level: 2, isExpandable: false },
+          { id: 'men-swim-shorts', name: 'Swim Shorts', level: 2, isExpandable: false },
+          { id: 'men-swim-trunks', name: 'Swim Trunks', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'men-underwear-socks',
+        name: 'Underwear & Socks',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'men-boxers', name: 'Boxers', level: 2, isExpandable: false },
+          { id: 'men-boxer-briefs', name: 'Boxer Briefs', level: 2, isExpandable: false },
+          { id: 'men-briefs', name: 'Briefs', level: 2, isExpandable: false },
+          { id: 'men-dress-socks', name: 'Dress Socks', level: 2, isExpandable: false },
+          { id: 'men-no-show-socks', name: 'No Show Socks', level: 2, isExpandable: false },
+          { id: 'men-sport-socks', name: 'Sport Socks', level: 2, isExpandable: false },
+          { id: 'men-thermal-underwear', name: 'Thermal Underwear', level: 2, isExpandable: false },
+          { id: 'men-undershirts', name: 'Undershirts', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'men-grooming',
+        name: 'Grooming',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'men-aftershave', name: 'Aftershave', level: 2, isExpandable: false },
+          { id: 'men-beard-care', name: 'Beard Care', level: 2, isExpandable: false },
+          { id: 'men-cologne', name: 'Cologne', level: 2, isExpandable: false },
+          { id: 'men-deodorant', name: 'Deodorant', level: 2, isExpandable: false },
+          { id: 'men-hair-care', name: 'Hair Care', level: 2, isExpandable: false },
+          { id: 'men-shaving-cream', name: 'Shaving Cream', level: 2, isExpandable: false },
+          { id: 'men-skincare', name: 'Skincare', level: 2, isExpandable: false }
+        ]
+      },
+      { id: 'men-global-traditional', name: 'Global & Traditional Wear', level: 1, isExpandable: false }
+    ]
+  },
   { id: 'kids', name: 'Kids', level: 0, isExpandable: false },
   { id: 'home', name: 'Home', level: 0, isExpandable: false },
   { id: 'pets', name: 'Pets', level: 0, isExpandable: false },
