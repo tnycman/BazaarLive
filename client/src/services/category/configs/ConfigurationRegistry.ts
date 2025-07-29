@@ -5,6 +5,7 @@
  */
 
 import type { UniversalPageConfiguration } from '../UniversalCategoryPageFactory';
+import { dynamicConfigurationLoader, LoadStrategy } from '../loaders/DynamicConfigurationLoader';
 
 // Fashion category imports - UPDATED TO USE INHERITANCE
 import { womenFashionConfigOverride } from './fashion/women-optimized';
@@ -25,7 +26,7 @@ import { configurationMergeUtility, MergeStrategy } from '../utils/Configuration
  * Defines the contract for configuration registration and retrieval
  */
 export interface ConfigurationRegistry {
-  readonly getConfiguration: (key: string) => UniversalPageConfiguration | null;
+  readonly getConfiguration: (key: string) => Promise<UniversalPageConfiguration | null>;
   readonly getAllKeys: () => readonly string[];
   readonly hasConfiguration: (key: string) => boolean;
   readonly getConfigurationCount: () => number;
@@ -68,11 +69,22 @@ class EnterpriseConfigurationRegistry implements ConfigurationRegistry {
   }
 
   /**
-   * Get configuration by key with inheritance support
+   * Get configuration by key with dynamic loading and inheritance support
    * Returns merged configuration with base template inheritance
    */
-  public getConfiguration(key: string): UniversalPageConfiguration | null {
-    // Check if we have an override configuration that needs merging
+  public async getConfiguration(key: string): Promise<UniversalPageConfiguration | null> {
+    // Try dynamic loading first for better performance
+    const dynamicResult = await dynamicConfigurationLoader.loadConfiguration(key, {
+      cacheEnabled: true,
+      mergeWithBase: true,
+      loadStrategy: LoadStrategy.DYNAMIC_IMPORT
+    });
+
+    if (dynamicResult.isSuccess()) {
+      return dynamicResult.value.configuration;
+    }
+
+    // Fallback to static configuration lookup
     if (key === 'fashion-women') {
       const mergeResult = configurationMergeUtility.mergeConfigWithBase(
         key, 
@@ -85,7 +97,7 @@ class EnterpriseConfigurationRegistry implements ConfigurationRegistry {
       }
     }
 
-    // Fall back to direct configuration lookup
+    // Final fallback to direct configuration lookup
     return this.configurations[key] || null;
   }
 

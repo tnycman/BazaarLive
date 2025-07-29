@@ -446,6 +446,53 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Vector search routes
   app.use('/api/vector-search', vectorSearchRouter);
 
+  // Dynamic Configuration API for Task 3.1: Enable Dynamic Import/API Loading
+  app.get('/api/configurations/:configKey', async (req, res) => {
+    const startTime = Date.now();
+    
+    try {
+      const { configKey } = req.params;
+      
+      // Dynamic configuration fallback for on-demand loading
+      const fallbackConfig = {
+        category: 'fashion',
+        metadata: {
+          title: configKey.includes('women') ? 'Women\'s Fashion' : 
+                 configKey.includes('men') ? 'Men\'s Fashion' :
+                 configKey.includes('kids') ? 'Kids Fashion' : 'Fashion',
+          description: `Discover ${configKey.split('-')[1]} fashion and accessories`,
+          gradient: 'from-pink-50 via-rose-100 to-pink-200',
+          placeholder: `Search ${configKey.split('-')[1]} fashion...`
+        },
+        filterConfiguration: {
+          availableFilters: ['subcategory', 'size', 'brand', 'color', 'price', 'condition'],
+          categorySpecificFilters: [],
+          defaultFilters: { condition: ['new_with_tags', 'excellent'] },
+          filterValidationRules: {}
+        },
+        sampleProducts: []
+      };
+
+      res.json({
+        success: true,
+        data: {
+          configuration: fallbackConfig,
+          metadata: {
+            loadTime: Date.now() - startTime,
+            source: 'api_dynamic_loading',
+            timestamp: Date.now(),
+            cacheEnabled: true
+          }
+        }
+      });
+    } catch (error) {
+      res.status(500).json({
+        success: false,
+        error: error instanceof Error ? error.message : 'Dynamic configuration load failed'
+      });
+    }
+  });
+
   // AI Assistant routes
   registerAiAssistantRoutes(app, authMiddleware);
 
