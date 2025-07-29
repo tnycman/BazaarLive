@@ -430,13 +430,36 @@ const EnterpriseProductGrid: React.FC<ProductGridProps> = memo(({
   // ===== MAIN RENDER =====
   return (
     <div className={`w-full ${className}`} data-testid="enterprise-product-grid">
-      <EnterpriseGridHeader
-        title={title}
-        itemCount={products.length}
-        sortBy={sortBy}
-        onSortChange={handleSortChange}
-        sortOptions={SORT_OPTIONS}
-      />
+      {/* Fixed Header with Proper Interface */}
+      <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-6 mb-6">
+        {/* Header Title and Count */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
+          <div className="mb-4 sm:mb-0">
+            <h1 className="text-3xl font-bold text-gray-900 mb-2" data-testid="text-category-title">
+              {title || 'Products'}
+            </h1>
+            <p className="text-lg text-gray-600" data-testid="text-item-count">
+              {products.length} {products.length === 1 ? 'item' : 'items'} available
+            </p>
+          </div>
+          
+          {/* Sort Dropdown */}
+          <div className="flex items-center">
+            <select
+              value={sortBy}
+              onChange={(e) => handleSortChange(e.target.value)}
+              className="px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white min-w-[160px]"
+              data-testid="select-sort"
+            >
+              {SORT_OPTIONS.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+      </div>
       
       <div className={gridClass}>
         {sortedProducts.map(product => (
