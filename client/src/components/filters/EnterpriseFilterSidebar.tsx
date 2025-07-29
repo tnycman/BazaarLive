@@ -115,7 +115,29 @@ const CATEGORIES_DATA: readonly FilterCategory[] = [
     level: 0,
     isExpandable: true,
     subcategories: [
-      { id: 'accessories', name: 'Accessories', level: 1, isExpandable: false },
+      {
+        id: 'accessories',
+        name: 'Accessories',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'belts', name: 'Belts', level: 2, isExpandable: false },
+          { id: 'face-masks', name: 'Face Masks', level: 2, isExpandable: false },
+          { id: 'glasses', name: 'Glasses', level: 2, isExpandable: false },
+          { id: 'gloves-mittens', name: 'Gloves & Mittens', level: 2, isExpandable: false },
+          { id: 'hair-accessories', name: 'Hair Accessories', level: 2, isExpandable: false },
+          { id: 'hats', name: 'Hats', level: 2, isExpandable: false },
+          { id: 'hosiery-socks', name: 'Hosiery & Socks', level: 2, isExpandable: false },
+          { id: 'key-card-holders', name: 'Key & Card Holders', level: 2, isExpandable: false },
+          { id: 'laptop-cases', name: 'Laptop Cases', level: 2, isExpandable: false },
+          { id: 'phone-cases', name: 'Phone Cases', level: 2, isExpandable: false },
+          { id: 'scarves-wraps', name: 'Scarves & Wraps', level: 2, isExpandable: false },
+          { id: 'sunglasses', name: 'Sunglasses', level: 2, isExpandable: false },
+          { id: 'tablet-cases', name: 'Tablet Cases', level: 2, isExpandable: false },
+          { id: 'umbrellas', name: 'Umbrellas', level: 2, isExpandable: false },
+          { id: 'watches', name: 'Watches', level: 2, isExpandable: false }
+        ]
+      },
       { id: 'bags', name: 'Bags', level: 1, isExpandable: false },
       { id: 'dresses', name: 'Dresses', level: 1, isExpandable: false },
       { id: 'intimates-sleepwear', name: 'Intimates & Sleepwear', level: 1, isExpandable: false },
