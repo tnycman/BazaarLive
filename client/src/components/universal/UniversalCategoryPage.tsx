@@ -169,15 +169,21 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
 
   // Generate sample products based on category configuration
   const sampleProducts = useMemo((): ProductItem[] => {
-    // Return category-specific sample products
-    // This would be populated from the pageConfiguration.sampleProducts
-    // For now, return empty array to use real data or show loading state
-    return [];
+    // Return category-specific sample products from configuration
+    const products = pageConfiguration.sampleProducts || [];
+    console.log('[UniversalCategoryPage] Sample products from configuration:', products);
+    return products;
   }, [pageConfiguration]);
 
   // Use sample products if no real data available
   const displayProducts = useMemo(() => {
-    return rawListings && rawListings.length > 0 ? rawListings : sampleProducts;
+    if (rawListings && rawListings.length > 0) {
+      console.log('[UniversalCategoryPage] Using raw listings:', rawListings);
+      return rawListings;
+    } else {
+      console.log('[UniversalCategoryPage] Using sample products:', sampleProducts);
+      return sampleProducts;
+    }
   }, [rawListings, sampleProducts]);
 
   // Apply enterprise filtering to products
