@@ -6,8 +6,8 @@
 
 import type { UniversalPageConfiguration } from '../UniversalCategoryPageFactory';
 
-// Fashion category imports
-import { womenFashionConfig } from './fashion/women';
+// Fashion category imports - UPDATED TO USE INHERITANCE
+import { womenFashionConfigOverride } from './fashion/women-optimized';
 import { menFashionConfig } from './fashion/men';
 import { kidsFashionConfig } from './fashion/kids';
 import { fashionHomeConfig } from './fashion/home';
@@ -16,6 +16,9 @@ import { fashionPetsConfig } from './fashion/pets';
 import { fashionBeautyConfig } from './fashion/beauty';
 import { fashionSportsConfig } from './fashion/sports';
 import { womenAccessoriesConfig } from './fashion/women-accessories';
+
+// Import merge utility
+import { configurationMergeUtility, MergeStrategy } from '../utils/ConfigurationMergeUtility';
 
 /**
  * Configuration Registry Interface
@@ -33,8 +36,8 @@ export interface ConfigurationRegistry {
  * Maps configuration keys to their respective modular configuration objects
  */
 const CONFIGURATION_MAP: Record<string, UniversalPageConfiguration> = {
-  // Fashion configurations
-  'fashion-women': womenFashionConfig,
+  // Fashion configurations - NOTE: fashion-women uses inheritance merge, not direct mapping
+  // 'fashion-women': handled by inheritance merge in getConfiguration
   'fashion-men': menFashionConfig,
   'fashion-kids': kidsFashionConfig,
   'fashion-home': fashionHomeConfig,
@@ -65,10 +68,24 @@ class EnterpriseConfigurationRegistry implements ConfigurationRegistry {
   }
 
   /**
-   * Get configuration by key
-   * Returns null if configuration not found
+   * Get configuration by key with inheritance support
+   * Returns merged configuration with base template inheritance
    */
   public getConfiguration(key: string): UniversalPageConfiguration | null {
+    // Check if we have an override configuration that needs merging
+    if (key === 'fashion-women') {
+      const mergeResult = configurationMergeUtility.mergeConfigWithBase(
+        key, 
+        womenFashionConfigOverride, 
+        MergeStrategy.DEEP_MERGE
+      );
+      
+      if (mergeResult.isSuccess()) {
+        return mergeResult.value.merged;
+      }
+    }
+
+    // Fall back to direct configuration lookup
     return this.configurations[key] || null;
   }
 
