@@ -200,6 +200,8 @@ export default function KidsPageEnterprise() {
     selectedCategories: ['kids'],
     selectedBrands: [],
     selectedSizes: [],
+    selectedColors: [],
+    selectedPrices: [],
     selectedAvailability: ['all-items'],
     selectedTypes: ['all-types'],
     brandSearchQuery: '',
@@ -313,35 +315,23 @@ export default function KidsPageEnterprise() {
       <EnterprisePageLayout
         leftSidebar={
           <EnterpriseFilterSidebar
-            filterState={currentFilterState}
+            currentCategory="kids"
             onFilterChange={handleFilterChange}
-            vertical="fashion"
-            category="kids"
           />
         }
-        centerContent={
+        mainContent={
           <EnterpriseProductGrid
             products={filteredProducts}
-            isLoading={isLoading}
-            searchQuery={searchQuery}
-            onSearchChange={handleSearchChange}
-            sortBy={sortBy}
-            onSortChange={handleSortChange}
-            pageTitle={domainMetadata.title}
-            pageDescription={domainMetadata.description}
-            searchPlaceholder={domainMetadata.placeholder}
-            gradientClass={domainMetadata.gradient}
             onProductClick={handleProductClick}
             onLikeToggle={handleLikeToggle}
             onSellerClick={handleSellerClick}
             onShare={handleShare}
+            isLoading={isLoading}
+            title={domainMetadata.title}
           />
         }
         rightSidebar={
-          <EnterpriseRightSidebar 
-            vertical="fashion"
-            category="kids"
-          />
+          <EnterpriseRightSidebar />
         }
       />
     </div>
