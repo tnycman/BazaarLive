@@ -153,10 +153,17 @@ export function Header() {
 
   // Get dropdown categories
   const dropdownCategories = useMemo(() => {
-    const categoriesResult = headerDropdownService.getAllDropdownCategories();
-    const categories = categoriesResult.isSuccess() ? categoriesResult.value : [];
-    console.log('[Header] Dropdown categories loaded:', categories.length, categories.map(c => c.name));
-    return categories;
+    console.log('[Header] Getting dropdown categories...');
+    try {
+      const categoriesResult = headerDropdownService.getAllDropdownCategories();
+      console.log('[Header] Categories result:', categoriesResult);
+      const categories = categoriesResult.isSuccess() ? categoriesResult.value : [];
+      console.log('[Header] Dropdown categories loaded:', categories.length, categories.map(c => c.name));
+      return categories;
+    } catch (error) {
+      console.error('[Header] Error loading dropdown categories:', error);
+      return [];
+    }
   }, []);
 
   return (
