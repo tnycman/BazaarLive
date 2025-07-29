@@ -297,9 +297,9 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
     );
   }
 
-  // Render universal three-column layout
+  // Render universal three-column layout matching original Women's page structure
   return (
-    <div className={`min-h-screen bg-white dark:bg-gray-900 ${className}`.trim()}>
+    <>
       <Header />
       <Navigation />
       
@@ -326,7 +326,7 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
           <EnterpriseRightSidebar />
         }
       />
-    </div>
+    </>
   );
 });
 

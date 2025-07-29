@@ -103,8 +103,6 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
       {
         id: 'women-1',
         title: 'Designer Silk Blouse',
-        category: 'fashion',
-        subcategory: 'women',
         brand: 'Theory',
         price: '$89',
         originalPrice: '$165',
@@ -123,8 +121,6 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
       {
         id: 'women-2',
         title: 'Vintage Denim Jacket',
-        category: 'fashion',
-        subcategory: 'women',
         brand: 'Levi\'s',
         price: '$65',
         originalPrice: '$98',
@@ -183,8 +179,6 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
       {
         id: 'men-1',
         title: 'Classic Oxford Shirt',
-        category: 'fashion',
-        subcategory: 'men',
         brand: 'Brooks Brothers',
         price: '$79',
         originalPrice: '$120',
@@ -203,8 +197,6 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
       {
         id: 'men-2',
         title: 'Wool Blend Blazer',
-        category: 'fashion',
-        subcategory: 'men',
         brand: 'Hugo Boss',
         price: '$145',
         originalPrice: '$285',
@@ -280,8 +272,6 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
       {
         id: 'kids-1',
         title: 'Rainbow Unicorn Dress',
-        category: 'fashion',
-        subcategory: 'kids',
         brand: 'Disney',
         price: '$25',
         originalPrice: '$45',
@@ -300,8 +290,6 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
       {
         id: 'kids-2',
         title: 'Superhero Cape Set',
-        category: 'fashion',
-        subcategory: 'kids',
         brand: 'DC Comics',
         price: '$18',
         originalPrice: '$32',
