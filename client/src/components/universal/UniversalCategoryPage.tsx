@@ -86,10 +86,7 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
 
   // Get universal page configuration using factory
   const configurationResult = useMemo(() => {
-    console.log(`[UniversalCategoryPage] Getting configuration for category: ${category}, subcategory: ${subcategory}`);
-    const result = universalCategoryPageFactory.getConfiguration(category, subcategory);
-    console.log(`[UniversalCategoryPage] Configuration result:`, result);
-    return result;
+    return universalCategoryPageFactory.getConfiguration(category, subcategory);
   }, [category, subcategory]);
 
   // Handle configuration errors
@@ -302,7 +299,7 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
 
   // Render universal three-column layout matching original Women's page structure
   return (
-    <>
+    <div className="min-h-screen bg-gray-50">
       <Header />
       <Navigation />
       
@@ -329,7 +326,7 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
           <EnterpriseRightSidebar />
         }
       />
-    </>
+    </div>
   );
 });
 
