@@ -1082,7 +1082,119 @@ const CATEGORIES_DATA: readonly FilterCategory[] = [
       }
     ]
   },
-  { id: 'pets', name: 'Pets', level: 0, isExpandable: false },
+  {
+    id: 'pets',
+    name: 'Pets',
+    level: 0,
+    isExpandable: true,
+    subcategories: [
+      {
+        id: 'pets-dog',
+        name: 'Dog',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'pets-dog-beds', name: 'Beds', level: 2, isExpandable: false },
+          { id: 'pets-dog-bowls', name: 'Bowls', level: 2, isExpandable: false },
+          { id: 'pets-dog-carriers', name: 'Carriers', level: 2, isExpandable: false },
+          { id: 'pets-dog-collars', name: 'Collars', level: 2, isExpandable: false },
+          { id: 'pets-dog-food', name: 'Food', level: 2, isExpandable: false },
+          { id: 'pets-dog-grooming', name: 'Grooming', level: 2, isExpandable: false },
+          { id: 'pets-dog-leashes', name: 'Leashes', level: 2, isExpandable: false },
+          { id: 'pets-dog-toys', name: 'Toys', level: 2, isExpandable: false },
+          { id: 'pets-dog-treats', name: 'Treats', level: 2, isExpandable: false },
+          { id: 'pets-dog-clothing', name: 'Clothing', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'pets-cat',
+        name: 'Cat',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'pets-cat-beds', name: 'Beds', level: 2, isExpandable: false },
+          { id: 'pets-cat-bowls', name: 'Bowls', level: 2, isExpandable: false },
+          { id: 'pets-cat-carriers', name: 'Carriers', level: 2, isExpandable: false },
+          { id: 'pets-cat-collars', name: 'Collars', level: 2, isExpandable: false },
+          { id: 'pets-cat-food', name: 'Food', level: 2, isExpandable: false },
+          { id: 'pets-cat-grooming', name: 'Grooming', level: 2, isExpandable: false },
+          { id: 'pets-cat-litter', name: 'Litter', level: 2, isExpandable: false },
+          { id: 'pets-cat-litter-boxes', name: 'Litter Boxes', level: 2, isExpandable: false },
+          { id: 'pets-cat-scratching-posts', name: 'Scratching Posts', level: 2, isExpandable: false },
+          { id: 'pets-cat-toys', name: 'Toys', level: 2, isExpandable: false },
+          { id: 'pets-cat-treats', name: 'Treats', level: 2, isExpandable: false },
+          { id: 'pets-cat-trees', name: 'Trees', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'pets-bird',
+        name: 'Bird',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'pets-bird-cages', name: 'Cages', level: 2, isExpandable: false },
+          { id: 'pets-bird-cage-accessories', name: 'Cage Accessories', level: 2, isExpandable: false },
+          { id: 'pets-bird-food', name: 'Food', level: 2, isExpandable: false },
+          { id: 'pets-bird-perches', name: 'Perches', level: 2, isExpandable: false },
+          { id: 'pets-bird-toys', name: 'Toys', level: 2, isExpandable: false },
+          { id: 'pets-bird-treats', name: 'Treats', level: 2, isExpandable: false },
+          { id: 'pets-bird-water-feeders', name: 'Water & Feeders', level: 2, isExpandable: false },
+          { id: 'pets-bird-supplements', name: 'Supplements', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'pets-fish',
+        name: 'Fish',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'pets-fish-aquariums', name: 'Aquariums', level: 2, isExpandable: false },
+          { id: 'pets-fish-decorations', name: 'Decorations', level: 2, isExpandable: false },
+          { id: 'pets-fish-filters', name: 'Filters', level: 2, isExpandable: false },
+          { id: 'pets-fish-food', name: 'Food', level: 2, isExpandable: false },
+          { id: 'pets-fish-gravel-substrate', name: 'Gravel & Substrate', level: 2, isExpandable: false },
+          { id: 'pets-fish-heaters', name: 'Heaters', level: 2, isExpandable: false },
+          { id: 'pets-fish-lighting', name: 'Lighting', level: 2, isExpandable: false },
+          { id: 'pets-fish-plants', name: 'Plants', level: 2, isExpandable: false },
+          { id: 'pets-fish-pumps', name: 'Pumps', level: 2, isExpandable: false },
+          { id: 'pets-fish-water-treatment', name: 'Water Treatment', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'pets-reptile',
+        name: 'Reptile',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'pets-reptile-terrariums', name: 'Terrariums', level: 2, isExpandable: false },
+          { id: 'pets-reptile-heating', name: 'Heating', level: 2, isExpandable: false },
+          { id: 'pets-reptile-lighting', name: 'Lighting', level: 2, isExpandable: false },
+          { id: 'pets-reptile-food', name: 'Food', level: 2, isExpandable: false },
+          { id: 'pets-reptile-substrate', name: 'Substrate', level: 2, isExpandable: false },
+          { id: 'pets-reptile-decorations', name: 'Decorations', level: 2, isExpandable: false },
+          { id: 'pets-reptile-supplements', name: 'Supplements', level: 2, isExpandable: false },
+          { id: 'pets-reptile-humidity-control', name: 'Humidity Control', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'pets-small-pet',
+        name: 'Small Pet',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'pets-small-pet-cages', name: 'Cages', level: 2, isExpandable: false },
+          { id: 'pets-small-pet-bedding', name: 'Bedding', level: 2, isExpandable: false },
+          { id: 'pets-small-pet-food', name: 'Food', level: 2, isExpandable: false },
+          { id: 'pets-small-pet-toys', name: 'Toys', level: 2, isExpandable: false },
+          { id: 'pets-small-pet-treats', name: 'Treats', level: 2, isExpandable: false },
+          { id: 'pets-small-pet-water-bottles', name: 'Water Bottles', level: 2, isExpandable: false },
+          { id: 'pets-small-pet-exercise-equipment', name: 'Exercise Equipment', level: 2, isExpandable: false },
+          { id: 'pets-small-pet-grooming', name: 'Grooming', level: 2, isExpandable: false },
+          { id: 'pets-small-pet-carriers', name: 'Carriers', level: 2, isExpandable: false }
+        ]
+      }
+    ]
+  },
   { id: 'electronics', name: 'Electronics', level: 0, isExpandable: false }
 ] as const;
 
