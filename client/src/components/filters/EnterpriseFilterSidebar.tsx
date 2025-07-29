@@ -215,7 +215,23 @@ const CATEGORIES_DATA: readonly FilterCategory[] = [
           { id: 'vests', name: 'Vests', level: 2, isExpandable: false }
         ]
       },
-      { id: 'jeans', name: 'Jeans', level: 1, isExpandable: false },
+      {
+        id: 'jeans',
+        name: 'Jeans',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'ankle-cropped', name: 'Ankle & Cropped', level: 2, isExpandable: false },
+          { id: 'boot-cut', name: 'Boot Cut', level: 2, isExpandable: false },
+          { id: 'boyfriend', name: 'Boyfriend', level: 2, isExpandable: false },
+          { id: 'flare-wide-leg', name: 'Flare & Wide Leg', level: 2, isExpandable: false },
+          { id: 'high-rise', name: 'High Rise', level: 2, isExpandable: false },
+          { id: 'jeggings', name: 'Jeggings', level: 2, isExpandable: false },
+          { id: 'overalls', name: 'Overalls', level: 2, isExpandable: false },
+          { id: 'skinny', name: 'Skinny', level: 2, isExpandable: false },
+          { id: 'straight-leg', name: 'Straight Leg', level: 2, isExpandable: false }
+        ]
+      },
       { id: 'jewelry', name: 'Jewelry', level: 1, isExpandable: false },
       { id: 'makeup', name: 'Makeup', level: 1, isExpandable: false },
       { id: 'pants-jumpsuits', name: 'Pants & Jumpsuits', level: 1, isExpandable: false },
