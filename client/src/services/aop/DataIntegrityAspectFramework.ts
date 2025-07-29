@@ -408,7 +408,7 @@ export class EnterpriseDataIntegrityAspect implements DataIntegrityAspect {
         if (!result.isValid && rule.severity === 'error') {
           const performanceMetrics: AspectPerformanceMetrics = {
             executionTime: performance.now() - startTime,
-            memoryUsage: process.memoryUsage?.()?.heapUsed || 0,
+            memoryUsage: (performance as any).memory?.usedJSHeapSize || 0,
             iterationCount: Array.isArray(currentData) ? currentData.length : 0,
             validationChecks: totalChecks
           };
@@ -437,7 +437,7 @@ export class EnterpriseDataIntegrityAspect implements DataIntegrityAspect {
 
       const performanceMetrics: AspectPerformanceMetrics = {
         executionTime: performance.now() - startTime,
-        memoryUsage: process.memoryUsage?.()?.heapUsed || 0,
+        memoryUsage: (performance as any).memory?.usedJSHeapSize || 0,
         iterationCount: Array.isArray(currentData) ? currentData.length : 0,
         validationChecks: totalChecks
       };
@@ -463,7 +463,7 @@ export class EnterpriseDataIntegrityAspect implements DataIntegrityAspect {
     } catch (error) {
       const performanceMetrics: AspectPerformanceMetrics = {
         executionTime: performance.now() - startTime,
-        memoryUsage: process.memoryUsage?.()?.heapUsed || 0,
+        memoryUsage: (performance as any).memory?.usedJSHeapSize || 0,
         iterationCount: 0,
         validationChecks: 0
       };
@@ -495,7 +495,7 @@ export class EnterpriseDataIntegrityAspect implements DataIntegrityAspect {
       if (data === null || data === undefined) {
         const performanceMetrics: AspectPerformanceMetrics = {
           executionTime: performance.now() - startTime,
-          memoryUsage: process.memoryUsage?.()?.heapUsed || 0,
+          memoryUsage: (performance as any).memory?.usedJSHeapSize || 0,
           iterationCount: 0,
           validationChecks: 1
         };
@@ -514,7 +514,7 @@ export class EnterpriseDataIntegrityAspect implements DataIntegrityAspect {
       if (!Array.isArray(data)) {
         const performanceMetrics: AspectPerformanceMetrics = {
           executionTime: performance.now() - startTime,
-          memoryUsage: process.memoryUsage?.()?.heapUsed || 0,
+          memoryUsage: (performance as any).memory?.usedJSHeapSize || 0,
           iterationCount: 0,
           validationChecks: 1
         };
@@ -548,7 +548,7 @@ export class EnterpriseDataIntegrityAspect implements DataIntegrityAspect {
 
       const performanceMetrics: AspectPerformanceMetrics = {
         executionTime: performance.now() - startTime,
-        memoryUsage: process.memoryUsage?.()?.heapUsed || 0,
+        memoryUsage: (performance as any).memory?.usedJSHeapSize || 0,
         iterationCount: data.length,
         validationChecks: data.length + 1
       };
@@ -570,7 +570,7 @@ export class EnterpriseDataIntegrityAspect implements DataIntegrityAspect {
     } catch (error) {
       const performanceMetrics: AspectPerformanceMetrics = {
         executionTime: performance.now() - startTime,
-        memoryUsage: process.memoryUsage?.()?.heapUsed || 0,
+        memoryUsage: (performance as any).memory?.usedJSHeapSize || 0,
         iterationCount: 0,
         validationChecks: 0
       };
@@ -606,7 +606,7 @@ export class EnterpriseDataIntegrityAspect implements DataIntegrityAspect {
       if (!Array.isArray(data)) {
         const performanceMetrics: AspectPerformanceMetrics = {
           executionTime: performance.now() - startTime,
-          memoryUsage: process.memoryUsage?.()?.heapUsed || 0,
+          memoryUsage: (performance as any).memory?.usedJSHeapSize || 0,
           iterationCount: 0,
           validationChecks: 1
         };
@@ -647,7 +647,7 @@ export class EnterpriseDataIntegrityAspect implements DataIntegrityAspect {
 
       const performanceMetrics: AspectPerformanceMetrics = {
         executionTime: performance.now() - startTime,
-        memoryUsage: process.memoryUsage?.()?.heapUsed || 0,
+        memoryUsage: (performance as any).memory?.usedJSHeapSize || 0,
         iterationCount: data.length,
         validationChecks: data.length
       };
@@ -688,7 +688,7 @@ export class EnterpriseDataIntegrityAspect implements DataIntegrityAspect {
     } catch (error) {
       const performanceMetrics: AspectPerformanceMetrics = {
         executionTime: performance.now() - startTime,
-        memoryUsage: process.memoryUsage?.()?.heapUsed || 0,
+        memoryUsage: (performance as any).memory?.usedJSHeapSize || 0,
         iterationCount: 0,
         validationChecks: 0
       };
