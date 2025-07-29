@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useAuth } from "@/hooks/useAuth";
 import { Header } from "@/components/Header";
-import { Navigation } from "@/components/Navigation";
+// import { Navigation } from "@/components/Navigation"; // REMOVED: Dropdowns now in Header
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -155,7 +155,6 @@ export default function CreateListing() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
-      <Navigation />
       
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}

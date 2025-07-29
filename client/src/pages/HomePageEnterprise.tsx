@@ -8,7 +8,7 @@
 import { useState, useCallback, useEffect, useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Header } from '@/components/Header';
-import { Navigation } from '@/components/Navigation';
+// import { Navigation } from '@/components/Navigation'; // REMOVED: Dropdowns now in Header
 import { categoryStrategyFactory } from '@/services/category/CategoryStrategyFactory';
 import { HomeCategoryStrategy } from '@/services/category/strategies/HomeCategoryStrategy';
 import { FilterCriteriaType } from '@/services/filtering/FilterService';
@@ -218,7 +218,6 @@ export default function HomePageEnterprise() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 dark:from-gray-900 dark:to-gray-800">
         <Header />
-        <Navigation />
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="text-center">
             <div className="w-8 h-8 border-4 border-amber-200 border-t-amber-600 rounded-full animate-spin mx-auto mb-4"></div>
@@ -234,7 +233,6 @@ export default function HomePageEnterprise() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 dark:from-gray-900 dark:to-gray-800">
         <Header />
-        <Navigation />
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="text-center">
             <p className="text-red-600 dark:text-red-400 mb-4">Failed to load listings</p>
@@ -248,7 +246,6 @@ export default function HomePageEnterprise() {
   return (
     <div className={`min-h-screen bg-gradient-to-br ${strategy.domain.metadata.gradient} dark:from-gray-900 dark:to-gray-800`}>
       <Header />
-      <Navigation />
       
       {/* Hero Section */}
       <div className="relative overflow-hidden">
