@@ -182,6 +182,7 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
       return rawListings;
     } else {
       console.log('[UniversalCategoryPage] Using sample products:', sampleProducts);
+      console.log('[UniversalCategoryPage] Sample products count:', sampleProducts.length);
       return sampleProducts;
     }
   }, [rawListings, sampleProducts]);
@@ -189,16 +190,27 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
   // Apply enterprise filtering to products
   const filteredProducts = useMemo(() => {
     if (!displayProducts || !Array.isArray(displayProducts)) {
+      console.log('[UniversalCategoryPage] No displayProducts or not array:', displayProducts);
       return [];
     }
     
-    return displayProducts.filter(product => {
+    console.log('[UniversalCategoryPage] Filtering products. Initial count:', displayProducts.length);
+    console.log('[UniversalCategoryPage] Filter state:', {
+      selectedBrands: pageState.filterState.selectedBrands,
+      selectedCategories: pageState.filterState.selectedCategories,
+      searchQuery: pageState.searchQuery.trim()
+    });
+    
+    const filtered = displayProducts.filter(product => {
       // Apply brand filtering
       if (pageState.filterState.selectedBrands.length > 0) {
         const brandMatch = pageState.filterState.selectedBrands.some(brandId => 
           product.brand.toLowerCase().includes(brandId.toLowerCase())
         );
-        if (!brandMatch) return false;
+        if (!brandMatch) {
+          console.log('[UniversalCategoryPage] Product filtered out by brand:', product.title, product.brand);
+          return false;
+        }
       }
 
       // Apply search query filtering
@@ -206,17 +218,28 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
         const query = pageState.searchQuery.toLowerCase();
         const titleMatch = product.title.toLowerCase().includes(query);
         const brandMatch = product.brand.toLowerCase().includes(query);
-        if (!(titleMatch || brandMatch)) return false;
+        if (!(titleMatch || brandMatch)) {
+          console.log('[UniversalCategoryPage] Product filtered out by search:', product.title);
+          return false;
+        }
       }
 
+      // CRITICAL FIX: Don't filter by category for sample products
       // Apply category filtering (use the correct database category)
-      if (pageState.filterState.selectedCategories.length > 0 && 
-          !pageState.filterState.selectedCategories.includes(category)) {
-        return false;
+      if (pageState.filterState.selectedCategories.length > 0) {
+        // For sample products, skip category filtering since they don't have database categories
+        const isFromDatabase = product.category !== undefined;
+        if (isFromDatabase && !pageState.filterState.selectedCategories.includes(category)) {
+          console.log('[UniversalCategoryPage] Product filtered out by category:', product.title);
+          return false;
+        }
       }
 
       return true;
     });
+    
+    console.log('[UniversalCategoryPage] Final filtered count:', filtered.length);
+    return filtered;
   }, [displayProducts, pageState.filterState, pageState.searchQuery, category]);
 
   // Enterprise event handlers with validation
