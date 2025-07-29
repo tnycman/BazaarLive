@@ -34,8 +34,8 @@ function Router() {
       <Route path="/fashion/kids" component={KidsPageEnterprise} />
       <Route path="/fashion/electronics" component={ElectronicsPageEnterprise} />
       
-      {/* Dynamic fashion routes - lower priority fallback */}
-      <Route path="/fashion/:category/:subcategory?" component={({ params }) => (
+      {/* Dynamic fashion routes - lower priority fallback - ONLY for subcategory routes */}
+      <Route path="/fashion/:category/:subcategory" component={({ params }) => (
         <DynamicCategoryPage vertical="fashion" category={params?.category} subcategory={params?.subcategory} />
       )} />
       <Route path="/marketplace/:vertical/:category/:subcategory?" component={({ params }) => (

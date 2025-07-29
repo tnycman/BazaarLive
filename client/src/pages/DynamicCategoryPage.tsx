@@ -47,12 +47,12 @@ export default function DynamicCategoryPage({ vertical = 'fashion', category, su
 
   // Get category configuration using enterprise service
   const categoryConfig = useMemo(() => {
-    return categoryConfigService.getConfigWithFallback(actualVertical, actualCategory);
+    return categoryConfigService.getConfigWithFallback(actualVertical || 'fashion', actualCategory || 'women');
   }, [actualVertical, actualCategory]);
 
   // Fetch listings with dynamic parameters
   const { data: listings, isLoading } = useQuery({
-    queryKey: ['/api/listings', actualVertical, actualCategory, actualSubcategory, searchQuery, sortBy, selectedCategory],
+    queryKey: ['/api/listings', actualVertical || 'fashion', actualCategory || 'women', actualSubcategory, searchQuery, sortBy, selectedCategory],
     queryFn: async () => {
       const params = new URLSearchParams();
       params.append('category', actualVertical);
