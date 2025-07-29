@@ -178,7 +178,22 @@ const CATEGORIES_DATA: readonly FilterCategory[] = [
           { id: 'wedding', name: 'Wedding', level: 2, isExpandable: false }
         ]
       },
-      { id: 'intimates-sleepwear', name: 'Intimates & Sleepwear', level: 1, isExpandable: false },
+      {
+        id: 'intimates-sleepwear',
+        name: 'Intimates & Sleepwear',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'bandeaus', name: 'Bandeaus', level: 2, isExpandable: false },
+          { id: 'bras', name: 'Bras', level: 2, isExpandable: false },
+          { id: 'chemises-slips', name: 'Chemises & Slips', level: 2, isExpandable: false },
+          { id: 'pajamas', name: 'Pajamas', level: 2, isExpandable: false },
+          { id: 'panties', name: 'Panties', level: 2, isExpandable: false },
+          { id: 'robes', name: 'Robes', level: 2, isExpandable: false },
+          { id: 'shapewear', name: 'Shapewear', level: 2, isExpandable: false },
+          { id: 'sports-bras', name: 'Sports Bras', level: 2, isExpandable: false }
+        ]
+      },
       { id: 'jackets-coats', name: 'Jackets & Coats', level: 1, isExpandable: false },
       { id: 'jeans', name: 'Jeans', level: 1, isExpandable: false },
       { id: 'jewelry', name: 'Jewelry', level: 1, isExpandable: false },
