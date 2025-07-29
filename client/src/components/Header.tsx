@@ -103,17 +103,6 @@ export function Header() {
 
             {/* Right side actions */}
             <div className="flex items-center space-x-4">
-            {/* Create Listing Button */}
-            <Button 
-              className="gradient-primary text-white font-medium rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-200 hidden sm:flex"
-              asChild
-              data-testid="button-create-listing-header"
-            >
-              <Link href="/create-listing">
-                <PlusIcon className="w-4 h-4 mr-2" />
-                List Item
-              </Link>
-            </Button>
 
             {/* Notifications */}
             <Button 

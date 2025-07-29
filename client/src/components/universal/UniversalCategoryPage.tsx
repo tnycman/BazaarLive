@@ -5,7 +5,6 @@
  */
 
 import React, { useState, useCallback, useMemo, memo } from 'react';
-import { useQuery } from '@tanstack/react-query';
 import { Header } from '@/components/Header';
 import { Navigation } from '@/components/Navigation';
 import EnterprisePageLayout from '@/components/layout/EnterprisePageLayout';
@@ -137,42 +136,11 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
     error: null
   });
 
-  // Optimized data fetching with category-specific parameters
-  const { 
-    data: rawListings, 
-    isLoading, 
-    error 
-  } = useQuery({
-    queryKey: ['/api/listings', category, subcategory, pageState.searchQuery, pageState.sortBy],
-    queryFn: async (): Promise<ProductItem[]> => {
-      const params = new URLSearchParams();
-      params.append('category', category);
-      
-      if (subcategory) {
-        params.append('subcategory', subcategory);
-      }
-      
-      if (pageState.searchQuery.trim()) {
-        params.append('search', pageState.searchQuery);
-      }
-      
-      if (pageState.sortBy) {
-        params.append('sortBy', pageState.sortBy);
-      }
-      
-      params.append('limit', '20');
-      
-      const response = await fetch(`/api/listings?${params.toString()}`);
-      if (!response.ok) {
-        throw new Error(`Failed to fetch ${category} listings: ${response.statusText}`);
-      }
-      
-      return response.json();
-    },
-    staleTime: 5 * 60 * 1000, // Cache for 5 minutes
-    gcTime: 10 * 60 * 1000, // Keep in cache for 10 minutes
-    retry: 1,
-  });
+  // Frontend-only implementation - using sample products exclusively
+  // No database queries - pure frontend operation
+  const rawListings: ProductItem[] = [];
+  const isLoading = false;
+  const error = null;
 
   // Generate sample products based on category configuration
   const sampleProducts = useMemo((): ProductItem[] => {
@@ -182,17 +150,12 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
     return [...products]; // Convert readonly array to mutable array
   }, [pageConfiguration]);
 
-  // Use sample products if no real data available
+  // Frontend-only: Always use sample products from configuration
   const displayProducts = useMemo(() => {
-    if (rawListings && rawListings.length > 0) {
-      console.log('[UniversalCategoryPage] Using raw listings:', rawListings);
-      return rawListings;
-    } else {
-      console.log('[UniversalCategoryPage] Using sample products:', sampleProducts);
-      console.log('[UniversalCategoryPage] Sample products count:', sampleProducts.length);
-      return sampleProducts;
-    }
-  }, [rawListings, sampleProducts]);
+    console.log('[UniversalCategoryPage] Frontend-only mode - Using sample products:', sampleProducts);
+    console.log('[UniversalCategoryPage] Sample products count:', sampleProducts.length);
+    return sampleProducts;
+  }, [sampleProducts]);
 
   // Apply enterprise filtering to products
   const filteredProducts = useMemo(() => {
