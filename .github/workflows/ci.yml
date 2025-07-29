@@ -1,0 +1,501 @@
+name: BazaarLive CI Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: '18'
+  CACHE_TTL_MINUTES: 5
+  ENABLE_PERFORMANCE_MONITORING: true
+
+jobs:
+  # ===== LINT AND TYPE CHECKING =====
+  lint-and-typecheck:
+    name: Lint & Type Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: Run ESLint
+        run: |
+          npm run lint
+          echo "✅ ESLint passed - no linting errors detected"
+
+      - name: Run TypeScript Type Check
+        run: |
+          npm run type-check
+          echo "✅ TypeScript compilation successful - zero type errors"
+
+      - name: Validate Configuration Structure
+        run: |
+          npm run validate:configs
+          echo "✅ Configuration validation passed"
+
+      - name: Check Code Formatting
+        run: |
+          npm run format:check
+          echo "✅ Code formatting validation passed"
+
+  # ===== CONFIGURATION VALIDATION =====
+  config-validation:
+    name: Configuration Validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: lint-and-typecheck
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: Validate Category Configurations
+        run: |
+          echo "🔍 Validating all category configurations..."
+          npm run validate:category-configs
+          echo "✅ All category configurations validated successfully"
+
+      - name: Check Configuration Naming Conventions
+        run: |
+          echo "📋 Checking configuration naming conventions..."
+          npm run lint:config-names
+          echo "✅ Configuration naming conventions verified"
+
+      - name: Validate Dynamic Loading Paths
+        run: |
+          echo "🔗 Validating dynamic loading configuration paths..."
+          npm run validate:dynamic-paths
+          echo "✅ Dynamic loading paths validated"
+
+      - name: Test Configuration Loading
+        run: |
+          echo "⚡ Testing configuration loading mechanisms..."
+          npm run test:config-loading
+          echo "✅ Configuration loading tests passed"
+
+  # ===== COMPREHENSIVE REGRESSION TESTING =====
+  regression-tests:
+    name: Regression Test Suite
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    needs: [lint-and-typecheck, config-validation]
+    
+    strategy:
+      matrix:
+        test-suite: [
+          "cold-load-tests",
+          "hot-load-tests", 
+          "edge-case-tests",
+          "performance-benchmarks"
+        ]
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: Setup Test Environment
+        run: |
+          echo "🧪 Setting up test environment for ${{ matrix.test-suite }}"
+          npm run test:setup
+
+      - name: Execute Regression Test Suite - ${{ matrix.test-suite }}
+        run: |
+          echo "🚀 Executing ${{ matrix.test-suite }}..."
+          npm run test:regression:${{ matrix.test-suite }}
+          echo "✅ ${{ matrix.test-suite }} completed successfully"
+
+      - name: Generate Test Report
+        if: always()
+        run: |
+          echo "📊 Generating test report..."
+          npm run test:report:${{ matrix.test-suite }}
+
+      - name: Upload Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-${{ matrix.test-suite }}
+          path: |
+            test-results/
+            coverage/
+          retention-days: 30
+
+  # ===== PERFORMANCE BUDGET VALIDATION =====
+  performance-budget:
+    name: Performance Budget Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    needs: [regression-tests]
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: Build Application
+        run: |
+          echo "🏗️ Building application for performance analysis..."
+          npm run build
+
+      - name: Analyze Bundle Size
+        run: |
+          echo "📦 Analyzing bundle size and performance..."
+          npm run analyze:bundle
+          
+          # Check bundle size thresholds
+          BUNDLE_SIZE=$(npm run bundle:size --silent)
+          MAX_BUNDLE_SIZE=500000  # 500KB threshold
+          
+          if [ "$BUNDLE_SIZE" -gt "$MAX_BUNDLE_SIZE" ]; then
+            echo "❌ Bundle size ($BUNDLE_SIZE bytes) exceeds threshold ($MAX_BUNDLE_SIZE bytes)"
+            exit 1
+          fi
+          
+          echo "✅ Bundle size within acceptable limits: $BUNDLE_SIZE bytes"
+
+      - name: Performance Budget Validation
+        run: |
+          echo "⚡ Validating performance budgets..."
+          
+          # Run performance tests
+          npm run test:performance
+          
+          # Check load time thresholds
+          COLD_LOAD_TIME=$(npm run test:cold-load-time --silent)
+          HOT_LOAD_TIME=$(npm run test:hot-load-time --silent)
+          CACHE_HIT_RATE=$(npm run test:cache-hit-rate --silent)
+          
+          # Performance thresholds
+          MAX_COLD_LOAD=100  # 100ms
+          MAX_HOT_LOAD=15    # 15ms
+          MIN_CACHE_HIT=85   # 85%
+          
+          # Validate thresholds
+          if [ "$COLD_LOAD_TIME" -gt "$MAX_COLD_LOAD" ]; then
+            echo "❌ Cold load time ($COLD_LOAD_TIME ms) exceeds threshold ($MAX_COLD_LOAD ms)"
+            exit 1
+          fi
+          
+          if [ "$HOT_LOAD_TIME" -gt "$MAX_HOT_LOAD" ]; then
+            echo "❌ Hot load time ($HOT_LOAD_TIME ms) exceeds threshold ($MAX_HOT_LOAD ms)"
+            exit 1
+          fi
+          
+          if [ "$CACHE_HIT_RATE" -lt "$MIN_CACHE_HIT" ]; then
+            echo "❌ Cache hit rate ($CACHE_HIT_RATE%) below threshold ($MIN_CACHE_HIT%)"
+            exit 1
+          fi
+          
+          echo "✅ All performance budgets validated successfully"
+          echo "   - Cold Load: ${COLD_LOAD_TIME}ms (limit: ${MAX_COLD_LOAD}ms)"
+          echo "   - Hot Load: ${HOT_LOAD_TIME}ms (limit: ${MAX_HOT_LOAD}ms)" 
+          echo "   - Cache Hit Rate: ${CACHE_HIT_RATE}% (minimum: ${MIN_CACHE_HIT}%)"
+
+      - name: Memory Usage Analysis
+        run: |
+          echo "🧠 Analyzing memory usage patterns..."
+          npm run test:memory-usage
+          
+          MEMORY_DELTA=$(npm run test:memory-delta --silent)
+          MAX_MEMORY_DELTA=50000000  # 50MB threshold
+          
+          if [ "$MEMORY_DELTA" -gt "$MAX_MEMORY_DELTA" ]; then
+            echo "❌ Memory delta ($MEMORY_DELTA bytes) exceeds threshold ($MAX_MEMORY_DELTA bytes)"
+            exit 1
+          fi
+          
+          echo "✅ Memory usage within acceptable limits: $MEMORY_DELTA bytes"
+
+  # ===== COMPREHENSIVE TEST EXECUTION =====
+  comprehensive-tests:
+    name: Comprehensive Test Execution
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    needs: [regression-tests, performance-budget]
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: Execute Full Test Suite
+        run: |
+          echo "🎯 Executing comprehensive test suite..."
+          npm run test:comprehensive
+          echo "✅ Comprehensive tests completed successfully"
+
+      - name: Execute AutomatedTestRunner
+        run: |
+          echo "🤖 Executing AutomatedTestRunner for Task 3.2 verification..."
+          node -e "
+            const { executeTask32RegressionTests } = require('./client/src/services/category/testing/AutomatedTestRunner.ts');
+            executeTask32RegressionTests().then(report => {
+              console.log('📊 Task 3.2 Regression Test Results:');
+              console.log('Pass Rate:', report.summary.passRate.toFixed(1) + '%');
+              console.log('Average Load Time:', report.summary.avgLoadTime.toFixed(1) + 'ms');
+              console.log('Cache Hit Rate:', report.summary.cacheHitRate.toFixed(1) + '%');
+              
+              if (report.summary.passRate < 95) {
+                console.error('❌ Regression tests failed - pass rate below 95%');
+                process.exit(1);
+              }
+              
+              if (report.regressionAnalysis.hasRegressions) {
+                console.error('❌ Regressions detected in system behavior');
+                process.exit(1);
+              }
+              
+              console.log('✅ All regression tests passed successfully');
+            }).catch(error => {
+              console.error('❌ AutomatedTestRunner execution failed:', error);
+              process.exit(1);
+            });
+          "
+
+      - name: Validate System Health
+        run: |
+          echo "🏥 Validating overall system health..."
+          npm run test:system-health
+          echo "✅ System health validation completed"
+
+  # ===== INTEGRATION TESTS =====
+  integration-tests:
+    name: Integration Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    needs: comprehensive-tests
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: Start Test Server
+        run: |
+          echo "🚀 Starting test server for integration tests..."
+          npm run start:test &
+          SERVER_PID=$!
+          echo $SERVER_PID > server.pid
+          
+          # Wait for server to be ready
+          sleep 10
+          
+          # Verify server is running
+          curl -f http://localhost:5000/health || exit 1
+          echo "✅ Test server started successfully"
+
+      - name: Execute API Integration Tests
+        run: |
+          echo "🔗 Executing API integration tests..."
+          npm run test:integration:api
+          echo "✅ API integration tests passed"
+
+      - name: Execute Configuration API Tests
+        run: |
+          echo "⚙️ Testing configuration API endpoints..."
+          
+          # Test all configuration endpoints
+          CONFIGS=("fashion-women" "fashion-men" "fashion-kids" "fashion-home" "fashion-electronics" "fashion-pets" "fashion-beauty" "fashion-sports")
+          
+          for config in "${CONFIGS[@]}"; do
+            echo "Testing configuration: $config"
+            RESPONSE=$(curl -s -w "%{http_code}" http://localhost:5000/api/configurations/$config)
+            HTTP_CODE="${RESPONSE: -3}"
+            
+            if [ "$HTTP_CODE" != "200" ]; then
+              echo "❌ Configuration API test failed for $config (HTTP $HTTP_CODE)"
+              exit 1
+            fi
+            
+            echo "✅ Configuration $config loaded successfully"
+          done
+          
+          echo "✅ All configuration API tests passed"
+
+      - name: Execute End-to-End Tests
+        run: |
+          echo "🎭 Executing end-to-end tests..."
+          npm run test:e2e
+          echo "✅ End-to-end tests completed successfully"
+
+      - name: Cleanup Test Server
+        if: always()
+        run: |
+          if [ -f server.pid ]; then
+            kill $(cat server.pid) || true
+            rm server.pid
+          fi
+          echo "🧹 Test server cleanup completed"
+
+  # ===== SECURITY AND COMPLIANCE =====
+  security-compliance:
+    name: Security & Compliance Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: lint-and-typecheck
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: Security Audit
+        run: |
+          echo "🔒 Running security audit..."
+          npm audit --audit-level moderate
+          echo "✅ Security audit passed"
+
+      - name: Dependency Check
+        run: |
+          echo "📦 Checking dependency security..."
+          npm run security:deps
+          echo "✅ Dependency security check passed"
+
+      - name: AOP Compliance Validation
+        run: |
+          echo "🏗️ Validating AOP architecture compliance..."
+          npm run validate:aop-compliance
+          echo "✅ AOP compliance validation passed"
+
+  # ===== FINAL VALIDATION =====
+  final-validation:
+    name: Final Validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: [integration-tests, security-compliance]
+    if: success()
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Generate CI Summary Report
+        run: |
+          echo "📋 Generating CI pipeline summary report..."
+          
+          echo "## BazaarLive CI Pipeline - Execution Summary" > ci-summary.md
+          echo "" >> ci-summary.md
+          echo "### ✅ Pipeline Status: SUCCESS" >> ci-summary.md
+          echo "" >> ci-summary.md
+          echo "**Date:** $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> ci-summary.md
+          echo "**Commit:** ${{ github.sha }}" >> ci-summary.md
+          echo "**Branch:** ${{ github.ref_name }}" >> ci-summary.md
+          echo "" >> ci-summary.md
+          echo "### Test Results Summary" >> ci-summary.md
+          echo "- ✅ Lint & Type Check: PASSED" >> ci-summary.md
+          echo "- ✅ Configuration Validation: PASSED" >> ci-summary.md
+          echo "- ✅ Regression Tests: PASSED" >> ci-summary.md
+          echo "- ✅ Performance Budget: PASSED" >> ci-summary.md
+          echo "- ✅ Integration Tests: PASSED" >> ci-summary.md
+          echo "- ✅ Security & Compliance: PASSED" >> ci-summary.md
+          echo "" >> ci-summary.md
+          echo "### Performance Metrics" >> ci-summary.md
+          echo "- Bundle Size: Within Limits" >> ci-summary.md
+          echo "- Load Times: Optimized" >> ci-summary.md
+          echo "- Cache Hit Rate: Above Threshold" >> ci-summary.md
+          echo "- Memory Usage: Efficient" >> ci-summary.md
+          echo "" >> ci-summary.md
+          echo "**🎉 All quality gates passed - Ready for deployment!**" >> ci-summary.md
+          
+          cat ci-summary.md
+
+      - name: Upload CI Summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-summary-report
+          path: ci-summary.md
+          retention-days: 90
+
+      - name: Final Success Notification
+        run: |
+          echo "🎉 BazaarLive CI Pipeline completed successfully!"
+          echo "✅ All tests passed"
+          echo "✅ Code quality validated" 
+          echo "✅ Performance budgets met"
+          echo "✅ Security compliance verified"
+          echo "✅ Ready for deployment"
+
+# ===== REUSABLE WORKFLOWS =====
+  notify-status:
+    name: Notify Pipeline Status
+    runs-on: ubuntu-latest
+    needs: final-validation
+    if: always()
+    
+    steps:
+      - name: Pipeline Status Notification
+        run: |
+          if [ "${{ needs.final-validation.result }}" = "success" ]; then
+            echo "🎉 CI Pipeline Status: SUCCESS"
+            echo "All quality gates passed - deployment approved"
+          else
+            echo "❌ CI Pipeline Status: FAILED"
+            echo "Quality gates failed - deployment blocked"
+            exit 1
+          fi

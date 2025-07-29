@@ -520,6 +520,95 @@ npm run start:prod
 3. **Error Rates**: Monitor configuration loading failures
 4. **Memory Usage**: Track JavaScript heap and memory consumption
 
+## CI/CD Pipeline
+
+### GitHub Actions Workflow
+
+The project includes a comprehensive CI/CD pipeline that automatically validates code quality, runs tests, and ensures performance standards on every pull request and deployment.
+
+#### Pipeline Stages
+
+1. **Lint & Type Check**: ESLint validation and TypeScript compilation
+2. **Configuration Validation**: Category configuration structure and naming validation
+3. **Regression Tests**: Comprehensive test suite with cold/hot load testing
+4. **Performance Budget**: Bundle size, load time, and cache efficiency validation
+5. **Integration Tests**: API endpoint testing and end-to-end validation
+6. **Security & Compliance**: Dependency auditing and AOP compliance checks
+
+#### Running CI Tests Locally
+
+```bash
+# Run full CI test suite
+node scripts/ci-test-runner.js
+
+# Run specific test types
+node scripts/ci-test-runner.js quick          # Quick validation
+node scripts/ci-test-runner.js regression    # Regression tests
+node scripts/ci-test-runner.js config        # Configuration validation
+node scripts/ci-test-runner.js performance   # Performance budget
+node scripts/ci-test-runner.js lint          # Lint and type check
+```
+
+#### Performance Budgets
+
+The CI pipeline enforces strict performance budgets:
+
+- **Bundle Size**: Maximum 500KB total bundle
+- **Cold Load Time**: Maximum 100ms initial load
+- **Hot Load Time**: Maximum 15ms cached load
+- **Cache Hit Rate**: Minimum 85% efficiency
+- **Memory Usage**: Maximum 50MB delta per operation
+
+#### Configuration Validation
+
+Automated validation ensures:
+
+- **Naming Conventions**: kebab-case configuration keys and file names
+- **Structure Validation**: Required fields and proper data types
+- **Export Naming**: Consistent export naming with "Config" suffix
+- **Dynamic Loading**: Proper path mapping and import accessibility
+
+### Automation Scripts
+
+#### Configuration Validation Script
+
+```bash
+# Validate all configurations
+node scripts/validate-configs.js
+
+# Features:
+# - File naming convention validation
+# - Configuration structure validation
+# - Export naming validation
+# - Dynamic loader path validation
+```
+
+#### Performance Budget Script
+
+```bash
+# Validate performance budgets
+node scripts/performance-budget.js
+
+# Features:
+# - Bundle size analysis
+# - Load time measurement
+# - Cache efficiency validation
+# - Memory usage monitoring
+```
+
+#### CI Test Runner
+
+```bash
+# Complete CI pipeline execution
+node scripts/ci-test-runner.js
+
+# Features:
+# - Multi-phase test execution
+# - Comprehensive reporting
+# - Performance benchmarking
+# - Quality gate enforcement
+```
+
 ## Contributing Guidelines
 
 ### Pull Request Process
@@ -527,17 +616,59 @@ npm run start:prod
 1. **Branch Naming**: Use descriptive branch names (`feature/new-category`, `fix/cache-issue`)
 2. **Commit Messages**: Follow conventional commit format
 3. **Code Review**: All code must be reviewed before merging
-4. **Testing**: All tests must pass with 95%+ success rate
-5. **Documentation**: Update documentation for new features
+4. **CI Pipeline**: All CI tests must pass with 95%+ success rate
+5. **Performance**: No performance regressions allowed
+6. **Documentation**: Update documentation for new features
+
+### Pre-commit Requirements
+
+Before submitting a pull request:
+
+```bash
+# 1. Run lint and type checking
+npm run type-check
+
+# 2. Validate configurations
+node scripts/validate-configs.js
+
+# 3. Run quick tests
+node scripts/ci-test-runner.js quick
+
+# 4. Run full regression tests (optional but recommended)
+node scripts/ci-test-runner.js regression
+```
 
 ### Code Review Checklist
 
 - [ ] TypeScript compliance with zero compilation errors
 - [ ] AOP architecture principles followed
+- [ ] All CI tests passing (95%+ success rate)
+- [ ] Configuration validation passed
+- [ ] Performance budgets met (no regressions)
 - [ ] Comprehensive test coverage
-- [ ] Performance optimizations implemented
-- [ ] Documentation updated
-- [ ] No breaking changes without version bump
 - [ ] Security considerations addressed
+- [ ] Documentation updated for new features
+- [ ] No breaking changes without version bump
 
-This development guide ensures consistent, high-quality development practices across the entire BazaarLive platform.
+### Quality Gates
+
+The CI pipeline enforces these quality gates:
+
+1. **Code Quality**: ESLint rules and TypeScript compilation
+2. **Configuration Standards**: Naming conventions and structure validation
+3. **Performance Standards**: Load times and bundle size limits
+4. **Test Coverage**: Regression tests with 95%+ pass rate
+5. **Security Standards**: Dependency auditing and vulnerability checks
+
+### Deployment Process
+
+1. **Feature Branch**: Create from `main` branch
+2. **Development**: Implement feature with CI-compliant code
+3. **Local Testing**: Run CI tests locally before pushing
+4. **Pull Request**: Create PR with comprehensive description
+5. **CI Validation**: Automated CI pipeline validation
+6. **Code Review**: Manual review by team members
+7. **Merge**: Merge after CI success and review approval
+8. **Deployment**: Automated deployment on merge to `main`
+
+This development guide ensures consistent, high-quality development practices across the entire BazaarLive platform with comprehensive CI/CD integration.
