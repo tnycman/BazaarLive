@@ -100,6 +100,7 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
       }
     },
     sampleProducts: [
+      // Row 1
       {
         id: 'women-1',
         title: 'Designer Silk Blouse',
@@ -135,6 +136,188 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
         condition: 'good',
         isLiked: true,
         createdAt: '2024-01-24T15:45:00Z'
+      },
+      {
+        id: 'women-3',
+        title: 'Cashmere Sweater',
+        brand: 'Everlane',
+        price: '$128',
+        originalPrice: '$198',
+        size: 'L',
+        images: ['https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller3',
+          username: 'cozy_closet',
+          avatar: 'https://images.unsplash.com/photo-1494790108755-2616c9fe3e23?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 45, comments: 12, shares: 7 },
+        condition: 'new_with_tags',
+        isLiked: false,
+        createdAt: '2024-01-26T08:15:00Z'
+      },
+      {
+        id: 'women-4',
+        title: 'Floral Midi Dress',
+        brand: 'Reformation',
+        price: '$148',
+        originalPrice: '$228',
+        size: 'M',
+        images: ['https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller4',
+          username: 'summer_style',
+          avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 67, comments: 15, shares: 9 },
+        condition: 'excellent',
+        isLiked: true,
+        createdAt: '2024-01-25T14:20:00Z'
+      },
+      // Row 2
+      {
+        id: 'women-5',
+        title: 'Leather Ankle Boots',
+        brand: 'Sam Edelman',
+        price: '$95',
+        originalPrice: '$150',
+        size: '8',
+        images: ['https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller5',
+          username: 'shoe_collector',
+          avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 32, comments: 6, shares: 4 },
+        condition: 'good',
+        isLiked: false,
+        createdAt: '2024-01-23T16:30:00Z'
+      },
+      {
+        id: 'women-6',
+        title: 'Silk Scarf Collection',
+        brand: 'Hermès',
+        price: '$320',
+        originalPrice: '$450',
+        size: 'One Size',
+        images: ['https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller6',
+          username: 'luxury_finds',
+          avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 89, comments: 22, shares: 15 },
+        condition: 'excellent',
+        isLiked: true,
+        createdAt: '2024-01-26T12:45:00Z'
+      },
+      {
+        id: 'women-7',
+        title: 'High-Waisted Jeans',
+        brand: 'Madewell',
+        price: '$78',
+        originalPrice: '$128',
+        size: '28',
+        images: ['https://images.unsplash.com/photo-1582418702059-97ebafb35d09?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller7',
+          username: 'denim_queen',
+          avatar: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 41, comments: 9, shares: 5 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-24T09:10:00Z'
+      },
+      {
+        id: 'women-8',
+        title: 'Blazer Jacket',
+        brand: 'Zara',
+        price: '$59',
+        originalPrice: '$89',
+        size: 'S',
+        images: ['https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller8',
+          username: 'office_chic',
+          avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 28, comments: 7, shares: 3 },
+        condition: 'good',
+        isLiked: true,
+        createdAt: '2024-01-25T11:25:00Z'
+      },
+      // Row 3
+      {
+        id: 'women-9',
+        title: 'Statement Earrings',
+        brand: 'Kate Spade',
+        price: '$45',
+        originalPrice: '$78',
+        size: 'One Size',
+        images: ['https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller9',
+          username: 'jewelry_box',
+          avatar: 'https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 56, comments: 14, shares: 8 },
+        condition: 'new_with_tags',
+        isLiked: false,
+        createdAt: '2024-01-26T15:50:00Z'
+      },
+      {
+        id: 'women-10',
+        title: 'Wool Coat',
+        brand: 'J.Crew',
+        price: '$195',
+        originalPrice: '$298',
+        size: 'M',
+        images: ['https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller10',
+          username: 'winter_wardrobe',
+          avatar: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 73, comments: 18, shares: 11 },
+        condition: 'excellent',
+        isLiked: true,
+        createdAt: '2024-01-23T13:40:00Z'
+      },
+      {
+        id: 'women-11',
+        title: 'Designer Handbag',
+        brand: 'Coach',
+        price: '$185',
+        originalPrice: '$295',
+        size: 'Medium',
+        images: ['https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller11',
+          username: 'bag_boutique',
+          avatar: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 92, comments: 25, shares: 16 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-25T17:35:00Z'
+      },
+      {
+        id: 'women-12',
+        title: 'Knit Cardigan',
+        brand: 'Anthropologie',
+        price: '$88',
+        originalPrice: '$138',
+        size: 'L',
+        images: ['https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller12',
+          username: 'boho_style',
+          avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 37, comments: 10, shares: 6 },
+        condition: 'good',
+        isLiked: true,
+        createdAt: '2024-01-24T20:15:00Z'
       }
     ]
   },
