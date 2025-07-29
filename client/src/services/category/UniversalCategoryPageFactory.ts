@@ -13,6 +13,7 @@ import type { ProductItem } from '@/components/grid/EnterpriseProductGrid';
 interface UniversalPageConfiguration {
   readonly category: string;
   readonly subcategory?: string;
+  readonly subSubcategory?: string;
   readonly metadata: CategoryMetadata;
   readonly filterConfiguration: FilterConfiguration;
   readonly sampleProducts: readonly ProductItem[];
@@ -44,6 +45,7 @@ interface FilterOption {
 const UniversalPageConfigurationSchema = z.object({
   category: z.string().min(1),
   subcategory: z.string().optional(),
+  subSubcategory: z.string().optional(),
   metadata: z.object({
     title: z.string().min(1),
     description: z.string().min(1),
@@ -2199,6 +2201,271 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
         createdAt: '2024-01-25T19:35:00Z'
       }
     ]
+  },
+
+  // ===== WOMEN'S SUBCATEGORY CONFIGURATIONS =====
+  'fashion-women-dresses': {
+    category: 'fashion',
+    subcategory: 'women',
+    subSubcategory: 'dresses',
+    metadata: {
+      title: 'Women\'s Dresses',
+      description: 'Elegant dresses for every occasion - casual, formal, and party wear',
+      gradient: 'from-pink-50 via-rose-100 to-pink-200',
+      placeholder: 'Search women\'s dresses...',
+      seoKeywords: ['women dresses', 'party dresses', 'casual dresses', 'formal wear']
+    },
+    filterConfiguration: {
+      availableFilters: ['size', 'brand', 'color', 'price', 'condition', 'occasion', 'dress-length'],
+      categorySpecificFilters: [
+        {
+          id: 'dress-occasions',
+          name: 'Occasion',
+          type: 'checkbox',
+          options: [
+            { id: 'casual', name: 'Casual' },
+            { id: 'party', name: 'Party' },
+            { id: 'formal', name: 'Formal' },
+            { id: 'wedding', name: 'Wedding' },
+            { id: 'work', name: 'Work' }
+          ],
+          validation: z.array(z.string())
+        },
+        {
+          id: 'dress-length',
+          name: 'Length',
+          type: 'checkbox',
+          options: [
+            { id: 'mini', name: 'Mini' },
+            { id: 'knee', name: 'Knee Length' },
+            { id: 'midi', name: 'Midi' },
+            { id: 'maxi', name: 'Maxi' }
+          ],
+          validation: z.array(z.string())
+        }
+      ],
+      defaultFilters: {
+        condition: ['new_with_tags', 'excellent'],
+        availability: ['all-items']
+      },
+      filterValidationRules: {
+        occasion: z.array(z.string()),
+        length: z.array(z.string())
+      }
+    },
+    sampleProducts: [
+      {
+        id: 'dress-1',
+        title: 'Floral Midi Dress',
+        brand: 'Free People',
+        price: '$89',
+        originalPrice: '$128',
+        size: 'M',
+        images: ['https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller-dress1',
+          username: 'boho_chic',
+          avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 156, comments: 28, shares: 18 },
+        condition: 'excellent',
+        isLiked: true,
+        createdAt: '2024-01-26T14:30:00Z'
+      },
+      {
+        id: 'dress-2',
+        title: 'Black Cocktail Dress',
+        brand: 'Theory',
+        price: '$195',
+        originalPrice: '$298',
+        size: 'S',
+        images: ['https://images.unsplash.com/photo-1566479179817-0c49dab7e0eb?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller-dress2',
+          username: 'elegant_style',
+          avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 243, comments: 45, shares: 32 },
+        condition: 'new_with_tags',
+        isLiked: false,
+        createdAt: '2024-01-25T11:15:00Z'
+      }
+    ]
+  },
+
+  'fashion-women-handbags': {
+    category: 'fashion',
+    subcategory: 'women',
+    subSubcategory: 'handbags',
+    metadata: {
+      title: 'Women\'s Handbags',
+      description: 'Designer handbags, purses, and luxury accessories',
+      gradient: 'from-pink-50 via-rose-100 to-pink-200',
+      placeholder: 'Search women\'s handbags...',
+      seoKeywords: ['designer handbags', 'luxury purses', 'women bags', 'designer accessories']
+    },
+    filterConfiguration: {
+      availableFilters: ['brand', 'color', 'price', 'condition', 'bag-type', 'material'],
+      categorySpecificFilters: [
+        {
+          id: 'bag-types',
+          name: 'Bag Type',
+          type: 'checkbox',
+          options: [
+            { id: 'tote', name: 'Tote' },
+            { id: 'crossbody', name: 'Crossbody' },
+            { id: 'shoulder', name: 'Shoulder Bag' },
+            { id: 'clutch', name: 'Clutch' },
+            { id: 'backpack', name: 'Backpack' }
+          ],
+          validation: z.array(z.string())
+        }
+      ],
+      defaultFilters: {
+        condition: ['new_with_tags', 'excellent'],
+        availability: ['all-items']
+      },
+      filterValidationRules: {
+        bagType: z.array(z.string()),
+        material: z.array(z.string())
+      }
+    },
+    sampleProducts: [
+      {
+        id: 'bag-1',
+        title: 'Coach Leather Tote',
+        brand: 'Coach',
+        price: '$245',
+        originalPrice: '$398',
+        size: 'Large',
+        images: ['https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller-bag1',
+          username: 'luxury_finds',
+          avatar: 'https://images.unsplash.com/photo-1494790108755-2616c9fe3e23?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 189, comments: 34, shares: 25 },
+        condition: 'excellent',
+        isLiked: true,
+        createdAt: '2024-01-26T09:45:00Z'
+      }
+    ]
+  },
+
+  // ===== MEN'S SUBCATEGORY CONFIGURATIONS =====
+  'fashion-men-shirts': {
+    category: 'fashion',
+    subcategory: 'men',
+    subSubcategory: 'shirts',
+    metadata: {
+      title: 'Men\'s Shirts',
+      description: 'Dress shirts, casual shirts, and designer tops for men',
+      gradient: 'from-blue-50 via-indigo-100 to-blue-200',
+      placeholder: 'Search men\'s shirts...',
+      seoKeywords: ['men shirts', 'dress shirts', 'casual shirts', 'designer tops']
+    },
+    filterConfiguration: {
+      availableFilters: ['size', 'brand', 'color', 'price', 'condition', 'shirt-type', 'collar-style'],
+      categorySpecificFilters: [
+        {
+          id: 'shirt-types',
+          name: 'Shirt Type',
+          type: 'checkbox',
+          options: [
+            { id: 'dress', name: 'Dress Shirt' },
+            { id: 'casual', name: 'Casual' },
+            { id: 'polo', name: 'Polo' },
+            { id: 'tshirt', name: 'T-Shirt' },
+            { id: 'henley', name: 'Henley' }
+          ],
+          validation: z.array(z.string())
+        }
+      ],
+      defaultFilters: {
+        condition: ['new_with_tags', 'excellent']
+      },
+      filterValidationRules: {
+        shirtType: z.array(z.string())
+      }
+    },
+    sampleProducts: [
+      {
+        id: 'shirt-1',
+        title: 'Brooks Brothers Dress Shirt',
+        brand: 'Brooks Brothers',
+        price: '$85',
+        originalPrice: '$135',
+        size: 'L',
+        images: ['https://images.unsplash.com/photo-1602810318383-e8efb6d09f6e?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller-shirt1',
+          username: 'professional_wear',
+          avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 124, comments: 19, shares: 12 },
+        condition: 'excellent',
+        isLiked: false,
+        createdAt: '2024-01-25T16:20:00Z'
+      }
+    ]
+  },
+
+  // ===== KIDS SUBCATEGORY CONFIGURATIONS =====
+  'fashion-kids-toys': {
+    category: 'fashion',
+    subcategory: 'kids',
+    subSubcategory: 'toys',
+    metadata: {
+      title: 'Kids\' Toys',
+      description: 'Educational toys, games, and playthings for children of all ages',
+      gradient: 'from-yellow-50 via-orange-100 to-red-100',
+      placeholder: 'Search kids\' toys...',
+      seoKeywords: ['kids toys', 'educational toys', 'children games', 'learning toys']
+    },
+    filterConfiguration: {
+      availableFilters: ['age-range', 'brand', 'price', 'condition', 'toy-type', 'educational'],
+      categorySpecificFilters: [
+        {
+          id: 'age-ranges',
+          name: 'Age Range',
+          type: 'checkbox',
+          options: [
+            { id: '0-2', name: '0-2 years' },
+            { id: '3-5', name: '3-5 years' },
+            { id: '6-8', name: '6-8 years' },
+            { id: '9-12', name: '9-12 years' },
+            { id: '13+', name: '13+ years' }
+          ],
+          validation: z.array(z.string())
+        }
+      ],
+      defaultFilters: {
+        condition: ['new_with_tags', 'excellent']
+      },
+      filterValidationRules: {
+        ageRange: z.array(z.string())
+      }
+    },
+    sampleProducts: [
+      {
+        id: 'toy-1',
+        title: 'LEGO Creator Set',
+        brand: 'LEGO',
+        price: '$45',
+        originalPrice: '$65',
+        size: '354 pieces',
+        images: ['https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop'],
+        seller: {
+          id: 'seller-toy1',
+          username: 'toy_collector',
+          avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop'
+        },
+        stats: { likes: 89, comments: 16, shares: 11 },
+        condition: 'new_with_tags',
+        isLiked: true,
+        createdAt: '2024-01-26T13:10:00Z'
+      }
+    ]
   }
 };
 
@@ -2208,35 +2475,32 @@ export class UniversalCategoryPageFactory {
 
   /**
    * Get configuration for any category using universal architecture
+   * Enhanced to support subcategory and subSubcategory parameters
    */
-  public getConfiguration(category: string, subcategory?: string): Result<UniversalPageConfiguration, Error> {
+  public getConfiguration(category: string, subcategory?: string, subSubcategory?: string): Result<UniversalPageConfiguration, Error> {
     try {
       // Validate input parameters
-      const validationResult = this.validateCategoryInput(category, subcategory);
+      const validationResult = this.validateCategoryInput(category, subcategory, subSubcategory);
       if (validationResult.isError()) {
         return Result.failure(validationResult.error);
       }
 
+      // Build configuration key with proper hierarchy
+      const cacheKey = this.buildConfigurationKey(category, subcategory, subSubcategory);
+      
       // Check cache first
-      const cacheKey = `${category}${subcategory ? `-${subcategory}` : ''}`;
       if (this.configurationCache.has(cacheKey)) {
         const cachedConfig = this.configurationCache.get(cacheKey)!;
         return Result.success(cachedConfig);
       }
 
-      // Create configuration key
-      const configKey = subcategory ? `${category}-${subcategory}` : category;
-      
-      // Get base configuration
-      const baseConfig = UNIVERSAL_CATEGORY_CONFIGURATIONS[configKey];
+      // Get configuration directly from the configurations map
+      const baseConfig = UNIVERSAL_CATEGORY_CONFIGURATIONS[cacheKey];
       if (!baseConfig) {
-        return Result.failure(new Error(`Configuration not found for category: ${configKey}`));
+        return Result.failure(new Error(`Configuration not found for category: ${cacheKey}`));
       }
 
-      // Apply subcategory modifications if needed
-      const finalConfig = subcategory ? 
-        this.applySubcategoryModifications(baseConfig, subcategory) : 
-        baseConfig;
+      const finalConfig = baseConfig;
 
       // Validate final configuration
       const configValidation = UniversalPageConfigurationSchema.safeParse(finalConfig);
@@ -2268,7 +2532,7 @@ export class UniversalCategoryPageFactory {
   /**
    * Validate category input parameters
    */
-  private validateCategoryInput(category: string, subcategory?: string): Result<void, Error> {
+  private validateCategoryInput(category: string, subcategory?: string, subSubcategory?: string): Result<void, Error> {
     if (!category || typeof category !== 'string') {
       return Result.failure(new Error('Category must be a non-empty string'));
     }
@@ -2277,7 +2541,24 @@ export class UniversalCategoryPageFactory {
       return Result.failure(new Error('Subcategory must be a string if provided'));
     }
 
+    if (subSubcategory && typeof subSubcategory !== 'string') {
+      return Result.failure(new Error('SubSubcategory must be a string if provided'));
+    }
+
     return Result.success(undefined);
+  }
+
+  /**
+   * Build configuration key with proper hierarchy
+   */
+  private buildConfigurationKey(category: string, subcategory?: string, subSubcategory?: string): string {
+    if (subSubcategory && subcategory) {
+      return `${category}-${subcategory}-${subSubcategory}`;
+    } else if (subcategory) {
+      return `${category}-${subcategory}`;
+    } else {
+      return category;
+    }
   }
 
   /**

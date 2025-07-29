@@ -15,39 +15,39 @@ import CreateListing from "@/pages/create-listing";
 import Profile from "@/pages/profile";
 import VerticalPage from "@/pages/marketplace/VerticalPage";
 import AnalyticsDashboard from "@/pages/analytics/AnalyticsDashboard";
-import DynamicCategoryPage from "@/pages/DynamicCategoryPage";
 import AIAssistant from "@/pages/ai-assistant";
-// Universal Category Pages - Consistent architecture across all categories
-import WomenPageUniversal from "@/pages/universal/WomenPageUniversal";
-import MenPageUniversal from "@/pages/universal/MenPageUniversal";
-import KidsPageUniversal from "@/pages/universal/KidsPageUniversal";
-import HomePageUniversal from "@/pages/universal/HomePageUniversal";
-import ElectronicsPageUniversal from "@/pages/universal/ElectronicsPageUniversal";
-import PetsPageUniversal from "@/pages/universal/PetsPageUniversal";
-import BeautyPageUniversal from "@/pages/universal/BeautyPageUniversal";
-import SportsPageUniversal from "@/pages/universal/SportsPageUniversal";
+// Universal Category Page Component - Single unified component for ALL categories
+import UniversalCategoryPage from "@/components/universal/UniversalCategoryPage";
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
 
   return (
     <Switch>
-      {/* Universal Category Routes - Consistent three-column layout architecture */}
-      <Route path="/fashion/women" component={WomenPageUniversal} />
-      <Route path="/fashion/men" component={MenPageUniversal} />
-      <Route path="/fashion/kids" component={KidsPageUniversal} />
-      <Route path="/fashion/home" component={HomePageUniversal} />
-      <Route path="/fashion/electronics" component={ElectronicsPageUniversal} />
-      <Route path="/fashion/pets" component={PetsPageUniversal} />
-      <Route path="/fashion/beauty" component={BeautyPageUniversal} />
-      <Route path="/fashion/sports" component={SportsPageUniversal} />
+      {/* Universal Category Routes - Unified routing architecture using UniversalCategoryPage */}
+      <Route path="/fashion/women" component={() => <UniversalCategoryPage category="fashion" subcategory="women" />} />
+      <Route path="/fashion/men" component={() => <UniversalCategoryPage category="fashion" subcategory="men" />} />
+      <Route path="/fashion/kids" component={() => <UniversalCategoryPage category="fashion" subcategory="kids" />} />
+      <Route path="/fashion/home" component={() => <UniversalCategoryPage category="fashion" subcategory="home" />} />
+      <Route path="/fashion/electronics" component={() => <UniversalCategoryPage category="fashion" subcategory="electronics" />} />
+      <Route path="/fashion/pets" component={() => <UniversalCategoryPage category="fashion" subcategory="pets" />} />
+      <Route path="/fashion/beauty" component={() => <UniversalCategoryPage category="fashion" subcategory="beauty" />} />
+      <Route path="/fashion/sports" component={() => <UniversalCategoryPage category="fashion" subcategory="sports" />} />
       
-      {/* Dynamic fashion routes - lower priority fallback - ONLY for subcategory routes */}
+      {/* Unified subcategory routes using UniversalCategoryPage - Enterprise AOP pattern */}
       <Route path="/fashion/:category/:subcategory" component={({ params }) => (
-        <DynamicCategoryPage vertical="fashion" category={params?.category} subcategory={params?.subcategory} />
+        <UniversalCategoryPage 
+          category="fashion" 
+          subcategory={params?.category} 
+          subSubcategory={params?.subcategory} 
+        />
       )} />
       <Route path="/marketplace/:vertical/:category/:subcategory?" component={({ params }) => (
-        <DynamicCategoryPage vertical={params?.vertical} category={params?.category} subcategory={params?.subcategory} />
+        <UniversalCategoryPage 
+          category={params?.vertical || "marketplace"} 
+          subcategory={params?.category} 
+          subSubcategory={params?.subcategory} 
+        />
       )} />
       <Route path="/marketplace" component={Marketplace} />
       
