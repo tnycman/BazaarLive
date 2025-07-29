@@ -226,15 +226,17 @@ export default function WomenPageEnterprise() {
           new Date(a.metadata?.createdAt || 0).getTime()
         );
       case 'price_low':
-        return sorted.sort((a, b) => 
-          parseFloat(a.price.replace(/[^0-9.]/g, '')) - 
-          parseFloat(b.price.replace(/[^0-9.]/g, ''))
-        );
+        return sorted.sort((a, b) => {
+          const priceA = DomainSafetyService.safePropertyAccess(a, 'price', '0');
+          const priceB = DomainSafetyService.safePropertyAccess(b, 'price', '0');
+          return parseFloat(priceA.replace(/[^0-9.]/g, '')) - parseFloat(priceB.replace(/[^0-9.]/g, ''));
+        });
       case 'price_high':
-        return sorted.sort((a, b) => 
-          parseFloat(b.price.replace(/[^0-9.]/g, '')) - 
-          parseFloat(a.price.replace(/[^0-9.]/g, ''))
-        );
+        return sorted.sort((a, b) => {
+          const priceA = DomainSafetyService.safePropertyAccess(a, 'price', '0');
+          const priceB = DomainSafetyService.safePropertyAccess(b, 'price', '0');
+          return parseFloat(priceB.replace(/[^0-9.]/g, '')) - parseFloat(priceA.replace(/[^0-9.]/g, ''));
+        });
       case 'most_liked':
         return sorted.sort((a, b) => 
           (b.metadata?.likesCount || 0) - (a.metadata?.likesCount || 0)
