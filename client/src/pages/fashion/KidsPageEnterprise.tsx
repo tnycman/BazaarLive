@@ -116,65 +116,65 @@ export default function KidsPageEnterprise() {
   const sampleProducts: ProductItem[] = [
     {
       id: '1',
-      title: 'Rainbow Unicorn Dress - Sparkly & Fun',
+      title: 'Rainbow Unicorn Dress - Magical & Sparkly',
       brand: 'Disney',
-      price: '$28',
-      originalPrice: '$35',
+      price: '$32',
+      originalPrice: '$45',
       size: '6',
-      images: ['https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?w=400&h=400&fit=crop'],
+      images: ['https://images.unsplash.com/photo-1544376664-80b17f09d399?w=400&h=400&fit=crop'],
       seller: {
         id: 'seller1',
-        username: 'kids_corner_mom',
+        username: 'kids_fashion_mom',
         avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop'
       },
       stats: { likes: 45, comments: 12, shares: 6 },
-      badges: [{ type: 'sale', text: '20% OFF', color: 'red' }],
+      badges: [{ type: 'sale', text: '30% OFF', color: 'red' }],
       condition: 'excellent',
       isLiked: false,
-      createdAt: '2024-01-25T10:00:00Z'
+      createdAt: '2024-01-26T10:00:00Z'
     },
     {
-      id: '2', 
-      title: 'Superhero Cape Set - Batman Theme',
+      id: '2',
+      title: 'Superhero Cape Set - Save the Day!',
       brand: 'DC Comics',
-      price: '$18',
-      size: '4T',
-      images: ['https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop'],
+      price: '$28',
+      size: '8',
+      images: ['https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&h=400&fit=crop'],
       seller: {
         id: 'seller2',
-        username: 'superhero_mom',
+        username: 'superhero_parent',
         avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
       },
-      stats: { likes: 32, comments: 8, shares: 4 },
-      badges: [{ type: 'featured', text: 'POPULAR', color: 'purple' }],
+      stats: { likes: 38, comments: 8, shares: 4 },
+      badges: [{ type: 'featured', text: 'FEATURED', color: 'purple' }],
       condition: 'new_with_tags',
       isLiked: true,
-      createdAt: '2024-01-24T15:30:00Z'
+      createdAt: '2024-01-25T15:30:00Z'
     },
     {
       id: '3',
-      title: 'Cozy Dinosaur Pajama Set - Glow in Dark',
+      title: 'Cozy Dinosaur Pajama Set - Bedtime Fun',
       brand: 'Carter\'s',
-      price: '$22',
-      size: '8',
-      images: ['https://images.unsplash.com/photo-1564694202779-bc908c327862?w=400&h=400&fit=crop'],
+      price: '$18',
+      size: '4T',
+      images: ['https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=400&h=400&fit=crop'],
       seller: {
         id: 'seller3',
-        username: 'sleepy_tots',
+        username: 'cozy_kids_corner',
         avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop'
       },
-      stats: { likes: 28, comments: 6, shares: 3 },
+      stats: { likes: 29, comments: 6, shares: 3 },
       badges: [{ type: 'trending', text: 'TRENDING', color: 'orange' }],
-      condition: 'excellent',
+      condition: 'good',
       isLiked: false,
-      createdAt: '2024-01-23T09:15:00Z'
+      createdAt: '2024-01-24T09:15:00Z'
     },
     {
       id: '4',
-      title: 'Back to School Backpack - Princess Design',
+      title: 'Back to School Backpack - Adventure Ready',
       brand: 'JanSport',
-      price: '$32',
-      originalPrice: '$45',
+      price: '$35',
+      originalPrice: '$50',
       size: 'OS',
       images: ['https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop'],
       seller: {
@@ -182,10 +182,10 @@ export default function KidsPageEnterprise() {
         username: 'school_ready_mom',
         avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'
       },
-      stats: { likes: 19, comments: 4, shares: 2 },
+      stats: { likes: 22, comments: 4, shares: 2 },
       condition: 'excellent',
       isLiked: false,
-      createdAt: '2024-01-22T14:20:00Z'
+      createdAt: '2024-01-23T14:20:00Z'
     }
   ];
 
@@ -224,26 +224,56 @@ export default function KidsPageEnterprise() {
       // Apply search query filtering
       if (searchQuery.trim()) {
         const query = searchQuery.toLowerCase();
-        const searchMatch = 
-          product.title.toLowerCase().includes(query) ||
-          product.brand.toLowerCase().includes(query);
-        if (!searchMatch) return false;
+        const titleMatch = product.title.toLowerCase().includes(query);
+        const brandMatch = product.brand.toLowerCase().includes(query);
+        if (!(titleMatch || brandMatch)) return false;
       }
 
-      // Apply size filtering
-      if (currentFilterState.selectedSizes.length > 0) {
-        const sizeMatch = currentFilterState.selectedSizes.includes(product.size);
-        if (!sizeMatch) return false;
+      // Apply category filtering (basic implementation)
+      if (currentFilterState.selectedCategories.length > 0 && 
+          !currentFilterState.selectedCategories.includes('kids')) {
+        return false;
       }
 
       return true;
     });
   }, [transformedProducts, currentFilterState, searchQuery]);
 
-  // Enterprise event handlers with proper AOP integration
+  // Enterprise event handlers
   const handleFilterChange = useCallback((newFilterState: FilterState) => {
     setCurrentFilterState(newFilterState);
   }, []);
+
+  const handleProductClick = useCallback((product: ProductItem) => {
+    console.log('[KidsPageEnterprise] Product clicked:', product.id);
+    // Navigate to product detail page
+  }, []);
+
+  const handleLikeToggle = useCallback((productId: string) => {
+    console.log('[KidsPageEnterprise] Like toggled for product:', productId);
+    // Toggle like state
+  }, []);
+
+  const handleSellerClick = useCallback((sellerId: string) => {
+    console.log('[KidsPageEnterprise] Seller profile clicked:', sellerId);
+    // Navigate to seller profile
+  }, []);
+
+  const handleShare = useCallback((productId: string) => {
+    console.log('[KidsPageEnterprise] Product shared:', productId);
+    // Handle sharing functionality
+  }, []);
+
+  // Event handlers with enterprise validation
+  const handleSearchSubmit = useCallback((e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validate search query length
+    if (searchQuery.length > 100) {
+      console.warn('Search query too long, truncating');
+      setSearchQuery(searchQuery.substring(0, 100));
+    }
+  }, [searchQuery]);
 
   const handleSearchChange = useCallback((query: string) => {
     setSearchQuery(query);
@@ -301,6 +331,10 @@ export default function KidsPageEnterprise() {
             pageDescription={domainMetadata.description}
             searchPlaceholder={domainMetadata.placeholder}
             gradientClass={domainMetadata.gradient}
+            onProductClick={handleProductClick}
+            onLikeToggle={handleLikeToggle}
+            onSellerClick={handleSellerClick}
+            onShare={handleShare}
           />
         }
         rightSidebar={
