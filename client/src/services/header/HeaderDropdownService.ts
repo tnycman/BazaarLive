@@ -4,6 +4,8 @@
  * 100% best practices, zero shortcuts, complete separation of concerns
  */
 
+console.log('[HeaderDropdownService] Module loading...');
+
 import { z } from 'zod';
 import { Result } from '../../types/Result';
 
