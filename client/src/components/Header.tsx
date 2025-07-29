@@ -391,17 +391,21 @@ export function Header() {
               return dropdownCategories.map((category) => {
                 console.log('[Header] Rendering category button:', category.name, 'path:', category.path);
                 return (
-                  <div key={category.id} className="relative">
+                  <div 
+                    key={category.id} 
+                    className="relative"
+                    onMouseEnter={(e) => {
+                      console.log('[Header] Mouse enter on category:', category.name);
+                      handleDropdownShow(category.id, e);
+                    }}
+                    onMouseLeave={handleDropdownHide}
+                  >
                     <Link href={category.path}>
                       <Button 
                         variant="ghost" 
                         size="sm"
                         className="text-sm text-gray-700 font-medium hover:text-purple-600"
                         data-testid={`nav-${category.id}`}
-                        onMouseEnter={(e) => {
-                          console.log('[Header] Mouse enter on category:', category.name);
-                          handleDropdownShow(category.id, e);
-                        }}
                         onClick={() => handleNavigation(category.path, category.id)}
                       >
                         {category.name}
