@@ -7,7 +7,7 @@
 import { useState, useCallback, useEffect, useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Header } from '@/components/Header';
-// import { Navigation } from '@/components/Navigation'; // REMOVED: Dropdowns now in Header
+import { Navigation } from '@/components/Navigation';
 import EnterprisePageLayout from '@/components/layout/EnterprisePageLayout';
 import EnterpriseFilterSidebar from '@/components/filters/EnterpriseFilterSidebar';
 import EnterpriseProductGrid from '@/components/grid/EnterpriseProductGrid';
@@ -335,6 +335,7 @@ export default function MenPageEnterprise() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
+      <Navigation />
       
       <EnterprisePageLayout
         leftSidebar={

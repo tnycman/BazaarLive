@@ -2,7 +2,7 @@
 import { useRoute } from 'wouter';
 import { useQuery } from '@tanstack/react-query';
 import { Header } from '@/components/Header';
-// import { Navigation } from '@/components/Navigation'; // REMOVED: Dropdowns now in Header
+import { Navigation } from '@/components/Navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -70,6 +70,7 @@ export default function VerticalPage({ vertical }: VerticalPageProps) {
     return (
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
         <Header />
+        <Navigation />
         <main className="max-w-7xl mx-auto px-4 py-8">
           <div className="text-center">
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
@@ -90,6 +91,7 @@ export default function VerticalPage({ vertical }: VerticalPageProps) {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <Header />
+      <Navigation />
       
       <main className="max-w-7xl mx-auto px-4 py-8">
         {/* Breadcrumb Navigation */}

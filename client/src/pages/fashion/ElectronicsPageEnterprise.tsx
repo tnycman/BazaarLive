@@ -7,7 +7,7 @@
 import { useState, useCallback, useEffect, useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Header } from '@/components/Header';
-// import { Navigation } from '@/components/Navigation'; // REMOVED: Dropdowns now in Header
+import { Navigation } from '@/components/Navigation';
 import { categoryStrategyFactory } from '@/services/category/CategoryStrategyFactory';
 import { ElectronicsCategoryStrategy } from '@/services/category/strategies/ElectronicsCategoryStrategy';
 import { FilterCriteriaType } from '@/services/filtering/FilterService';
@@ -198,6 +198,7 @@ export default function ElectronicsPageEnterprise() {
   return (
     <div className={`min-h-screen bg-gradient-to-br ${domainMetadata.gradient}`}>
       <Header />
+      <Navigation />
       
       <div className="flex">
         <div className="w-80 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 min-h-screen">

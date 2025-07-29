@@ -5,7 +5,7 @@
 import { useState, useCallback, useEffect, useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Header } from '@/components/Header';
-// import { Navigation } from '@/components/Navigation'; // REMOVED: Dropdowns now in Header
+import { Navigation } from '@/components/Navigation';
 
 export default function WomenPageEnterpriseFixed() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -57,6 +57,7 @@ export default function WomenPageEnterpriseFixed() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 dark:from-gray-900 dark:to-gray-800">
       <Header />
+      <Navigation />
       
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-8">
