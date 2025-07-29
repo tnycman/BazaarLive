@@ -291,7 +291,31 @@ const CATEGORIES_DATA: readonly FilterCategory[] = [
           { id: 'wide-leg-pants', name: 'Wide Leg', level: 2, isExpandable: false }
         ]
       },
-      { id: 'shoes', name: 'Shoes', level: 1, isExpandable: false },
+      {
+        id: 'shoes',
+        name: 'Shoes',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'ankle-boots-booties', name: 'Ankle Boots & Booties', level: 2, isExpandable: false },
+          { id: 'athletic-shoes', name: 'Athletic Shoes', level: 2, isExpandable: false },
+          { id: 'combat-moto-boots', name: 'Combat & Moto Boots', level: 2, isExpandable: false },
+          { id: 'espadrilles', name: 'Espadrilles', level: 2, isExpandable: false },
+          { id: 'flats-loafers', name: 'Flats & Loafers', level: 2, isExpandable: false },
+          { id: 'heeled-boots', name: 'Heeled Boots', level: 2, isExpandable: false },
+          { id: 'heels', name: 'Heels', level: 2, isExpandable: false },
+          { id: 'lace-up-boots', name: 'Lace Up Boots', level: 2, isExpandable: false },
+          { id: 'moccasins', name: 'Moccasins', level: 2, isExpandable: false },
+          { id: 'mules-clogs', name: 'Mules & Clogs', level: 2, isExpandable: false },
+          { id: 'over-knee-boots', name: 'Over the Knee Boots', level: 2, isExpandable: false },
+          { id: 'platforms', name: 'Platforms', level: 2, isExpandable: false },
+          { id: 'sandals', name: 'Sandals', level: 2, isExpandable: false },
+          { id: 'slippers', name: 'Slippers', level: 2, isExpandable: false },
+          { id: 'sneakers', name: 'Sneakers', level: 2, isExpandable: false },
+          { id: 'wedges', name: 'Wedges', level: 2, isExpandable: false },
+          { id: 'winter-rain-boots', name: 'Winter & Rain Boots', level: 2, isExpandable: false }
+        ]
+      },
       { id: 'shorts', name: 'Shorts', level: 1, isExpandable: false },
       { id: 'skirts', name: 'Skirts', level: 1, isExpandable: false },
       { id: 'sweaters', name: 'Sweaters', level: 1, isExpandable: false },
