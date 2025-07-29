@@ -59,7 +59,7 @@ export function Header() {
 
   // Create user session entity
   const userSession = useMemo(() => {
-    if (user && 'id' in user) {
+    if (user && typeof user === 'object' && user !== null && 'id' in user) {
       const sessionResult = headerDomainService.createUserSession(
         user.id as string,
         true,
