@@ -316,7 +316,21 @@ const CATEGORIES_DATA: readonly FilterCategory[] = [
           { id: 'winter-rain-boots', name: 'Winter & Rain Boots', level: 2, isExpandable: false }
         ]
       },
-      { id: 'shorts', name: 'Shorts', level: 1, isExpandable: false },
+      {
+        id: 'shorts',
+        name: 'Shorts',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'athletic-shorts', name: 'Athletic Shorts', level: 2, isExpandable: false },
+          { id: 'bermudas', name: 'Bermudas', level: 2, isExpandable: false },
+          { id: 'bike-shorts', name: 'Bike Shorts', level: 2, isExpandable: false },
+          { id: 'cargos', name: 'Cargos', level: 2, isExpandable: false },
+          { id: 'high-waist', name: 'High Waist', level: 2, isExpandable: false },
+          { id: 'jean-shorts', name: 'Jean Shorts', level: 2, isExpandable: false },
+          { id: 'skorts', name: 'Skorts', level: 2, isExpandable: false }
+        ]
+      },
       { id: 'skirts', name: 'Skirts', level: 1, isExpandable: false },
       { id: 'sweaters', name: 'Sweaters', level: 1, isExpandable: false },
       { id: 'swim', name: 'Swim', level: 1, isExpandable: false },
