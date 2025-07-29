@@ -45,6 +45,8 @@ import {
   headerDropdownService, 
   DropdownCategory 
 } from "@/services/header/HeaderDropdownService";
+
+console.log('[Header] HeaderDropdownService imported:', headerDropdownService);
 import { HeaderDropdown } from "@/components/HeaderDropdown";
 
 // ===== ENTERPRISE HEADER COMPONENT =====
