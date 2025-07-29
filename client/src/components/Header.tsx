@@ -41,6 +41,11 @@ import {
   NavigationTarget, 
   UserSession 
 } from "@/services/header/HeaderDomainService";
+import { 
+  headerDropdownService, 
+  DropdownCategory 
+} from "@/services/header/HeaderDropdownService";
+import { HeaderDropdown } from "@/components/HeaderDropdown";
 
 // ===== ENTERPRISE HEADER COMPONENT =====
 export function Header() {
@@ -49,12 +54,14 @@ export function Header() {
   // Enterprise state management with AOP integration
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [isSearchFocused, setIsSearchFocused] = useState<boolean>(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [dropdownPosition, setDropdownPosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
 
   // Create user session entity
   const userSession = useMemo(() => {
-    if (user) {
+    if (user && 'id' in user) {
       const sessionResult = headerDomainService.createUserSession(
-        user.id,
+        user.id as string,
         true,
         ['read', 'write', 'comment'],
         { theme: 'light', notifications: true }
@@ -111,6 +118,45 @@ export function Header() {
     }
   }, [searchQuery, handleSearch]);
 
+  // Enterprise dropdown handlers with AOP aspects
+  const handleDropdownShow = useCallback((categoryId: string, event: React.MouseEvent) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const position = { x: rect.left, y: rect.bottom };
+    
+    const context: HeaderContext = {
+      action: 'toggle',
+      target: categoryId,
+      timestamp: Date.now(),
+      metadata: { type: 'dropdown_show', position }
+    };
+
+    headerAOP.executeWithAspects(context, () => {
+      setActiveDropdown(categoryId);
+      setDropdownPosition(position);
+      return true;
+    });
+  }, []);
+
+  const handleDropdownHide = useCallback(() => {
+    const context: HeaderContext = {
+      action: 'toggle',
+      target: activeDropdown || 'unknown',
+      timestamp: Date.now(),
+      metadata: { type: 'dropdown_hide' }
+    };
+
+    headerAOP.executeWithAspects(context, () => {
+      setActiveDropdown(null);
+      return true;
+    });
+  }, [activeDropdown]);
+
+  // Get dropdown categories
+  const dropdownCategories = useMemo(() => {
+    const categoriesResult = headerDropdownService.getAllDropdownCategories();
+    return categoriesResult.isSuccess() ? categoriesResult.value : [];
+  }, []);
+
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4">
@@ -148,70 +194,41 @@ export function Header() {
 
           {/* Right Header Actions */}
           <div className="flex items-center space-x-4 text-sm text-gray-600">
-            <Link href="/marketplace/jobs">
-              <Button 
-                variant="ghost" 
-                size="sm" 
-                className="flex items-center gap-1 hover:text-purple-600" 
-                data-testid="header-jobs"
-                onClick={() => handleNavigation('/marketplace/jobs', 'jobs')}
-              >
-                <BriefcaseIcon className="w-4 h-4" />
-                Jobs
-              </Button>
-            </Link>
-            
-            <Link href="/marketplace/real-estate">
-              <Button 
-                variant="ghost" 
-                size="sm" 
-                className="flex items-center gap-1 hover:text-purple-600" 
-                data-testid="header-real-estate"
-                onClick={() => handleNavigation('/marketplace/real-estate', 'real-estate')}
-              >
-                <HomeIcon className="w-4 h-4" />
-                Real Estate
-              </Button>
-            </Link>
-            
-            <Link href="/marketplace/cars">
-              <Button 
-                variant="ghost" 
-                size="sm" 
-                className="flex items-center gap-1 hover:text-purple-600" 
-                data-testid="header-cars"
-                onClick={() => handleNavigation('/marketplace/cars', 'cars')}
-              >
-                <CarIcon className="w-4 h-4" />
-                Cars
-              </Button>
-            </Link>
-            
-            <Link href="/marketplace/boats">
-              <Button 
-                variant="ghost" 
-                size="sm" 
-                className="flex items-center gap-1 hover:text-purple-600" 
-                data-testid="header-boats"
-                onClick={() => handleNavigation('/marketplace/boats', 'boats')}
-              >
-                <AnchorIcon className="w-4 h-4" />
-                Boats
-              </Button>
-            </Link>
-            
-            <Link href="/marketplace/services">
-              <Button 
-                variant="ghost" 
-                size="sm" 
-                className="flex items-center gap-1 hover:text-purple-600" 
-                data-testid="header-services"
-                onClick={() => handleNavigation('/marketplace/services', 'services')}
-              >
-                <WrenchIcon className="w-4 h-4" />
-                Services
-              </Button>
-            </Link>
+            {/* Category Dropdowns */}
+            {dropdownCategories.map((category) => {
+              const IconComponent = {
+                jobs: BriefcaseIcon,
+                'real-estate': HomeIcon,
+                cars: CarIcon,
+                boats: AnchorIcon,
+                services: WrenchIcon
+              }[category.id] || BriefcaseIcon;
+
+              return (
+                <div key={category.id} className="relative">
+                  <Link href={category.path}>
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      className="flex items-center gap-1 hover:text-purple-600" 
+                      data-testid={`header-${category.id}`}
+                      onMouseEnter={(e) => handleDropdownShow(category.id, e)}
+                      onClick={() => handleNavigation(category.path, category.id)}
+                    >
+                      <IconComponent className="w-4 h-4" />
+                      {category.name}
+                    </Button>
+                  </Link>
+                  
+                  {/* Dropdown */}
+                  <HeaderDropdown
+                    category={category}
+                    isVisible={activeDropdown === category.id}
+                    onClose={handleDropdownHide}
+                  />
+                </div>
+              );
+            })}
 
             {/* Action Icons */}
             <Button 
@@ -247,12 +264,12 @@ export function Header() {
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="relative h-8 w-8 rounded-full" data-testid="button-user-menu">
                     <Avatar className="h-8 w-8">
-                      <AvatarImage src={user.avatarUrl} alt={user.name} />
+                      <AvatarImage src={(user as any)?.avatarUrl} alt={(user as any)?.name} />
                       <AvatarFallback 
                         className="bg-purple-600 text-white text-xs"
                         data-testid="avatar-fallback"
                       >
-                        {user.name?.charAt(0) || user.email.charAt(0).toUpperCase()}
+                        {(user as any)?.name?.charAt(0) || (user as any)?.email?.charAt(0)?.toUpperCase() || 'U'}
                       </AvatarFallback>
                     </Avatar>
                   </Button>
@@ -261,10 +278,10 @@ export function Header() {
                   <DropdownMenuLabel className="font-normal">
                     <div className="flex flex-col space-y-1">
                       <p className="text-sm font-medium leading-none" data-testid="user-name">
-                        {user.name || 'User'}
+                        {(user as any)?.name || 'User'}
                       </p>
                       <p className="text-xs leading-none text-muted-foreground" data-testid="user-email">
-                        {user.email}
+                        {(user as any)?.email || 'user@example.com'}
                       </p>
                     </div>
                   </DropdownMenuLabel>
