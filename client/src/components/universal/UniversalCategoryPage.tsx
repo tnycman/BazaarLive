@@ -84,9 +84,16 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
     );
   }
 
-  // Get universal page configuration using factory
+  // Get universal page configuration using factory with enterprise validation
   const configurationResult = useMemo(() => {
-    return universalCategoryPageFactory.getConfiguration(category, subcategory);
+    console.log('[UniversalCategoryPage] Getting configuration for:', { category, subcategory });
+    const result = universalCategoryPageFactory.getConfiguration(category, subcategory);
+    console.log('[UniversalCategoryPage] Configuration result:', { 
+      isSuccess: result.isSuccess, 
+      hasValue: !!result.value,
+      sampleProductsCount: result.isSuccess ? result.value?.sampleProducts?.length : 0
+    });
+    return result;
   }, [category, subcategory]);
 
   // Handle configuration errors
