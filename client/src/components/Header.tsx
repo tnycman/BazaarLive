@@ -154,7 +154,9 @@ export function Header() {
   // Get dropdown categories
   const dropdownCategories = useMemo(() => {
     const categoriesResult = headerDropdownService.getAllDropdownCategories();
-    return categoriesResult.isSuccess() ? categoriesResult.value : [];
+    const categories = categoriesResult.isSuccess() ? categoriesResult.value : [];
+    console.log('[Header] Dropdown categories loaded:', categories.length, categories.map(c => c.name));
+    return categories;
   }, []);
 
   return (
