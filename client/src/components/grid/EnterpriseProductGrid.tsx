@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { withEnterpriseInterceptors } from '@/services/aop/ComponentInterceptorFramework';
+import EnterpriseGridHeader from '@/components/grid/EnterpriseGridHeader';
 import { z } from 'zod';
 
 // ===== ENTERPRISE TYPE DEFINITIONS =====
@@ -129,46 +130,7 @@ const BADGE_STYLES = {
 } as const;
 
 // ===== ENTERPRISE GRID HEADER COMPONENT =====
-const EnterpriseGridHeader: React.FC<GridHeaderProps> = memo(({
-  title,
-  itemCount,
-  sortBy,
-  onSortChange,
-  sortOptions
-}) => {
-  return (
-    <div className="flex items-center justify-between mb-6 bg-white border-b border-gray-200 pb-4">
-      <div>
-        <h1 className="text-2xl font-bold text-gray-900 mb-1" data-testid="grid-title">
-          {title}
-        </h1>
-        <p className="text-sm text-gray-600" data-testid="item-count">
-          {itemCount.toLocaleString()} items
-        </p>
-      </div>
-      
-      <div className="flex items-center space-x-4">
-        <div className="flex items-center space-x-2">
-          <span className="text-sm text-gray-700 font-medium">Sort By:</span>
-          <select
-            value={sortBy}
-            onChange={(e) => onSortChange(e.target.value)}
-            className="text-sm border border-gray-300 rounded-md px-3 py-1 bg-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-            data-testid="sort-select"
-          >
-            {sortOptions.map(option => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
-    </div>
-  );
-});
-
-EnterpriseGridHeader.displayName = 'EnterpriseGridHeader';
+// EnterpriseGridHeader is now imported from separate component file
 
 // ===== ENTERPRISE PRODUCT CARD COMPONENT =====
 const EnterpriseProductCard: React.FC<{
