@@ -858,8 +858,11 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
       }
     ]
   },
-  home: {
-    category: 'home',
+
+  // ===== FASHION HOME SUBCATEGORY CONFIGURATION =====
+  'fashion-home': {
+    category: 'fashion',
+    subcategory: 'home',
     metadata: {
       title: 'Home & Garden',
       description: 'Beautiful home decor, furniture, and garden essentials',
@@ -1132,8 +1135,11 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
       }
     ]
   },
-  electronics: {
-    category: 'electronics',
+
+  // ===== FASHION ELECTRONICS SUBCATEGORY CONFIGURATION =====
+  'fashion-electronics': {
+    category: 'fashion',
+    subcategory: 'electronics',
     metadata: {
       title: 'Electronics',
       description: 'Latest technology, gadgets, and electronic devices',
@@ -1390,8 +1396,11 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
       }
     ]
   },
-  pets: {
-    category: 'pets',
+
+  // ===== FASHION PETS SUBCATEGORY CONFIGURATION =====
+  'fashion-pets': {
+    category: 'fashion',
+    subcategory: 'pets',
     metadata: {
       title: 'Pet Supplies',
       description: 'Everything your furry friends need for a happy, healthy life',
@@ -1660,8 +1669,11 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
       }
     ]
   },
-  beauty: {
-    category: 'beauty',
+
+  // ===== FASHION BEAUTY SUBCATEGORY CONFIGURATION =====
+  'fashion-beauty': {
+    category: 'fashion',
+    subcategory: 'beauty',
     metadata: {
       title: 'Beauty & Wellness',
       description: 'Premium beauty products, skincare, and wellness essentials',
@@ -1931,8 +1943,11 @@ const UNIVERSAL_CATEGORY_CONFIGURATIONS: Record<string, UniversalPageConfigurati
       }
     ]
   },
-  sports: {
-    category: 'sports',
+
+  // ===== FASHION SPORTS SUBCATEGORY CONFIGURATION =====
+  'fashion-sports': {
+    category: 'fashion',
+    subcategory: 'sports',
     metadata: {
       title: 'Sports & Outdoors',
       description: 'Athletic gear, outdoor equipment, and fitness essentials for your active lifestyle',
