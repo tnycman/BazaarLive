@@ -664,7 +664,217 @@ const CATEGORIES_DATA: readonly FilterCategory[] = [
       { id: 'men-global-traditional', name: 'Global & Traditional Wear', level: 1, isExpandable: false }
     ]
   },
-  { id: 'kids', name: 'Kids', level: 0, isExpandable: false },
+  {
+    id: 'kids',
+    name: 'Kids',
+    level: 0,
+    isExpandable: true,
+    subcategories: [
+      {
+        id: 'kids-accessories',
+        name: 'Accessories',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'kids-belts', name: 'Belts', level: 2, isExpandable: false },
+          { id: 'kids-glasses', name: 'Glasses', level: 2, isExpandable: false },
+          { id: 'kids-gloves-mittens', name: 'Gloves & Mittens', level: 2, isExpandable: false },
+          { id: 'kids-hair-accessories', name: 'Hair Accessories', level: 2, isExpandable: false },
+          { id: 'kids-hats-caps', name: 'Hats & Caps', level: 2, isExpandable: false },
+          { id: 'kids-jewelry', name: 'Jewelry', level: 2, isExpandable: false },
+          { id: 'kids-scarves', name: 'Scarves', level: 2, isExpandable: false },
+          { id: 'kids-sunglasses', name: 'Sunglasses', level: 2, isExpandable: false },
+          { id: 'kids-ties-bow-ties', name: 'Ties & Bow Ties', level: 2, isExpandable: false },
+          { id: 'kids-watches', name: 'Watches', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'kids-bottoms',
+        name: 'Bottoms',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'kids-jeans', name: 'Jeans', level: 2, isExpandable: false },
+          { id: 'kids-leggings', name: 'Leggings', level: 2, isExpandable: false },
+          { id: 'kids-pants', name: 'Pants', level: 2, isExpandable: false },
+          { id: 'kids-shorts', name: 'Shorts', level: 2, isExpandable: false },
+          { id: 'kids-skirts', name: 'Skirts', level: 2, isExpandable: false },
+          { id: 'kids-sweatpants', name: 'Sweatpants', level: 2, isExpandable: false },
+          { id: 'kids-tights', name: 'Tights', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'kids-dresses',
+        name: 'Dresses',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'kids-casual-dresses', name: 'Casual Dresses', level: 2, isExpandable: false },
+          { id: 'kids-formal-dresses', name: 'Formal Dresses', level: 2, isExpandable: false },
+          { id: 'kids-holiday-dresses', name: 'Holiday Dresses', level: 2, isExpandable: false },
+          { id: 'kids-maxi-dresses', name: 'Maxi Dresses', level: 2, isExpandable: false },
+          { id: 'kids-party-dresses', name: 'Party Dresses', level: 2, isExpandable: false },
+          { id: 'kids-sundresses', name: 'Sundresses', level: 2, isExpandable: false },
+          { id: 'kids-tunic-dresses', name: 'Tunic Dresses', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'kids-jackets-coats',
+        name: 'Jackets & Coats',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'kids-blazers', name: 'Blazers', level: 2, isExpandable: false },
+          { id: 'kids-bomber-jackets', name: 'Bomber Jackets', level: 2, isExpandable: false },
+          { id: 'kids-denim-jackets', name: 'Denim Jackets', level: 2, isExpandable: false },
+          { id: 'kids-down-jackets', name: 'Down Jackets', level: 2, isExpandable: false },
+          { id: 'kids-fleece-jackets', name: 'Fleece Jackets', level: 2, isExpandable: false },
+          { id: 'kids-hooded-jackets', name: 'Hooded Jackets', level: 2, isExpandable: false },
+          { id: 'kids-parkas', name: 'Parkas', level: 2, isExpandable: false },
+          { id: 'kids-rain-jackets', name: 'Rain Jackets', level: 2, isExpandable: false },
+          { id: 'kids-varsity-jackets', name: 'Varsity Jackets', level: 2, isExpandable: false },
+          { id: 'kids-windbreakers', name: 'Windbreakers', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'kids-matching-sets',
+        name: 'Matching Sets',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'kids-athletic-sets', name: 'Athletic Sets', level: 2, isExpandable: false },
+          { id: 'kids-dress-sets', name: 'Dress Sets', level: 2, isExpandable: false },
+          { id: 'kids-outfit-sets', name: 'Outfit Sets', level: 2, isExpandable: false },
+          { id: 'kids-pajama-sets', name: 'Pajama Sets', level: 2, isExpandable: false },
+          { id: 'kids-school-sets', name: 'School Sets', level: 2, isExpandable: false },
+          { id: 'kids-twin-sets', name: 'Twin Sets', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'kids-one-pieces',
+        name: 'One Pieces',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'kids-bodysuits', name: 'Bodysuits', level: 2, isExpandable: false },
+          { id: 'kids-jumpsuits', name: 'Jumpsuits', level: 2, isExpandable: false },
+          { id: 'kids-onesies', name: 'Onesies', level: 2, isExpandable: false },
+          { id: 'kids-overalls', name: 'Overalls', level: 2, isExpandable: false },
+          { id: 'kids-rompers', name: 'Rompers', level: 2, isExpandable: false },
+          { id: 'kids-sleepers', name: 'Sleepers', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'kids-pajamas',
+        name: 'Pajamas',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'kids-nightgowns', name: 'Nightgowns', level: 2, isExpandable: false },
+          { id: 'kids-pajama-bottoms', name: 'Pajama Bottoms', level: 2, isExpandable: false },
+          { id: 'kids-pajama-tops', name: 'Pajama Tops', level: 2, isExpandable: false },
+          { id: 'kids-robes', name: 'Robes', level: 2, isExpandable: false },
+          { id: 'kids-sleep-sets', name: 'Sleep Sets', level: 2, isExpandable: false },
+          { id: 'kids-slippers', name: 'Slippers', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'kids-shirts-tops',
+        name: 'Shirts & Tops',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'kids-blouses', name: 'Blouses', level: 2, isExpandable: false },
+          { id: 'kids-button-down-shirts', name: 'Button Down Shirts', level: 2, isExpandable: false },
+          { id: 'kids-graphic-tees', name: 'Graphic Tees', level: 2, isExpandable: false },
+          { id: 'kids-hoodies', name: 'Hoodies', level: 2, isExpandable: false },
+          { id: 'kids-polo-shirts', name: 'Polo Shirts', level: 2, isExpandable: false },
+          { id: 'kids-sweatshirts', name: 'Sweatshirts', level: 2, isExpandable: false },
+          { id: 'kids-tank-tops', name: 'Tank Tops', level: 2, isExpandable: false },
+          { id: 'kids-tees-long-sleeve', name: 'Tees - Long Sleeve', level: 2, isExpandable: false },
+          { id: 'kids-tees-short-sleeve', name: 'Tees - Short Sleeve', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'kids-shoes',
+        name: 'Shoes',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'kids-athletic-shoes', name: 'Athletic Shoes', level: 2, isExpandable: false },
+          { id: 'kids-boots', name: 'Boots', level: 2, isExpandable: false },
+          { id: 'kids-dress-shoes', name: 'Dress Shoes', level: 2, isExpandable: false },
+          { id: 'kids-flats', name: 'Flats', level: 2, isExpandable: false },
+          { id: 'kids-mary-janes', name: 'Mary Janes', level: 2, isExpandable: false },
+          { id: 'kids-rain-boots', name: 'Rain Boots', level: 2, isExpandable: false },
+          { id: 'kids-sandals', name: 'Sandals', level: 2, isExpandable: false },
+          { id: 'kids-slip-ons', name: 'Slip Ons', level: 2, isExpandable: false },
+          { id: 'kids-sneakers', name: 'Sneakers', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'kids-swim',
+        name: 'Swim',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'kids-bikinis', name: 'Bikinis', level: 2, isExpandable: false },
+          { id: 'kids-board-shorts', name: 'Board Shorts', level: 2, isExpandable: false },
+          { id: 'kids-one-piece-swimsuits', name: 'One Piece Swimsuits', level: 2, isExpandable: false },
+          { id: 'kids-rashguards', name: 'Rashguards', level: 2, isExpandable: false },
+          { id: 'kids-swim-coverups', name: 'Swim Coverups', level: 2, isExpandable: false },
+          { id: 'kids-swim-trunks', name: 'Swim Trunks', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'kids-costumes',
+        name: 'Costumes',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'kids-character-costumes', name: 'Character Costumes', level: 2, isExpandable: false },
+          { id: 'kids-dress-up-clothes', name: 'Dress-Up Clothes', level: 2, isExpandable: false },
+          { id: 'kids-halloween-costumes', name: 'Halloween Costumes', level: 2, isExpandable: false },
+          { id: 'kids-holiday-costumes', name: 'Holiday Costumes', level: 2, isExpandable: false },
+          { id: 'kids-pretend-play', name: 'Pretend Play', level: 2, isExpandable: false },
+          { id: 'kids-school-play-costumes', name: 'School Play Costumes', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'kids-bath-skin-hair',
+        name: 'Bath, Skin & Hair',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'kids-bath-toys', name: 'Bath Toys', level: 2, isExpandable: false },
+          { id: 'kids-body-wash', name: 'Body Wash', level: 2, isExpandable: false },
+          { id: 'kids-hair-accessories-care', name: 'Hair Accessories & Care', level: 2, isExpandable: false },
+          { id: 'kids-lotion-moisturizer', name: 'Lotion & Moisturizer', level: 2, isExpandable: false },
+          { id: 'kids-shampoo-conditioner', name: 'Shampoo & Conditioner', level: 2, isExpandable: false },
+          { id: 'kids-sunscreen', name: 'Sunscreen', level: 2, isExpandable: false },
+          { id: 'kids-toothbrush-toothpaste', name: 'Toothbrush & Toothpaste', level: 2, isExpandable: false }
+        ]
+      },
+      {
+        id: 'kids-toys',
+        name: 'Toys',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'kids-action-figures', name: 'Action Figures', level: 2, isExpandable: false },
+          { id: 'kids-arts-crafts', name: 'Arts & Crafts', level: 2, isExpandable: false },
+          { id: 'kids-building-blocks', name: 'Building Blocks', level: 2, isExpandable: false },
+          { id: 'kids-dolls', name: 'Dolls', level: 2, isExpandable: false },
+          { id: 'kids-educational-toys', name: 'Educational Toys', level: 2, isExpandable: false },
+          { id: 'kids-electronic-toys', name: 'Electronic Toys', level: 2, isExpandable: false },
+          { id: 'kids-games-puzzles', name: 'Games & Puzzles', level: 2, isExpandable: false },
+          { id: 'kids-outdoor-toys', name: 'Outdoor Toys', level: 2, isExpandable: false },
+          { id: 'kids-plush-toys', name: 'Plush Toys', level: 2, isExpandable: false },
+          { id: 'kids-vehicles', name: 'Vehicles', level: 2, isExpandable: false }
+        ]
+      }
+    ]
+  },
   { id: 'home', name: 'Home', level: 0, isExpandable: false },
   { id: 'pets', name: 'Pets', level: 0, isExpandable: false },
   { id: 'electronics', name: 'Electronics', level: 0, isExpandable: false }
