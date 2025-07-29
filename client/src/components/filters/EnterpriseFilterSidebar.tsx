@@ -619,7 +619,11 @@ const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
     const navigationCategories = ['women', 'men', 'kids', 'home', 'pets', 'electronics'];
     
     if (navigationCategories.includes(categoryId)) {
-      // Navigate to the category page instead of filtering
+      // Prevent unnecessary navigation if already on the same page
+      if (categoryId === currentCategory) {
+        return; // Do nothing - already on this page
+      }
+      // Navigate to the category page only if it's different from current page
       window.location.href = `/fashion/${categoryId}`;
       return;
     }
@@ -636,7 +640,7 @@ const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
         selectedCategories: newSelectedCategories
       };
     });
-  }, []);
+  }, [currentCategory]);
 
   const handleBrandToggle = useCallback((brandId: string) => {
     setFilterState(prev => {
