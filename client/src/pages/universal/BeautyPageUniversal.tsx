@@ -1,19 +1,15 @@
-/**
- * Beauty & Wellness Page - Universal Category Page Implementation
- * Demonstrates universal three-column layout for Beauty category
- * 100% AOP compliance, zero shortcuts
- */
-
 import React from 'react';
 import UniversalCategoryPage from '@/components/universal/UniversalCategoryPage';
 
-const BeautyPageUniversal: React.FC = () => {
+/**
+ * Universal Beauty & Wellness Page - Enterprise AOP Implementation
+ * Uses UniversalCategoryPageFactory configuration for consistent layout
+ */
+export default function BeautyPageUniversal() {
   return (
-    <UniversalCategoryPage
+    <UniversalCategoryPage 
       category="beauty"
-      className="beauty-page-universal"
+      data-testid="page-beauty-universal"
     />
   );
-};
-
-export default BeautyPageUniversal;
+}

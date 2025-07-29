@@ -2,14 +2,14 @@ import React from 'react';
 import UniversalCategoryPage from '@/components/universal/UniversalCategoryPage';
 
 /**
- * Universal Home Page - Enterprise AOP Implementation
+ * Universal Sports & Outdoors Page - Enterprise AOP Implementation
  * Uses UniversalCategoryPageFactory configuration for consistent layout
  */
-export default function HomePageUniversal() {
+export default function SportsPageUniversal() {
   return (
     <UniversalCategoryPage 
-      category="home"
-      data-testid="page-home-universal"
+      category="sports"
+      data-testid="page-sports-universal"
     />
   );
 }

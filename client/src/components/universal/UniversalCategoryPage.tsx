@@ -97,7 +97,7 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
   }, [category, subcategory]);
 
   // Handle configuration errors
-  if (!configurationResult.isSuccess) {
+  if (configurationResult.isError()) {
     console.error('[UniversalCategoryPage] Configuration error:', configurationResult.error);
     return (
       <div className="min-h-screen bg-red-50 flex items-center justify-center">
@@ -235,8 +235,9 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
       // Apply category filtering (use the correct database category)
       if (pageState.filterState.selectedCategories.length > 0) {
         // For sample products, skip category filtering since they don't have database categories
-        const isFromDatabase = product.category !== undefined;
-        if (isFromDatabase && !pageState.filterState.selectedCategories.includes(category)) {
+        // Sample products are category-specific by design and don't need additional filtering
+        const hasProductCategory = 'category' in product && product.category !== undefined;
+        if (hasProductCategory && !pageState.filterState.selectedCategories.includes(category)) {
           console.log('[UniversalCategoryPage] Product filtered out by category:', product.title);
           return false;
         }
