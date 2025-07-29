@@ -532,10 +532,20 @@ const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
     selectedAvailability: ['all-items'],
     selectedTypes: ['all-conditions'],
     brandSearchQuery: '',
-    expandedSections: ['categories', 'women']
+    expandedSections: ['categories', currentCategory]
   });
 
   const [filteredBrands, setFilteredBrands] = useState<readonly FilterBrand[]>(BRANDS_DATA);
+
+  // ===== CATEGORY SYNCHRONIZATION =====
+  // Update expanded sections when currentCategory changes (page navigation)
+  useEffect(() => {
+    setFilterState(prev => ({
+      ...prev,
+      selectedCategories: [currentCategory],
+      expandedSections: ['categories', currentCategory] // Only expand current category
+    }));
+  }, [currentCategory]);
 
   // ===== ENTERPRISE MEMOIZED VALUES =====
   const sectionConfig = useMemo(() => ({
@@ -721,11 +731,18 @@ const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
     const hasSubcategories = category.subcategories && category.subcategories.length > 0;
     const isExpanded = filterState.expandedSections.includes(category.id);
     const indentLevel = category.level * 16;
+    const isCurrentCategory = category.id === currentCategory;
+    const navigationCategories = ['women', 'men', 'kids', 'home', 'pets', 'electronics'];
+    const isNavigationCategory = navigationCategories.includes(category.id);
 
     return (
       <div key={category.id} className="w-full" data-testid={`category-item-${category.id}`}>
         <div 
-          className={`flex items-center py-1 pl-${indentLevel > 0 ? `[${indentLevel}px]` : '0'} pr-2 hover:bg-gray-50 cursor-pointer transition-colors duration-150`}
+          className={`flex items-center py-1 pl-${indentLevel > 0 ? `[${indentLevel}px]` : '0'} pr-2 cursor-pointer transition-colors duration-150 ${
+            isCurrentCategory && isNavigationCategory
+              ? 'bg-purple-50 border-l-4 border-purple-500'
+              : 'hover:bg-gray-50'
+          }`}
           onClick={() => {
             handleCategoryToggle(category.id);
             if (hasSubcategories) {
@@ -736,11 +753,13 @@ const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
           <div className="flex items-center flex-1 min-w-0">
             <span 
               className={`text-sm truncate ${
-                isSelected 
-                  ? 'text-purple-700 font-semibold' 
-                  : category.level === 0 
-                    ? 'text-gray-900 font-medium' 
-                    : 'text-gray-700'
+                isCurrentCategory && isNavigationCategory
+                  ? 'text-purple-700 font-bold'
+                  : isSelected 
+                    ? 'text-purple-700 font-semibold' 
+                    : category.level === 0 
+                      ? 'text-gray-900 font-medium' 
+                      : 'text-gray-700'
               }`}
             >
               {category.name}
@@ -762,7 +781,7 @@ const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
         )}
       </div>
     );
-  }, [filterState.selectedCategories, filterState.expandedSections, handleCategoryToggle, handleSectionToggle]);
+  }, [filterState.selectedCategories, filterState.expandedSections, handleCategoryToggle, handleSectionToggle, currentCategory]);
 
   const renderCollapsibleSection = useCallback((
     sectionKey: keyof typeof sectionConfig,
