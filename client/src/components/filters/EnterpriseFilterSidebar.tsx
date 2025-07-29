@@ -362,7 +362,18 @@ const CATEGORIES_DATA: readonly FilterCategory[] = [
           { id: 'v-necks', name: 'V-Necks', level: 2, isExpandable: false }
         ]
       },
-      { id: 'swim', name: 'Swim', level: 1, isExpandable: false },
+      {
+        id: 'swim',
+        name: 'Swim',
+        level: 1,
+        isExpandable: true,
+        subcategories: [
+          { id: 'bikinis', name: 'Bikinis', level: 2, isExpandable: false },
+          { id: 'coverups', name: 'Coverups', level: 2, isExpandable: false },
+          { id: 'one-pieces', name: 'One Pieces', level: 2, isExpandable: false },
+          { id: 'sarongs', name: 'Sarongs', level: 2, isExpandable: false }
+        ]
+      },
       { id: 'tops', name: 'Tops', level: 1, isExpandable: false },
       { id: 'skincare', name: 'Skincare', level: 1, isExpandable: false },
       { id: 'hair', name: 'Hair', level: 1, isExpandable: false },
