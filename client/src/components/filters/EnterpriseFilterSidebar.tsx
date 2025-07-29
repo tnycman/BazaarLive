@@ -605,6 +605,16 @@ const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
   }, []);
 
   const handleCategoryToggle = useCallback((categoryId: string) => {
+    // Handle navigation categories (top-level categories that should navigate to different pages)
+    const navigationCategories = ['men', 'kids', 'home', 'pets', 'electronics'];
+    
+    if (navigationCategories.includes(categoryId)) {
+      // Navigate to the category page instead of filtering
+      window.location.href = `/fashion/${categoryId}`;
+      return;
+    }
+
+    // Handle filter categories (subcategories that should filter the current page)
     setFilterState(prev => {
       const isSelected = prev.selectedCategories.includes(categoryId);
       const newSelectedCategories = isSelected
