@@ -261,28 +261,49 @@ export class ConfigurationResultUtils {
   }
 
   /**
-   * Validate and create result from configuration data
+   * Validate and create result from configuration data (ASYNC)
+   * 
+   * Enterprise implementation using ResultFactory with aspect orchestration
    */
-  static validate<T>(
+  static async validate<T>(
+    value: unknown,
+    validator: (value: unknown) => { isValid: boolean; errors: string[] },
+    configKey: string,
+    contextId?: string
+  ): Promise<ConfigurationResult<T>> {
+    // Use enterprise ResultFactory with aspect orchestration
+    const { resultFactory } = await import('../factories/ResultFactory');
+    
+    const context = {
+      operation: 'validate',
+      configKey,
+      contextId,
+      validationType: 'configuration',
+      metadata: { source: 'ConfigurationResultUtils' }
+    };
+    
+    return await resultFactory.createValidationResult<T>(value, validator, context);
+  }
+  
+  /**
+   * Validate and create result from configuration data (SYNC - DEPRECATED)
+   * 
+   * @deprecated Use async validate method for enterprise compliance
+   */
+  static validateSync<T>(
     value: unknown,
     validator: (value: unknown) => { isValid: boolean; errors: string[] },
     configKey: string,
     contextId?: string
   ): ConfigurationResult<T> {
-    const validation = validator(value);
-    
-    if (validation.isValid) {
-      return ConfigurationResultUtils.success(value as T);
-    }
-    
-    const { ConfigurationValidationError } = await import('../errors/ConfigurationErrors');
-    const error = new ConfigurationValidationError(
-      configKey,
-      validation.errors,
-      { contextId, rawData: value }
+    console.warn(
+      `DEPRECATED: ConfigurationResultUtils.validateSync is deprecated. ` +
+      `Use async validate method for enterprise AOP compliance.`
     );
     
-    return ConfigurationResultUtils.failure(error);
+    // Use backward compatibility bridge
+    const { ResultFactoryBridge } = require('../factories/ResultFactory');
+    return ResultFactoryBridge.validate<T>(value, validator, configKey, contextId);
   }
 
   /**
