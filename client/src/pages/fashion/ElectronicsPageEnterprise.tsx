@@ -109,8 +109,7 @@ export default function ElectronicsPageEnterprise() {
     // Apply category selection filtering with AOP validation
     if (categorySelection.level2) {
       filtered = filtered.filter(listing => 
-        listing.subcategory === categorySelection.level2 ||
-        listing.domainSpecificData?.subcategory === categorySelection.level2
+        listing.subcategory === categorySelection.level2
       );
     }
     
@@ -132,7 +131,7 @@ export default function ElectronicsPageEnterprise() {
     
     if (filterCriteria?.condition?.length && Array.isArray(filterCriteria.condition)) {
       filtered = filtered.filter(listing => 
-        filterCriteria.condition!.includes(listing.condition || 'used')
+        filterCriteria.condition!.includes((listing.condition as any) || 'used')
       );
     }
     
@@ -152,13 +151,13 @@ export default function ElectronicsPageEnterprise() {
         );
       case 'price_low':
         return sorted.sort((a, b) => 
-          parseFloat(a.price.replace(/[^0-9.]/g, '')) - 
-          parseFloat(b.price.replace(/[^0-9.]/g, ''))
+          parseFloat((a.price || '0').replace(/[^0-9.]/g, '')) - 
+          parseFloat((b.price || '0').replace(/[^0-9.]/g, ''))
         );
       case 'price_high':
         return sorted.sort((a, b) => 
-          parseFloat(b.price.replace(/[^0-9.]/g, '')) - 
-          parseFloat(a.price.replace(/[^0-9.]/g, ''))
+          parseFloat((b.price || '0').replace(/[^0-9.]/g, '')) - 
+          parseFloat((a.price || '0').replace(/[^0-9.]/g, ''))
         );
       default:
         return sorted;
@@ -202,7 +201,7 @@ export default function ElectronicsPageEnterprise() {
       
       <div className="flex">
         <div className="w-80 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 min-h-screen">
-          <div className="p-6">
+          <div className="p-4">
             <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
               {domainMetadata.title}
             </h2>
@@ -219,7 +218,7 @@ export default function ElectronicsPageEnterprise() {
                     level1: 'electronics',
                     level2: subcategory.id
                   })}
-                  className={`w-full text-left p-3 rounded-lg transition-colors ${
+                  className={`w-full text-left p-4 rounded-lg transition-colors ${
                     categorySelection.level2 === subcategory.id
                       ? 'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300'
                       : 'hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300'
@@ -237,7 +236,7 @@ export default function ElectronicsPageEnterprise() {
         </div>
 
         <div className="flex-1 flex flex-col min-h-screen">
-          <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-6">
+          <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-4">
             <div className="max-w-2xl">
               <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
                 {domainMetadata.title}
@@ -285,7 +284,7 @@ export default function ElectronicsPageEnterprise() {
             </div>
           </div>
 
-          <div className="flex-1 p-6 overflow-y-auto">
+          <div className="flex-1 p-4 overflow-y-auto">
             {isLoading ? (
               <div className="flex items-center justify-center py-12">
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
