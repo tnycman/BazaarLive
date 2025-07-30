@@ -146,7 +146,7 @@ function ListingCard({ listing, viewMode }: ListingCardProps) {
         </div>
       </div>
       
-      <div className="p-3">
+      <div className="p-4">
         <h3 className="text-sm font-medium text-gray-900 dark:text-white line-clamp-2 mb-1">
           {listing.title || 'Untitled Item'}
         </h3>
@@ -195,7 +195,7 @@ export function ProductGrid({
 
   if (isLoading) {
     return (
-      <div className="flex-1 p-6">
+      <div className="flex-1 p-4">
         <div className="flex items-center justify-center h-64">
           <div className="text-center">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-600 mx-auto mb-4"></div>

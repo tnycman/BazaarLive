@@ -438,7 +438,7 @@ const EnterpriseProductGrid: React.FC<ProductGridProps> = memo(({
   return (
     <div className={`w-full ${className}`} data-testid="enterprise-product-grid">
       {/* Fixed Header with Proper Interface */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-6 mb-6">
+      <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 mb-6">
         {/* Header Title and Count */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
           <div className="mb-4 sm:mb-0">

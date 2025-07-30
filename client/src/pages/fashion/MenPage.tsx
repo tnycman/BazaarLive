@@ -85,7 +85,7 @@ export default function MenPage() {
         {/* Main Content Area */}
         <div className="flex-1 flex flex-col min-h-screen">
           {/* Page Header */}
-          <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-6">
+          <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-4">
             <div className="max-w-2xl">
               <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
                 Men's Fashion
