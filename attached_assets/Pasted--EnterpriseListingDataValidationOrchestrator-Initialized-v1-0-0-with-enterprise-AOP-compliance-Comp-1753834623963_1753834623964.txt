@@ -1,0 +1,105 @@
+[EnterpriseListingDataValidationOrchestrator] Initialized v1.0.0 with enterprise AOP compliance
+ComponentInterceptorFramework.ts:445 [InterceptorManager] Registered interceptor: PerformanceMonitoring
+ComponentInterceptorFramework.ts:445 [InterceptorManager] Registered interceptor: PropsValidation
+ComponentInterceptorFramework.ts:445 [InterceptorManager] Registered interceptor: ErrorBoundary
+UniversalCategoryPage.tsx:161 [UniversalCategoryPage] Sample products from configuration: []
+UniversalCategoryPage.tsx:167 [UniversalCategoryPage] Frontend-only mode - Using sample products: []
+UniversalCategoryPage.tsx:168 [UniversalCategoryPage] Sample products count: 0
+UniversalCategoryPage.tsx:179 [UniversalCategoryPage] Filtering products. Initial count: 0
+UniversalCategoryPage.tsx:180 [UniversalCategoryPage] Filter state: {selectedBrands: Array(0), selectedCategories: Array(1), searchQuery: ''}
+UniversalCategoryPage.tsx:224 [UniversalCategoryPage] Final filtered count: 0
+UniversalCategoryPage.tsx:103 [UniversalCategoryPage] Loading configuration for: {category: 'fashion', subcategory: 'electronics', subSubcategory: undefined}
+UniversalCategoryPage.tsx:123 [UniversalCategoryPage] Configuration loaded successfully: {hasValue: true, sampleProductsCount: 2}
+UniversalCategoryPage.tsx:161 [UniversalCategoryPage] Sample products from configuration: (2) [{…}, {…}]
+UniversalCategoryPage.tsx:167 [UniversalCategoryPage] Frontend-only mode - Using sample products: (2) [{…}, {…}]
+UniversalCategoryPage.tsx:168 [UniversalCategoryPage] Sample products count: 2
+UniversalCategoryPage.tsx:179 [UniversalCategoryPage] Filtering products. Initial count: 2
+UniversalCategoryPage.tsx:180 [UniversalCategoryPage] Filter state: {selectedBrands: Array(0), selectedCategories: Array(1), searchQuery: ''}
+UniversalCategoryPage.tsx:224 [UniversalCategoryPage] Final filtered count: 2
+UniversalCategoryPage.tsx:161 [UniversalCategoryPage] Sample products from configuration: (2) [{…}, {…}]
+UniversalCategoryPage.tsx:167 [UniversalCategoryPage] Frontend-only mode - Using sample products: (2) [{…}, {…}]
+UniversalCategoryPage.tsx:168 [UniversalCategoryPage] Sample products count: 2
+UniversalCategoryPage.tsx:179 [UniversalCategoryPage] Filtering products. Initial count: 2
+UniversalCategoryPage.tsx:180 [UniversalCategoryPage] Filter state: {selectedBrands: Array(0), selectedCategories: Array(1), searchQuery: ''}
+UniversalCategoryPage.tsx:224 [UniversalCategoryPage] Final filtered count: 2
+UniversalCategoryPage.tsx:356 Uncaught ReferenceError: error is not defined
+    at UniversalCategoryPage.tsx:356:3
+    at renderWithHooks (chunk-RPCDYKBN.js?v=01c05cb6:11548:26)
+    at updateFunctionComponent (chunk-RPCDYKBN.js?v=01c05cb6:14582:28)
+    at updateSimpleMemoComponent (chunk-RPCDYKBN.js?v=01c05cb6:14463:18)
+    at beginWork (chunk-RPCDYKBN.js?v=01c05cb6:15980:22)
+    at HTMLUnknownElement.callCallback2 (chunk-RPCDYKBN.js?v=01c05cb6:3674:22)
+    at Object.invokeGuardedCallbackDev (chunk-RPCDYKBN.js?v=01c05cb6:3699:24)
+    at invokeGuardedCallback (chunk-RPCDYKBN.js?v=01c05cb6:3733:39)
+    at beginWork$1 (chunk-RPCDYKBN.js?v=01c05cb6:19765:15)
+    at performUnitOfWork (chunk-RPCDYKBN.js?v=01c05cb6:19198:20)
+(anonymous) @ UniversalCategoryPage.tsx:356
+renderWithHooks @ chunk-RPCDYKBN.js?v=01c05cb6:11548
+updateFunctionComponent @ chunk-RPCDYKBN.js?v=01c05cb6:14582
+updateSimpleMemoComponent @ chunk-RPCDYKBN.js?v=01c05cb6:14463
+beginWork @ chunk-RPCDYKBN.js?v=01c05cb6:15980
+callCallback2 @ chunk-RPCDYKBN.js?v=01c05cb6:3674
+invokeGuardedCallbackDev @ chunk-RPCDYKBN.js?v=01c05cb6:3699
+invokeGuardedCallback @ chunk-RPCDYKBN.js?v=01c05cb6:3733
+beginWork$1 @ chunk-RPCDYKBN.js?v=01c05cb6:19765
+performUnitOfWork @ chunk-RPCDYKBN.js?v=01c05cb6:19198
+workLoopSync @ chunk-RPCDYKBN.js?v=01c05cb6:19137
+renderRootSync @ chunk-RPCDYKBN.js?v=01c05cb6:19116
+performConcurrentWorkOnRoot @ chunk-RPCDYKBN.js?v=01c05cb6:18678
+workLoop @ chunk-RPCDYKBN.js?v=01c05cb6:197
+flushWork @ chunk-RPCDYKBN.js?v=01c05cb6:176
+performWorkUntilDeadline @ chunk-RPCDYKBN.js?v=01c05cb6:384Understand this error
+UniversalCategoryPage.tsx:161 [UniversalCategoryPage] Sample products from configuration: (2) [{…}, {…}]
+UniversalCategoryPage.tsx:167 [UniversalCategoryPage] Frontend-only mode - Using sample products: (2) [{…}, {…}]
+UniversalCategoryPage.tsx:168 [UniversalCategoryPage] Sample products count: 2
+UniversalCategoryPage.tsx:179 [UniversalCategoryPage] Filtering products. Initial count: 2
+UniversalCategoryPage.tsx:180 [UniversalCategoryPage] Filter state: {selectedBrands: Array(0), selectedCategories: Array(1), searchQuery: ''}
+UniversalCategoryPage.tsx:224 [UniversalCategoryPage] Final filtered count: 2
+UniversalCategoryPage.tsx:161 [UniversalCategoryPage] Sample products from configuration: (2) [{…}, {…}]
+UniversalCategoryPage.tsx:167 [UniversalCategoryPage] Frontend-only mode - Using sample products: (2) [{…}, {…}]
+UniversalCategoryPage.tsx:168 [UniversalCategoryPage] Sample products count: 2
+UniversalCategoryPage.tsx:179 [UniversalCategoryPage] Filtering products. Initial count: 2
+UniversalCategoryPage.tsx:180 [UniversalCategoryPage] Filter state: {selectedBrands: Array(0), selectedCategories: Array(1), searchQuery: ''}
+UniversalCategoryPage.tsx:224 [UniversalCategoryPage] Final filtered count: 2
+UniversalCategoryPage.tsx:356 Uncaught ReferenceError: error is not defined
+    at UniversalCategoryPage.tsx:356:3
+    at renderWithHooks (chunk-RPCDYKBN.js?v=01c05cb6:11548:26)
+    at updateFunctionComponent (chunk-RPCDYKBN.js?v=01c05cb6:14582:28)
+    at updateSimpleMemoComponent (chunk-RPCDYKBN.js?v=01c05cb6:14463:18)
+    at beginWork (chunk-RPCDYKBN.js?v=01c05cb6:15980:22)
+    at HTMLUnknownElement.callCallback2 (chunk-RPCDYKBN.js?v=01c05cb6:3674:22)
+    at Object.invokeGuardedCallbackDev (chunk-RPCDYKBN.js?v=01c05cb6:3699:24)
+    at invokeGuardedCallback (chunk-RPCDYKBN.js?v=01c05cb6:3733:39)
+    at beginWork$1 (chunk-RPCDYKBN.js?v=01c05cb6:19765:15)
+    at performUnitOfWork (chunk-RPCDYKBN.js?v=01c05cb6:19198:20)
+(anonymous) @ UniversalCategoryPage.tsx:356
+renderWithHooks @ chunk-RPCDYKBN.js?v=01c05cb6:11548
+updateFunctionComponent @ chunk-RPCDYKBN.js?v=01c05cb6:14582
+updateSimpleMemoComponent @ chunk-RPCDYKBN.js?v=01c05cb6:14463
+beginWork @ chunk-RPCDYKBN.js?v=01c05cb6:15980
+callCallback2 @ chunk-RPCDYKBN.js?v=01c05cb6:3674
+invokeGuardedCallbackDev @ chunk-RPCDYKBN.js?v=01c05cb6:3699
+invokeGuardedCallback @ chunk-RPCDYKBN.js?v=01c05cb6:3733
+beginWork$1 @ chunk-RPCDYKBN.js?v=01c05cb6:19765
+performUnitOfWork @ chunk-RPCDYKBN.js?v=01c05cb6:19198
+workLoopSync @ chunk-RPCDYKBN.js?v=01c05cb6:19137
+renderRootSync @ chunk-RPCDYKBN.js?v=01c05cb6:19116
+recoverFromConcurrentError @ chunk-RPCDYKBN.js?v=01c05cb6:18736
+performConcurrentWorkOnRoot @ chunk-RPCDYKBN.js?v=01c05cb6:18684
+workLoop @ chunk-RPCDYKBN.js?v=01c05cb6:197
+flushWork @ chunk-RPCDYKBN.js?v=01c05cb6:176
+performWorkUntilDeadline @ chunk-RPCDYKBN.js?v=01c05cb6:384Understand this error
+chunk-RPCDYKBN.js?v=01c05cb6:14032 The above error occurred in the <UniversalCategoryPage> component:
+
+    at https://33bc5b51-76e0-4209-b60c-494e72cc47b3-00-2k5fhpy4z25dp.picard.replit.dev/src/components/universal/UniversalCategoryPage.tsx:51:3
+    at component
+    at Route (https://33bc5b51-76e0-4209-b60c-494e72cc47b3-00-2k5fhpy4z25dp.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=01c05cb6:323:16)
+    at Switch (https://33bc5b51-76e0-4209-b60c-494e72cc47b3-00-2k5fhpy4z25dp.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=01c05cb6:379:17)
+    at Router (https://33bc5b51-76e0-4209-b60c-494e72cc47b3-00-2k5fhpy4z25dp.picard.replit.dev/src/App.tsx?v=2amCo5xwSrOK-xw4_VT4B:38:42)
+    at Provider (https://33bc5b51-76e0-4209-b60c-494e72cc47b3-00-2k5fhpy4z25dp.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-U27FYV5Z.js?v=01c05cb6:38:15)
+    at TooltipProvider (https://33bc5b51-76e0-4209-b60c-494e72cc47b3-00-2k5fhpy4z25dp.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=01c05cb6:66:5)
+    at QueryClientProvider (https://33bc5b51-76e0-4209-b60c-494e72cc47b3-00-2k5fhpy4z25dp.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=01c05cb6:2805:3)
+    at App
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
