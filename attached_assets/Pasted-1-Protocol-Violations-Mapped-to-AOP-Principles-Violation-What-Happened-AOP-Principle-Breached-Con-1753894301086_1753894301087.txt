@@ -1,0 +1,270 @@
+1. Protocol Violations Mapped to AOP Principles
+Violation #	What Happened	AOP Principle Breached	Consequence
+1	Direct key lookup in CONFIGURATION_MAP instead of interception	Lack of Advice/Pointcuts: cross‑cutting concerns should be weaved, not inlined	No logging, no validation, no metrics around config loads
+2	Flattened the enterprise strategy pattern into a “hybrid” override	Violation of Separation of Concerns: application logic was mingled with fallback logic	Destroyed existing aspect pipeline; bypassed future extensibility
+3	Patched the TS union type ("radio") without schema validation	No Schema‑Validation Advice: type safety must be enforced by a validation aspect, not by broadening unions	Runtime mismatch risk remains; Liskov Substitution Principle broken
+4	Wrapping calls in try/catch with console.warn only	Missing Error‑Handling Aspect: errors must be captured, normalized, and recovery‑strategized by a dedicated advice	No error hierarchy; poor observability; no retry or fallback logic
+5	Direct mutation of CONFIGURATION_MAP	Bypassed Registry Integrity Advice: registry modifications must pass through aspect‑driven validation/orchestration	Broke consistency checks; no transactional safety or audit trail
+
+2. Core AOP‑Compliant Architecture Overview
+We’ll build a layered solution with seven key components:
+
+Aspects (Validation, Caching, Performance, Security, Logging, Analytics)
+
+ConfigurationDomainService (with AOP weaving)
+
+ConfigurationRepository (data‑access abstraction)
+
+ConfigurationValidationOrchestrator (schema transformation)
+
+ConfigurationAspectManager (central registry of advices)
+
+Enterprise Error Hierarchy (with recovery strategies)
+
+Result Pattern (uniform success/failure envelope)
+
+Each layer is strictly decoupled and only “knows” about its own concern.
+
+Phase 1: Define AOP Advices
+ts
+Copy
+Edit
+// aspects/ConfigurationValidationAspect.ts
+@Aspect()
+export class ConfigurationValidationAspect {
+  @Before('ConfigurationDomainService.getConfiguration')
+  validateKey(joinPoint: JoinPoint<[ConfigurationKey]>): void {
+    const [key] = joinPoint.args;
+    if (!isValidKeyFormat(key)) {
+      throw new ConfigurationValidationError(`Invalid key format: ${key}`);
+    }
+  }
+
+  @AfterReturning('ConfigurationDomainService.getConfiguration')
+  validateStructure(
+    joinPoint: JoinPoint,
+    result: UniversalPageConfiguration
+  ): void {
+    const { filters, layout } = result;
+    if (!Array.isArray(filters) || !layout) {
+      throw new ConfigurationValidationError(
+        `Malformed configuration for key ${joinPoint.args[0]}`
+      );
+    }
+  }
+}
+
+// aspects/ConfigurationCachingAspect.ts
+@Aspect()
+export class ConfigurationCachingAspect {
+  private cache = new Map<string, UniversalPageConfiguration>();
+
+  @Around('ConfigurationDomainService.getConfiguration')
+  async cacheAround(joinPoint: ProceedingJoinPoint): Promise<any> {
+    const key: string = joinPoint.args[0];
+    if (this.cache.has(key)) {
+      return this.cache.get(key)!;
+    }
+    const result = await joinPoint.proceed();
+    this.cache.set(key, result);
+    return result;
+  }
+}
+
+// aspects/ConfigurationPerformanceAspect.ts
+@Aspect()
+export class ConfigurationPerformanceAspect {
+  @Before('ConfigurationDomainService.getConfiguration')
+  start(joinPoint: JoinPoint): void {
+    joinPoint.metadata.startTime = Date.now();
+  }
+
+  @AfterReturning('ConfigurationDomainService.getConfiguration')
+  end(joinPoint: JoinPoint): void {
+    const elapsed = Date.now() - joinPoint.metadata.startTime;
+    PerformanceLogger.record('getConfiguration', elapsed);
+  }
+}
+
+// aspects/ConfigurationErrorHandlingAspect.ts
+@Aspect()
+export class ConfigurationErrorHandlingAspect {
+  @AfterThrowing('ConfigurationDomainService.getConfiguration')
+  handleError(joinPoint: JoinPoint, error: Error): never {
+    const wrapped = wrapInDomainError(error);
+    AuditLogger.error(wrapped);
+    throw wrapped;
+  }
+}
+
+// aspects/ConfigurationSecurityAspect.ts
+@Aspect()
+export class ConfigurationSecurityAspect {
+  @Before('ConfigurationDomainService.getConfiguration')
+  enforcePermissions(joinPoint: JoinPoint): void {
+    const user = SecurityContext.currentUser();
+    if (!user.hasPermission('VIEW_CONFIGURATION')) {
+      throw new ConfigurationSecurityError('Access denied');
+    }
+  }
+}
+
+// aspects/ConfigurationAnalyticsAspect.ts
+@Aspect()
+export class ConfigurationAnalyticsAspect {
+  @AfterReturning('ConfigurationDomainService.getConfiguration')
+  logAnalytics(joinPoint: JoinPoint, result: UniversalPageConfiguration): void {
+    Analytics.track('configuration.loaded', { key: joinPoint.args[0] });
+  }
+}
+Phase 2: Aspect Manager & Weaving
+ts
+Copy
+Edit
+// aspects/ConfigurationAspectManager.ts
+export class ConfigurationAspectManager extends BaseAspectManager {
+  constructor() {
+    super([
+      new ConfigurationValidationAspect(),
+      new ConfigurationCachingAspect(),
+      new ConfigurationPerformanceAspect(),
+      new ConfigurationErrorHandlingAspect(),
+      new ConfigurationSecurityAspect(),
+      new ConfigurationAnalyticsAspect(),
+    ]);
+  }
+}
+At application bootstrap:
+
+ts
+Copy
+Edit
+const aspectManager = new ConfigurationAspectManager();
+aspectManager.weave(ConfigurationDomainService.prototype);
+Phase 3: Configuration Domain Service
+ts
+Copy
+Edit
+// services/ConfigurationDomainService.ts
+export class ConfigurationDomainService {
+  constructor(
+    private repository: ConfigurationRepository,
+    private validator: ConfigurationValidationOrchestrator
+  ) {}
+
+  @WeaveAspects() // decorator triggers the aspects
+  async getConfiguration(
+    key: ConfigurationKey
+  ): Promise<UniversalPageConfiguration> {
+    const raw = await this.repository.fetch(key);
+    return this.validator.transform(raw);
+  }
+}
+Phase 4: Validation Orchestrator
+ts
+Copy
+Edit
+// orchestrators/ConfigurationValidationOrchestrator.ts
+export class ConfigurationValidationOrchestrator {
+  async transform(
+    raw: unknown
+  ): Promise<UniversalPageConfiguration> {
+    const parsed = RawSchema.parse(raw);           // z.object(…) Zod schema
+    const filterSchemas = await Promise.all(
+      parsed.filters.map(f => this.toZodSchema(f))
+    );
+    return { ...parsed, filters: filterSchemas };
+  }
+
+  private async toZodSchema(
+    def: FilterDefinition
+  ): Promise<ZodSchema> {
+    // Convert your complex object to a ZodSchema instance
+    // Enforce `required`, `min/max`, custom validators, etc.
+    return z.object({ … });
+  }
+}
+Phase 5: Configuration Repository
+ts
+Copy
+Edit
+// repositories/ConfigurationRepository.ts
+export interface ConfigurationRepository {
+  fetch(key: ConfigurationKey): Promise<unknown>;
+}
+
+// implementation via dynamic imports
+export class FileSystemConfigurationRepository implements ConfigurationRepository {
+  async fetch(key: string): Promise<unknown> {
+    // dynamic import safety: use an explicit map or require.context
+    return await import(`../configs/${key}.ts`);
+  }
+}
+Phase 6: Enterprise Error Hierarchy
+ts
+Copy
+Edit
+// errors/ConfigurationErrors.ts
+export abstract class ConfigurationError extends DomainError {
+  abstract recovery(): RecoveryStrategy;
+}
+
+export class ConfigurationNotFoundError extends ConfigurationError {
+  recovery() { return RecoveryStrategy.FALLBACK; }
+}
+
+export class ConfigurationValidationError extends ConfigurationError {
+  recovery() { return RecoveryStrategy.ALERT_DEVELOPER; }
+}
+
+export class ConfigurationLoadError extends ConfigurationError {
+  recovery() { return RecoveryStrategy.RETRY; }
+}
+
+export class ConfigurationSecurityError extends ConfigurationError {
+  recovery() { return RecoveryStrategy.ABORT; }
+}
+Phase 7: Result Pattern
+Every async call returns a Result<T, E extends DomainError>:
+
+ts
+Copy
+Edit
+type Result<T, E> =
+  | { ok: true; value: T }
+  | { ok: false; error: E };
+
+function wrapResult<T>(promise: Promise<T>): Promise<Result<T, DomainError>> { … }
+Use this envelope throughout your service layer.
+
+3. End‑to‑End Flow
+Client calls ConfigurationDomainService.getConfiguration('fashion-women').
+
+ConfigurationValidationAspect runs @Before, checks key format.
+
+ConfigurationSecurityAspect enforces permissions.
+
+ConfigurationCachingAspect returns from cache if present.
+
+If cache‑miss, control reaches getConfiguration body.
+
+ConfigurationRepository dynamically loads raw config.
+
+ValidationOrchestrator transforms raw into typed schema.
+
+ConfigurationPerformanceAspect measures timing
+and AnalyticsAspect logs the load event.
+
+ErrorHandlingAspect intercepts any thrown error, wraps it
+in your domain hierarchy with recovery info.
+
+4. Zero‑Shortcut Guarantees
+Separation of Concerns: aspects never mingle with business logic.
+
+Type Safety: every filter is converted to a Zod schema.
+
+Observability: performance, security checks, analytics, logging, and error recovery all wired in.
+
+Extensibility: new cross‑cutting concerns (e.g. rate‑limiting) become new aspects—no core changes.
+
+Maintainability: clear module boundaries; single‑responsibility classes.
