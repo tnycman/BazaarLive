@@ -18,6 +18,7 @@ import AnalyticsDashboard from "@/pages/analytics/AnalyticsDashboard";
 import AIAssistant from "@/pages/ai-assistant";
 // Universal Category Page Component - Single unified component for ALL categories
 import UniversalCategoryPage from "@/components/universal/UniversalCategoryPage";
+import { SimpleCategoryPage } from "@/components/SimpleCategoryPage";
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
@@ -25,7 +26,7 @@ function Router() {
   return (
     <Switch>
       {/* Universal Category Routes - Unified routing architecture using UniversalCategoryPage */}
-      <Route path="/fashion/women" component={() => <UniversalCategoryPage category="fashion" subcategory="women" />} />
+      <Route path="/fashion/women" component={() => <SimpleCategoryPage />} />
       <Route path="/fashion/men" component={() => <UniversalCategoryPage category="fashion" subcategory="men" />} />
       <Route path="/fashion/kids" component={() => <UniversalCategoryPage category="fashion" subcategory="kids" />} />
       <Route path="/fashion/home" component={() => <UniversalCategoryPage category="fashion" subcategory="home" />} />
