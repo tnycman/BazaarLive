@@ -361,39 +361,57 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
     subcategory,
     title: pageConfiguration.metadata.title,
     filteredProductsCount: filteredProducts.length,
-    isLoading: pageState.isLoading
+    isLoading: pageState.isLoading,
+    hasPageConfiguration: !!pageConfiguration,
+    sampleProductsCount: pageConfiguration?.sampleProducts?.length || 0,
+    displayProductsCount: displayProducts.length
   });
+
+  // Debug: Log sample products to console
+  if (pageConfiguration?.sampleProducts) {
+    console.log('[UniversalCategoryPage] Sample products available:', pageConfiguration.sampleProducts);
+  }
 
   // Render universal three-column layout matching original Women's page structure
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50" data-testid="universal-category-page">
+      {/* Always render Header and Navigation - not authentication dependent */}
       <Header />
       <Navigation />
       
-      <EnterprisePageLayout
-        leftSidebar={
-          <EnterpriseFilterSidebar
-            currentCategory={subcategory || category}
-            onFilterChange={handleFilterChange}
-            isLoading={pageState.isLoading}
-          />
-        }
-        mainContent={
-          <EnterpriseProductGrid
-            products={filteredProducts}
-            onProductClick={handleProductClick}
-            onLikeToggle={handleLikeToggle}
-            onSellerClick={handleSellerClick}
-            onShare={handleShare}
-            isLoading={pageState.isLoading}
-            title={pageConfiguration.metadata.title}
-            gridColumns={4}
-          />
-        }
-        rightSidebar={
-          <EnterpriseRightSidebar />
-        }
-      />
+      {/* Three-column layout with proper debugging */}
+      <div className="w-full" data-testid="page-layout-container">
+        <EnterprisePageLayout
+          leftSidebar={
+            <div data-testid="left-sidebar-container">
+              <EnterpriseFilterSidebar
+                currentCategory={subcategory || category}
+                onFilterChange={handleFilterChange}
+                isLoading={pageState.isLoading}
+              />
+            </div>
+          }
+          mainContent={
+            <div data-testid="main-content-container">
+              <EnterpriseProductGrid
+                products={filteredProducts}
+                onProductClick={handleProductClick}
+                onLikeToggle={handleLikeToggle}
+                onSellerClick={handleSellerClick}
+                onShare={handleShare}
+                isLoading={pageState.isLoading}
+                title={pageConfiguration.metadata.title}
+                gridColumns={4}
+              />
+            </div>
+          }
+          rightSidebar={
+            <div data-testid="right-sidebar-container">
+              <EnterpriseRightSidebar />
+            </div>
+          }
+        />
+      </div>
     </div>
   );
 });
