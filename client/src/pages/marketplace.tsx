@@ -211,7 +211,7 @@ export default function Marketplace() {
                     <button
                       key={category.id}
                       onClick={() => setSelectedCategory(category.id)}
-                      className={`w-full flex items-center justify-between p-3 rounded-lg text-left transition-colors ${
+                      className={`w-full flex items-center justify-between p-4 rounded-lg text-left transition-colors ${
                         selectedCategory === category.id
                           ? 'bg-primary text-white'
                           : 'hover:bg-gray-100 text-gray-700'

@@ -591,7 +591,7 @@ function ListingCard({ listing, showSeller = true }: ListingCardProps) {
           )}
         </div>
         
-        <CardContent className="p-3">
+        <CardContent className="p-4">
           <div className="space-y-2">
             <h3 className="font-medium text-gray-900 dark:text-white text-sm line-clamp-2 leading-tight">
               {listing.title}
@@ -675,7 +675,7 @@ function FeedSkeleton() {
               {[1, 2, 3, 4].map((i) => (
                 <Card key={i} className="glass-card">
                   <Skeleton className="aspect-square rounded-lg mb-3" />
-                  <CardContent className="p-3 space-y-2">
+                  <CardContent className="p-4 space-y-2">
                     <Skeleton className="h-4 w-full" />
                     <Skeleton className="h-3 w-16" />
                     <Skeleton className="h-5 w-12" />

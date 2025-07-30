@@ -262,7 +262,7 @@ const EnterpriseProductCard: React.FC<{
       </div>
 
       {/* Product Info */}
-      <div className="p-3">
+      <div className="p-4">
         {/* Brand */}
         <p className="text-xs text-purple-700 font-medium mb-1 truncate" data-testid={`product-brand-${product.id}`}>
           {product.brand}
