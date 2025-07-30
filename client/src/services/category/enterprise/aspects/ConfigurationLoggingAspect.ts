@@ -161,7 +161,7 @@ export class PerformanceMetrics {
     public readonly endTime: number,
     public readonly memoryStart: number,
     public readonly memoryEnd: number,
-    public readonly checkpoints: readonly Array<{ name: string; time: number; memory: number }>
+    public readonly checkpoints: Array<{ name: string; time: number; memory: number }>
   ) {}
 
   get duration(): number {
@@ -697,7 +697,6 @@ export class ConfigurationLoggingAspect {
    * Log Operation Start
    * @Before advice - logs the beginning of configuration operations
    */
-  @Before('ConfigurationDomainService.getConfiguration')
   logOperationStart(joinPoint: JoinPoint<[string]>): void {
     const [configurationKey] = joinPoint.args;
     const operationId = this.generateOperationId();
@@ -729,7 +728,6 @@ export class ConfigurationLoggingAspect {
    * Log Operation Success
    * @AfterReturning advice - logs successful completion of configuration operations
    */
-  @AfterReturning('ConfigurationDomainService.getConfiguration')
   logOperationSuccess(joinPoint: JoinPoint<[string]>, result: unknown): void {
     const [configurationKey] = joinPoint.args;
     const operationId = joinPoint.metadata.loggingOperationId as string;

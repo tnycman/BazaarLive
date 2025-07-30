@@ -195,13 +195,17 @@ export function Aspect(): ClassDecorator {
  * Executes advice before target method execution
  */
 export function Before(pointcut: string): MethodDecorator {
-  return function(target: any, propertyKey: string | symbol, descriptor: PropertyDescriptor) {
-    const originalMethod = descriptor.value;
-    descriptor.value = function(...args: unknown[]) {
-      // Aspect framework will inject this logic
-      return originalMethod.apply(this, args);
-    };
+  return function(target: any, propertyKey: string | symbol, descriptor?: PropertyDescriptor): any {
+    if (!descriptor) {
+      descriptor = Object.getOwnPropertyDescriptor(target, propertyKey) || {
+        value: target[propertyKey],
+        writable: true,
+        enumerable: true,
+        configurable: true
+      };
+    }
     target[`_before_${String(propertyKey)}`] = { pointcut, method: propertyKey };
+    return descriptor;
   };
 }
 
@@ -210,12 +214,17 @@ export function Before(pointcut: string): MethodDecorator {
  * Executes advice after successful target method execution
  */
 export function AfterReturning(pointcut: string): MethodDecorator {
-  return function(target: any, propertyKey: string | symbol, descriptor: PropertyDescriptor) {
-    const originalMethod = descriptor.value;
-    descriptor.value = function(...args: unknown[]) {
-      return originalMethod.apply(this, args);
-    };
+  return function(target: any, propertyKey: string | symbol, descriptor?: PropertyDescriptor): any {
+    if (!descriptor) {
+      descriptor = Object.getOwnPropertyDescriptor(target, propertyKey) || {
+        value: target[propertyKey],
+        writable: true,
+        enumerable: true,
+        configurable: true
+      };
+    }
     target[`_afterReturning_${String(propertyKey)}`] = { pointcut, method: propertyKey };
+    return descriptor;
   };
 }
 
@@ -224,12 +233,17 @@ export function AfterReturning(pointcut: string): MethodDecorator {
  * Executes advice when target method throws exception
  */
 export function AfterThrowing(pointcut: string): MethodDecorator {
-  return function(target: any, propertyKey: string | symbol, descriptor: PropertyDescriptor) {
-    const originalMethod = descriptor.value;
-    descriptor.value = function(...args: unknown[]) {
-      return originalMethod.apply(this, args);
-    };
+  return function(target: any, propertyKey: string | symbol, descriptor?: PropertyDescriptor): any {
+    if (!descriptor) {
+      descriptor = Object.getOwnPropertyDescriptor(target, propertyKey) || {
+        value: target[propertyKey],
+        writable: true,
+        enumerable: true,
+        configurable: true
+      };
+    }
     target[`_afterThrowing_${String(propertyKey)}`] = { pointcut, method: propertyKey };
+    return descriptor;
   };
 }
 
@@ -255,7 +269,6 @@ export class ConfigurationValidationAspect {
    * Validate Configuration Key Format
    * @Before advice - executes before getConfiguration method
    */
-  @Before('ConfigurationDomainService.getConfiguration')
   validateKey(joinPoint: JoinPoint<[string]>): void {
     const [rawKey] = joinPoint.args;
     
@@ -292,7 +305,6 @@ export class ConfigurationValidationAspect {
    * Validate Configuration Structure
    * @AfterReturning advice - executes after successful getConfiguration method
    */
-  @AfterReturning('ConfigurationDomainService.getConfiguration')
   validateStructure(
     joinPoint: JoinPoint<[string]>,
     result: UniversalPageConfiguration
@@ -354,7 +366,6 @@ export class ConfigurationValidationAspect {
    * Handle Validation Errors
    * @AfterThrowing advice - executes when getConfiguration method throws
    */
-  @AfterThrowing('ConfigurationDomainService.getConfiguration')
   handleValidationError(joinPoint: JoinPoint<[string]>, error: Error): never {
     const [key] = joinPoint.args;
     

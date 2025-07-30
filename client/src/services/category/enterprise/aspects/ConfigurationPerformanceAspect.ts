@@ -186,7 +186,7 @@ export class PerformanceProfile {
     public readonly executionTime: number,
     public readonly startMemory: MemoryUsage,
     public readonly endMemory: MemoryUsage,
-    public readonly checkpoints: readonly Array<{ name: string; time: number; memory: MemoryUsage }>
+    public readonly checkpoints: Array<{ name: string; time: number; memory: MemoryUsage }>
   ) {}
 
   get memoryDelta(): number {
@@ -423,7 +423,6 @@ export class ConfigurationPerformanceAspect {
    * Start Performance Tracking
    * @Before advice - begins performance measurement before method execution
    */
-  @Before('ConfigurationDomainService.getConfiguration')
   startPerformanceTracking(joinPoint: JoinPoint<[string]>): void {
     const [configurationKey] = joinPoint.args;
     const operationId = this.generateOperationId(joinPoint);
@@ -445,7 +444,6 @@ export class ConfigurationPerformanceAspect {
    * End Performance Tracking
    * @AfterReturning advice - completes performance measurement after successful execution
    */
-  @AfterReturning('ConfigurationDomainService.getConfiguration')
   endPerformanceTracking(joinPoint: JoinPoint<[string]>, result: unknown): void {
     const operationId = joinPoint.metadata.performanceOperationId as string;
     const startTime = joinPoint.metadata.performanceStartTime as number;

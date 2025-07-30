@@ -145,12 +145,17 @@ export class ConfigurationCacheError extends Error {
  * Executes advice around target method execution
  */
 export function Around(pointcut: string): MethodDecorator {
-  return function(target: any, propertyKey: string | symbol, descriptor: PropertyDescriptor) {
-    const originalMethod = descriptor.value;
-    descriptor.value = function(...args: unknown[]) {
-      return originalMethod.apply(this, args);
-    };
+  return function(target: any, propertyKey: string | symbol, descriptor?: PropertyDescriptor): any {
+    if (!descriptor) {
+      descriptor = Object.getOwnPropertyDescriptor(target, propertyKey) || {
+        value: target[propertyKey],
+        writable: true,
+        enumerable: true,
+        configurable: true
+      };
+    }
     target[`_around_${String(propertyKey)}`] = { pointcut, method: propertyKey };
+    return descriptor;
   };
 }
 
@@ -390,7 +395,6 @@ export class ConfigurationCachingAspect {
    * Cache Around Advice
    * @Around advice - wraps getConfiguration method with caching logic
    */
-  @Around('ConfigurationDomainService.getConfiguration')
   async cacheAround(joinPoint: ProceedingJoinPoint<[string]>): Promise<UniversalPageConfiguration> {
     const [configurationKey] = joinPoint.args;
     const cacheKey = this.keyStrategy.generateKey(configurationKey, joinPoint.metadata);
