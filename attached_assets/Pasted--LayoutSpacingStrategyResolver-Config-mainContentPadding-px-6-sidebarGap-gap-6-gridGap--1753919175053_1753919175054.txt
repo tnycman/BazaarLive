@@ -1,0 +1,19 @@
+[LayoutSpacingStrategyResolver] Config: {mainContentPadding: 'px-6', sidebarGap: 'gap-6', gridGap: 'gap-4', reasoning: 'Standard enterprise layout with balanced spacing for content readability'}
+LayoutSpacingAspect.ts:68 [LayoutSpacingAspect] Applied spacing config: {mainContentPadding: 'px-6', sidebarGap: 'gap-6', gridGap: 'gap-4', reasoning: 'Standard enterprise layout with balanced spacing for content readability'}
+LayoutSpacingAspect.ts:69 [LayoutSpacingAspect] Calculation completed in: 1ms
+EnterpriseProductGrid.tsx:435 [EnterpriseProductGrid] Rendering grid with products: 4
+EnterpriseProductGrid.tsx:436 [EnterpriseProductGrid] Sorted products: 4
+UniversalCategoryPage.tsx:179 [UniversalCategoryPage] Filtering products. Initial count: 4
+UniversalCategoryPage.tsx:180 [UniversalCategoryPage] Filter state: {selectedBrands: Array(0), selectedCategories: Array(1), searchQuery: ''}
+UniversalCategoryPage.tsx:224 [UniversalCategoryPage] Final filtered count: 4
+UniversalCategoryPage.tsx:359 [UniversalCategoryPage] Rendering with: {category: 'fashion', subcategory: 'men', title: "Men's Fashion", filteredProductsCount: 4, isLoading: false, …}
+UniversalCategoryPage.tsx:372 [UniversalCategoryPage] Sample products available: (4) [{…}, {…}, {…}, {…}]
+LayoutSpacingAspect.ts:124 [LayoutSpacingAspect] Detected page type: general {componentName: 'EnterprisePageLayout', isFashionComponent: false, hasFashionProps: undefined}
+LayoutSpacingAspect.ts:49 [LayoutSpacingAspect] Applying spacing strategy for context: {pageType: 'general', layoutType: 'product-grid', targetProductWidth: '248px', containerWidth: 'max-w-7xl'}
+LayoutSpacingStrategy.ts:114 [LayoutSpacingStrategyResolver] Resolving spacing for context: {pageType: 'general', layoutType: 'product-grid', targetProductWidth: '248px', containerWidth: 'max-w-7xl'}
+LayoutSpacingStrategy.ts:76 [StandardSpacingStrategy] Using standard spacing configuration
+LayoutSpacingStrategy.ts:121 [LayoutSpacingStrategyResolver] Selected strategy: StandardSpacing
+LayoutSpacingStrategy.ts:122 [LayoutSpacingStrategyResolver] Config: {mainContentPadding: 'px-6', sidebarGap: 'gap-6', gridGap: 'gap-4', reasoning: 'Standard enterprise layout with balanced spacing for content readability'}
+LayoutSpacingAspect.ts:68 [LayoutSpacingAspect] Applied spacing config: {mainContentPadding: 'px-6', sidebarGap: 'gap-6', gridGap: 'gap-4', reasoning: 'Standard enterprise layout with balanced spacing for content readability'}
+LayoutSpacingAspect.ts:69 [LayoutSpacingAspect] Calculation completed in: 1ms
+EnterpriseProductGrid.tsx:435 [EnterpriseProductGrid] Rendering grid with products: 4
