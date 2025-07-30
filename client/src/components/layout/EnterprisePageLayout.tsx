@@ -4,8 +4,9 @@
  * 100% best practices, zero shortcuts, enterprise-grade patterns
  */
 
-import React, { memo, ReactNode } from 'react';
+import React, { memo, ReactNode, useMemo } from 'react';
 import { withEnterpriseInterceptors } from '@/services/aop/ComponentInterceptorFramework';
+import { layoutSpacingAspect } from '@/services/aop/LayoutSpacingAspect';
 import { z } from 'zod';
 
 // ===== ENTERPRISE TYPE DEFINITIONS =====
@@ -53,6 +54,22 @@ const EnterprisePageLayout: React.FC<EnterprisePageLayoutProps> = memo(({
   rightSidebarWidth = 'wide',
   enableStickyLayout = true
 }) => {
+  // Enterprise AOP spacing strategy application
+  const dynamicSpacing = useMemo(() => {
+    const pageType = layoutSpacingAspect.detectPageType('EnterprisePageLayout', { 
+      mainContent, 
+      leftSidebar, 
+      rightSidebar 
+    });
+    
+    const layoutContext = layoutSpacingAspect.createLayoutContext(
+      pageType,
+      'product-grid',
+      '248px'
+    );
+    
+    return layoutSpacingAspect.applySpacingStrategy(layoutContext);
+  }, [mainContent, leftSidebar, rightSidebar]);
   const leftSidebarClasses = [
     SIDEBAR_WIDTH_CLASSES[sidebarWidth],
     'flex-shrink-0',
@@ -68,7 +85,7 @@ const EnterprisePageLayout: React.FC<EnterprisePageLayoutProps> = memo(({
   const mainContentClasses = [
     'flex-1',
     'min-w-0', // Prevents flex item from overflowing
-    'px-6',
+    dynamicSpacing, // Enterprise AOP spacing strategy
     'py-4'
   ].join(' ');
 
