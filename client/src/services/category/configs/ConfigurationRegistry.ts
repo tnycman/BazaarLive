@@ -9,6 +9,7 @@ import { dynamicConfigurationLoader, LoadStrategy } from '../loaders/DynamicConf
 
 // Fashion category imports - UPDATED TO USE INHERITANCE
 import { womenFashionConfigOverride } from './fashion/women-optimized';
+import { womenFashionConfig } from './fashion/women';
 import { menFashionConfig } from './fashion/men';
 import { kidsFashionConfig } from './fashion/kids';
 import { fashionHomeConfig } from './fashion/home';
@@ -37,8 +38,8 @@ export interface ConfigurationRegistry {
  * Maps configuration keys to their respective modular configuration objects
  */
 const CONFIGURATION_MAP: Record<string, UniversalPageConfiguration> = {
-  // Fashion configurations - NOTE: fashion-women uses inheritance merge, not direct mapping
-  // 'fashion-women': handled by inheritance merge in getConfiguration
+  // Fashion configurations - Direct mapping for all categories
+  'fashion-women': womenFashionConfig,
   'fashion-men': menFashionConfig,
   'fashion-kids': kidsFashionConfig,
   'fashion-home': fashionHomeConfig,
@@ -69,14 +70,23 @@ class EnterpriseConfigurationRegistry implements ConfigurationRegistry {
   }
 
   /**
-   * Get configuration by key using enterprise strategy pattern
-   * LEGACY METHOD - Use UnifiedConfigurationAPI instead
-   * @deprecated Use unifiedConfigurationAPI.getConfiguration() for new implementations
+   * Get configuration by key using direct mapping
+   * HYBRID APPROACH: Simplified direct mapping for reliability
    */
   public async getConfiguration(key: string): Promise<UniversalPageConfiguration | null> {
-    // PHASE 4: Redirect to strategy pattern implementation
-    const { unifiedConfigurationAPI } = await import('../enterprise/integration/StrategyPatternIntegration');
-    return await unifiedConfigurationAPI.getConfiguration(key);
+    // Direct mapping approach for hybrid solution
+    if (key in this.configurations) {
+      return this.configurations[key];
+    }
+    
+    // Fallback: Try enterprise strategy pattern if direct mapping fails
+    try {
+      const { unifiedConfigurationAPI } = await import('../enterprise/integration/StrategyPatternIntegration');
+      return await unifiedConfigurationAPI.getConfiguration(key);
+    } catch (error) {
+      console.warn(`Configuration not found for key: ${key}, error:`, error);
+      return null;
+    }
   }
 
   /**

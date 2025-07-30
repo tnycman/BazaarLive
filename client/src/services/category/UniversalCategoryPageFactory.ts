@@ -29,7 +29,7 @@ interface FilterConfiguration {
 interface CategoryFilter {
   readonly id: string;
   readonly name: string;
-  readonly type: 'checkbox' | 'select' | 'range' | 'search';
+  readonly type: 'checkbox' | 'select' | 'range' | 'search' | 'radio' | 'multiselect';
   readonly options?: readonly FilterOption[];
   readonly validation: z.ZodSchema;
 }
