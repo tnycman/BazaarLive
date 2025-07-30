@@ -145,7 +145,7 @@ export default function SportsOutdoorsPage() {
 
         {/* Listings Grid */}
         {isLoading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-4 gap-4">
             {Array.from({ length: 12 }).map((_, i) => (
               <div key={i} className="animate-pulse">
                 <div className="bg-gray-200 dark:bg-gray-700 aspect-[3/4] rounded-lg mb-4"></div>
@@ -158,8 +158,8 @@ export default function SportsOutdoorsPage() {
           </div>
         ) : filteredListings.length > 0 ? (
           <div className={`grid ${viewMode === 'grid' 
-            ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' 
-            : 'grid-cols-1'} gap-6`}>
+            ? 'grid-cols-4' 
+            : 'grid-cols-1'} gap-4`}>
             {filteredListings.map((listing: any) => (
               <ListingCard
                 key={listing.id}

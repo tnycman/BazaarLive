@@ -199,9 +199,11 @@ export default function ElectronicsPageEnterprise() {
       <Header />
       <Navigation />
       
-      <div className="flex">
-        <div className="w-80 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 min-h-screen">
-          <div className="p-4">
+      {/* Standardized container for ~192px products */}
+      <div className="max-w-7xl mx-auto px-4 py-6">
+        <div className="flex gap-6">
+          <div className="w-64 flex-shrink-0 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 min-h-screen">
+            <div className="p-4">
             <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
               {domainMetadata.title}
             </h2>
@@ -357,4 +359,4 @@ export default function ElectronicsPageEnterprise() {
       </div>
     </div>
   );
-}
+};
