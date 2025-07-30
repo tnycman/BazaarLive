@@ -7,6 +7,7 @@
 import { z } from 'zod';
 import { ConfigurationKey, ConfigurationValueObjectSchemas } from './ConfigurationValueObjects';
 import { UniversalPageConfiguration, ConfigurationEntitySchemas } from './ConfigurationEntities';
+import { ConfigurationRepository } from '../repositories/ConfigurationRepository';
 
 // Import Result pattern and error types
 interface Result<T, E> {
@@ -72,14 +73,7 @@ class ResultImpl<T, E> implements Result<T, E> {
   }
 }
 
-// Repository interface
-interface ConfigurationRepository {
-  getConfiguration(key: ConfigurationKey): Promise<any>;
-  getAllConfigurations(): Promise<any[]>;
-  saveConfiguration(key: ConfigurationKey, config: UniversalPageConfiguration): Promise<void>;
-  deleteConfiguration(key: ConfigurationKey): Promise<void>;
-  existsConfiguration(key: ConfigurationKey): Promise<boolean>;
-}
+// Repository interface now imported from ../repositories/ConfigurationRepository
 
 // Validation orchestrator interface
 interface ConfigurationValidationOrchestrator {

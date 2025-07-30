@@ -12,33 +12,88 @@
 import { ConfigurationRepository } from './ConfigurationRepository';
 import { ConfigurationKey } from '../domain/ConfigurationValueObjects';
 import { UniversalPageConfiguration } from '../domain/ConfigurationEntities';
-// Simple Result implementation for repository
-interface SimpleResult<T, E extends Error> {
-  success: boolean;
-  value?: T;
-  error?: E;
-}
-
-class SimpleResultImpl<T, E extends Error> implements SimpleResult<T, E> {
-  constructor(
-    public success: boolean,
-    public value?: T,
-    public error?: E
-  ) {}
-
-  static success<T, E extends Error>(value: T): SimpleResult<T, E> {
-    return new SimpleResultImpl<T, E>(true, value);
-  }
-
-  static failure<T, E extends Error>(error: E): SimpleResult<T, E> {
-    return new SimpleResultImpl<T, E>(false, undefined, error);
-  }
-}
+import { Result } from '../patterns/Result';
 import { 
   ConfigurationError, 
   ConfigurationNotFoundError, 
   ConfigurationLoadError 
 } from '../errors/ConfigurationErrors';
+
+// Mock Result implementation for repository
+class MockResult<T, E extends Error> implements Result<T, E> {
+  constructor(
+    private _success: boolean,
+    private _value?: T,
+    private _error?: E
+  ) {}
+
+  get success(): boolean { return this._success; }
+  get isSuccess(): boolean { return this._success; }
+  get isFailure(): boolean { return !this._success; }
+  
+  get value(): T {
+    if (!this._success) throw new Error('Cannot access value of failed result');
+    return this._value!;
+  }
+  
+  get error(): E {
+    if (this._success) throw new Error('Cannot access error of successful result');
+    return this._error!;
+  }
+
+  map<U>(fn: (value: T) => U): Result<U, E> {
+    return this._success ? 
+      new MockResult<U, E>(true, fn(this._value!)) : 
+      new MockResult<U, E>(false, undefined, this._error);
+  }
+
+  mapError<F extends Error>(fn: (error: E) => F): Result<T, F> {
+    return this._success ? 
+      new MockResult<T, F>(true, this._value) : 
+      new MockResult<T, F>(false, undefined, fn(this._error!));
+  }
+
+  flatMap<U>(fn: (value: T) => Result<U, E>): Result<U, E> {
+    return this._success ? 
+      fn(this._value!) : 
+      new MockResult<U, E>(false, undefined, this._error);
+  }
+
+  match<R>(onSuccess: (value: T) => R, onFailure: (error: E) => R): R {
+    return this._success ? onSuccess(this._value!) : onFailure(this._error!);
+  }
+
+  unwrap(): T {
+    if (!this._success) throw this._error!;
+    return this._value!;
+  }
+
+  unwrapOr(defaultValue: T): T {
+    return this._success ? this._value! : defaultValue;
+  }
+
+  unwrapOrElse(fn: (error: E) => T): T {
+    return this._success ? this._value! : fn(this._error!);
+  }
+
+  tap(fn: (value: T) => void): Result<T, E> {
+    if (this._success) fn(this._value!);
+    return this;
+  }
+
+  tapError(fn: (error: E) => void): Result<T, E> {
+    if (!this._success) fn(this._error!);
+    return this;
+  }
+
+  static success<T, E extends Error>(value: T): Result<T, E> {
+    return new MockResult<T, E>(true, value);
+  }
+
+  static failure<T, E extends Error>(error: E): Result<T, E> {
+    return new MockResult<T, E>(false, undefined, error);
+  }
+}
 
 /**
  * Configuration loader function type
@@ -216,6 +271,7 @@ export class FileSystemConfigurationRepository implements ConfigurationRepositor
       }
       
       throw new ConfigurationLoadError(
+        'unknown', 
         error instanceof Error ? error.message : 'Unknown loading error'
       );
     }
@@ -234,17 +290,18 @@ export class FileSystemConfigurationRepository implements ConfigurationRepositor
       ]);
 
       if (!result) {
-        throw new ConfigurationLoadError('Loader returned null or undefined');
+        throw new ConfigurationLoadError(keyString, 'Loader returned null or undefined');
       }
 
       return result;
 
     } catch (error) {
       if (error instanceof Error && error.message === 'Loader timeout') {
-        throw new ConfigurationLoadError(`Loader timeout after ${this._requestTimeoutMs}ms`);
+        throw new ConfigurationLoadError(keyString, `Loader timeout after ${this._requestTimeoutMs}ms`);
       }
       
       throw new ConfigurationLoadError(
+        keyString,
         error instanceof Error ? error.message : 'Unknown loader error'
       );
     }
@@ -268,6 +325,7 @@ export class FileSystemConfigurationRepository implements ConfigurationRepositor
       
       return MockResult.failure(
         new ConfigurationLoadError(
+          key.value,
           error instanceof Error ? error.message : 'Unknown error'
         )
       );
