@@ -67,27 +67,15 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
   subSubcategory,
   className = ''
 }) => {
-  // Early return for safety during SSR
-  if (typeof window === 'undefined') return null;
-
-  // Validate props using enterprise validation
+  // ===== HOOK DECLARATIONS FIRST - NO CONDITIONAL EXECUTION =====
+  // ALL HOOKS MUST BE DECLARED BEFORE ANY CONDITIONAL LOGIC
+  
+  // Validate props using enterprise validation - ALWAYS EXECUTE
   const propsValidation = useMemo(() => {
     return UniversalCategoryPagePropsSchema.safeParse({ category, subcategory, subSubcategory, className });
   }, [category, subcategory, subSubcategory, className]);
 
-  if (!propsValidation.success) {
-    console.error('[UniversalCategoryPage] Invalid props:', propsValidation.error);
-    return (
-      <div className="min-h-screen bg-red-50 flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-red-600 mb-4">Invalid Page Configuration</h1>
-          <p className="text-red-500 mb-4">Invalid category or subcategory provided</p>
-        </div>
-      </div>
-    );
-  }
-
-  // Enterprise state management with validation
+  // Enterprise state management with validation - ALWAYS EXECUTE
   const [pageState, setPageState] = useState<CategoryPageState>({
     searchQuery: '',
     sortBy: 'newest',
@@ -164,64 +152,24 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
     };
   }, [category, subcategory, subSubcategory]);
 
-  // Handle loading state
-  if (pageState.isLoading) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-purple-600 mb-4"></div>
-          <h2 className="text-xl font-semibold text-gray-700">Loading Category...</h2>
-          <p className="text-gray-500">Preparing {category} {subcategory && `- ${subcategory}`}</p>
-        </div>
-      </div>
-    );
-  }
-
-  // Handle configuration errors
-  if (pageState.error || !pageState.pageConfiguration) {
-    const errorMessage = pageState.error?.message || 'Configuration not found';
-    console.error('[UniversalCategoryPage] Configuration error:', errorMessage);
-    return (
-      <div className="min-h-screen bg-red-50 flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-red-600 mb-4">Configuration Error</h1>
-          <p className="text-red-500 mb-4">{errorMessage}</p>
-          <button 
-            onClick={() => window.location.reload()} 
-            className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
-            data-testid="button-retry-configuration"
-          >
-            Retry
-          </button>
-        </div>
-      </div>
-    );
-  }
-
-  const pageConfiguration = pageState.pageConfiguration;
-
-  // Frontend-only implementation - using sample products exclusively
-  // No database queries - pure frontend operation
-  const rawListings: ProductItem[] = [];
-  const isLoading = false;
-  const error = null;
-
-  // Generate sample products based on category configuration
+  // ===== ALL useMemo HOOKS MUST BE DECLARED HERE - BEFORE CONDITIONAL RETURNS =====
+  
+  // Generate sample products based on category configuration - ALWAYS EXECUTE
   const sampleProducts = useMemo((): ProductItem[] => {
-    // Return category-specific sample products from configuration
-    const products = pageConfiguration.sampleProducts || [];
+    // Safe access to pageConfiguration with null checking
+    const products = pageState.pageConfiguration?.sampleProducts || [];
     console.log('[UniversalCategoryPage] Sample products from configuration:', products);
     return [...products]; // Convert readonly array to mutable array
-  }, [pageConfiguration]);
+  }, [pageState.pageConfiguration]);
 
-  // Frontend-only: Always use sample products from configuration
+  // Frontend-only: Always use sample products from configuration - ALWAYS EXECUTE
   const displayProducts = useMemo(() => {
     console.log('[UniversalCategoryPage] Frontend-only mode - Using sample products:', sampleProducts);
     console.log('[UniversalCategoryPage] Sample products count:', sampleProducts.length);
     return sampleProducts;
   }, [sampleProducts]);
 
-  // Apply enterprise filtering to products
+  // Apply enterprise filtering to products - ALWAYS EXECUTE
   const filteredProducts = useMemo(() => {
     if (!displayProducts || !Array.isArray(displayProducts)) {
       console.log('[UniversalCategoryPage] No displayProducts or not array:', displayProducts);
@@ -277,7 +225,9 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
     return filtered;
   }, [displayProducts, pageState.filterState, pageState.searchQuery, category]);
 
-  // Enterprise event handlers with validation
+  // ===== ALL useCallback HOOKS MUST BE DECLARED HERE - BEFORE CONDITIONAL RETURNS =====
+
+  // Enterprise event handlers with validation - ALWAYS EXECUTE
   const handleFilterChange = useCallback((newFilterState: FilterState) => {
     // Validate filter state
     const validation = CategoryPageStateSchema.safeParse({
@@ -339,6 +289,68 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
     console.log(`[UniversalCategoryPage] ${category} product shared:`, productId);
     // Handle sharing functionality
   }, [category]);
+
+  // ===== CONDITIONAL RENDERING LOGIC - AFTER ALL HOOKS =====
+  
+  // SSR safety check
+  if (typeof window === 'undefined') {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <h2 className="text-xl font-semibold text-gray-700">Loading...</h2>
+        </div>
+      </div>
+    );
+  }
+
+  // Props validation error handling
+  if (!propsValidation.success) {
+    console.error('[UniversalCategoryPage] Invalid props:', propsValidation.error);
+    return (
+      <div className="min-h-screen bg-red-50 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-red-600 mb-4">Invalid Page Configuration</h1>
+          <p className="text-red-500 mb-4">Invalid category or subcategory provided</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Handle loading state
+  if (pageState.isLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-purple-600 mb-4"></div>
+          <h2 className="text-xl font-semibold text-gray-700">Loading Category...</h2>
+          <p className="text-gray-500">Preparing {category} {subcategory && `- ${subcategory}`}</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Handle configuration errors
+  if (pageState.error || !pageState.pageConfiguration) {
+    const errorMessage = pageState.error?.message || 'Configuration not found';
+    console.error('[UniversalCategoryPage] Configuration error:', errorMessage);
+    return (
+      <div className="min-h-screen bg-red-50 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-red-600 mb-4">Configuration Error</h1>
+          <p className="text-red-500 mb-4">{errorMessage}</p>
+          <button 
+            onClick={() => window.location.reload()} 
+            className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+            data-testid="button-retry-configuration"
+          >
+            Retry
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  const pageConfiguration = pageState.pageConfiguration;
 
   // Enterprise error handling
   if (error) {
