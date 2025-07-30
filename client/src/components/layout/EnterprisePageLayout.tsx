@@ -76,6 +76,7 @@ const EnterprisePageLayout: React.FC<EnterprisePageLayoutProps> = memo(({
     <div 
       className={`min-h-screen bg-gray-50 flex ${className}`}
       data-testid="enterprise-page-layout"
+      style={{ minHeight: 'calc(100vh - 140px)' }}
     >
       {/* Left Sidebar */}
       <aside 
