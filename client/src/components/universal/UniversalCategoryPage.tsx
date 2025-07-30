@@ -379,8 +379,8 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
       <Header />
       <Navigation />
       
-      {/* Three-column layout with proper debugging */}
-      <div className="w-full" data-testid="page-layout-container">
+      {/* Three-column layout with standardized container for ~192px products */}
+      <div className="max-w-7xl mx-auto px-4 py-6" data-testid="page-layout-container">
         <EnterprisePageLayout
           leftSidebar={
             <div data-testid="left-sidebar-container">
