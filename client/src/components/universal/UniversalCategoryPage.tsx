@@ -352,26 +352,8 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
 
   const pageConfiguration = pageState.pageConfiguration;
 
-  // Enterprise error handling
-  if (error) {
-    return (
-      <div className="min-h-screen bg-red-50 flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-red-600 mb-4">
-            Error Loading {pageConfiguration.metadata.title}
-          </h1>
-          <p className="text-red-500 mb-4">{(error as Error).message}</p>
-          <button 
-            onClick={() => window.location.reload()} 
-            className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
-            data-testid={`button-retry-${category}`}
-          >
-            Retry
-          </button>
-        </div>
-      </div>
-    );
-  }
+  // Enterprise error handling - REMOVED DUPLICATE ERROR HANDLING
+  // Error handling is already performed above for pageState.error
 
   // Add debug logging for troubleshooting
   console.log('[UniversalCategoryPage] Rendering with:', {
@@ -379,7 +361,7 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
     subcategory,
     title: pageConfiguration.metadata.title,
     filteredProductsCount: filteredProducts.length,
-    isLoading
+    isLoading: pageState.isLoading
   });
 
   // Render universal three-column layout matching original Women's page structure
@@ -393,7 +375,7 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
           <EnterpriseFilterSidebar
             currentCategory={subcategory || category}
             onFilterChange={handleFilterChange}
-            isLoading={isLoading}
+            isLoading={pageState.isLoading}
           />
         }
         mainContent={
@@ -403,7 +385,7 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
             onLikeToggle={handleLikeToggle}
             onSellerClick={handleSellerClick}
             onShare={handleShare}
-            isLoading={isLoading}
+            isLoading={pageState.isLoading}
             title={pageConfiguration.metadata.title}
             gridColumns={4}
           />
