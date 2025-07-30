@@ -20,13 +20,14 @@ import {
 } from '../errors/ConfigurationErrors';
 
 // Mock Result implementation for repository
-class MockResult<T, E extends Error> implements Result<T, E> {
+class MockResult<T, E extends Error> {
   constructor(
     private _success: boolean,
     private _value?: T,
     private _error?: E
   ) {}
 
+  get ok(): boolean { return this._success; }
   get success(): boolean { return this._success; }
   get isSuccess(): boolean { return this._success; }
   get isFailure(): boolean { return !this._success; }
