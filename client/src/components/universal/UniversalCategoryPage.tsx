@@ -4,7 +4,7 @@
  * 100% best practices, zero shortcuts, complete separation of concerns
  */
 
-import React, { useState, useCallback, useMemo, memo } from 'react';
+import React, { useState, useCallback, useMemo, memo, useEffect } from 'react';
 import { Header } from '@/components/Header';
 import { Navigation } from '@/components/Navigation';
 import EnterprisePageLayout from '@/components/layout/EnterprisePageLayout';
@@ -31,6 +31,7 @@ interface CategoryPageState {
   readonly filterState: FilterState;
   readonly isLoading: boolean;
   readonly error: Error | null;
+  readonly pageConfiguration: UniversalPageConfiguration | null;
 }
 
 // ===== VALIDATION SCHEMAS =====
@@ -86,40 +87,6 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
     );
   }
 
-  // Get universal page configuration using factory with enterprise validation
-  const configurationResult = useMemo(() => {
-    console.log('[UniversalCategoryPage] Getting configuration for:', { category, subcategory, subSubcategory });
-    const result = universalCategoryPageFactory.getConfiguration(category, subcategory, subSubcategory);
-    console.log('[UniversalCategoryPage] Configuration result:', { 
-      isSuccess: result.isSuccess(), 
-      hasValue: !!result.value,
-      sampleProductsCount: result.isSuccess() ? result.value?.sampleProducts?.length : 0
-    });
-    return result;
-  }, [category, subcategory, subSubcategory]);
-
-  // Handle configuration errors
-  if (configurationResult.isError()) {
-    console.error('[UniversalCategoryPage] Configuration error:', configurationResult.error);
-    return (
-      <div className="min-h-screen bg-red-50 flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-red-600 mb-4">Configuration Error</h1>
-          <p className="text-red-500 mb-4">{configurationResult.error.message}</p>
-          <button 
-            onClick={() => window.location.reload()} 
-            className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
-            data-testid="button-retry-configuration"
-          >
-            Retry
-          </button>
-        </div>
-      </div>
-    );
-  }
-
-  const pageConfiguration = configurationResult.value;
-
   // Enterprise state management with validation
   const [pageState, setPageState] = useState<CategoryPageState>({
     searchQuery: '',
@@ -135,9 +102,103 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
       brandSearchQuery: '',
       expandedSections: ['categories', subcategory || category]
     },
-    isLoading: false,
-    error: null
+    isLoading: true,
+    error: null,
+    pageConfiguration: null
   });
+
+  // Load configuration asynchronously with enterprise error handling
+  useEffect(() => {
+    let isMounted = true;
+    
+    const loadConfiguration = async () => {
+      console.log('[UniversalCategoryPage] Loading configuration for:', { category, subcategory, subSubcategory });
+      
+      try {
+        setPageState(prev => ({ ...prev, isLoading: true, error: null }));
+        
+        const result = await universalCategoryPageFactory.getConfiguration(category, subcategory, subSubcategory);
+        
+        if (!isMounted) return;
+        
+        if (result.isError()) {
+          console.error('[UniversalCategoryPage] Configuration error:', result.error);
+          setPageState(prev => ({ 
+            ...prev, 
+            isLoading: false, 
+            error: result.error,
+            pageConfiguration: null 
+          }));
+          return;
+        }
+        
+        console.log('[UniversalCategoryPage] Configuration loaded successfully:', { 
+          hasValue: !!result.value,
+          sampleProductsCount: result.value?.sampleProducts?.length || 0
+        });
+        
+        setPageState(prev => ({ 
+          ...prev, 
+          isLoading: false, 
+          error: null,
+          pageConfiguration: result.value 
+        }));
+        
+      } catch (error) {
+        if (!isMounted) return;
+        
+        console.error('[UniversalCategoryPage] Unexpected error loading configuration:', error);
+        setPageState(prev => ({ 
+          ...prev, 
+          isLoading: false, 
+          error: error instanceof Error ? error : new Error('Unknown configuration error'),
+          pageConfiguration: null 
+        }));
+      }
+    };
+    
+    loadConfiguration();
+    
+    return () => {
+      isMounted = false;
+    };
+  }, [category, subcategory, subSubcategory]);
+
+  // Handle loading state
+  if (pageState.isLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-purple-600 mb-4"></div>
+          <h2 className="text-xl font-semibold text-gray-700">Loading Category...</h2>
+          <p className="text-gray-500">Preparing {category} {subcategory && `- ${subcategory}`}</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Handle configuration errors
+  if (pageState.error || !pageState.pageConfiguration) {
+    const errorMessage = pageState.error?.message || 'Configuration not found';
+    console.error('[UniversalCategoryPage] Configuration error:', errorMessage);
+    return (
+      <div className="min-h-screen bg-red-50 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-red-600 mb-4">Configuration Error</h1>
+          <p className="text-red-500 mb-4">{errorMessage}</p>
+          <button 
+            onClick={() => window.location.reload()} 
+            className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+            data-testid="button-retry-configuration"
+          >
+            Retry
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  const pageConfiguration = pageState.pageConfiguration;
 
   // Frontend-only implementation - using sample products exclusively
   // No database queries - pure frontend operation

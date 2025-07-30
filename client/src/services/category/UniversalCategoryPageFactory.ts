@@ -2792,7 +2792,7 @@ export class UniversalCategoryPageFactory {
    * Get configuration for any category using universal architecture
    * Enhanced to support subcategory and subSubcategory parameters
    */
-  public getConfiguration(category: string, subcategory?: string, subSubcategory?: string): Result<UniversalPageConfiguration, Error> {
+  public async getConfiguration(category: string, subcategory?: string, subSubcategory?: string): Promise<Result<UniversalPageConfiguration, Error>> {
     try {
       // Validate input parameters
       const validationResult = this.validateCategoryInput(category, subcategory, subSubcategory);
@@ -2809,8 +2809,8 @@ export class UniversalCategoryPageFactory {
         return Result.success(cachedConfig);
       }
 
-      // Get configuration from modular configuration registry
-      const baseConfig = configurationRegistry.getConfiguration(cacheKey);
+      // Get configuration from modular configuration registry (AWAIT the Promise)
+      const baseConfig = await configurationRegistry.getConfiguration(cacheKey);
       if (!baseConfig) {
         return Result.failure(new Error(`Configuration not found for category: ${cacheKey}`));
       }
@@ -2835,7 +2835,7 @@ export class UniversalCategoryPageFactory {
   /**
    * Get all available categories
    */
-  public getAvailableCategories(): Result<readonly string[], Error> {
+  public async getAvailableCategories(): Promise<Result<readonly string[], Error>> {
     try {
       const categories = configurationRegistry.getAllKeys();
       return Result.success(categories);

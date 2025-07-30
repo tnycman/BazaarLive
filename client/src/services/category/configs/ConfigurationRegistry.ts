@@ -154,19 +154,19 @@ export const ConfigurationLoader = {
   /**
    * Load configuration by key with error handling
    */
-  load: (key: string): UniversalPageConfiguration | null => {
-    return configurationRegistry.getConfiguration(key);
+  load: async (key: string): Promise<UniversalPageConfiguration | null> => {
+    return await configurationRegistry.getConfiguration(key);
   },
 
   /**
    * Load configuration with validation
    */
-  loadWithValidation: (key: string): { config: UniversalPageConfiguration | null; error: string | null } => {
+  loadWithValidation: async (key: string): Promise<{ config: UniversalPageConfiguration | null; error: string | null }> => {
     if (!key || typeof key !== 'string') {
       return { config: null, error: 'Invalid configuration key provided' };
     }
 
-    const config = configurationRegistry.getConfiguration(key);
+    const config = await configurationRegistry.getConfiguration(key);
     if (!config) {
       return { config: null, error: `Configuration not found for key: ${key}` };
     }
@@ -177,15 +177,16 @@ export const ConfigurationLoader = {
   /**
    * Get all available configurations
    */
-  loadAll: (): Record<string, UniversalPageConfiguration> => {
+  loadAll: async (): Promise<Record<string, UniversalPageConfiguration>> => {
     const allConfigs: Record<string, UniversalPageConfiguration> = {};
     
-    configurationRegistry.getAllKeys().forEach(key => {
-      const config = configurationRegistry.getConfiguration(key);
+    const keys = configurationRegistry.getAllKeys();
+    for (const key of keys) {
+      const config = await configurationRegistry.getConfiguration(key);
       if (config) {
         allConfigs[key] = config;
       }
-    });
+    }
 
     return allConfigs;
   }
