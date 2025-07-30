@@ -1,460 +1,799 @@
 /**
  * Enterprise Configuration Error Hierarchy
- * Comprehensive error classes with detailed context and recovery strategies
- * Zero assumptions, complete error categorization
+ * 
+ * Comprehensive error system for configuration management with recovery strategies
+ * and detailed context for debugging and monitoring.
+ * 
+ * @author Enterprise AOP Team
+ * @version 1.0.0
+ * @since 2025-01-30
  */
 
-// ===== BASE ERROR CLASSES =====
+// Recovery strategies are defined inline to avoid circular import issues
+export enum RecoveryStrategyType {
+  RETRY = 'RETRY',
+  FALLBACK = 'FALLBACK',
+  ALERT_DEVELOPER = 'ALERT_DEVELOPER',
+  ABORT = 'ABORT',
+  SWITCH_SOURCE = 'SWITCH_SOURCE',
+  CLEAR_CACHE_RETRY = 'CLEAR_CACHE_RETRY',
+  VALIDATE_AND_FIX = 'VALIDATE_AND_FIX',
+  USE_CACHED = 'USE_CACHED',
+  RESET_TO_DEFAULT = 'RESET_TO_DEFAULT',
+  ESCALATE_TO_ADMIN = 'ESCALATE_TO_ADMIN'
+}
+
+export interface RecoveryStrategy {
+  readonly type: RecoveryStrategyType;
+  readonly priority: 'low' | 'medium' | 'high' | 'critical';
+  readonly automated: boolean;
+  readonly description: string;
+  readonly actions: string[];
+  readonly parameters: Record<string, any>;
+  readonly estimatedRecoveryTime: number;
+  readonly successRate: number;
+  readonly prerequisites?: string[];
+  readonly validationSteps?: string[];
+  readonly maxAttempts?: number;
+  readonly continueOnFailure?: boolean;
+}
 
 /**
- * Abstract base class for all configuration errors
- * Provides common error properties and categorization
+ * Base domain error interface for consistent error handling
  */
-export abstract class ConfigurationError extends Error {
-  public abstract readonly code: string;
-  public abstract readonly severity: 'low' | 'medium' | 'high' | 'critical';
-  public abstract readonly category: 'validation' | 'loading' | 'parsing' | 'network' | 'security' | 'business-rule';
-  public readonly timestamp: string;
-  public readonly contextId: string;
-  public readonly recoverable: boolean;
-  public readonly userMessage: string;
-  public readonly technicalDetails: Record<string, unknown>;
+export interface DomainError extends Error {
+  readonly code: string;
+  readonly context?: Record<string, any>;
+  readonly severity: 'low' | 'medium' | 'high' | 'critical';
+  readonly timestamp: Date;
+  readonly correlationId?: string;
+}
 
+/**
+ * Abstract base class for all configuration-related errors
+ * 
+ * Provides consistent error structure, recovery strategy integration,
+ * and comprehensive context for debugging and monitoring.
+ */
+export abstract class ConfigurationError extends Error implements DomainError {
+  public readonly code: string;
+  public readonly context: Record<string, any>;
+  public readonly severity: 'low' | 'medium' | 'high' | 'critical';
+  public readonly timestamp: Date;
+  public readonly correlationId?: string;
+  public readonly category: string;
+  public readonly operation: string;
+  public readonly userMessage: string;
+
+  /**
+   * Creates a new configuration error
+   * 
+   * @param message - Technical error message for developers
+   * @param code - Unique error code for identification and monitoring
+   * @param context - Additional context data for debugging
+   * @param severity - Error severity level for alerting and prioritization
+   * @param correlationId - Optional correlation ID for request tracking
+   * @param userMessage - User-friendly error message for UI display
+   */
   constructor(
     message: string,
-    options: {
-      cause?: Error;
-      recoverable?: boolean;
-      userMessage?: string;
-      technicalDetails?: Record<string, unknown>;
-      contextId?: string;
-    } = {}
+    code: string,
+    context: Record<string, any> = {},
+    severity: 'low' | 'medium' | 'high' | 'critical' = 'medium',
+    correlationId?: string,
+    userMessage?: string
   ) {
-    super(message, { cause: options.cause });
+    super(message);
     this.name = this.constructor.name;
-    this.timestamp = new Date().toISOString();
-    this.contextId = options.contextId || crypto.randomUUID();
-    this.recoverable = options.recoverable ?? true;
-    this.userMessage = options.userMessage || 'A configuration error occurred. Please try again.';
-    this.technicalDetails = options.technicalDetails || {};
+    this.code = code;
+    this.context = { ...context };
+    this.severity = severity;
+    this.timestamp = new Date();
+    this.correlationId = correlationId;
+    this.category = this.getErrorCategory();
+    this.operation = context.operation || 'unknown';
+    this.userMessage = userMessage || this.getDefaultUserMessage();
+
+    // Ensure proper prototype chain for instanceof checks
+    Object.setPrototypeOf(this, new.target.prototype);
+
+    // Capture stack trace for debugging
+    if (Error.captureStackTrace) {
+      Error.captureStackTrace(this, this.constructor);
+    }
   }
 
   /**
-   * Get comprehensive error information for logging
+   * Gets the recovery strategy for this error type
+   * 
+   * @returns Recovery strategy with specific actions and parameters
    */
-  public getErrorInfo(): ConfigurationErrorInfo {
+  public abstract getRecoveryStrategy(): RecoveryStrategy;
+
+  /**
+   * Gets the error category for monitoring and alerting
+   * 
+   * @returns Error category string
+   */
+  protected abstract getErrorCategory(): string;
+
+  /**
+   * Gets the default user-friendly message for this error type
+   * 
+   * @returns User-friendly error message
+   */
+  protected abstract getDefaultUserMessage(): string;
+
+  /**
+   * Converts error to a serializable object for logging and monitoring
+   * 
+   * @returns Serializable error representation
+   */
+  public toJSON(): Record<string, any> {
     return {
-      code: this.code,
-      severity: this.severity,
-      category: this.category,
+      name: this.name,
       message: this.message,
+      code: this.code,
+      context: this.context,
+      severity: this.severity,
+      timestamp: this.timestamp.toISOString(),
+      correlationId: this.correlationId,
+      category: this.category,
+      operation: this.operation,
       userMessage: this.userMessage,
-      timestamp: this.timestamp,
-      contextId: this.contextId,
-      recoverable: this.recoverable,
-      technicalDetails: this.technicalDetails,
-      stack: this.stack,
-      cause: this.cause
+      stack: this.stack
     };
   }
 
   /**
-   * Get user-friendly error message
+   * Creates a detailed error report for monitoring systems
+   * 
+   * @returns Comprehensive error report
    */
-  public getUserMessage(): string {
-    return this.userMessage;
+  public createErrorReport(): {
+    error: Record<string, any>;
+    recovery: RecoveryStrategy;
+    metrics: {
+      errorCount: number;
+      firstOccurrence: Date;
+      lastOccurrence: Date;
+      impactLevel: string;
+    };
+  } {
+    return {
+      error: this.toJSON(),
+      recovery: this.getRecoveryStrategy(),
+      metrics: {
+        errorCount: 1, // Would be tracked by monitoring system
+        firstOccurrence: this.timestamp,
+        lastOccurrence: this.timestamp,
+        impactLevel: this.severity
+      }
+    };
   }
 
   /**
-   * Check if error is recoverable
+   * Checks if this error is recoverable
+   * 
+   * @returns True if error can be recovered from
    */
   public isRecoverable(): boolean {
-    return this.recoverable;
+    const strategy = this.getRecoveryStrategy();
+    return strategy.type !== RecoveryStrategyType.ABORT;
+  }
+
+  /**
+   * Gets recommended actions for this error
+   * 
+   * @returns Array of recommended actions
+   */
+  public getRecommendedActions(): string[] {
+    const strategy = this.getRecoveryStrategy();
+    return strategy.actions || [];
   }
 }
 
-// ===== ERROR INFO INTERFACE =====
-
-export interface ConfigurationErrorInfo {
-  code: string;
-  severity: 'low' | 'medium' | 'high' | 'critical';
-  category: 'validation' | 'loading' | 'parsing' | 'network' | 'security' | 'business-rule';
-  message: string;
-  userMessage: string;
-  timestamp: string;
-  contextId: string;
-  recoverable: boolean;
-  technicalDetails: Record<string, unknown>;
-  stack?: string;
-  cause?: unknown;
-}
-
-// ===== VALIDATION ERROR CLASSES =====
-
 /**
  * Configuration not found error
- * When a requested configuration key doesn't exist
+ * 
+ * Thrown when a requested configuration cannot be located
+ * in any configured source.
  */
 export class ConfigurationNotFoundError extends ConfigurationError {
-  public readonly code = 'CONFIG_NOT_FOUND';
-  public readonly severity = 'high' as const;
-  public readonly category = 'loading' as const;
-
   constructor(
-    configKey: string,
-    availableKeys: string[] = [],
-    options: {
-      cause?: Error;
-      contextId?: string;
-      suggestions?: string[];
-    } = {}
+    configurationKey: string,
+    searchedLocations: string[] = [],
+    correlationId?: string,
+    additionalContext: Record<string, any> = {}
   ) {
-    const message = `Configuration not found for key: ${configKey}`;
-    const userMessage = `The requested configuration "${configKey}" is not available. Please check the configuration name and try again.`;
-    
-    super(message, {
-      ...options,
-      recoverable: true,
-      userMessage,
-      technicalDetails: {
-        configKey,
-        availableKeys,
-        suggestions: options.suggestions || [],
-        searchAttempted: true
-      }
-    });
+    const context = {
+      configurationKey,
+      searchedLocations,
+      searchCount: searchedLocations.length,
+      operation: 'configuration_lookup',
+      ...additionalContext
+    };
+
+    super(
+      `Configuration not found: ${configurationKey}. Searched locations: ${searchedLocations.join(', ')}`,
+      'CONFIG_NOT_FOUND',
+      context,
+      'medium',
+      correlationId,
+      `The requested configuration "${configurationKey}" could not be found. Please check the configuration name and try again.`
+    );
+  }
+
+  protected getErrorCategory(): string {
+    return 'configuration_access';
+  }
+
+  protected getDefaultUserMessage(): string {
+    return 'The requested configuration could not be found. Please verify the configuration name and try again.';
+  }
+
+  public getRecoveryStrategy(): RecoveryStrategy {
+    return {
+      type: RecoveryStrategyType.FALLBACK,
+      priority: 'high',
+      automated: true,
+      description: 'Use fallback configuration or default values',
+      actions: [
+        'Try fallback configuration sources',
+        'Use default configuration values',
+        'Check configuration key spelling',
+        'Verify configuration file exists'
+      ],
+      parameters: {
+        maxRetries: 3,
+        fallbackConfiguration: 'default',
+        notifyDeveloper: this.severity === 'high' || this.severity === 'critical'
+      },
+      estimatedRecoveryTime: 5000, // 5 seconds
+      successRate: 85
+    };
   }
 }
 
 /**
  * Configuration validation error
- * When configuration data fails schema validation
+ * 
+ * Thrown when configuration data fails validation rules
+ * or schema requirements.
  */
 export class ConfigurationValidationError extends ConfigurationError {
-  public readonly code = 'CONFIG_VALIDATION_FAILED';
-  public readonly severity = 'critical' as const;
-  public readonly category = 'validation' as const;
-
   constructor(
-    configKey: string,
-    validationErrors: string[],
-    options: {
-      cause?: Error;
-      contextId?: string;
-      rawData?: unknown;
-    } = {}
+    validationMessage: string,
+    field: string,
+    value: any,
+    expectedType?: string,
+    validationRules?: string[],
+    correlationId?: string,
+    additionalContext: Record<string, any> = {}
   ) {
-    const message = `Configuration validation failed for key: ${configKey}`;
-    const userMessage = 'The configuration data is invalid and cannot be used. Please contact support if this issue persists.';
-    
-    super(message, {
-      ...options,
-      recoverable: false,
-      userMessage,
-      technicalDetails: {
-        configKey,
-        validationErrors,
-        errorCount: validationErrors.length,
-        rawData: options.rawData
-      }
-    });
+    const context = {
+      field,
+      value: typeof value === 'object' ? JSON.stringify(value) : value,
+      expectedType,
+      validationRules,
+      operation: 'configuration_validation',
+      ...additionalContext
+    };
+
+    super(
+      `Configuration validation failed for field "${field}": ${validationMessage}`,
+      'CONFIG_VALIDATION_FAILED',
+      context,
+      'high',
+      correlationId,
+      `Configuration validation failed. Please check the "${field}" field and try again.`
+    );
+  }
+
+  protected getErrorCategory(): string {
+    return 'configuration_validation';
+  }
+
+  protected getDefaultUserMessage(): string {
+    return 'Configuration validation failed. Please check your input and try again.';
+  }
+
+  public getRecoveryStrategy(): RecoveryStrategy {
+    return {
+      type: RecoveryStrategyType.RETRY,
+      priority: 'high',
+      automated: false,
+      description: 'Fix validation errors and retry configuration',
+      actions: [
+        'Review and correct the invalid field value',
+        'Check configuration schema requirements',
+        'Validate all required fields are present',
+        'Ensure data types match expected formats'
+      ],
+      parameters: {
+        maxRetries: 1,
+        requireUserIntervention: true,
+        validationDetails: this.context,
+        showValidationHelp: true
+      },
+      estimatedRecoveryTime: 30000, // 30 seconds (user intervention)
+      successRate: 95
+    };
   }
 }
 
 /**
  * Configuration loading error
- * When configuration fails to load from source
+ * 
+ * Thrown when configuration data cannot be loaded from
+ * storage or external sources.
  */
 export class ConfigurationLoadError extends ConfigurationError {
-  public readonly code = 'CONFIG_LOAD_FAILED';
-  public readonly severity = 'high' as const;
-  public readonly category = 'loading' as const;
-
   constructor(
-    configKey: string,
-    loadStrategy: string,
-    options: {
-      cause?: Error;
-      contextId?: string;
-      retryAttempts?: number;
-      loadTime?: number;
-    } = {}
+    source: string,
+    loadError: string,
+    retryCount: number = 0,
+    correlationId?: string,
+    additionalContext: Record<string, any> = {}
   ) {
-    const message = `Failed to load configuration for key: ${configKey} using strategy: ${loadStrategy}`;
-    const userMessage = 'Unable to load the requested configuration. Please try again in a moment.';
+    const context = {
+      source,
+      loadError,
+      retryCount,
+      operation: 'configuration_load',
+      ...additionalContext
+    };
+
+    super(
+      `Failed to load configuration from source "${source}": ${loadError}`,
+      'CONFIG_LOAD_FAILED',
+      context,
+      retryCount > 2 ? 'high' : 'medium',
+      correlationId,
+      'Configuration could not be loaded. Please try again or contact support if the problem persists.'
+    );
+  }
+
+  protected getErrorCategory(): string {
+    return 'configuration_loading';
+  }
+
+  protected getDefaultUserMessage(): string {
+    return 'Configuration could not be loaded. Please try again or contact support if the problem persists.';
+  }
+
+  public getRecoveryStrategy(): RecoveryStrategy {
+    const retryCount = this.context.retryCount as number || 0;
     
-    super(message, {
-      ...options,
-      recoverable: true,
-      userMessage,
-      technicalDetails: {
-        configKey,
-        loadStrategy,
-        retryAttempts: options.retryAttempts || 0,
-        loadTime: options.loadTime || 0,
-        timestamp: new Date().toISOString()
-      }
-    });
+    return {
+      type: retryCount < 3 ? RecoveryStrategyType.RETRY : RecoveryStrategyType.FALLBACK,
+      priority: 'high',
+      automated: true,
+      description: retryCount < 3 ? 'Retry loading with exponential backoff' : 'Use fallback configuration source',
+      actions: retryCount < 3 ? [
+        'Retry loading with exponential backoff',
+        'Check network connectivity',
+        'Verify source accessibility',
+        'Validate file permissions'
+      ] : [
+        'Switch to fallback configuration source',
+        'Use cached configuration if available',
+        'Alert system administrators',
+        'Monitor source recovery'
+      ],
+      parameters: {
+        maxRetries: 3,
+        backoffMultiplier: 2,
+        initialDelay: 1000,
+        maxDelay: 10000,
+        fallbackSource: 'memory',
+        alertThreshold: 3
+      },
+      estimatedRecoveryTime: retryCount < 3 ? 2000 + (retryCount * 1000) : 15000,
+      successRate: retryCount < 3 ? 80 : 60
+    };
   }
 }
 
 /**
- * Configuration merge error
- * When configuration merging/inheritance fails
+ * Configuration type error
+ * 
+ * Thrown when configuration data has incorrect type
+ * or cannot be converted to expected type.
  */
-export class ConfigurationMergeError extends ConfigurationError {
-  public readonly code = 'CONFIG_MERGE_FAILED';
-  public readonly severity = 'medium' as const;
-  public readonly category = 'parsing' as const;
-
+export class ConfigurationTypeError extends ConfigurationError {
   constructor(
-    baseConfigKey: string,
-    overrideConfigKey: string,
-    mergeStrategy: string,
-    options: {
-      cause?: Error;
-      contextId?: string;
-      conflictingFields?: string[];
-    } = {}
+    field: string,
+    actualType: string,
+    expectedType: string,
+    value: any,
+    conversionAttempted: boolean = false,
+    correlationId?: string,
+    additionalContext: Record<string, any> = {}
   ) {
-    const message = `Failed to merge configurations: ${baseConfigKey} + ${overrideConfigKey}`;
-    const userMessage = 'Unable to properly combine configuration settings. Using default configuration instead.';
-    
-    super(message, {
-      ...options,
-      recoverable: true,
-      userMessage,
-      technicalDetails: {
-        baseConfigKey,
-        overrideConfigKey,
-        mergeStrategy,
-        conflictingFields: options.conflictingFields || [],
-        mergeAttemptTime: new Date().toISOString()
-      }
-    });
+    const context = {
+      field,
+      actualType,
+      expectedType,
+      value: typeof value === 'object' ? JSON.stringify(value) : value,
+      conversionAttempted,
+      operation: 'configuration_type_check',
+      ...additionalContext
+    };
+
+    super(
+      `Configuration type error for field "${field}": expected ${expectedType}, got ${actualType}`,
+      'CONFIG_TYPE_MISMATCH',
+      context,
+      'high',
+      correlationId,
+      `Configuration format error. The "${field}" field has an incorrect format.`
+    );
   }
-}
 
-/**
- * Configuration parsing error
- * When configuration data cannot be parsed or processed
- */
-export class ConfigurationParsingError extends ConfigurationError {
-  public readonly code = 'CONFIG_PARSING_FAILED';
-  public readonly severity = 'high' as const;
-  public readonly category = 'parsing' as const;
+  protected getErrorCategory(): string {
+    return 'configuration_typing';
+  }
 
-  constructor(
-    configKey: string,
-    parsingStage: string,
-    options: {
-      cause?: Error;
-      contextId?: string;
-      rawData?: unknown;
-      expectedFormat?: string;
-    } = {}
-  ) {
-    const message = `Failed to parse configuration for key: ${configKey} at stage: ${parsingStage}`;
-    const userMessage = 'The configuration data format is incorrect and cannot be processed.';
+  protected getDefaultUserMessage(): string {
+    return 'Configuration format error. Please check the data format and try again.';
+  }
+
+  public getRecoveryStrategy(): RecoveryStrategy {
+    const conversionAttempted = this.context.conversionAttempted as boolean;
     
-    super(message, {
-      ...options,
-      recoverable: false,
-      userMessage,
-      technicalDetails: {
-        configKey,
-        parsingStage,
-        expectedFormat: options.expectedFormat || 'unknown',
-        rawDataType: typeof options.rawData,
-        parsingAttemptTime: new Date().toISOString()
-      }
-    });
+    return {
+      type: conversionAttempted ? RecoveryStrategyType.ALERT_DEVELOPER : RecoveryStrategyType.RETRY,
+      priority: 'high',
+      automated: !conversionAttempted,
+      description: conversionAttempted ? 'Alert developer for type conversion fix' : 'Attempt type conversion',
+      actions: conversionAttempted ? [
+        'Alert development team',
+        'Document type conversion failure',
+        'Use default value for field',
+        'Log detailed type information'
+      ] : [
+        'Attempt automatic type conversion',
+        'Use type coercion rules',
+        'Apply default value if conversion fails',
+        'Log conversion attempt details'
+      ],
+      parameters: {
+        maxRetries: 1,
+        allowTypeCoercion: true,
+        defaultValue: this.getDefaultValueForType(),
+        strictTypeChecking: false,
+        developerAlert: conversionAttempted
+      },
+      estimatedRecoveryTime: conversionAttempted ? 60000 : 5000,
+      successRate: conversionAttempted ? 30 : 75
+    };
+  }
+
+  /**
+   * Gets appropriate default value based on expected type
+   * 
+   * @returns Default value for the expected type
+   */
+  private getDefaultValueForType(): any {
+    const expectedType = this.context.expectedType as string;
+    
+    switch (expectedType.toLowerCase()) {
+      case 'string': return '';
+      case 'number': return 0;
+      case 'boolean': return false;
+      case 'array': return [];
+      case 'object': return {};
+      default: return null;
+    }
   }
 }
 
 /**
  * Configuration security error
- * When configuration access violates security policies
+ * 
+ * Thrown when configuration access violates security
+ * policies or permissions.
  */
 export class ConfigurationSecurityError extends ConfigurationError {
-  public readonly code = 'CONFIG_SECURITY_VIOLATION';
-  public readonly severity = 'critical' as const;
-  public readonly category = 'security' as const;
-
   constructor(
-    configKey: string,
-    securityViolation: string,
-    options: {
-      cause?: Error;
-      contextId?: string;
-      userId?: string;
-      accessLevel?: string;
-    } = {}
+    operation: string,
+    requiredPermission: string,
+    currentPermissions: string[] = [],
+    securityPolicy: string = '',
+    correlationId?: string,
+    additionalContext: Record<string, any> = {}
   ) {
-    const message = `Security violation accessing configuration: ${configKey} - ${securityViolation}`;
-    const userMessage = 'Access to this configuration is not permitted.';
-    
-    super(message, {
-      ...options,
-      recoverable: false,
-      userMessage,
-      technicalDetails: {
-        configKey,
-        securityViolation,
-        userId: options.userId || 'unknown',
-        accessLevel: options.accessLevel || 'none',
-        violationTime: new Date().toISOString(),
-        ipAddress: 'redacted-for-security'
+    const context = {
+      operation: 'configuration_security_check',
+      requiredPermission,
+      currentPermissions,
+      securityPolicy,
+      permissionDenied: true,
+      originalOperation: operation,
+      ...additionalContext
+    };
+
+    super(
+      `Configuration security violation: operation "${operation}" requires permission "${requiredPermission}"`,
+      'CONFIG_SECURITY_VIOLATION',
+      context,
+      'critical',
+      correlationId,
+      'Access denied. You do not have permission to perform this operation.'
+    );
+  }
+
+  protected getErrorCategory(): string {
+    return 'configuration_security';
+  }
+
+  protected getDefaultUserMessage(): string {
+    return 'Access denied. You do not have permission to perform this operation.';
+  }
+
+  public getRecoveryStrategy(): RecoveryStrategy {
+    return {
+      type: RecoveryStrategyType.ALERT_DEVELOPER,
+      priority: 'critical',
+      automated: true,
+      description: 'Alert security team and log security violation',
+      actions: [
+        'Log security violation with full context',
+        'Alert security team immediately',
+        'Block further access attempts',
+        'Review user permissions and access patterns',
+        'Investigate potential security breach'
+      ],
+      parameters: {
+        maxRetries: 0,
+        blockAccess: true,
+        securityAlert: true,
+        auditLog: true,
+        escalateToSecurity: true,
+        quarantineUser: this.severity === 'critical'
+      },
+      estimatedRecoveryTime: 0, // No automatic recovery
+      successRate: 0 // Requires manual intervention
+    };
+  }
+
+  /**
+   * Creates a security incident report
+   * 
+   * @returns Security incident report with full context
+   */
+  public createSecurityIncidentReport(): {
+    incident: {
+      id: string;
+      timestamp: Date;
+      severity: string;
+      operation: string;
+      requiredPermission: string;
+      currentPermissions: string[];
+      userContext: Record<string, any>;
+    };
+    response: {
+      action: string;
+      automated: boolean;
+      alertsSent: string[];
+      accessBlocked: boolean;
+    };
+  } {
+    return {
+      incident: {
+        id: this.correlationId || `security-${Date.now()}`,
+        timestamp: this.timestamp,
+        severity: this.severity,
+        operation: this.context.operation as string,
+        requiredPermission: this.context.requiredPermission as string,
+        currentPermissions: this.context.currentPermissions as string[],
+        userContext: this.context
+      },
+      response: {
+        action: 'BLOCK_AND_ALERT',
+        automated: true,
+        alertsSent: ['security-team', 'system-admin'],
+        accessBlocked: true
       }
-    });
+    };
   }
 }
 
 /**
- * Configuration business rule error
- * When configuration violates business logic rules
- */
-export class ConfigurationBusinessRuleError extends ConfigurationError {
-  public readonly code = 'CONFIG_BUSINESS_RULE_VIOLATION';
-  public readonly severity = 'medium' as const;
-  public readonly category = 'business-rule' as const;
-
-  constructor(
-    configKey: string,
-    ruleViolation: string,
-    options: {
-      cause?: Error;
-      contextId?: string;
-      ruleId?: string;
-      expectedValue?: unknown;
-      actualValue?: unknown;
-    } = {}
-  ) {
-    const message = `Business rule violation in configuration: ${configKey} - ${ruleViolation}`;
-    const userMessage = 'This configuration violates business rules and cannot be used.';
-    
-    super(message, {
-      ...options,
-      recoverable: true,
-      userMessage,
-      technicalDetails: {
-        configKey,
-        ruleViolation,
-        ruleId: options.ruleId || 'unknown',
-        expectedValue: options.expectedValue,
-        actualValue: options.actualValue,
-        violationTime: new Date().toISOString()
-      }
-    });
-  }
-}
-
-// ===== ERROR FACTORY =====
-
-/**
- * Factory for creating configuration errors with proper context
+ * Error factory for creating configuration errors with consistent structure
  */
 export class ConfigurationErrorFactory {
   /**
-   * Create configuration not found error with suggestions
+   * Creates a configuration not found error
    */
   static createNotFoundError(
-    configKey: string,
-    availableKeys: string[] = [],
-    contextId?: string
+    configurationKey: string,
+    searchedLocations: string[] = [],
+    correlationId?: string,
+    additionalContext: Record<string, any> = {}
   ): ConfigurationNotFoundError {
-    const suggestions = availableKeys
-      .filter(key => key.includes(configKey.split('-')[0]))
-      .slice(0, 3);
-    
-    return new ConfigurationNotFoundError(configKey, availableKeys, {
-      contextId,
-      suggestions
-    });
+    return new ConfigurationNotFoundError(configurationKey, searchedLocations, correlationId, additionalContext);
   }
 
   /**
-   * Create validation error from Zod validation results
+   * Creates a configuration validation error
    */
   static createValidationError(
-    configKey: string,
-    validationErrors: string[],
-    rawData?: unknown,
-    contextId?: string
+    validationMessage: string,
+    field: string,
+    value: any,
+    expectedType?: string,
+    validationRules?: string[],
+    correlationId?: string,
+    additionalContext: Record<string, any> = {}
   ): ConfigurationValidationError {
-    return new ConfigurationValidationError(configKey, validationErrors, {
-      contextId,
-      rawData
-    });
+    return new ConfigurationValidationError(
+      validationMessage,
+      field,
+      value,
+      expectedType,
+      validationRules,
+      correlationId,
+      additionalContext
+    );
   }
 
   /**
-   * Create load error with retry information
+   * Creates a configuration load error
    */
   static createLoadError(
-    configKey: string,
-    loadStrategy: string,
-    cause?: Error,
-    retryAttempts: number = 0,
-    contextId?: string
+    source: string,
+    loadError: string,
+    retryCount: number = 0,
+    correlationId?: string,
+    additionalContext: Record<string, any> = {}
   ): ConfigurationLoadError {
-    return new ConfigurationLoadError(configKey, loadStrategy, {
-      cause,
-      contextId,
-      retryAttempts,
-      loadTime: Date.now()
-    });
+    return new ConfigurationLoadError(source, loadError, retryCount, correlationId, additionalContext);
   }
 
   /**
-   * Create merge error with conflict details
+   * Creates a configuration type error
    */
-  static createMergeError(
-    baseConfigKey: string,
-    overrideConfigKey: string,
-    mergeStrategy: string,
-    conflictingFields: string[] = [],
-    contextId?: string
-  ): ConfigurationMergeError {
-    return new ConfigurationMergeError(baseConfigKey, overrideConfigKey, mergeStrategy, {
-      contextId,
-      conflictingFields
-    });
+  static createTypeError(
+    field: string,
+    actualType: string,
+    expectedType: string,
+    value: any,
+    conversionAttempted: boolean = false,
+    correlationId?: string,
+    additionalContext: Record<string, any> = {}
+  ): ConfigurationTypeError {
+    return new ConfigurationTypeError(
+      field,
+      actualType,
+      expectedType,
+      value,
+      conversionAttempted,
+      correlationId,
+      additionalContext
+    );
+  }
+
+  /**
+   * Creates a configuration security error
+   */
+  static createSecurityError(
+    operation: string,
+    requiredPermission: string,
+    currentPermissions: string[] = [],
+    securityPolicy: string = '',
+    correlationId?: string,
+    additionalContext: Record<string, any> = {}
+  ): ConfigurationSecurityError {
+    return new ConfigurationSecurityError(
+      operation,
+      requiredPermission,
+      currentPermissions,
+      securityPolicy,
+      correlationId,
+      additionalContext
+    );
   }
 }
 
-// ===== ERROR TYPE GUARDS =====
-
-export const ErrorTypeGuards = {
-  isConfigurationError: (error: unknown): error is ConfigurationError => {
+/**
+ * Configuration error utilities for error handling and recovery
+ */
+export class ConfigurationErrorUtils {
+  /**
+   * Determines if an error is a configuration error
+   */
+  static isConfigurationError(error: any): error is ConfigurationError {
     return error instanceof ConfigurationError;
-  },
-
-  isNotFoundError: (error: unknown): error is ConfigurationNotFoundError => {
-    return error instanceof ConfigurationNotFoundError;
-  },
-
-  isValidationError: (error: unknown): error is ConfigurationValidationError => {
-    return error instanceof ConfigurationValidationError;
-  },
-
-  isLoadError: (error: unknown): error is ConfigurationLoadError => {
-    return error instanceof ConfigurationLoadError;
-  },
-
-  isMergeError: (error: unknown): error is ConfigurationMergeError => {
-    return error instanceof ConfigurationMergeError;
-  },
-
-  isSecurityError: (error: unknown): error is ConfigurationSecurityError => {
-    return error instanceof ConfigurationSecurityError;
-  },
-
-  isRecoverableError: (error: unknown): boolean => {
-    return error instanceof ConfigurationError && error.isRecoverable();
-  },
-
-  isCriticalError: (error: unknown): boolean => {
-    return error instanceof ConfigurationError && error.severity === 'critical';
   }
-};
+
+  /**
+   * Gets the most appropriate recovery strategy for an error
+   */
+  static getRecoveryStrategy(error: Error): RecoveryStrategy | null {
+    if (ConfigurationErrorUtils.isConfigurationError(error)) {
+      return error.getRecoveryStrategy();
+    }
+    return null;
+  }
+
+  /**
+   * Creates a standardized error response for APIs
+   */
+  static createErrorResponse(error: ConfigurationError): {
+    success: false;
+    error: {
+      code: string;
+      message: string;
+      userMessage: string;
+      severity: string;
+      recoverable: boolean;
+      recommendedActions: string[];
+    };
+    metadata: {
+      timestamp: string;
+      correlationId?: string;
+      category: string;
+    };
+  } {
+    return {
+      success: false,
+      error: {
+        code: error.code,
+        message: error.message,
+        userMessage: error.userMessage,
+        severity: error.severity,
+        recoverable: error.isRecoverable(),
+        recommendedActions: error.getRecommendedActions()
+      },
+      metadata: {
+        timestamp: error.timestamp.toISOString(),
+        correlationId: error.correlationId,
+        category: error.category
+      }
+    };
+  }
+
+  /**
+   * Aggregates multiple configuration errors into a summary
+   */
+  static aggregateErrors(errors: ConfigurationError[]): {
+    totalErrors: number;
+    errorsByCategory: Record<string, number>;
+    errorsBySeverity: Record<string, number>;
+    recoverableErrors: number;
+    criticalErrors: ConfigurationError[];
+    recommendedActions: string[];
+  } {
+    const errorsByCategory: Record<string, number> = {};
+    const errorsBySeverity: Record<string, number> = {};
+    const criticalErrors: ConfigurationError[] = [];
+    const allActions = new Set<string>();
+
+    errors.forEach(error => {
+      // Count by category
+      errorsByCategory[error.category] = (errorsByCategory[error.category] || 0) + 1;
+      
+      // Count by severity
+      errorsBySeverity[error.severity] = (errorsBySeverity[error.severity] || 0) + 1;
+      
+      // Collect critical errors
+      if (error.severity === 'critical') {
+        criticalErrors.push(error);
+      }
+      
+      // Collect recommended actions
+      error.getRecommendedActions().forEach(action => allActions.add(action));
+    });
+
+    return {
+      totalErrors: errors.length,
+      errorsByCategory,
+      errorsBySeverity,
+      recoverableErrors: errors.filter(e => e.isRecoverable()).length,
+      criticalErrors,
+      recommendedActions: Array.from(allActions)
+    };
+  }
+}
