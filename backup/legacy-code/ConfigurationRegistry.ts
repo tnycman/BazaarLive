@@ -69,14 +69,36 @@ class EnterpriseConfigurationRegistry implements ConfigurationRegistry {
   }
 
   /**
-   * Get configuration by key using enterprise strategy pattern
-   * LEGACY METHOD - Use UnifiedConfigurationAPI instead
-   * @deprecated Use unifiedConfigurationAPI.getConfiguration() for new implementations
+   * Get configuration by key with dynamic loading and inheritance support
+   * Returns merged configuration with base template inheritance
    */
   public async getConfiguration(key: string): Promise<UniversalPageConfiguration | null> {
-    // PHASE 4: Redirect to strategy pattern implementation
-    const { unifiedConfigurationAPI } = await import('../enterprise/integration/StrategyPatternIntegration');
-    return await unifiedConfigurationAPI.getConfiguration(key);
+    // Try dynamic loading first for better performance
+    const dynamicResult = await dynamicConfigurationLoader.loadConfiguration(key, {
+      cacheEnabled: true,
+      mergeWithBase: true,
+      loadStrategy: LoadStrategy.DYNAMIC_IMPORT
+    });
+
+    if (dynamicResult.isSuccess()) {
+      return dynamicResult.value.configuration;
+    }
+
+    // Fallback to static configuration lookup
+    if (key === 'fashion-women') {
+      const mergeResult = configurationMergeUtility.mergeConfigWithBase(
+        key, 
+        womenFashionConfigOverride, 
+        MergeStrategy.DEEP_MERGE
+      );
+      
+      if (mergeResult.isSuccess()) {
+        return mergeResult.value.merged;
+      }
+    }
+
+    // Final fallback to direct configuration lookup
+    return this.configurations[key] || null;
   }
 
   /**

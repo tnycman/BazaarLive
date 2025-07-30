@@ -129,27 +129,28 @@ export class DynamicConfigurationLoader {
   }
 
   /**
-   * Execute load strategy implementation (LEGACY - REPLACED BY STRATEGY PATTERN)
-   * @deprecated Use enterprise strategy pattern through UnifiedConfigurationAPI
+   * Execute load strategy implementation
    */
   private async executeLoadStrategy(
     context: ConfigurationLoadContext
   ): Promise<Result<UniversalPageConfiguration, Error>> {
-    // PHASE 4: Redirect all loading to enterprise strategy pattern
-    try {
-      const { unifiedConfigurationAPI } = await import('../enterprise/integration/StrategyPatternIntegration');
-      const config = await unifiedConfigurationAPI.getConfiguration(context.configKey, {
-        timeout: context.timeout,
-        cachingEnabled: true
-      });
-      
-      if (config) {
-        return Result.success(config);
-      } else {
-        return Result.failure(new Error(`Configuration not found: ${context.configKey}`));
-      }
-    } catch (error) {
-      return Result.failure(error instanceof Error ? error : new Error('Strategy pattern load failed'));
+    switch (context.loadStrategy) {
+      case LoadStrategy.DYNAMIC_IMPORT:
+        return await this.loadViaDynamicImport(context);
+
+      case LoadStrategy.API_ENDPOINT:
+        return await this.loadViaAPI(context);
+
+      case LoadStrategy.HYBRID:
+        // Try dynamic import first, fallback to API
+        const importResult = await this.loadViaDynamicImport(context);
+        if (importResult.isSuccess()) {
+          return importResult;
+        }
+        return await this.loadViaAPI(context);
+
+      default:
+        return Result.failure(new Error(`Unsupported load strategy: ${context.loadStrategy}`));
     }
   }
 
@@ -246,8 +247,7 @@ export class DynamicConfigurationLoader {
   private getConfigPath(configKey: string): string {
     const [category, subcategory] = configKey.split('-');
     
-    // LEGACY MAP - REPLACED BY STRATEGY PATTERN
-    // Configuration paths are now handled by strategy registry
+    // Map to actual config file paths
     const pathMap: Record<string, string> = {
       'fashion-women': '../configs/fashion/women-optimized.js',
       'fashion-men': '../configs/fashion/men',
