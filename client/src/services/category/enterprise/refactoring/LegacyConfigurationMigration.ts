@@ -392,8 +392,9 @@ export class SwitchStatementEliminator {
 // ===== LEGACY BRIDGE FOR GRADUAL MIGRATION =====
 
 /**
- * Legacy Configuration Bridge
- * Provides backward compatibility during migration period
+ * Legacy Configuration Bridge (PHASE 4: BEING ELIMINATED)
+ * @deprecated Bridge functionality replaced by UnifiedConfigurationAPI
+ * This bridge is no longer needed as migration is complete
  */
 export class LegacyConfigurationBridge implements LegacyConfigurationSystem {
   private readonly eliminator: LegacyConfigurationEliminator;
@@ -403,18 +404,13 @@ export class LegacyConfigurationBridge implements LegacyConfigurationSystem {
   }
 
   /**
-   * Get configuration - bridges to new strategy pattern
+   * Get configuration - redirects to strategy pattern (DEPRECATED)
+   * @deprecated Use unifiedConfigurationAPI.getConfiguration() directly
    */
   public async getConfiguration(key: string): Promise<UniversalPageConfiguration | null> {
-    const result = await SwitchStatementEliminator.loadWithStrategyPattern(key);
-    
-    return result.match(
-      (config) => config,
-      (error) => {
-        console.warn(`[LEGACY-BRIDGE] Configuration load failed for key "${key}":`, error.message);
-        return null;
-      }
-    );
+    // PHASE 4: Direct redirect to unified API
+    const { unifiedConfigurationAPI } = await import('../integration/StrategyPatternIntegration');
+    return await unifiedConfigurationAPI.getConfiguration(key);
   }
 
   /**
