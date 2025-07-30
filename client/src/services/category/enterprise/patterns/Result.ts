@@ -1,483 +1,265 @@
 /**
- * Enterprise Result Pattern Implementation
- * Type-safe error handling eliminating all null returns
- * Zero assumptions, comprehensive error context preservation
+ * Result Pattern Implementation
+ * Enterprise-grade Result<T,E> type for uniform success/failure handling
+ * Prevents null/undefined returns and makes error recovery explicit
  */
-
-import { ConfigurationError, ConfigurationErrorInfo } from '../errors/ConfigurationErrors';
-
-// ===== RESULT PATTERN CORE =====
 
 /**
- * Result<T, E> - Enterprise result pattern for type-safe error handling
- * Eliminates null returns and provides explicit success/failure states
+ * Result type union representing either success with value or failure with error
+ * @template T - The success value type
+ * @template E - The error type
  */
-export abstract class Result<T, E extends Error> {
-  public abstract readonly isSuccess: boolean;
-  public abstract readonly isFailure: boolean;
-  public abstract readonly value: T;
-  public abstract readonly error: E;
+export type Result<T, E> = 
+  | { ok: true; value: T }
+  | { ok: false; error: E };
 
-  /**
-   * Create a successful result
-   */
-  public static success<T, E extends Error = Error>(value: T): Result<T, E> {
-    return new SuccessResult(value);
-  }
-
-  /**
-   * Create a failure result
-   */
-  public static failure<T, E extends Error = Error>(error: E): Result<T, E> {
-    return new FailureResult(error);
-  }
-
-  /**
-   * Create a result from a potentially throwing function
-   */
-  public static from<T, E extends Error = Error>(
-    fn: () => T,
-    errorHandler?: (error: unknown) => E
-  ): Result<T, E> {
-    try {
-      const value = fn();
-      return Result.success(value);
-    } catch (error) {
-      const handledError = errorHandler ? errorHandler(error) : error as E;
-      return Result.failure(handledError);
-    }
-  }
-
-  /**
-   * Create a result from a Promise
-   */
-  public static async fromAsync<T, E extends Error = Error>(
-    promise: Promise<T>,
-    errorHandler?: (error: unknown) => E
-  ): Promise<Result<T, E>> {
-    try {
-      const value = await promise;
-      return Result.success(value);
-    } catch (error) {
-      const handledError = errorHandler ? errorHandler(error) : error as E;
-      return Result.failure(handledError);
-    }
-  }
-
-  /**
-   * Combine multiple results into a single result
-   */
-  public static combine<T, E extends Error = Error>(
-    results: Result<T, E>[]
-  ): Result<T[], E> {
-    const values: T[] = [];
-    
-    for (const result of results) {
-      if (result.isFailure) {
-        return Result.failure(result.error);
-      }
-      values.push(result.value);
-    }
-    
-    return Result.success(values);
-  }
-
-  /**
-   * Map the success value to a new type
-   */
-  public abstract map<U>(fn: (value: T) => U): Result<U, E>;
-
-  /**
-   * Map the error to a new type
-   */
-  public abstract mapError<F extends Error>(fn: (error: E) => F): Result<T, F>;
-
-  /**
-   * Chain results together (flatMap)
-   */
-  public abstract flatMap<U>(fn: (value: T) => Result<U, E>): Result<U, E>;
-
-  /**
-   * Handle both success and failure cases
-   */
-  public abstract match<U>(
-    onSuccess: (value: T) => U,
-    onFailure: (error: E) => U
-  ): U;
-
-  /**
-   * Get value or throw error
-   */
-  public abstract unwrap(): T;
-
-  /**
-   * Get value or return default
-   */
-  public abstract unwrapOr(defaultValue: T): T;
-
-  /**
-   * Get value or compute default from error
-   */
-  public abstract unwrapOrElse(fn: (error: E) => T): T;
-
-  /**
-   * Perform side effect on success
-   */
-  public abstract tap(fn: (value: T) => void): Result<T, E>;
-
-  /**
-   * Perform side effect on failure
-   */
-  public abstract tapError(fn: (error: E) => void): Result<T, E>;
+/**
+ * Creates a successful Result wrapping the provided value
+ * @template T - The success value type
+ * @template E - The error type (inferred)
+ * @param value - The success value to wrap
+ * @returns Result<T,E> with ok: true and the value
+ * 
+ * @example
+ * ```typescript
+ * const result = ok<string, Error>("Hello World");
+ * if (result.ok) {
+ *   console.log(result.value); // "Hello World"
+ * }
+ * ```
+ */
+export function ok<T, E = Error>(value: T): Result<T, E> {
+  return { ok: true, value };
 }
 
-// ===== SUCCESS RESULT IMPLEMENTATION =====
-
-class SuccessResult<T, E extends Error> extends Result<T, E> {
-  public readonly isSuccess = true;
-  public readonly isFailure = false;
-  public readonly error!: E; // Will never be accessed due to type guards
-
-  constructor(public readonly value: T) {
-    super();
-  }
-
-  public map<U>(fn: (value: T) => U): Result<U, E> {
-    return Result.success(fn(this.value));
-  }
-
-  public mapError<F extends Error>(_fn: (error: E) => F): Result<T, F> {
-    return Result.success(this.value);
-  }
-
-  public flatMap<U>(fn: (value: T) => Result<U, E>): Result<U, E> {
-    return fn(this.value);
-  }
-
-  public match<U>(
-    onSuccess: (value: T) => U,
-    _onFailure: (error: E) => U
-  ): U {
-    return onSuccess(this.value);
-  }
-
-  public unwrap(): T {
-    return this.value;
-  }
-
-  public unwrapOr(_defaultValue: T): T {
-    return this.value;
-  }
-
-  public unwrapOrElse(_fn: (error: E) => T): T {
-    return this.value;
-  }
-
-  public tap(fn: (value: T) => void): Result<T, E> {
-    fn(this.value);
-    return this;
-  }
-
-  public tapError(_fn: (error: E) => void): Result<T, E> {
-    return this;
-  }
+/**
+ * Creates a failed Result wrapping the provided error
+ * @template T - The success value type (inferred)
+ * @template E - The error type
+ * @param error - The error to wrap
+ * @returns Result<T,E> with ok: false and the error
+ * 
+ * @example
+ * ```typescript
+ * const result = err<string, Error>(new Error("Something went wrong"));
+ * if (!result.ok) {
+ *   console.error(result.error.message); // "Something went wrong"
+ * }
+ * ```
+ */
+export function err<T = unknown, E = Error>(error: E): Result<T, E> {
+  return { ok: false, error };
 }
 
-// ===== FAILURE RESULT IMPLEMENTATION =====
+/**
+ * Type guard to check if a Result is successful
+ * @param result - The Result to check
+ * @returns true if the Result represents success
+ */
+export function isOk<T, E>(result: Result<T, E>): result is { ok: true; value: T } {
+  return result.ok === true;
+}
 
-class FailureResult<T, E extends Error> extends Result<T, E> {
-  public readonly isSuccess = false;
-  public readonly isFailure = true;
-  public readonly value!: T; // Will never be accessed due to type guards
+/**
+ * Type guard to check if a Result is an error
+ * @param result - The Result to check
+ * @returns true if the Result represents failure
+ */
+export function isErr<T, E>(result: Result<T, E>): result is { ok: false; error: E } {
+  return result.ok === false;
+}
 
-  constructor(public readonly error: E) {
-    super();
+/**
+ * Maps a successful Result's value through a transformation function
+ * @template T - The original success value type
+ * @template U - The transformed success value type
+ * @template E - The error type
+ * @param result - The Result to map
+ * @param fn - The transformation function
+ * @returns New Result with transformed value or original error
+ * 
+ * @example
+ * ```typescript
+ * const result = ok<number, Error>(42);
+ * const mapped = mapOk(result, x => x.toString()); // Result<string, Error>
+ * ```
+ */
+export function mapOk<T, U, E>(
+  result: Result<T, E>,
+  fn: (value: T) => U
+): Result<U, E> {
+  return result.ok ? ok(fn(result.value)) : result;
+}
+
+/**
+ * Maps a failed Result's error through a transformation function
+ * @template T - The success value type
+ * @template E - The original error type
+ * @template F - The transformed error type
+ * @param result - The Result to map
+ * @param fn - The transformation function
+ * @returns New Result with transformed error or original value
+ * 
+ * @example
+ * ```typescript
+ * const result = err<string, string>("error");
+ * const mapped = mapErr(result, msg => new Error(msg)); // Result<string, Error>
+ * ```
+ */
+export function mapErr<T, E, F>(
+  result: Result<T, E>,
+  fn: (error: E) => F
+): Result<T, F> {
+  return result.ok ? result : err(fn(result.error));
+}
+
+/**
+ * Chains Results together, applying a function that returns a Result
+ * @template T - The original success value type
+ * @template U - The chained success value type
+ * @template E - The error type
+ * @param result - The Result to chain
+ * @param fn - The function that returns a new Result
+ * @returns Chained Result or original error
+ * 
+ * @example
+ * ```typescript
+ * const result = ok<string, Error>("42");
+ * const chained = andThen(result, str => {
+ *   const num = parseInt(str);
+ *   return isNaN(num) ? err(new Error("Not a number")) : ok(num);
+ * });
+ * ```
+ */
+export function andThen<T, U, E>(
+  result: Result<T, E>,
+  fn: (value: T) => Result<U, E>
+): Result<U, E> {
+  return result.ok ? fn(result.value) : result;
+}
+
+/**
+ * Provides a default value for failed Results
+ * @template T - The success value type
+ * @template E - The error type
+ * @param result - The Result to unwrap
+ * @param defaultValue - The default value to use on error
+ * @returns The success value or default value
+ * 
+ * @example
+ * ```typescript
+ * const result = err<number, Error>(new Error("Failed"));
+ * const value = unwrapOr(result, 0); // 0
+ * ```
+ */
+export function unwrapOr<T, E>(result: Result<T, E>, defaultValue: T): T {
+  return result.ok ? result.value : defaultValue;
+}
+
+/**
+ * Unwraps a successful Result or throws the error
+ * @template T - The success value type
+ * @template E - The error type (must extend Error)
+ * @param result - The Result to unwrap
+ * @returns The success value
+ * @throws The error if Result is failed
+ * 
+ * @example
+ * ```typescript
+ * const result = ok<string, Error>("success");
+ * const value = unwrap(result); // "success"
+ * 
+ * const failed = err<string, Error>(new Error("Failed"));
+ * const value2 = unwrap(failed); // throws Error("Failed")
+ * ```
+ */
+export function unwrap<T, E extends Error>(result: Result<T, E>): T {
+  if (result.ok) {
+    return result.value;
   }
+  throw result.error;
+}
 
-  public map<U>(_fn: (value: T) => U): Result<U, E> {
-    return Result.failure(this.error);
-  }
-
-  public mapError<F extends Error>(fn: (error: E) => F): Result<T, F> {
-    return Result.failure(fn(this.error));
-  }
-
-  public flatMap<U>(_fn: (value: T) => Result<U, E>): Result<U, E> {
-    return Result.failure(this.error);
-  }
-
-  public match<U>(
-    _onSuccess: (value: T) => U,
-    onFailure: (error: E) => U
-  ): U {
-    return onFailure(this.error);
-  }
-
-  public unwrap(): T {
-    throw this.error;
-  }
-
-  public unwrapOr(defaultValue: T): T {
-    return defaultValue;
-  }
-
-  public unwrapOrElse(fn: (error: E) => T): T {
-    return fn(this.error);
-  }
-
-  public tap(_fn: (value: T) => void): Result<T, E> {
-    return this;
-  }
-
-  public tapError(fn: (error: E) => void): Result<T, E> {
-    fn(this.error);
-    return this;
+/**
+ * Converts a Promise to a Result, catching any thrown errors
+ * @template T - The success value type
+ * @template E - The error type
+ * @param promise - The Promise to convert
+ * @param errorMapper - Optional function to transform caught errors
+ * @returns Promise<Result<T, E>>
+ * 
+ * @example
+ * ```typescript
+ * const result = await fromPromise(
+ *   fetch('/api/data').then(r => r.json()),
+ *   (err) => new Error(`API Error: ${err.message}`)
+ * );
+ * ```
+ */
+export async function fromPromise<T, E = Error>(
+  promise: Promise<T>,
+  errorMapper?: (error: unknown) => E
+): Promise<Result<T, E>> {
+  try {
+    const value = await promise;
+    return ok(value);
+  } catch (error) {
+    const mappedError = errorMapper ? errorMapper(error) : (error as E);
+    return err(mappedError);
   }
 }
 
-// ===== CONFIGURATION RESULT TYPES =====
-
 /**
- * Specialized result type for configuration operations
+ * Combines multiple Results into a single Result containing an array
+ * Fails fast - returns the first error encountered
+ * @template T - The success value type
+ * @template E - The error type
+ * @param results - Array of Results to combine
+ * @returns Result<T[], E> with all values or first error
+ * 
+ * @example
+ * ```typescript
+ * const results = [ok(1), ok(2), ok(3)];
+ * const combined = all(results); // ok([1, 2, 3])
+ * 
+ * const withError = [ok(1), err(new Error("Failed")), ok(3)];
+ * const failed = all(withError); // err(Error("Failed"))
+ * ```
  */
-export type ConfigurationResult<T> = Result<T, ConfigurationError>;
-
-/**
- * Result utilities for configuration operations
- */
-export class ConfigurationResultUtils {
-  /**
-   * Create successful configuration result
-   */
-  static success<T>(value: T): ConfigurationResult<T> {
-    return Result.success(value);
-  }
-
-  /**
-   * Create failed configuration result
-   */
-  static failure<T>(error: ConfigurationError): ConfigurationResult<T> {
-    return Result.failure(error);
-  }
-
-  /**
-   * Validate and create result from configuration data (ASYNC)
-   * 
-   * Enterprise implementation using ResultFactory with aspect orchestration
-   */
-  static async validate<T>(
-    value: unknown,
-    validator: (value: unknown) => { isValid: boolean; errors: string[] },
-    configKey: string,
-    contextId?: string
-  ): Promise<ConfigurationResult<T>> {
-    // Use enterprise ResultFactory with aspect orchestration
-    const { resultFactory } = await import('../factories/ResultFactory');
-    
-    const context = {
-      operation: 'validate',
-      configKey,
-      contextId,
-      validationType: 'configuration',
-      metadata: { source: 'ConfigurationResultUtils' }
-    };
-    
-    return await resultFactory.createValidationResult<T>(value, validator, context);
+export function all<T, E>(results: Result<T, E>[]): Result<T[], E> {
+  const values: T[] = [];
+  
+  for (const result of results) {
+    if (!result.ok) {
+      return result;
+    }
+    values.push(result.value);
   }
   
-  /**
-   * Validate and create result from configuration data (SYNC - DEPRECATED)
-   * 
-   * @deprecated Use async validate method for enterprise compliance
-   */
-  static validateSync<T>(
-    value: unknown,
-    validator: (value: unknown) => { isValid: boolean; errors: string[] },
-    configKey: string,
-    contextId?: string
-  ): ConfigurationResult<T> {
-    console.warn(
-      `DEPRECATED: ConfigurationResultUtils.validateSync is deprecated. ` +
-      `Use async validate method for enterprise AOP compliance.`
-    );
-    
-    // Use backward compatibility bridge
-    const { ResultFactoryBridge } = require('../factories/ResultFactory');
-    return ResultFactoryBridge.validate<T>(value, validator, configKey, contextId);
-  }
-
-  /**
-   * Chain multiple configuration operations
-   */
-  static chain<A, B>(
-    resultA: ConfigurationResult<A>,
-    fn: (value: A) => ConfigurationResult<B>
-  ): ConfigurationResult<B> {
-    return resultA.flatMap(fn);
-  }
-
-  /**
-   * Combine multiple configuration results
-   */
-  static combineConfigurations<T>(
-    results: ConfigurationResult<T>[]
-  ): ConfigurationResult<T[]> {
-    return Result.combine(results);
-  }
-
-  /**
-   * Handle configuration result with logging
-   */
-  static handleWithLogging<T>(
-    result: ConfigurationResult<T>,
-    operation: string,
-    logger?: (info: ConfigurationErrorInfo | { success: true; operation: string; timestamp: string }) => void
-  ): T | null {
-    return result.match(
-      (value) => {
-        logger?.({
-          success: true,
-          operation,
-          timestamp: new Date().toISOString()
-        });
-        return value;
-      },
-      (error) => {
-        logger?.(error.getErrorInfo());
-        return null;
-      }
-    );
-  }
-
-  /**
-   * Convert result to promise (for async compatibility)
-   */
-  static toPromise<T>(result: ConfigurationResult<T>): Promise<T> {
-    return result.match(
-      (value) => Promise.resolve(value),
-      (error) => Promise.reject(error)
-    );
-  }
-
-  /**
-   * Create result from promise with error conversion
-   */
-  static async fromPromise<T>(
-    promise: Promise<T>,
-    configKey: string,
-    operation: string,
-    contextId?: string
-  ): Promise<ConfigurationResult<T>> {
-    try {
-      const value = await promise;
-      return ConfigurationResultUtils.success(value);
-    } catch (error) {
-      const { ConfigurationLoadError } = await import('../errors/ConfigurationErrors');
-      const configError = new ConfigurationLoadError(
-        configKey,
-        operation,
-        { cause: error as Error, contextId }
-      );
-      return ConfigurationResultUtils.failure(configError);
-    }
-  }
+  return ok(values);
 }
-
-// ===== ASYNC RESULT UTILITIES =====
 
 /**
- * Utilities for working with async results
+ * Result namespace containing utility types and constants
  */
-export class AsyncResultUtils {
+export namespace Result {
   /**
-   * Map over async result
+   * Type alias for successful Result
    */
-  static async map<T, U, E extends Error>(
-    resultPromise: Promise<Result<T, E>>,
-    fn: (value: T) => U | Promise<U>
-  ): Promise<Result<U, E>> {
-    const result = await resultPromise;
-    if (result.isFailure) {
-      return Result.failure(result.error);
-    }
-    
-    try {
-      const mappedValue = await fn(result.value);
-      return Result.success(mappedValue);
-    } catch (error) {
-      return Result.failure(error as E);
-    }
-  }
-
+  export type Ok<T> = { ok: true; value: T };
+  
   /**
-   * FlatMap over async result
+   * Type alias for failed Result
    */
-  static async flatMap<T, U, E extends Error>(
-    resultPromise: Promise<Result<T, E>>,
-    fn: (value: T) => Promise<Result<U, E>>
-  ): Promise<Result<U, E>> {
-    const result = await resultPromise;
-    if (result.isFailure) {
-      return Result.failure(result.error);
-    }
-    
-    return await fn(result.value);
-  }
-
+  export type Err<E> = { ok: false; error: E };
+  
   /**
-   * Sequence multiple async results
+   * Extract the success type from a Result
    */
-  static async sequence<T, E extends Error>(
-    resultPromises: Promise<Result<T, E>>[]
-  ): Promise<Result<T[], E>> {
-    const results: T[] = [];
-    
-    for (const resultPromise of resultPromises) {
-      const result = await resultPromise;
-      if (result.isFailure) {
-        return Result.failure(result.error);
-      }
-      results.push(result.value);
-    }
-    
-    return Result.success(results);
-  }
-
+  export type Success<R> = R extends Result<infer T, any> ? T : never;
+  
   /**
-   * Run async results in parallel and collect results
+   * Extract the error type from a Result
    */
-  static async parallel<T, E extends Error>(
-    resultPromises: Promise<Result<T, E>>[]
-  ): Promise<Result<T[], E>> {
-    const results = await Promise.all(resultPromises);
-    return Result.combine(results);
-  }
-}
-
-// ===== RESULT PATTERN EXTENSIONS =====
-
-/**
- * Option-like behavior for results that might not have values
- */
-export type Option<T> = Result<T, OptionError>;
-
-class OptionError extends Error {
-  constructor() {
-    super('No value present');
-    this.name = 'OptionError';
-  }
-}
-
-export class OptionUtils {
-  static some<T>(value: T): Option<T> {
-    return Result.success(value);
-  }
-
-  static none<T>(): Option<T> {
-    return Result.failure(new OptionError());
-  }
-
-  static fromNullable<T>(value: T | null | undefined): Option<T> {
-    return value != null ? OptionUtils.some(value) : OptionUtils.none();
-  }
+  export type Error<R> = R extends Result<any, infer E> ? E : never;
 }
