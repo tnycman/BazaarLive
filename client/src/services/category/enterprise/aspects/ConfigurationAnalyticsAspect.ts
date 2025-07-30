@@ -500,7 +500,6 @@ export class ConfigurationAnalyticsAspect {
    * Track Configuration Access
    * @AfterReturning advice - tracks successful configuration access
    */
-  @AfterReturning('ConfigurationDomainService.getConfiguration')
   trackConfigurationAccess(joinPoint: JoinPoint<[string]>, result: unknown): void {
     const [configurationKey] = joinPoint.args;
     

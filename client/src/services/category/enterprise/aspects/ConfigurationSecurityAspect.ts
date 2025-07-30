@@ -280,7 +280,7 @@ export class SecurityContextProvider {
       request.user?.permissions || [],
       request.user?.roles || [],
       request.ip || '127.0.0.1',
-      request.headers?.[�user-agent'] || 'unknown',
+      request.headers?.['user-agent'] || 'unknown',
       Date.now()
     );
   }
