@@ -3,9 +3,10 @@
  * No complex architecture, just basic functionality
  */
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Header } from '@/components/Header';
 import { Navigation } from '@/components/Navigation';
+import { layoutSpacingAspect } from '@/services/aop/LayoutSpacingAspect';
 
 // Simple product type
 interface SimpleProduct {
@@ -103,6 +104,17 @@ const SAMPLE_PRODUCTS: SimpleProduct[] = [
 ];
 
 export function SimpleCategoryPage() {
+  // Enterprise AOP spacing strategy calculation for fashion page
+  const dynamicSpacing = useMemo(() => {
+    const layoutContext = layoutSpacingAspect.createLayoutContext(
+      'fashion',
+      'product-grid',
+      '248px'
+    );
+    
+    return layoutSpacingAspect.applySpacingStrategy(layoutContext);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-50" data-testid="simple-category-page">
       {/* Header */}
@@ -112,7 +124,7 @@ export function SimpleCategoryPage() {
       <Navigation />
       
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-6">
+      <div className={`max-w-7xl mx-auto ${dynamicSpacing} py-6`}>
         <div className="flex gap-6">
           {/* Left Sidebar - Filters */}
           <div className="w-64 flex-shrink-0" data-testid="simple-filters">
