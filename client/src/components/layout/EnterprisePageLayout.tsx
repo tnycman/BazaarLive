@@ -40,7 +40,7 @@ const SIDEBAR_WIDTH_CLASSES = {
 } as const;
 
 const RIGHT_SIDEBAR_WIDTH_CLASSES = {
-  narrow: 'w-22',    // 88px - narrow width for fashion pages to free up ~232px
+  narrow: 'w-24',    // 96px - narrow width for fashion pages to free up ~224px  
   standard: 'w-64',  // 256px - standard width
   wide: 'w-80'       // 320px - wide width
 } as const;
