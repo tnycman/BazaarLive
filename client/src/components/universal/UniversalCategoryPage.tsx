@@ -419,7 +419,16 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
           mainContent={
             <div data-testid="main-content-container">
               {/* TEMPORARY: Replace with LayoutAnalysis for systematic investigation */}
-              <LayoutAnalysisFixed />
+              <EnterpriseProductGrid
+                products={filteredProducts}
+                onProductClick={handleProductClick}
+                onLikeToggle={handleLikeToggle}
+                onSellerClick={handleSellerClick}
+                onShare={handleShare}
+                isLoading={pageState.isLoading}
+                title={pageConfiguration.metadata.title}
+                gridColumns={4}
+              />
             </div>
           }
           rightSidebar={

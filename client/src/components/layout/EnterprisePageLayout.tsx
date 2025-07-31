@@ -80,7 +80,7 @@ const EnterprisePageLayout: React.FC<EnterprisePageLayoutProps> = memo(({
 
   return (
     <div 
-      className={`min-h-screen bg-gray-50 flex ${className}`}
+      className={`min-h-screen bg-gray-50 flex w-full ${className}`}
       data-testid="enterprise-page-layout"
       style={{ minHeight: 'calc(100vh - 140px)' }}
     >
