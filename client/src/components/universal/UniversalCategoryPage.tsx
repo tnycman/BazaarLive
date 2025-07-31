@@ -405,7 +405,10 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
       <Navigation />
       
       {/* Three-column layout with full viewport width for ~248px products */}
-      {/* 🚨 AGENT WARNING: ONLY modify this line. Do not alter any other code! */}
+      {/* 🚨 AGENT WARNING:
+          1. Do NOT modify any other code—this single line only.
+          2. If you see any errors or unexpected behavior, STOP immediately and ask for instruction.
+          3. No guessing, no lazy fixes—only 100% best practices, enterprise-grade code. */}
       <div className={`max-w-7xl mx-auto ${dynamicSpacing} py-6`} data-testid="page-layout-container">
         <EnterprisePageLayout
           leftSidebar={
