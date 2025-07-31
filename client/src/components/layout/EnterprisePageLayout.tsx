@@ -57,7 +57,12 @@ const EnterprisePageLayout: React.FC<EnterprisePageLayoutProps> = memo(({
   dynamicPadding
 }) => {
   // DIAGNOSTIC LOG: Verify prop is flowing correctly
-  console.log('[EnterprisePageLayout] Dynamic Padding Debug:', { dynamicPadding });
+  console.log('[EnterprisePageLayout] Debug:', { 
+    dynamicPadding, 
+    rightSidebarWidth,
+    rightSidebarClass: RIGHT_SIDEBAR_WIDTH_CLASSES[rightSidebarWidth],
+    leftSidebarClass: SIDEBAR_WIDTH_CLASSES[sidebarWidth]
+  });
   const leftSidebarClasses = [
     SIDEBAR_WIDTH_CLASSES[sidebarWidth],
     'flex-shrink-0',
