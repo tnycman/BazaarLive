@@ -89,11 +89,46 @@ export function LayoutAnalysisFixed() {
       };
       console.log('=== VIEWPORT ===', viewport);
       
-      // Alert for immediate visibility
-      alert(`Layout Analysis Complete! 
-Element Width: ${element.offsetWidth}px
-Viewport: ${window.innerWidth}px
-Check console for full details.`);
+      // Summary analysis
+      const analysis = {
+        elementWidth: element.offsetWidth,
+        viewportWidth: window.innerWidth,
+        expectedMainContent: window.innerWidth - 256 - 320, // viewport - sidebars
+        actualMainContent: element.offsetWidth,
+        missingWidth: (window.innerWidth - 256 - 320) - element.offsetWidth,
+        constraintFound: element.offsetWidth < (window.innerWidth - 256 - 320)
+      };
+      
+      console.log('=== CONSTRAINT ANALYSIS ===', analysis);
+      
+      // Find the constraining parent
+      let constrainingParent = null;
+      let currentParent = element.parentElement;
+      let parentLevel = 0;
+      
+      while (currentParent && parentLevel < 8) {
+        const parentWidth = currentParent.offsetWidth;
+        if (parentWidth < window.innerWidth && parentWidth > element.offsetWidth) {
+          constrainingParent = {
+            level: parentLevel,
+            element: currentParent,
+            tagName: currentParent.tagName,
+            className: currentParent.className,
+            width: parentWidth,
+            computedMaxWidth: window.getComputedStyle(currentParent).maxWidth
+          };
+          console.log('=== CONSTRAINING PARENT FOUND ===', constrainingParent);
+          break;
+        }
+        currentParent = currentParent.parentElement;
+        parentLevel++;
+      }
+      
+      alert(`CONSTRAINT ANALYSIS:
+Element: ${element.offsetWidth}px
+Expected: ${analysis.expectedMainContent}px  
+Missing: ${analysis.missingWidth}px
+${constrainingParent ? `Constraint: ${constrainingParent.className}` : 'No constraint found'}`);
     };
     
     // Run analysis immediately and after a delay
