@@ -73,6 +73,7 @@ const EnterprisePageLayout: React.FC<EnterprisePageLayoutProps> = memo(({
   const mainContentClasses = [
     'flex-1',
     'min-w-0', // Prevents flex item from overflowing
+    'max-w-none', // Remove any max-width constraints for fashion pages
     dynamicPadding || 'px-6', // Use passed padding or fallback to standard
     'py-4',
     'border-4 border-red-500' // TEMPORARY: Visual indicator for debugging
