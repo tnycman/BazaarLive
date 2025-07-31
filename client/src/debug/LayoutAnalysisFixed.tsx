@@ -1,0 +1,108 @@
+/**
+ * LAYOUT ANALYSIS COMPONENT - FIXED VERSION
+ * Systematic investigation of layout constraints
+ */
+
+import React, { useEffect, useRef } from 'react';
+
+export function LayoutAnalysisFixed() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const analyzeLayout = () => {
+      if (!containerRef.current) return;
+      
+      const element = containerRef.current;
+      const computedStyle = window.getComputedStyle(element);
+      
+      console.log('=== SYSTEMATIC LAYOUT ANALYSIS ===');
+      console.log('Target Element:', element);
+      console.log('Classes:', element.className);
+      
+      console.log('COMPUTED STYLES:', {
+        width: computedStyle.width,
+        maxWidth: computedStyle.maxWidth,
+        minWidth: computedStyle.minWidth,
+        paddingLeft: computedStyle.paddingLeft,
+        paddingRight: computedStyle.paddingRight,
+        marginLeft: computedStyle.marginLeft,
+        marginRight: computedStyle.marginRight,
+        boxSizing: computedStyle.boxSizing,
+        display: computedStyle.display,
+        flexGrow: computedStyle.flexGrow,
+        flexShrink: computedStyle.flexShrink,
+        flexBasis: computedStyle.flexBasis
+      });
+      
+      console.log('MEASUREMENTS:', {
+        offsetWidth: element.offsetWidth,
+        clientWidth: element.clientWidth,
+        scrollWidth: element.scrollWidth
+      });
+      
+      // Parent analysis
+      let parent = element.parentElement;
+      let level = 0;
+      console.log('=== PARENT CHAIN ===');
+      
+      while (parent && level < 8) {
+        const parentStyle = window.getComputedStyle(parent);
+        console.log(`Parent ${level}:`, {
+          tag: parent.tagName,
+          className: parent.className,
+          width: parentStyle.width,
+          maxWidth: parentStyle.maxWidth,
+          paddingLeft: parentStyle.paddingLeft,
+          paddingRight: parentStyle.paddingRight,
+          display: parentStyle.display
+        });
+        parent = parent.parentElement;
+        level++;
+      }
+      
+      // Sibling analysis
+      if (element.parentElement) {
+        console.log('=== SIBLINGS ===');
+        Array.from(element.parentElement.children).forEach((sibling, i) => {
+          if (sibling !== element) {
+            const siblingStyle = window.getComputedStyle(sibling);
+            console.log(`Sibling ${i}:`, {
+              tag: sibling.tagName,
+              className: sibling.className,
+              width: siblingStyle.width,
+              flexGrow: siblingStyle.flexGrow,
+              flexBasis: siblingStyle.flexBasis
+            });
+          }
+        });
+      }
+      
+      console.log('=== VIEWPORT ===', {
+        innerWidth: window.innerWidth,
+        innerHeight: window.innerHeight
+      });
+    };
+    
+    // Run after layout
+    requestAnimationFrame(analyzeLayout);
+  }, []);
+
+  return (
+    <div 
+      ref={containerRef}
+      className="flex-1 min-w-0 max-w-none px-0 py-4 border-4 border-blue-500"
+      data-testid="layout-analysis"
+      style={{ background: 'yellow', minHeight: '200px' }}
+    >
+      <h2>LAYOUT ANALYSIS</h2>
+      <p>Check console for systematic investigation</p>
+      <div className="grid grid-cols-4 gap-4 mt-4">
+        {[1,2,3,4].map(i => (
+          <div key={i} className="bg-red-200 p-4 border">
+            Item {i}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}

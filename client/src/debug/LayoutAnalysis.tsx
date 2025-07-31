@@ -9,28 +9,47 @@ export function LayoutAnalysis() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (containerRef.current) {
-      const element = containerRef.current;
-      const computedStyle = window.getComputedStyle(element);
-      
-      console.log('=== SYSTEMATIC LAYOUT ANALYSIS ===');
-      console.log('Target Element:', element);
-      console.log('Element Classes:', element.className);
-      console.log('Computed Styles:', {
-        width: computedStyle.width,
-        maxWidth: computedStyle.maxWidth,
-        minWidth: computedStyle.minWidth,
-        paddingLeft: computedStyle.paddingLeft,
-        paddingRight: computedStyle.paddingRight,
-        marginLeft: computedStyle.marginLeft,
-        marginRight: computedStyle.marginRight,
-        boxSizing: computedStyle.boxSizing,
-        display: computedStyle.display,
-        flexGrow: computedStyle.flexGrow,
-        flexShrink: computedStyle.flexShrink,
-        flexBasis: computedStyle.flexBasis,
-        position: computedStyle.position
-      });
+    // Wait for next frame to ensure layout is complete
+    requestAnimationFrame(() => {
+      if (containerRef.current) {
+        const element = containerRef.current;
+        const computedStyle = window.getComputedStyle(element);
+        
+        console.log('=== SYSTEMATIC LAYOUT ANALYSIS ===');
+        console.log('Target Element:', element);
+        console.log('Element Classes:', element.className);
+        console.log('Element Data Attributes:', {
+          testid: element.getAttribute('data-testid'),
+          style: element.getAttribute('style')
+        });
+        
+        const styles = {
+          width: computedStyle.width,
+          maxWidth: computedStyle.maxWidth,
+          minWidth: computedStyle.minWidth,
+          paddingLeft: computedStyle.paddingLeft,
+          paddingRight: computedStyle.paddingRight,
+          marginLeft: computedStyle.marginLeft,
+          marginRight: computedStyle.marginRight,
+          boxSizing: computedStyle.boxSizing,
+          display: computedStyle.display,
+          flexGrow: computedStyle.flexGrow,
+          flexShrink: computedStyle.flexShrink,
+          flexBasis: computedStyle.flexBasis,
+          position: computedStyle.position,
+          overflow: computedStyle.overflow,
+          overflowX: computedStyle.overflowX
+        };
+        
+        console.log('ELEMENT COMPUTED STYLES:', styles);
+        
+        // Log raw pixel values
+        console.log('RAW MEASUREMENTS:', {
+          offsetWidth: element.offsetWidth,
+          clientWidth: element.clientWidth,
+          scrollWidth: element.scrollWidth,
+          boundingClientRect: element.getBoundingClientRect()
+        });
       
       // Analyze parent chain systematically
       let parent = element.parentElement;
