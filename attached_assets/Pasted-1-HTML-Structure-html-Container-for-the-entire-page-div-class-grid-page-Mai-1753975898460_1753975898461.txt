@@ -1,0 +1,161 @@
+1. HTML Structure
+html
+<!-- Container for the entire page -->
+<div class="grid-page">
+  <!-- Main product grid -->
+  <div class="product-grid">
+    <!-- Product tiles (repeat for each item) -->
+    <div class="product-tile">
+      <img class="product-image" src="product.jpg" alt="Product">
+      <h3 class="product-title">Product Name</h3>
+      <p class="product-price">$XX.XX</p>
+    </div>
+  </div>
+
+  <!-- Right sidebar (ads) - optional -->
+  <div class="ad-sidebar">
+    <div class="sticky-ad">Ad Content</div>
+  </div>
+</div>
+2. CSS Implementation
+Core Grid Layout
+css
+/* Base container */
+.grid-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  position: relative;
+}
+
+/* 4-column grid (desktop) */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  gap: 16px; /* Spacing between items */
+}
+
+/* Product tile styling */
+.product-tile {
+  border: 1px solid #f5f2ee; /* Poshmark's border color */
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.product-tile:hover {
+  transform: translateY(-4px);
+}
+
+.product-image {
+  width: 100%;
+  aspect-ratio: 1/1; /* Square images */
+  object-fit: cover;
+}
+Responsive Breakpoints
+css
+/* Tablet (3 columns) */
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Small tablet (2 columns) */
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile (1 column) */
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+Sidebar Implementation
+css
+/* Right sidebar for ads */
+.ad-sidebar {
+  position: absolute;
+  width: 160px;
+  left: 100%;
+  top: 0;
+  margin-left: 16px;
+}
+
+.sticky-ad {
+  position: sticky;
+  top: 20px;
+  height: 600px;
+  background: #f9f9f9;
+  border: 1px solid #eee;
+}
+
+/* Hide sidebar on smaller screens */
+@media (max-width: 1200px) {
+  .ad-sidebar {
+    display: none;
+  }
+}
+3. Dynamic Behavior
+Add this JavaScript for interactive elements:
+
+javascript
+// Sample: Lazy load images
+document.addEventListener("DOMContentLoaded", () => {
+  const lazyImages = document.querySelectorAll(".product-image");
+  
+  const lazyLoad = (target) => {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src;
+          io.unobserve(img);
+        }
+      });
+    });
+    io.observe(target);
+  };
+  
+  lazyImages.forEach(lazyLoad);
+});
+4. Testing Protocol
+Layout Validation:
+
+Verify 4 columns on desktop (>1200px)
+
+Confirm responsive collapse to 3 → 2 → 1 columns
+
+Check sidebar disappears below 1200px
+
+Visual Checks:
+
+Border colors match (#f5f2ee)
+
+Hover effects work
+
+Images maintain aspect ratio
+
+Performance:
+
+Images lazy load properly
+
+No layout shifts during loading
+
+5. Maintenance Notes
+Class names may need updating if Poshmark changes its DOM structure
+
+Breakpoints should be adjusted based on analytics
+
+Add error handling for missing images
+
+Your AI agent can now:
+
+Generate the HTML/CSS/JS files
+
+Test responsiveness using Chrome DevTools
+
+Deploy with a simple web server for preview
