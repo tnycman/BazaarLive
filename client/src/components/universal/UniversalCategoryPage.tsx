@@ -13,7 +13,7 @@ import EnterpriseProductGrid from '@/components/grid/EnterpriseProductGrid';
 import EnterpriseRightSidebar from '@/components/sidebar/EnterpriseRightSidebar';
 import { universalCategoryPageFactory, UniversalPageConfiguration } from '@/services/category/UniversalCategoryPageFactory';
 import { layoutSpacingAspect } from '@/services/aop/LayoutSpacingAspect';
-import { LayoutAnalysisFixed } from '@/debug/LayoutAnalysisFixed';
+// import { LayoutAnalysisFixed } from '@/debug/LayoutAnalysisFixed';
 import { Result } from '../../types/Result';
 import { z } from 'zod';
 import type { FilterState } from '@/components/filters/EnterpriseFilterSidebar';
@@ -404,8 +404,8 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
       <Header />
       <Navigation />
       
-      {/* Three-column layout with standardized container for ~192px products */}
-      <div className={`max-w-7xl mx-auto ${dynamicSpacing} py-6`} data-testid="page-layout-container">
+      {/* Three-column layout with full viewport width for ~248px products */}
+      <div className={`w-full ${dynamicSpacing} py-6`} data-testid="page-layout-container">
         <EnterprisePageLayout
           leftSidebar={
             <div data-testid="left-sidebar-container">
@@ -419,7 +419,16 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
           mainContent={
             <div data-testid="main-content-container">
               {/* TEMPORARY: Replace with LayoutAnalysis for systematic investigation */}
-              <LayoutAnalysisFixed />
+              <EnterpriseProductGrid
+                products={filteredProducts}
+                onProductClick={handleProductClick}
+                onLikeToggle={handleLikeToggle}
+                onSellerClick={handleSellerClick}
+                onShare={handleShare}
+                isLoading={pageState.isLoading}
+                title={pageConfiguration.metadata.title}
+                gridColumns={4}
+              />
             </div>
           }
           rightSidebar={

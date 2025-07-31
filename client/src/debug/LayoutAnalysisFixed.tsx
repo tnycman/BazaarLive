@@ -10,7 +10,10 @@ export function LayoutAnalysisFixed() {
 
   useEffect(() => {
     const analyzeLayout = () => {
-      if (!containerRef.current) return;
+      if (!containerRef.current) {
+        console.log('Container ref not found');
+        return;
+      }
       
       const element = containerRef.current;
       const computedStyle = window.getComputedStyle(element);
@@ -19,7 +22,10 @@ export function LayoutAnalysisFixed() {
       console.log('Target Element:', element);
       console.log('Classes:', element.className);
       
-      console.log('COMPUTED STYLES:', {
+      const measurements = {
+        offsetWidth: element.offsetWidth,
+        clientWidth: element.clientWidth,
+        scrollWidth: element.scrollWidth,
         width: computedStyle.width,
         maxWidth: computedStyle.maxWidth,
         minWidth: computedStyle.minWidth,
@@ -32,37 +38,36 @@ export function LayoutAnalysisFixed() {
         flexGrow: computedStyle.flexGrow,
         flexShrink: computedStyle.flexShrink,
         flexBasis: computedStyle.flexBasis
-      });
+      };
       
-      console.log('MEASUREMENTS:', {
-        offsetWidth: element.offsetWidth,
-        clientWidth: element.clientWidth,
-        scrollWidth: element.scrollWidth
-      });
+      console.log('ELEMENT MEASUREMENTS:', measurements);
       
       // Parent analysis
       let parent = element.parentElement;
       let level = 0;
-      console.log('=== PARENT CHAIN ===');
+      console.log('=== PARENT CHAIN ANALYSIS ===');
       
       while (parent && level < 8) {
         const parentStyle = window.getComputedStyle(parent);
-        console.log(`Parent ${level}:`, {
+        const parentInfo = {
+          level: level,
           tag: parent.tagName,
           className: parent.className,
           width: parentStyle.width,
           maxWidth: parentStyle.maxWidth,
           paddingLeft: parentStyle.paddingLeft,
           paddingRight: parentStyle.paddingRight,
-          display: parentStyle.display
-        });
+          display: parentStyle.display,
+          offsetWidth: parent.offsetWidth
+        };
+        console.log(`Parent ${level}:`, parentInfo);
         parent = parent.parentElement;
         level++;
       }
       
       // Sibling analysis
       if (element.parentElement) {
-        console.log('=== SIBLINGS ===');
+        console.log('=== SIBLING ANALYSIS ===');
         Array.from(element.parentElement.children).forEach((sibling, i) => {
           if (sibling !== element) {
             const siblingStyle = window.getComputedStyle(sibling);
@@ -70,6 +75,7 @@ export function LayoutAnalysisFixed() {
               tag: sibling.tagName,
               className: sibling.className,
               width: siblingStyle.width,
+              offsetWidth: (sibling as HTMLElement).offsetWidth,
               flexGrow: siblingStyle.flexGrow,
               flexBasis: siblingStyle.flexBasis
             });
@@ -77,14 +83,22 @@ export function LayoutAnalysisFixed() {
         });
       }
       
-      console.log('=== VIEWPORT ===', {
+      const viewport = {
         innerWidth: window.innerWidth,
         innerHeight: window.innerHeight
-      });
+      };
+      console.log('=== VIEWPORT ===', viewport);
+      
+      // Alert for immediate visibility
+      alert(`Layout Analysis Complete! 
+Element Width: ${element.offsetWidth}px
+Viewport: ${window.innerWidth}px
+Check console for full details.`);
     };
     
-    // Run after layout
-    requestAnimationFrame(analyzeLayout);
+    // Run analysis immediately and after a delay
+    setTimeout(analyzeLayout, 100);
+    setTimeout(analyzeLayout, 1000);
   }, []);
 
   return (
