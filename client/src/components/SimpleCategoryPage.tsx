@@ -112,7 +112,16 @@ export function SimpleCategoryPage() {
       '248px'
     );
     
-    return layoutSpacingAspect.applySpacingStrategy(layoutContext);
+    const spacing = layoutSpacingAspect.applySpacingStrategy(layoutContext);
+    
+    // DIAGNOSTIC LOG: Verify spacing strategy output
+    console.log('[SimpleCategoryPage] Dynamic Spacing Debug:', {
+      pageType: 'fashion',
+      spacing,
+      layoutContext
+    });
+    
+    return spacing;
   }, []);
 
   return (

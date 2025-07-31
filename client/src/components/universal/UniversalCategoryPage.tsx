@@ -165,7 +165,17 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
       '248px'
     );
     
-    return layoutSpacingAspect.applySpacingStrategy(layoutContext);
+    const spacing = layoutSpacingAspect.applySpacingStrategy(layoutContext);
+    
+    // DIAGNOSTIC LOG: Verify spacing strategy output
+    console.log('[UniversalCategoryPage] Dynamic Spacing Debug:', {
+      category,
+      pageType,
+      spacing,
+      layoutContext
+    });
+    
+    return spacing;
   }, [category]);
   
   // Generate sample products based on category configuration - ALWAYS EXECUTE

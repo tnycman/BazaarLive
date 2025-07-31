@@ -56,6 +56,8 @@ const EnterprisePageLayout: React.FC<EnterprisePageLayoutProps> = memo(({
   enableStickyLayout = true,
   dynamicPadding
 }) => {
+  // DIAGNOSTIC LOG: Verify prop is flowing correctly
+  console.log('[EnterprisePageLayout] Dynamic Padding Debug:', { dynamicPadding });
   const leftSidebarClasses = [
     SIDEBAR_WIDTH_CLASSES[sidebarWidth],
     'flex-shrink-0',
