@@ -13,6 +13,7 @@ import EnterpriseProductGrid from '@/components/grid/EnterpriseProductGrid';
 import EnterpriseRightSidebar from '@/components/sidebar/EnterpriseRightSidebar';
 import { universalCategoryPageFactory, UniversalPageConfiguration } from '@/services/category/UniversalCategoryPageFactory';
 import { layoutSpacingAspect } from '@/services/aop/LayoutSpacingAspect';
+import { LayoutAnalysis } from '@/debug/LayoutAnalysis';
 import { Result } from '../../types/Result';
 import { z } from 'zod';
 import type { FilterState } from '@/components/filters/EnterpriseFilterSidebar';
@@ -417,16 +418,8 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
           }
           mainContent={
             <div data-testid="main-content-container">
-              <EnterpriseProductGrid
-                products={filteredProducts}
-                onProductClick={handleProductClick}
-                onLikeToggle={handleLikeToggle}
-                onSellerClick={handleSellerClick}
-                onShare={handleShare}
-                isLoading={pageState.isLoading}
-                title={pageConfiguration.metadata.title}
-                gridColumns={4}
-              />
+              {/* TEMPORARY: Replace with LayoutAnalysis for systematic investigation */}
+              <LayoutAnalysis />
             </div>
           }
           rightSidebar={
