@@ -12,6 +12,7 @@ import EnterpriseFilterSidebar from '@/components/filters/EnterpriseFilterSideba
 import EnterpriseProductGrid from '@/components/grid/EnterpriseProductGrid';
 import EnterpriseRightSidebar from '@/components/sidebar/EnterpriseRightSidebar';
 import { universalCategoryPageFactory, UniversalPageConfiguration } from '@/services/category/UniversalCategoryPageFactory';
+import { layoutSpacingAspect } from '@/services/aop/LayoutSpacingAspect';
 import { Result } from '../../types/Result';
 import { z } from 'zod';
 import type { FilterState } from '@/components/filters/EnterpriseFilterSidebar';
@@ -153,6 +154,19 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
   }, [category, subcategory, subSubcategory]);
 
   // ===== ALL useMemo HOOKS MUST BE DECLARED HERE - BEFORE CONDITIONAL RETURNS =====
+  
+  // Enterprise AOP spacing strategy calculation - ALWAYS EXECUTE
+  const dynamicSpacing = useMemo(() => {
+    const pageType = category === 'fashion' ? 'fashion' : 'general';
+    
+    const layoutContext = layoutSpacingAspect.createLayoutContext(
+      pageType,
+      'product-grid',
+      '248px'
+    );
+    
+    return layoutSpacingAspect.applySpacingStrategy(layoutContext);
+  }, [category]);
   
   // Generate sample products based on category configuration - ALWAYS EXECUTE
   const sampleProducts = useMemo((): ProductItem[] => {
@@ -410,6 +424,7 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
               <EnterpriseRightSidebar />
             </div>
           }
+          dynamicPadding={dynamicSpacing}
         />
       </div>
     </div>
