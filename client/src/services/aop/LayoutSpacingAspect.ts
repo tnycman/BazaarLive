@@ -44,6 +44,9 @@ export class LayoutSpacingAspect {
    * Enterprise method with comprehensive logging and metrics
    */
   public applySpacingStrategy(context: LayoutSpacingContext): string {
+    // DIAGNOSTIC LOG: Trace AOP advice invocation
+    console.log('[LayoutSpacingAspect] applySpacingStrategy() INVOKED WITH CONTEXT:', context);
+    
     const startTime = performance.now();
     
     console.log('[LayoutSpacingAspect] Applying spacing strategy for context:', context);
