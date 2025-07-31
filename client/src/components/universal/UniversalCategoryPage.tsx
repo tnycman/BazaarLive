@@ -442,6 +442,7 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
               <EnterpriseRightSidebar />
             </div>
           }
+          rightSidebarWidth={category === 'fashion' ? 'narrow' : 'standard'}
           dynamicPadding="px-0"
         />
       </div>
