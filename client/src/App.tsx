@@ -28,7 +28,7 @@ function Router() {
     <Switch>
       {/* Universal Category Routes - Unified routing architecture using UniversalCategoryPage */}
       <Route path="/test-fashion" component={() => <TestFashionPage />} />
-      <Route path="/fashion/women" component={() => <SimpleCategoryPage />} />
+      <Route path="/fashion/women" component={() => <UniversalCategoryPage category="fashion" subcategory="women" />} />
       <Route path="/fashion/men" component={() => <UniversalCategoryPage category="fashion" subcategory="men" />} />
       <Route path="/fashion/kids" component={() => <UniversalCategoryPage category="fashion" subcategory="kids" />} />
       <Route path="/fashion/home" component={() => <UniversalCategoryPage category="fashion" subcategory="home" />} />

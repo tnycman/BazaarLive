@@ -133,7 +133,7 @@ export function SimpleCategoryPage() {
       <Navigation />
       
       {/* Main Content */}
-      <div className={`max-w-7xl mx-auto ${dynamicSpacing} py-6`}>
+      <div className={`w-full ${dynamicSpacing} py-6`}>
         <div className="flex gap-6">
           {/* Left Sidebar - Filters */}
           <div className="w-64 flex-shrink-0" data-testid="simple-filters">
