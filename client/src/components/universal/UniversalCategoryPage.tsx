@@ -404,7 +404,7 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
       <Navigation />
       
       {/* Three-column layout with standardized container for ~192px products */}
-      <div className="max-w-7xl mx-auto px-4 py-6" data-testid="page-layout-container">
+      <div className={`max-w-7xl mx-auto ${dynamicSpacing} py-6`} data-testid="page-layout-container">
         <EnterprisePageLayout
           leftSidebar={
             <div data-testid="left-sidebar-container">
@@ -434,7 +434,7 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
               <EnterpriseRightSidebar />
             </div>
           }
-          dynamicPadding={dynamicSpacing}
+          dynamicPadding="px-0"
         />
       </div>
     </div>
