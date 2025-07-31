@@ -397,6 +397,15 @@ const UniversalCategoryPage: React.FC<UniversalCategoryPageProps> = memo(({
     console.log('[UniversalCategoryPage] Sample products available:', pageConfiguration.sampleProducts);
   }
 
+  // DIAGNOSTIC: Log render details
+  console.log('🔍 [UniversalCategoryPage] Container wrapper:', {
+    category,
+    subcategory,
+    dynamicSpacing,
+    containerClass: `max-w-7xl mx-auto ${dynamicSpacing} py-6`,
+    timestamp: new Date().toISOString()
+  });
+
   // Render universal three-column layout matching original Women's page structure
   return (
     <div className="min-h-screen bg-gray-50" data-testid="universal-category-page">
