@@ -1,0 +1,95 @@
+1. Add a New “narrow” Width Option to EnterprisePageLayout
+In EnterprisePageLayout.tsx, extend the props to accept a rightSidebarWidth (if you don’t already have one) and map it to Tailwind classes:
+
+diff
+Copy
+Edit
+--- a/client/src/components/layouts/EnterprisePageLayout.tsx
++++ b/client/src/components/layouts/EnterprisePageLayout.tsx
+@@ interface EnterprisePageLayoutProps {
+-  rightSidebar?: ReactNode;
++  rightSidebar?: ReactNode;
++  /** e.g. 'standard' (320px) or 'narrow' (88px) */
++  rightSidebarWidth?: 'standard' | 'narrow';
+ }
+
+ const defaultSidebarWidths = {
+   standard: 'w-80',  // 320px
++  narrow:   'w-22',  //  88px (Tailwind: w-22 = 5.5rem = 88px)
+ };
+ 
+ export function EnterprisePageLayout({
+   leftSidebar,
+   rightSidebar,
+   sidebarWidth = 'w-64',
++  rightSidebarWidth = 'standard',
+   // …
+ }: EnterprisePageLayoutProps) {
+Then, when you render the right sidebar container, use the width mapping:
+
+diff
+Copy
+Edit
+--- a/client/src/components/layouts/EnterprisePageLayout.tsx
++++ b/client/src/components/layouts/EnterprisePageLayout.tsx
+@@
+-  {rightSidebar && (
+-    <aside className={`${sidebarWidth} bg-white`}>{rightSidebar}</aside>
+-  )}
++  {rightSidebar && (
++    <aside
++      className={`${sidebarWidth} ${defaultSidebarWidths[rightSidebarWidth]} bg-white`}
++    >
++      {rightSidebar}
++    </aside>
++  )}
+2. Pass the “narrow” Width on Fashion Pages
+In UniversalCategoryPage.tsx (and similarly in SimpleCategoryPage.tsx), adjust the <EnterprisePageLayout> invocation:
+
+diff
+Copy
+Edit
+--- a/client/src/components/universal/UniversalCategoryPage.tsx
++++ b/client/src/components/universal/UniversalCategoryPage.tsx
+@@
+-  <EnterprisePageLayout
+-    leftSidebar={leftSidebar}
+-    mainContent={mainContent}
+-    rightSidebar={rightSidebar}
+-    dynamicPadding={dynamicSpacing}
+-  />
++  <EnterprisePageLayout
++    leftSidebar={leftSidebar}
++    mainContent={mainContent}
++    rightSidebar={rightSidebar}
++    // Shrink the right sidebar on fashion pages to free up ~232px
++    rightSidebarWidth={category === 'fashion' ? 'narrow' : 'standard'}
++    dynamicPadding={dynamicSpacing}
++  />
+With these two isolated changes:
+
+Standard pages keep the full 320 px right sidebar (no visible change).
+
+Fashion pages now use a narrow 88 px sidebar, freeing up ~232 px. Combined with px-0 padding, your main grid goes from 704 px → 936 px (≈234 px per product minus gaps), which is very close to the 248 px target—if you need the last 16 px you can fine-tune the sidebar or padding further.
+
+✅ Verification Steps
+Apply the diffs above and restart your dev server.
+
+Hard-refresh a few /fashion/* pages and measure:
+
+Container remains max-w-7xl (1,280 px).
+
+Left sidebar still 256 px.
+
+Right sidebar now ~88 px.
+
+Main grid width ≈1,280 − (256 + 88) = 936 px → 4 columns ≈234 px each (gaps ≈224–230 px).
+
+Adjust the w-22 class or padding slightly (e.g. use w-24 = 96 px) if you need exactly 992 px available.
+
+Confirm non-fashion pages still render with the original 320 px sidebar.
+
+🚨 AGENT WARNING
+• Only modify the two files and lines indicated above.
+• Do not touch any other layout or page code.
+• If measurements aren’t within tolerance, stop immediately and request direction—no guessing or lazy fixes.
