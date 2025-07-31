@@ -74,7 +74,8 @@ const EnterprisePageLayout: React.FC<EnterprisePageLayoutProps> = memo(({
     'flex-1',
     'min-w-0', // Prevents flex item from overflowing
     dynamicPadding || 'px-6', // Use passed padding or fallback to standard
-    'py-4'
+    'py-4',
+    'border-4 border-red-500' // TEMPORARY: Visual indicator for debugging
   ].join(' ');
 
   return (
