@@ -1,0 +1,87 @@
+dbfa9b9baa923679b9388039210c2af4
+/* istanbul ignore next */
+function cov_2l2sbg1vxg() {
+  var path = "/home/runner/workspace/client/src/lib/authUtils.ts";
+  var hash = "a1fba687078a71906825a8c38c47724c55665aa3";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/home/runner/workspace/client/src/lib/authUtils.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 4
+        },
+        end: {
+          line: 2,
+          column: 54
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "isUnauthorizedError",
+        decl: {
+          start: {
+            line: 1,
+            column: 16
+          },
+          end: {
+            line: 1,
+            column: 35
+          }
+        },
+        loc: {
+          start: {
+            line: 1,
+            column: 43
+          },
+          end: {
+            line: 3,
+            column: 1
+          }
+        },
+        line: 1
+      }
+    },
+    branchMap: {},
+    s: {
+      "0": 0
+    },
+    f: {
+      "0": 0
+    },
+    b: {},
+    inputSourceMap: {
+      file: "/home/runner/workspace/client/src/lib/authUtils.ts",
+      mappings: "AAAA,MAAM,UAAU,mBAAmB,CAAC,KAAY;IAC9C,OAAO,sBAAsB,CAAC,IAAI,CAAC,KAAK,CAAC,OAAO,CAAC,CAAC;AACpD,CAAC",
+      names: [],
+      sources: ["/home/runner/workspace/client/src/lib/authUtils.ts"],
+      sourcesContent: ["export function isUnauthorizedError(error: Error): boolean {\n  return /^401: .*Unauthorized/.test(error.message);\n}"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "a1fba687078a71906825a8c38c47724c55665aa3"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_2l2sbg1vxg = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_2l2sbg1vxg();
+export function isUnauthorizedError(error) {
+  /* istanbul ignore next */
+  cov_2l2sbg1vxg().f[0]++;
+  cov_2l2sbg1vxg().s[0]++;
+  return /^401: .*Unauthorized/.test(error.message);
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJpc1VuYXV0aG9yaXplZEVycm9yIiwiZXJyb3IiLCJjb3ZfMmwyc2JnMXZ4ZyIsImYiLCJzIiwidGVzdCIsIm1lc3NhZ2UiXSwic291cmNlcyI6WyIvaG9tZS9ydW5uZXIvd29ya3NwYWNlL2NsaWVudC9zcmMvbGliL2F1dGhVdGlscy50cyJdLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgZnVuY3Rpb24gaXNVbmF1dGhvcml6ZWRFcnJvcihlcnJvcjogRXJyb3IpOiBib29sZWFuIHtcbiAgcmV0dXJuIC9eNDAxOiAuKlVuYXV0aG9yaXplZC8udGVzdChlcnJvci5tZXNzYWdlKTtcbn0iXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQSxPQUFNLFNBQVVBLG1CQUFtQkEsQ0FBQ0MsS0FBWTtFQUFBO0VBQUFDLGNBQUEsR0FBQUMsQ0FBQTtFQUFBRCxjQUFBLEdBQUFFLENBQUE7RUFDOUMsT0FBTyxzQkFBc0IsQ0FBQ0MsSUFBSSxDQUFDSixLQUFLLENBQUNLLE9BQU8sQ0FBQztBQUNuRCIsImlnbm9yZUxpc3QiOltdfQ==

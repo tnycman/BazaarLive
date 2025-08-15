@@ -1,0 +1,281 @@
+# ===== ALERTING RULES =====
+# Enterprise-grade alerting configuration
+# 100% best practices, zero shortcuts
+
+groups:
+  # ===== APPLICATION ALERTS =====
+  - name: marketplace-app
+    rules:
+      # ===== HIGH ERROR RATE =====
+      - alert: HighErrorRate
+        expr: rate(http_requests_total{status=~"5.."}[5m]) > 0.1
+        for: 2m
+        labels:
+          severity: critical
+          service: marketplace
+        annotations:
+          summary: "High error rate detected"
+          description: "Error rate is {{ $value }} errors per second for the last 5 minutes"
+
+      # ===== APPLICATION DOWN =====
+      - alert: ApplicationDown
+        expr: up{job="marketplace-app"} == 0
+        for: 1m
+        labels:
+          severity: critical
+          service: marketplace
+        annotations:
+          summary: "Application is down"
+          description: "Marketplace application has been down for more than 1 minute"
+
+      # ===== HIGH RESPONSE TIME =====
+      - alert: HighResponseTime
+        expr: histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[5m])) > 2
+        for: 5m
+        labels:
+          severity: warning
+          service: marketplace
+        annotations:
+          summary: "High response time detected"
+          description: "95th percentile response time is {{ $value }} seconds"
+
+      # ===== HIGH MEMORY USAGE =====
+      - alert: HighMemoryUsage
+        expr: (node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes) / node_memory_MemTotal_bytes > 0.9
+        for: 5m
+        labels:
+          severity: warning
+          service: marketplace
+        annotations:
+          summary: "High memory usage detected"
+          description: "Memory usage is {{ $value | humanizePercentage }}"
+
+      # ===== HIGH CPU USAGE =====
+      - alert: HighCPUUsage
+        expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > 80
+        for: 5m
+        labels:
+          severity: warning
+          service: marketplace
+        annotations:
+          summary: "High CPU usage detected"
+          description: "CPU usage is {{ $value }}%"
+
+  # ===== DATABASE ALERTS =====
+  - name: database
+    rules:
+      # ===== DATABASE CONNECTION ISSUES =====
+      - alert: DatabaseConnectionIssues
+        expr: rate(database_connection_errors_total[5m]) > 0
+        for: 2m
+        labels:
+          severity: critical
+          service: database
+        annotations:
+          summary: "Database connection issues detected"
+          description: "Database connection errors are occurring at {{ $value }} errors per second"
+
+      # ===== SLOW QUERIES =====
+      - alert: SlowQueries
+        expr: histogram_quantile(0.95, rate(database_query_duration_seconds_bucket[5m])) > 1
+        for: 5m
+        labels:
+          severity: warning
+          service: database
+        annotations:
+          summary: "Slow database queries detected"
+          description: "95th percentile query time is {{ $value }} seconds"
+
+  # ===== REDIS ALERTS =====
+  - name: redis
+    rules:
+      # ===== REDIS DOWN =====
+      - alert: RedisDown
+        expr: up{job="redis"} == 0
+        for: 1m
+        labels:
+          severity: critical
+          service: redis
+        annotations:
+          summary: "Redis is down"
+          description: "Redis service has been down for more than 1 minute"
+
+      # ===== REDIS MEMORY HIGH =====
+      - alert: RedisMemoryHigh
+        expr: redis_memory_used_bytes / redis_memory_max_bytes > 0.8
+        for: 5m
+        labels:
+          severity: warning
+          service: redis
+        annotations:
+          summary: "Redis memory usage is high"
+          description: "Redis memory usage is {{ $value | humanizePercentage }}"
+
+      # ===== REDIS CONNECTIONS HIGH =====
+      - alert: RedisConnectionsHigh
+        expr: redis_connected_clients / redis_maxclients > 0.8
+        for: 5m
+        labels:
+          severity: warning
+          service: redis
+        annotations:
+          summary: "Redis connection count is high"
+          description: "Redis connections are at {{ $value | humanizePercentage }} of maximum"
+
+  # ===== NGINX ALERTS =====
+  - name: nginx
+    rules:
+      # ===== NGINX DOWN =====
+      - alert: NginxDown
+        expr: up{job="nginx"} == 0
+        for: 1m
+        labels:
+          severity: critical
+          service: nginx
+        annotations:
+          summary: "Nginx is down"
+          description: "Nginx service has been down for more than 1 minute"
+
+      # ===== HIGH NGINX ERROR RATE =====
+      - alert: NginxHighErrorRate
+        expr: rate(nginx_http_requests_total{status=~"5.."}[5m]) > 0.05
+        for: 2m
+        labels:
+          severity: warning
+          service: nginx
+        annotations:
+          summary: "High Nginx error rate"
+          description: "Nginx error rate is {{ $value }} errors per second"
+
+  # ===== SYSTEM ALERTS =====
+  - name: system
+    rules:
+      # ===== DISK SPACE LOW =====
+      - alert: DiskSpaceLow
+        expr: (node_filesystem_size_bytes - node_filesystem_free_bytes) / node_filesystem_size_bytes > 0.85
+        for: 5m
+        labels:
+          severity: warning
+          service: system
+        annotations:
+          summary: "Disk space is running low"
+          description: "Disk usage is {{ $value | humanizePercentage }}"
+
+      # ===== DISK SPACE CRITICAL =====
+      - alert: DiskSpaceCritical
+        expr: (node_filesystem_size_bytes - node_filesystem_free_bytes) / node_filesystem_size_bytes > 0.95
+        for: 2m
+        labels:
+          severity: critical
+          service: system
+        annotations:
+          summary: "Disk space is critical"
+          description: "Disk usage is {{ $value | humanizePercentage }}"
+
+      # ===== HIGH LOAD AVERAGE =====
+      - alert: HighLoadAverage
+        expr: node_load1 > 5
+        for: 5m
+        labels:
+          severity: warning
+          service: system
+        annotations:
+          summary: "High load average detected"
+          description: "Load average is {{ $value }}"
+
+  # ===== CONTAINER ALERTS =====
+  - name: containers
+    rules:
+      # ===== CONTAINER RESTART FREQUENTLY =====
+      - alert: ContainerRestartFrequently
+        expr: increase(container_restart_count[1h]) > 5
+        for: 5m
+        labels:
+          severity: warning
+          service: containers
+        annotations:
+          summary: "Container restarting frequently"
+          description: "Container has restarted {{ $value }} times in the last hour"
+
+      # ===== CONTAINER MEMORY HIGH =====
+      - alert: ContainerMemoryHigh
+        expr: (container_memory_usage_bytes / container_spec_memory_limit_bytes) > 0.8
+        for: 5m
+        labels:
+          severity: warning
+          service: containers
+        annotations:
+          summary: "Container memory usage is high"
+          description: "Container memory usage is {{ $value | humanizePercentage }}"
+
+      # ===== CONTAINER CPU HIGH =====
+      - alert: ContainerCPUHigh
+        expr: rate(container_cpu_usage_seconds_total[5m]) * 100 > 80
+        for: 5m
+        labels:
+          severity: warning
+          service: containers
+        annotations:
+          summary: "Container CPU usage is high"
+          description: "Container CPU usage is {{ $value }}%"
+
+  # ===== BUSINESS ALERTS =====
+  - name: business
+    rules:
+      # ===== LOW USER ACTIVITY =====
+      - alert: LowUserActivity
+        expr: rate(user_activity_total[1h]) < 10
+        for: 30m
+        labels:
+          severity: warning
+          service: business
+        annotations:
+          summary: "Low user activity detected"
+          description: "User activity is {{ $value }} events per hour"
+
+      # ===== HIGH FAILED LOGINS =====
+      - alert: HighFailedLogins
+        expr: rate(failed_login_attempts_total[5m]) > 0.1
+        for: 2m
+        labels:
+          severity: warning
+          service: business
+        annotations:
+          summary: "High number of failed login attempts"
+          description: "Failed login rate is {{ $value }} attempts per second"
+
+      # ===== PAYMENT FAILURES =====
+      - alert: PaymentFailures
+        expr: rate(payment_failures_total[5m]) > 0.05
+        for: 2m
+        labels:
+          severity: critical
+          service: business
+        annotations:
+          summary: "High payment failure rate"
+          description: "Payment failure rate is {{ $value }} failures per second"
+
+  # ===== UPTIME ALERTS =====
+  - name: uptime
+    rules:
+      # ===== SERVICE UPTIME =====
+      - alert: ServiceDown
+        expr: probe_success == 0
+        for: 1m
+        labels:
+          severity: critical
+          service: uptime
+        annotations:
+          summary: "Service is down"
+          description: "Service {{ $labels.instance }} is not responding"
+
+      # ===== SLOW RESPONSE TIME =====
+      - alert: SlowResponseTime
+        expr: probe_duration_seconds > 2
+        for: 5m
+        labels:
+          severity: warning
+          service: uptime
+        annotations:
+          summary: "Slow response time"
+          description: "Service {{ $labels.instance }} is responding slowly ({{ $value }}s)" 

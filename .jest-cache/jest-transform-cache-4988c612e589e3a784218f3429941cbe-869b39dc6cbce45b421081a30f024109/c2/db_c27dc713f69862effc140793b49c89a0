@@ -1,0 +1,164 @@
+994385dd8da937b20dc9b909c5d97b00
+/* istanbul ignore next */
+function cov_1xr35cdp52() {
+  var path = "/home/runner/workspace/server/db.ts";
+  var hash = "80d71530beba0ae2f30e44a0b8bbe16aee9c7554";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/home/runner/workspace/server/db.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 5,
+          column: 0
+        },
+        end: {
+          line: 5,
+          column: 37
+        }
+      },
+      "1": {
+        start: {
+          line: 6,
+          column: 0
+        },
+        end: {
+          line: 8,
+          column: 1
+        }
+      },
+      "2": {
+        start: {
+          line: 7,
+          column: 4
+        },
+        end: {
+          line: 7,
+          column: 89
+        }
+      },
+      "3": {
+        start: {
+          line: 9,
+          column: 20
+        },
+        end: {
+          line: 9,
+          column: 76
+        }
+      },
+      "4": {
+        start: {
+          line: 10,
+          column: 18
+        },
+        end: {
+          line: 10,
+          column: 51
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 6,
+            column: 0
+          },
+          end: {
+            line: 8,
+            column: 1
+          }
+        },
+        type: "if",
+        locations: [{
+          start: {
+            line: 6,
+            column: 0
+          },
+          end: {
+            line: 8,
+            column: 1
+          }
+        }, {
+          start: {
+            line: undefined,
+            column: undefined
+          },
+          end: {
+            line: undefined,
+            column: undefined
+          }
+        }],
+        line: 6
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0
+    },
+    f: {},
+    b: {
+      "0": [0, 0]
+    },
+    inputSourceMap: {
+      file: "/home/runner/workspace/server/db.ts",
+      mappings: "AAAA,OAAO,EAAE,IAAI,EAAE,UAAU,EAAE,MAAM,0BAA0B,CAAC;AAC5D,OAAO,EAAE,OAAO,EAAE,MAAM,6BAA6B,CAAC;AACtD,OAAO,EAAE,MAAM,IAAI,CAAC;AACpB,OAAO,KAAK,MAAM,MAAM,gBAAgB,CAAC;AAEzC,UAAU,CAAC,oBAAoB,GAAG,EAAE,CAAC;AAErC,IAAI,CAAC,OAAO,CAAC,GAAG,CAAC,YAAY,EAAE,CAAC;IAC9B,MAAM,IAAI,KAAK,CACb,mEAAmE,CACpE,CAAC;AACJ,CAAC;AAED,MAAM,CAAC,MAAM,IAAI,GAAG,IAAI,IAAI,CAAC,EAAE,gBAAgB,EAAE,OAAO,CAAC,GAAG,CAAC,YAAY,EAAE,CAAC,CAAC;AAC7E,MAAM,CAAC,MAAM,EAAE,GAAG,OAAO,CAAC,EAAE,MAAM,EAAE,IAAI,EAAE,MAAM,EAAE,CAAC,CAAC",
+      names: [],
+      sources: ["/home/runner/workspace/server/db.ts"],
+      sourcesContent: ["import { Pool, neonConfig } from '@neondatabase/serverless';\nimport { drizzle } from 'drizzle-orm/neon-serverless';\nimport ws from \"ws\";\nimport * as schema from \"@shared/schema\";\n\nneonConfig.webSocketConstructor = ws;\n\nif (!process.env.DATABASE_URL) {\n  throw new Error(\n    \"DATABASE_URL must be set. Did you forget to provision a database?\",\n  );\n}\n\nexport const pool = new Pool({ connectionString: process.env.DATABASE_URL });\nexport const db = drizzle({ client: pool, schema });"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "80d71530beba0ae2f30e44a0b8bbe16aee9c7554"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_1xr35cdp52 = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_1xr35cdp52();
+import { Pool, neonConfig } from '@neondatabase/serverless';
+import { drizzle } from 'drizzle-orm/neon-serverless';
+import ws from "ws";
+import * as schema from "@shared/schema";
+/* istanbul ignore next */
+cov_1xr35cdp52().s[0]++;
+neonConfig.webSocketConstructor = ws;
+/* istanbul ignore next */
+cov_1xr35cdp52().s[1]++;
+if (!process.env.DATABASE_URL) {
+  /* istanbul ignore next */
+  cov_1xr35cdp52().b[0][0]++;
+  cov_1xr35cdp52().s[2]++;
+  throw new Error("DATABASE_URL must be set. Did you forget to provision a database?");
+} else
+/* istanbul ignore next */
+{
+  cov_1xr35cdp52().b[0][1]++;
+}
+export const pool =
+/* istanbul ignore next */
+(cov_1xr35cdp52().s[3]++, new Pool({
+  connectionString: process.env.DATABASE_URL
+}));
+export const db =
+/* istanbul ignore next */
+(cov_1xr35cdp52().s[4]++, drizzle({
+  client: pool,
+  schema
+}));
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJQb29sIiwibmVvbkNvbmZpZyIsImRyaXp6bGUiLCJ3cyIsInNjaGVtYSIsImNvdl8xeHIzNWNkcDUyIiwicyIsIndlYlNvY2tldENvbnN0cnVjdG9yIiwicHJvY2VzcyIsImVudiIsIkRBVEFCQVNFX1VSTCIsImIiLCJFcnJvciIsInBvb2wiLCJjb25uZWN0aW9uU3RyaW5nIiwiZGIiLCJjbGllbnQiXSwic291cmNlcyI6WyIvaG9tZS9ydW5uZXIvd29ya3NwYWNlL3NlcnZlci9kYi50cyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBQb29sLCBuZW9uQ29uZmlnIH0gZnJvbSAnQG5lb25kYXRhYmFzZS9zZXJ2ZXJsZXNzJztcbmltcG9ydCB7IGRyaXp6bGUgfSBmcm9tICdkcml6emxlLW9ybS9uZW9uLXNlcnZlcmxlc3MnO1xuaW1wb3J0IHdzIGZyb20gXCJ3c1wiO1xuaW1wb3J0ICogYXMgc2NoZW1hIGZyb20gXCJAc2hhcmVkL3NjaGVtYVwiO1xuXG5uZW9uQ29uZmlnLndlYlNvY2tldENvbnN0cnVjdG9yID0gd3M7XG5cbmlmICghcHJvY2Vzcy5lbnYuREFUQUJBU0VfVVJMKSB7XG4gIHRocm93IG5ldyBFcnJvcihcbiAgICBcIkRBVEFCQVNFX1VSTCBtdXN0IGJlIHNldC4gRGlkIHlvdSBmb3JnZXQgdG8gcHJvdmlzaW9uIGEgZGF0YWJhc2U/XCIsXG4gICk7XG59XG5cbmV4cG9ydCBjb25zdCBwb29sID0gbmV3IFBvb2woeyBjb25uZWN0aW9uU3RyaW5nOiBwcm9jZXNzLmVudi5EQVRBQkFTRV9VUkwgfSk7XG5leHBvcnQgY29uc3QgZGIgPSBkcml6emxlKHsgY2xpZW50OiBwb29sLCBzY2hlbWEgfSk7Il0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQSxTQUFTQSxJQUFJLEVBQUVDLFVBQVUsUUFBUSwwQkFBMEI7QUFDM0QsU0FBU0MsT0FBTyxRQUFRLDZCQUE2QjtBQUNyRCxPQUFPQyxFQUFFLE1BQU0sSUFBSTtBQUNuQixPQUFPLEtBQUtDLE1BQU0sTUFBTSxnQkFBZ0I7QUFBQztBQUFBQyxjQUFBLEdBQUFDLENBQUE7QUFFekNMLFVBQVUsQ0FBQ00sb0JBQW9CLEdBQUdKLEVBQUU7QUFBQztBQUFBRSxjQUFBLEdBQUFDLENBQUE7QUFFckMsSUFBSSxDQUFDRSxPQUFPLENBQUNDLEdBQUcsQ0FBQ0MsWUFBWSxFQUFFO0VBQUE7RUFBQUwsY0FBQSxHQUFBTSxDQUFBO0VBQUFOLGNBQUEsR0FBQUMsQ0FBQTtFQUM3QixNQUFNLElBQUlNLEtBQUssQ0FDYixtRUFBbUUsQ0FDcEU7QUFDSCxDQUFDO0FBQUE7QUFBQTtFQUFBUCxjQUFBLEdBQUFNLENBQUE7QUFBQTtBQUVELE9BQU8sTUFBTUUsSUFBSTtBQUFBO0FBQUEsQ0FBQVIsY0FBQSxHQUFBQyxDQUFBLE9BQUcsSUFBSU4sSUFBSSxDQUFDO0VBQUVjLGdCQUFnQixFQUFFTixPQUFPLENBQUNDLEdBQUcsQ0FBQ0M7QUFBWSxDQUFFLENBQUM7QUFDNUUsT0FBTyxNQUFNSyxFQUFFO0FBQUE7QUFBQSxDQUFBVixjQUFBLEdBQUFDLENBQUEsT0FBR0osT0FBTyxDQUFDO0VBQUVjLE1BQU0sRUFBRUgsSUFBSTtFQUFFVDtBQUFNLENBQUUsQ0FBQyIsImlnbm9yZUxpc3QiOltdfQ==

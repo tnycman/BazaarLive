@@ -76,6 +76,11 @@ npm run test:regression
 npm run build
 ```
 
+### Documentation
+- Configuration workflow: `docs/config-workflow.md`
+- Troubleshooting: `docs/troubleshooting.md`
+- Engineering policies: `docs/policies.md`
+
 ## Dynamic Configuration System
 
 ### Overview

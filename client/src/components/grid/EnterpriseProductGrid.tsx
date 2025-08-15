@@ -36,6 +36,7 @@ interface ProductItem {
   readonly condition?: 'new_with_tags' | 'new_without_tags' | 'excellent' | 'good' | 'fair';
   readonly isLiked: boolean;
   readonly createdAt: string;
+  readonly sourceCategory?: string;
 }
 
 interface ProductBadge {
@@ -54,6 +55,7 @@ interface ProductGridProps {
   readonly isLoading?: boolean;
   readonly className?: string;
   readonly gridColumns?: 2 | 3 | 4 | 5;
+  readonly minItemWidthPx?: number; // Optional override to enforce min card width (e.g., 253 for fashion)
 }
 
 interface SortOption {
@@ -108,7 +110,8 @@ const ProductGridPropsSchema = z.object({
   onShare: z.function(),
   isLoading: z.boolean().optional(),
   className: z.string().optional(),
-  gridColumns: z.enum(['2', '3', '4', '5']).optional()
+  gridColumns: z.enum(['2', '3', '4', '5']).optional(),
+  minItemWidthPx: z.number().optional()
 });
 
 // ===== CONSTANTS =====
@@ -308,6 +311,15 @@ const EnterpriseProductCard: React.FC<{
           <span className="text-xs text-gray-600 truncate">
             {product.seller.username}
           </span>
+          {product.sourceCategory && (
+            <span
+              className="ml-2 inline-flex items-center rounded-full bg-gray-100 px-2 py-0.5 text-[10px] font-medium text-gray-600"
+              aria-label={`Source category ${product.sourceCategory}`}
+              data-testid={`badge-source-${product.id}`}
+            >
+              {product.sourceCategory.charAt(0).toUpperCase() + product.sourceCategory.slice(1)}
+            </span>
+          )}
         </div>
 
         {/* Stats */}
@@ -344,20 +356,35 @@ const EnterpriseProductGrid: React.FC<ProductGridProps> = memo(({
   onShare,
   isLoading = false,
   className = '',
-  gridColumns = 4
+  gridColumns = 4,
+  minItemWidthPx
 }) => {
   const [sortBy, setSortBy] = useState('just_shared');
 
   // ===== ENTERPRISE MEMOIZED VALUES =====
   const gridClass = useMemo(() => {
-    const columnMap = {
-      2: 'grid-cols-2',
-      3: 'grid-cols-3',
-      4: 'grid-cols-4',
-      5: 'grid-cols-5'
-    };
-    return `grid ${columnMap[gridColumns]} gap-4`;
-  }, [gridColumns]);
+    // Use inline style for grid-template-columns when min width is enforced (avoids Tailwind arbitrary prop parsing issues)
+    if (typeof minItemWidthPx === 'number' && minItemWidthPx > 0) {
+      return 'grid gap-4 justify-start';
+    }
+    // Otherwise enforce a consistent grid column count across pages via Tailwind classes
+    const cols = gridColumns ?? 4;
+    const colsClass = (
+      cols === 5 ? 'grid-cols-5' :
+      cols === 3 ? 'grid-cols-3' :
+      cols === 2 ? 'grid-cols-2' :
+      'grid-cols-4'
+    );
+    return `grid ${colsClass} gap-4`;
+  }, [gridColumns, minItemWidthPx]);
+
+  const gridStyle = useMemo(() => {
+    if (typeof minItemWidthPx === 'number' && minItemWidthPx > 0) {
+      const cols = gridColumns ?? 4;
+      return { gridTemplateColumns: `repeat(${cols}, minmax(${minItemWidthPx}px, 1fr))` } as React.CSSProperties;
+    }
+    return undefined;
+  }, [gridColumns, minItemWidthPx]);
 
   const sortedProducts = useMemo(() => {
     if (!products.length) return products;
@@ -468,7 +495,7 @@ const EnterpriseProductGrid: React.FC<ProductGridProps> = memo(({
         </div>
       </div>
       
-      <div className={gridClass}>
+      <div className={gridClass} style={gridStyle}>
         {sortedProducts.map(product => (
           <EnterpriseProductCard
             key={product.id}
@@ -496,4 +523,4 @@ const EnhancedEnterpriseProductGrid = withEnterpriseInterceptors(EnterpriseProdu
 // ===== EXPORTS =====
 export default EnhancedEnterpriseProductGrid;
 export type { ProductItem, ProductGridProps, ProductBadge, SortOption };
-export { ProductItemSchema, ProductGridPropsSchema, SORT_OPTIONS };
+// Note: Schemas/constants are internal to avoid HMR invalidations from named exports in component files

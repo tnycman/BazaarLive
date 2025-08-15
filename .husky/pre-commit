@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Run lint-staged to enforce ESLint (with no duplicate imports) before committing
+npx --no-install lint-staged
+
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx lint-staged
+
+#!/bin/sh
+echo "Running pre-commit checks (staged lint only)"
+npx lint-staged || exit 1
+echo "Pre-commit checks passed"
+
+

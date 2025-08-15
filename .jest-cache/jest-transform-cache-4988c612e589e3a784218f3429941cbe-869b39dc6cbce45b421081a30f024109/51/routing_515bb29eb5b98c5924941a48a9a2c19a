@@ -1,0 +1,66 @@
+2fffb0b169207a9b639ef41e1d0caac1
+/* istanbul ignore next */
+function cov_1ibu5dtwl0() {
+  var path = "/home/runner/workspace/client/src/types/routing.ts";
+  var hash = "8bf159200d08edc468c1271b2aba6fccae48543a";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/home/runner/workspace/client/src/types/routing.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 30
+        },
+        end: {
+          line: 10,
+          column: 1
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0
+    },
+    f: {},
+    b: {},
+    inputSourceMap: {
+      file: "/home/runner/workspace/client/src/types/routing.ts",
+      mappings: "AA+CA,qCAAqC;AACrC,MAAM,CAAC,MAAM,cAAc,GAAG;IAC5B,WAAW,EAAE,cAAc;IAC3B,QAAQ,EAAE,wBAAwB;IAClC,QAAQ,EAAE,kCAAkC;IAC5C,WAAW,EAAE,+CAA+C;IAC5D,KAAK,EAAE,gBAAgB;IACvB,cAAc,EAAE,0BAA0B;IAC1C,OAAO,EAAE,+BAA+B;CAChC,CAAC",
+      names: [],
+      sources: ["/home/runner/workspace/client/src/types/routing.ts"],
+      sourcesContent: ["// Comprehensive type definitions for dynamic routing system\nexport interface RouteParams {\n  vertical?: string;\n  category?: string;\n  subcategory?: string;\n  brand?: string;\n  section?: string;\n}\n\nexport interface CategoryRoute {\n  path: string;\n  component: string;\n  params: RouteParams;\n  metadata: {\n    title: string;\n    description: string;\n    breadcrumbs: string[];\n  };\n}\n\nexport interface VerticalRoute {\n  vertical: string;\n  path: string;\n  displayName: string;\n  icon: string;\n  metadata: {\n    title: string;\n    description: string;\n    keywords: string[];\n  };\n}\n\nexport interface NavigationHierarchy {\n  level: number;\n  path: string;\n  name: string;\n  parent?: string;\n  children?: NavigationHierarchy[];\n}\n\nexport interface RouteConfig {\n  exact?: boolean;\n  caseSensitive?: boolean;\n  guards?: string[];\n  middleware?: string[];\n}\n\n// Route patterns for dynamic routing\nexport const ROUTE_PATTERNS = {\n  MARKETPLACE: '/marketplace',\n  VERTICAL: '/marketplace/:vertical',\n  CATEGORY: '/marketplace/:vertical/:category',\n  SUBCATEGORY: '/marketplace/:vertical/:category/:subcategory',\n  BRAND: '/brands/:brand',\n  BRAND_CATEGORY: '/brands/:brand/:category',\n  SECTION: '/marketplace/section/:section'\n} as const;\n\nexport type RoutePattern = typeof ROUTE_PATTERNS[keyof typeof ROUTE_PATTERNS];"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "8bf159200d08edc468c1271b2aba6fccae48543a"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_1ibu5dtwl0 = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_1ibu5dtwl0();
+// Route patterns for dynamic routing
+export const ROUTE_PATTERNS =
+/* istanbul ignore next */
+(cov_1ibu5dtwl0().s[0]++, {
+  MARKETPLACE: '/marketplace',
+  VERTICAL: '/marketplace/:vertical',
+  CATEGORY: '/marketplace/:vertical/:category',
+  SUBCATEGORY: '/marketplace/:vertical/:category/:subcategory',
+  BRAND: '/brands/:brand',
+  BRAND_CATEGORY: '/brands/:brand/:category',
+  SECTION: '/marketplace/section/:section'
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJST1VURV9QQVRURVJOUyIsImNvdl8xaWJ1NWR0d2wwIiwicyIsIk1BUktFVFBMQUNFIiwiVkVSVElDQUwiLCJDQVRFR09SWSIsIlNVQkNBVEVHT1JZIiwiQlJBTkQiLCJCUkFORF9DQVRFR09SWSIsIlNFQ1RJT04iXSwic291cmNlcyI6WyIvaG9tZS9ydW5uZXIvd29ya3NwYWNlL2NsaWVudC9zcmMvdHlwZXMvcm91dGluZy50cyJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBDb21wcmVoZW5zaXZlIHR5cGUgZGVmaW5pdGlvbnMgZm9yIGR5bmFtaWMgcm91dGluZyBzeXN0ZW1cbmV4cG9ydCBpbnRlcmZhY2UgUm91dGVQYXJhbXMge1xuICB2ZXJ0aWNhbD86IHN0cmluZztcbiAgY2F0ZWdvcnk/OiBzdHJpbmc7XG4gIHN1YmNhdGVnb3J5Pzogc3RyaW5nO1xuICBicmFuZD86IHN0cmluZztcbiAgc2VjdGlvbj86IHN0cmluZztcbn1cblxuZXhwb3J0IGludGVyZmFjZSBDYXRlZ29yeVJvdXRlIHtcbiAgcGF0aDogc3RyaW5nO1xuICBjb21wb25lbnQ6IHN0cmluZztcbiAgcGFyYW1zOiBSb3V0ZVBhcmFtcztcbiAgbWV0YWRhdGE6IHtcbiAgICB0aXRsZTogc3RyaW5nO1xuICAgIGRlc2NyaXB0aW9uOiBzdHJpbmc7XG4gICAgYnJlYWRjcnVtYnM6IHN0cmluZ1tdO1xuICB9O1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIFZlcnRpY2FsUm91dGUge1xuICB2ZXJ0aWNhbDogc3RyaW5nO1xuICBwYXRoOiBzdHJpbmc7XG4gIGRpc3BsYXlOYW1lOiBzdHJpbmc7XG4gIGljb246IHN0cmluZztcbiAgbWV0YWRhdGE6IHtcbiAgICB0aXRsZTogc3RyaW5nO1xuICAgIGRlc2NyaXB0aW9uOiBzdHJpbmc7XG4gICAga2V5d29yZHM6IHN0cmluZ1tdO1xuICB9O1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIE5hdmlnYXRpb25IaWVyYXJjaHkge1xuICBsZXZlbDogbnVtYmVyO1xuICBwYXRoOiBzdHJpbmc7XG4gIG5hbWU6IHN0cmluZztcbiAgcGFyZW50Pzogc3RyaW5nO1xuICBjaGlsZHJlbj86IE5hdmlnYXRpb25IaWVyYXJjaHlbXTtcbn1cblxuZXhwb3J0IGludGVyZmFjZSBSb3V0ZUNvbmZpZyB7XG4gIGV4YWN0PzogYm9vbGVhbjtcbiAgY2FzZVNlbnNpdGl2ZT86IGJvb2xlYW47XG4gIGd1YXJkcz86IHN0cmluZ1tdO1xuICBtaWRkbGV3YXJlPzogc3RyaW5nW107XG59XG5cbi8vIFJvdXRlIHBhdHRlcm5zIGZvciBkeW5hbWljIHJvdXRpbmdcbmV4cG9ydCBjb25zdCBST1VURV9QQVRURVJOUyA9IHtcbiAgTUFSS0VUUExBQ0U6ICcvbWFya2V0cGxhY2UnLFxuICBWRVJUSUNBTDogJy9tYXJrZXRwbGFjZS86dmVydGljYWwnLFxuICBDQVRFR09SWTogJy9tYXJrZXRwbGFjZS86dmVydGljYWwvOmNhdGVnb3J5JyxcbiAgU1VCQ0FURUdPUlk6ICcvbWFya2V0cGxhY2UvOnZlcnRpY2FsLzpjYXRlZ29yeS86c3ViY2F0ZWdvcnknLFxuICBCUkFORDogJy9icmFuZHMvOmJyYW5kJyxcbiAgQlJBTkRfQ0FURUdPUlk6ICcvYnJhbmRzLzpicmFuZC86Y2F0ZWdvcnknLFxuICBTRUNUSU9OOiAnL21hcmtldHBsYWNlL3NlY3Rpb24vOnNlY3Rpb24nXG59IGFzIGNvbnN0O1xuXG5leHBvcnQgdHlwZSBSb3V0ZVBhdHRlcm4gPSB0eXBlb2YgUk9VVEVfUEFUVEVSTlNba2V5b2YgdHlwZW9mIFJPVVRFX1BBVFRFUk5TXTsiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUErQ0E7QUFDQSxPQUFPLE1BQU1BLGNBQWM7QUFBQTtBQUFBLENBQUFDLGNBQUEsR0FBQUMsQ0FBQSxPQUFHO0VBQzVCQyxXQUFXLEVBQUUsY0FBYztFQUMzQkMsUUFBUSxFQUFFLHdCQUF3QjtFQUNsQ0MsUUFBUSxFQUFFLGtDQUFrQztFQUM1Q0MsV0FBVyxFQUFFLCtDQUErQztFQUM1REMsS0FBSyxFQUFFLGdCQUFnQjtFQUN2QkMsY0FBYyxFQUFFLDBCQUEwQjtFQUMxQ0MsT0FBTyxFQUFFO0NBQ0QiLCJpZ25vcmVMaXN0IjpbXX0=

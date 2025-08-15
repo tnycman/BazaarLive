@@ -17,7 +17,7 @@ module.exports = {
     project: ['./tsconfig.json'],
     tsconfigRootDir: __dirname,
   },
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'import'],
   rules: {
     // ===== ENTERPRISE AOP COMPLIANCE RULES =====
     
@@ -35,7 +35,10 @@ module.exports = {
     'prefer-const': 'error',
     'no-var': 'error',
     'no-unused-expressions': 'error',
-    'no-duplicate-imports': 'error',
+    // Use the TypeScript-aware rule and also enforce via import plugin
+    'no-duplicate-imports': 'off',
+    '@typescript-eslint/no-duplicate-imports': 'error',
+    'import/no-duplicates': 'error',
     
     // Configuration Naming Convention Rules
     'naming-convention': 'off', // Handled by custom rules below
@@ -53,14 +56,81 @@ module.exports = {
     'max-params': ['error', 5],
     
     // Import Organization
+    // Let import/order handle declaration sorting; keep member sorting here
     'sort-imports': ['error', {
       ignoreCase: false,
-      ignoreDeclarationSort: false,
+      ignoreDeclarationSort: true,
       ignoreMemberSort: false,
       memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
     }],
+
+    // Enforce consistent import grouping and ordering
+    'import/order': ['error', {
+      groups: [
+        'builtin',
+        'external',
+        'internal',
+        'parent',
+        'sibling',
+        'index',
+        'object',
+        'type',
+      ],
+      pathGroups: [
+        {
+          pattern: 'react',
+          group: 'external',
+          position: 'before',
+        },
+        {
+          pattern: '@/**',
+          group: 'internal',
+          position: 'before',
+        },
+        {
+          pattern: '@shared/**',
+          group: 'internal',
+          position: 'before',
+        }
+      ],
+      pathGroupsExcludedImportTypes: ['react'],
+      'newlines-between': 'always',
+      alphabetize: { order: 'asc', caseInsensitive: true },
+    }],
+    // Forbid raw fashion URLs; enforce route service usage
+    'no-restricted-syntax': [
+      'error',
+      {
+        selector: "Literal[value^='/fashion/']",
+        message: "Use fashionRouteService.generateFashionUrl(...) instead of hardcoding '/fashion/*'",
+      },
+      {
+        selector: "TemplateLiteral[quasis.some(q=>q.value.raw.includes('/fashion/'))]",
+        message: "Use fashionRouteService.generateFashionUrl(...) instead of interpolating '/fashion/*'",
+      }
+    ],
   },
   overrides: [
+    {
+      files: ['client/src/services/routing/FashionRouteService.ts'],
+      rules: {
+        'no-restricted-syntax': 'off'
+      }
+    },
+    {
+      files: [
+        '**/*.test.ts',
+        '**/*.test.tsx',
+        '**/*.spec.ts',
+        '**/*.spec.tsx',
+        'client/src/tests/**',
+        'client/src/components/universal/__tests__/**',
+        'client/src/services/routing/__tests__/**'
+      ],
+      rules: {
+        'no-restricted-syntax': 'off'
+      }
+    },
     {
       // Configuration Files Specific Rules
       files: ['**/configs/**/*.ts', '**/configurations/**/*.ts'],

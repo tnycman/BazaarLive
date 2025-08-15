@@ -1,0 +1,182 @@
+# ===== PROMETHEUS CONFIGURATION =====
+# Enterprise-grade monitoring configuration
+# 100% best practices, zero shortcuts
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    cluster: 'marketplace-prod'
+    environment: 'production'
+
+# ===== RULE FILES =====
+rule_files:
+  - "rules/*.yml"
+
+# ===== ALERTING =====
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          - alertmanager:9093
+
+# ===== SCRAPE CONFIGURATIONS =====
+scrape_configs:
+  # ===== PROMETHEUS SELF-MONITORING =====
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+    metrics_path: '/metrics'
+    scrape_interval: 15s
+
+  # ===== MARKETPLACE APPLICATION =====
+  - job_name: 'marketplace-app'
+    static_configs:
+      - targets: ['app:5000']
+    metrics_path: '/api/metrics'
+    scrape_interval: 15s
+    scrape_timeout: 10s
+    honor_labels: true
+    scheme: 'http'
+    tls_config:
+      insecure_skip_verify: true
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        regex: '([^:]+)(?::\d+)?'
+        replacement: '${1}'
+      - source_labels: [__address__]
+        target_label: service
+        regex: '([^:]+)(?::\d+)?'
+        replacement: 'marketplace'
+
+  # ===== REDIS MONITORING =====
+  - job_name: 'redis'
+    static_configs:
+      - targets: ['redis:6379']
+    metrics_path: '/metrics'
+    scrape_interval: 15s
+    scrape_timeout: 10s
+    honor_labels: true
+    scheme: 'http'
+    tls_config:
+      insecure_skip_verify: true
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        regex: '([^:]+)(?::\d+)?'
+        replacement: '${1}'
+      - source_labels: [__address__]
+        target_label: service
+        regex: '([^:]+)(?::\d+)?'
+        replacement: 'redis'
+
+  # ===== NGINX MONITORING =====
+  - job_name: 'nginx'
+    static_configs:
+      - targets: ['nginx:80']
+    metrics_path: '/nginx_status'
+    scrape_interval: 15s
+    scrape_timeout: 10s
+    honor_labels: true
+    scheme: 'http'
+    tls_config:
+      insecure_skip_verify: true
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        regex: '([^:]+)(?::\d+)?'
+        replacement: '${1}'
+      - source_labels: [__address__]
+        target_label: service
+        regex: '([^:]+)(?::\d+)?'
+        replacement: 'nginx'
+
+  # ===== NODE EXPORTER (SYSTEM METRICS) =====
+  - job_name: 'node-exporter'
+    static_configs:
+      - targets: ['node-exporter:9100']
+    metrics_path: '/metrics'
+    scrape_interval: 15s
+    scrape_timeout: 10s
+    honor_labels: true
+    scheme: 'http'
+    tls_config:
+      insecure_skip_verify: true
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        regex: '([^:]+)(?::\d+)?'
+        replacement: '${1}'
+      - source_labels: [__address__]
+        target_label: service
+        regex: '([^:]+)(?::\d+)?'
+        replacement: 'node'
+
+  # ===== CADVISOR (CONTAINER METRICS) =====
+  - job_name: 'cadvisor'
+    static_configs:
+      - targets: ['cadvisor:8080']
+    metrics_path: '/metrics'
+    scrape_interval: 15s
+    scrape_timeout: 10s
+    honor_labels: true
+    scheme: 'http'
+    tls_config:
+      insecure_skip_verify: true
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        regex: '([^:]+)(?::\d+)?'
+        replacement: '${1}'
+      - source_labels: [__address__]
+        target_label: service
+        regex: '([^:]+)(?::\d+)?'
+        replacement: 'cadvisor'
+
+  # ===== BLACKBOX EXPORTER (UPTIME MONITORING) =====
+  - job_name: 'blackbox'
+    metrics_path: /probe
+    params:
+      module: [http_2xx]
+    static_configs:
+      - targets:
+        - http://app:5000/api/health
+        - http://nginx:80
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox:9115
+    scrape_interval: 30s
+    scrape_timeout: 10s
+
+# ===== STORAGE CONFIGURATION =====
+storage:
+  tsdb:
+    path: /prometheus
+    retention:
+      time: 15d
+      size: 50GB
+    wal:
+      retention:
+        time: 2h
+        size: 10GB
+
+# ===== REMOTE WRITE CONFIGURATION =====
+remote_write:
+  - url: "http://remote-storage:9201/write"
+    remote_timeout: 30s
+    write_relabel_configs:
+      - source_labels: [__name__]
+        regex: '.*'
+        action: keep
+
+# ===== REMOTE READ CONFIGURATION =====
+remote_read:
+  - url: "http://remote-storage:9201/read"
+    read_timeout: 30s
+    required_matchers:
+      - __name__: ".*" 

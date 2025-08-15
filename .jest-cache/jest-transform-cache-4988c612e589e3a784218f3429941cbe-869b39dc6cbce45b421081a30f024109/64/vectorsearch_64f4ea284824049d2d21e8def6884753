@@ -1,0 +1,79 @@
+10eac3660a267cc9f58c381d74e857e9
+/* istanbul ignore next */
+function cov_2c8spghtse() {
+  var path = "/home/runner/workspace/server/routes/vector-search.ts";
+  var hash = "283619fc5f394e24b46bf7e3dfbe1290ca0ba8a3";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/home/runner/workspace/server/routes/vector-search.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 7,
+          column: 15
+        },
+        end: {
+          line: 7,
+          column: 23
+        }
+      },
+      "1": {
+        start: {
+          line: 9,
+          column: 0
+        },
+        end: {
+          line: 9,
+          column: 46
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0
+    },
+    f: {},
+    b: {},
+    inputSourceMap: {
+      file: "/home/runner/workspace/server/routes/vector-search.ts",
+      mappings: "AAAA;;;GAGG;AAEH,OAAO,EAAE,MAAM,EAAE,MAAM,SAAS,CAAC;AACjC,OAAO,4BAA4B,MAAM,kDAAkD,CAAC;AAE5F,MAAM,MAAM,GAAG,MAAM,EAAE,CAAC;AAExB,oDAAoD;AACpD,MAAM,CAAC,GAAG,CAAC,GAAG,EAAE,4BAA4B,CAAC,CAAC;AAE9C,eAAe,MAAM,CAAC",
+      names: [],
+      sources: ["/home/runner/workspace/server/routes/vector-search.ts"],
+      sourcesContent: ["/**\n * Vector Search API Routes - Enterprise AOP Integration\n * Routes now use enterprise AOP-compliant vector search facade\n */\n\nimport { Router } from 'express';\nimport enterpriseVectorSearchRoutes from '../vector/routes/EnterpriseVectorSearchRoutes.js';\n\nconst router = Router();\n\n// Use enterprise AOP-compliant vector search routes\nrouter.use('/', enterpriseVectorSearchRoutes);\n\nexport default router;"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "283619fc5f394e24b46bf7e3dfbe1290ca0ba8a3"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_2c8spghtse = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_2c8spghtse();
+/**
+ * Vector Search API Routes - Enterprise AOP Integration
+ * Routes now use enterprise AOP-compliant vector search facade
+ */
+import { Router } from 'express';
+import enterpriseVectorSearchRoutes from '../vector/routes/EnterpriseVectorSearchRoutes.js';
+const router =
+/* istanbul ignore next */
+(cov_2c8spghtse().s[0]++, Router());
+// Use enterprise AOP-compliant vector search routes
+/* istanbul ignore next */
+cov_2c8spghtse().s[1]++;
+router.use('/', enterpriseVectorSearchRoutes);
+export default router;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJSb3V0ZXIiLCJlbnRlcnByaXNlVmVjdG9yU2VhcmNoUm91dGVzIiwicm91dGVyIiwiY292XzJjOHNwZ2h0c2UiLCJzIiwidXNlIl0sInNvdXJjZXMiOlsiL2hvbWUvcnVubmVyL3dvcmtzcGFjZS9zZXJ2ZXIvcm91dGVzL3ZlY3Rvci1zZWFyY2gudHMiXSwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBWZWN0b3IgU2VhcmNoIEFQSSBSb3V0ZXMgLSBFbnRlcnByaXNlIEFPUCBJbnRlZ3JhdGlvblxuICogUm91dGVzIG5vdyB1c2UgZW50ZXJwcmlzZSBBT1AtY29tcGxpYW50IHZlY3RvciBzZWFyY2ggZmFjYWRlXG4gKi9cblxuaW1wb3J0IHsgUm91dGVyIH0gZnJvbSAnZXhwcmVzcyc7XG5pbXBvcnQgZW50ZXJwcmlzZVZlY3RvclNlYXJjaFJvdXRlcyBmcm9tICcuLi92ZWN0b3Ivcm91dGVzL0VudGVycHJpc2VWZWN0b3JTZWFyY2hSb3V0ZXMuanMnO1xuXG5jb25zdCByb3V0ZXIgPSBSb3V0ZXIoKTtcblxuLy8gVXNlIGVudGVycHJpc2UgQU9QLWNvbXBsaWFudCB2ZWN0b3Igc2VhcmNoIHJvdXRlc1xucm91dGVyLnVzZSgnLycsIGVudGVycHJpc2VWZWN0b3JTZWFyY2hSb3V0ZXMpO1xuXG5leHBvcnQgZGVmYXVsdCByb3V0ZXI7Il0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQTs7OztBQUtBLFNBQVNBLE1BQU0sUUFBUSxTQUFTO0FBQ2hDLE9BQU9DLDRCQUE0QixNQUFNLGtEQUFrRDtBQUUzRixNQUFNQyxNQUFNO0FBQUE7QUFBQSxDQUFBQyxjQUFBLEdBQUFDLENBQUEsT0FBR0osTUFBTSxFQUFFO0FBRXZCO0FBQUE7QUFBQUcsY0FBQSxHQUFBQyxDQUFBO0FBQ0FGLE1BQU0sQ0FBQ0csR0FBRyxDQUFDLEdBQUcsRUFBRUosNEJBQTRCLENBQUM7QUFFN0MsZUFBZUMsTUFBTSIsImlnbm9yZUxpc3QiOltdfQ==

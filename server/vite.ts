@@ -32,8 +32,9 @@ export async function setupVite(app: Express, server: Server) {
     customLogger: {
       ...viteLogger,
       error: (msg, options) => {
+        // In development, do not terminate the server on Vite errors.
+        // Log the error and let the overlay/HMR handle client-side reporting.
         viteLogger.error(msg, options);
-        process.exit(1);
       },
     },
     server: serverOptions,

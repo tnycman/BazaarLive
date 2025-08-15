@@ -136,28 +136,44 @@
   }
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+/* Custom scrollbar - shorter track (top/bottom gaps) and slightly thicker */
+.fashion-scrollbar-short ::-webkit-scrollbar {
+  width: 8px; /* thicker for visibility */
 }
 
-::-webkit-scrollbar-track {
-  background: hsl(210, 40%, 96%);
+/* Create top/bottom gaps so the track appears shorter */
+.fashion-scrollbar-short ::-webkit-scrollbar-track {
+  background: hsl(0, 0%, 93%);
+  margin: 35vh 0; /* shrink visible length to roughly 30% viewport */
+  border-radius: 8px;
 }
 
-::-webkit-scrollbar-thumb {
-  background: hsl(221, 83%, 53%);
-  border-radius: 4px;
+.fashion-scrollbar-short ::-webkit-scrollbar-thumb {
+  background: hsl(0, 0%, 65%);
+  border-radius: 8px;
+  min-height: 48px; /* ensure thumb is not too tiny */
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: hsl(221, 83%, 45%);
+.fashion-scrollbar-short ::-webkit-scrollbar-thumb:hover {
+  background: hsl(0, 0%, 55%);
 }
 
 .dark ::-webkit-scrollbar-track {
   background: hsl(217, 32%, 17%);
 }
 
-.dark ::-webkit-scrollbar-thumb {
-  background: hsl(221, 83%, 53%);
+.dark .fashion-scrollbar-short ::-webkit-scrollbar-thumb {
+  background: hsl(0, 0%, 50%);
+}
+
+/* Firefox (fallback) */
+.fashion-scrollbar-short html {
+  scrollbar-color: hsl(0, 0%, 65%) hsl(0, 0%, 93%);
+  scrollbar-width: auto; /* default thickness, more visible than thin */
+}
+
+/* Right sidebar (fashion pages): make the sidebar's own scrollbar about half the
+   current visible length by increasing top/bottom gaps on its track. */
+.fashion-scrollbar-short aside[data-testid="right-sidebar"]::-webkit-scrollbar-track {
+  margin: 42vh 0; /* approx 16% visible track (about half of ~30-35% before) */
 }

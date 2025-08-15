@@ -64,15 +64,17 @@ const EnterprisePageLayout: React.FC<EnterprisePageLayoutProps> = memo(({
     leftSidebarClass: SIDEBAR_WIDTH_CLASSES[sidebarWidth]
   });
   const leftSidebarClasses = [
-    SIDEBAR_WIDTH_CLASSES[sidebarWidth],
+    // Expand the left sidebar slightly for more uniform, integrated look
+    sidebarWidth === 'standard' ? 'w-72' : SIDEBAR_WIDTH_CLASSES[sidebarWidth],
     'flex-shrink-0',
-    enableStickyLayout ? 'sticky top-0 h-screen overflow-y-auto' : 'h-full'
+    enableStickyLayout ? 'sticky top-0 h-screen overflow-hidden' : 'h-full overflow-hidden'
   ].join(' ');
 
   const rightSidebarClasses = [
     RIGHT_SIDEBAR_WIDTH_CLASSES[rightSidebarWidth],
     'flex-shrink-0',
-    enableStickyLayout ? 'sticky top-0 h-screen overflow-y-auto' : 'h-full'
+    'relative', // ensure it participates in flex flow, not overlay
+    enableStickyLayout ? 'sticky top-0 h-screen overflow-y-auto' : 'h-full overflow-hidden'
   ].join(' ');
 
   const mainContentClasses = [
@@ -85,7 +87,7 @@ const EnterprisePageLayout: React.FC<EnterprisePageLayoutProps> = memo(({
 
   return (
     <div 
-      className={`min-h-screen bg-gray-50 flex w-full ${className}`}
+      className={`min-h-screen bg-gray-50 flex w-full gap-6 ${className}`}
       data-testid="enterprise-page-layout"
       style={{ minHeight: 'calc(100vh - 140px)' }}
     >

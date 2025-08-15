@@ -68,31 +68,31 @@ export function Header() {
 
             {/* Vertical Categories */}
             <div className="flex items-center space-x-4 text-sm text-gray-600 dark:text-gray-400">
-              <Link href="/marketplace/jobs">
+             <Link href={`/fashion/jobs`}>
                 <Button variant="ghost" size="sm" className="flex items-center gap-1 hover:text-purple-600" data-testid="header-jobs">
                   <BriefcaseIcon className="w-4 h-4" />
                   Jobs
                 </Button>
               </Link>
-              <Link href="/marketplace/real-estate">
+             <Link href={`/fashion/real-estate`}>
                 <Button variant="ghost" size="sm" className="flex items-center gap-1 hover:text-purple-600" data-testid="header-real-estate">
                   <HomeIcon className="w-4 h-4" />
                   Real Estate
                 </Button>
               </Link>
-              <Link href="/marketplace/cars">
+             <Link href={`/fashion/cars`}>
                 <Button variant="ghost" size="sm" className="flex items-center gap-1 hover:text-purple-600" data-testid="header-cars">
                   <CarIcon className="w-4 h-4" />
                   Cars
                 </Button>
               </Link>
-              <Link href="/marketplace/boats">
+             <Link href={`/fashion/boats`}>
                 <Button variant="ghost" size="sm" className="flex items-center gap-1 hover:text-purple-600" data-testid="header-boats">
                   <AnchorIcon className="w-4 h-4" />
                   Boats
                 </Button>
               </Link>
-              <Link href="/marketplace/services">
+             <Link href={`/fashion/services`}>
                 <Button variant="ghost" size="sm" className="flex items-center gap-1 hover:text-purple-600" data-testid="header-services">
                   <WrenchIcon className="w-4 h-4" />
                   Services

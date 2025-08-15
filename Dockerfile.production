@@ -1,0 +1,87 @@
+# Production Dockerfile - Multi-stage build for optimized image
+FROM node:18-alpine AS base
+
+# Install dumb-init for proper signal handling
+RUN apk add --no-cache dumb-init
+
+# Create app directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm ci --only=production && npm cache clean --force
+
+# Build stage
+FROM node:18-alpine AS build
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+COPY tsconfig.json ./
+COPY vite.config.ts ./
+COPY tailwind.config.js ./
+COPY postcss.config.js ./
+
+# Install all dependencies (including dev)
+RUN npm ci
+
+# Copy source code
+COPY shared/ ./shared/
+COPY client/ ./client/
+COPY server/ ./server/
+
+# Build the application
+RUN npm run build
+
+# Production stage
+FROM node:18-alpine AS production
+
+# Security: Create non-root user
+RUN addgroup -g 1001 -S nodejs && \
+    adduser -S bazaar -u 1001
+
+# Install dumb-init and other necessary tools
+RUN apk add --no-cache dumb-init wget curl
+
+WORKDIR /app
+
+# Copy built application
+COPY --from=base /app/node_modules ./node_modules
+COPY --from=build /app/dist ./dist
+COPY --from=build /app/client/dist ./client/dist
+COPY --from=build /app/shared ./shared
+COPY package*.json ./
+
+# Copy migration scripts
+COPY server/migrations ./server/migrations
+
+# Create necessary directories
+RUN mkdir -p /app/logs /app/uploads /app/temp && \
+    chown -R bazaar:nodejs /app
+
+# Health check script
+COPY scripts/healthcheck.sh /usr/local/bin/healthcheck
+RUN chmod +x /usr/local/bin/healthcheck
+
+# Switch to non-root user
+USER bazaar
+
+# Set deployment color from build arg
+ARG DEPLOYMENT_COLOR=blue
+ENV DEPLOYMENT_COLOR=$DEPLOYMENT_COLOR
+
+# Expose port
+EXPOSE 3000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+  CMD /usr/local/bin/healthcheck
+
+# Use dumb-init to handle signals properly
+ENTRYPOINT ["dumb-init", "--"]
+
+# Start the application
+CMD ["node", "dist/server/index.js"]

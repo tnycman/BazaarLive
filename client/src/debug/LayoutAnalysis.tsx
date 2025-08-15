@@ -109,6 +109,7 @@ export function LayoutAnalysis() {
         });
       }
     }
+    });
   }, []);
 
   return (

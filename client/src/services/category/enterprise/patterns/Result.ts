@@ -263,3 +263,61 @@ export namespace Result {
    */
   export type Error<R> = R extends Result<any, infer E> ? E : never;
 }
+
+/**
+ * ConfigurationResult<T, E>
+ * A small, ergonomic Result type with helpers used by the configuration subsystem.
+ * Provides runtime helpers: isSuccess, isFailure, value/error, map, match.
+ */
+export type ConfigurationResult<T, E = Error> =
+  | {
+      readonly isSuccess: true;
+      readonly isFailure: false;
+      readonly value: T;
+      map<U>(fn: (value: T) => U): ConfigurationResult<U, E>;
+      match<U>(onSuccess: (value: T) => U, onFailure: (error: E) => U): U;
+    }
+  | {
+      readonly isSuccess: false;
+      readonly isFailure: true;
+      readonly error: E;
+      map<U>(_fn: (value: never) => U): ConfigurationResult<U, E>;
+      match<U>(onSuccess: (value: never) => U, onFailure: (error: E) => U): U;
+    };
+
+export const ConfigurationResultUtils = {
+  success<T, E = Error>(value: T): ConfigurationResult<T, E> {
+    return {
+      isSuccess: true,
+      isFailure: false,
+      value,
+      map<U>(fn: (value: T) => U): ConfigurationResult<U, E> {
+        try {
+          return ConfigurationResultUtils.success<U, E>(fn(value));
+        } catch (e) {
+          return ConfigurationResultUtils.failure<U, E>(e as E);
+        }
+      },
+      match<U>(onSuccess: (value: T) => U): U {
+        return onSuccess(value);
+      },
+    };
+  },
+
+  failure<T = never, E = Error>(error: E): ConfigurationResult<T, E> {
+    return {
+      isSuccess: false,
+      isFailure: true,
+      error,
+      map<U>(_fn: (value: never) => U): ConfigurationResult<U, E> {
+        // Propagate the same error
+        return ConfigurationResultUtils.failure<U, E>(error);
+      },
+      match<U>(_onSuccess: (value: never) => U, onFailure: (error: E) => U): U {
+        return onFailure(error);
+      },
+    };
+  },
+} as const;
+
+// Note: already exported via `export const` above; no redundant re-exports

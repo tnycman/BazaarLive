@@ -63,11 +63,10 @@ export class NavigationPerformanceAspect implements INavigationAspect {
 /**
  * Security Aspect - Validates navigation security
  */
+import { ALLOWED_CATEGORY_LABELS } from './NavigationCategories';
+
 export class NavigationSecurityAspect implements INavigationAspect {
-  private readonly allowedCategories = new Set([
-    'Women', 'Men', 'Kids', 'Home', 'Electronics', 'Pets',
-    'Sports & Outdoors', 'Beauty & Wellness', 'Brands', ''
-  ]);
+  private readonly allowedCategories = new Set<string>([...ALLOWED_CATEGORY_LABELS, '']);
 
   before(context: NavigationContext): void {
     // Skip validation for empty category (during leave events)
@@ -76,8 +75,9 @@ export class NavigationSecurityAspect implements INavigationAspect {
     }
     
     if (!this.allowedCategories.has(context.category)) {
-      console.warn(`[Navigation Security] Unknown category: ${context.category}. Adding to allowed list.`);
-      this.allowedCategories.add(context.category);
+      // Strict allowlist – block and log error rather than auto-adding
+      console.error(`[Navigation Security] Unknown category blocked: ${context.category}`);
+      throw new Error(`[Navigation Security] Unknown category: ${context.category}`);
     }
     
     // Prevent XSS in category names

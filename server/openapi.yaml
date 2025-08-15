@@ -1,0 +1,106 @@
+openapi: 3.0.3
+info:
+  title: Marketplace API
+  version: 1.0.0
+  description: Combined listings API supporting multi-category aggregation with cursor pagination
+paths:
+  /api/listings:
+    get:
+      summary: List listings (single category)
+      parameters:
+        - in: query
+          name: category
+          schema:
+            type: string
+          description: Category identifier
+        - in: query
+          name: search
+          schema:
+            type: string
+          description: Optional search term
+        - in: query
+          name: sellerId
+          schema:
+            type: string
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+        - in: query
+          name: offset
+          schema:
+            type: integer
+            minimum: 0
+      responses:
+        '200':
+          description: OK
+  /api/listings/aggregate:
+    get:
+      summary: Aggregate listings across multiple categories
+      parameters:
+        - in: query
+          name: vertical
+          required: true
+          schema:
+            type: string
+            example: fashion
+        - in: query
+          name: categories
+          required: true
+          schema:
+            type: string
+            example: women,men,kids
+          description: Comma-separated list of categories
+        - in: query
+          name: subcategory
+          schema:
+            type: string
+          description: Optional second-level subcategory to scope results (applied to all categories)
+        - in: query
+          name: sortBy
+          schema:
+            type: string
+            enum: [newest, price_low, price_high, most_liked]
+          example: newest
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 60
+        - in: query
+          name: cursor
+          schema:
+            type: string
+          description: Opaque pagination cursor from previous response
+      responses:
+        '200':
+          description: Aggregated listings
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  traceId:
+                    type: string
+                  items:
+                    type: array
+                    items:
+                      type: object
+                  nextCursor:
+                    type: string
+                    nullable: true
+                  pageInfo:
+                    type: object
+                    properties:
+                      limit:
+                        type: integer
+                      returned:
+                        type: integer
+                      hasNextPage:
+                        type: boolean
+
+

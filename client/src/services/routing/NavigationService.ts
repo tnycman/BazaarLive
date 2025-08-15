@@ -1,5 +1,10 @@
 // Navigation service for generating dynamic routes with AOP principles
-import { routeConfigService } from './RouteConfigService';
+// 
+// @deprecated The generateUniversalRoute method is being replaced by UnifiedCategoryRoutingService
+// for consistency across all categories. Use UnifiedCategoryRoutingService instead.
+// Migration: Replace navigationService.generateUniversalRoute() with 
+// unifiedCategoryRoutingService.generateCategoryRoute()
+import { slugify } from './RouteUtils';
 
 export class NavigationService {
   private static instance: NavigationService;
@@ -17,120 +22,80 @@ export class NavigationService {
    * Generate dynamic route for navigation items based on category and vertical
    */
   public generateCategoryRoute(category: string, item: string, vertical?: string): string {
-    const categorySlug = this.slugify(category);
-    const itemSlug = this.slugify(item);
-    
-    // Determine vertical based on category context
-    const targetVertical = this.determineVertical(category, vertical);
-    
-    return `/marketplace/${targetVertical}/${itemSlug}`;
+    console.warn('[NavigationService] generateCategoryRoute is deprecated. Use generateUniversalRoute directly.');
+    return this.generateUniversalRoute({
+      vertical: vertical ?? 'fashion',
+      category,
+      subcategory: item,
+    });
   }
 
   /**
    * Generate brand route
    */
   public generateBrandRoute(brand: string, category?: string): string {
-    const brandSlug = this.slugify(brand);
+    const brandSlug = slugify(brand);
     
     if (category) {
-      const categorySlug = this.slugify(category);
-      return `/brands/${brandSlug}/${categorySlug}`;
+      const categorySlug = slugify(category);
+      return `/fashion/brands/${brandSlug}/${categorySlug}`;
     }
     
-    return `/brands/${brandSlug}`;
+    return `/fashion/brands/${brandSlug}`;
+  }
+
+  /**
+   * Generate brand segment route (e.g., all women's brands)
+   */
+  public generateBrandSegmentRoute(segment: 'women' | 'men' | 'kids' | 'home' | 'electronics'): string {
+    const segmentSlug = slugify(segment);
+    return `/fashion/brands/segments/${segmentSlug}`;
+  }
+
+  /**
+   * Generate brand index route (/fashion/brands)
+   */
+  public generateBrandIndexRoute(): string {
+    return `/fashion/brands`;
   }
 
   /**
    * Generate section route for "Shop All" links
    */
   public generateSectionRoute(sectionTitle: string, vertical?: string): string {
-    const sectionSlug = this.slugify(sectionTitle);
-    const targetVertical = this.determineVertical(sectionTitle, vertical);
-    
-    return `/marketplace/${targetVertical}/section/${sectionSlug}`;
+    console.warn('[NavigationService] generateSectionRoute is deprecated. Use generateUniversalRoute directly.');
+    return this.generateUniversalRoute({ vertical: vertical ?? 'fashion', category: sectionTitle });
   }
 
   /**
    * Determine appropriate vertical based on category context
    */
-  private determineVertical(category: string, explicitVertical?: string): string {
-    if (explicitVertical) {
-      return explicitVertical;
-    }
+  // determineVertical removed; all callers must pass explicit verticals
 
-    // Map categories to verticals using intelligent inference
-    const categoryMappings: Record<string, string> = {
-      // Fashion-related
-      'women': 'fashion',
-      'men': 'fashion', 
-      'kids': 'fashion',
-      'accessories': 'fashion',
-      'bags': 'fashion',
-      'clothing': 'fashion',
-      'jewelry': 'fashion',
-      'makeup': 'fashion',
-      'shoes': 'fashion',
-      'beauty': 'fashion',
-      'brands': 'fashion',
-      
-      // Home-related
-      'home': 'fashion', // Default to fashion marketplace
-      'accents': 'fashion',
-      'bath': 'fashion',
-      'bedding': 'fashion',
-      'dining': 'fashion',
-      'holiday': 'fashion',
-      'kitchen': 'fashion',
-      
-      // Electronics
-      'electronics': 'fashion', // Default to fashion marketplace
-      'camera': 'fashion',
-      'cell phones': 'fashion',
-      'computers': 'fashion',
-      'tablets': 'fashion',
-      'video games': 'fashion',
-      
-      // Pets
-      'pets': 'fashion',
-      'bird': 'fashion',
-      'cat': 'fashion',
-      'dog': 'fashion',
-      
-      // Sports
-      'sports': 'sports',
-      'outdoors': 'sports'
-    };
+  /**
+   * Generate a universal route compatible with UniversalCategoryPage
+   * @deprecated Use UnifiedCategoryRoutingService.generateCategoryRoute() instead
+   */
+  public generateUniversalRoute(args: {
+    vertical: string;
+    category?: string;
+    subcategory?: string;
+  }): string {
+    const vertical = slugify(args.vertical);
+    const category = args.category ? slugify(args.category) : undefined;
+    const subcategory = args.subcategory ? slugify(args.subcategory) : undefined;
 
-    const categoryLower = category.toLowerCase();
-    
-    // Check for exact matches first
-    if (categoryMappings[categoryLower]) {
-      return categoryMappings[categoryLower];
-    }
-    
-    // Check for partial matches
-    for (const [key, vertical] of Object.entries(categoryMappings)) {
-      if (categoryLower.includes(key) || key.includes(categoryLower)) {
-        return vertical;
-      }
-    }
-    
-    // Default to fashion marketplace
-    return 'fashion';
+    // All categories are mounted under /fashion per product decision
+    if (category && subcategory) return `/fashion/${category}/${subcategory}`;
+    if (category) return `/fashion/${category}`;
+    // Non-categorized vertical root defaults to /fashion
+    return `/fashion`;
   }
 
   /**
    * Create URL-friendly slug from text
    */
-  private slugify(text: string): string {
-    return text
-      .toLowerCase()
-      .trim()
-      .replace(/[^a-z0-9\s-]/g, '') // Remove special characters
-      .replace(/\s+/g, '-')         // Replace spaces with hyphens
-      .replace(/-+/g, '-')          // Replace multiple hyphens with single
-      .replace(/^-|-$/g, '');       // Remove leading/trailing hyphens
-  }
+  // slugify now centralized in RouteUtils
 
   /**
    * Parse route parameters from URL path
@@ -143,18 +108,25 @@ export class NavigationService {
   } {
     const segments = path.split('/').filter(Boolean);
     
-    if (segments[0] === 'marketplace' && segments.length > 1) {
+    // Handle fashion-first paths
+    if (segments[0] === 'fashion') {
       return {
-        vertical: segments[1],
-        category: segments[2],
-        subcategory: segments[3]
+        vertical: 'fashion',
+        category: segments[1],
+        subcategory: segments[2]
       };
     }
+
+    // marketplace paths are no longer used for category routing
     
-    if (segments[0] === 'brands' && segments.length > 1) {
+    if (segments[0] === 'fashion' && segments[1] === 'brands') {
+      // /fashion/brands, /fashion/brands/<brand>, /fashion/brands/<brand>/<category>, /fashion/brands/segments/<segment>
+      if (segments[2] === 'segments' && segments[3]) {
+        return { brand: undefined, category: segments[3] };
+      }
       return {
-        brand: segments[1],
-        category: segments[2]
+        brand: segments[2],
+        category: segments[3]
       };
     }
     

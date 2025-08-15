@@ -1,0 +1,66 @@
+5b2f28016f38ff632d37a4d54726238a
+/* istanbul ignore next */
+function cov_1ibu5dtwl0() {
+  var path = "/home/runner/workspace/client/src/types/routing.ts";
+  var hash = "fcdfb008e8ced9ab3af2a2bf3556ec0eac015144";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/home/runner/workspace/client/src/types/routing.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 30
+        },
+        end: {
+          line: 10,
+          column: 1
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0
+    },
+    f: {},
+    b: {},
+    inputSourceMap: {
+      file: "/home/runner/workspace/client/src/types/routing.ts",
+      mappings: "AA8CA,qCAAqC;AACrC,MAAM,CAAC,MAAM,cAAc,GAAG;IAC5B,YAAY,EAAE,UAAU;IACxB,QAAQ,EAAE,oBAAoB;IAC9B,WAAW,EAAE,iCAAiC;IAC9C,KAAK,EAAE,wBAAwB;IAC/B,cAAc,EAAE,kCAAkC;IAClD,aAAa,EAAE,mCAAmC;IAClD,OAAO,EAAE,2BAA2B;CAC5B,CAAC",
+      names: [],
+      sources: ["/home/runner/workspace/client/src/types/routing.ts"],
+      sourcesContent: ["// Comprehensive type definitions for dynamic routing system\nexport interface RouteParams {\n  vertical?: string;\n  category?: string;\n  subcategory?: string;\n  brand?: string;\n  section?: string;\n}\n\nexport interface CategoryRoute {\n  path: string;\n  params: RouteParams;\n  metadata: {\n    title: string;\n    description: string;\n    breadcrumbs: string[];\n  };\n}\n\nexport interface VerticalRoute {\n  vertical: string;\n  path: string;\n  displayName: string;\n  icon: string;\n  metadata: {\n    title: string;\n    description: string;\n    keywords: string[];\n  };\n}\n\nexport interface NavigationHierarchy {\n  level: number;\n  path: string;\n  name: string;\n  parent?: string;\n  children?: NavigationHierarchy[];\n}\n\nexport interface RouteConfig {\n  exact?: boolean;\n  caseSensitive?: boolean;\n  guards?: string[];\n  middleware?: string[];\n}\n\n// Route patterns for dynamic routing\nexport const ROUTE_PATTERNS = {\n  FASHION_ROOT: '/fashion',\n  CATEGORY: '/fashion/:category',\n  SUBCATEGORY: '/fashion/:category/:subcategory',\n  BRAND: '/fashion/brands/:brand',\n  BRAND_CATEGORY: '/fashion/brands/:brand/:category',\n  BRAND_SEGMENT: '/fashion/brands/segments/:segment',\n  SECTION: '/fashion/section/:section'\n} as const;\n\nexport type RoutePattern = typeof ROUTE_PATTERNS[keyof typeof ROUTE_PATTERNS];"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "fcdfb008e8ced9ab3af2a2bf3556ec0eac015144"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_1ibu5dtwl0 = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_1ibu5dtwl0();
+// Route patterns for dynamic routing
+export const ROUTE_PATTERNS =
+/* istanbul ignore next */
+(cov_1ibu5dtwl0().s[0]++, {
+  FASHION_ROOT: '/fashion',
+  CATEGORY: '/fashion/:category',
+  SUBCATEGORY: '/fashion/:category/:subcategory',
+  BRAND: '/fashion/brands/:brand',
+  BRAND_CATEGORY: '/fashion/brands/:brand/:category',
+  BRAND_SEGMENT: '/fashion/brands/segments/:segment',
+  SECTION: '/fashion/section/:section'
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJST1VURV9QQVRURVJOUyIsImNvdl8xaWJ1NWR0d2wwIiwicyIsIkZBU0hJT05fUk9PVCIsIkNBVEVHT1JZIiwiU1VCQ0FURUdPUlkiLCJCUkFORCIsIkJSQU5EX0NBVEVHT1JZIiwiQlJBTkRfU0VHTUVOVCIsIlNFQ1RJT04iXSwic291cmNlcyI6WyIvaG9tZS9ydW5uZXIvd29ya3NwYWNlL2NsaWVudC9zcmMvdHlwZXMvcm91dGluZy50cyJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBDb21wcmVoZW5zaXZlIHR5cGUgZGVmaW5pdGlvbnMgZm9yIGR5bmFtaWMgcm91dGluZyBzeXN0ZW1cbmV4cG9ydCBpbnRlcmZhY2UgUm91dGVQYXJhbXMge1xuICB2ZXJ0aWNhbD86IHN0cmluZztcbiAgY2F0ZWdvcnk/OiBzdHJpbmc7XG4gIHN1YmNhdGVnb3J5Pzogc3RyaW5nO1xuICBicmFuZD86IHN0cmluZztcbiAgc2VjdGlvbj86IHN0cmluZztcbn1cblxuZXhwb3J0IGludGVyZmFjZSBDYXRlZ29yeVJvdXRlIHtcbiAgcGF0aDogc3RyaW5nO1xuICBwYXJhbXM6IFJvdXRlUGFyYW1zO1xuICBtZXRhZGF0YToge1xuICAgIHRpdGxlOiBzdHJpbmc7XG4gICAgZGVzY3JpcHRpb246IHN0cmluZztcbiAgICBicmVhZGNydW1iczogc3RyaW5nW107XG4gIH07XG59XG5cbmV4cG9ydCBpbnRlcmZhY2UgVmVydGljYWxSb3V0ZSB7XG4gIHZlcnRpY2FsOiBzdHJpbmc7XG4gIHBhdGg6IHN0cmluZztcbiAgZGlzcGxheU5hbWU6IHN0cmluZztcbiAgaWNvbjogc3RyaW5nO1xuICBtZXRhZGF0YToge1xuICAgIHRpdGxlOiBzdHJpbmc7XG4gICAgZGVzY3JpcHRpb246IHN0cmluZztcbiAgICBrZXl3b3Jkczogc3RyaW5nW107XG4gIH07XG59XG5cbmV4cG9ydCBpbnRlcmZhY2UgTmF2aWdhdGlvbkhpZXJhcmNoeSB7XG4gIGxldmVsOiBudW1iZXI7XG4gIHBhdGg6IHN0cmluZztcbiAgbmFtZTogc3RyaW5nO1xuICBwYXJlbnQ/OiBzdHJpbmc7XG4gIGNoaWxkcmVuPzogTmF2aWdhdGlvbkhpZXJhcmNoeVtdO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIFJvdXRlQ29uZmlnIHtcbiAgZXhhY3Q/OiBib29sZWFuO1xuICBjYXNlU2Vuc2l0aXZlPzogYm9vbGVhbjtcbiAgZ3VhcmRzPzogc3RyaW5nW107XG4gIG1pZGRsZXdhcmU/OiBzdHJpbmdbXTtcbn1cblxuLy8gUm91dGUgcGF0dGVybnMgZm9yIGR5bmFtaWMgcm91dGluZ1xuZXhwb3J0IGNvbnN0IFJPVVRFX1BBVFRFUk5TID0ge1xuICBGQVNISU9OX1JPT1Q6ICcvZmFzaGlvbicsXG4gIENBVEVHT1JZOiAnL2Zhc2hpb24vOmNhdGVnb3J5JyxcbiAgU1VCQ0FURUdPUlk6ICcvZmFzaGlvbi86Y2F0ZWdvcnkvOnN1YmNhdGVnb3J5JyxcbiAgQlJBTkQ6ICcvZmFzaGlvbi9icmFuZHMvOmJyYW5kJyxcbiAgQlJBTkRfQ0FURUdPUlk6ICcvZmFzaGlvbi9icmFuZHMvOmJyYW5kLzpjYXRlZ29yeScsXG4gIEJSQU5EX1NFR01FTlQ6ICcvZmFzaGlvbi9icmFuZHMvc2VnbWVudHMvOnNlZ21lbnQnLFxuICBTRUNUSU9OOiAnL2Zhc2hpb24vc2VjdGlvbi86c2VjdGlvbidcbn0gYXMgY29uc3Q7XG5cbmV4cG9ydCB0eXBlIFJvdXRlUGF0dGVybiA9IHR5cGVvZiBST1VURV9QQVRURVJOU1trZXlvZiB0eXBlb2YgUk9VVEVfUEFUVEVSTlNdOyJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQThDQTtBQUNBLE9BQU8sTUFBTUEsY0FBYztBQUFBO0FBQUEsQ0FBQUMsY0FBQSxHQUFBQyxDQUFBLE9BQUc7RUFDNUJDLFlBQVksRUFBRSxVQUFVO0VBQ3hCQyxRQUFRLEVBQUUsb0JBQW9CO0VBQzlCQyxXQUFXLEVBQUUsaUNBQWlDO0VBQzlDQyxLQUFLLEVBQUUsd0JBQXdCO0VBQy9CQyxjQUFjLEVBQUUsa0NBQWtDO0VBQ2xEQyxhQUFhLEVBQUUsbUNBQW1DO0VBQ2xEQyxPQUFPLEVBQUU7Q0FDRCIsImlnbm9yZUxpc3QiOltdfQ==

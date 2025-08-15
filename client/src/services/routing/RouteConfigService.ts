@@ -1,5 +1,6 @@
 // Service for managing route configuration with AOP principles
 import { VerticalRoute, CategoryRoute, NavigationHierarchy } from '@/types/routing';
+import { slugify, capitalize } from './RouteUtils';
 
 export class RouteConfigService {
   private static instance: RouteConfigService;
@@ -22,7 +23,7 @@ export class RouteConfigService {
     // Initialize vertical marketplace routes
     this.registerVerticalRoute({
       vertical: 'fashion',
-      path: '/marketplace/fashion',
+      path: '/fashion',
       displayName: 'Fashion',
       icon: 'shirt',
       metadata: {
@@ -34,7 +35,7 @@ export class RouteConfigService {
 
     this.registerVerticalRoute({
       vertical: 'jobs',
-      path: '/marketplace/jobs',
+      path: '/fashion/jobs',
       displayName: 'Jobs',
       icon: 'briefcase',
       metadata: {
@@ -46,7 +47,7 @@ export class RouteConfigService {
 
     this.registerVerticalRoute({
       vertical: 'real-estate',
-      path: '/marketplace/real-estate',
+      path: '/fashion/real-estate',
       displayName: 'Real Estate',
       icon: 'home',
       metadata: {
@@ -58,7 +59,7 @@ export class RouteConfigService {
 
     this.registerVerticalRoute({
       vertical: 'cars',
-      path: '/marketplace/cars',
+      path: '/fashion/cars',
       displayName: 'Cars',
       icon: 'car',
       metadata: {
@@ -70,7 +71,7 @@ export class RouteConfigService {
 
     this.registerVerticalRoute({
       vertical: 'boats',
-      path: '/marketplace/boats',
+      path: '/fashion/boats',
       displayName: 'Boats',
       icon: 'anchor',
       metadata: {
@@ -82,7 +83,7 @@ export class RouteConfigService {
 
     this.registerVerticalRoute({
       vertical: 'services',
-      path: '/marketplace/services',
+      path: '/fashion/services',
       displayName: 'Services',
       icon: 'wrench',
       metadata: {
@@ -94,7 +95,7 @@ export class RouteConfigService {
 
     this.registerVerticalRoute({
       vertical: 'sports',
-      path: '/marketplace/sports',
+      path: '/fashion/sports',
       displayName: 'Sports & Outdoors',
       icon: 'trophy',
       metadata: {
@@ -119,16 +120,15 @@ export class RouteConfigService {
 
   public generateCategoryRoute(vertical: string, category: string): CategoryRoute {
     const verticalRoute = this.getVerticalRoute(vertical);
-    const path = `/marketplace/${vertical}/${this.slugify(category)}`;
-    
+    const path = `/fashion/${slugify(category)}`;
+
     return {
       path,
-      component: 'CategoryPage',
       params: { vertical, category },
       metadata: {
-        title: `${this.capitalize(category)} - ${verticalRoute?.displayName || vertical} Marketplace`,
+        title: `${capitalize(category)} - ${verticalRoute?.displayName || vertical} Marketplace`,
         description: `Shop ${category.toLowerCase()} in our ${vertical} marketplace.`,
-        breadcrumbs: ['Home', 'Marketplace', verticalRoute?.displayName || vertical, this.capitalize(category)]
+        breadcrumbs: ['Home', 'Marketplace', verticalRoute?.displayName || vertical, capitalize(category)]
       }
     };
   }
@@ -148,7 +148,7 @@ export class RouteConfigService {
       },
       {
         level: 1,
-        path: `/marketplace/${vertical}`,
+        path: `/fashion`,
         name: this.getVerticalRoute(vertical)?.displayName || vertical,
         parent: '/marketplace'
       }
@@ -158,18 +158,7 @@ export class RouteConfigService {
     return hierarchy;
   }
 
-  private slugify(text: string): string {
-    return text
-      .toLowerCase()
-      .replace(/[^a-z0-9 -]/g, '')
-      .replace(/\s+/g, '-')
-      .replace(/-+/g, '-')
-      .trim();
-  }
-
-  private capitalize(text: string): string {
-    return text.charAt(0).toUpperCase() + text.slice(1);
-  }
+  // slugify/capitalize moved to RouteUtils to avoid duplication
 
   public validateRoute(path: string): boolean {
     const segments = path.split('/').filter(Boolean);

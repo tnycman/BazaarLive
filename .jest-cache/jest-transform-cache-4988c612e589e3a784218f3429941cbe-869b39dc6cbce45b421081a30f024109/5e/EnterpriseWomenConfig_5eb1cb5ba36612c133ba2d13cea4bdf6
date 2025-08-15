@@ -1,0 +1,1410 @@
+6431915f3cb017fa2007d6dd006b6d59
+/* istanbul ignore next */
+function cov_2qxb33y456() {
+  var path = "/home/runner/workspace/client/src/services/category/enterprise/configs/EnterpriseWomenConfig.ts";
+  var hash = "ce2559e91f781bb8532b22fc66bc3359dae4cade";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/home/runner/workspace/client/src/services/category/enterprise/configs/EnterpriseWomenConfig.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 9,
+          column: 25
+        },
+        end: {
+          line: 9,
+          column: 129
+        }
+      },
+      "1": {
+        start: {
+          line: 10,
+          column: 32
+        },
+        end: {
+          line: 14,
+          column: 2
+        }
+      },
+      "2": {
+        start: {
+          line: 16,
+          column: 36
+        },
+        end: {
+          line: 62,
+          column: 1
+        }
+      },
+      "3": {
+        start: {
+          line: 63,
+          column: 29
+        },
+        end: {
+          line: 69,
+          column: 1
+        }
+      },
+      "4": {
+        start: {
+          line: 70,
+          column: 38
+        },
+        end: {
+          line: 114,
+          column: 1
+        }
+      },
+      "5": {
+        start: {
+          line: 116,
+          column: 37
+        },
+        end: {
+          line: 664,
+          column: 1
+        }
+      },
+      "6": {
+        start: {
+          line: 667,
+          column: 25
+        },
+        end: {
+          line: 667,
+          column: 90
+        }
+      },
+      "7": {
+        start: {
+          line: 668,
+          column: 0
+        },
+        end: {
+          line: 671,
+          column: 1
+        }
+      },
+      "8": {
+        start: {
+          line: 669,
+          column: 4
+        },
+        end: {
+          line: 669,
+          column: 98
+        }
+      },
+      "9": {
+        start: {
+          line: 670,
+          column: 4
+        },
+        end: {
+          line: 670,
+          column: 83
+        }
+      },
+      "10": {
+        start: {
+          line: 675,
+          column: 33
+        },
+        end: {
+          line: 798,
+          column: 126
+        }
+      },
+      "11": {
+        start: {
+          line: 706,
+          column: 120
+        },
+        end: {
+          line: 706,
+          column: 142
+        }
+      },
+      "12": {
+        start: {
+          line: 800,
+          column: 31
+        },
+        end: {
+          line: 800,
+          column: 92
+        }
+      },
+      "13": {
+        start: {
+          line: 801,
+          column: 0
+        },
+        end: {
+          line: 804,
+          column: 1
+        }
+      },
+      "14": {
+        start: {
+          line: 802,
+          column: 4
+        },
+        end: {
+          line: 802,
+          column: 100
+        }
+      },
+      "15": {
+        start: {
+          line: 803,
+          column: 4
+        },
+        end: {
+          line: 803,
+          column: 90
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 706,
+            column: 115
+          },
+          end: {
+            line: 706,
+            column: 116
+          }
+        },
+        loc: {
+          start: {
+            line: 706,
+            column: 120
+          },
+          end: {
+            line: 706,
+            column: 142
+          }
+        },
+        line: 706
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 668,
+            column: 0
+          },
+          end: {
+            line: 671,
+            column: 1
+          }
+        },
+        type: "if",
+        locations: [{
+          start: {
+            line: 668,
+            column: 0
+          },
+          end: {
+            line: 671,
+            column: 1
+          }
+        }, {
+          start: {
+            line: undefined,
+            column: undefined
+          },
+          end: {
+            line: undefined,
+            column: undefined
+          }
+        }],
+        line: 668
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 801,
+            column: 0
+          },
+          end: {
+            line: 804,
+            column: 1
+          }
+        },
+        type: "if",
+        locations: [{
+          start: {
+            line: 801,
+            column: 0
+          },
+          end: {
+            line: 804,
+            column: 1
+          }
+        }, {
+          start: {
+            line: undefined,
+            column: undefined
+          },
+          end: {
+            line: undefined,
+            column: undefined
+          }
+        }],
+        line: 801
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0,
+      "13": 0,
+      "14": 0,
+      "15": 0
+    },
+    f: {
+      "0": 0
+    },
+    b: {
+      "0": [0, 0],
+      "1": [0, 0]
+    },
+    inputSourceMap: {
+      file: "/home/runner/workspace/client/src/services/category/enterprise/configs/EnterpriseWomenConfig.ts",
+      mappings: "AAAA;;;;GAIG;AAEH,OAAO,EAAE,CAAC,EAAE,MAAM,KAAK,CAAC;AACxB,OAAO,EACL,gCAAgC,EAIhC,mBAAmB,EAEnB,eAAe,EAChB,MAAM,iCAAiC,CAAC;AAEzC,8CAA8C;AAE9C,MAAM,gBAAgB,GAAG,CAAC,CAAC,IAAI,CAAC,CAAC,KAAK,EAAE,IAAI,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,IAAI,EAAE,KAAK,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,GAAG,EAAE,IAAI,EAAE,IAAI,EAAE,IAAI,EAAE,IAAI,EAAE,IAAI,CAAC,CAAC,CAAC;AAElI,MAAM,uBAAuB,GAAG,CAAC,CAAC,IAAI,CAAC;IACrC,SAAS,EAAE,MAAM,EAAE,UAAU,EAAE,OAAO,EAAE,OAAO,EAAE,QAAQ,EAAE,QAAQ;IACnE,SAAS,EAAE,OAAO,EAAE,YAAY,EAAE,WAAW,EAAE,WAAW,EAAE,UAAU;IACtE,OAAO,EAAE,MAAM,EAAE,aAAa,EAAE,SAAS,EAAE,QAAQ;CACpD,CAAC,CAAC;AAEH,2CAA2C;AAE3C,MAAM,2BAA2B,GAAG;IAClC,IAAI,EAAE;QACJ,SAAS,EAAE,MAAM;QACjB,cAAc,EAAE,OAAgB;QAChC,MAAM,EAAE,CAAC,CAAC,KAAK,CAAC,gBAAgB,CAAC;QACjC,QAAQ,EAAE,KAAK;QACf,YAAY,EAAE,iCAAiC;KAChD;IACD,KAAK,EAAE;QACL,SAAS,EAAE,OAAO;QAClB,cAAc,EAAE,OAAgB;QAChC,MAAM,EAAE,CAAC,CAAC,KAAK,CAAC,CAAC,CAAC,MAAM,EAAE,CAAC,GAAG,CAAC,CAAC,CAAC,CAAC;QAClC,QAAQ,EAAE,KAAK;QACf,YAAY,EAAE,yBAAyB;KACxC;IACD,KAAK,EAAE;QACL,SAAS,EAAE,OAAO;QAClB,cAAc,EAAE,OAAgB;QAChC,MAAM,EAAE,CAAC,CAAC,KAAK,CAAC,eAAe,CAAC;QAChC,QAAQ,EAAE,KAAK;QACf,YAAY,EAAE,yBAAyB;KACxC;IACD,SAAS,EAAE;QACT,SAAS,EAAE,WAAW;QACtB,cAAc,EAAE,OAAgB;QAChC,MAAM,EAAE,CAAC,CAAC,KAAK,CAAC,mBAAmB,CAAC;QACpC,QAAQ,EAAE,KAAK;QACf,YAAY,EAAE,6BAA6B;KAC5C;IACD,WAAW,EAAE;QACX,SAAS,EAAE,aAAa;QACxB,cAAc,EAAE,OAAgB;QAChC,MAAM,EAAE,CAAC,CAAC,KAAK,CAAC,uBAAuB,CAAC;QACxC,QAAQ,EAAE,KAAK;QACf,YAAY,EAAE,+BAA+B;KAC9C;IACD,UAAU,EAAE;QACV,SAAS,EAAE,YAAY;QACvB,cAAc,EAAE,QAAiB;QACjC,MAAM,EAAE,CAAC,CAAC,MAAM,CAAC;YACf,GAAG,EAAE,CAAC,CAAC,MAAM,EAAE,CAAC,GAAG,CAAC,CAAC,CAAC;YACtB,GAAG,EAAE,CAAC,CAAC,MAAM,EAAE,CAAC,GAAG,CAAC,CAAC,CAAC;SACvB,CAAC;QACF,QAAQ,EAAE,KAAK;QACf,YAAY,EAAE,qBAAqB;KACpC;CACF,CAAC;AAEF,MAAM,oBAAoB,GAAyB;IACjD,SAAS,EAAE,CAAC,eAAe,EAAE,WAAW,CAAC;IACzC,YAAY,EAAE,CAAC,WAAW,CAAC;IAC3B,MAAM,EAAE,EAAE;IACV,MAAM,EAAE,EAAE;IACV,KAAK,EAAE,EAAE;CACV,CAAC;AAEF,MAAM,6BAA6B,GAAqB;IACtD;QACE,EAAE,EAAE,aAAa;QACjB,IAAI,EAAE,gBAAgB;QACtB,IAAI,EAAE,UAAU;QAChB,OAAO,EAAE;YACP,EAAE,EAAE,EAAE,KAAK,EAAE,IAAI,EAAE,KAAK,EAAE;YAC1B,EAAE,EAAE,EAAE,IAAI,EAAE,IAAI,EAAE,IAAI,EAAE;YACxB,EAAE,EAAE,EAAE,GAAG,EAAE,IAAI,EAAE,GAAG,EAAE;YACtB,EAAE,EAAE,EAAE,GAAG,EAAE,IAAI,EAAE,GAAG,EAAE;YACtB,EAAE,EAAE,EAAE,GAAG,EAAE,IAAI,EAAE,GAAG,EAAE;YACtB,EAAE,EAAE,EAAE,IAAI,EAAE,IAAI,EAAE,IAAI,EAAE;YACxB,EAAE,EAAE,EAAE,KAAK,EAAE,IAAI,EAAE,KAAK,EAAE;SAC3B;QACD,UAAU,EAAE,CAAC,CAAC,KAAK,CAAC,gBAAgB,CAAC;QACrC,QAAQ,EAAE,KAAK;QACf,YAAY,EAAE,CAAC;QACf,QAAQ,EAAE,QAAQ;QAClB,WAAW,EAAE,iBAAiB;QAC9B,QAAQ,EAAE,0BAA0B;KACrC;IACD;QACE,EAAE,EAAE,qBAAqB;QACzB,IAAI,EAAE,UAAU;QAChB,IAAI,EAAE,UAAU;QAChB,OAAO,EAAE;YACP,EAAE,EAAE,EAAE,SAAS,EAAE,IAAI,EAAE,SAAS,EAAE,KAAK,EAAE,IAAI,EAAE;YAC/C,EAAE,EAAE,EAAE,MAAM,EAAE,IAAI,EAAE,MAAM,EAAE,KAAK,EAAE,IAAI,EAAE;YACzC,EAAE,EAAE,EAAE,UAAU,EAAE,IAAI,EAAE,UAAU,EAAE,KAAK,EAAE,GAAG,EAAE;YAChD,EAAE,EAAE,EAAE,OAAO,EAAE,IAAI,EAAE,OAAO,EAAE,KAAK,EAAE,IAAI,EAAE;YAC3C,EAAE,EAAE,EAAE,OAAO,EAAE,IAAI,EAAE,OAAO,EAAE,KAAK,EAAE,IAAI,EAAE;YAC3C,EAAE,EAAE,EAAE,QAAQ,EAAE,IAAI,EAAE,QAAQ,EAAE,KAAK,EAAE,GAAG,EAAE;YAC5C,EAAE,EAAE,EAAE,OAAO,EAAE,IAAI,EAAE,OAAO,EAAE,KAAK,EAAE,IAAI,EAAE;YAC3C,EAAE,EAAE,EAAE,MAAM,EAAE,IAAI,EAAE,MAAM,EAAE,KAAK,EAAE,IAAI,EAAE;YACzC,EAAE,EAAE,EAAE,aAAa,EAAE,IAAI,EAAE,aAAa,EAAE,KAAK,EAAE,IAAI,EAAE;YACvD,EAAE,EAAE,EAAE,SAAS,EAAE,IAAI,EAAE,SAAS,EAAE,KAAK,EAAE,IAAI,EAAE;SAChD;QACD,UAAU,EAAE,CAAC,CAAC,KAAK,CAAC,uBAAuB,CAAC;QAC5C,QAAQ,EAAE,KAAK;QACf,YAAY,EAAE,CAAC;QACf,QAAQ,EAAE,UAAU;QACpB,WAAW,EAAE,sBAAsB;QACnC,QAAQ,EAAE,wCAAwC;KACnD;CACF,CAAC;AAEF,+CAA+C;AAE/C,MAAM,CAAC,MAAM,qBAAqB,GAA+B;IAC/D,QAAQ,EAAE,SAAS;IACnB,WAAW,EAAE,OAAO;IACpB,QAAQ,EAAE;QACR,KAAK,EAAE,kBAAkB;QACzB,WAAW,EAAE,wEAAwE;QACrF,QAAQ,EAAE,uCAAuC;QACjD,WAAW,EAAE,4BAA4B;QACzC,IAAI,EAAE,IAAI;QACV,WAAW,EAAE,CAAC,eAAe,EAAE,mBAAmB,EAAE,mBAAmB,EAAE,gBAAgB,CAAC;QAC1F,cAAc,EAAE,gHAAgH;QAChI,YAAY,EAAE,gBAAgB;QAC9B,cAAc,EAAE,iFAAiF;KAClG;IACD,mBAAmB,EAAE;QACnB,gBAAgB,EAAE,CAAC,aAAa,EAAE,MAAM,EAAE,OAAO,EAAE,OAAO,EAAE,OAAO,EAAE,WAAW,EAAE,cAAc,CAAC;QACjG,uBAAuB,EAAE,6BAA6B;QACtD,cAAc,EAAE,oBAAoB;QACpC,qBAAqB,EAAE,2BAA2B;QAClD,kBAAkB,EAAE,EAAE;QACtB,uBAAuB,EAAE,IAAI;KAC9B;IACD,cAAc,EAAE;QACd;YACE,EAAE,EAAE,iBAAiB;YACrB,KAAK,EAAE,sBAAsB;YAC7B,KAAK,EAAE,QAAQ;YACf,KAAK,EAAE,KAAK;YACZ,aAAa,EAAE,MAAM;YACrB,IAAI,EAAE,GAAG;YACT,MAAM,EAAE,CAAC,gFAAgF,CAAC;YAC1F,MAAM,EAAE;gBACN,EAAE,EAAE,qBAAqB;gBACzB,QAAQ,EAAE,kBAAkB;gBAC5B,MAAM,EAAE,mFAAmF;gBAC3F,MAAM,EAAE,GAAG;gBACX,UAAU,EAAE,GAAG;gBACf,kBAAkB,EAAE,UAAU;aAC/B;YACD,KAAK,EAAE,EAAE,KAAK,EAAE,EAAE,EAAE,QAAQ,EAAE,CAAC,EAAE,MAAM,EAAE,CAAC,EAAE,KAAK,EAAE,GAAG,EAAE,KAAK,EAAE,EAAE,EAAE;YACnE,SAAS,EAAE,WAAW;YACtB,OAAO,EAAE,KAAK;YACd,SAAS,EAAE,sBAAsB;YACjC,SAAS,EAAE,sBAAsB;YACjC,QAAQ,EAAE,SAAS;YACnB,WAAW,EAAE,MAAM;YACnB,IAAI,EAAE,CAAC,MAAM,EAAE,cAAc,EAAE,UAAU,CAAC;YAC1C,YAAY,EAAE,eAAe;SAC9B;QACD;YACE,EAAE,EAAE,iBAAiB;YACrB,KAAK,EAAE,sBAAsB;YAC7B,KAAK,EAAE,SAAS;YAChB,KAAK,EAAE,KAAK;YACZ,aAAa,EAAE,KAAK;YACpB,IAAI,EAAE,GAAG;YACT,MAAM,EAAE,CAAC,mFAAmF,CAAC;YAC7F,MAAM,EAAE;gBACN,EAAE,EAAE,qBAAqB;gBACzB,QAAQ,EAAE,eAAe;gBACzB,MAAM,EAAE,mFAAmF;gBAC3F,MAAM,EAAE,GAAG;gBACX,UAAU,EAAE,GAAG;gBACf,kBAAkB,EAAE,UAAU;aAC/B;YACD,KAAK,EAAE,EAAE,KAAK,EAAE,EAAE,EAAE,QAAQ,EAAE,EAAE,EAAE,MAAM,EAAE,CAAC,EAAE,KAAK,EAAE,GAAG,EAAE,KAAK,EAAE,EAAE,EAAE;YACpE,SAAS,EAAE,MAAM;YACjB,OAAO,EAAE,IAAI;YACb,SAAS,EAAE,sBAAsB;YACjC,SAAS,EAAE,sBAAsB;YACjC,QAAQ,EAAE,SAAS;YACnB,WAAW,EAAE,SAAS;YACtB,IAAI,EAAE,CAAC,SAAS,EAAE,OAAO,EAAE,SAAS,CAAC;YACrC,YAAY,EAAE,eAAe;SAC9B;QACD;YACE,EAAE,EAAE,iBAAiB;YACrB,KAAK,EAAE,kBAAkB;YACzB,KAAK,EAAE,UAAU;YACjB,KAAK,EAAE,MAAM;YACb,aAAa,EAAE,MAAM;YACrB,IAAI,EAAE,GAAG;YACT,MAAM,EAAE,CAAC,mFAAmF,CAAC;YAC7F,MAAM,EAAE;gBACN,EAAE,EAAE,qBAAqB;gBACzB,QAAQ,EAAE,aAAa;gBACvB,MAAM,EAAE,mFAAmF;gBAC3F,MAAM,EAAE,GAAG;gBACX,UAAU,EAAE,GAAG;gBACf,kBAAkB,EAAE,UAAU;aAC/B;YACD,KAAK,EAAE,EAAE,KAAK,EAAE,EAAE,EAAE,QAAQ,EAAE,EAAE,EAAE,MAAM,EAAE,CAAC,EAAE,KAAK,EAAE,GAAG,EAAE,KAAK,EAAE,EAAE,EAAE;YACpE,SAAS,EAAE,eAAe;YAC1B,OAAO,EAAE,KAAK;YACd,SAAS,EAAE,sBAAsB;YACjC,SAAS,EAAE,sBAAsB;YACjC,QAAQ,EAAE,SAAS;YACnB,WAAW,EAAE,UAAU;YACvB,IAAI,EAAE,CAAC,UAAU,EAAE,QAAQ,EAAE,MAAM,CAAC;YACpC,YAAY,EAAE,eAAe;SAC9B;QACD;YACE,EAAE,EAAE,iBAAiB;YACrB,KAAK,EAAE,qBAAqB;YAC5B,KAAK,EAAE,eAAe;YACtB,KAAK,EAAE,KAAK;YACZ,aAAa,EAAE,MAAM;YACrB,IAAI,EAAE,IAAI;YACV,MAAM,EAAE,CAAC,mFAAmF,CAAC;YAC7F,MAAM,EAAE;gBACN,EAAE,EAAE,qBAAqB;gBACzB,QAAQ,EAAE,cAAc;gBACxB,MAAM,EAAE,gFAAgF;gBACxF,MAAM,EAAE,GAAG;gBACX,UAAU,EAAE,GAAG;gBACf,kBAAkB,EAAE,UAAU;aAC/B;YACD,KAAK,EAAE,EAAE,KAAK,EAAE,EAAE,EAAE,QAAQ,EAAE,EAAE,EAAE,MAAM,EAAE,EAAE,EAAE,KAAK,EAAE,GAAG,EAAE,KAAK,EAAE,EAAE,EAAE;YACrE,SAAS,EAAE,WAAW;YACtB,OAAO,EAAE,IAAI;YACb,SAAS,EAAE,sBAAsB;YACjC,SAAS,EAAE,sBAAsB;YACjC,QAAQ,EAAE,SAAS;YACnB,WAAW,EAAE,SAAS;YACtB,IAAI,EAAE,CAAC,QAAQ,EAAE,QAAQ,EAAE,QAAQ,CAAC;YACpC,YAAY,EAAE,eAAe;SAC9B;QACD;YACE,EAAE,EAAE,iBAAiB;YACrB,KAAK,EAAE,2BAA2B;YAClC,KAAK,EAAE,UAAU;YACjB,KAAK,EAAE,KAAK;YACZ,aAAa,EAAE,MAAM;YACrB,IAAI,EAAE,IAAI;YACV,MAAM,EAAE,CAAC,gFAAgF,CAAC;YAC1F,MAAM,EAAE;gBACN,EAAE,EAAE,qBAAqB;gBACzB,QAAQ,EAAE,aAAa;gBACvB,MAAM,EAAE,mFAAmF;gBAC3F,MAAM,EAAE,GAAG;gBACX,UAAU,EAAE,GAAG;gBACf,kBAAkB,EAAE,UAAU;aAC/B;YACD,KAAK,EAAE,EAAE,KAAK,EAAE,EAAE,EAAE,QAAQ,EAAE,CAAC,EAAE,MAAM,EAAE,CAAC,EAAE,KAAK,EAAE,GAAG,EAAE,KAAK,EAAE,EAAE,EAAE;YACnE,SAAS,EAAE,MAAM;YACjB,OAAO,EAAE,KAAK;YACd,SAAS,EAAE,sBAAsB;YACjC,SAAS,EAAE,sBAAsB;YACjC,QAAQ,EAAE,SAAS;YACnB,WAAW,EAAE,SAAS;YACtB,IAAI,EAAE,CAAC,OAAO,EAAE,QAAQ,EAAE,cAAc,CAAC;YACzC,YAAY,EAAE,eAAe;SAC9B;QACD;YACE,EAAE,EAAE,iBAAiB;YACrB,KAAK,EAAE,uBAAuB;YAC9B,KAAK,EAAE,OAAO;YACd,KAAK,EAAE,MAAM;YACb,aAAa,EAAE,MAAM;YACrB,IAAI,EAAE,UAAU;YAChB,MAAM,EAAE,CAAC,gFAAgF,CAAC;YAC1F,MAAM,EAAE;gBACN,EAAE,EAAE,qBAAqB;gBACzB,QAAQ,EAAE,aAAa;gBACvB,MAAM,EAAE,mFAAmF;gBAC3F,MAAM,EAAE,GAAG;gBACX,UAAU,EAAE,GAAG;gBACf,kBAAkB,EAAE,UAAU;aAC/B;YACD,KAAK,EAAE,EAAE,KAAK,EAAE,GAAG,EAAE,QAAQ,EAAE,EAAE,EAAE,MAAM,EAAE,EAAE,EAAE,KAAK,EAAE,GAAG,EAAE,KAAK,EAAE,EAAE,EAAE;YACtE,SAAS,EAAE,WAAW;YACtB,OAAO,EAAE,IAAI;YACb,SAAS,EAAE,sBAAsB;YACjC,SAAS,EAAE,sBAAsB;YACjC,QAAQ,EAAE,SAAS;YACnB,WAAW,EAAE,aAAa;YAC1B,IAAI,EAAE,CAAC,SAAS,EAAE,WAAW,EAAE,QAAQ,CAAC;YACxC,YAAY,EAAE,eAAe;SAC9B;QACD;YACE,EAAE,EAAE,iBAAiB;YACrB,KAAK,EAAE,aAAa;YACpB,KAAK,EAAE,aAAa;YACpB,KAAK,EAAE,KAAK;YACZ,aAAa,EAAE,MAAM;YACrB,IAAI,EAAE,KAAK;YACX,MAAM,EAAE,CAAC,gFAAgF,CAAC;YAC1F,MAAM,EAAE;gBACN,EAAE,EAAE,qBAAqB;gBACzB,QAAQ,EAAE,gBAAgB;gBAC1B,MAAM,EAAE,mFAAmF;gBAC3F,MAAM,EAAE,GAAG;gBACX,UAAU,EAAE,GAAG;gBACf,kBAAkB,EAAE,UAAU;aAC/B;YACD,KAAK,EAAE,EAAE,KAAK,EAAE,EAAE,EAAE,QAAQ,EAAE,EAAE,EAAE,MAAM,EAAE,CAAC,EAAE,KAAK,EAAE,GAAG,EAAE,KAAK,EAAE,EAAE,EAAE;YACpE,SAAS,EAAE,MAAM;YACjB,OAAO,EAAE,KAAK;YACd,SAAS,EAAE,sBAAsB;YACjC,SAAS,EAAE,sBAAsB;YACjC,QAAQ,EAAE,SAAS;YACnB,WAAW,EAAE,OAAO;YACpB,IAAI,EAAE,CAAC,OAAO,EAAE,OAAO,EAAE,MAAM,CAAC;YAChC,YAAY,EAAE,eAAe;SAC9B;QACD;YACE,EAAE,EAAE,iBAAiB;YACrB,KAAK,EAAE,YAAY;YACnB,KAAK,EAAE,QAAQ;YACf,KAAK,EAAE,MAAM;YACb,aAAa,EAAE,MAAM;YACrB,IAAI,EAAE,UAAU;YAChB,MAAM,EAAE,CAAC,mFAAmF,CAAC;YAC7F,MAAM,EAAE;gBACN,EAAE,EAAE,qBAAqB;gBACzB,QAAQ,EAAE,gBAAgB;gBAC1B,MAAM,EAAE,mFAAmF;gBAC3F,MAAM,EAAE,GAAG;gBACX,UAAU,EAAE,EAAE;gBACd,kBAAkB,EAAE,UAAU;aAC/B;YACD,KAAK,EAAE,EAAE,KAAK,EAAE,GAAG,EAAE,QAAQ,EAAE,EAAE,EAAE,MAAM,EAAE,EAAE,EAAE,KAAK,EAAE,GAAG,EAAE,KAAK,EAAE,GAAG,EAAE;YACvE,SAAS,EAAE,eAAe;YAC1B,OAAO,EAAE,IAAI;YACb,SAAS,EAAE,sBAAsB;YACjC,SAAS,EAAE,sBAAsB;YACjC,QAAQ,EAAE,SAAS;YACnB,WAAW,EAAE,aAAa;YAC1B,IAAI,EAAE,CAAC,MAAM,EAAE,QAAQ,EAAE,QAAQ,CAAC;YAClC,YAAY,EAAE,eAAe;SAC9B;QACD;YACE,EAAE,EAAE,iBAAiB;YACrB,KAAK,EAAE,aAAa;YACpB,KAAK,EAAE,QAAQ;YACf,KAAK,EAAE,MAAM;YACb,aAAa,EAAE,MAAM;YACrB,IAAI,EAAE,GAAG;YACT,MAAM,EAAE,CAAC,mFAAmF,CAAC;YAC7F,MAAM,EAAE;gBACN,EAAE,EAAE,qBAAqB;gBACzB,QAAQ,EAAE,mBAAmB;gBAC7B,MAAM,EAAE,mFAAmF;gBAC3F,MAAM,EAAE,GAAG;gBACX,UAAU,EAAE,GAAG;gBACf,kBAAkB,EAAE,UAAU;aAC/B;YACD,KAAK,EAAE,EAAE,KAAK,EAAE,EAAE,EAAE,QAAQ,EAAE,EAAE,EAAE,MAAM,EAAE,CAAC,EAAE,KAAK,EAAE,GAAG,EAAE,KAAK,EAAE,EAAE,EAAE;YACpE,SAAS,EAAE,WAAW;YACtB,OAAO,EAAE,KAAK;YACd,SAAS,EAAE,sBAAsB;YACjC,SAAS,EAAE,sBAAsB;YACjC,QAAQ,EAAE,SAAS;YACnB,WAAW,EAAE,SAAS;YACtB,IAAI,EAAE,CAAC,MAAM,EAAE,QAAQ,EAAE,cAAc,CAAC;YACxC,YAAY,EAAE,eAAe;SAC9B;QACD;YACE,EAAE,EAAE,kBAAkB;YACtB,KAAK,EAAE,cAAc;YACrB,KAAK,EAAE,iBAAiB;YACxB,KAAK,EAAE,KAAK;YACZ,aAAa,EAAE,KAAK;YACpB,IAAI,EAAE,GAAG;YACT,MAAM,EAAE,CAAC,mFAAmF,CAAC;YAC7F,MAAM,EAAE;gBACN,EAAE,EAAE,sBAAsB;gBAC1B,QAAQ,EAAE,cAAc;gBACxB,MAAM,EAAE,gFAAgF;gBACxF,MAAM,EAAE,GAAG;gBACX,UAAU,EAAE,GAAG;gBACf,kBAAkB,EAAE,UAAU;aAC/B;YACD,KAAK,EAAE,EAAE,KAAK,EAAE,EAAE,EAAE,QAAQ,EAAE,CAAC,EAAE,MAAM,EAAE,CAAC,EAAE,KAAK,EAAE,GAAG,EAAE,KAAK,EAAE,EAAE,EAAE;YACnE,SAAS,EAAE,MAAM;YACjB,OAAO,EAAE,IAAI;YACb,SAAS,EAAE,sBAAsB;YACjC,SAAS,EAAE,sBAAsB;YACjC,QAAQ,EAAE,SAAS;YACnB,WAAW,EAAE,SAAS;YACtB,IAAI,EAAE,CAAC,QAAQ,EAAE,cAAc,EAAE,QAAQ,CAAC;YAC1C,YAAY,EAAE,eAAe;SAC9B;QACD;YACE,EAAE,EAAE,kBAAkB;YACtB,KAAK,EAAE,oBAAoB;YAC3B,KAAK,EAAE,cAAc;YACrB,KAAK,EAAE,KAAK;YACZ,aAAa,EAAE,KAAK;YACpB,IAAI,EAAE,UAAU;YAChB,MAAM,EAAE,CAAC,mFAAmF,CAAC;YAC7F,MAAM,EAAE;gBACN,EAAE,EAAE,sBAAsB;gBAC1B,QAAQ,EAAE,eAAe;gBACzB,MAAM,EAAE,mFAAmF;gBAC3F,MAAM,EAAE,GAAG;gBACX,UAAU,EAAE,GAAG;gBACf,kBAAkB,EAAE,UAAU;aAC/B;YACD,KAAK,EAAE,EAAE,KAAK,EAAE,GAAG,EAAE,QAAQ,EAAE,EAAE,EAAE,MAAM,EAAE,EAAE,EAAE,KAAK,EAAE,GAAG,EAAE,KAAK,EAAE,EAAE,EAAE;YACtE,SAAS,EAAE,WAAW;YACtB,OAAO,EAAE,KAAK;YACd,SAAS,EAAE,sBAAsB;YACjC,SAAS,EAAE,sBAAsB;YACjC,QAAQ,EAAE,SAAS;YACnB,WAAW,EAAE,aAAa;YAC1B,IAAI,EAAE,CAAC,WAAW,EAAE,UAAU,EAAE,SAAS,CAAC;YAC1C,YAAY,EAAE,eAAe;SAC9B;QACD;YACE,EAAE,EAAE,kBAAkB;YACtB,KAAK,EAAE,kBAAkB;YACzB,KAAK,EAAE,oBAAoB;YAC3B,KAAK,EAAE,KAAK;YACZ,aAAa,EAAE,MAAM;YACrB,IAAI,EAAE,GAAG;YACT,MAAM,EAAE,CAAC,mFAAmF,CAAC;YAC7F,MAAM,EAAE;gBACN,EAAE,EAAE,sBAAsB;gBAC1B,QAAQ,EAAE,aAAa;gBACvB,MAAM,EAAE,mFAAmF;gBAC3F,MAAM,EAAE,GAAG;gBACX,UAAU,EAAE,GAAG;gBACf,kBAAkB,EAAE,UAAU;aAC/B;YACD,KAAK,EAAE,EAAE,KAAK,EAAE,EAAE,EAAE,QAAQ,EAAE,EAAE,EAAE,MAAM,EAAE,CAAC,EAAE,KAAK,EAAE,GAAG,EAAE,KAAK,EAAE,EAAE,EAAE;YACpE,SAAS,EAAE,eAAe;YAC1B,OAAO,EAAE,IAAI;YACb,SAAS,EAAE,sBAAsB;YACjC,SAAS,EAAE,sBAAsB;YACjC,QAAQ,EAAE,SAAS;YACnB,WAAW,EAAE,WAAW;YACxB,IAAI,EAAE,CAAC,OAAO,EAAE,SAAS,EAAE,OAAO,CAAC;YACnC,YAAY,EAAE,eAAe;SAC9B;QACD;YACE,EAAE,EAAE,kBAAkB;YACtB,KAAK,EAAE,gBAAgB;YACvB,KAAK,EAAE,MAAM;YACb,KAAK,EAAE,KAAK;YACZ,aAAa,EAAE,KAAK;YACpB,IAAI,EAAE,GAAG;YACT,MAAM,EAAE,CAAC,gFAAgF,CAAC;YAC1F,MAAM,EAAE;gBACN,EAAE,EAAE,sBAAsB;gBAC1B,QAAQ,EAAE,gBAAgB;gBAC1B,MAAM,EAAE,mFAAmF;gBAC3F,MAAM,EAAE,GAAG;gBACX,UAAU,EAAE,GAAG;gBACf,kBAAkB,EAAE,UAAU;aAC/B;YACD,KAAK,EAAE,EAAE,KAAK,EAAE,EAAE,EAAE,QAAQ,EAAE,EAAE,EAAE,MAAM,EAAE,CAAC,EAAE,KAAK,EAAE,GAAG,EAAE,KAAK,EAAE,EAAE,EAAE;YACpE,SAAS,EAAE,MAAM;YACjB,OAAO,EAAE,KAAK;YACd,SAAS,EAAE,sBAAsB;YACjC,SAAS,EAAE,sBAAsB;YACjC,QAAQ,EAAE,SAAS;YACnB,WAAW,EAAE,SAAS;YACtB,IAAI,EAAE,CAAC,UAAU,EAAE,QAAQ,EAAE,QAAQ,CAAC;YACtC,YAAY,EAAE,eAAe;SAC9B;QACD;YACE,EAAE,EAAE,kBAAkB;YACtB,KAAK,EAAE,eAAe;YACtB,KAAK,EAAE,KAAK;YACZ,KAAK,EAAE,KAAK;YACZ,aAAa,EAAE,KAAK;YACpB,IAAI,EAAE,GAAG;YACT,MAAM,EAAE,CAAC,mFAAmF,CAAC;YAC7F,MAAM,EAAE;gBACN,EAAE,EAAE,sBAAsB;gBAC1B,QAAQ,EAAE,YAAY;gBACtB,MAAM,EAAE,mFAAmF;gBAC3F,MAAM,EAAE,GAAG;gBACX,UAAU,EAAE,GAAG;gBACf,kBAAkB,EAAE,UAAU;aAC/B;YACD,KAAK,EAAE,EAAE,KAAK,EAAE,EAAE,EAAE,QAAQ,EAAE,EAAE,EAAE,MAAM,EAAE,EAAE,EAAE,KAAK,EAAE,GAAG,EAAE,KAAK,EAAE,EAAE,EAAE;YACrE,SAAS,EAAE,WAAW;YACtB,OAAO,EAAE,IAAI;YACb,SAAS,EAAE,sBAAsB;YACjC,SAAS,EAAE,sBAAsB;YACjC,QAAQ,EAAE,SAAS;YACnB,WAAW,EAAE,UAAU;YACvB,IAAI,EAAE,CAAC,MAAM,EAAE,UAAU,EAAE,QAAQ,CAAC;YACpC,YAAY,EAAE,eAAe;SAC9B;QACD;YACE,EAAE,EAAE,kBAAkB;YACtB,KAAK,EAAE,cAAc;YACrB,KAAK,EAAE,QAAQ;YACf,KAAK,EAAE,KAAK;YACZ,aAAa,EAAE,KAAK;YACpB,IAAI,EAAE,GAAG;YACT,MAAM,EAAE,CAAC,gFAAgF,CAAC;YAC1F,MAAM,EAAE;gBACN,EAAE,EAAE,sBAAsB;gBAC1B,QAAQ,EAAE,iBAAiB;gBAC3B,MAAM,EAAE,gFAAgF;gBACxF,MAAM,EAAE,GAAG;gBACX,UAAU,EAAE,GAAG;gBACf,kBAAkB,EAAE,UAAU;aAC/B;YACD,KAAK,EAAE,EAAE,KAAK,EAAE,EAAE,EAAE,QAAQ,EAAE,CAAC,EAAE,MAAM,EAAE,CAAC,EAAE,KAAK,EAAE,GAAG,EAAE,KAAK,EAAE,EAAE,EAAE;YACnE,SAAS,EAAE,MAAM;YACjB,OAAO,EAAE,KAAK;YACd,SAAS,EAAE,sBAAsB;YACjC,SAAS,EAAE,sBAAsB;YACjC,QAAQ,EAAE,SAAS;YACnB,WAAW,EAAE,aAAa;YAC1B,IAAI,EAAE,CAAC,SAAS,EAAE,MAAM,EAAE,WAAW,CAAC;YACtC,YAAY,EAAE,eAAe;SAC9B;QACD;YACE,EAAE,EAAE,kBAAkB;YACtB,KAAK,EAAE,kBAAkB;YACzB,KAAK,EAAE,cAAc;YACrB,KAAK,EAAE,KAAK;YACZ,aAAa,EAAE,KAAK;YACpB,IAAI,EAAE,GAAG;YACT,MAAM,EAAE,CAAC,gFAAgF,CAAC;YAC1F,MAAM,EAAE;gBACN,EAAE,EAAE,sBAAsB;gBAC1B,QAAQ,EAAE,cAAc;gBACxB,MAAM,EAAE,mFAAmF;gBAC3F,MAAM,EAAE,GAAG;gBACX,UAAU,EAAE,GAAG;gBACf,kBAAkB,EAAE,UAAU;aAC/B;YACD,KAAK,EAAE,EAAE,KAAK,EAAE,EAAE,EAAE,QAAQ,EAAE,EAAE,EAAE,MAAM,EAAE,CAAC,EAAE,KAAK,EAAE,GAAG,EAAE,KAAK,EAAE,EAAE,EAAE;YACpE,SAAS,EAAE,WAAW;YACtB,OAAO,EAAE,IAAI;YACb,SAAS,EAAE,sBAAsB;YACjC,SAAS,EAAE,sBAAsB;YACjC,QAAQ,EAAE,SAAS;YACnB,WAAW,EAAE,OAAO;YACpB,IAAI,EAAE,CAAC,UAAU,EAAE,SAAS,EAAE,QAAQ,CAAC;YACvC,YAAY,EAAE,eAAe;SAC9B;QACD;YACE,EAAE,EAAE,kBAAkB;YACtB,KAAK,EAAE,oBAAoB;YAC3B,KAAK,EAAE,QAAQ;YACf,KAAK,EAAE,KAAK;YACZ,aAAa,EAAE,KAAK;YACpB,IAAI,EAAE,GAAG;YACT,MAAM,EAAE,CAAC,mFAAmF,CAAC;YAC7F,MAAM,EAAE;gBACN,EAAE,EAAE,sBAAsB;gBAC1B,QAAQ,EAAE,eAAe;gBACzB,MAAM,EAAE,mFAAmF;gBAC3F,MAAM,EAAE,GAAG;gBACX,UAAU,EAAE,GAAG;gBACf,kBAAkB,EAAE,UAAU;aAC/B;YACD,KAAK,EAAE,EAAE,KAAK,EAAE,GAAG,EAAE,QAAQ,EAAE,EAAE,EAAE,MAAM,EAAE,EAAE,EAAE,KAAK,EAAE,GAAG,EAAE,KAAK,EAAE,EAAE,EAAE;YACtE,SAAS,EAAE,eAAe;YAC1B,OAAO,EAAE,KAAK;YACd,SAAS,EAAE,sBAAsB;YACjC,SAAS,EAAE,sBAAsB;YACjC,QAAQ,EAAE,SAAS;YACnB,WAAW,EAAE,UAAU;YACvB,IAAI,EAAE,CAAC,YAAY,EAAE,SAAS,EAAE,MAAM,CAAC;YACvC,YAAY,EAAE,eAAe;SAC9B;QACD;YACE,EAAE,EAAE,kBAAkB;YACtB,KAAK,EAAE,mBAAmB;YAC1B,KAAK,EAAE,KAAK;YACZ,KAAK,EAAE,KAAK;YACZ,aAAa,EAAE,KAAK;YACpB,IAAI,EAAE,GAAG;YACT,MAAM,EAAE,CAAC,mFAAmF,CAAC;YAC7F,MAAM,EAAE;gBACN,EAAE,EAAE,sBAAsB;gBAC1B,QAAQ,EAAE,aAAa;gBACvB,MAAM,EAAE,mFAAmF;gBAC3F,MAAM,EAAE,GAAG;gBACX,UAAU,EAAE,GAAG;gBACf,kBAAkB,EAAE,UAAU;aAC/B;YACD,KAAK,EAAE,EAAE,KAAK,EAAE,EAAE,EAAE,QAAQ,EAAE,EAAE,EAAE,MAAM,EAAE,CAAC,EAAE,KAAK,EAAE,GAAG,EAAE,KAAK,EAAE,EAAE,EAAE;YACpE,SAAS,EAAE,MAAM;YACjB,OAAO,EAAE,IAAI;YACb,SAAS,EAAE,sBAAsB;YACjC,SAAS,EAAE,sBAAsB;YACjC,QAAQ,EAAE,SAAS;YACnB,WAAW,EAAE,SAAS;YACtB,IAAI,EAAE,CAAC,QAAQ,EAAE,MAAM,EAAE,QAAQ,CAAC;YAClC,YAAY,EAAE,eAAe;SAC9B;QACD;YACE,EAAE,EAAE,kBAAkB;YACtB,KAAK,EAAE,WAAW;YAClB,KAAK,EAAE,aAAa;YACpB,KAAK,EAAE,KAAK;YACZ,aAAa,EAAE,MAAM;YACrB,IAAI,EAAE,UAAU;YAChB,MAAM,EAAE,CAAC,mFAAmF,CAAC;YAC7F,MAAM,EAAE;gBACN,EAAE,EAAE,sBAAsB;gBAC1B,QAAQ,EAAE,eAAe;gBACzB,MAAM,EAAE,mFAAmF;gBAC3F,MAAM,EAAE,GAAG;gBACX,UAAU,EAAE,EAAE;gBACd,kBAAkB,EAAE,UAAU;aAC/B;YACD,KAAK,EAAE,EAAE,KAAK,EAAE,GAAG,EAAE,QAAQ,EAAE,EAAE,EAAE,MAAM,EAAE,EAAE,EAAE,KAAK,EAAE,GAAG,EAAE,KAAK,EAAE,EAAE,EAAE;YACtE,SAAS,EAAE,WAAW;YACtB,OAAO,EAAE,KAAK;YACd,SAAS,EAAE,sBAAsB;YACjC,SAAS,EAAE,sBAAsB;YACjC,QAAQ,EAAE,SAAS;YACnB,WAAW,EAAE,aAAa;YAC1B,IAAI,EAAE,CAAC,OAAO,EAAE,KAAK,EAAE,QAAQ,CAAC;YAChC,YAAY,EAAE,eAAe;SAC9B;QACD;YACE,EAAE,EAAE,kBAAkB;YACtB,KAAK,EAAE,cAAc;YACrB,KAAK,EAAE,gBAAgB;YACvB,KAAK,EAAE,KAAK;YACZ,aAAa,EAAE,KAAK;YACpB,IAAI,EAAE,IAAI;YACV,MAAM,EAAE,CAAC,gFAAgF,CAAC;YAC1F,MAAM,EAAE;gBACN,EAAE,EAAE,sBAAsB;gBAC1B,QAAQ,EAAE,cAAc;gBACxB,MAAM,EAAE,gFAAgF;gBACxF,MAAM,EAAE,GAAG;gBACX,UAAU,EAAE,GAAG;gBACf,kBAAkB,EAAE,UAAU;aAC/B;YACD,KAAK,EAAE,EAAE,KAAK,EAAE,EAAE,EAAE,QAAQ,EAAE,EAAE,EAAE,MAAM,EAAE,EAAE,EAAE,KAAK,EAAE,GAAG,EAAE,KAAK,EAAE,EAAE,EAAE;YACrE,SAAS,EAAE,MAAM;YACjB,OAAO,EAAE,IAAI;YACb,SAAS,EAAE,sBAAsB;YACjC,SAAS,EAAE,sBAAsB;YACjC,QAAQ,EAAE,SAAS;YACnB,WAAW,EAAE,SAAS;YACtB,IAAI,EAAE,CAAC,OAAO,EAAE,QAAQ,EAAE,QAAQ,CAAC;YACnC,YAAY,EAAE,eAAe;SAC9B;KACF;IACD,OAAO,EAAE,OAAO;IAChB,WAAW,EAAE,IAAI,IAAI,EAAE,CAAC,WAAW,EAAE;IACrC,eAAe,EAAE,MAAM,CAAC,UAAU,EAAE;IACpC,QAAQ,EAAE,IAAI;CACf,CAAC;AAEF,oCAAoC;AAEpC,2DAA2D;AAC3D,MAAM,gBAAgB,GAAG,gCAAgC,CAAC,SAAS,CAAC,qBAAqB,CAAC,CAAC;AAE3F,IAAI,CAAC,gBAAgB,CAAC,OAAO,EAAE,CAAC;IAC9B,OAAO,CAAC,KAAK,CAAC,sDAAsD,EAAE,gBAAgB,CAAC,KAAK,CAAC,CAAC;IAC9F,MAAM,IAAI,KAAK,CAAC,6DAA6D,CAAC,CAAC;AACjF,CAAC;AAED,oCAAoC;AACpC,qEAAqE;AACrE,6DAA6D;AAE7D,MAAM,CAAC,MAAM,iBAAiB,mCACzB,qBAAqB,KACxB,QAAQ,kCACH,qBAAqB,CAAC,QAAQ,KACjC,KAAK,EAAE,OAAO,EACd,WAAW,EAAE,yCAAyC,EACtD,QAAQ,EAAE,uBAAuB,EACjC,WAAW,EAAE,4BAA4B,KAE3C,mBAAmB,kCACd,qBAAqB,CAAC,mBAAmB,KAC5C,uBAAuB,EAAE;YACvB,gEAAgE;YAChE;gBACE,EAAE,EAAE,mBAAmB;gBACvB,IAAI,EAAE,YAAY;gBAClB,IAAI,EAAE,UAAU;gBAChB,QAAQ,EAAE,KAAK;gBACf,YAAY,EAAE,CAAC;gBACf,UAAU,EAAE,CAAC,CAAC,KAAK,CAAC,CAAC,CAAC,MAAM,EAAE,CAAC;gBAC/B,OAAO,EAAE;oBACP,EAAE,EAAE,EAAE,OAAO,EAAE,IAAI,EAAE,OAAO,EAAE,KAAK,EAAE,IAAI,EAAE;oBAC3C,EAAE,EAAE,EAAE,aAAa,EAAE,IAAI,EAAE,aAAa,EAAE,KAAK,EAAE,GAAG,EAAE;oBACtD,EAAE,EAAE,EAAE,MAAM,EAAE,IAAI,EAAE,MAAM,EAAE,KAAK,EAAE,GAAG,EAAE;oBACxC,EAAE,EAAE,EAAE,SAAS,EAAE,IAAI,EAAE,SAAS,EAAE,KAAK,EAAE,GAAG,EAAE;oBAC9C,EAAE,EAAE,EAAE,WAAW,EAAE,IAAI,EAAE,uBAAuB,EAAE,KAAK,EAAE,GAAG,EAAE;oBAC9D,EAAE,EAAE,EAAE,SAAS,EAAE,IAAI,EAAE,iBAAiB,EAAE,KAAK,EAAE,GAAG,EAAE;oBACtD,EAAE,EAAE,EAAE,OAAO,EAAE,IAAI,EAAE,OAAO,EAAE,KAAK,EAAE,GAAG,EAAE;oBAC1C,EAAE,EAAE,EAAE,SAAS,EAAE,IAAI,EAAE,SAAS,EAAE,KAAK,EAAE,GAAG,EAAE;oBAC9C,EAAE,EAAE,EAAE,QAAQ,EAAE,IAAI,EAAE,QAAQ,EAAE,KAAK,EAAE,GAAG,EAAE;oBAC5C,EAAE,EAAE,EAAE,OAAO,EAAE,IAAI,EAAE,mBAAmB,EAAE,KAAK,EAAE,GAAG,EAAE;oBACtD,EAAE,EAAE,EAAE,OAAO,EAAE,IAAI,EAAE,OAAO,EAAE,KAAK,EAAE,GAAG,EAAE;oBAC1C,EAAE,EAAE,EAAE,QAAQ,EAAE,IAAI,EAAE,QAAQ,EAAE,KAAK,EAAE,GAAG,EAAE;oBAC5C,EAAE,EAAE,EAAE,QAAQ,EAAE,IAAI,EAAE,QAAQ,EAAE,KAAK,EAAE,GAAG,EAAE;oBAC5C,EAAE,EAAE,EAAE,UAAU,EAAE,IAAI,EAAE,UAAU,EAAE,KAAK,EAAE,GAAG,EAAE;oBAChD,EAAE,EAAE,EAAE,MAAM,EAAE,IAAI,EAAE,MAAM,EAAE,KAAK,EAAE,GAAG,EAAE;oBACxC,EAAE,EAAE,EAAE,MAAM,EAAE,IAAI,EAAE,MAAM,EAAE,KAAK,EAAE,GAAG,EAAE;oBACxC,EAAE,EAAE,EAAE,UAAU,EAAE,IAAI,EAAE,UAAU,EAAE,KAAK,EAAE,EAAE,EAAE;oBAC/C,EAAE,EAAE,EAAE,MAAM,EAAE,IAAI,EAAE,MAAM,EAAE,KAAK,EAAE,EAAE,EAAE;oBACvC,EAAE,EAAE,EAAE,MAAM,EAAE,IAAI,EAAE,aAAa,EAAE,KAAK,EAAE,EAAE,EAAE;iBAC/C;aACF;4CAGI,qBAAqB,CAAC,mBAAmB,CAAC,uBAAuB,CAAC,IAAI,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,KAAK,aAAa,CAAE,KACvG,IAAI,EAAE,MAAM,EACZ,OAAO,EAAE;oBACP,EAAE,EAAE,EAAE,WAAW,EAAE,IAAI,EAAE,WAAW,EAAE,KAAK,EAAE,IAAI,EAAE;oBACnD,EAAE,EAAE,EAAE,SAAS,EAAE,IAAI,EAAE,SAAS,EAAE,KAAK,EAAE,CAAC,EAAE;oBAC5C,EAAE,EAAE,EAAE,KAAK,EAAE,IAAI,EAAE,KAAK,EAAE,KAAK,EAAE,EAAE,EAAE;oBACrC,EAAE,EAAE,EAAE,IAAI,EAAE,IAAI,EAAE,IAAI,EAAE,KAAK,EAAE,GAAG,EAAE;oBACpC,EAAE,EAAE,EAAE,GAAG,EAAE,IAAI,EAAE,GAAG,EAAE,KAAK,EAAE,GAAG,EAAE;oBAClC,EAAE,EAAE,EAAE,GAAG,EAAE,IAAI,EAAE,GAAG,EAAE,KAAK,EAAE,GAAG,EAAE;oBAClC,EAAE,EAAE,EAAE,GAAG,EAAE,IAAI,EAAE,GAAG,EAAE,KAAK,EAAE,GAAG,EAAE;oBAClC,EAAE,EAAE,EAAE,IAAI,EAAE,IAAI,EAAE,IAAI,EAAE,KAAK,EAAE,GAAG,EAAE;oBACpC,EAAE,EAAE,EAAE,KAAK,EAAE,IAAI,EAAE,KAAK,EAAE,KAAK,EAAE,EAAE,EAAE;iBACtC;SAEJ;IAEH,2DAA2D;IAC3D,cAAc,EAAE;QACd;YACE,EAAE,EAAE,gBAAgB;YACpB,KAAK,EAAE,2CAA2C;YAClD,KAAK,EAAE,WAAW;YAClB,KAAK,EAAE,KAAK;YACZ,aAAa,EAAE,KAAK;YACpB,IAAI,EAAE,GAAG;YACT,MAAM,EAAE,CAAC,gFAAgF,CAAC;YAC1F,MAAM,EAAE;gBACN,EAAE,EAAE,iBAAiB;gBACrB,QAAQ,EAAE,cAAc;gBACxB,MAAM,EAAE,mFAAmF;gBAC3F,MAAM,EAAE,GAAG;gBACX,UAAU,EAAE,GAAG;gBACf,kBAAkB,EAAE,UAAU;aAC/B;YACD,KAAK,EAAE,EAAE,KAAK,EAAE,CAAC,EAAE,QAAQ,EAAE,CAAC,EAAE,MAAM,EAAE,CAAC,EAAE,KAAK,EAAE,EAAE,EAAE,KAAK,EAAE,CAAC,EAAE;YAChE,SAAS,EAAE,eAAe;YAC1B,OAAO,EAAE,KAAK;YACd,SAAS,EAAE,sBAAsB;YACjC,SAAS,EAAE,sBAAsB;YACjC,QAAQ,EAAE,SAAS;YACnB,WAAW,EAAE,MAAM;YACnB,IAAI,EAAE,CAAC,SAAS,EAAE,QAAQ,EAAE,QAAQ,CAAC;YACrC,YAAY,EAAE,eAAe;SAC9B;QACD;YACE,EAAE,EAAE,gBAAgB;YACpB,KAAK,EAAE,yCAAyC;YAChD,KAAK,EAAE,OAAO;YACd,KAAK,EAAE,KAAK;YACZ,aAAa,EAAE,KAAK;YACpB,IAAI,EAAE,KAAK;YACX,MAAM,EAAE,CAAC,mFAAmF,CAAC;YAC7F,MAAM,EAAE;gBACN,EAAE,EAAE,iBAAiB;gBACrB,QAAQ,EAAE,gBAAgB;gBAC1B,MAAM,EAAE,mFAAmF;gBAC3F,MAAM,EAAE,GAAG;gBACX,UAAU,EAAE,EAAE;gBACd,kBAAkB,EAAE,UAAU;aAC/B;YACD,KAAK,EAAE,EAAE,KAAK,EAAE,CAAC,EAAE,QAAQ,EAAE,CAAC,EAAE,MAAM,EAAE,CAAC,EAAE,KAAK,EAAE,EAAE,EAAE,KAAK,EAAE,CAAC,EAAE;YAChE,SAAS,EAAE,WAAW;YACtB,OAAO,EAAE,KAAK;YACd,SAAS,EAAE,sBAAsB;YACjC,SAAS,EAAE,sBAAsB;YACjC,QAAQ,EAAE,SAAS;YACnB,WAAW,EAAE,UAAU;YACvB,IAAI,EAAE,CAAC,WAAW,EAAE,MAAM,EAAE,MAAM,CAAC;YACnC,YAAY,EAAE,eAAe;SAC9B;QACD;YACE,EAAE,EAAE,gBAAgB;YACpB,KAAK,EAAE,oDAAoD;YAC3D,KAAK,EAAE,UAAU;YACjB,KAAK,EAAE,KAAK;YACZ,aAAa,EAAE,SAAS;YACxB,IAAI,EAAE,IAAI;YACV,MAAM,EAAE,CAAC,mFAAmF,CAAC;YAC7F,MAAM,EAAE;gBACN,EAAE,EAAE,iBAAiB;gBACrB,QAAQ,EAAE,eAAe;gBACzB,MAAM,EAAE,mFAAmF;gBAC3F,MAAM,EAAE,GAAG;gBACX,UAAU,EAAE,GAAG;gBACf,kBAAkB,EAAE,UAAU;aAC/B;YACD,KAAK,EAAE,EAAE,KAAK,EAAE,CAAC,EAAE,QAAQ,EAAE,CAAC,EAAE,MAAM,EAAE,CAAC,EAAE,KAAK,EAAE,EAAE,EAAE,KAAK,EAAE,CAAC,EAAE;YAChE,SAAS,EAAE,MAAM;YACjB,OAAO,EAAE,KAAK;YACd,SAAS,EAAE,sBAAsB;YACjC,SAAS,EAAE,sBAAsB;YACjC,QAAQ,EAAE,SAAS;YACnB,WAAW,EAAE,OAAO;YACpB,IAAI,EAAE,CAAC,SAAS,EAAE,UAAU,EAAE,OAAO,CAAC;YACtC,YAAY,EAAE,eAAe;SAC9B;KACF,EACD,OAAO,EAAE,cAAc,EACvB,WAAW,EAAE,IAAI,IAAI,EAAE,CAAC,WAAW,EAAE,EACrC,eAAe,EAAE,MAAM,CAAC,UAAU,EAAE,EACpC,QAAQ,EAAE,IAAI,GACf,CAAC;AAEF,oCAAoC;AACpC,MAAM,sBAAsB,GAAG,gCAAgC,CAAC,SAAS,CAAC,iBAAiB,CAAC,CAAC;AAE7F,IAAI,CAAC,sBAAsB,CAAC,OAAO,EAAE,CAAC;IACpC,OAAO,CAAC,KAAK,CAAC,kDAAkD,EAAE,sBAAsB,CAAC,KAAK,CAAC,CAAC;IAChG,MAAM,IAAI,KAAK,CAAC,oEAAoE,CAAC,CAAC;AACxF,CAAC",
+      names: [],
+      sources: ["/home/runner/workspace/client/src/services/category/enterprise/configs/EnterpriseWomenConfig.ts"],
+      sourcesContent: ["/**\n * Enterprise Women's Fashion Configuration\n * Migrated to strict enterprise schemas with zero z.any() violations\n * 100% type-safe, zero shortcuts, complete AOP compliance\n */\n\nimport { z } from 'zod';\nimport { \n  UniversalPageConfigurationSchema,\n  type UniversalPageConfiguration,\n  type DefaultFiltersConfig,\n  type CategoryFilter,\n  ConditionTypeSchema,\n  AvailabilityTypeSchema,\n  ColorTypeSchema\n} from '../schemas/ConfigurationSchemas';\n\n// ===== WOMEN'S SPECIFIC FILTER SCHEMAS =====\n\nconst WomensSizeSchema = z.enum(['xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl', '0', '2', '4', '6', '8', '10', '12', '14', '16', '18']);\n\nconst WomensSubcategorySchema = z.enum([\n  'dresses', 'tops', 'sweaters', 'jeans', 'pants', 'skirts', 'shorts', \n  'jackets', 'coats', 'activewear', 'intimates', 'sleepwear', 'swimwear',\n  'shoes', 'bags', 'accessories', 'jewelry', 'makeup'\n]);\n\n// ===== WOMEN'S FILTER CONFIGURATION =====\n\nconst womensFilterValidationRules = {\n  size: {\n    fieldName: 'size',\n    validationType: 'array' as const,\n    schema: z.array(WomensSizeSchema),\n    required: false,\n    errorMessage: 'Invalid women\\'s size selection'\n  },\n  brand: {\n    fieldName: 'brand',\n    validationType: 'array' as const,\n    schema: z.array(z.string().min(1)),\n    required: false,\n    errorMessage: 'Invalid brand selection'\n  },\n  color: {\n    fieldName: 'color',\n    validationType: 'array' as const,\n    schema: z.array(ColorTypeSchema),\n    required: false,\n    errorMessage: 'Invalid color selection'\n  },\n  condition: {\n    fieldName: 'condition',\n    validationType: 'array' as const,\n    schema: z.array(ConditionTypeSchema),\n    required: false,\n    errorMessage: 'Invalid condition selection'\n  },\n  subcategory: {\n    fieldName: 'subcategory',\n    validationType: 'array' as const,\n    schema: z.array(WomensSubcategorySchema),\n    required: false,\n    errorMessage: 'Invalid subcategory selection'\n  },\n  priceRange: {\n    fieldName: 'priceRange',\n    validationType: 'object' as const,\n    schema: z.object({\n      min: z.number().min(0),\n      max: z.number().min(0)\n    }),\n    required: false,\n    errorMessage: 'Invalid price range'\n  }\n};\n\nconst womensDefaultFilters: DefaultFiltersConfig = {\n  condition: ['new_with_tags', 'excellent'],\n  availability: ['all-items'],\n  colors: [],\n  brands: [],\n  sizes: []\n};\n\nconst womensCategorySpecificFilters: CategoryFilter[] = [\n  {\n    id: 'women-sizes',\n    name: 'Women\\'s Sizes',\n    type: 'checkbox',\n    options: [\n      { id: 'xxs', name: 'XXS' },\n      { id: 'xs', name: 'XS' },\n      { id: 's', name: 'S' },\n      { id: 'm', name: 'M' },\n      { id: 'l', name: 'L' },\n      { id: 'xl', name: 'XL' },\n      { id: 'xxl', name: 'XXL' }\n    ],\n    validation: z.array(WomensSizeSchema),\n    required: false,\n    displayOrder: 1,\n    grouping: 'sizing',\n    placeholder: 'Select sizes...',\n    helpText: 'Choose one or more sizes'\n  },\n  {\n    id: 'women-subcategories',\n    name: 'Category',\n    type: 'checkbox',\n    options: [\n      { id: 'dresses', name: 'Dresses', count: 1250 },\n      { id: 'tops', name: 'Tops', count: 2840 },\n      { id: 'sweaters', name: 'Sweaters', count: 980 },\n      { id: 'jeans', name: 'Jeans', count: 1560 },\n      { id: 'pants', name: 'Pants', count: 1120 },\n      { id: 'skirts', name: 'Skirts', count: 670 },\n      { id: 'shoes', name: 'Shoes', count: 3200 },\n      { id: 'bags', name: 'Bags', count: 1890 },\n      { id: 'accessories', name: 'Accessories', count: 2340 },\n      { id: 'jewelry', name: 'Jewelry', count: 1450 }\n    ],\n    validation: z.array(WomensSubcategorySchema),\n    required: false,\n    displayOrder: 0,\n    grouping: 'category',\n    placeholder: 'Select categories...',\n    helpText: 'Filter by clothing and accessory types'\n  }\n];\n\n// ===== ENTERPRISE WOMEN'S CONFIGURATION =====\n\nexport const enterpriseWomenConfig: UniversalPageConfiguration = {\n  category: 'fashion',\n  subcategory: 'women',\n  metadata: {\n    title: 'Women\\'s Fashion',\n    description: 'Discover the latest in women\\'s fashion, accessories, and style trends',\n    gradient: 'from-pink-50 via-rose-100 to-pink-200',\n    placeholder: 'Search women\\'s fashion...',\n    icon: '\uD83D\uDC57',\n    seoKeywords: ['women fashion', 'designer clothing', 'women accessories', 'fashion trends'],\n    seoDescription: 'Shop curated women\\'s fashion from top designers and brands. Find dresses, tops, shoes, bags, and accessories.',\n    canonicalUrl: '/fashion/women',\n    openGraphImage: 'https://images.unsplash.com/photo-1544441893-675973e31985?w=1200&h=630&fit=crop'\n  },\n  filterConfiguration: {\n    availableFilters: ['subcategory', 'size', 'brand', 'color', 'price', 'condition', 'availability'],\n    categorySpecificFilters: womensCategorySpecificFilters,\n    defaultFilters: womensDefaultFilters,\n    filterValidationRules: womensFilterValidationRules,\n    maxFiltersPerQuery: 15,\n    enableAdvancedFiltering: true\n  },\n  sampleProducts: [\n    {\n      id: 'women-premium-1',\n      title: 'Designer Silk Blouse',\n      brand: 'Theory',\n      price: '$89',\n      originalPrice: '$165',\n      size: 'M',\n      images: ['https://images.unsplash.com/photo-1544441893-675973e31985?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller-enterprise-1',\n        username: 'fashionista_jane',\n        avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop',\n        rating: 4.8,\n        totalSales: 342,\n        verificationStatus: 'verified'\n      },\n      stats: { likes: 24, comments: 8, shares: 3, views: 156, saves: 12 },\n      condition: 'excellent',\n      isLiked: false,\n      createdAt: '2024-01-25T10:30:00Z',\n      updatedAt: '2024-01-26T14:20:00Z',\n      category: 'fashion',\n      subcategory: 'tops',\n      tags: ['silk', 'professional', 'designer'],\n      availability: 'available-now'\n    },\n    {\n      id: 'women-premium-2',\n      title: 'Vintage Denim Jacket',\n      brand: 'Levi\\'s',\n      price: '$65',\n      originalPrice: '$98',\n      size: 'S',\n      images: ['https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller-enterprise-2',\n        username: 'vintage_vibes',\n        avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop',\n        rating: 4.6,\n        totalSales: 189,\n        verificationStatus: 'verified'\n      },\n      stats: { likes: 67, comments: 15, shares: 9, views: 234, saves: 28 },\n      condition: 'good',\n      isLiked: true,\n      createdAt: '2024-01-24T14:20:00Z',\n      updatedAt: '2024-01-25T09:15:00Z',\n      category: 'fashion',\n      subcategory: 'jackets',\n      tags: ['vintage', 'denim', 'classic'],\n      availability: 'available-now'\n    },\n    {\n      id: 'women-premium-3',\n      title: 'Cashmere Sweater',\n      brand: 'Everlane',\n      price: '$118',\n      originalPrice: '$168',\n      size: 'M',\n      images: ['https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller-enterprise-3',\n        username: 'cozy_closet',\n        avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',\n        rating: 4.9,\n        totalSales: 567,\n        verificationStatus: 'verified'\n      },\n      stats: { likes: 43, comments: 12, shares: 6, views: 189, saves: 35 },\n      condition: 'new_with_tags',\n      isLiked: false,\n      createdAt: '2024-01-23T16:45:00Z',\n      updatedAt: '2024-01-24T11:30:00Z',\n      category: 'fashion',\n      subcategory: 'sweaters',\n      tags: ['cashmere', 'luxury', 'warm'],\n      availability: 'available-now'\n    },\n    {\n      id: 'women-premium-4',\n      title: 'Floral Summer Dress',\n      brand: 'Anthropologie',\n      price: '$78',\n      originalPrice: '$128',\n      size: 'XS',\n      images: ['https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller-enterprise-4',\n        username: 'summer_style',\n        avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop',\n        rating: 4.7,\n        totalSales: 234,\n        verificationStatus: 'verified'\n      },\n      stats: { likes: 89, comments: 23, shares: 12, views: 345, saves: 45 },\n      condition: 'excellent',\n      isLiked: true,\n      createdAt: '2024-01-22T12:15:00Z',\n      updatedAt: '2024-01-23T08:45:00Z',\n      category: 'fashion',\n      subcategory: 'dresses',\n      tags: ['floral', 'summer', 'casual'],\n      availability: 'available-now'\n    },\n    {\n      id: 'women-premium-5',\n      title: 'High-Waisted Skinny Jeans',\n      brand: 'Madewell',\n      price: '$95',\n      originalPrice: '$135',\n      size: '28',\n      images: ['https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller-enterprise-5',\n        username: 'denim_lover',\n        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',\n        rating: 4.5,\n        totalSales: 156,\n        verificationStatus: 'verified'\n      },\n      stats: { likes: 34, comments: 9, shares: 4, views: 178, saves: 22 },\n      condition: 'good',\n      isLiked: false,\n      createdAt: '2024-01-21T15:30:00Z',\n      updatedAt: '2024-01-22T10:20:00Z',\n      category: 'fashion',\n      subcategory: 'bottoms',\n      tags: ['denim', 'skinny', 'high-waisted'],\n      availability: 'available-now'\n    },\n    {\n      id: 'women-premium-6',\n      title: 'Leather Crossbody Bag',\n      brand: 'Coach',\n      price: '$145',\n      originalPrice: '$195',\n      size: 'One Size',\n      images: ['https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller-enterprise-6',\n        username: 'luxury_bags',\n        avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',\n        rating: 4.8,\n        totalSales: 423,\n        verificationStatus: 'verified'\n      },\n      stats: { likes: 156, comments: 34, shares: 18, views: 567, saves: 78 },\n      condition: 'excellent',\n      isLiked: true,\n      createdAt: '2024-01-20T09:45:00Z',\n      updatedAt: '2024-01-21T14:30:00Z',\n      category: 'fashion',\n      subcategory: 'accessories',\n      tags: ['leather', 'crossbody', 'luxury'],\n      availability: 'available-now'\n    },\n    {\n      id: 'women-premium-7',\n      title: 'Ankle Boots',\n      brand: 'Sam Edelman',\n      price: '$89',\n      originalPrice: '$129',\n      size: '7.5',\n      images: ['https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller-enterprise-7',\n        username: 'shoe_collector',\n        avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop',\n        rating: 4.6,\n        totalSales: 298,\n        verificationStatus: 'verified'\n      },\n      stats: { likes: 78, comments: 19, shares: 8, views: 234, saves: 34 },\n      condition: 'good',\n      isLiked: false,\n      createdAt: '2024-01-19T11:20:00Z',\n      updatedAt: '2024-01-20T16:45:00Z',\n      category: 'fashion',\n      subcategory: 'shoes',\n      tags: ['ankle', 'boots', 'fall'],\n      availability: 'available-now'\n    },\n    {\n      id: 'women-premium-8',\n      title: 'Silk Scarf',\n      brand: 'Herm\xE8s',\n      price: '$185',\n      originalPrice: '$245',\n      size: 'One Size',\n      images: ['https://images.unsplash.com/photo-1520903920245-00c87a1a5b4a?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller-enterprise-8',\n        username: 'luxury_scarves',\n        avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop',\n        rating: 4.9,\n        totalSales: 89,\n        verificationStatus: 'verified'\n      },\n      stats: { likes: 234, comments: 45, shares: 23, views: 789, saves: 123 },\n      condition: 'new_with_tags',\n      isLiked: true,\n      createdAt: '2024-01-18T13:10:00Z',\n      updatedAt: '2024-01-19T09:25:00Z',\n      category: 'fashion',\n      subcategory: 'accessories',\n      tags: ['silk', 'luxury', 'hermes'],\n      availability: 'available-now'\n    },\n    {\n      id: 'women-premium-9',\n      title: 'Wool Blazer',\n      brand: 'J.Crew',\n      price: '$125',\n      originalPrice: '$168',\n      size: 'L',\n      images: ['https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller-enterprise-9',\n        username: 'professional_look',\n        avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',\n        rating: 4.7,\n        totalSales: 345,\n        verificationStatus: 'verified'\n      },\n      stats: { likes: 56, comments: 14, shares: 7, views: 198, saves: 29 },\n      condition: 'excellent',\n      isLiked: false,\n      createdAt: '2024-01-17T14:35:00Z',\n      updatedAt: '2024-01-18T11:50:00Z',\n      category: 'fashion',\n      subcategory: 'jackets',\n      tags: ['wool', 'blazer', 'professional'],\n      availability: 'available-now'\n    },\n    {\n      id: 'women-premium-10',\n      title: 'Pencil Skirt',\n      brand: 'Banana Republic',\n      price: '$68',\n      originalPrice: '$98',\n      size: 'M',\n      images: ['https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller-enterprise-10',\n        username: 'office_style',\n        avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop',\n        rating: 4.4,\n        totalSales: 178,\n        verificationStatus: 'verified'\n      },\n      stats: { likes: 32, comments: 8, shares: 3, views: 145, saves: 18 },\n      condition: 'good',\n      isLiked: true,\n      createdAt: '2024-01-16T10:25:00Z',\n      updatedAt: '2024-01-17T15:40:00Z',\n      category: 'fashion',\n      subcategory: 'bottoms',\n      tags: ['pencil', 'professional', 'office'],\n      availability: 'available-now'\n    },\n    {\n      id: 'women-premium-11',\n      title: 'Statement Necklace',\n      brand: 'Kendra Scott',\n      price: '$45',\n      originalPrice: '$68',\n      size: 'One Size',\n      images: ['https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller-enterprise-11',\n        username: 'jewelry_lover',\n        avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',\n        rating: 4.8,\n        totalSales: 267,\n        verificationStatus: 'verified'\n      },\n      stats: { likes: 123, comments: 28, shares: 15, views: 456, saves: 67 },\n      condition: 'excellent',\n      isLiked: false,\n      createdAt: '2024-01-15T16:50:00Z',\n      updatedAt: '2024-01-16T12:15:00Z',\n      category: 'fashion',\n      subcategory: 'accessories',\n      tags: ['statement', 'necklace', 'jewelry'],\n      availability: 'available-now'\n    },\n    {\n      id: 'women-premium-12',\n      title: 'Satin Pajama Set',\n      brand: 'Victoria\\'s Secret',\n      price: '$75',\n      originalPrice: '$110',\n      size: 'M',\n      images: ['https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller-enterprise-12',\n        username: 'sleep_style',\n        avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop',\n        rating: 4.6,\n        totalSales: 189,\n        verificationStatus: 'verified'\n      },\n      stats: { likes: 67, comments: 16, shares: 9, views: 234, saves: 31 },\n      condition: 'new_with_tags',\n      isLiked: true,\n      createdAt: '2024-01-14T12:40:00Z',\n      updatedAt: '2024-01-15T09:20:00Z',\n      category: 'fashion',\n      subcategory: 'sleepwear',\n      tags: ['satin', 'pajamas', 'sleep'],\n      availability: 'available-now'\n    },\n    {\n      id: 'women-premium-13',\n      title: 'Wide-Leg Pants',\n      brand: 'Zara',\n      price: '$55',\n      originalPrice: '$79',\n      size: 'S',\n      images: ['https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller-enterprise-13',\n        username: 'trendy_fashion',\n        avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop',\n        rating: 4.3,\n        totalSales: 145,\n        verificationStatus: 'verified'\n      },\n      stats: { likes: 45, comments: 11, shares: 5, views: 167, saves: 24 },\n      condition: 'good',\n      isLiked: false,\n      createdAt: '2024-01-13T14:15:00Z',\n      updatedAt: '2024-01-14T11:30:00Z',\n      category: 'fashion',\n      subcategory: 'bottoms',\n      tags: ['wide-leg', 'trendy', 'casual'],\n      availability: 'available-now'\n    },\n    {\n      id: 'women-premium-14',\n      title: 'Knit Cardigan',\n      brand: 'Gap',\n      price: '$42',\n      originalPrice: '$65',\n      size: 'L',\n      images: ['https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller-enterprise-14',\n        username: 'cozy_knits',\n        avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',\n        rating: 4.5,\n        totalSales: 234,\n        verificationStatus: 'verified'\n      },\n      stats: { likes: 89, comments: 22, shares: 12, views: 298, saves: 41 },\n      condition: 'excellent',\n      isLiked: true,\n      createdAt: '2024-01-12T09:30:00Z',\n      updatedAt: '2024-01-13T16:45:00Z',\n      category: 'fashion',\n      subcategory: 'sweaters',\n      tags: ['knit', 'cardigan', 'casual'],\n      availability: 'available-now'\n    },\n    {\n      id: 'women-premium-15',\n      title: 'Leather Belt',\n      brand: 'Fossil',\n      price: '$28',\n      originalPrice: '$45',\n      size: 'M',\n      images: ['https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller-enterprise-15',\n        username: 'accessory_queen',\n        avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop',\n        rating: 4.7,\n        totalSales: 156,\n        verificationStatus: 'verified'\n      },\n      stats: { likes: 34, comments: 8, shares: 4, views: 123, saves: 19 },\n      condition: 'good',\n      isLiked: false,\n      createdAt: '2024-01-11T11:20:00Z',\n      updatedAt: '2024-01-12T14:10:00Z',\n      category: 'fashion',\n      subcategory: 'accessories',\n      tags: ['leather', 'belt', 'accessory'],\n      availability: 'available-now'\n    },\n    {\n      id: 'women-premium-16',\n      title: 'Platform Sandals',\n      brand: 'Steve Madden',\n      price: '$65',\n      originalPrice: '$95',\n      size: '8',\n      images: ['https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller-enterprise-16',\n        username: 'summer_shoes',\n        avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',\n        rating: 4.4,\n        totalSales: 198,\n        verificationStatus: 'verified'\n      },\n      stats: { likes: 78, comments: 19, shares: 8, views: 245, saves: 35 },\n      condition: 'excellent',\n      isLiked: true,\n      createdAt: '2024-01-10T13:45:00Z',\n      updatedAt: '2024-01-11T10:25:00Z',\n      category: 'fashion',\n      subcategory: 'shoes',\n      tags: ['platform', 'sandals', 'summer'],\n      availability: 'available-now'\n    },\n    {\n      id: 'women-premium-17',\n      title: 'Turtleneck Sweater',\n      brand: 'Uniqlo',\n      price: '$35',\n      originalPrice: '$55',\n      size: 'M',\n      images: ['https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller-enterprise-17',\n        username: 'minimal_style',\n        avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop',\n        rating: 4.6,\n        totalSales: 345,\n        verificationStatus: 'verified'\n      },\n      stats: { likes: 156, comments: 34, shares: 18, views: 456, saves: 67 },\n      condition: 'new_with_tags',\n      isLiked: false,\n      createdAt: '2024-01-09T15:20:00Z',\n      updatedAt: '2024-01-10T12:30:00Z',\n      category: 'fashion',\n      subcategory: 'sweaters',\n      tags: ['turtleneck', 'minimal', 'warm'],\n      availability: 'available-now'\n    },\n    {\n      id: 'women-premium-18',\n      title: 'A-Line Midi Skirt',\n      brand: 'H&M',\n      price: '$32',\n      originalPrice: '$49',\n      size: 'S',\n      images: ['https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller-enterprise-18',\n        username: 'skirt_lover',\n        avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop',\n        rating: 4.3,\n        totalSales: 123,\n        verificationStatus: 'verified'\n      },\n      stats: { likes: 45, comments: 12, shares: 6, views: 178, saves: 26 },\n      condition: 'good',\n      isLiked: true,\n      createdAt: '2024-01-08T10:15:00Z',\n      updatedAt: '2024-01-09T14:40:00Z',\n      category: 'fashion',\n      subcategory: 'bottoms',\n      tags: ['a-line', 'midi', 'casual'],\n      availability: 'available-now'\n    },\n    {\n      id: 'women-premium-19',\n      title: 'Straw Hat',\n      brand: 'Eugenia Kim',\n      price: '$85',\n      originalPrice: '$125',\n      size: 'One Size',\n      images: ['https://images.unsplash.com/photo-1520903920245-00c87a1a5b4a?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller-enterprise-19',\n        username: 'hat_collector',\n        avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',\n        rating: 4.8,\n        totalSales: 89,\n        verificationStatus: 'verified'\n      },\n      stats: { likes: 234, comments: 45, shares: 23, views: 567, saves: 89 },\n      condition: 'excellent',\n      isLiked: false,\n      createdAt: '2024-01-07T12:30:00Z',\n      updatedAt: '2024-01-08T09:15:00Z',\n      category: 'fashion',\n      subcategory: 'accessories',\n      tags: ['straw', 'hat', 'summer'],\n      availability: 'available-now'\n    },\n    {\n      id: 'women-premium-20',\n      title: 'Denim Shorts',\n      brand: 'American Eagle',\n      price: '$28',\n      originalPrice: '$42',\n      size: '26',\n      images: ['https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller-enterprise-20',\n        username: 'casual_style',\n        avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop',\n        rating: 4.5,\n        totalSales: 267,\n        verificationStatus: 'verified'\n      },\n      stats: { likes: 89, comments: 23, shares: 12, views: 298, saves: 41 },\n      condition: 'good',\n      isLiked: true,\n      createdAt: '2024-01-06T14:45:00Z',\n      updatedAt: '2024-01-07T11:20:00Z',\n      category: 'fashion',\n      subcategory: 'bottoms',\n      tags: ['denim', 'shorts', 'casual'],\n      availability: 'available-now'\n    }\n  ],\n  version: '2.0.0',\n  lastUpdated: new Date().toISOString(),\n  configurationId: crypto.randomUUID(),\n  isActive: true\n};\n\n// ===== VALIDATION AND EXPORT =====\n\n// Validate the configuration against the enterprise schema\nconst validationResult = UniversalPageConfigurationSchema.safeParse(enterpriseWomenConfig);\n\nif (!validationResult.success) {\n  console.error('Enterprise Women\\'s Configuration Validation Failed:', validationResult.error);\n  throw new Error('Configuration validation failed - check console for details');\n}\n\n// ===== SOCIAL LAYOUT VARIANT =====\n// Extends existing configuration with social-commerce layout options\n// Zero breaking changes - only adds new configuration option\n\nexport const socialWomenConfig: UniversalPageConfiguration = {\n  ...enterpriseWomenConfig,\n  metadata: {\n    ...enterpriseWomenConfig.metadata,\n    title: 'Women',\n    description: 'Discover the latest in women\\'s fashion',\n    gradient: 'from-white to-gray-50',\n    placeholder: 'Search women\\'s fashion...'\n  },\n  filterConfiguration: {\n    ...enterpriseWomenConfig.filterConfiguration,\n    categorySpecificFilters: [\n      // Simplified flat category list matching social commerce design\n      {\n        id: 'social-categories',\n        name: 'CATEGORIES',\n        type: 'checkbox',\n        required: false,\n        displayOrder: 1,\n        validation: z.array(z.string()),\n        options: [\n          { id: 'women', name: 'Women', count: 1250 },\n          { id: 'accessories', name: 'Accessories', count: 340 },\n          { id: 'bags', name: 'Bags', count: 280 },\n          { id: 'dresses', name: 'Dresses', count: 420 },\n          { id: 'intimates', name: 'Intimates & Sleepwear', count: 190 },\n          { id: 'jackets', name: 'Jackets & Coats', count: 310 },\n          { id: 'jeans', name: 'Jeans', count: 380 },\n          { id: 'jewelry', name: 'Jewelry', count: 220 },\n          { id: 'makeup', name: 'Makeup', count: 150 },\n          { id: 'pants', name: 'Pants & Jumpsuits', count: 290 },\n          { id: 'shoes', name: 'Shoes', count: 360 },\n          { id: 'shorts', name: 'Shorts', count: 180 },\n          { id: 'skirts', name: 'Skirts', count: 240 },\n          { id: 'sweaters', name: 'Sweaters', count: 320 },\n          { id: 'swim', name: 'Swim', count: 120 },\n          { id: 'tops', name: 'Tops', count: 450 },\n          { id: 'skincare', name: 'Skincare', count: 90 },\n          { id: 'hair', name: 'Hair', count: 75 },\n          { id: 'bath', name: 'Bath & Body', count: 85 }\n        ]\n      },\n      // Keep existing size filter but with social styling\n      {\n        ...enterpriseWomenConfig.filterConfiguration.categorySpecificFilters.find(f => f.id === 'women-sizes')!,\n        name: 'SIZE',\n        options: [\n          { id: 'all-sizes', name: 'All Sizes', count: 1250 },\n          { id: 'my-size', name: 'My Size', count: 0 },\n          { id: 'xxs', name: 'XXS', count: 45 },\n          { id: 'xs', name: 'XS', count: 120 },\n          { id: 's', name: 'S', count: 280 },\n          { id: 'm', name: 'M', count: 320 },\n          { id: 'l', name: 'L', count: 290 },\n          { id: 'xl', name: 'XL', count: 150 },\n          { id: 'xxl', name: 'XXL', count: 45 }\n        ]\n      }\n    ]\n  },\n  // Override sample products with social-commerce-style data\n  sampleProducts: [\n    {\n      id: 'social-women-1',\n      title: 'RILEY&RAE Womens Red Printed V Neck Top S',\n      brand: 'RILEY&RAE',\n      price: '$33',\n      originalPrice: '$49',\n      size: 'S',\n      images: ['https://images.unsplash.com/photo-1544441893-675973e31985?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller-social-1',\n        username: '_luxurylooks',\n        avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop',\n        rating: 4.7,\n        totalSales: 156,\n        verificationStatus: 'verified'\n      },\n      stats: { likes: 1, comments: 0, shares: 0, views: 23, saves: 2 },\n      condition: 'new_with_tags',\n      isLiked: false,\n      createdAt: '2024-01-25T10:30:00Z',\n      updatedAt: '2024-01-26T14:20:00Z',\n      category: 'fashion',\n      subcategory: 'tops',\n      tags: ['printed', 'v-neck', 'casual'],\n      availability: 'available-now'\n    },\n    {\n      id: 'social-women-2',\n      title: 'Aerie Hot Pink Oversized Sweater Size L',\n      brand: 'aerie',\n      price: '$18',\n      originalPrice: '$60',\n      size: 'L/G',\n      images: ['https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller-social-2',\n        username: 'nicolezmyslony',\n        avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop',\n        rating: 4.5,\n        totalSales: 89,\n        verificationStatus: 'verified'\n      },\n      stats: { likes: 0, comments: 0, shares: 0, views: 12, saves: 1 },\n      condition: 'excellent',\n      isLiked: false,\n      createdAt: '2024-01-24T14:20:00Z',\n      updatedAt: '2024-01-25T09:15:00Z',\n      category: 'fashion',\n      subcategory: 'sweaters',\n      tags: ['oversized', 'pink', 'cozy'],\n      availability: 'available-now'\n    },\n    {\n      id: 'social-women-3',\n      title: 'Madewell The Perfect Vintage Wide Leg Jean size 32',\n      brand: 'Madewell',\n      price: '$36',\n      originalPrice: undefined,\n      size: '32',\n      images: ['https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller-social-3',\n        username: 'rackrescuejax',\n        avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',\n        rating: 4.8,\n        totalSales: 234,\n        verificationStatus: 'verified'\n      },\n      stats: { likes: 1, comments: 0, shares: 0, views: 45, saves: 3 },\n      condition: 'good',\n      isLiked: false,\n      createdAt: '2024-01-23T16:45:00Z',\n      updatedAt: '2024-01-24T11:30:00Z',\n      category: 'fashion',\n      subcategory: 'jeans',\n      tags: ['vintage', 'wide-leg', 'denim'],\n      availability: 'available-now'\n    }\n  ],\n  version: '2.1.0-social',\n  lastUpdated: new Date().toISOString(),\n  configurationId: crypto.randomUUID(),\n  isActive: true\n};\n\n// Validate the social configuration\nconst socialValidationResult = UniversalPageConfigurationSchema.safeParse(socialWomenConfig);\n\nif (!socialValidationResult.success) {\n  console.error('Social Women\\'s Configuration Validation Failed:', socialValidationResult.error);\n  throw new Error('Social configuration validation failed - check console for details');\n}"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "ce2559e91f781bb8532b22fc66bc3359dae4cade"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_2qxb33y456 = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_2qxb33y456();
+/**
+ * Enterprise Women's Fashion Configuration
+ * Migrated to strict enterprise schemas with zero z.any() violations
+ * 100% type-safe, zero shortcuts, complete AOP compliance
+ */
+import { z } from 'zod';
+import { UniversalPageConfigurationSchema, ConditionTypeSchema, ColorTypeSchema } from '../schemas/ConfigurationSchemas';
+// ===== WOMEN'S SPECIFIC FILTER SCHEMAS =====
+const WomensSizeSchema =
+/* istanbul ignore next */
+(cov_2qxb33y456().s[0]++, z.enum(['xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl', '0', '2', '4', '6', '8', '10', '12', '14', '16', '18']));
+const WomensSubcategorySchema =
+/* istanbul ignore next */
+(cov_2qxb33y456().s[1]++, z.enum(['dresses', 'tops', 'sweaters', 'jeans', 'pants', 'skirts', 'shorts', 'jackets', 'coats', 'activewear', 'intimates', 'sleepwear', 'swimwear', 'shoes', 'bags', 'accessories', 'jewelry', 'makeup']));
+// ===== WOMEN'S FILTER CONFIGURATION =====
+const womensFilterValidationRules =
+/* istanbul ignore next */
+(cov_2qxb33y456().s[2]++, {
+  size: {
+    fieldName: 'size',
+    validationType: 'array',
+    schema: z.array(WomensSizeSchema),
+    required: false,
+    errorMessage: 'Invalid women\'s size selection'
+  },
+  brand: {
+    fieldName: 'brand',
+    validationType: 'array',
+    schema: z.array(z.string().min(1)),
+    required: false,
+    errorMessage: 'Invalid brand selection'
+  },
+  color: {
+    fieldName: 'color',
+    validationType: 'array',
+    schema: z.array(ColorTypeSchema),
+    required: false,
+    errorMessage: 'Invalid color selection'
+  },
+  condition: {
+    fieldName: 'condition',
+    validationType: 'array',
+    schema: z.array(ConditionTypeSchema),
+    required: false,
+    errorMessage: 'Invalid condition selection'
+  },
+  subcategory: {
+    fieldName: 'subcategory',
+    validationType: 'array',
+    schema: z.array(WomensSubcategorySchema),
+    required: false,
+    errorMessage: 'Invalid subcategory selection'
+  },
+  priceRange: {
+    fieldName: 'priceRange',
+    validationType: 'object',
+    schema: z.object({
+      min: z.number().min(0),
+      max: z.number().min(0)
+    }),
+    required: false,
+    errorMessage: 'Invalid price range'
+  }
+});
+const womensDefaultFilters =
+/* istanbul ignore next */
+(cov_2qxb33y456().s[3]++, {
+  condition: ['new_with_tags', 'excellent'],
+  availability: ['all-items'],
+  colors: [],
+  brands: [],
+  sizes: []
+});
+const womensCategorySpecificFilters =
+/* istanbul ignore next */
+(cov_2qxb33y456().s[4]++, [{
+  id: 'women-sizes',
+  name: 'Women\'s Sizes',
+  type: 'checkbox',
+  options: [{
+    id: 'xxs',
+    name: 'XXS'
+  }, {
+    id: 'xs',
+    name: 'XS'
+  }, {
+    id: 's',
+    name: 'S'
+  }, {
+    id: 'm',
+    name: 'M'
+  }, {
+    id: 'l',
+    name: 'L'
+  }, {
+    id: 'xl',
+    name: 'XL'
+  }, {
+    id: 'xxl',
+    name: 'XXL'
+  }],
+  validation: z.array(WomensSizeSchema),
+  required: false,
+  displayOrder: 1,
+  grouping: 'sizing',
+  placeholder: 'Select sizes...',
+  helpText: 'Choose one or more sizes'
+}, {
+  id: 'women-subcategories',
+  name: 'Category',
+  type: 'checkbox',
+  options: [{
+    id: 'dresses',
+    name: 'Dresses',
+    count: 1250
+  }, {
+    id: 'tops',
+    name: 'Tops',
+    count: 2840
+  }, {
+    id: 'sweaters',
+    name: 'Sweaters',
+    count: 980
+  }, {
+    id: 'jeans',
+    name: 'Jeans',
+    count: 1560
+  }, {
+    id: 'pants',
+    name: 'Pants',
+    count: 1120
+  }, {
+    id: 'skirts',
+    name: 'Skirts',
+    count: 670
+  }, {
+    id: 'shoes',
+    name: 'Shoes',
+    count: 3200
+  }, {
+    id: 'bags',
+    name: 'Bags',
+    count: 1890
+  }, {
+    id: 'accessories',
+    name: 'Accessories',
+    count: 2340
+  }, {
+    id: 'jewelry',
+    name: 'Jewelry',
+    count: 1450
+  }],
+  validation: z.array(WomensSubcategorySchema),
+  required: false,
+  displayOrder: 0,
+  grouping: 'category',
+  placeholder: 'Select categories...',
+  helpText: 'Filter by clothing and accessory types'
+}]);
+// ===== ENTERPRISE WOMEN'S CONFIGURATION =====
+export const enterpriseWomenConfig =
+/* istanbul ignore next */
+(cov_2qxb33y456().s[5]++, {
+  category: 'fashion',
+  subcategory: 'women',
+  metadata: {
+    title: 'Women\'s Fashion',
+    description: 'Discover the latest in women\'s fashion, accessories, and style trends',
+    gradient: 'from-pink-50 via-rose-100 to-pink-200',
+    placeholder: 'Search women\'s fashion...',
+    icon: '👗',
+    seoKeywords: ['women fashion', 'designer clothing', 'women accessories', 'fashion trends'],
+    seoDescription: 'Shop curated women\'s fashion from top designers and brands. Find dresses, tops, shoes, bags, and accessories.',
+    canonicalUrl: '/fashion/women',
+    openGraphImage: 'https://images.unsplash.com/photo-1544441893-675973e31985?w=1200&h=630&fit=crop'
+  },
+  filterConfiguration: {
+    availableFilters: ['subcategory', 'size', 'brand', 'color', 'price', 'condition', 'availability'],
+    categorySpecificFilters: womensCategorySpecificFilters,
+    defaultFilters: womensDefaultFilters,
+    filterValidationRules: womensFilterValidationRules,
+    maxFiltersPerQuery: 15,
+    enableAdvancedFiltering: true
+  },
+  sampleProducts: [{
+    id: 'women-premium-1',
+    title: 'Designer Silk Blouse',
+    brand: 'Theory',
+    price: '$89',
+    originalPrice: '$165',
+    size: 'M',
+    images: ['https://images.unsplash.com/photo-1544441893-675973e31985?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller-enterprise-1',
+      username: 'fashionista_jane',
+      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop',
+      rating: 4.8,
+      totalSales: 342,
+      verificationStatus: 'verified'
+    },
+    stats: {
+      likes: 24,
+      comments: 8,
+      shares: 3,
+      views: 156,
+      saves: 12
+    },
+    condition: 'excellent',
+    isLiked: false,
+    createdAt: '2024-01-25T10:30:00Z',
+    updatedAt: '2024-01-26T14:20:00Z',
+    category: 'fashion',
+    subcategory: 'tops',
+    tags: ['silk', 'professional', 'designer'],
+    availability: 'available-now'
+  }, {
+    id: 'women-premium-2',
+    title: 'Vintage Denim Jacket',
+    brand: 'Levi\'s',
+    price: '$65',
+    originalPrice: '$98',
+    size: 'S',
+    images: ['https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller-enterprise-2',
+      username: 'vintage_vibes',
+      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop',
+      rating: 4.6,
+      totalSales: 189,
+      verificationStatus: 'verified'
+    },
+    stats: {
+      likes: 67,
+      comments: 15,
+      shares: 9,
+      views: 234,
+      saves: 28
+    },
+    condition: 'good',
+    isLiked: true,
+    createdAt: '2024-01-24T14:20:00Z',
+    updatedAt: '2024-01-25T09:15:00Z',
+    category: 'fashion',
+    subcategory: 'jackets',
+    tags: ['vintage', 'denim', 'classic'],
+    availability: 'available-now'
+  }, {
+    id: 'women-premium-3',
+    title: 'Cashmere Sweater',
+    brand: 'Everlane',
+    price: '$118',
+    originalPrice: '$168',
+    size: 'M',
+    images: ['https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller-enterprise-3',
+      username: 'cozy_closet',
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',
+      rating: 4.9,
+      totalSales: 567,
+      verificationStatus: 'verified'
+    },
+    stats: {
+      likes: 43,
+      comments: 12,
+      shares: 6,
+      views: 189,
+      saves: 35
+    },
+    condition: 'new_with_tags',
+    isLiked: false,
+    createdAt: '2024-01-23T16:45:00Z',
+    updatedAt: '2024-01-24T11:30:00Z',
+    category: 'fashion',
+    subcategory: 'sweaters',
+    tags: ['cashmere', 'luxury', 'warm'],
+    availability: 'available-now'
+  }, {
+    id: 'women-premium-4',
+    title: 'Floral Summer Dress',
+    brand: 'Anthropologie',
+    price: '$78',
+    originalPrice: '$128',
+    size: 'XS',
+    images: ['https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller-enterprise-4',
+      username: 'summer_style',
+      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop',
+      rating: 4.7,
+      totalSales: 234,
+      verificationStatus: 'verified'
+    },
+    stats: {
+      likes: 89,
+      comments: 23,
+      shares: 12,
+      views: 345,
+      saves: 45
+    },
+    condition: 'excellent',
+    isLiked: true,
+    createdAt: '2024-01-22T12:15:00Z',
+    updatedAt: '2024-01-23T08:45:00Z',
+    category: 'fashion',
+    subcategory: 'dresses',
+    tags: ['floral', 'summer', 'casual'],
+    availability: 'available-now'
+  }, {
+    id: 'women-premium-5',
+    title: 'High-Waisted Skinny Jeans',
+    brand: 'Madewell',
+    price: '$95',
+    originalPrice: '$135',
+    size: '28',
+    images: ['https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller-enterprise-5',
+      username: 'denim_lover',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+      rating: 4.5,
+      totalSales: 156,
+      verificationStatus: 'verified'
+    },
+    stats: {
+      likes: 34,
+      comments: 9,
+      shares: 4,
+      views: 178,
+      saves: 22
+    },
+    condition: 'good',
+    isLiked: false,
+    createdAt: '2024-01-21T15:30:00Z',
+    updatedAt: '2024-01-22T10:20:00Z',
+    category: 'fashion',
+    subcategory: 'bottoms',
+    tags: ['denim', 'skinny', 'high-waisted'],
+    availability: 'available-now'
+  }, {
+    id: 'women-premium-6',
+    title: 'Leather Crossbody Bag',
+    brand: 'Coach',
+    price: '$145',
+    originalPrice: '$195',
+    size: 'One Size',
+    images: ['https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller-enterprise-6',
+      username: 'luxury_bags',
+      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+      rating: 4.8,
+      totalSales: 423,
+      verificationStatus: 'verified'
+    },
+    stats: {
+      likes: 156,
+      comments: 34,
+      shares: 18,
+      views: 567,
+      saves: 78
+    },
+    condition: 'excellent',
+    isLiked: true,
+    createdAt: '2024-01-20T09:45:00Z',
+    updatedAt: '2024-01-21T14:30:00Z',
+    category: 'fashion',
+    subcategory: 'accessories',
+    tags: ['leather', 'crossbody', 'luxury'],
+    availability: 'available-now'
+  }, {
+    id: 'women-premium-7',
+    title: 'Ankle Boots',
+    brand: 'Sam Edelman',
+    price: '$89',
+    originalPrice: '$129',
+    size: '7.5',
+    images: ['https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller-enterprise-7',
+      username: 'shoe_collector',
+      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop',
+      rating: 4.6,
+      totalSales: 298,
+      verificationStatus: 'verified'
+    },
+    stats: {
+      likes: 78,
+      comments: 19,
+      shares: 8,
+      views: 234,
+      saves: 34
+    },
+    condition: 'good',
+    isLiked: false,
+    createdAt: '2024-01-19T11:20:00Z',
+    updatedAt: '2024-01-20T16:45:00Z',
+    category: 'fashion',
+    subcategory: 'shoes',
+    tags: ['ankle', 'boots', 'fall'],
+    availability: 'available-now'
+  }, {
+    id: 'women-premium-8',
+    title: 'Silk Scarf',
+    brand: 'Hermès',
+    price: '$185',
+    originalPrice: '$245',
+    size: 'One Size',
+    images: ['https://images.unsplash.com/photo-1520903920245-00c87a1a5b4a?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller-enterprise-8',
+      username: 'luxury_scarves',
+      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop',
+      rating: 4.9,
+      totalSales: 89,
+      verificationStatus: 'verified'
+    },
+    stats: {
+      likes: 234,
+      comments: 45,
+      shares: 23,
+      views: 789,
+      saves: 123
+    },
+    condition: 'new_with_tags',
+    isLiked: true,
+    createdAt: '2024-01-18T13:10:00Z',
+    updatedAt: '2024-01-19T09:25:00Z',
+    category: 'fashion',
+    subcategory: 'accessories',
+    tags: ['silk', 'luxury', 'hermes'],
+    availability: 'available-now'
+  }, {
+    id: 'women-premium-9',
+    title: 'Wool Blazer',
+    brand: 'J.Crew',
+    price: '$125',
+    originalPrice: '$168',
+    size: 'L',
+    images: ['https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller-enterprise-9',
+      username: 'professional_look',
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',
+      rating: 4.7,
+      totalSales: 345,
+      verificationStatus: 'verified'
+    },
+    stats: {
+      likes: 56,
+      comments: 14,
+      shares: 7,
+      views: 198,
+      saves: 29
+    },
+    condition: 'excellent',
+    isLiked: false,
+    createdAt: '2024-01-17T14:35:00Z',
+    updatedAt: '2024-01-18T11:50:00Z',
+    category: 'fashion',
+    subcategory: 'jackets',
+    tags: ['wool', 'blazer', 'professional'],
+    availability: 'available-now'
+  }, {
+    id: 'women-premium-10',
+    title: 'Pencil Skirt',
+    brand: 'Banana Republic',
+    price: '$68',
+    originalPrice: '$98',
+    size: 'M',
+    images: ['https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller-enterprise-10',
+      username: 'office_style',
+      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop',
+      rating: 4.4,
+      totalSales: 178,
+      verificationStatus: 'verified'
+    },
+    stats: {
+      likes: 32,
+      comments: 8,
+      shares: 3,
+      views: 145,
+      saves: 18
+    },
+    condition: 'good',
+    isLiked: true,
+    createdAt: '2024-01-16T10:25:00Z',
+    updatedAt: '2024-01-17T15:40:00Z',
+    category: 'fashion',
+    subcategory: 'bottoms',
+    tags: ['pencil', 'professional', 'office'],
+    availability: 'available-now'
+  }, {
+    id: 'women-premium-11',
+    title: 'Statement Necklace',
+    brand: 'Kendra Scott',
+    price: '$45',
+    originalPrice: '$68',
+    size: 'One Size',
+    images: ['https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller-enterprise-11',
+      username: 'jewelry_lover',
+      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+      rating: 4.8,
+      totalSales: 267,
+      verificationStatus: 'verified'
+    },
+    stats: {
+      likes: 123,
+      comments: 28,
+      shares: 15,
+      views: 456,
+      saves: 67
+    },
+    condition: 'excellent',
+    isLiked: false,
+    createdAt: '2024-01-15T16:50:00Z',
+    updatedAt: '2024-01-16T12:15:00Z',
+    category: 'fashion',
+    subcategory: 'accessories',
+    tags: ['statement', 'necklace', 'jewelry'],
+    availability: 'available-now'
+  }, {
+    id: 'women-premium-12',
+    title: 'Satin Pajama Set',
+    brand: 'Victoria\'s Secret',
+    price: '$75',
+    originalPrice: '$110',
+    size: 'M',
+    images: ['https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller-enterprise-12',
+      username: 'sleep_style',
+      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop',
+      rating: 4.6,
+      totalSales: 189,
+      verificationStatus: 'verified'
+    },
+    stats: {
+      likes: 67,
+      comments: 16,
+      shares: 9,
+      views: 234,
+      saves: 31
+    },
+    condition: 'new_with_tags',
+    isLiked: true,
+    createdAt: '2024-01-14T12:40:00Z',
+    updatedAt: '2024-01-15T09:20:00Z',
+    category: 'fashion',
+    subcategory: 'sleepwear',
+    tags: ['satin', 'pajamas', 'sleep'],
+    availability: 'available-now'
+  }, {
+    id: 'women-premium-13',
+    title: 'Wide-Leg Pants',
+    brand: 'Zara',
+    price: '$55',
+    originalPrice: '$79',
+    size: 'S',
+    images: ['https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller-enterprise-13',
+      username: 'trendy_fashion',
+      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop',
+      rating: 4.3,
+      totalSales: 145,
+      verificationStatus: 'verified'
+    },
+    stats: {
+      likes: 45,
+      comments: 11,
+      shares: 5,
+      views: 167,
+      saves: 24
+    },
+    condition: 'good',
+    isLiked: false,
+    createdAt: '2024-01-13T14:15:00Z',
+    updatedAt: '2024-01-14T11:30:00Z',
+    category: 'fashion',
+    subcategory: 'bottoms',
+    tags: ['wide-leg', 'trendy', 'casual'],
+    availability: 'available-now'
+  }, {
+    id: 'women-premium-14',
+    title: 'Knit Cardigan',
+    brand: 'Gap',
+    price: '$42',
+    originalPrice: '$65',
+    size: 'L',
+    images: ['https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller-enterprise-14',
+      username: 'cozy_knits',
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',
+      rating: 4.5,
+      totalSales: 234,
+      verificationStatus: 'verified'
+    },
+    stats: {
+      likes: 89,
+      comments: 22,
+      shares: 12,
+      views: 298,
+      saves: 41
+    },
+    condition: 'excellent',
+    isLiked: true,
+    createdAt: '2024-01-12T09:30:00Z',
+    updatedAt: '2024-01-13T16:45:00Z',
+    category: 'fashion',
+    subcategory: 'sweaters',
+    tags: ['knit', 'cardigan', 'casual'],
+    availability: 'available-now'
+  }, {
+    id: 'women-premium-15',
+    title: 'Leather Belt',
+    brand: 'Fossil',
+    price: '$28',
+    originalPrice: '$45',
+    size: 'M',
+    images: ['https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller-enterprise-15',
+      username: 'accessory_queen',
+      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop',
+      rating: 4.7,
+      totalSales: 156,
+      verificationStatus: 'verified'
+    },
+    stats: {
+      likes: 34,
+      comments: 8,
+      shares: 4,
+      views: 123,
+      saves: 19
+    },
+    condition: 'good',
+    isLiked: false,
+    createdAt: '2024-01-11T11:20:00Z',
+    updatedAt: '2024-01-12T14:10:00Z',
+    category: 'fashion',
+    subcategory: 'accessories',
+    tags: ['leather', 'belt', 'accessory'],
+    availability: 'available-now'
+  }, {
+    id: 'women-premium-16',
+    title: 'Platform Sandals',
+    brand: 'Steve Madden',
+    price: '$65',
+    originalPrice: '$95',
+    size: '8',
+    images: ['https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller-enterprise-16',
+      username: 'summer_shoes',
+      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+      rating: 4.4,
+      totalSales: 198,
+      verificationStatus: 'verified'
+    },
+    stats: {
+      likes: 78,
+      comments: 19,
+      shares: 8,
+      views: 245,
+      saves: 35
+    },
+    condition: 'excellent',
+    isLiked: true,
+    createdAt: '2024-01-10T13:45:00Z',
+    updatedAt: '2024-01-11T10:25:00Z',
+    category: 'fashion',
+    subcategory: 'shoes',
+    tags: ['platform', 'sandals', 'summer'],
+    availability: 'available-now'
+  }, {
+    id: 'women-premium-17',
+    title: 'Turtleneck Sweater',
+    brand: 'Uniqlo',
+    price: '$35',
+    originalPrice: '$55',
+    size: 'M',
+    images: ['https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller-enterprise-17',
+      username: 'minimal_style',
+      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop',
+      rating: 4.6,
+      totalSales: 345,
+      verificationStatus: 'verified'
+    },
+    stats: {
+      likes: 156,
+      comments: 34,
+      shares: 18,
+      views: 456,
+      saves: 67
+    },
+    condition: 'new_with_tags',
+    isLiked: false,
+    createdAt: '2024-01-09T15:20:00Z',
+    updatedAt: '2024-01-10T12:30:00Z',
+    category: 'fashion',
+    subcategory: 'sweaters',
+    tags: ['turtleneck', 'minimal', 'warm'],
+    availability: 'available-now'
+  }, {
+    id: 'women-premium-18',
+    title: 'A-Line Midi Skirt',
+    brand: 'H&M',
+    price: '$32',
+    originalPrice: '$49',
+    size: 'S',
+    images: ['https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller-enterprise-18',
+      username: 'skirt_lover',
+      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop',
+      rating: 4.3,
+      totalSales: 123,
+      verificationStatus: 'verified'
+    },
+    stats: {
+      likes: 45,
+      comments: 12,
+      shares: 6,
+      views: 178,
+      saves: 26
+    },
+    condition: 'good',
+    isLiked: true,
+    createdAt: '2024-01-08T10:15:00Z',
+    updatedAt: '2024-01-09T14:40:00Z',
+    category: 'fashion',
+    subcategory: 'bottoms',
+    tags: ['a-line', 'midi', 'casual'],
+    availability: 'available-now'
+  }, {
+    id: 'women-premium-19',
+    title: 'Straw Hat',
+    brand: 'Eugenia Kim',
+    price: '$85',
+    originalPrice: '$125',
+    size: 'One Size',
+    images: ['https://images.unsplash.com/photo-1520903920245-00c87a1a5b4a?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller-enterprise-19',
+      username: 'hat_collector',
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',
+      rating: 4.8,
+      totalSales: 89,
+      verificationStatus: 'verified'
+    },
+    stats: {
+      likes: 234,
+      comments: 45,
+      shares: 23,
+      views: 567,
+      saves: 89
+    },
+    condition: 'excellent',
+    isLiked: false,
+    createdAt: '2024-01-07T12:30:00Z',
+    updatedAt: '2024-01-08T09:15:00Z',
+    category: 'fashion',
+    subcategory: 'accessories',
+    tags: ['straw', 'hat', 'summer'],
+    availability: 'available-now'
+  }, {
+    id: 'women-premium-20',
+    title: 'Denim Shorts',
+    brand: 'American Eagle',
+    price: '$28',
+    originalPrice: '$42',
+    size: '26',
+    images: ['https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller-enterprise-20',
+      username: 'casual_style',
+      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop',
+      rating: 4.5,
+      totalSales: 267,
+      verificationStatus: 'verified'
+    },
+    stats: {
+      likes: 89,
+      comments: 23,
+      shares: 12,
+      views: 298,
+      saves: 41
+    },
+    condition: 'good',
+    isLiked: true,
+    createdAt: '2024-01-06T14:45:00Z',
+    updatedAt: '2024-01-07T11:20:00Z',
+    category: 'fashion',
+    subcategory: 'bottoms',
+    tags: ['denim', 'shorts', 'casual'],
+    availability: 'available-now'
+  }],
+  version: '2.0.0',
+  lastUpdated: new Date().toISOString(),
+  configurationId: crypto.randomUUID(),
+  isActive: true
+});
+// ===== VALIDATION AND EXPORT =====
+// Validate the configuration against the enterprise schema
+const validationResult =
+/* istanbul ignore next */
+(cov_2qxb33y456().s[6]++, UniversalPageConfigurationSchema.safeParse(enterpriseWomenConfig));
+/* istanbul ignore next */
+cov_2qxb33y456().s[7]++;
+if (!validationResult.success) {
+  /* istanbul ignore next */
+  cov_2qxb33y456().b[0][0]++;
+  cov_2qxb33y456().s[8]++;
+  console.error('Enterprise Women\'s Configuration Validation Failed:', validationResult.error);
+  /* istanbul ignore next */
+  cov_2qxb33y456().s[9]++;
+  throw new Error('Configuration validation failed - check console for details');
+} else
+/* istanbul ignore next */
+{
+  cov_2qxb33y456().b[0][1]++;
+}
+// ===== SOCIAL LAYOUT VARIANT =====
+// Extends existing configuration with social-commerce layout options
+// Zero breaking changes - only adds new configuration option
+export const socialWomenConfig =
+/* istanbul ignore next */
+(cov_2qxb33y456().s[10]++, Object.assign(Object.assign({}, enterpriseWomenConfig), {
+  metadata: Object.assign(Object.assign({}, enterpriseWomenConfig.metadata), {
+    title: 'Women',
+    description: 'Discover the latest in women\'s fashion',
+    gradient: 'from-white to-gray-50',
+    placeholder: 'Search women\'s fashion...'
+  }),
+  filterConfiguration: Object.assign(Object.assign({}, enterpriseWomenConfig.filterConfiguration), {
+    categorySpecificFilters: [
+    // Simplified flat category list matching social commerce design
+    {
+      id: 'social-categories',
+      name: 'CATEGORIES',
+      type: 'checkbox',
+      required: false,
+      displayOrder: 1,
+      validation: z.array(z.string()),
+      options: [{
+        id: 'women',
+        name: 'Women',
+        count: 1250
+      }, {
+        id: 'accessories',
+        name: 'Accessories',
+        count: 340
+      }, {
+        id: 'bags',
+        name: 'Bags',
+        count: 280
+      }, {
+        id: 'dresses',
+        name: 'Dresses',
+        count: 420
+      }, {
+        id: 'intimates',
+        name: 'Intimates & Sleepwear',
+        count: 190
+      }, {
+        id: 'jackets',
+        name: 'Jackets & Coats',
+        count: 310
+      }, {
+        id: 'jeans',
+        name: 'Jeans',
+        count: 380
+      }, {
+        id: 'jewelry',
+        name: 'Jewelry',
+        count: 220
+      }, {
+        id: 'makeup',
+        name: 'Makeup',
+        count: 150
+      }, {
+        id: 'pants',
+        name: 'Pants & Jumpsuits',
+        count: 290
+      }, {
+        id: 'shoes',
+        name: 'Shoes',
+        count: 360
+      }, {
+        id: 'shorts',
+        name: 'Shorts',
+        count: 180
+      }, {
+        id: 'skirts',
+        name: 'Skirts',
+        count: 240
+      }, {
+        id: 'sweaters',
+        name: 'Sweaters',
+        count: 320
+      }, {
+        id: 'swim',
+        name: 'Swim',
+        count: 120
+      }, {
+        id: 'tops',
+        name: 'Tops',
+        count: 450
+      }, {
+        id: 'skincare',
+        name: 'Skincare',
+        count: 90
+      }, {
+        id: 'hair',
+        name: 'Hair',
+        count: 75
+      }, {
+        id: 'bath',
+        name: 'Bath & Body',
+        count: 85
+      }]
+    }, Object.assign(Object.assign({}, enterpriseWomenConfig.filterConfiguration.categorySpecificFilters.find(f => {
+      /* istanbul ignore next */
+      cov_2qxb33y456().f[0]++;
+      cov_2qxb33y456().s[11]++;
+      return f.id === 'women-sizes';
+    })), {
+      name: 'SIZE',
+      options: [{
+        id: 'all-sizes',
+        name: 'All Sizes',
+        count: 1250
+      }, {
+        id: 'my-size',
+        name: 'My Size',
+        count: 0
+      }, {
+        id: 'xxs',
+        name: 'XXS',
+        count: 45
+      }, {
+        id: 'xs',
+        name: 'XS',
+        count: 120
+      }, {
+        id: 's',
+        name: 'S',
+        count: 280
+      }, {
+        id: 'm',
+        name: 'M',
+        count: 320
+      }, {
+        id: 'l',
+        name: 'L',
+        count: 290
+      }, {
+        id: 'xl',
+        name: 'XL',
+        count: 150
+      }, {
+        id: 'xxl',
+        name: 'XXL',
+        count: 45
+      }]
+    })]
+  }),
+  // Override sample products with social-commerce-style data
+  sampleProducts: [{
+    id: 'social-women-1',
+    title: 'RILEY&RAE Womens Red Printed V Neck Top S',
+    brand: 'RILEY&RAE',
+    price: '$33',
+    originalPrice: '$49',
+    size: 'S',
+    images: ['https://images.unsplash.com/photo-1544441893-675973e31985?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller-social-1',
+      username: '_luxurylooks',
+      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop',
+      rating: 4.7,
+      totalSales: 156,
+      verificationStatus: 'verified'
+    },
+    stats: {
+      likes: 1,
+      comments: 0,
+      shares: 0,
+      views: 23,
+      saves: 2
+    },
+    condition: 'new_with_tags',
+    isLiked: false,
+    createdAt: '2024-01-25T10:30:00Z',
+    updatedAt: '2024-01-26T14:20:00Z',
+    category: 'fashion',
+    subcategory: 'tops',
+    tags: ['printed', 'v-neck', 'casual'],
+    availability: 'available-now'
+  }, {
+    id: 'social-women-2',
+    title: 'Aerie Hot Pink Oversized Sweater Size L',
+    brand: 'aerie',
+    price: '$18',
+    originalPrice: '$60',
+    size: 'L/G',
+    images: ['https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller-social-2',
+      username: 'nicolezmyslony',
+      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop',
+      rating: 4.5,
+      totalSales: 89,
+      verificationStatus: 'verified'
+    },
+    stats: {
+      likes: 0,
+      comments: 0,
+      shares: 0,
+      views: 12,
+      saves: 1
+    },
+    condition: 'excellent',
+    isLiked: false,
+    createdAt: '2024-01-24T14:20:00Z',
+    updatedAt: '2024-01-25T09:15:00Z',
+    category: 'fashion',
+    subcategory: 'sweaters',
+    tags: ['oversized', 'pink', 'cozy'],
+    availability: 'available-now'
+  }, {
+    id: 'social-women-3',
+    title: 'Madewell The Perfect Vintage Wide Leg Jean size 32',
+    brand: 'Madewell',
+    price: '$36',
+    originalPrice: undefined,
+    size: '32',
+    images: ['https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller-social-3',
+      username: 'rackrescuejax',
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop',
+      rating: 4.8,
+      totalSales: 234,
+      verificationStatus: 'verified'
+    },
+    stats: {
+      likes: 1,
+      comments: 0,
+      shares: 0,
+      views: 45,
+      saves: 3
+    },
+    condition: 'good',
+    isLiked: false,
+    createdAt: '2024-01-23T16:45:00Z',
+    updatedAt: '2024-01-24T11:30:00Z',
+    category: 'fashion',
+    subcategory: 'jeans',
+    tags: ['vintage', 'wide-leg', 'denim'],
+    availability: 'available-now'
+  }],
+  version: '2.1.0-social',
+  lastUpdated: new Date().toISOString(),
+  configurationId: crypto.randomUUID(),
+  isActive: true
+}));
+// Validate the social configuration
+const socialValidationResult =
+/* istanbul ignore next */
+(cov_2qxb33y456().s[12]++, UniversalPageConfigurationSchema.safeParse(socialWomenConfig));
+/* istanbul ignore next */
+cov_2qxb33y456().s[13]++;
+if (!socialValidationResult.success) {
+  /* istanbul ignore next */
+  cov_2qxb33y456().b[1][0]++;
+  cov_2qxb33y456().s[14]++;
+  console.error('Social Women\'s Configuration Validation Failed:', socialValidationResult.error);
+  /* istanbul ignore next */
+  cov_2qxb33y456().s[15]++;
+  throw new Error('Social configuration validation failed - check console for details');
+} else
+/* istanbul ignore next */
+{
+  cov_2qxb33y456().b[1][1]++;
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3ZfMnF4YjMzeTQ1NiIsImFjdHVhbENvdmVyYWdlIiwieiIsIlVuaXZlcnNhbFBhZ2VDb25maWd1cmF0aW9uU2NoZW1hIiwiQ29uZGl0aW9uVHlwZVNjaGVtYSIsIkNvbG9yVHlwZVNjaGVtYSIsIldvbWVuc1NpemVTY2hlbWEiLCJzIiwiZW51bSIsIldvbWVuc1N1YmNhdGVnb3J5U2NoZW1hIiwid29tZW5zRmlsdGVyVmFsaWRhdGlvblJ1bGVzIiwic2l6ZSIsImZpZWxkTmFtZSIsInZhbGlkYXRpb25UeXBlIiwic2NoZW1hIiwiYXJyYXkiLCJyZXF1aXJlZCIsImVycm9yTWVzc2FnZSIsImJyYW5kIiwic3RyaW5nIiwibWluIiwiY29sb3IiLCJjb25kaXRpb24iLCJzdWJjYXRlZ29yeSIsInByaWNlUmFuZ2UiLCJvYmplY3QiLCJudW1iZXIiLCJtYXgiLCJ3b21lbnNEZWZhdWx0RmlsdGVycyIsImF2YWlsYWJpbGl0eSIsImNvbG9ycyIsImJyYW5kcyIsInNpemVzIiwid29tZW5zQ2F0ZWdvcnlTcGVjaWZpY0ZpbHRlcnMiLCJpZCIsIm5hbWUiLCJ0eXBlIiwib3B0aW9ucyIsInZhbGlkYXRpb24iLCJkaXNwbGF5T3JkZXIiLCJncm91cGluZyIsInBsYWNlaG9sZGVyIiwiaGVscFRleHQiLCJjb3VudCIsImVudGVycHJpc2VXb21lbkNvbmZpZyIsImNhdGVnb3J5IiwibWV0YWRhdGEiLCJ0aXRsZSIsImRlc2NyaXB0aW9uIiwiZ3JhZGllbnQiLCJpY29uIiwic2VvS2V5d29yZHMiLCJzZW9EZXNjcmlwdGlvbiIsImNhbm9uaWNhbFVybCIsIm9wZW5HcmFwaEltYWdlIiwiZmlsdGVyQ29uZmlndXJhdGlvbiIsImF2YWlsYWJsZUZpbHRlcnMiLCJjYXRlZ29yeVNwZWNpZmljRmlsdGVycyIsImRlZmF1bHRGaWx0ZXJzIiwiZmlsdGVyVmFsaWRhdGlvblJ1bGVzIiwibWF4RmlsdGVyc1BlclF1ZXJ5IiwiZW5hYmxlQWR2YW5jZWRGaWx0ZXJpbmciLCJzYW1wbGVQcm9kdWN0cyIsInByaWNlIiwib3JpZ2luYWxQcmljZSIsImltYWdlcyIsInNlbGxlciIsInVzZXJuYW1lIiwiYXZhdGFyIiwicmF0aW5nIiwidG90YWxTYWxlcyIsInZlcmlmaWNhdGlvblN0YXR1cyIsInN0YXRzIiwibGlrZXMiLCJjb21tZW50cyIsInNoYXJlcyIsInZpZXdzIiwic2F2ZXMiLCJpc0xpa2VkIiwiY3JlYXRlZEF0IiwidXBkYXRlZEF0IiwidGFncyIsInZlcnNpb24iLCJsYXN0VXBkYXRlZCIsIkRhdGUiLCJ0b0lTT1N0cmluZyIsImNvbmZpZ3VyYXRpb25JZCIsImNyeXB0byIsInJhbmRvbVVVSUQiLCJpc0FjdGl2ZSIsInZhbGlkYXRpb25SZXN1bHQiLCJzYWZlUGFyc2UiLCJzdWNjZXNzIiwiYiIsImNvbnNvbGUiLCJlcnJvciIsIkVycm9yIiwic29jaWFsV29tZW5Db25maWciLCJPYmplY3QiLCJhc3NpZ24iLCJmaW5kIiwiZiIsInVuZGVmaW5lZCIsInNvY2lhbFZhbGlkYXRpb25SZXN1bHQiXSwic291cmNlcyI6WyIvaG9tZS9ydW5uZXIvd29ya3NwYWNlL2NsaWVudC9zcmMvc2VydmljZXMvY2F0ZWdvcnkvZW50ZXJwcmlzZS9jb25maWdzL0VudGVycHJpc2VXb21lbkNvbmZpZy50cyJdLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEVudGVycHJpc2UgV29tZW4ncyBGYXNoaW9uIENvbmZpZ3VyYXRpb25cbiAqIE1pZ3JhdGVkIHRvIHN0cmljdCBlbnRlcnByaXNlIHNjaGVtYXMgd2l0aCB6ZXJvIHouYW55KCkgdmlvbGF0aW9uc1xuICogMTAwJSB0eXBlLXNhZmUsIHplcm8gc2hvcnRjdXRzLCBjb21wbGV0ZSBBT1AgY29tcGxpYW5jZVxuICovXG5cbmltcG9ydCB7IHogfSBmcm9tICd6b2QnO1xuaW1wb3J0IHsgXG4gIFVuaXZlcnNhbFBhZ2VDb25maWd1cmF0aW9uU2NoZW1hLFxuICB0eXBlIFVuaXZlcnNhbFBhZ2VDb25maWd1cmF0aW9uLFxuICB0eXBlIERlZmF1bHRGaWx0ZXJzQ29uZmlnLFxuICB0eXBlIENhdGVnb3J5RmlsdGVyLFxuICBDb25kaXRpb25UeXBlU2NoZW1hLFxuICBBdmFpbGFiaWxpdHlUeXBlU2NoZW1hLFxuICBDb2xvclR5cGVTY2hlbWFcbn0gZnJvbSAnLi4vc2NoZW1hcy9Db25maWd1cmF0aW9uU2NoZW1hcyc7XG5cbi8vID09PT09IFdPTUVOJ1MgU1BFQ0lGSUMgRklMVEVSIFNDSEVNQVMgPT09PT1cblxuY29uc3QgV29tZW5zU2l6ZVNjaGVtYSA9IHouZW51bShbJ3h4cycsICd4cycsICdzJywgJ20nLCAnbCcsICd4bCcsICd4eGwnLCAnMCcsICcyJywgJzQnLCAnNicsICc4JywgJzEwJywgJzEyJywgJzE0JywgJzE2JywgJzE4J10pO1xuXG5jb25zdCBXb21lbnNTdWJjYXRlZ29yeVNjaGVtYSA9IHouZW51bShbXG4gICdkcmVzc2VzJywgJ3RvcHMnLCAnc3dlYXRlcnMnLCAnamVhbnMnLCAncGFudHMnLCAnc2tpcnRzJywgJ3Nob3J0cycsIFxuICAnamFja2V0cycsICdjb2F0cycsICdhY3RpdmV3ZWFyJywgJ2ludGltYXRlcycsICdzbGVlcHdlYXInLCAnc3dpbXdlYXInLFxuICAnc2hvZXMnLCAnYmFncycsICdhY2Nlc3NvcmllcycsICdqZXdlbHJ5JywgJ21ha2V1cCdcbl0pO1xuXG4vLyA9PT09PSBXT01FTidTIEZJTFRFUiBDT05GSUdVUkFUSU9OID09PT09XG5cbmNvbnN0IHdvbWVuc0ZpbHRlclZhbGlkYXRpb25SdWxlcyA9IHtcbiAgc2l6ZToge1xuICAgIGZpZWxkTmFtZTogJ3NpemUnLFxuICAgIHZhbGlkYXRpb25UeXBlOiAnYXJyYXknIGFzIGNvbnN0LFxuICAgIHNjaGVtYTogei5hcnJheShXb21lbnNTaXplU2NoZW1hKSxcbiAgICByZXF1aXJlZDogZmFsc2UsXG4gICAgZXJyb3JNZXNzYWdlOiAnSW52YWxpZCB3b21lblxcJ3Mgc2l6ZSBzZWxlY3Rpb24nXG4gIH0sXG4gIGJyYW5kOiB7XG4gICAgZmllbGROYW1lOiAnYnJhbmQnLFxuICAgIHZhbGlkYXRpb25UeXBlOiAnYXJyYXknIGFzIGNvbnN0LFxuICAgIHNjaGVtYTogei5hcnJheSh6LnN0cmluZygpLm1pbigxKSksXG4gICAgcmVxdWlyZWQ6IGZhbHNlLFxuICAgIGVycm9yTWVzc2FnZTogJ0ludmFsaWQgYnJhbmQgc2VsZWN0aW9uJ1xuICB9LFxuICBjb2xvcjoge1xuICAgIGZpZWxkTmFtZTogJ2NvbG9yJyxcbiAgICB2YWxpZGF0aW9uVHlwZTogJ2FycmF5JyBhcyBjb25zdCxcbiAgICBzY2hlbWE6IHouYXJyYXkoQ29sb3JUeXBlU2NoZW1hKSxcbiAgICByZXF1aXJlZDogZmFsc2UsXG4gICAgZXJyb3JNZXNzYWdlOiAnSW52YWxpZCBjb2xvciBzZWxlY3Rpb24nXG4gIH0sXG4gIGNvbmRpdGlvbjoge1xuICAgIGZpZWxkTmFtZTogJ2NvbmRpdGlvbicsXG4gICAgdmFsaWRhdGlvblR5cGU6ICdhcnJheScgYXMgY29uc3QsXG4gICAgc2NoZW1hOiB6LmFycmF5KENvbmRpdGlvblR5cGVTY2hlbWEpLFxuICAgIHJlcXVpcmVkOiBmYWxzZSxcbiAgICBlcnJvck1lc3NhZ2U6ICdJbnZhbGlkIGNvbmRpdGlvbiBzZWxlY3Rpb24nXG4gIH0sXG4gIHN1YmNhdGVnb3J5OiB7XG4gICAgZmllbGROYW1lOiAnc3ViY2F0ZWdvcnknLFxuICAgIHZhbGlkYXRpb25UeXBlOiAnYXJyYXknIGFzIGNvbnN0LFxuICAgIHNjaGVtYTogei5hcnJheShXb21lbnNTdWJjYXRlZ29yeVNjaGVtYSksXG4gICAgcmVxdWlyZWQ6IGZhbHNlLFxuICAgIGVycm9yTWVzc2FnZTogJ0ludmFsaWQgc3ViY2F0ZWdvcnkgc2VsZWN0aW9uJ1xuICB9LFxuICBwcmljZVJhbmdlOiB7XG4gICAgZmllbGROYW1lOiAncHJpY2VSYW5nZScsXG4gICAgdmFsaWRhdGlvblR5cGU6ICdvYmplY3QnIGFzIGNvbnN0LFxuICAgIHNjaGVtYTogei5vYmplY3Qoe1xuICAgICAgbWluOiB6Lm51bWJlcigpLm1pbigwKSxcbiAgICAgIG1heDogei5udW1iZXIoKS5taW4oMClcbiAgICB9KSxcbiAgICByZXF1aXJlZDogZmFsc2UsXG4gICAgZXJyb3JNZXNzYWdlOiAnSW52YWxpZCBwcmljZSByYW5nZSdcbiAgfVxufTtcblxuY29uc3Qgd29tZW5zRGVmYXVsdEZpbHRlcnM6IERlZmF1bHRGaWx0ZXJzQ29uZmlnID0ge1xuICBjb25kaXRpb246IFsnbmV3X3dpdGhfdGFncycsICdleGNlbGxlbnQnXSxcbiAgYXZhaWxhYmlsaXR5OiBbJ2FsbC1pdGVtcyddLFxuICBjb2xvcnM6IFtdLFxuICBicmFuZHM6IFtdLFxuICBzaXplczogW11cbn07XG5cbmNvbnN0IHdvbWVuc0NhdGVnb3J5U3BlY2lmaWNGaWx0ZXJzOiBDYXRlZ29yeUZpbHRlcltdID0gW1xuICB7XG4gICAgaWQ6ICd3b21lbi1zaXplcycsXG4gICAgbmFtZTogJ1dvbWVuXFwncyBTaXplcycsXG4gICAgdHlwZTogJ2NoZWNrYm94JyxcbiAgICBvcHRpb25zOiBbXG4gICAgICB7IGlkOiAneHhzJywgbmFtZTogJ1hYUycgfSxcbiAgICAgIHsgaWQ6ICd4cycsIG5hbWU6ICdYUycgfSxcbiAgICAgIHsgaWQ6ICdzJywgbmFtZTogJ1MnIH0sXG4gICAgICB7IGlkOiAnbScsIG5hbWU6ICdNJyB9LFxuICAgICAgeyBpZDogJ2wnLCBuYW1lOiAnTCcgfSxcbiAgICAgIHsgaWQ6ICd4bCcsIG5hbWU6ICdYTCcgfSxcbiAgICAgIHsgaWQ6ICd4eGwnLCBuYW1lOiAnWFhMJyB9XG4gICAgXSxcbiAgICB2YWxpZGF0aW9uOiB6LmFycmF5KFdvbWVuc1NpemVTY2hlbWEpLFxuICAgIHJlcXVpcmVkOiBmYWxzZSxcbiAgICBkaXNwbGF5T3JkZXI6IDEsXG4gICAgZ3JvdXBpbmc6ICdzaXppbmcnLFxuICAgIHBsYWNlaG9sZGVyOiAnU2VsZWN0IHNpemVzLi4uJyxcbiAgICBoZWxwVGV4dDogJ0Nob29zZSBvbmUgb3IgbW9yZSBzaXplcydcbiAgfSxcbiAge1xuICAgIGlkOiAnd29tZW4tc3ViY2F0ZWdvcmllcycsXG4gICAgbmFtZTogJ0NhdGVnb3J5JyxcbiAgICB0eXBlOiAnY2hlY2tib3gnLFxuICAgIG9wdGlvbnM6IFtcbiAgICAgIHsgaWQ6ICdkcmVzc2VzJywgbmFtZTogJ0RyZXNzZXMnLCBjb3VudDogMTI1MCB9LFxuICAgICAgeyBpZDogJ3RvcHMnLCBuYW1lOiAnVG9wcycsIGNvdW50OiAyODQwIH0sXG4gICAgICB7IGlkOiAnc3dlYXRlcnMnLCBuYW1lOiAnU3dlYXRlcnMnLCBjb3VudDogOTgwIH0sXG4gICAgICB7IGlkOiAnamVhbnMnLCBuYW1lOiAnSmVhbnMnLCBjb3VudDogMTU2MCB9LFxuICAgICAgeyBpZDogJ3BhbnRzJywgbmFtZTogJ1BhbnRzJywgY291bnQ6IDExMjAgfSxcbiAgICAgIHsgaWQ6ICdza2lydHMnLCBuYW1lOiAnU2tpcnRzJywgY291bnQ6IDY3MCB9LFxuICAgICAgeyBpZDogJ3Nob2VzJywgbmFtZTogJ1Nob2VzJywgY291bnQ6IDMyMDAgfSxcbiAgICAgIHsgaWQ6ICdiYWdzJywgbmFtZTogJ0JhZ3MnLCBjb3VudDogMTg5MCB9LFxuICAgICAgeyBpZDogJ2FjY2Vzc29yaWVzJywgbmFtZTogJ0FjY2Vzc29yaWVzJywgY291bnQ6IDIzNDAgfSxcbiAgICAgIHsgaWQ6ICdqZXdlbHJ5JywgbmFtZTogJ0pld2VscnknLCBjb3VudDogMTQ1MCB9XG4gICAgXSxcbiAgICB2YWxpZGF0aW9uOiB6LmFycmF5KFdvbWVuc1N1YmNhdGVnb3J5U2NoZW1hKSxcbiAgICByZXF1aXJlZDogZmFsc2UsXG4gICAgZGlzcGxheU9yZGVyOiAwLFxuICAgIGdyb3VwaW5nOiAnY2F0ZWdvcnknLFxuICAgIHBsYWNlaG9sZGVyOiAnU2VsZWN0IGNhdGVnb3JpZXMuLi4nLFxuICAgIGhlbHBUZXh0OiAnRmlsdGVyIGJ5IGNsb3RoaW5nIGFuZCBhY2Nlc3NvcnkgdHlwZXMnXG4gIH1cbl07XG5cbi8vID09PT09IEVOVEVSUFJJU0UgV09NRU4nUyBDT05GSUdVUkFUSU9OID09PT09XG5cbmV4cG9ydCBjb25zdCBlbnRlcnByaXNlV29tZW5Db25maWc6IFVuaXZlcnNhbFBhZ2VDb25maWd1cmF0aW9uID0ge1xuICBjYXRlZ29yeTogJ2Zhc2hpb24nLFxuICBzdWJjYXRlZ29yeTogJ3dvbWVuJyxcbiAgbWV0YWRhdGE6IHtcbiAgICB0aXRsZTogJ1dvbWVuXFwncyBGYXNoaW9uJyxcbiAgICBkZXNjcmlwdGlvbjogJ0Rpc2NvdmVyIHRoZSBsYXRlc3QgaW4gd29tZW5cXCdzIGZhc2hpb24sIGFjY2Vzc29yaWVzLCBhbmQgc3R5bGUgdHJlbmRzJyxcbiAgICBncmFkaWVudDogJ2Zyb20tcGluay01MCB2aWEtcm9zZS0xMDAgdG8tcGluay0yMDAnLFxuICAgIHBsYWNlaG9sZGVyOiAnU2VhcmNoIHdvbWVuXFwncyBmYXNoaW9uLi4uJyxcbiAgICBpY29uOiAn8J+RlycsXG4gICAgc2VvS2V5d29yZHM6IFsnd29tZW4gZmFzaGlvbicsICdkZXNpZ25lciBjbG90aGluZycsICd3b21lbiBhY2Nlc3NvcmllcycsICdmYXNoaW9uIHRyZW5kcyddLFxuICAgIHNlb0Rlc2NyaXB0aW9uOiAnU2hvcCBjdXJhdGVkIHdvbWVuXFwncyBmYXNoaW9uIGZyb20gdG9wIGRlc2lnbmVycyBhbmQgYnJhbmRzLiBGaW5kIGRyZXNzZXMsIHRvcHMsIHNob2VzLCBiYWdzLCBhbmQgYWNjZXNzb3JpZXMuJyxcbiAgICBjYW5vbmljYWxVcmw6ICcvZmFzaGlvbi93b21lbicsXG4gICAgb3BlbkdyYXBoSW1hZ2U6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU0NDQ0MTg5My02NzU5NzNlMzE5ODU/dz0xMjAwJmg9NjMwJmZpdD1jcm9wJ1xuICB9LFxuICBmaWx0ZXJDb25maWd1cmF0aW9uOiB7XG4gICAgYXZhaWxhYmxlRmlsdGVyczogWydzdWJjYXRlZ29yeScsICdzaXplJywgJ2JyYW5kJywgJ2NvbG9yJywgJ3ByaWNlJywgJ2NvbmRpdGlvbicsICdhdmFpbGFiaWxpdHknXSxcbiAgICBjYXRlZ29yeVNwZWNpZmljRmlsdGVyczogd29tZW5zQ2F0ZWdvcnlTcGVjaWZpY0ZpbHRlcnMsXG4gICAgZGVmYXVsdEZpbHRlcnM6IHdvbWVuc0RlZmF1bHRGaWx0ZXJzLFxuICAgIGZpbHRlclZhbGlkYXRpb25SdWxlczogd29tZW5zRmlsdGVyVmFsaWRhdGlvblJ1bGVzLFxuICAgIG1heEZpbHRlcnNQZXJRdWVyeTogMTUsXG4gICAgZW5hYmxlQWR2YW5jZWRGaWx0ZXJpbmc6IHRydWVcbiAgfSxcbiAgc2FtcGxlUHJvZHVjdHM6IFtcbiAgICB7XG4gICAgICBpZDogJ3dvbWVuLXByZW1pdW0tMScsXG4gICAgICB0aXRsZTogJ0Rlc2lnbmVyIFNpbGsgQmxvdXNlJyxcbiAgICAgIGJyYW5kOiAnVGhlb3J5JyxcbiAgICAgIHByaWNlOiAnJDg5JyxcbiAgICAgIG9yaWdpbmFsUHJpY2U6ICckMTY1JyxcbiAgICAgIHNpemU6ICdNJyxcbiAgICAgIGltYWdlczogWydodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU0NDQ0MTg5My02NzU5NzNlMzE5ODU/dz00MDAmaD00MDAmZml0PWNyb3AnXSxcbiAgICAgIHNlbGxlcjoge1xuICAgICAgICBpZDogJ3NlbGxlci1lbnRlcnByaXNlLTEnLFxuICAgICAgICB1c2VybmFtZTogJ2Zhc2hpb25pc3RhX2phbmUnLFxuICAgICAgICBhdmF0YXI6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTQzODc2MTY4MTAzMy02NDYxZmZhZDhkODA/dz0xMDAmaD0xMDAmZml0PWNyb3AnLFxuICAgICAgICByYXRpbmc6IDQuOCxcbiAgICAgICAgdG90YWxTYWxlczogMzQyLFxuICAgICAgICB2ZXJpZmljYXRpb25TdGF0dXM6ICd2ZXJpZmllZCdcbiAgICAgIH0sXG4gICAgICBzdGF0czogeyBsaWtlczogMjQsIGNvbW1lbnRzOiA4LCBzaGFyZXM6IDMsIHZpZXdzOiAxNTYsIHNhdmVzOiAxMiB9LFxuICAgICAgY29uZGl0aW9uOiAnZXhjZWxsZW50JyxcbiAgICAgIGlzTGlrZWQ6IGZhbHNlLFxuICAgICAgY3JlYXRlZEF0OiAnMjAyNC0wMS0yNVQxMDozMDowMFonLFxuICAgICAgdXBkYXRlZEF0OiAnMjAyNC0wMS0yNlQxNDoyMDowMFonLFxuICAgICAgY2F0ZWdvcnk6ICdmYXNoaW9uJyxcbiAgICAgIHN1YmNhdGVnb3J5OiAndG9wcycsXG4gICAgICB0YWdzOiBbJ3NpbGsnLCAncHJvZmVzc2lvbmFsJywgJ2Rlc2lnbmVyJ10sXG4gICAgICBhdmFpbGFiaWxpdHk6ICdhdmFpbGFibGUtbm93J1xuICAgIH0sXG4gICAge1xuICAgICAgaWQ6ICd3b21lbi1wcmVtaXVtLTInLFxuICAgICAgdGl0bGU6ICdWaW50YWdlIERlbmltIEphY2tldCcsXG4gICAgICBicmFuZDogJ0xldmlcXCdzJyxcbiAgICAgIHByaWNlOiAnJDY1JyxcbiAgICAgIG9yaWdpbmFsUHJpY2U6ICckOTgnLFxuICAgICAgc2l6ZTogJ1MnLFxuICAgICAgaW1hZ2VzOiBbJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTIzMjA1NzcxNjIzLWUwZmFhNGQyODEzZD93PTQwMCZoPTQwMCZmaXQ9Y3JvcCddLFxuICAgICAgc2VsbGVyOiB7XG4gICAgICAgIGlkOiAnc2VsbGVyLWVudGVycHJpc2UtMicsXG4gICAgICAgIHVzZXJuYW1lOiAndmludGFnZV92aWJlcycsXG4gICAgICAgIGF2YXRhcjogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNDk0NzkwMTA4NzU1LTI2MTZiNjEyYjBjNT93PTEwMCZoPTEwMCZmaXQ9Y3JvcCcsXG4gICAgICAgIHJhdGluZzogNC42LFxuICAgICAgICB0b3RhbFNhbGVzOiAxODksXG4gICAgICAgIHZlcmlmaWNhdGlvblN0YXR1czogJ3ZlcmlmaWVkJ1xuICAgICAgfSxcbiAgICAgIHN0YXRzOiB7IGxpa2VzOiA2NywgY29tbWVudHM6IDE1LCBzaGFyZXM6IDksIHZpZXdzOiAyMzQsIHNhdmVzOiAyOCB9LFxuICAgICAgY29uZGl0aW9uOiAnZ29vZCcsXG4gICAgICBpc0xpa2VkOiB0cnVlLFxuICAgICAgY3JlYXRlZEF0OiAnMjAyNC0wMS0yNFQxNDoyMDowMFonLFxuICAgICAgdXBkYXRlZEF0OiAnMjAyNC0wMS0yNVQwOToxNTowMFonLFxuICAgICAgY2F0ZWdvcnk6ICdmYXNoaW9uJyxcbiAgICAgIHN1YmNhdGVnb3J5OiAnamFja2V0cycsXG4gICAgICB0YWdzOiBbJ3ZpbnRhZ2UnLCAnZGVuaW0nLCAnY2xhc3NpYyddLFxuICAgICAgYXZhaWxhYmlsaXR5OiAnYXZhaWxhYmxlLW5vdydcbiAgICB9LFxuICAgIHtcbiAgICAgIGlkOiAnd29tZW4tcHJlbWl1bS0zJyxcbiAgICAgIHRpdGxlOiAnQ2FzaG1lcmUgU3dlYXRlcicsXG4gICAgICBicmFuZDogJ0V2ZXJsYW5lJyxcbiAgICAgIHByaWNlOiAnJDExOCcsXG4gICAgICBvcmlnaW5hbFByaWNlOiAnJDE2OCcsXG4gICAgICBzaXplOiAnTScsXG4gICAgICBpbWFnZXM6IFsnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1NzY1NjY1ODgwMjgtNDE0N2YzODQyZjI3P3c9NDAwJmg9NDAwJmZpdD1jcm9wJ10sXG4gICAgICBzZWxsZXI6IHtcbiAgICAgICAgaWQ6ICdzZWxsZXItZW50ZXJwcmlzZS0zJyxcbiAgICAgICAgdXNlcm5hbWU6ICdjb3p5X2Nsb3NldCcsXG4gICAgICAgIGF2YXRhcjogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTM0NTI4NzQxNzc1LTUzOTk0YTY5ZGFlYj93PTEwMCZoPTEwMCZmaXQ9Y3JvcCcsXG4gICAgICAgIHJhdGluZzogNC45LFxuICAgICAgICB0b3RhbFNhbGVzOiA1NjcsXG4gICAgICAgIHZlcmlmaWNhdGlvblN0YXR1czogJ3ZlcmlmaWVkJ1xuICAgICAgfSxcbiAgICAgIHN0YXRzOiB7IGxpa2VzOiA0MywgY29tbWVudHM6IDEyLCBzaGFyZXM6IDYsIHZpZXdzOiAxODksIHNhdmVzOiAzNSB9LFxuICAgICAgY29uZGl0aW9uOiAnbmV3X3dpdGhfdGFncycsXG4gICAgICBpc0xpa2VkOiBmYWxzZSxcbiAgICAgIGNyZWF0ZWRBdDogJzIwMjQtMDEtMjNUMTY6NDU6MDBaJyxcbiAgICAgIHVwZGF0ZWRBdDogJzIwMjQtMDEtMjRUMTE6MzA6MDBaJyxcbiAgICAgIGNhdGVnb3J5OiAnZmFzaGlvbicsXG4gICAgICBzdWJjYXRlZ29yeTogJ3N3ZWF0ZXJzJyxcbiAgICAgIHRhZ3M6IFsnY2FzaG1lcmUnLCAnbHV4dXJ5JywgJ3dhcm0nXSxcbiAgICAgIGF2YWlsYWJpbGl0eTogJ2F2YWlsYWJsZS1ub3cnXG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogJ3dvbWVuLXByZW1pdW0tNCcsXG4gICAgICB0aXRsZTogJ0Zsb3JhbCBTdW1tZXIgRHJlc3MnLFxuICAgICAgYnJhbmQ6ICdBbnRocm9wb2xvZ2llJyxcbiAgICAgIHByaWNlOiAnJDc4JyxcbiAgICAgIG9yaWdpbmFsUHJpY2U6ICckMTI4JyxcbiAgICAgIHNpemU6ICdYUycsXG4gICAgICBpbWFnZXM6IFsnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1MTUzNzIwMzk3NDQtYjhmMDJhM2FlNDQ2P3c9NDAwJmg9NDAwJmZpdD1jcm9wJ10sXG4gICAgICBzZWxsZXI6IHtcbiAgICAgICAgaWQ6ICdzZWxsZXItZW50ZXJwcmlzZS00JyxcbiAgICAgICAgdXNlcm5hbWU6ICdzdW1tZXJfc3R5bGUnLFxuICAgICAgICBhdmF0YXI6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU0NDAwNTMxMy05NGRkZjAyODZkZjI/dz0xMDAmaD0xMDAmZml0PWNyb3AnLFxuICAgICAgICByYXRpbmc6IDQuNyxcbiAgICAgICAgdG90YWxTYWxlczogMjM0LFxuICAgICAgICB2ZXJpZmljYXRpb25TdGF0dXM6ICd2ZXJpZmllZCdcbiAgICAgIH0sXG4gICAgICBzdGF0czogeyBsaWtlczogODksIGNvbW1lbnRzOiAyMywgc2hhcmVzOiAxMiwgdmlld3M6IDM0NSwgc2F2ZXM6IDQ1IH0sXG4gICAgICBjb25kaXRpb246ICdleGNlbGxlbnQnLFxuICAgICAgaXNMaWtlZDogdHJ1ZSxcbiAgICAgIGNyZWF0ZWRBdDogJzIwMjQtMDEtMjJUMTI6MTU6MDBaJyxcbiAgICAgIHVwZGF0ZWRBdDogJzIwMjQtMDEtMjNUMDg6NDU6MDBaJyxcbiAgICAgIGNhdGVnb3J5OiAnZmFzaGlvbicsXG4gICAgICBzdWJjYXRlZ29yeTogJ2RyZXNzZXMnLFxuICAgICAgdGFnczogWydmbG9yYWwnLCAnc3VtbWVyJywgJ2Nhc3VhbCddLFxuICAgICAgYXZhaWxhYmlsaXR5OiAnYXZhaWxhYmxlLW5vdydcbiAgICB9LFxuICAgIHtcbiAgICAgIGlkOiAnd29tZW4tcHJlbWl1bS01JyxcbiAgICAgIHRpdGxlOiAnSGlnaC1XYWlzdGVkIFNraW5ueSBKZWFucycsXG4gICAgICBicmFuZDogJ01hZGV3ZWxsJyxcbiAgICAgIHByaWNlOiAnJDk1JyxcbiAgICAgIG9yaWdpbmFsUHJpY2U6ICckMTM1JyxcbiAgICAgIHNpemU6ICcyOCcsXG4gICAgICBpbWFnZXM6IFsnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1NDIyNzI2MDQtNzg3YzM4MzU1MzVkP3c9NDAwJmg9NDAwJmZpdD1jcm9wJ10sXG4gICAgICBzZWxsZXI6IHtcbiAgICAgICAgaWQ6ICdzZWxsZXItZW50ZXJwcmlzZS01JyxcbiAgICAgICAgdXNlcm5hbWU6ICdkZW5pbV9sb3ZlcicsXG4gICAgICAgIGF2YXRhcjogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTA3MDAzMjExMTY5LTBhMWRkNzIyOGYyZD93PTEwMCZoPTEwMCZmaXQ9Y3JvcCcsXG4gICAgICAgIHJhdGluZzogNC41LFxuICAgICAgICB0b3RhbFNhbGVzOiAxNTYsXG4gICAgICAgIHZlcmlmaWNhdGlvblN0YXR1czogJ3ZlcmlmaWVkJ1xuICAgICAgfSxcbiAgICAgIHN0YXRzOiB7IGxpa2VzOiAzNCwgY29tbWVudHM6IDksIHNoYXJlczogNCwgdmlld3M6IDE3OCwgc2F2ZXM6IDIyIH0sXG4gICAgICBjb25kaXRpb246ICdnb29kJyxcbiAgICAgIGlzTGlrZWQ6IGZhbHNlLFxuICAgICAgY3JlYXRlZEF0OiAnMjAyNC0wMS0yMVQxNTozMDowMFonLFxuICAgICAgdXBkYXRlZEF0OiAnMjAyNC0wMS0yMlQxMDoyMDowMFonLFxuICAgICAgY2F0ZWdvcnk6ICdmYXNoaW9uJyxcbiAgICAgIHN1YmNhdGVnb3J5OiAnYm90dG9tcycsXG4gICAgICB0YWdzOiBbJ2RlbmltJywgJ3NraW5ueScsICdoaWdoLXdhaXN0ZWQnXSxcbiAgICAgIGF2YWlsYWJpbGl0eTogJ2F2YWlsYWJsZS1ub3cnXG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogJ3dvbWVuLXByZW1pdW0tNicsXG4gICAgICB0aXRsZTogJ0xlYXRoZXIgQ3Jvc3Nib2R5IEJhZycsXG4gICAgICBicmFuZDogJ0NvYWNoJyxcbiAgICAgIHByaWNlOiAnJDE0NScsXG4gICAgICBvcmlnaW5hbFByaWNlOiAnJDE5NScsXG4gICAgICBzaXplOiAnT25lIFNpemUnLFxuICAgICAgaW1hZ2VzOiBbJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTUzMDYyNDA3LTk4ZWViNjRjNmE2Mj93PTQwMCZoPTQwMCZmaXQ9Y3JvcCddLFxuICAgICAgc2VsbGVyOiB7XG4gICAgICAgIGlkOiAnc2VsbGVyLWVudGVycHJpc2UtNicsXG4gICAgICAgIHVzZXJuYW1lOiAnbHV4dXJ5X2JhZ3MnLFxuICAgICAgICBhdmF0YXI6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTUwMDY0ODc2Nzc5MS0wMGRjYzk5NGE0M2U/dz0xMDAmaD0xMDAmZml0PWNyb3AnLFxuICAgICAgICByYXRpbmc6IDQuOCxcbiAgICAgICAgdG90YWxTYWxlczogNDIzLFxuICAgICAgICB2ZXJpZmljYXRpb25TdGF0dXM6ICd2ZXJpZmllZCdcbiAgICAgIH0sXG4gICAgICBzdGF0czogeyBsaWtlczogMTU2LCBjb21tZW50czogMzQsIHNoYXJlczogMTgsIHZpZXdzOiA1NjcsIHNhdmVzOiA3OCB9LFxuICAgICAgY29uZGl0aW9uOiAnZXhjZWxsZW50JyxcbiAgICAgIGlzTGlrZWQ6IHRydWUsXG4gICAgICBjcmVhdGVkQXQ6ICcyMDI0LTAxLTIwVDA5OjQ1OjAwWicsXG4gICAgICB1cGRhdGVkQXQ6ICcyMDI0LTAxLTIxVDE0OjMwOjAwWicsXG4gICAgICBjYXRlZ29yeTogJ2Zhc2hpb24nLFxuICAgICAgc3ViY2F0ZWdvcnk6ICdhY2Nlc3NvcmllcycsXG4gICAgICB0YWdzOiBbJ2xlYXRoZXInLCAnY3Jvc3Nib2R5JywgJ2x1eHVyeSddLFxuICAgICAgYXZhaWxhYmlsaXR5OiAnYXZhaWxhYmxlLW5vdydcbiAgICB9LFxuICAgIHtcbiAgICAgIGlkOiAnd29tZW4tcHJlbWl1bS03JyxcbiAgICAgIHRpdGxlOiAnQW5rbGUgQm9vdHMnLFxuICAgICAgYnJhbmQ6ICdTYW0gRWRlbG1hbicsXG4gICAgICBwcmljZTogJyQ4OScsXG4gICAgICBvcmlnaW5hbFByaWNlOiAnJDEyOScsXG4gICAgICBzaXplOiAnNy41JyxcbiAgICAgIGltYWdlczogWydodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU0OTI5ODkxNi1iNDFkNTAxZDM3NzI/dz00MDAmaD00MDAmZml0PWNyb3AnXSxcbiAgICAgIHNlbGxlcjoge1xuICAgICAgICBpZDogJ3NlbGxlci1lbnRlcnByaXNlLTcnLFxuICAgICAgICB1c2VybmFtZTogJ3Nob2VfY29sbGVjdG9yJyxcbiAgICAgICAgYXZhdGFyOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE0OTQ3OTAxMDg3NTUtMjYxNmI2MTJiMGM1P3c9MTAwJmg9MTAwJmZpdD1jcm9wJyxcbiAgICAgICAgcmF0aW5nOiA0LjYsXG4gICAgICAgIHRvdGFsU2FsZXM6IDI5OCxcbiAgICAgICAgdmVyaWZpY2F0aW9uU3RhdHVzOiAndmVyaWZpZWQnXG4gICAgICB9LFxuICAgICAgc3RhdHM6IHsgbGlrZXM6IDc4LCBjb21tZW50czogMTksIHNoYXJlczogOCwgdmlld3M6IDIzNCwgc2F2ZXM6IDM0IH0sXG4gICAgICBjb25kaXRpb246ICdnb29kJyxcbiAgICAgIGlzTGlrZWQ6IGZhbHNlLFxuICAgICAgY3JlYXRlZEF0OiAnMjAyNC0wMS0xOVQxMToyMDowMFonLFxuICAgICAgdXBkYXRlZEF0OiAnMjAyNC0wMS0yMFQxNjo0NTowMFonLFxuICAgICAgY2F0ZWdvcnk6ICdmYXNoaW9uJyxcbiAgICAgIHN1YmNhdGVnb3J5OiAnc2hvZXMnLFxuICAgICAgdGFnczogWydhbmtsZScsICdib290cycsICdmYWxsJ10sXG4gICAgICBhdmFpbGFiaWxpdHk6ICdhdmFpbGFibGUtbm93J1xuICAgIH0sXG4gICAge1xuICAgICAgaWQ6ICd3b21lbi1wcmVtaXVtLTgnLFxuICAgICAgdGl0bGU6ICdTaWxrIFNjYXJmJyxcbiAgICAgIGJyYW5kOiAnSGVybcOocycsXG4gICAgICBwcmljZTogJyQxODUnLFxuICAgICAgb3JpZ2luYWxQcmljZTogJyQyNDUnLFxuICAgICAgc2l6ZTogJ09uZSBTaXplJyxcbiAgICAgIGltYWdlczogWydodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTUyMDkwMzkyMDI0NS0wMGM4N2ExYTViNGE/dz00MDAmaD00MDAmZml0PWNyb3AnXSxcbiAgICAgIHNlbGxlcjoge1xuICAgICAgICBpZDogJ3NlbGxlci1lbnRlcnByaXNlLTgnLFxuICAgICAgICB1c2VybmFtZTogJ2x1eHVyeV9zY2FydmVzJyxcbiAgICAgICAgYXZhdGFyOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE0Mzg3NjE2ODEwMzMtNjQ2MWZmYWQ4ZDgwP3c9MTAwJmg9MTAwJmZpdD1jcm9wJyxcbiAgICAgICAgcmF0aW5nOiA0LjksXG4gICAgICAgIHRvdGFsU2FsZXM6IDg5LFxuICAgICAgICB2ZXJpZmljYXRpb25TdGF0dXM6ICd2ZXJpZmllZCdcbiAgICAgIH0sXG4gICAgICBzdGF0czogeyBsaWtlczogMjM0LCBjb21tZW50czogNDUsIHNoYXJlczogMjMsIHZpZXdzOiA3ODksIHNhdmVzOiAxMjMgfSxcbiAgICAgIGNvbmRpdGlvbjogJ25ld193aXRoX3RhZ3MnLFxuICAgICAgaXNMaWtlZDogdHJ1ZSxcbiAgICAgIGNyZWF0ZWRBdDogJzIwMjQtMDEtMThUMTM6MTA6MDBaJyxcbiAgICAgIHVwZGF0ZWRBdDogJzIwMjQtMDEtMTlUMDk6MjU6MDBaJyxcbiAgICAgIGNhdGVnb3J5OiAnZmFzaGlvbicsXG4gICAgICBzdWJjYXRlZ29yeTogJ2FjY2Vzc29yaWVzJyxcbiAgICAgIHRhZ3M6IFsnc2lsaycsICdsdXh1cnknLCAnaGVybWVzJ10sXG4gICAgICBhdmFpbGFiaWxpdHk6ICdhdmFpbGFibGUtbm93J1xuICAgIH0sXG4gICAge1xuICAgICAgaWQ6ICd3b21lbi1wcmVtaXVtLTknLFxuICAgICAgdGl0bGU6ICdXb29sIEJsYXplcicsXG4gICAgICBicmFuZDogJ0ouQ3JldycsXG4gICAgICBwcmljZTogJyQxMjUnLFxuICAgICAgb3JpZ2luYWxQcmljZTogJyQxNjgnLFxuICAgICAgc2l6ZTogJ0wnLFxuICAgICAgaW1hZ2VzOiBbJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTk0NjMzMzEyNjgxLTQyNWM3Yjk3Y2NkMT93PTQwMCZoPTQwMCZmaXQ9Y3JvcCddLFxuICAgICAgc2VsbGVyOiB7XG4gICAgICAgIGlkOiAnc2VsbGVyLWVudGVycHJpc2UtOScsXG4gICAgICAgIHVzZXJuYW1lOiAncHJvZmVzc2lvbmFsX2xvb2snLFxuICAgICAgICBhdmF0YXI6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTUzNDUyODc0MTc3NS01Mzk5NGE2OWRhZWI/dz0xMDAmaD0xMDAmZml0PWNyb3AnLFxuICAgICAgICByYXRpbmc6IDQuNyxcbiAgICAgICAgdG90YWxTYWxlczogMzQ1LFxuICAgICAgICB2ZXJpZmljYXRpb25TdGF0dXM6ICd2ZXJpZmllZCdcbiAgICAgIH0sXG4gICAgICBzdGF0czogeyBsaWtlczogNTYsIGNvbW1lbnRzOiAxNCwgc2hhcmVzOiA3LCB2aWV3czogMTk4LCBzYXZlczogMjkgfSxcbiAgICAgIGNvbmRpdGlvbjogJ2V4Y2VsbGVudCcsXG4gICAgICBpc0xpa2VkOiBmYWxzZSxcbiAgICAgIGNyZWF0ZWRBdDogJzIwMjQtMDEtMTdUMTQ6MzU6MDBaJyxcbiAgICAgIHVwZGF0ZWRBdDogJzIwMjQtMDEtMThUMTE6NTA6MDBaJyxcbiAgICAgIGNhdGVnb3J5OiAnZmFzaGlvbicsXG4gICAgICBzdWJjYXRlZ29yeTogJ2phY2tldHMnLFxuICAgICAgdGFnczogWyd3b29sJywgJ2JsYXplcicsICdwcm9mZXNzaW9uYWwnXSxcbiAgICAgIGF2YWlsYWJpbGl0eTogJ2F2YWlsYWJsZS1ub3cnXG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogJ3dvbWVuLXByZW1pdW0tMTAnLFxuICAgICAgdGl0bGU6ICdQZW5jaWwgU2tpcnQnLFxuICAgICAgYnJhbmQ6ICdCYW5hbmEgUmVwdWJsaWMnLFxuICAgICAgcHJpY2U6ICckNjgnLFxuICAgICAgb3JpZ2luYWxQcmljZTogJyQ5OCcsXG4gICAgICBzaXplOiAnTScsXG4gICAgICBpbWFnZXM6IFsnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1OTQ2MzMzMTI2ODEtNDI1YzdiOTdjY2QxP3c9NDAwJmg9NDAwJmZpdD1jcm9wJ10sXG4gICAgICBzZWxsZXI6IHtcbiAgICAgICAgaWQ6ICdzZWxsZXItZW50ZXJwcmlzZS0xMCcsXG4gICAgICAgIHVzZXJuYW1lOiAnb2ZmaWNlX3N0eWxlJyxcbiAgICAgICAgYXZhdGFyOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1NDQwMDUzMTMtOTRkZGYwMjg2ZGYyP3c9MTAwJmg9MTAwJmZpdD1jcm9wJyxcbiAgICAgICAgcmF0aW5nOiA0LjQsXG4gICAgICAgIHRvdGFsU2FsZXM6IDE3OCxcbiAgICAgICAgdmVyaWZpY2F0aW9uU3RhdHVzOiAndmVyaWZpZWQnXG4gICAgICB9LFxuICAgICAgc3RhdHM6IHsgbGlrZXM6IDMyLCBjb21tZW50czogOCwgc2hhcmVzOiAzLCB2aWV3czogMTQ1LCBzYXZlczogMTggfSxcbiAgICAgIGNvbmRpdGlvbjogJ2dvb2QnLFxuICAgICAgaXNMaWtlZDogdHJ1ZSxcbiAgICAgIGNyZWF0ZWRBdDogJzIwMjQtMDEtMTZUMTA6MjU6MDBaJyxcbiAgICAgIHVwZGF0ZWRBdDogJzIwMjQtMDEtMTdUMTU6NDA6MDBaJyxcbiAgICAgIGNhdGVnb3J5OiAnZmFzaGlvbicsXG4gICAgICBzdWJjYXRlZ29yeTogJ2JvdHRvbXMnLFxuICAgICAgdGFnczogWydwZW5jaWwnLCAncHJvZmVzc2lvbmFsJywgJ29mZmljZSddLFxuICAgICAgYXZhaWxhYmlsaXR5OiAnYXZhaWxhYmxlLW5vdydcbiAgICB9LFxuICAgIHtcbiAgICAgIGlkOiAnd29tZW4tcHJlbWl1bS0xMScsXG4gICAgICB0aXRsZTogJ1N0YXRlbWVudCBOZWNrbGFjZScsXG4gICAgICBicmFuZDogJ0tlbmRyYSBTY290dCcsXG4gICAgICBwcmljZTogJyQ0NScsXG4gICAgICBvcmlnaW5hbFByaWNlOiAnJDY4JyxcbiAgICAgIHNpemU6ICdPbmUgU2l6ZScsXG4gICAgICBpbWFnZXM6IFsnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1MTU1NjIxNDEyMDctN2E4OGZiN2NlMzM4P3c9NDAwJmg9NDAwJmZpdD1jcm9wJ10sXG4gICAgICBzZWxsZXI6IHtcbiAgICAgICAgaWQ6ICdzZWxsZXItZW50ZXJwcmlzZS0xMScsXG4gICAgICAgIHVzZXJuYW1lOiAnamV3ZWxyeV9sb3ZlcicsXG4gICAgICAgIGF2YXRhcjogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTAwNjQ4NzY3NzkxLTAwZGNjOTk0YTQzZT93PTEwMCZoPTEwMCZmaXQ9Y3JvcCcsXG4gICAgICAgIHJhdGluZzogNC44LFxuICAgICAgICB0b3RhbFNhbGVzOiAyNjcsXG4gICAgICAgIHZlcmlmaWNhdGlvblN0YXR1czogJ3ZlcmlmaWVkJ1xuICAgICAgfSxcbiAgICAgIHN0YXRzOiB7IGxpa2VzOiAxMjMsIGNvbW1lbnRzOiAyOCwgc2hhcmVzOiAxNSwgdmlld3M6IDQ1Niwgc2F2ZXM6IDY3IH0sXG4gICAgICBjb25kaXRpb246ICdleGNlbGxlbnQnLFxuICAgICAgaXNMaWtlZDogZmFsc2UsXG4gICAgICBjcmVhdGVkQXQ6ICcyMDI0LTAxLTE1VDE2OjUwOjAwWicsXG4gICAgICB1cGRhdGVkQXQ6ICcyMDI0LTAxLTE2VDEyOjE1OjAwWicsXG4gICAgICBjYXRlZ29yeTogJ2Zhc2hpb24nLFxuICAgICAgc3ViY2F0ZWdvcnk6ICdhY2Nlc3NvcmllcycsXG4gICAgICB0YWdzOiBbJ3N0YXRlbWVudCcsICduZWNrbGFjZScsICdqZXdlbHJ5J10sXG4gICAgICBhdmFpbGFiaWxpdHk6ICdhdmFpbGFibGUtbm93J1xuICAgIH0sXG4gICAge1xuICAgICAgaWQ6ICd3b21lbi1wcmVtaXVtLTEyJyxcbiAgICAgIHRpdGxlOiAnU2F0aW4gUGFqYW1hIFNldCcsXG4gICAgICBicmFuZDogJ1ZpY3RvcmlhXFwncyBTZWNyZXQnLFxuICAgICAgcHJpY2U6ICckNzUnLFxuICAgICAgb3JpZ2luYWxQcmljZTogJyQxMTAnLFxuICAgICAgc2l6ZTogJ00nLFxuICAgICAgaW1hZ2VzOiBbJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTc2NTY2NTg4MDI4LTQxNDdmMzg0MmYyNz93PTQwMCZoPTQwMCZmaXQ9Y3JvcCddLFxuICAgICAgc2VsbGVyOiB7XG4gICAgICAgIGlkOiAnc2VsbGVyLWVudGVycHJpc2UtMTInLFxuICAgICAgICB1c2VybmFtZTogJ3NsZWVwX3N0eWxlJyxcbiAgICAgICAgYXZhdGFyOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE0OTQ3OTAxMDg3NTUtMjYxNmI2MTJiMGM1P3c9MTAwJmg9MTAwJmZpdD1jcm9wJyxcbiAgICAgICAgcmF0aW5nOiA0LjYsXG4gICAgICAgIHRvdGFsU2FsZXM6IDE4OSxcbiAgICAgICAgdmVyaWZpY2F0aW9uU3RhdHVzOiAndmVyaWZpZWQnXG4gICAgICB9LFxuICAgICAgc3RhdHM6IHsgbGlrZXM6IDY3LCBjb21tZW50czogMTYsIHNoYXJlczogOSwgdmlld3M6IDIzNCwgc2F2ZXM6IDMxIH0sXG4gICAgICBjb25kaXRpb246ICduZXdfd2l0aF90YWdzJyxcbiAgICAgIGlzTGlrZWQ6IHRydWUsXG4gICAgICBjcmVhdGVkQXQ6ICcyMDI0LTAxLTE0VDEyOjQwOjAwWicsXG4gICAgICB1cGRhdGVkQXQ6ICcyMDI0LTAxLTE1VDA5OjIwOjAwWicsXG4gICAgICBjYXRlZ29yeTogJ2Zhc2hpb24nLFxuICAgICAgc3ViY2F0ZWdvcnk6ICdzbGVlcHdlYXInLFxuICAgICAgdGFnczogWydzYXRpbicsICdwYWphbWFzJywgJ3NsZWVwJ10sXG4gICAgICBhdmFpbGFiaWxpdHk6ICdhdmFpbGFibGUtbm93J1xuICAgIH0sXG4gICAge1xuICAgICAgaWQ6ICd3b21lbi1wcmVtaXVtLTEzJyxcbiAgICAgIHRpdGxlOiAnV2lkZS1MZWcgUGFudHMnLFxuICAgICAgYnJhbmQ6ICdaYXJhJyxcbiAgICAgIHByaWNlOiAnJDU1JyxcbiAgICAgIG9yaWdpbmFsUHJpY2U6ICckNzknLFxuICAgICAgc2l6ZTogJ1MnLFxuICAgICAgaW1hZ2VzOiBbJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTQyMjcyNjA0LTc4N2MzODM1NTM1ZD93PTQwMCZoPTQwMCZmaXQ9Y3JvcCddLFxuICAgICAgc2VsbGVyOiB7XG4gICAgICAgIGlkOiAnc2VsbGVyLWVudGVycHJpc2UtMTMnLFxuICAgICAgICB1c2VybmFtZTogJ3RyZW5keV9mYXNoaW9uJyxcbiAgICAgICAgYXZhdGFyOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE0Mzg3NjE2ODEwMzMtNjQ2MWZmYWQ4ZDgwP3c9MTAwJmg9MTAwJmZpdD1jcm9wJyxcbiAgICAgICAgcmF0aW5nOiA0LjMsXG4gICAgICAgIHRvdGFsU2FsZXM6IDE0NSxcbiAgICAgICAgdmVyaWZpY2F0aW9uU3RhdHVzOiAndmVyaWZpZWQnXG4gICAgICB9LFxuICAgICAgc3RhdHM6IHsgbGlrZXM6IDQ1LCBjb21tZW50czogMTEsIHNoYXJlczogNSwgdmlld3M6IDE2Nywgc2F2ZXM6IDI0IH0sXG4gICAgICBjb25kaXRpb246ICdnb29kJyxcbiAgICAgIGlzTGlrZWQ6IGZhbHNlLFxuICAgICAgY3JlYXRlZEF0OiAnMjAyNC0wMS0xM1QxNDoxNTowMFonLFxuICAgICAgdXBkYXRlZEF0OiAnMjAyNC0wMS0xNFQxMTozMDowMFonLFxuICAgICAgY2F0ZWdvcnk6ICdmYXNoaW9uJyxcbiAgICAgIHN1YmNhdGVnb3J5OiAnYm90dG9tcycsXG4gICAgICB0YWdzOiBbJ3dpZGUtbGVnJywgJ3RyZW5keScsICdjYXN1YWwnXSxcbiAgICAgIGF2YWlsYWJpbGl0eTogJ2F2YWlsYWJsZS1ub3cnXG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogJ3dvbWVuLXByZW1pdW0tMTQnLFxuICAgICAgdGl0bGU6ICdLbml0IENhcmRpZ2FuJyxcbiAgICAgIGJyYW5kOiAnR2FwJyxcbiAgICAgIHByaWNlOiAnJDQyJyxcbiAgICAgIG9yaWdpbmFsUHJpY2U6ICckNjUnLFxuICAgICAgc2l6ZTogJ0wnLFxuICAgICAgaW1hZ2VzOiBbJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTc2NTY2NTg4MDI4LTQxNDdmMzg0MmYyNz93PTQwMCZoPTQwMCZmaXQ9Y3JvcCddLFxuICAgICAgc2VsbGVyOiB7XG4gICAgICAgIGlkOiAnc2VsbGVyLWVudGVycHJpc2UtMTQnLFxuICAgICAgICB1c2VybmFtZTogJ2Nvenlfa25pdHMnLFxuICAgICAgICBhdmF0YXI6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTUzNDUyODc0MTc3NS01Mzk5NGE2OWRhZWI/dz0xMDAmaD0xMDAmZml0PWNyb3AnLFxuICAgICAgICByYXRpbmc6IDQuNSxcbiAgICAgICAgdG90YWxTYWxlczogMjM0LFxuICAgICAgICB2ZXJpZmljYXRpb25TdGF0dXM6ICd2ZXJpZmllZCdcbiAgICAgIH0sXG4gICAgICBzdGF0czogeyBsaWtlczogODksIGNvbW1lbnRzOiAyMiwgc2hhcmVzOiAxMiwgdmlld3M6IDI5OCwgc2F2ZXM6IDQxIH0sXG4gICAgICBjb25kaXRpb246ICdleGNlbGxlbnQnLFxuICAgICAgaXNMaWtlZDogdHJ1ZSxcbiAgICAgIGNyZWF0ZWRBdDogJzIwMjQtMDEtMTJUMDk6MzA6MDBaJyxcbiAgICAgIHVwZGF0ZWRBdDogJzIwMjQtMDEtMTNUMTY6NDU6MDBaJyxcbiAgICAgIGNhdGVnb3J5OiAnZmFzaGlvbicsXG4gICAgICBzdWJjYXRlZ29yeTogJ3N3ZWF0ZXJzJyxcbiAgICAgIHRhZ3M6IFsna25pdCcsICdjYXJkaWdhbicsICdjYXN1YWwnXSxcbiAgICAgIGF2YWlsYWJpbGl0eTogJ2F2YWlsYWJsZS1ub3cnXG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogJ3dvbWVuLXByZW1pdW0tMTUnLFxuICAgICAgdGl0bGU6ICdMZWF0aGVyIEJlbHQnLFxuICAgICAgYnJhbmQ6ICdGb3NzaWwnLFxuICAgICAgcHJpY2U6ICckMjgnLFxuICAgICAgb3JpZ2luYWxQcmljZTogJyQ0NScsXG4gICAgICBzaXplOiAnTScsXG4gICAgICBpbWFnZXM6IFsnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1NTMwNjI0MDctOThlZWI2NGM2YTYyP3c9NDAwJmg9NDAwJmZpdD1jcm9wJ10sXG4gICAgICBzZWxsZXI6IHtcbiAgICAgICAgaWQ6ICdzZWxsZXItZW50ZXJwcmlzZS0xNScsXG4gICAgICAgIHVzZXJuYW1lOiAnYWNjZXNzb3J5X3F1ZWVuJyxcbiAgICAgICAgYXZhdGFyOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1NDQwMDUzMTMtOTRkZGYwMjg2ZGYyP3c9MTAwJmg9MTAwJmZpdD1jcm9wJyxcbiAgICAgICAgcmF0aW5nOiA0LjcsXG4gICAgICAgIHRvdGFsU2FsZXM6IDE1NixcbiAgICAgICAgdmVyaWZpY2F0aW9uU3RhdHVzOiAndmVyaWZpZWQnXG4gICAgICB9LFxuICAgICAgc3RhdHM6IHsgbGlrZXM6IDM0LCBjb21tZW50czogOCwgc2hhcmVzOiA0LCB2aWV3czogMTIzLCBzYXZlczogMTkgfSxcbiAgICAgIGNvbmRpdGlvbjogJ2dvb2QnLFxuICAgICAgaXNMaWtlZDogZmFsc2UsXG4gICAgICBjcmVhdGVkQXQ6ICcyMDI0LTAxLTExVDExOjIwOjAwWicsXG4gICAgICB1cGRhdGVkQXQ6ICcyMDI0LTAxLTEyVDE0OjEwOjAwWicsXG4gICAgICBjYXRlZ29yeTogJ2Zhc2hpb24nLFxuICAgICAgc3ViY2F0ZWdvcnk6ICdhY2Nlc3NvcmllcycsXG4gICAgICB0YWdzOiBbJ2xlYXRoZXInLCAnYmVsdCcsICdhY2Nlc3NvcnknXSxcbiAgICAgIGF2YWlsYWJpbGl0eTogJ2F2YWlsYWJsZS1ub3cnXG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogJ3dvbWVuLXByZW1pdW0tMTYnLFxuICAgICAgdGl0bGU6ICdQbGF0Zm9ybSBTYW5kYWxzJyxcbiAgICAgIGJyYW5kOiAnU3RldmUgTWFkZGVuJyxcbiAgICAgIHByaWNlOiAnJDY1JyxcbiAgICAgIG9yaWdpbmFsUHJpY2U6ICckOTUnLFxuICAgICAgc2l6ZTogJzgnLFxuICAgICAgaW1hZ2VzOiBbJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTQ5Mjk4OTE2LWI0MWQ1MDFkMzc3Mj93PTQwMCZoPTQwMCZmaXQ9Y3JvcCddLFxuICAgICAgc2VsbGVyOiB7XG4gICAgICAgIGlkOiAnc2VsbGVyLWVudGVycHJpc2UtMTYnLFxuICAgICAgICB1c2VybmFtZTogJ3N1bW1lcl9zaG9lcycsXG4gICAgICAgIGF2YXRhcjogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTAwNjQ4NzY3NzkxLTAwZGNjOTk0YTQzZT93PTEwMCZoPTEwMCZmaXQ9Y3JvcCcsXG4gICAgICAgIHJhdGluZzogNC40LFxuICAgICAgICB0b3RhbFNhbGVzOiAxOTgsXG4gICAgICAgIHZlcmlmaWNhdGlvblN0YXR1czogJ3ZlcmlmaWVkJ1xuICAgICAgfSxcbiAgICAgIHN0YXRzOiB7IGxpa2VzOiA3OCwgY29tbWVudHM6IDE5LCBzaGFyZXM6IDgsIHZpZXdzOiAyNDUsIHNhdmVzOiAzNSB9LFxuICAgICAgY29uZGl0aW9uOiAnZXhjZWxsZW50JyxcbiAgICAgIGlzTGlrZWQ6IHRydWUsXG4gICAgICBjcmVhdGVkQXQ6ICcyMDI0LTAxLTEwVDEzOjQ1OjAwWicsXG4gICAgICB1cGRhdGVkQXQ6ICcyMDI0LTAxLTExVDEwOjI1OjAwWicsXG4gICAgICBjYXRlZ29yeTogJ2Zhc2hpb24nLFxuICAgICAgc3ViY2F0ZWdvcnk6ICdzaG9lcycsXG4gICAgICB0YWdzOiBbJ3BsYXRmb3JtJywgJ3NhbmRhbHMnLCAnc3VtbWVyJ10sXG4gICAgICBhdmFpbGFiaWxpdHk6ICdhdmFpbGFibGUtbm93J1xuICAgIH0sXG4gICAge1xuICAgICAgaWQ6ICd3b21lbi1wcmVtaXVtLTE3JyxcbiAgICAgIHRpdGxlOiAnVHVydGxlbmVjayBTd2VhdGVyJyxcbiAgICAgIGJyYW5kOiAnVW5pcWxvJyxcbiAgICAgIHByaWNlOiAnJDM1JyxcbiAgICAgIG9yaWdpbmFsUHJpY2U6ICckNTUnLFxuICAgICAgc2l6ZTogJ00nLFxuICAgICAgaW1hZ2VzOiBbJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTc2NTY2NTg4MDI4LTQxNDdmMzg0MmYyNz93PTQwMCZoPTQwMCZmaXQ9Y3JvcCddLFxuICAgICAgc2VsbGVyOiB7XG4gICAgICAgIGlkOiAnc2VsbGVyLWVudGVycHJpc2UtMTcnLFxuICAgICAgICB1c2VybmFtZTogJ21pbmltYWxfc3R5bGUnLFxuICAgICAgICBhdmF0YXI6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTQ5NDc5MDEwODc1NS0yNjE2YjYxMmIwYzU/dz0xMDAmaD0xMDAmZml0PWNyb3AnLFxuICAgICAgICByYXRpbmc6IDQuNixcbiAgICAgICAgdG90YWxTYWxlczogMzQ1LFxuICAgICAgICB2ZXJpZmljYXRpb25TdGF0dXM6ICd2ZXJpZmllZCdcbiAgICAgIH0sXG4gICAgICBzdGF0czogeyBsaWtlczogMTU2LCBjb21tZW50czogMzQsIHNoYXJlczogMTgsIHZpZXdzOiA0NTYsIHNhdmVzOiA2NyB9LFxuICAgICAgY29uZGl0aW9uOiAnbmV3X3dpdGhfdGFncycsXG4gICAgICBpc0xpa2VkOiBmYWxzZSxcbiAgICAgIGNyZWF0ZWRBdDogJzIwMjQtMDEtMDlUMTU6MjA6MDBaJyxcbiAgICAgIHVwZGF0ZWRBdDogJzIwMjQtMDEtMTBUMTI6MzA6MDBaJyxcbiAgICAgIGNhdGVnb3J5OiAnZmFzaGlvbicsXG4gICAgICBzdWJjYXRlZ29yeTogJ3N3ZWF0ZXJzJyxcbiAgICAgIHRhZ3M6IFsndHVydGxlbmVjaycsICdtaW5pbWFsJywgJ3dhcm0nXSxcbiAgICAgIGF2YWlsYWJpbGl0eTogJ2F2YWlsYWJsZS1ub3cnXG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogJ3dvbWVuLXByZW1pdW0tMTgnLFxuICAgICAgdGl0bGU6ICdBLUxpbmUgTWlkaSBTa2lydCcsXG4gICAgICBicmFuZDogJ0gmTScsXG4gICAgICBwcmljZTogJyQzMicsXG4gICAgICBvcmlnaW5hbFByaWNlOiAnJDQ5JyxcbiAgICAgIHNpemU6ICdTJyxcbiAgICAgIGltYWdlczogWydodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU5NDYzMzMxMjY4MS00MjVjN2I5N2NjZDE/dz00MDAmaD00MDAmZml0PWNyb3AnXSxcbiAgICAgIHNlbGxlcjoge1xuICAgICAgICBpZDogJ3NlbGxlci1lbnRlcnByaXNlLTE4JyxcbiAgICAgICAgdXNlcm5hbWU6ICdza2lydF9sb3ZlcicsXG4gICAgICAgIGF2YXRhcjogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNDM4NzYxNjgxMDMzLTY0NjFmZmFkOGQ4MD93PTEwMCZoPTEwMCZmaXQ9Y3JvcCcsXG4gICAgICAgIHJhdGluZzogNC4zLFxuICAgICAgICB0b3RhbFNhbGVzOiAxMjMsXG4gICAgICAgIHZlcmlmaWNhdGlvblN0YXR1czogJ3ZlcmlmaWVkJ1xuICAgICAgfSxcbiAgICAgIHN0YXRzOiB7IGxpa2VzOiA0NSwgY29tbWVudHM6IDEyLCBzaGFyZXM6IDYsIHZpZXdzOiAxNzgsIHNhdmVzOiAyNiB9LFxuICAgICAgY29uZGl0aW9uOiAnZ29vZCcsXG4gICAgICBpc0xpa2VkOiB0cnVlLFxuICAgICAgY3JlYXRlZEF0OiAnMjAyNC0wMS0wOFQxMDoxNTowMFonLFxuICAgICAgdXBkYXRlZEF0OiAnMjAyNC0wMS0wOVQxNDo0MDowMFonLFxuICAgICAgY2F0ZWdvcnk6ICdmYXNoaW9uJyxcbiAgICAgIHN1YmNhdGVnb3J5OiAnYm90dG9tcycsXG4gICAgICB0YWdzOiBbJ2EtbGluZScsICdtaWRpJywgJ2Nhc3VhbCddLFxuICAgICAgYXZhaWxhYmlsaXR5OiAnYXZhaWxhYmxlLW5vdydcbiAgICB9LFxuICAgIHtcbiAgICAgIGlkOiAnd29tZW4tcHJlbWl1bS0xOScsXG4gICAgICB0aXRsZTogJ1N0cmF3IEhhdCcsXG4gICAgICBicmFuZDogJ0V1Z2VuaWEgS2ltJyxcbiAgICAgIHByaWNlOiAnJDg1JyxcbiAgICAgIG9yaWdpbmFsUHJpY2U6ICckMTI1JyxcbiAgICAgIHNpemU6ICdPbmUgU2l6ZScsXG4gICAgICBpbWFnZXM6IFsnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1MjA5MDM5MjAyNDUtMDBjODdhMWE1YjRhP3c9NDAwJmg9NDAwJmZpdD1jcm9wJ10sXG4gICAgICBzZWxsZXI6IHtcbiAgICAgICAgaWQ6ICdzZWxsZXItZW50ZXJwcmlzZS0xOScsXG4gICAgICAgIHVzZXJuYW1lOiAnaGF0X2NvbGxlY3RvcicsXG4gICAgICAgIGF2YXRhcjogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTM0NTI4NzQxNzc1LTUzOTk0YTY5ZGFlYj93PTEwMCZoPTEwMCZmaXQ9Y3JvcCcsXG4gICAgICAgIHJhdGluZzogNC44LFxuICAgICAgICB0b3RhbFNhbGVzOiA4OSxcbiAgICAgICAgdmVyaWZpY2F0aW9uU3RhdHVzOiAndmVyaWZpZWQnXG4gICAgICB9LFxuICAgICAgc3RhdHM6IHsgbGlrZXM6IDIzNCwgY29tbWVudHM6IDQ1LCBzaGFyZXM6IDIzLCB2aWV3czogNTY3LCBzYXZlczogODkgfSxcbiAgICAgIGNvbmRpdGlvbjogJ2V4Y2VsbGVudCcsXG4gICAgICBpc0xpa2VkOiBmYWxzZSxcbiAgICAgIGNyZWF0ZWRBdDogJzIwMjQtMDEtMDdUMTI6MzA6MDBaJyxcbiAgICAgIHVwZGF0ZWRBdDogJzIwMjQtMDEtMDhUMDk6MTU6MDBaJyxcbiAgICAgIGNhdGVnb3J5OiAnZmFzaGlvbicsXG4gICAgICBzdWJjYXRlZ29yeTogJ2FjY2Vzc29yaWVzJyxcbiAgICAgIHRhZ3M6IFsnc3RyYXcnLCAnaGF0JywgJ3N1bW1lciddLFxuICAgICAgYXZhaWxhYmlsaXR5OiAnYXZhaWxhYmxlLW5vdydcbiAgICB9LFxuICAgIHtcbiAgICAgIGlkOiAnd29tZW4tcHJlbWl1bS0yMCcsXG4gICAgICB0aXRsZTogJ0RlbmltIFNob3J0cycsXG4gICAgICBicmFuZDogJ0FtZXJpY2FuIEVhZ2xlJyxcbiAgICAgIHByaWNlOiAnJDI4JyxcbiAgICAgIG9yaWdpbmFsUHJpY2U6ICckNDInLFxuICAgICAgc2l6ZTogJzI2JyxcbiAgICAgIGltYWdlczogWydodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU0MjI3MjYwNC03ODdjMzgzNTUzNWQ/dz00MDAmaD00MDAmZml0PWNyb3AnXSxcbiAgICAgIHNlbGxlcjoge1xuICAgICAgICBpZDogJ3NlbGxlci1lbnRlcnByaXNlLTIwJyxcbiAgICAgICAgdXNlcm5hbWU6ICdjYXN1YWxfc3R5bGUnLFxuICAgICAgICBhdmF0YXI6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU0NDAwNTMxMy05NGRkZjAyODZkZjI/dz0xMDAmaD0xMDAmZml0PWNyb3AnLFxuICAgICAgICByYXRpbmc6IDQuNSxcbiAgICAgICAgdG90YWxTYWxlczogMjY3LFxuICAgICAgICB2ZXJpZmljYXRpb25TdGF0dXM6ICd2ZXJpZmllZCdcbiAgICAgIH0sXG4gICAgICBzdGF0czogeyBsaWtlczogODksIGNvbW1lbnRzOiAyMywgc2hhcmVzOiAxMiwgdmlld3M6IDI5OCwgc2F2ZXM6IDQxIH0sXG4gICAgICBjb25kaXRpb246ICdnb29kJyxcbiAgICAgIGlzTGlrZWQ6IHRydWUsXG4gICAgICBjcmVhdGVkQXQ6ICcyMDI0LTAxLTA2VDE0OjQ1OjAwWicsXG4gICAgICB1cGRhdGVkQXQ6ICcyMDI0LTAxLTA3VDExOjIwOjAwWicsXG4gICAgICBjYXRlZ29yeTogJ2Zhc2hpb24nLFxuICAgICAgc3ViY2F0ZWdvcnk6ICdib3R0b21zJyxcbiAgICAgIHRhZ3M6IFsnZGVuaW0nLCAnc2hvcnRzJywgJ2Nhc3VhbCddLFxuICAgICAgYXZhaWxhYmlsaXR5OiAnYXZhaWxhYmxlLW5vdydcbiAgICB9XG4gIF0sXG4gIHZlcnNpb246ICcyLjAuMCcsXG4gIGxhc3RVcGRhdGVkOiBuZXcgRGF0ZSgpLnRvSVNPU3RyaW5nKCksXG4gIGNvbmZpZ3VyYXRpb25JZDogY3J5cHRvLnJhbmRvbVVVSUQoKSxcbiAgaXNBY3RpdmU6IHRydWVcbn07XG5cbi8vID09PT09IFZBTElEQVRJT04gQU5EIEVYUE9SVCA9PT09PVxuXG4vLyBWYWxpZGF0ZSB0aGUgY29uZmlndXJhdGlvbiBhZ2FpbnN0IHRoZSBlbnRlcnByaXNlIHNjaGVtYVxuY29uc3QgdmFsaWRhdGlvblJlc3VsdCA9IFVuaXZlcnNhbFBhZ2VDb25maWd1cmF0aW9uU2NoZW1hLnNhZmVQYXJzZShlbnRlcnByaXNlV29tZW5Db25maWcpO1xuXG5pZiAoIXZhbGlkYXRpb25SZXN1bHQuc3VjY2Vzcykge1xuICBjb25zb2xlLmVycm9yKCdFbnRlcnByaXNlIFdvbWVuXFwncyBDb25maWd1cmF0aW9uIFZhbGlkYXRpb24gRmFpbGVkOicsIHZhbGlkYXRpb25SZXN1bHQuZXJyb3IpO1xuICB0aHJvdyBuZXcgRXJyb3IoJ0NvbmZpZ3VyYXRpb24gdmFsaWRhdGlvbiBmYWlsZWQgLSBjaGVjayBjb25zb2xlIGZvciBkZXRhaWxzJyk7XG59XG5cbi8vID09PT09IFNPQ0lBTCBMQVlPVVQgVkFSSUFOVCA9PT09PVxuLy8gRXh0ZW5kcyBleGlzdGluZyBjb25maWd1cmF0aW9uIHdpdGggc29jaWFsLWNvbW1lcmNlIGxheW91dCBvcHRpb25zXG4vLyBaZXJvIGJyZWFraW5nIGNoYW5nZXMgLSBvbmx5IGFkZHMgbmV3IGNvbmZpZ3VyYXRpb24gb3B0aW9uXG5cbmV4cG9ydCBjb25zdCBzb2NpYWxXb21lbkNvbmZpZzogVW5pdmVyc2FsUGFnZUNvbmZpZ3VyYXRpb24gPSB7XG4gIC4uLmVudGVycHJpc2VXb21lbkNvbmZpZyxcbiAgbWV0YWRhdGE6IHtcbiAgICAuLi5lbnRlcnByaXNlV29tZW5Db25maWcubWV0YWRhdGEsXG4gICAgdGl0bGU6ICdXb21lbicsXG4gICAgZGVzY3JpcHRpb246ICdEaXNjb3ZlciB0aGUgbGF0ZXN0IGluIHdvbWVuXFwncyBmYXNoaW9uJyxcbiAgICBncmFkaWVudDogJ2Zyb20td2hpdGUgdG8tZ3JheS01MCcsXG4gICAgcGxhY2Vob2xkZXI6ICdTZWFyY2ggd29tZW5cXCdzIGZhc2hpb24uLi4nXG4gIH0sXG4gIGZpbHRlckNvbmZpZ3VyYXRpb246IHtcbiAgICAuLi5lbnRlcnByaXNlV29tZW5Db25maWcuZmlsdGVyQ29uZmlndXJhdGlvbixcbiAgICBjYXRlZ29yeVNwZWNpZmljRmlsdGVyczogW1xuICAgICAgLy8gU2ltcGxpZmllZCBmbGF0IGNhdGVnb3J5IGxpc3QgbWF0Y2hpbmcgc29jaWFsIGNvbW1lcmNlIGRlc2lnblxuICAgICAge1xuICAgICAgICBpZDogJ3NvY2lhbC1jYXRlZ29yaWVzJyxcbiAgICAgICAgbmFtZTogJ0NBVEVHT1JJRVMnLFxuICAgICAgICB0eXBlOiAnY2hlY2tib3gnLFxuICAgICAgICByZXF1aXJlZDogZmFsc2UsXG4gICAgICAgIGRpc3BsYXlPcmRlcjogMSxcbiAgICAgICAgdmFsaWRhdGlvbjogei5hcnJheSh6LnN0cmluZygpKSxcbiAgICAgICAgb3B0aW9uczogW1xuICAgICAgICAgIHsgaWQ6ICd3b21lbicsIG5hbWU6ICdXb21lbicsIGNvdW50OiAxMjUwIH0sXG4gICAgICAgICAgeyBpZDogJ2FjY2Vzc29yaWVzJywgbmFtZTogJ0FjY2Vzc29yaWVzJywgY291bnQ6IDM0MCB9LFxuICAgICAgICAgIHsgaWQ6ICdiYWdzJywgbmFtZTogJ0JhZ3MnLCBjb3VudDogMjgwIH0sXG4gICAgICAgICAgeyBpZDogJ2RyZXNzZXMnLCBuYW1lOiAnRHJlc3NlcycsIGNvdW50OiA0MjAgfSxcbiAgICAgICAgICB7IGlkOiAnaW50aW1hdGVzJywgbmFtZTogJ0ludGltYXRlcyAmIFNsZWVwd2VhcicsIGNvdW50OiAxOTAgfSxcbiAgICAgICAgICB7IGlkOiAnamFja2V0cycsIG5hbWU6ICdKYWNrZXRzICYgQ29hdHMnLCBjb3VudDogMzEwIH0sXG4gICAgICAgICAgeyBpZDogJ2plYW5zJywgbmFtZTogJ0plYW5zJywgY291bnQ6IDM4MCB9LFxuICAgICAgICAgIHsgaWQ6ICdqZXdlbHJ5JywgbmFtZTogJ0pld2VscnknLCBjb3VudDogMjIwIH0sXG4gICAgICAgICAgeyBpZDogJ21ha2V1cCcsIG5hbWU6ICdNYWtldXAnLCBjb3VudDogMTUwIH0sXG4gICAgICAgICAgeyBpZDogJ3BhbnRzJywgbmFtZTogJ1BhbnRzICYgSnVtcHN1aXRzJywgY291bnQ6IDI5MCB9LFxuICAgICAgICAgIHsgaWQ6ICdzaG9lcycsIG5hbWU6ICdTaG9lcycsIGNvdW50OiAzNjAgfSxcbiAgICAgICAgICB7IGlkOiAnc2hvcnRzJywgbmFtZTogJ1Nob3J0cycsIGNvdW50OiAxODAgfSxcbiAgICAgICAgICB7IGlkOiAnc2tpcnRzJywgbmFtZTogJ1NraXJ0cycsIGNvdW50OiAyNDAgfSxcbiAgICAgICAgICB7IGlkOiAnc3dlYXRlcnMnLCBuYW1lOiAnU3dlYXRlcnMnLCBjb3VudDogMzIwIH0sXG4gICAgICAgICAgeyBpZDogJ3N3aW0nLCBuYW1lOiAnU3dpbScsIGNvdW50OiAxMjAgfSxcbiAgICAgICAgICB7IGlkOiAndG9wcycsIG5hbWU6ICdUb3BzJywgY291bnQ6IDQ1MCB9LFxuICAgICAgICAgIHsgaWQ6ICdza2luY2FyZScsIG5hbWU6ICdTa2luY2FyZScsIGNvdW50OiA5MCB9LFxuICAgICAgICAgIHsgaWQ6ICdoYWlyJywgbmFtZTogJ0hhaXInLCBjb3VudDogNzUgfSxcbiAgICAgICAgICB7IGlkOiAnYmF0aCcsIG5hbWU6ICdCYXRoICYgQm9keScsIGNvdW50OiA4NSB9XG4gICAgICAgIF1cbiAgICAgIH0sXG4gICAgICAvLyBLZWVwIGV4aXN0aW5nIHNpemUgZmlsdGVyIGJ1dCB3aXRoIHNvY2lhbCBzdHlsaW5nXG4gICAgICB7XG4gICAgICAgIC4uLmVudGVycHJpc2VXb21lbkNvbmZpZy5maWx0ZXJDb25maWd1cmF0aW9uLmNhdGVnb3J5U3BlY2lmaWNGaWx0ZXJzLmZpbmQoZiA9PiBmLmlkID09PSAnd29tZW4tc2l6ZXMnKSEsXG4gICAgICAgIG5hbWU6ICdTSVpFJyxcbiAgICAgICAgb3B0aW9uczogW1xuICAgICAgICAgIHsgaWQ6ICdhbGwtc2l6ZXMnLCBuYW1lOiAnQWxsIFNpemVzJywgY291bnQ6IDEyNTAgfSxcbiAgICAgICAgICB7IGlkOiAnbXktc2l6ZScsIG5hbWU6ICdNeSBTaXplJywgY291bnQ6IDAgfSxcbiAgICAgICAgICB7IGlkOiAneHhzJywgbmFtZTogJ1hYUycsIGNvdW50OiA0NSB9LFxuICAgICAgICAgIHsgaWQ6ICd4cycsIG5hbWU6ICdYUycsIGNvdW50OiAxMjAgfSxcbiAgICAgICAgICB7IGlkOiAncycsIG5hbWU6ICdTJywgY291bnQ6IDI4MCB9LFxuICAgICAgICAgIHsgaWQ6ICdtJywgbmFtZTogJ00nLCBjb3VudDogMzIwIH0sXG4gICAgICAgICAgeyBpZDogJ2wnLCBuYW1lOiAnTCcsIGNvdW50OiAyOTAgfSxcbiAgICAgICAgICB7IGlkOiAneGwnLCBuYW1lOiAnWEwnLCBjb3VudDogMTUwIH0sXG4gICAgICAgICAgeyBpZDogJ3h4bCcsIG5hbWU6ICdYWEwnLCBjb3VudDogNDUgfVxuICAgICAgICBdXG4gICAgICB9XG4gICAgXVxuICB9LFxuICAvLyBPdmVycmlkZSBzYW1wbGUgcHJvZHVjdHMgd2l0aCBzb2NpYWwtY29tbWVyY2Utc3R5bGUgZGF0YVxuICBzYW1wbGVQcm9kdWN0czogW1xuICAgIHtcbiAgICAgIGlkOiAnc29jaWFsLXdvbWVuLTEnLFxuICAgICAgdGl0bGU6ICdSSUxFWSZSQUUgV29tZW5zIFJlZCBQcmludGVkIFYgTmVjayBUb3AgUycsXG4gICAgICBicmFuZDogJ1JJTEVZJlJBRScsXG4gICAgICBwcmljZTogJyQzMycsXG4gICAgICBvcmlnaW5hbFByaWNlOiAnJDQ5JyxcbiAgICAgIHNpemU6ICdTJyxcbiAgICAgIGltYWdlczogWydodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU0NDQ0MTg5My02NzU5NzNlMzE5ODU/dz00MDAmaD00MDAmZml0PWNyb3AnXSxcbiAgICAgIHNlbGxlcjoge1xuICAgICAgICBpZDogJ3NlbGxlci1zb2NpYWwtMScsXG4gICAgICAgIHVzZXJuYW1lOiAnX2x1eHVyeWxvb2tzJyxcbiAgICAgICAgYXZhdGFyOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE0Mzg3NjE2ODEwMzMtNjQ2MWZmYWQ4ZDgwP3c9MTAwJmg9MTAwJmZpdD1jcm9wJyxcbiAgICAgICAgcmF0aW5nOiA0LjcsXG4gICAgICAgIHRvdGFsU2FsZXM6IDE1NixcbiAgICAgICAgdmVyaWZpY2F0aW9uU3RhdHVzOiAndmVyaWZpZWQnXG4gICAgICB9LFxuICAgICAgc3RhdHM6IHsgbGlrZXM6IDEsIGNvbW1lbnRzOiAwLCBzaGFyZXM6IDAsIHZpZXdzOiAyMywgc2F2ZXM6IDIgfSxcbiAgICAgIGNvbmRpdGlvbjogJ25ld193aXRoX3RhZ3MnLFxuICAgICAgaXNMaWtlZDogZmFsc2UsXG4gICAgICBjcmVhdGVkQXQ6ICcyMDI0LTAxLTI1VDEwOjMwOjAwWicsXG4gICAgICB1cGRhdGVkQXQ6ICcyMDI0LTAxLTI2VDE0OjIwOjAwWicsXG4gICAgICBjYXRlZ29yeTogJ2Zhc2hpb24nLFxuICAgICAgc3ViY2F0ZWdvcnk6ICd0b3BzJyxcbiAgICAgIHRhZ3M6IFsncHJpbnRlZCcsICd2LW5lY2snLCAnY2FzdWFsJ10sXG4gICAgICBhdmFpbGFiaWxpdHk6ICdhdmFpbGFibGUtbm93J1xuICAgIH0sXG4gICAge1xuICAgICAgaWQ6ICdzb2NpYWwtd29tZW4tMicsXG4gICAgICB0aXRsZTogJ0FlcmllIEhvdCBQaW5rIE92ZXJzaXplZCBTd2VhdGVyIFNpemUgTCcsXG4gICAgICBicmFuZDogJ2FlcmllJyxcbiAgICAgIHByaWNlOiAnJDE4JyxcbiAgICAgIG9yaWdpbmFsUHJpY2U6ICckNjAnLFxuICAgICAgc2l6ZTogJ0wvRycsXG4gICAgICBpbWFnZXM6IFsnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1NzY1NjY1ODgwMjgtNDE0N2YzODQyZjI3P3c9NDAwJmg9NDAwJmZpdD1jcm9wJ10sXG4gICAgICBzZWxsZXI6IHtcbiAgICAgICAgaWQ6ICdzZWxsZXItc29jaWFsLTInLFxuICAgICAgICB1c2VybmFtZTogJ25pY29sZXpteXNsb255JyxcbiAgICAgICAgYXZhdGFyOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE0OTQ3OTAxMDg3NTUtMjYxNmI2MTJiMGM1P3c9MTAwJmg9MTAwJmZpdD1jcm9wJyxcbiAgICAgICAgcmF0aW5nOiA0LjUsXG4gICAgICAgIHRvdGFsU2FsZXM6IDg5LFxuICAgICAgICB2ZXJpZmljYXRpb25TdGF0dXM6ICd2ZXJpZmllZCdcbiAgICAgIH0sXG4gICAgICBzdGF0czogeyBsaWtlczogMCwgY29tbWVudHM6IDAsIHNoYXJlczogMCwgdmlld3M6IDEyLCBzYXZlczogMSB9LFxuICAgICAgY29uZGl0aW9uOiAnZXhjZWxsZW50JyxcbiAgICAgIGlzTGlrZWQ6IGZhbHNlLFxuICAgICAgY3JlYXRlZEF0OiAnMjAyNC0wMS0yNFQxNDoyMDowMFonLFxuICAgICAgdXBkYXRlZEF0OiAnMjAyNC0wMS0yNVQwOToxNTowMFonLFxuICAgICAgY2F0ZWdvcnk6ICdmYXNoaW9uJyxcbiAgICAgIHN1YmNhdGVnb3J5OiAnc3dlYXRlcnMnLFxuICAgICAgdGFnczogWydvdmVyc2l6ZWQnLCAncGluaycsICdjb3p5J10sXG4gICAgICBhdmFpbGFiaWxpdHk6ICdhdmFpbGFibGUtbm93J1xuICAgIH0sXG4gICAge1xuICAgICAgaWQ6ICdzb2NpYWwtd29tZW4tMycsXG4gICAgICB0aXRsZTogJ01hZGV3ZWxsIFRoZSBQZXJmZWN0IFZpbnRhZ2UgV2lkZSBMZWcgSmVhbiBzaXplIDMyJyxcbiAgICAgIGJyYW5kOiAnTWFkZXdlbGwnLFxuICAgICAgcHJpY2U6ICckMzYnLFxuICAgICAgb3JpZ2luYWxQcmljZTogdW5kZWZpbmVkLFxuICAgICAgc2l6ZTogJzMyJyxcbiAgICAgIGltYWdlczogWydodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTUyMzIwNTc3MTYyMy1lMGZhYTRkMjgxM2Q/dz00MDAmaD00MDAmZml0PWNyb3AnXSxcbiAgICAgIHNlbGxlcjoge1xuICAgICAgICBpZDogJ3NlbGxlci1zb2NpYWwtMycsXG4gICAgICAgIHVzZXJuYW1lOiAncmFja3Jlc2N1ZWpheCcsXG4gICAgICAgIGF2YXRhcjogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTM0NTI4NzQxNzc1LTUzOTk0YTY5ZGFlYj93PTEwMCZoPTEwMCZmaXQ9Y3JvcCcsXG4gICAgICAgIHJhdGluZzogNC44LFxuICAgICAgICB0b3RhbFNhbGVzOiAyMzQsXG4gICAgICAgIHZlcmlmaWNhdGlvblN0YXR1czogJ3ZlcmlmaWVkJ1xuICAgICAgfSxcbiAgICAgIHN0YXRzOiB7IGxpa2VzOiAxLCBjb21tZW50czogMCwgc2hhcmVzOiAwLCB2aWV3czogNDUsIHNhdmVzOiAzIH0sXG4gICAgICBjb25kaXRpb246ICdnb29kJyxcbiAgICAgIGlzTGlrZWQ6IGZhbHNlLFxuICAgICAgY3JlYXRlZEF0OiAnMjAyNC0wMS0yM1QxNjo0NTowMFonLFxuICAgICAgdXBkYXRlZEF0OiAnMjAyNC0wMS0yNFQxMTozMDowMFonLFxuICAgICAgY2F0ZWdvcnk6ICdmYXNoaW9uJyxcbiAgICAgIHN1YmNhdGVnb3J5OiAnamVhbnMnLFxuICAgICAgdGFnczogWyd2aW50YWdlJywgJ3dpZGUtbGVnJywgJ2RlbmltJ10sXG4gICAgICBhdmFpbGFiaWxpdHk6ICdhdmFpbGFibGUtbm93J1xuICAgIH1cbiAgXSxcbiAgdmVyc2lvbjogJzIuMS4wLXNvY2lhbCcsXG4gIGxhc3RVcGRhdGVkOiBuZXcgRGF0ZSgpLnRvSVNPU3RyaW5nKCksXG4gIGNvbmZpZ3VyYXRpb25JZDogY3J5cHRvLnJhbmRvbVVVSUQoKSxcbiAgaXNBY3RpdmU6IHRydWVcbn07XG5cbi8vIFZhbGlkYXRlIHRoZSBzb2NpYWwgY29uZmlndXJhdGlvblxuY29uc3Qgc29jaWFsVmFsaWRhdGlvblJlc3VsdCA9IFVuaXZlcnNhbFBhZ2VDb25maWd1cmF0aW9uU2NoZW1hLnNhZmVQYXJzZShzb2NpYWxXb21lbkNvbmZpZyk7XG5cbmlmICghc29jaWFsVmFsaWRhdGlvblJlc3VsdC5zdWNjZXNzKSB7XG4gIGNvbnNvbGUuZXJyb3IoJ1NvY2lhbCBXb21lblxcJ3MgQ29uZmlndXJhdGlvbiBWYWxpZGF0aW9uIEZhaWxlZDonLCBzb2NpYWxWYWxpZGF0aW9uUmVzdWx0LmVycm9yKTtcbiAgdGhyb3cgbmV3IEVycm9yKCdTb2NpYWwgY29uZmlndXJhdGlvbiB2YWxpZGF0aW9uIGZhaWxlZCAtIGNoZWNrIGNvbnNvbGUgZm9yIGRldGFpbHMnKTtcbn0iXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztJQTZCTTtJQUFBQSxjQUFBLFlBQUFBLENBQUE7TUFBQSxPQUFBQyxjQUFBO0lBQUE7RUFBQTtFQUFBLE9BQUFBLGNBQUE7QUFBQTtBQUFBRCxjQUFBO0FBN0JOOzs7OztBQU1BLFNBQVNFLENBQUMsUUFBUSxLQUFLO0FBQ3ZCLFNBQ0VDLGdDQUFnQyxFQUloQ0MsbUJBQW1CLEVBRW5CQyxlQUFlLFFBQ1YsaUNBQWlDO0FBRXhDO0FBRUEsTUFBTUMsZ0JBQWdCO0FBQUE7QUFBQSxDQUFBTixjQUFBLEdBQUFPLENBQUEsT0FBR0wsQ0FBQyxDQUFDTSxJQUFJLENBQUMsQ0FBQyxLQUFLLEVBQUUsSUFBSSxFQUFFLEdBQUcsRUFBRSxHQUFHLEVBQUUsR0FBRyxFQUFFLElBQUksRUFBRSxLQUFLLEVBQUUsR0FBRyxF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Q0FBQyxtRkFBbUYsQ0FBQztJQUM3RkMsTUFBTSxFQUFFO01BQ05oQyxFQUFFLEVBQUUsaUJBQWlCO01BQ3JCaUMsUUFBUSxFQUFFLGVBQWU7TUFDekJDLE1BQU0sRUFBRSxtRkFBbUY7TUFDM0ZDLE1BQU0sRUFBRSxHQUFHO01BQ1hDLFVBQVUsRUFBRSxHQUFHO01BQ2ZDLGtCQUFrQixFQUFFO0tBQ3JCO0lBQ0RDLEtBQUssRUFBRTtNQUFFQyxLQUFLLEVBQUUsQ0FBQztNQUFFQyxRQUFRLEVBQUUsQ0FBQztNQUFFQyxNQUFNLEVBQUUsQ0FBQztNQUFFQyxLQUFLLEVBQUUsRUFBRTtNQUFFQyxLQUFLLEVBQUU7SUFBQyxDQUFFO0lBQ2hFdkQsU0FBUyxFQUFFLE1BQU07SUFDakJ3RCxPQUFPLEVBQUUsS0FBSztJQUNkQyxTQUFTLEVBQUUsc0JBQXNCO0lBQ2pDQyxTQUFTLEVBQUUsc0JBQXNCO0lBQ2pDbkMsUUFBUSxFQUFFLFNBQVM7SUFDbkJ0QixXQUFXLEVBQUUsT0FBTztJQUNwQjBELElBQUksRUFBRSxDQUFDLFNBQVMsRUFBRSxVQUFVLEVBQUUsT0FBTyxDQUFDO0lBQ3RDcEQsWUFBWSxFQUFFO0dBQ2YsQ0FDRjtFQUNEcUQsT0FBTyxFQUFFLGNBQWM7RUFDdkJDLFdBQVcsRUFBRSxJQUFJQyxJQUFJLEVBQUUsQ0FBQ0MsV0FBVyxFQUFFO0VBQ3JDQyxlQUFlLEVBQUVDLE1BQU0sQ0FBQ0MsVUFBVSxFQUFFO0VBQ3BDQyxRQUFRLEVBQUU7QUFBSSxFQUNmO0FBRUQ7QUFDQSxNQUFNYyxzQkFBc0I7QUFBQTtBQUFBLENBQUF2RyxjQUFBLEdBQUFPLENBQUEsUUFBR0osZ0NBQWdDLENBQUN3RixTQUFTLENBQUNNLGlCQUFpQixDQUFDO0FBQUM7QUFBQWpHLGNBQUEsR0FBQU8sQ0FBQTtBQUU3RixJQUFJLENBQUNnRyxzQkFBc0IsQ0FBQ1gsT0FBTyxFQUFFO0VBQUE7RUFBQTVGLGNBQUEsR0FBQTZGLENBQUE7RUFBQTdGLGNBQUEsR0FBQU8sQ0FBQTtFQUNuQ3VGLE9BQU8sQ0FBQ0MsS0FBSyxDQUFDLGtEQUFrRCxFQUFFUSxzQkFBc0IsQ0FBQ1IsS0FBSyxDQUFDO0VBQUM7RUFBQS9GLGNBQUEsR0FBQU8sQ0FBQTtFQUNoRyxNQUFNLElBQUl5RixLQUFLLENBQUMsb0VBQW9FLENBQUM7QUFDdkYsQ0FBQztBQUFBO0FBQUE7RUFBQWhHLGNBQUEsR0FBQTZGLENBQUE7QUFBQSIsImlnbm9yZUxpc3QiOltdfQ==

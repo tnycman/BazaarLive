@@ -5,6 +5,7 @@
  */
 
 import React, { useState, useCallback, useMemo, useEffect, memo } from 'react';
+import { useLocation } from 'wouter';
 import { ChevronDown, ChevronUp, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -14,6 +15,10 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { withEnterpriseInterceptors } from '@/services/aop/ComponentInterceptorFramework';
 import { z } from 'zod';
+import { fashionRouteService } from '@/services/routing/FashionRouteService';
+import { slugify } from '@/services/routing/RouteUtils';
+import { FilterStateSchema as GlobalFilterStateSchema, FilterSidebarPropsSchema as GlobalFilterSidebarPropsSchema } from '@/schemas/filtering/FilterSchemas';
+import type { NavigationContext } from '@/services/navigation/NavigationContextManager';
 
 // ===== ENTERPRISE TYPE DEFINITIONS =====
 interface FilterCategory {
@@ -81,31 +86,16 @@ interface FilterState {
 }
 
 interface FilterSidebarProps {
+  readonly navigationContext?: NavigationContext | null;
   readonly currentCategory?: string;
   readonly onFilterChange: (filters: FilterState) => void;
   readonly className?: string;
   readonly isLoading?: boolean;
 }
 
-// ===== VALIDATION SCHEMAS =====
-const FilterStateSchema = z.object({
-  selectedCategories: z.array(z.string()),
-  selectedBrands: z.array(z.string()),
-  selectedSizes: z.array(z.string()),
-  selectedColors: z.array(z.string()),
-  selectedPrices: z.array(z.string()),
-  selectedAvailability: z.array(z.string()),
-  selectedTypes: z.array(z.string()),
-  brandSearchQuery: z.string(),
-  expandedSections: z.array(z.string())
-});
-
-const FilterSidebarPropsSchema = z.object({
-  currentCategory: z.string().optional(),
-  onFilterChange: z.function(),
-  className: z.string().optional(),
-  isLoading: z.boolean().optional()
-});
+// ===== VALIDATION SCHEMAS (centralized) =====
+const FilterStateSchema = GlobalFilterStateSchema;
+const FilterSidebarPropsSchema = GlobalFilterSidebarPropsSchema;
 
 // ===== ENTERPRISE DATA STRUCTURES =====
 const CATEGORIES_DATA: readonly FilterCategory[] = [
@@ -1448,35 +1438,51 @@ const PRICE_DATA: readonly FilterPrice[] = [
 
 // ===== ENTERPRISE COMPONENT IMPLEMENTATION =====
 const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
+  navigationContext,
   currentCategory = 'women',
   onFilterChange,
   className = '',
   isLoading = false
 }) => {
-  // ===== STATE MANAGEMENT =====
-  const [filterState, setFilterState] = useState<FilterState>({
-    selectedCategories: [currentCategory],
-    selectedBrands: [],
-    selectedSizes: [],
-    selectedColors: [],
-    selectedPrices: [],
-    selectedAvailability: ['all-items'],
-    selectedTypes: ['all-conditions'],
-    brandSearchQuery: '',
-    expandedSections: ['categories', currentCategory]
+  // ===== STATE MANAGEMENT WITH CONTEXT AWARENESS =====
+  const [filterState, setFilterState] = useState<FilterState>(() => {
+    // Use navigation context for initial expansion state if available
+    const initialExpandedSections = navigationContext?.expandedSections ?? ['categories', currentCategory];
+    const initialSelectedCategories = navigationContext?.category ? [navigationContext.category] : [currentCategory];
+    
+    return {
+      selectedCategories: initialSelectedCategories,
+      selectedBrands: [],
+      selectedSizes: [],
+      selectedColors: [],
+      selectedPrices: [],
+      selectedAvailability: ['all-items'],
+      selectedTypes: ['all-conditions'],
+      brandSearchQuery: '',
+      expandedSections: [...initialExpandedSections]
+    };
   });
 
   const [filteredBrands, setFilteredBrands] = useState<readonly FilterBrand[]>(BRANDS_DATA);
 
-  // ===== CATEGORY SYNCHRONIZATION =====
-  // Update expanded sections when currentCategory changes (page navigation)
+  // ===== NAVIGATION CONTEXT SYNCHRONIZATION =====
+  // Update filter state when navigation context changes
   useEffect(() => {
-    setFilterState(prev => ({
-      ...prev,
-      selectedCategories: [currentCategory],
-      expandedSections: ['categories', currentCategory] // Only expand current category
-    }));
-  }, [currentCategory]);
+    if (navigationContext) {
+      setFilterState(prev => ({
+        ...prev,
+        selectedCategories: [navigationContext.category],
+        expandedSections: [...navigationContext.expandedSections]
+      }));
+    } else {
+      // Fallback to current category if no navigation context
+      setFilterState(prev => ({
+        ...prev,
+        selectedCategories: [currentCategory],
+        expandedSections: ['categories', currentCategory]
+      }));
+    }
+  }, [navigationContext, currentCategory]);
 
   // ===== ENTERPRISE MEMOIZED VALUES =====
   const sectionConfig = useMemo(() => ({
@@ -1545,18 +1551,22 @@ const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
     });
   }, []);
 
-  const handleCategoryToggle = useCallback((categoryId: string) => {
+  const [, setLocation] = useLocation();
+
+  const handleCategoryToggle = useCallback((categoryId: string): boolean => {
     // Handle navigation categories (ALL top-level categories that should navigate to different pages)
     const navigationCategories = ['women', 'men', 'kids', 'home', 'pets', 'electronics'];
-    
+
+    // Treat key women's top-level subcategory as page navigation
     if (navigationCategories.includes(categoryId)) {
       // Prevent unnecessary navigation if already on the same page
       if (categoryId === currentCategory) {
-        return; // Do nothing - already on this page
+        return false; // No navigation; allow expand/collapse to proceed
       }
-      // Navigate to the category page only if it's different from current page
-      window.location.href = `/fashion/${categoryId}`;
-      return;
+      // Navigate via SPA routing to avoid full page reloads
+      const path = `/fashion/${categoryId}`;
+      setLocation(path);
+      return true; // Navigated
     }
 
     // Handle filter categories (subcategories that should filter the current page)
@@ -1571,7 +1581,8 @@ const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
         selectedCategories: newSelectedCategories
       };
     });
-  }, [currentCategory]);
+    return false; // Filter toggle, no navigation
+  }, [currentCategory, setLocation]);
 
   const handleBrandToggle = useCallback((brandId: string) => {
     setFilterState(prev => {
@@ -1662,25 +1673,56 @@ const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
   }, [filterState, onFilterChange]);
 
   // ===== ENTERPRISE RENDER HELPERS =====
-  const renderCategoryItem = useCallback((category: FilterCategory, isSelected: boolean) => {
+  const renderCategoryItem = useCallback((category: FilterCategory, isSelected: boolean, context: { sectionId?: string; subsectionId?: string } = {}) => {
     const hasSubcategories = category.subcategories && category.subcategories.length > 0;
     const isExpanded = filterState.expandedSections.includes(category.id);
     const indentLevel = category.level * 16;
-    const isCurrentCategory = category.id === currentCategory;
-    const navigationCategories = ['women', 'men', 'kids', 'home', 'pets', 'electronics'];
-    const isNavigationCategory = navigationCategories.includes(category.id);
+    
+    // Enhanced context-aware highlighting
+    const isCurrentCategory = category.id === navigationContext?.category;
+    const isCurrentSubcategory = navigationContext?.subcategory && 
+      category.id === `${navigationContext.category}-${navigationContext.subcategory}`;
+    const isNavigationActive = isCurrentCategory || isCurrentSubcategory;
+    
+    // Auto-expand based on navigation context
+    const shouldAutoExpand = navigationContext?.expandedSections.includes(category.id) ?? false;
 
     return (
       <div key={category.id} className="w-full" data-testid={`category-item-${category.id}`}>
         <div 
           className={`flex items-center py-1 pl-${indentLevel > 0 ? `[${indentLevel}px]` : '0'} pr-2 cursor-pointer transition-colors duration-150 ${
-            isCurrentCategory && isNavigationCategory
+            isNavigationActive
               ? 'bg-purple-50 border-l-4 border-purple-500'
               : 'hover:bg-gray-50'
           }`}
           onClick={() => {
-            handleCategoryToggle(category.id);
-            if (hasSubcategories) {
+            // Navigation rules using canonical slugs derived from names (single source of truth)
+            // level 0 -> /fashion/:section
+            // level 1 -> /fashion/:section/:subsection
+            // level 2 -> /fashion/:section/:subsection/:leaf
+            let url: string | undefined;
+            if (category.level === 0) {
+              // Use id for section identifier (women, men, kids, etc.) via route helper
+              url = fashionRouteService.generateFashionUrl(category.id);
+            } else if (category.level === 1 && context.sectionId) {
+              // Use canonical slug derived from display name (parity with top nav)
+              url = fashionRouteService.generateFashionUrl(context.sectionId, slugify(category.name));
+            } else if (category.level >= 2 && context.sectionId && context.subsectionId) {
+              // Leaf level: use canonical slug derived from display name
+              url = fashionRouteService.generateFashionUrl(
+                context.sectionId,
+                context.subsectionId,
+                slugify(category.name)
+              );
+            }
+
+            if (url) {
+              setLocation(url);
+              return;
+            }
+
+            const didNavigate = handleCategoryToggle(category.id);
+            if (!didNavigate && hasSubcategories) {
               handleSectionToggle(category.id);
             }
           }}
@@ -1688,7 +1730,7 @@ const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
           <div className="flex items-center flex-1 min-w-0">
             <span 
               className={`text-sm truncate ${
-                isCurrentCategory && isNavigationCategory
+                isNavigationActive
                   ? 'text-purple-700 font-bold'
                   : isSelected 
                     ? 'text-purple-700 font-semibold' 
@@ -1707,16 +1749,27 @@ const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
           </div>
         </div>
 
-        {hasSubcategories && isExpanded && category.subcategories && (
+        {hasSubcategories && (isExpanded || shouldAutoExpand) && category.subcategories && (
           <div className="ml-2">
-            {category.subcategories.map(subcategory => 
-              renderCategoryItem(subcategory, filterState.selectedCategories.includes(subcategory.id))
-            )}
+            {category.subcategories.map(subcategory => {
+              // Build path context for child
+              let nextContext: { sectionId?: string; subsectionId?: string } = context;
+              if (category.level === 0) {
+                nextContext = { sectionId: category.id };
+              } else if (category.level === 1) {
+                nextContext = { sectionId: context.sectionId ?? category.id, subsectionId: category.id };
+              }
+              return renderCategoryItem(
+                subcategory,
+                filterState.selectedCategories.includes(subcategory.id),
+                nextContext
+              );
+            })}
           </div>
         )}
       </div>
     );
-  }, [filterState.selectedCategories, filterState.expandedSections, handleCategoryToggle, handleSectionToggle, currentCategory]);
+  }, [filterState.selectedCategories, filterState.expandedSections, handleCategoryToggle, handleSectionToggle, navigationContext, setLocation]);
 
   const renderCollapsibleSection = useCallback((
     sectionKey: keyof typeof sectionConfig,
@@ -1756,17 +1809,17 @@ const EnterpriseFilterSidebar: React.FC<FilterSidebarProps> = memo(({
   // ===== ENTERPRISE MAIN RENDER =====
   return (
     <div 
-      className={`w-64 bg-white border-r border-gray-200 h-full overflow-hidden flex flex-col ${className}`}
+      className={`w-full bg-white border-r border-gray-100 h-full overflow-hidden flex flex-col ${className}`}
       data-testid="enterprise-filter-sidebar"
     >
-      <ScrollArea className="flex-1">
+      <ScrollArea className="flex-1 [&_[data-radix-scroll-area-viewport]]:scrollbar-thin [&_[data-radix-scroll-area-viewport]]:scrollbar-thumb-purple-400/70 [&_[data-radix-scroll-area-viewport]]:scrollbar-track-transparent">
         <div className="p-4 space-y-4">
           
           {/* Categories Section */}
           {renderCollapsibleSection('categories', (
             <div className="space-y-1">
               {CATEGORIES_DATA.map(category => 
-                renderCategoryItem(category, filterState.selectedCategories.includes(category.id))
+                renderCategoryItem(category, filterState.selectedCategories.includes(category.id), {})
               )}
             </div>
           ))}
@@ -2039,4 +2092,4 @@ const EnhancedEnterpriseFilterSidebar = withEnterpriseInterceptors(EnterpriseFil
 // ===== EXPORTS =====
 export default EnhancedEnterpriseFilterSidebar;
 export type { FilterState, FilterSidebarProps, FilterCategory, FilterBrand, FilterColor, FilterPrice };
-export { FilterStateSchema, FilterSidebarPropsSchema };
+// Schemas are provided by '@/schemas/filtering/FilterSchemas' to avoid HMR invalidations

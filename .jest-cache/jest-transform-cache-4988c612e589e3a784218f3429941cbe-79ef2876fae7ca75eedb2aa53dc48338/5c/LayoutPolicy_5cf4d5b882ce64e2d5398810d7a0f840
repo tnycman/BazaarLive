@@ -1,0 +1,277 @@
+87b0353698a65862b579222373221598
+/* istanbul ignore next */
+function cov_1rupw7fsa0() {
+  var path = "/home/runner/workspace/client/src/services/category/utils/LayoutPolicy.ts";
+  var hash = "32431923026e00d067f117c53580b80825227abf";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/home/runner/workspace/client/src/services/category/utils/LayoutPolicy.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 6,
+          column: 23
+        },
+        end: {
+          line: 6,
+          column: 53
+        }
+      },
+      "1": {
+        start: {
+          line: 7,
+          column: 24
+        },
+        end: {
+          line: 7,
+          column: 58
+        }
+      },
+      "2": {
+        start: {
+          line: 8,
+          column: 4
+        },
+        end: {
+          line: 17,
+          column: 5
+        }
+      },
+      "3": {
+        start: {
+          line: 11,
+          column: 8
+        },
+        end: {
+          line: 16,
+          column: 10
+        }
+      },
+      "4": {
+        start: {
+          line: 18,
+          column: 4
+        },
+        end: {
+          line: 23,
+          column: 6
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "getLayoutPolicyForCategory",
+        decl: {
+          start: {
+            line: 5,
+            column: 16
+          },
+          end: {
+            line: 5,
+            column: 42
+          }
+        },
+        loc: {
+          start: {
+            line: 5,
+            column: 84
+          },
+          end: {
+            line: 24,
+            column: 1
+          }
+        },
+        line: 5
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 6,
+            column: 24
+          },
+          end: {
+            line: 6,
+            column: 38
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 6,
+            column: 24
+          },
+          end: {
+            line: 6,
+            column: 32
+          }
+        }, {
+          start: {
+            line: 6,
+            column: 36
+          },
+          end: {
+            line: 6,
+            column: 38
+          }
+        }],
+        line: 6
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 7,
+            column: 25
+          },
+          end: {
+            line: 7,
+            column: 43
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 7,
+            column: 25
+          },
+          end: {
+            line: 7,
+            column: 37
+          }
+        }, {
+          start: {
+            line: 7,
+            column: 41
+          },
+          end: {
+            line: 7,
+            column: 43
+          }
+        }],
+        line: 7
+      },
+      "2": {
+        loc: {
+          start: {
+            line: 8,
+            column: 4
+          },
+          end: {
+            line: 17,
+            column: 5
+          }
+        },
+        type: "if",
+        locations: [{
+          start: {
+            line: 8,
+            column: 4
+          },
+          end: {
+            line: 17,
+            column: 5
+          }
+        }, {
+          start: {
+            line: undefined,
+            column: undefined
+          },
+          end: {
+            line: undefined,
+            column: undefined
+          }
+        }],
+        line: 8
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0
+    },
+    f: {
+      "0": 0
+    },
+    b: {
+      "0": [0, 0],
+      "1": [0, 0],
+      "2": [0, 0]
+    },
+    inputSourceMap: {
+      file: "/home/runner/workspace/client/src/services/category/utils/LayoutPolicy.ts",
+      mappings: "AASA;;;GAGG;AACH,MAAM,UAAU,0BAA0B,CACxC,QAAgB,EAChB,YAAqB,EACrB,eAAwB;IAExB,MAAM,UAAU,GAAG,CAAC,QAAQ,IAAI,EAAE,CAAC,CAAC,WAAW,EAAE,CAAC;IAClD,MAAM,WAAW,GAAG,CAAC,YAAY,IAAI,EAAE,CAAC,CAAC,WAAW,EAAE,CAAC;IAEvD,IAAI,UAAU,KAAK,SAAS,EAAE,CAAC;QAC7B,+FAA+F;QAC/F,6EAA6E;QAC7E,OAAO;YACL,cAAc,EAAE,QAAQ;YACxB,gBAAgB,EAAE,IAAI;YACtB,iBAAiB,EAAE,UAAU;YAC7B,cAAc,EAAE,SAAS;SAC1B,CAAC;IACJ,CAAC;IAED,OAAO;QACL,cAAc,EAAE,mBAAmB;QACnC,gBAAgB,EAAE,IAAI;QACtB,iBAAiB,EAAE,UAAU;QAC7B,cAAc,EAAE,SAAS;KAC1B,CAAC;AACJ,CAAC",
+      names: [],
+      sources: ["/home/runner/workspace/client/src/services/category/utils/LayoutPolicy.ts"],
+      sourcesContent: ["export type SidebarWidth = 'narrow' | 'standard' | 'wide' | undefined;\n\nexport interface CategoryLayoutPolicy {\n  readonly containerClass: string; // e.g., 'w-full' or 'max-w-7xl mx-auto'\n  readonly showRightSidebar: boolean;\n  readonly rightSidebarWidth: SidebarWidth;\n  readonly dynamicPadding?: string; // e.g., 'px-0' for fashion\n}\n\n/**\n * Returns layout policy for a given category/subcategory.\n * Centralizes layout rules to prevent regressions.\n */\nexport function getLayoutPolicyForCategory(\n  category: string,\n  _subcategory?: string,\n  _subSubcategory?: string\n): CategoryLayoutPolicy {\n  const normalized = (category || '').toLowerCase();\n  const subcategory = (_subcategory || '').toLowerCase();\n\n  if (normalized === 'fashion') {\n    // Fashion: use full-width container so the right rail sits further to the right of the 4\xD7 grid\n    // Keep standard right rail width, and rely on page layout gap for separation\n    return {\n      containerClass: 'w-full',\n      showRightSidebar: true,\n      rightSidebarWidth: 'standard',\n      dynamicPadding: undefined\n    };\n  }\n\n  return {\n    containerClass: 'max-w-7xl mx-auto',\n    showRightSidebar: true,\n    rightSidebarWidth: 'standard',\n    dynamicPadding: undefined\n  };\n}\n\n\n\n"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "32431923026e00d067f117c53580b80825227abf"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_1rupw7fsa0 = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_1rupw7fsa0();
+/**
+ * Returns layout policy for a given category/subcategory.
+ * Centralizes layout rules to prevent regressions.
+ */
+export function getLayoutPolicyForCategory(category, _subcategory, _subSubcategory) {
+  /* istanbul ignore next */
+  cov_1rupw7fsa0().f[0]++;
+  const normalized =
+  /* istanbul ignore next */
+  (cov_1rupw7fsa0().s[0]++, (
+  /* istanbul ignore next */
+  (cov_1rupw7fsa0().b[0][0]++, category) ||
+  /* istanbul ignore next */
+  (cov_1rupw7fsa0().b[0][1]++, '')).toLowerCase());
+  const subcategory =
+  /* istanbul ignore next */
+  (cov_1rupw7fsa0().s[1]++, (
+  /* istanbul ignore next */
+  (cov_1rupw7fsa0().b[1][0]++, _subcategory) ||
+  /* istanbul ignore next */
+  (cov_1rupw7fsa0().b[1][1]++, '')).toLowerCase());
+  /* istanbul ignore next */
+  cov_1rupw7fsa0().s[2]++;
+  if (normalized === 'fashion') {
+    /* istanbul ignore next */
+    cov_1rupw7fsa0().b[2][0]++;
+    cov_1rupw7fsa0().s[3]++;
+    // Fashion: use full-width container so the right rail sits further to the right of the 4× grid
+    // Keep standard right rail width, and rely on page layout gap for separation
+    return {
+      containerClass: 'w-full',
+      showRightSidebar: true,
+      rightSidebarWidth: 'standard',
+      dynamicPadding: undefined
+    };
+  } else
+  /* istanbul ignore next */
+  {
+    cov_1rupw7fsa0().b[2][1]++;
+  }
+  cov_1rupw7fsa0().s[4]++;
+  return {
+    containerClass: 'max-w-7xl mx-auto',
+    showRightSidebar: true,
+    rightSidebarWidth: 'standard',
+    dynamicPadding: undefined
+  };
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3ZfMXJ1cHc3ZnNhMCIsImFjdHVhbENvdmVyYWdlIiwiZ2V0TGF5b3V0UG9saWN5Rm9yQ2F0ZWdvcnkiLCJjYXRlZ29yeSIsIl9zdWJjYXRlZ29yeSIsIl9zdWJTdWJjYXRlZ29yeSIsImYiLCJub3JtYWxpemVkIiwicyIsImIiLCJ0b0xvd2VyQ2FzZSIsInN1YmNhdGVnb3J5IiwiY29udGFpbmVyQ2xhc3MiLCJzaG93UmlnaHRTaWRlYmFyIiwicmlnaHRTaWRlYmFyV2lkdGgiLCJkeW5hbWljUGFkZGluZyIsInVuZGVmaW5lZCJdLCJzb3VyY2VzIjpbIi9ob21lL3J1bm5lci93b3Jrc3BhY2UvY2xpZW50L3NyYy9zZXJ2aWNlcy9jYXRlZ29yeS91dGlscy9MYXlvdXRQb2xpY3kudHMiXSwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IHR5cGUgU2lkZWJhcldpZHRoID0gJ25hcnJvdycgfCAnc3RhbmRhcmQnIHwgJ3dpZGUnIHwgdW5kZWZpbmVkO1xuXG5leHBvcnQgaW50ZXJmYWNlIENhdGVnb3J5TGF5b3V0UG9saWN5IHtcbiAgcmVhZG9ubHkgY29udGFpbmVyQ2xhc3M6IHN0cmluZzsgLy8gZS5nLiwgJ3ctZnVsbCcgb3IgJ21heC13LTd4bCBteC1hdXRvJ1xuICByZWFkb25seSBzaG93UmlnaHRTaWRlYmFyOiBib29sZWFuO1xuICByZWFkb25seSByaWdodFNpZGViYXJXaWR0aDogU2lkZWJhcldpZHRoO1xuICByZWFkb25seSBkeW5hbWljUGFkZGluZz86IHN0cmluZzsgLy8gZS5nLiwgJ3B4LTAnIGZvciBmYXNoaW9uXG59XG5cbi8qKlxuICogUmV0dXJucyBsYXlvdXQgcG9saWN5IGZvciBhIGdpdmVuIGNhdGVnb3J5L3N1YmNhdGVnb3J5LlxuICogQ2VudHJhbGl6ZXMgbGF5b3V0IHJ1bGVzIHRvIHByZXZlbnQgcmVncmVzc2lvbnMuXG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBnZXRMYXlvdXRQb2xpY3lGb3JDYXRlZ29yeShcbiAgY2F0ZWdvcnk6IHN0cmluZyxcbiAgX3N1YmNhdGVnb3J5Pzogc3RyaW5nLFxuICBfc3ViU3ViY2F0ZWdvcnk/OiBzdHJpbmdcbik6IENhdGVnb3J5TGF5b3V0UG9saWN5IHtcbiAgY29uc3Qgbm9ybWFsaXplZCA9IChjYXRlZ29yeSB8fCAnJykudG9Mb3dlckNhc2UoKTtcbiAgY29uc3Qgc3ViY2F0ZWdvcnkgPSAoX3N1YmNhdGVnb3J5IHx8ICcnKS50b0xvd2VyQ2FzZSgpO1xuXG4gIGlmIChub3JtYWxpemVkID09PSAnZmFzaGlvbicpIHtcbiAgICAvLyBGYXNoaW9uOiB1c2UgZnVsbC13aWR0aCBjb250YWluZXIgc28gdGhlIHJpZ2h0IHJhaWwgc2l0cyBmdXJ0aGVyIHRvIHRoZSByaWdodCBvZiB0aGUgNMOXIGdyaWRcbiAgICAvLyBLZWVwIHN0YW5kYXJkIHJpZ2h0IHJhaWwgd2lkdGgsIGFuZCByZWx5IG9uIHBhZ2UgbGF5b3V0IGdhcCBmb3Igc2VwYXJhdGlvblxuICAgIHJldHVybiB7XG4gICAgICBjb250YWluZXJDbGFzczogJ3ctZnVsbCcsXG4gICAgICBzaG93UmlnaHRTaWRlYmFyOiB0cnVlLFxuICAgICAgcmlnaHRTaWRlYmFyV2lkdGg6ICdzdGFuZGFyZCcsXG4gICAgICBkeW5hbWljUGFkZGluZzogdW5kZWZpbmVkXG4gICAgfTtcbiAgfVxuXG4gIHJldHVybiB7XG4gICAgY29udGFpbmVyQ2xhc3M6ICdtYXgtdy03eGwgbXgtYXV0bycsXG4gICAgc2hvd1JpZ2h0U2lkZWJhcjogdHJ1ZSxcbiAgICByaWdodFNpZGViYXJXaWR0aDogJ3N0YW5kYXJkJyxcbiAgICBkeW5hbWljUGFkZGluZzogdW5kZWZpbmVkXG4gIH07XG59XG5cblxuXG4iXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztJQTZCTTtJQUFBQSxjQUFBLFlBQUFBLENBQUE7TUFBQSxPQUFBQyxjQUFBO0lBQUE7RUFBQTtFQUFBLE9BQUFBLGNBQUE7QUFBQTtBQUFBRCxjQUFBO0FBcEJOOzs7O0FBSUEsT0FBTSxTQUFVRSwwQkFBMEJBLENBQ3hDQyxRQUFnQixFQUNoQkMsWUFBcUIsRUFDckJDLGVBQXdCO0VBQUE7RUFBQUwsY0FBQSxHQUFBTSxDQUFBO0VBRXhCLE1BQU1DLFVBQVU7RUFBQTtFQUFBLENBQUFQLGNBQUEsR0FBQVEsQ0FBQSxPQUFHO0VBQUM7RUFBQSxDQUFBUixjQUFBLEdBQUFTLENBQUEsVUFBQU4sUUFBUTtFQUFBO0VBQUEsQ0FBQUgsY0FBQSxHQUFBUyxDQUFBLFVBQUksRUFBRSxHQUFFQyxXQUFXLEVBQUU7RUFDakQsTUFBTUMsV0FBVztFQUFBO0VBQUEsQ0FBQVgsY0FBQSxHQUFBUSxDQUFBLE9BQUc7RUFBQztFQUFBLENBQUFSLGNBQUEsR0FBQVMsQ0FBQSxVQUFBTCxZQUFZO0VBQUE7RUFBQSxDQUFBSixjQUFBLEdBQUFTLENBQUEsVUFBSSxFQUFFLEdBQUVDLFdBQVcsRUFBRTtFQUFDO0VBQUFWLGNBQUEsR0FBQVEsQ0FBQTtFQUV2RCxJQUFJRCxVQUFVLEtBQUssU0FBUyxFQUFFO0lBQUE7SUFBQVAsY0FBQSxHQUFBUyxDQUFBO0lBQUFULGNBQUEsR0FBQVEsQ0FBQTtJQUM1QjtJQUNBO0lBQ0EsT0FBTztNQUNMSSxjQUFjLEVBQUUsUUFBUTtNQUN4QkMsZ0JBQWdCLEVBQUUsSUFBSTtNQUN0QkMsaUJBQWlCLEVBQUUsVUFBVTtNQUM3QkMsY0FBYyxFQUFFQztLQUNqQjtFQUNILENBQUM7RUFBQTtFQUFBO0lBQUFoQixjQUFBLEdBQUFTLENBQUE7RUFBQTtFQUFBVCxjQUFBLEdBQUFRLENBQUE7RUFFRCxPQUFPO0lBQ0xJLGNBQWMsRUFBRSxtQkFBbUI7SUFDbkNDLGdCQUFnQixFQUFFLElBQUk7SUFDdEJDLGlCQUFpQixFQUFFLFVBQVU7SUFDN0JDLGNBQWMsRUFBRUM7R0FDakI7QUFDSCIsImlnbm9yZUxpc3QiOltdfQ==

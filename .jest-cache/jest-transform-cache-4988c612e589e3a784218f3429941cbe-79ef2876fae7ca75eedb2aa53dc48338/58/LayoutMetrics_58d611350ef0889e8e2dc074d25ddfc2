@@ -1,0 +1,216 @@
+1a16003884fb10d43800148bbdd1258a
+/* istanbul ignore next */
+function cov_mz1d99njb() {
+  var path = "/home/runner/workspace/client/src/services/category/metrics/LayoutMetrics.ts";
+  var hash = "16b4c71bffda546f82c80ad906aaee37585c76d7";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/home/runner/workspace/client/src/services/category/metrics/LayoutMetrics.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 3,
+          column: 8
+        },
+        end: {
+          line: 3,
+          column: 25
+        }
+      },
+      "1": {
+        start: {
+          line: 6,
+          column: 8
+        },
+        end: {
+          line: 6,
+          column: 32
+        }
+      },
+      "2": {
+        start: {
+          line: 9,
+          column: 8
+        },
+        end: {
+          line: 9,
+          column: 41
+        }
+      },
+      "3": {
+        start: {
+          line: 12,
+          column: 29
+        },
+        end: {
+          line: 12,
+          column: 57
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 2,
+            column: 4
+          },
+          end: {
+            line: 2,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 2,
+            column: 18
+          },
+          end: {
+            line: 4,
+            column: 5
+          }
+        },
+        line: 2
+      },
+      "1": {
+        name: "(anonymous_1)",
+        decl: {
+          start: {
+            line: 5,
+            column: 4
+          },
+          end: {
+            line: 5,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 5,
+            column: 18
+          },
+          end: {
+            line: 7,
+            column: 5
+          }
+        },
+        line: 5
+      },
+      "2": {
+        name: "(anonymous_2)",
+        decl: {
+          start: {
+            line: 8,
+            column: 4
+          },
+          end: {
+            line: 8,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 8,
+            column: 26
+          },
+          end: {
+            line: 10,
+            column: 5
+          }
+        },
+        line: 8
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 8,
+            column: 14
+          },
+          end: {
+            line: 8,
+            column: 24
+          }
+        },
+        type: "default-arg",
+        locations: [{
+          start: {
+            line: 8,
+            column: 22
+          },
+          end: {
+            line: 8,
+            column: 24
+          }
+        }],
+        line: 8
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0,
+      "2": 0
+    },
+    b: {
+      "0": [0]
+    },
+    inputSourceMap: {
+      file: "/home/runner/workspace/client/src/services/category/metrics/LayoutMetrics.ts",
+      mappings: "AAUA,MAAM,sBAAsB;IAA5B;QACmB,WAAM,GAA0B,EAAE,CAAC;IAStD,CAAC;IAPC,MAAM,CAAC,KAA0B;QAC/B,IAAI,CAAC,MAAM,CAAC,IAAI,CAAC,KAAK,CAAC,CAAC;IAC1B,CAAC;IAED,SAAS,CAAC,KAAK,GAAG,EAAE;QAClB,OAAO,IAAI,CAAC,MAAM,CAAC,KAAK,CAAC,CAAC,KAAK,CAAC,CAAC;IACnC,CAAC;CACF;AAED,MAAM,CAAC,MAAM,aAAa,GAAG,IAAI,sBAAsB,EAAE,CAAC",
+      names: [],
+      sources: ["/home/runner/workspace/client/src/services/category/metrics/LayoutMetrics.ts"],
+      sourcesContent: ["export interface LayoutDecisionEvent {\n  readonly category: string;\n  readonly subcategory?: string;\n  readonly containerClass: string;\n  readonly rightSidebar: boolean;\n  readonly rightSidebarWidth?: 'narrow' | 'standard' | 'wide';\n  readonly dynamicPadding?: string;\n  readonly timestamp: number;\n}\n\nclass LayoutMetricsCollector {\n  private readonly events: LayoutDecisionEvent[] = [];\n\n  record(event: LayoutDecisionEvent): void {\n    this.events.push(event);\n  }\n\n  getRecent(limit = 10): ReadonlyArray<LayoutDecisionEvent> {\n    return this.events.slice(-limit);\n  }\n}\n\nexport const layoutMetrics = new LayoutMetricsCollector();\n\n\n\n"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "16b4c71bffda546f82c80ad906aaee37585c76d7"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_mz1d99njb = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_mz1d99njb();
+class LayoutMetricsCollector {
+  constructor() {
+    /* istanbul ignore next */
+    cov_mz1d99njb().f[0]++;
+    cov_mz1d99njb().s[0]++;
+    this.events = [];
+  }
+  record(event) {
+    /* istanbul ignore next */
+    cov_mz1d99njb().f[1]++;
+    cov_mz1d99njb().s[1]++;
+    this.events.push(event);
+  }
+  getRecent(limit =
+  /* istanbul ignore next */
+  (cov_mz1d99njb().b[0][0]++, 10)) {
+    /* istanbul ignore next */
+    cov_mz1d99njb().f[2]++;
+    cov_mz1d99njb().s[2]++;
+    return this.events.slice(-limit);
+  }
+}
+export const layoutMetrics =
+/* istanbul ignore next */
+(cov_mz1d99njb().s[3]++, new LayoutMetricsCollector());
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJMYXlvdXRNZXRyaWNzQ29sbGVjdG9yIiwiY29uc3RydWN0b3IiLCJjb3ZfbXoxZDk5bmpiIiwiZiIsInMiLCJldmVudHMiLCJyZWNvcmQiLCJldmVudCIsInB1c2giLCJnZXRSZWNlbnQiLCJsaW1pdCIsImIiLCJzbGljZSIsImxheW91dE1ldHJpY3MiXSwic291cmNlcyI6WyIvaG9tZS9ydW5uZXIvd29ya3NwYWNlL2NsaWVudC9zcmMvc2VydmljZXMvY2F0ZWdvcnkvbWV0cmljcy9MYXlvdXRNZXRyaWNzLnRzIl0sInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBpbnRlcmZhY2UgTGF5b3V0RGVjaXNpb25FdmVudCB7XG4gIHJlYWRvbmx5IGNhdGVnb3J5OiBzdHJpbmc7XG4gIHJlYWRvbmx5IHN1YmNhdGVnb3J5Pzogc3RyaW5nO1xuICByZWFkb25seSBjb250YWluZXJDbGFzczogc3RyaW5nO1xuICByZWFkb25seSByaWdodFNpZGViYXI6IGJvb2xlYW47XG4gIHJlYWRvbmx5IHJpZ2h0U2lkZWJhcldpZHRoPzogJ25hcnJvdycgfCAnc3RhbmRhcmQnIHwgJ3dpZGUnO1xuICByZWFkb25seSBkeW5hbWljUGFkZGluZz86IHN0cmluZztcbiAgcmVhZG9ubHkgdGltZXN0YW1wOiBudW1iZXI7XG59XG5cbmNsYXNzIExheW91dE1ldHJpY3NDb2xsZWN0b3Ige1xuICBwcml2YXRlIHJlYWRvbmx5IGV2ZW50czogTGF5b3V0RGVjaXNpb25FdmVudFtdID0gW107XG5cbiAgcmVjb3JkKGV2ZW50OiBMYXlvdXREZWNpc2lvbkV2ZW50KTogdm9pZCB7XG4gICAgdGhpcy5ldmVudHMucHVzaChldmVudCk7XG4gIH1cblxuICBnZXRSZWNlbnQobGltaXQgPSAxMCk6IFJlYWRvbmx5QXJyYXk8TGF5b3V0RGVjaXNpb25FdmVudD4ge1xuICAgIHJldHVybiB0aGlzLmV2ZW50cy5zbGljZSgtbGltaXQpO1xuICB9XG59XG5cbmV4cG9ydCBjb25zdCBsYXlvdXRNZXRyaWNzID0gbmV3IExheW91dE1ldHJpY3NDb2xsZWN0b3IoKTtcblxuXG5cbiJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBVUEsTUFBTUEsc0JBQXNCO0VBQTVCQyxZQUFBO0lBQUE7SUFBQUMsYUFBQSxHQUFBQyxDQUFBO0lBQUFELGFBQUEsR0FBQUUsQ0FBQTtJQUNtQixLQUFBQyxNQUFNLEdBQTBCLEVBQUU7RUFTckQ7RUFQRUMsTUFBTUEsQ0FBQ0MsS0FBMEI7SUFBQTtJQUFBTCxhQUFBLEdBQUFDLENBQUE7SUFBQUQsYUFBQSxHQUFBRSxDQUFBO0lBQy9CLElBQUksQ0FBQ0MsTUFBTSxDQUFDRyxJQUFJLENBQUNELEtBQUssQ0FBQztFQUN6QjtFQUVBRSxTQUFTQSxDQUFDQyxLQUFLO0VBQUE7RUFBQSxDQUFBUixhQUFBLEdBQUFTLENBQUEsVUFBRyxFQUFFO0lBQUE7SUFBQVQsYUFBQSxHQUFBQyxDQUFBO0lBQUFELGFBQUEsR0FBQUUsQ0FBQTtJQUNsQixPQUFPLElBQUksQ0FBQ0MsTUFBTSxDQUFDTyxLQUFLLENBQUMsQ0FBQ0YsS0FBSyxDQUFDO0VBQ2xDOztBQUdGLE9BQU8sTUFBTUcsYUFBYTtBQUFBO0FBQUEsQ0FBQVgsYUFBQSxHQUFBRSxDQUFBLE9BQUcsSUFBSUosc0JBQXNCLEVBQUUiLCJpZ25vcmVMaXN0IjpbXX0=

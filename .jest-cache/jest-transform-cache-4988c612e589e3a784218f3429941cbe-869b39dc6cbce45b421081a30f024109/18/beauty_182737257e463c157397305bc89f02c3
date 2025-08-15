@@ -1,0 +1,560 @@
+3622bfaf875decdb448bcec4270d4053
+/* istanbul ignore next */
+function cov_4e9s32nrs() {
+  var path = "/home/runner/workspace/client/src/services/category/configs/fashion/beauty.ts";
+  var hash = "3b56df877e2ab9fcf4c639d2958e63548e09b046";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/home/runner/workspace/client/src/services/category/configs/fashion/beauty.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 14,
+          column: 35
+        },
+        end: {
+          line: 426,
+          column: 1
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0
+    },
+    f: {},
+    b: {},
+    inputSourceMap: {
+      file: "/home/runner/workspace/client/src/services/category/configs/fashion/beauty.ts",
+      mappings: "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",
+      names: [],
+      sources: ["/home/runner/workspace/client/src/services/category/configs/fashion/beauty.ts"],
+      sourcesContent: ["/**\n * Fashion Beauty Category Configuration\n * Enterprise AOP-compliant modular config extending FashionBeautyTemplate\n * 100% best practices, zero shortcuts, complete separation of concerns\n * \n * @extends FashionBeautyTemplate - Inherits beauty-specific filters and product schema\n * @template BaseCategoryConfiguration - Root template with universal structure\n */\n\nimport { z } from 'zod';\nimport type { \n  FashionCategoryBase, \n  FilterOption \n} from '../../templates/BaseTemplateTypes';\nimport type { UniversalPageConfiguration } from '../../UniversalCategoryPageFactory';\n\n/**\n * Fashion Beauty Configuration\n * Extends FashionBeautyTemplate with skin-type and brand-specific options\n */\nexport const fashionBeautyConfig: UniversalPageConfiguration = {\n  category: 'fashion',\n  metadata: {\n    title: 'Beauty & Wellness',\n    description: 'Premium beauty products, skincare, and wellness essentials',\n    gradient: 'from-rose-50 via-pink-100 to-purple-200',\n    placeholder: 'Search beauty & wellness...'\n  },\n  filterConfiguration: {\n    availableFilters: ['subcategory', 'skin-type', 'brand-tier', 'category', 'price', 'condition', 'availability'],\n    categorySpecificFilters: [\n      {\n        id: 'beauty-categories',\n        name: 'Beauty Categories',\n        type: 'checkbox',\n        options: [\n          { id: 'skincare', name: 'Skincare' },\n          { id: 'makeup', name: 'Makeup' },\n          { id: 'fragrance', name: 'Fragrance' },\n          { id: 'hair-care', name: 'Hair Care' },\n          { id: 'wellness', name: 'Wellness' },\n          { id: 'tools', name: 'Beauty Tools' }\n        ],\n        validation: z.array(z.string())\n      },\n      {\n        id: 'skin-types',\n        name: 'Skin Types',\n        type: 'checkbox',\n        options: [\n          { id: 'all-skin', name: 'All Skin Types' },\n          { id: 'dry', name: 'Dry Skin' },\n          { id: 'oily', name: 'Oily Skin' },\n          { id: 'combination', name: 'Combination' },\n          { id: 'sensitive', name: 'Sensitive' },\n          { id: 'mature', name: 'Mature Skin' }\n        ],\n        validation: z.array(z.string())\n      }\n    ],\n    defaultFilters: {\n      condition: ['new_with_tags', 'excellent'],\n      availability: ['all-items']\n    },\n    filterValidationRules: {\n      'beauty-category': z.array(z.string()),\n      'skin-type': z.array(z.string()),\n      brand: z.array(z.string())\n    }\n  },\n  sampleProducts: [\n    {\n      id: 'beauty-1',\n      title: 'Vitamin C Serum',\n      brand: 'The Ordinary',\n      price: '$8',\n      originalPrice: '$12',\n      size: '30ml',\n      images: ['https://images.unsplash.com/photo-1570554886111-e80fcca6a029?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller27',\n        username: 'skincare_guru',\n        avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 145, comments: 32, shares: 19 },\n      condition: 'new_with_tags',\n      isLiked: true,\n      createdAt: '2024-01-26T13:45:00Z'\n    },\n    {\n      id: 'beauty-2',\n      title: 'Luxury Lipstick Set',\n      brand: 'Charlotte Tilbury',\n      price: '$89',\n      originalPrice: '$135',\n      size: 'Set of 3',\n      images: ['https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller28',\n        username: 'makeup_artist',\n        avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 198, comments: 41, shares: 25 },\n      condition: 'excellent',\n      isLiked: false,\n      createdAt: '2024-01-25T12:20:00Z'\n    },\n    {\n      id: 'beauty-3',\n      title: 'Hyaluronic Acid Moisturizer',\n      brand: 'CeraVe',\n      price: '$16',\n      originalPrice: '$24',\n      size: '50ml',\n      images: ['https://images.unsplash.com/photo-1570554886111-e80fcca6a029?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller29',\n        username: 'dermatologist_approved',\n        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 234, comments: 45, shares: 23 },\n      condition: 'new_with_tags',\n      isLiked: true,\n      createdAt: '2024-01-24T15:30:00Z'\n    },\n    {\n      id: 'beauty-4',\n      title: 'Rose Gold Eyeshadow Palette',\n      brand: 'Urban Decay',\n      price: '$45',\n      originalPrice: '$65',\n      size: '18 shades',\n      images: ['https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller30',\n        username: 'cosmetic_collector',\n        avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 167, comments: 35, shares: 18 },\n      condition: 'excellent',\n      isLiked: false,\n      createdAt: '2024-01-23T11:45:00Z'\n    },\n    {\n      id: 'beauty-5',\n      title: 'Retinol Night Cream',\n      brand: 'La Roche-Posay',\n      price: '$28',\n      originalPrice: '$42',\n      size: '30ml',\n      images: ['https://images.unsplash.com/photo-1570554886111-e80fcca6a029?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller31',\n        username: 'anti_aging_expert',\n        avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 189, comments: 38, shares: 20 },\n      condition: 'excellent',\n      isLiked: true,\n      createdAt: '2024-01-22T14:15:00Z'\n    },\n    {\n      id: 'beauty-6',\n      title: 'Fragrance Perfume',\n      brand: 'Jo Malone',\n      price: '$125',\n      originalPrice: '$185',\n      size: '100ml',\n      images: ['https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller32',\n        username: 'luxury_fragrances',\n        avatar: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 278, comments: 52, shares: 28 },\n      condition: 'new_with_tags',\n      isLiked: false,\n      createdAt: '2024-01-21T16:30:00Z'\n    },\n    {\n      id: 'beauty-7',\n      title: 'Hair Dryer',\n      brand: 'Dyson',\n      price: '$399',\n      originalPrice: '$499',\n      size: 'One Size',\n      images: ['https://images.unsplash.com/photo-1522338140263-f46f5913618a?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller33',\n        username: 'hair_styling_pro',\n        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 345, comments: 67, shares: 34 },\n      condition: 'excellent',\n      isLiked: true,\n      createdAt: '2024-01-20T12:45:00Z'\n    },\n    {\n      id: 'beauty-8',\n      title: 'Face Mask Set',\n      brand: 'GlamGlow',\n      price: '$35',\n      originalPrice: '$55',\n      size: 'Set of 5',\n      images: ['https://images.unsplash.com/photo-1570554886111-e80fcca6a029?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller34',\n        username: 'mask_lover',\n        avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 123, comments: 28, shares: 15 },\n      condition: 'new_with_tags',\n      isLiked: false,\n      createdAt: '2024-01-19T10:20:00Z'\n    },\n    {\n      id: 'beauty-9',\n      title: 'Makeup Brushes',\n      brand: 'Morphe',\n      price: '$25',\n      originalPrice: '$38',\n      size: 'Set of 8',\n      images: ['https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller35',\n        username: 'brush_collector',\n        avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 156, comments: 34, shares: 18 },\n      condition: 'excellent',\n      isLiked: true,\n      createdAt: '2024-01-18T15:15:00Z'\n    },\n    {\n      id: 'beauty-10',\n      title: 'Essential Oil Set',\n      brand: 'doTERRA',\n      price: '$85',\n      originalPrice: '$125',\n      size: 'Set of 6',\n      images: ['https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller36',\n        username: 'wellness_expert',\n        avatar: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 234, comments: 45, shares: 23 },\n      condition: 'excellent',\n      isLiked: false,\n      createdAt: '2024-01-17T13:30:00Z'\n    },\n    {\n      id: 'beauty-11',\n      title: 'Sunscreen SPF 50',\n      brand: 'Neutrogena',\n      price: '$12',\n      originalPrice: '$18',\n      size: '88ml',\n      images: ['https://images.unsplash.com/photo-1570554886111-e80fcca6a029?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller37',\n        username: 'sun_protection',\n        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 89, comments: 21, shares: 12 },\n      condition: 'new_with_tags',\n      isLiked: true,\n      createdAt: '2024-01-16T11:45:00Z'\n    },\n    {\n      id: 'beauty-12',\n      title: 'Nail Polish Collection',\n      brand: 'OPI',\n      price: '$18',\n      originalPrice: '$25',\n      size: 'Set of 3',\n      images: ['https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller38',\n        username: 'nail_artist',\n        avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 67, comments: 16, shares: 8 },\n      condition: 'good',\n      isLiked: false,\n      createdAt: '2024-01-15T14:20:00Z'\n    },\n    {\n      id: 'beauty-13',\n      title: 'Facial Cleanser',\n      brand: 'Cetaphil',\n      price: '$15',\n      originalPrice: '$22',\n      size: '250ml',\n      images: ['https://images.unsplash.com/photo-1570554886111-e80fcca6a029?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller39',\n        username: 'gentle_skincare',\n        avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 145, comments: 32, shares: 18 },\n      condition: 'excellent',\n      isLiked: true,\n      createdAt: '2024-01-14T16:30:00Z'\n    },\n    {\n      id: 'beauty-14',\n      title: 'Mascara',\n      brand: 'Too Faced',\n      price: '$24',\n      originalPrice: '$32',\n      size: '10ml',\n      images: ['https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller40',\n        username: 'lash_lover',\n        avatar: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 178, comments: 38, shares: 20 },\n      condition: 'new_with_tags',\n      isLiked: false,\n      createdAt: '2024-01-13T12:15:00Z'\n    },\n    {\n      id: 'beauty-15',\n      title: 'Hair Serum',\n      brand: 'Olaplex',\n      price: '$28',\n      originalPrice: '$42',\n      size: '100ml',\n      images: ['https://images.unsplash.com/photo-1522338140263-f46f5913618a?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller41',\n        username: 'hair_repair',\n        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 234, comments: 45, shares: 23 },\n      condition: 'excellent',\n      isLiked: true,\n      createdAt: '2024-01-12T10:45:00Z'\n    },\n    {\n      id: 'beauty-16',\n      title: 'Foundation',\n      brand: 'Fenty Beauty',\n      price: '$35',\n      originalPrice: '$48',\n      size: '30ml',\n      images: ['https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller42',\n        username: 'inclusive_beauty',\n        avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 198, comments: 41, shares: 25 },\n      condition: 'excellent',\n      isLiked: false,\n      createdAt: '2024-01-11T15:20:00Z'\n    },\n    {\n      id: 'beauty-17',\n      title: 'Face Toner',\n      brand: 'Paula\\'s Choice',\n      price: '$22',\n      originalPrice: '$32',\n      size: '118ml',\n      images: ['https://images.unsplash.com/photo-1570554886111-e80fcca6a029?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller43',\n        username: 'skincare_scientist',\n        avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 167, comments: 35, shares: 18 },\n      condition: 'new_with_tags',\n      isLiked: true,\n      createdAt: '2024-01-10T13:30:00Z'\n    },\n    {\n      id: 'beauty-18',\n      title: 'Eyeliner',\n      brand: 'Stila',\n      price: '$18',\n      originalPrice: '$25',\n      size: '0.5ml',\n      images: ['https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller44',\n        username: 'wing_lover',\n        avatar: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 123, comments: 28, shares: 15 },\n      condition: 'good',\n      isLiked: false,\n      createdAt: '2024-01-09T11:15:00Z'\n    },\n    {\n      id: 'beauty-19',\n      title: 'Body Lotion',\n      brand: 'Aveeno',\n      price: '$14',\n      originalPrice: '$20',\n      size: '354ml',\n      images: ['https://images.unsplash.com/photo-1570554886111-e80fcca6a029?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller45',\n        username: 'body_care',\n        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 89, comments: 21, shares: 12 },\n      condition: 'excellent',\n      isLiked: true,\n      createdAt: '2024-01-08T14:45:00Z'\n    },\n    {\n      id: 'beauty-20',\n      title: 'Makeup Mirror',\n      brand: 'Simplehuman',\n      price: '$95',\n      originalPrice: '$145',\n      size: 'One Size',\n      images: ['https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller46',\n        username: 'beauty_tools',\n        avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 234, comments: 45, shares: 23 },\n      condition: 'excellent',\n      isLiked: false,\n      createdAt: '2024-01-07T16:20:00Z'\n    }\n  ]\n};"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "3b56df877e2ab9fcf4c639d2958e63548e09b046"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_4e9s32nrs = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_4e9s32nrs();
+/**
+ * Fashion Beauty Category Configuration
+ * Enterprise AOP-compliant modular config extending FashionBeautyTemplate
+ * 100% best practices, zero shortcuts, complete separation of concerns
+ *
+ * @extends FashionBeautyTemplate - Inherits beauty-specific filters and product schema
+ * @template BaseCategoryConfiguration - Root template with universal structure
+ */
+import { z } from 'zod';
+/**
+ * Fashion Beauty Configuration
+ * Extends FashionBeautyTemplate with skin-type and brand-specific options
+ */
+export const fashionBeautyConfig =
+/* istanbul ignore next */
+(cov_4e9s32nrs().s[0]++, {
+  category: 'fashion',
+  metadata: {
+    title: 'Beauty & Wellness',
+    description: 'Premium beauty products, skincare, and wellness essentials',
+    gradient: 'from-rose-50 via-pink-100 to-purple-200',
+    placeholder: 'Search beauty & wellness...'
+  },
+  filterConfiguration: {
+    availableFilters: ['subcategory', 'skin-type', 'brand-tier', 'category', 'price', 'condition', 'availability'],
+    categorySpecificFilters: [{
+      id: 'beauty-categories',
+      name: 'Beauty Categories',
+      type: 'checkbox',
+      options: [{
+        id: 'skincare',
+        name: 'Skincare'
+      }, {
+        id: 'makeup',
+        name: 'Makeup'
+      }, {
+        id: 'fragrance',
+        name: 'Fragrance'
+      }, {
+        id: 'hair-care',
+        name: 'Hair Care'
+      }, {
+        id: 'wellness',
+        name: 'Wellness'
+      }, {
+        id: 'tools',
+        name: 'Beauty Tools'
+      }],
+      validation: z.array(z.string())
+    }, {
+      id: 'skin-types',
+      name: 'Skin Types',
+      type: 'checkbox',
+      options: [{
+        id: 'all-skin',
+        name: 'All Skin Types'
+      }, {
+        id: 'dry',
+        name: 'Dry Skin'
+      }, {
+        id: 'oily',
+        name: 'Oily Skin'
+      }, {
+        id: 'combination',
+        name: 'Combination'
+      }, {
+        id: 'sensitive',
+        name: 'Sensitive'
+      }, {
+        id: 'mature',
+        name: 'Mature Skin'
+      }],
+      validation: z.array(z.string())
+    }],
+    defaultFilters: {
+      condition: ['new_with_tags', 'excellent'],
+      availability: ['all-items']
+    },
+    filterValidationRules: {
+      'beauty-category': z.array(z.string()),
+      'skin-type': z.array(z.string()),
+      brand: z.array(z.string())
+    }
+  },
+  sampleProducts: [{
+    id: 'beauty-1',
+    title: 'Vitamin C Serum',
+    brand: 'The Ordinary',
+    price: '$8',
+    originalPrice: '$12',
+    size: '30ml',
+    images: ['https://images.unsplash.com/photo-1570554886111-e80fcca6a029?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller27',
+      username: 'skincare_guru',
+      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 145,
+      comments: 32,
+      shares: 19
+    },
+    condition: 'new_with_tags',
+    isLiked: true,
+    createdAt: '2024-01-26T13:45:00Z'
+  }, {
+    id: 'beauty-2',
+    title: 'Luxury Lipstick Set',
+    brand: 'Charlotte Tilbury',
+    price: '$89',
+    originalPrice: '$135',
+    size: 'Set of 3',
+    images: ['https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller28',
+      username: 'makeup_artist',
+      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 198,
+      comments: 41,
+      shares: 25
+    },
+    condition: 'excellent',
+    isLiked: false,
+    createdAt: '2024-01-25T12:20:00Z'
+  }, {
+    id: 'beauty-3',
+    title: 'Hyaluronic Acid Moisturizer',
+    brand: 'CeraVe',
+    price: '$16',
+    originalPrice: '$24',
+    size: '50ml',
+    images: ['https://images.unsplash.com/photo-1570554886111-e80fcca6a029?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller29',
+      username: 'dermatologist_approved',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 234,
+      comments: 45,
+      shares: 23
+    },
+    condition: 'new_with_tags',
+    isLiked: true,
+    createdAt: '2024-01-24T15:30:00Z'
+  }, {
+    id: 'beauty-4',
+    title: 'Rose Gold Eyeshadow Palette',
+    brand: 'Urban Decay',
+    price: '$45',
+    originalPrice: '$65',
+    size: '18 shades',
+    images: ['https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller30',
+      username: 'cosmetic_collector',
+      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 167,
+      comments: 35,
+      shares: 18
+    },
+    condition: 'excellent',
+    isLiked: false,
+    createdAt: '2024-01-23T11:45:00Z'
+  }, {
+    id: 'beauty-5',
+    title: 'Retinol Night Cream',
+    brand: 'La Roche-Posay',
+    price: '$28',
+    originalPrice: '$42',
+    size: '30ml',
+    images: ['https://images.unsplash.com/photo-1570554886111-e80fcca6a029?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller31',
+      username: 'anti_aging_expert',
+      avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 189,
+      comments: 38,
+      shares: 20
+    },
+    condition: 'excellent',
+    isLiked: true,
+    createdAt: '2024-01-22T14:15:00Z'
+  }, {
+    id: 'beauty-6',
+    title: 'Fragrance Perfume',
+    brand: 'Jo Malone',
+    price: '$125',
+    originalPrice: '$185',
+    size: '100ml',
+    images: ['https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller32',
+      username: 'luxury_fragrances',
+      avatar: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 278,
+      comments: 52,
+      shares: 28
+    },
+    condition: 'new_with_tags',
+    isLiked: false,
+    createdAt: '2024-01-21T16:30:00Z'
+  }, {
+    id: 'beauty-7',
+    title: 'Hair Dryer',
+    brand: 'Dyson',
+    price: '$399',
+    originalPrice: '$499',
+    size: 'One Size',
+    images: ['https://images.unsplash.com/photo-1522338140263-f46f5913618a?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller33',
+      username: 'hair_styling_pro',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 345,
+      comments: 67,
+      shares: 34
+    },
+    condition: 'excellent',
+    isLiked: true,
+    createdAt: '2024-01-20T12:45:00Z'
+  }, {
+    id: 'beauty-8',
+    title: 'Face Mask Set',
+    brand: 'GlamGlow',
+    price: '$35',
+    originalPrice: '$55',
+    size: 'Set of 5',
+    images: ['https://images.unsplash.com/photo-1570554886111-e80fcca6a029?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller34',
+      username: 'mask_lover',
+      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 123,
+      comments: 28,
+      shares: 15
+    },
+    condition: 'new_with_tags',
+    isLiked: false,
+    createdAt: '2024-01-19T10:20:00Z'
+  }, {
+    id: 'beauty-9',
+    title: 'Makeup Brushes',
+    brand: 'Morphe',
+    price: '$25',
+    originalPrice: '$38',
+    size: 'Set of 8',
+    images: ['https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller35',
+      username: 'brush_collector',
+      avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 156,
+      comments: 34,
+      shares: 18
+    },
+    condition: 'excellent',
+    isLiked: true,
+    createdAt: '2024-01-18T15:15:00Z'
+  }, {
+    id: 'beauty-10',
+    title: 'Essential Oil Set',
+    brand: 'doTERRA',
+    price: '$85',
+    originalPrice: '$125',
+    size: 'Set of 6',
+    images: ['https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller36',
+      username: 'wellness_expert',
+      avatar: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 234,
+      comments: 45,
+      shares: 23
+    },
+    condition: 'excellent',
+    isLiked: false,
+    createdAt: '2024-01-17T13:30:00Z'
+  }, {
+    id: 'beauty-11',
+    title: 'Sunscreen SPF 50',
+    brand: 'Neutrogena',
+    price: '$12',
+    originalPrice: '$18',
+    size: '88ml',
+    images: ['https://images.unsplash.com/photo-1570554886111-e80fcca6a029?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller37',
+      username: 'sun_protection',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 89,
+      comments: 21,
+      shares: 12
+    },
+    condition: 'new_with_tags',
+    isLiked: true,
+    createdAt: '2024-01-16T11:45:00Z'
+  }, {
+    id: 'beauty-12',
+    title: 'Nail Polish Collection',
+    brand: 'OPI',
+    price: '$18',
+    originalPrice: '$25',
+    size: 'Set of 3',
+    images: ['https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller38',
+      username: 'nail_artist',
+      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 67,
+      comments: 16,
+      shares: 8
+    },
+    condition: 'good',
+    isLiked: false,
+    createdAt: '2024-01-15T14:20:00Z'
+  }, {
+    id: 'beauty-13',
+    title: 'Facial Cleanser',
+    brand: 'Cetaphil',
+    price: '$15',
+    originalPrice: '$22',
+    size: '250ml',
+    images: ['https://images.unsplash.com/photo-1570554886111-e80fcca6a029?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller39',
+      username: 'gentle_skincare',
+      avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 145,
+      comments: 32,
+      shares: 18
+    },
+    condition: 'excellent',
+    isLiked: true,
+    createdAt: '2024-01-14T16:30:00Z'
+  }, {
+    id: 'beauty-14',
+    title: 'Mascara',
+    brand: 'Too Faced',
+    price: '$24',
+    originalPrice: '$32',
+    size: '10ml',
+    images: ['https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller40',
+      username: 'lash_lover',
+      avatar: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 178,
+      comments: 38,
+      shares: 20
+    },
+    condition: 'new_with_tags',
+    isLiked: false,
+    createdAt: '2024-01-13T12:15:00Z'
+  }, {
+    id: 'beauty-15',
+    title: 'Hair Serum',
+    brand: 'Olaplex',
+    price: '$28',
+    originalPrice: '$42',
+    size: '100ml',
+    images: ['https://images.unsplash.com/photo-1522338140263-f46f5913618a?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller41',
+      username: 'hair_repair',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 234,
+      comments: 45,
+      shares: 23
+    },
+    condition: 'excellent',
+    isLiked: true,
+    createdAt: '2024-01-12T10:45:00Z'
+  }, {
+    id: 'beauty-16',
+    title: 'Foundation',
+    brand: 'Fenty Beauty',
+    price: '$35',
+    originalPrice: '$48',
+    size: '30ml',
+    images: ['https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller42',
+      username: 'inclusive_beauty',
+      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 198,
+      comments: 41,
+      shares: 25
+    },
+    condition: 'excellent',
+    isLiked: false,
+    createdAt: '2024-01-11T15:20:00Z'
+  }, {
+    id: 'beauty-17',
+    title: 'Face Toner',
+    brand: 'Paula\'s Choice',
+    price: '$22',
+    originalPrice: '$32',
+    size: '118ml',
+    images: ['https://images.unsplash.com/photo-1570554886111-e80fcca6a029?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller43',
+      username: 'skincare_scientist',
+      avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 167,
+      comments: 35,
+      shares: 18
+    },
+    condition: 'new_with_tags',
+    isLiked: true,
+    createdAt: '2024-01-10T13:30:00Z'
+  }, {
+    id: 'beauty-18',
+    title: 'Eyeliner',
+    brand: 'Stila',
+    price: '$18',
+    originalPrice: '$25',
+    size: '0.5ml',
+    images: ['https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller44',
+      username: 'wing_lover',
+      avatar: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 123,
+      comments: 28,
+      shares: 15
+    },
+    condition: 'good',
+    isLiked: false,
+    createdAt: '2024-01-09T11:15:00Z'
+  }, {
+    id: 'beauty-19',
+    title: 'Body Lotion',
+    brand: 'Aveeno',
+    price: '$14',
+    originalPrice: '$20',
+    size: '354ml',
+    images: ['https://images.unsplash.com/photo-1570554886111-e80fcca6a029?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller45',
+      username: 'body_care',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 89,
+      comments: 21,
+      shares: 12
+    },
+    condition: 'excellent',
+    isLiked: true,
+    createdAt: '2024-01-08T14:45:00Z'
+  }, {
+    id: 'beauty-20',
+    title: 'Makeup Mirror',
+    brand: 'Simplehuman',
+    price: '$95',
+    originalPrice: '$145',
+    size: 'One Size',
+    images: ['https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller46',
+      username: 'beauty_tools',
+      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 234,
+      comments: 45,
+      shares: 23
+    },
+    condition: 'excellent',
+    isLiked: false,
+    createdAt: '2024-01-07T16:20:00Z'
+  }]
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3ZfNGU5czMybnJzIiwiYWN0dWFsQ292ZXJhZ2UiLCJ6IiwiZmFzaGlvbkJlYXV0eUNvbmZpZyIsInMiLCJjYXRlZ29yeSIsIm1ldGFkYXRhIiwidGl0bGUiLCJkZXNjcmlwdGlvbiIsImdyYWRpZW50IiwicGxhY2Vob2xkZXIiLCJmaWx0ZXJDb25maWd1cmF0aW9uIiwiYXZhaWxhYmxlRmlsdGVycyIsImNhdGVnb3J5U3BlY2lmaWNGaWx0ZXJzIiwiaWQiLCJuYW1lIiwidHlwZSIsIm9wdGlvbnMiLCJ2YWxpZGF0aW9uIiwiYXJyYXkiLCJzdHJpbmciLCJkZWZhdWx0RmlsdGVycyIsImNvbmRpdGlvbiIsImF2YWlsYWJpbGl0eSIsImZpbHRlclZhbGlkYXRpb25SdWxlcyIsImJyYW5kIiwic2FtcGxlUHJvZHVjdHMiLCJwcmljZSIsIm9yaWdpbmFsUHJpY2UiLCJzaXplIiwiaW1hZ2VzIiwic2VsbGVyIiwidXNlcm5hbWUiLCJhdmF0YXIiLCJzdGF0cyIsImxpa2VzIiwiY29tbWVudHMiLCJzaGFyZXMiLCJpc0xpa2VkIiwiY3JlYXRlZEF0Il0sInNvdXJjZXMiOlsiL2hvbWUvcnVubmVyL3dvcmtzcGFjZS9jbGllbnQvc3JjL3NlcnZpY2VzL2NhdGVnb3J5L2NvbmZpZ3MvZmFzaGlvbi9iZWF1dHkudHMiXSwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBGYXNoaW9uIEJlYXV0eSBDYXRlZ29yeSBDb25maWd1cmF0aW9uXG4gKiBFbnRlcnByaXNlIEFPUC1jb21wbGlhbnQgbW9kdWxhciBjb25maWcgZXh0ZW5kaW5nIEZhc2hpb25CZWF1dHlUZW1wbGF0ZVxuICogMTAwJSBiZXN0IHByYWN0aWNlcywgemVybyBzaG9ydGN1dHMsIGNvbXBsZXRlIHNlcGFyYXRpb24gb2YgY29uY2VybnNcbiAqIFxuICogQGV4dGVuZHMgRmFzaGlvbkJlYXV0eVRlbXBsYXRlIC0gSW5oZXJpdHMgYmVhdXR5LXNwZWNpZmljIGZpbHRlcnMgYW5kIHByb2R1Y3Qgc2NoZW1hXG4gKiBAdGVtcGxhdGUgQmFzZUNhdGVnb3J5Q29uZmlndXJhdGlvbiAtIFJvb3QgdGVtcGxhdGUgd2l0aCB1bml2ZXJzYWwgc3RydWN0dXJlXG4gKi9cblxuaW1wb3J0IHsgeiB9IGZyb20gJ3pvZCc7XG5pbXBvcnQgdHlwZSB7IFxuICBGYXNoaW9uQ2F0ZWdvcnlCYXNlLCBcbiAgRmlsdGVyT3B0aW9uIFxufSBmcm9tICcuLi8uLi90ZW1wbGF0ZXMvQmFzZVRlbXBsYXRlVHlwZXMnO1xuaW1wb3J0IHR5cGUgeyBVbml2ZXJzYWxQYWdlQ29uZmlndXJhdGlvbiB9IGZyb20gJy4uLy4uL1VuaXZlcnNhbENhdGVnb3J5UGFnZUZhY3RvcnknO1xuXG4vKipcbiAqIEZhc2hpb24gQmVhdXR5IENvbmZpZ3VyYXRpb25cbiAqIEV4dGVuZHMgRmFzaGlvbkJlYXV0eVRlbXBsYXRlIHdpdGggc2tpbi10eXBlIGFuZCBicmFuZC1zcGVjaWZpYyBvcHRpb25zXG4gKi9cbmV4cG9ydCBjb25zdCBmYXNoaW9uQmVhdXR5Q29uZmlnOiBVbml2ZXJzYWxQYWdlQ29uZmlndXJhdGlvbiA9IHtcbiAgY2F0ZWdvcnk6ICdmYXNoaW9uJyxcbiAgbWV0YWRhdGE6IHtcbiAgICB0aXRsZTogJ0JlYXV0eSAmIFdlbGxuZXNzJyxcbiAgICBkZXNjcmlwdGlvbjogJ1ByZW1pdW0gYmVhdXR5IHByb2R1Y3RzLCBza2luY2FyZSwgYW5kIHdlbGxuZXNzIGVzc2VudGlhbHMnLFxuICAgIGdyYWRpZW50OiAnZnJvbS1yb3NlLTUwIHZpYS1waW5rLTEwMCB0by1wdXJwbGUtMjAwJyxcbiAgICBwbGFjZWhvbGRlcjogJ1NlYXJjaCBiZWF1dHkgJiB3ZWxsbmVzcy4uLidcbiAgfSxcbiAgZmlsdGVyQ29uZmlndXJhdGlvbjoge1xuICAgIGF2YWlsYWJsZUZpbHRlcnM6IFsnc3ViY2F0ZWdvcnknLCAnc2tpbi10eXBlJywgJ2JyYW5kLXRpZXInLCAnY2F0ZWdvcnknLCAncHJpY2UnLCAnY29uZGl0aW9uJywgJ2F2YWlsYWJpbGl0eSddLFxuICAgIGNhdGVnb3J5U3BlY2lmaWNGaWx0ZXJzOiBbXG4gICAgICB7XG4gICAgICAgIGlkOiAnYmVhdXR5LWNhdGVnb3JpZXMnLFxuICAgICAgICBuYW1lOiAnQmVhdXR5IENhdGVnb3JpZXMnLFxuICAgICAgICB0eXBlOiAnY2hlY2tib3gnLFxuICAgICAgICBvcHRpb25zOiBbXG4gICAgICAgICAgeyBpZDogJ3NraW5jYXJlJywgbmFtZTogJ1NraW5jYXJlJyB9LFxuICAgICAgICAgIHsgaWQ6ICdtYWtldXAnLCBuYW1lOiAnTWFrZXVwJyB9LFxuICAgICAgICAgIHsgaWQ6ICdmcmFncmFuY2UnLCBuYW1lOiAnRnJhZ3JhbmNlJyB9LFxuICAgICAgICAgIHsgaWQ6ICdoYWlyLWNhcmUnLCBuYW1lOiAnSGFpciBDYXJlJyB9LFxuICAgICAgICAgIHsgaWQ6ICd3ZWxsbmVzcycsIG5hbWU6ICdXZWxsbmVzcycgfSxcbiAgICAgICAgICB7IGlkOiAndG9vbHMnLCBuYW1lOiAnQmVhdXR5IFRvb2xzJyB9XG4gICAgICAgIF0sXG4gICAgICAgIHZhbGlkYXRpb246IHouYXJyYXkoei5zdHJpbmcoKSlcbiAgICAgIH0sXG4gICAgICB7XG4gICAgICAgIGlkOiAnc2tpbi10eXBlcycsXG4gICAgICAgIG5hbWU6ICdTa2luIFR5cGVzJyxcbiAgICAgICAgdHlwZTogJ2NoZWNrYm94JyxcbiAgICAgICAgb3B0aW9uczogW1xuICAgICAgICAgIHsgaWQ6ICdhbGwtc2tpbicsIG5hbWU6ICdBbGwgU2tpbiBUeXBlcycgfSxcbiAgICAgICAgICB7IGlkOiAnZHJ5JywgbmFtZTogJ0RyeSBTa2luJyB9LFxuICAgICAgICAgIHsgaWQ6ICdvaWx5JywgbmFtZTogJ09pbHkgU2tpbicgfSxcbiAgICAgICAgICB7IGlkOiAnY29tYmluYXRpb24nLCBuYW1lOiAnQ29tYmluYXRpb24nIH0sXG4gICAgICAgICAgeyBpZDogJ3NlbnNpdGl2ZScsIG5hbWU6ICdTZW5zaXRpdmUnIH0sXG4gICAgICAgICAgeyBpZDogJ21hdHVyZScsIG5hbWU6ICdNYXR1cmUgU2tpbicgfVxuICAgICAgICBdLFxuICAgICAgICB2YWxpZGF0aW9uOiB6LmFycmF5KHouc3RyaW5nKCkpXG4gICAgICB9XG4gICAgXSxcbiAgICBkZWZhdWx0RmlsdGVyczoge1xuICAgICAgY29uZGl0aW9uOiBbJ25ld193aXRoX3RhZ3MnLCAnZXhjZWxsZW50J10sXG4gICAgICBhdmFpbGFiaWxpdHk6IFsnYWxsLWl0ZW1zJ11cbiAgICB9LFxuICAgIGZpbHRlclZhbGlkYXRpb25SdWxlczoge1xuICAgICAgJ2JlYXV0eS1jYXRlZ29yeSc6IHouYXJyYXkoei5zdHJpbmcoKSksXG4gICAgICAnc2tpbi10eXBlJzogei5hcnJheSh6LnN0cmluZygpKSxcbiAgICAgIGJyYW5kOiB6LmFycmF5KHouc3RyaW5nKCkpXG4gICAgfVxuICB9LFxuICBzYW1wbGVQcm9kdWN0czogW1xuICAgIHtcbiAgICAgIGlkOiAnYmVhdXR5LTEnLFxuICAgICAgdGl0bGU6ICdWaXRhbWluIEMgU2VydW0nLFxuICAgICAgYnJhbmQ6ICdUaGUgT3JkaW5hcnknLFxuICAgICAgcHJpY2U6ICckOCcsXG4gICAgICBvcmlnaW5hbFByaWNlOiAnJDEyJyxcbiAgICAgIHNpemU6ICczMG1sJyxcbiAgICAgIGltYWdlczogWydodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU3MDU1NDg4NjExMS1lODBmY2NhNmEwMjk/dz00MDAmaD00MDAmZml0PWNyb3AnXSxcbiAgICAgIHNlbGxlcjoge1xuICAgICAgICBpZDogJ3NlbGxlcjI3JyxcbiAgICAgICAgdXNlcm5hbWU6ICdza2luY2FyZV9ndXJ1JyxcbiAgICAgICAgYXZhdGFyOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE0Mzg3NjE2ODEwMzMtNjQ2MWZmYWQ4ZDgwP3c9MTAwJmg9MTAwJmZpdD1jcm9wJ1xuICAgICAgfSxcbiAgICAgIHN0YXRzOiB7IGxpa2VzOiAxNDUsIGNvbW1lbnRzOiAzMiwgc2hhcmVzOiAxOSB9LFxuICAgICAgY29uZGl0aW9uOiAnbmV3X3dpdGhfdGFncycsXG4gICAgICBpc0xpa2VkOiB0cnVlLFxuICAgICAgY3JlYXRlZEF0OiAnMjAyNC0wMS0yNlQxMzo0NTowMFonXG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogJ2JlYXV0eS0yJyxcbiAgICAgIHRpdGxlOiAnTHV4dXJ5IExpcHN0aWNrIFNldCcsXG4gICAgICBicmFuZDogJ0NoYXJsb3R0ZSBUaWxidXJ5JyxcbiAgICAgIHByaWNlOiAnJDg5JyxcbiAgICAgIG9yaWdpbmFsUHJpY2U6ICckMTM1JyxcbiAgICAgIHNpemU6ICdTZXQgb2YgMycsXG4gICAgICBpbWFnZXM6IFsnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1ODY0OTU3Nzc3NDQtNDQxM2YyMTA2MmZhP3c9NDAwJmg9NDAwJmZpdD1jcm9wJ10sXG4gICAgICBzZWxsZXI6IHtcbiAgICAgICAgaWQ6ICdzZWxsZXIyOCcsXG4gICAgICAgIHVzZXJuYW1lOiAnbWFrZXVwX2FydGlzdCcsXG4gICAgICAgIGF2YXRhcjogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNDk0NzkwMTA4NzU1LTI2MTZiNjEyYjBjNT93PTEwMCZoPTEwMCZmaXQ9Y3JvcCdcbiAgICAgIH0sXG4gICAgICBzdGF0czogeyBsaWtlczogMTk4LCBjb21tZW50czogNDEsIHNoYXJlczogMjUgfSxcbiAgICAgIGNvbmRpdGlvbjogJ2V4Y2VsbGVudCcsXG4gICAgICBpc0xpa2VkOiBmYWxzZSxcbiAgICAgIGNyZWF0ZWRBdDogJzIwMjQtMDEtMjVUMTI6MjA6MDBaJ1xuICAgIH0sXG4gICAge1xuICAgICAgaWQ6ICdiZWF1dHktMycsXG4gICAgICB0aXRsZTogJ0h5YWx1cm9uaWMgQWNpZCBNb2lzdHVyaXplcicsXG4gICAgICBicmFuZDogJ0NlcmFWZScsXG4gICAgICBwcmljZTogJyQxNicsXG4gICAgICBvcmlnaW5hbFByaWNlOiAnJDI0JyxcbiAgICAgIHNpemU6ICc1MG1sJyxcbiAgICAgIGltYWdlczogWydodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU3MDU1NDg4NjExMS1lODBmY2NhNmEwMjk/dz00MDAmaD00MDAmZml0PWNyb3AnXSxcbiAgICAgIHNlbGxlcjoge1xuICAgICAgICBpZDogJ3NlbGxlcjI5JyxcbiAgICAgICAgdXNlcm5hbWU6ICdkZXJtYXRvbG9naXN0X2FwcHJvdmVkJyxcbiAgICAgICAgYXZhdGFyOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1MDcwMDMyMTExNjktMGExZGQ3MjI4ZjJkP3c9MTAwJmg9MTAwJmZpdD1jcm9wJ1xuICAgICAgfSxcbiAgICAgIHN0YXRzOiB7IGxpa2VzOiAyMzQsIGNvbW1lbnRzOiA0NSwgc2hhcmVzOiAyMyB9LFxuICAgICAgY29uZGl0aW9uOiAnbmV3X3dpdGhfdGFncycsXG4gICAgICBpc0xpa2VkOiB0cnVlLFxuICAgICAgY3JlYXRlZEF0OiAnMjAyNC0wMS0yNFQxNTozMDowMFonXG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogJ2JlYXV0eS00JyxcbiAgICAgIHRpdGxlOiAnUm9zZSBHb2xkIEV5ZXNoYWRvdyBQYWxldHRlJyxcbiAgICAgIGJyYW5kOiAnVXJiYW4gRGVjYXknLFxuICAgICAgcHJpY2U6ICckNDUnLFxuICAgICAgb3JpZ2luYWxQcmljZTogJyQ2NScsXG4gICAgICBzaXplOiAnMTggc2hhZGVzJyxcbiAgICAgIGltYWdlczogWydodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU4NjQ5NTc3Nzc0NC00NDEzZjIxMDYyZmE/dz00MDAmaD00MDAmZml0PWNyb3AnXSxcbiAgICAgIHNlbGxlcjoge1xuICAgICAgICBpZDogJ3NlbGxlcjMwJyxcbiAgICAgICAgdXNlcm5hbWU6ICdjb3NtZXRpY19jb2xsZWN0b3InLFxuICAgICAgICBhdmF0YXI6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTQ5NDc5MDEwODc1NS0yNjE2YjYxMmIwYzU/dz0xMDAmaD0xMDAmZml0PWNyb3AnXG4gICAgICB9LFxuICAgICAgc3RhdHM6IHsgbGlrZXM6IDE2NywgY29tbWVudHM6IDM1LCBzaGFyZXM6IDE4IH0sXG4gICAgICBjb25kaXRpb246ICdleGNlbGxlbnQnLFxuICAgICAgaXNMaWtlZDogZmFsc2UsXG4gICAgICBjcmVhdGVkQXQ6ICcyMDI0LTAxLTIzVDExOjQ1OjAwWidcbiAgICB9LFxuICAgIHtcbiAgICAgIGlkOiAnYmVhdXR5LTUnLFxuICAgICAgdGl0bGU6ICdSZXRpbm9sIE5pZ2h0IENyZWFtJyxcbiAgICAgIGJyYW5kOiAnTGEgUm9jaGUtUG9zYXknLFxuICAgICAgcHJpY2U6ICckMjgnLFxuICAgICAgb3JpZ2luYWxQcmljZTogJyQ0MicsXG4gICAgICBzaXplOiAnMzBtbCcsXG4gICAgICBpbWFnZXM6IFsnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1NzA1NTQ4ODYxMTEtZTgwZmNjYTZhMDI5P3c9NDAwJmg9NDAwJmZpdD1jcm9wJ10sXG4gICAgICBzZWxsZXI6IHtcbiAgICAgICAgaWQ6ICdzZWxsZXIzMScsXG4gICAgICAgIHVzZXJuYW1lOiAnYW50aV9hZ2luZ19leHBlcnQnLFxuICAgICAgICBhdmF0YXI6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTUxNzg0MTkwNTI0MC00NzI5ODhiYWJkZjk/dz0xMDAmaD0xMDAmZml0PWNyb3AnXG4gICAgICB9LFxuICAgICAgc3RhdHM6IHsgbGlrZXM6IDE4OSwgY29tbWVudHM6IDM4LCBzaGFyZXM6IDIwIH0sXG4gICAgICBjb25kaXRpb246ICdleGNlbGxlbnQnLFxuICAgICAgaXNMaWtlZDogdHJ1ZSxcbiAgICAgIGNyZWF0ZWRBdDogJzIwMjQtMDEtMjJUMTQ6MTU6MDBaJ1xuICAgIH0sXG4gICAge1xuICAgICAgaWQ6ICdiZWF1dHktNicsXG4gICAgICB0aXRsZTogJ0ZyYWdyYW5jZSBQZXJmdW1lJyxcbiAgICAgIGJyYW5kOiAnSm8gTWFsb25lJyxcbiAgICAgIHByaWNlOiAnJDEyNScsXG4gICAgICBvcmlnaW5hbFByaWNlOiAnJDE4NScsXG4gICAgICBzaXplOiAnMTAwbWwnLFxuICAgICAgaW1hZ2VzOiBbJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTQxNjQzNjAwOTE0LTc4YjA4NDY4MzYwMT93PTQwMCZoPTQwMCZmaXQ9Y3JvcCddLFxuICAgICAgc2VsbGVyOiB7XG4gICAgICAgIGlkOiAnc2VsbGVyMzInLFxuICAgICAgICB1c2VybmFtZTogJ2x1eHVyeV9mcmFncmFuY2VzJyxcbiAgICAgICAgYXZhdGFyOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE0ODg0MjY4NjIwMjYtM2VlMzRhN2Q2NmRmP3c9MTAwJmg9MTAwJmZpdD1jcm9wJ1xuICAgICAgfSxcbiAgICAgIHN0YXRzOiB7IGxpa2VzOiAyNzgsIGNvbW1lbnRzOiA1Miwgc2hhcmVzOiAyOCB9LFxuICAgICAgY29uZGl0aW9uOiAnbmV3X3dpdGhfdGFncycsXG4gICAgICBpc0xpa2VkOiBmYWxzZSxcbiAgICAgIGNyZWF0ZWRBdDogJzIwMjQtMDEtMjFUMTY6MzA6MDBaJ1xuICAgIH0sXG4gICAge1xuICAgICAgaWQ6ICdiZWF1dHktNycsXG4gICAgICB0aXRsZTogJ0hhaXIgRHJ5ZXInLFxuICAgICAgYnJhbmQ6ICdEeXNvbicsXG4gICAgICBwcmljZTogJyQzOTknLFxuICAgICAgb3JpZ2luYWxQcmljZTogJyQ0OTknLFxuICAgICAgc2l6ZTogJ09uZSBTaXplJyxcbiAgICAgIGltYWdlczogWydodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTUyMjMzODE0MDI2My1mNDZmNTkxMzYxOGE/dz00MDAmaD00MDAmZml0PWNyb3AnXSxcbiAgICAgIHNlbGxlcjoge1xuICAgICAgICBpZDogJ3NlbGxlcjMzJyxcbiAgICAgICAgdXNlcm5hbWU6ICdoYWlyX3N0eWxpbmdfcHJvJyxcbiAgICAgICAgYXZhdGFyOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1MDcwMDMyMTExNjktMGExZGQ3MjI4ZjJkP3c9MTAwJmg9MTAwJmZpdD1jcm9wJ1xuICAgICAgfSxcbiAgICAgIHN0YXRzOiB7IGxpa2VzOiAzNDUsIGNvbW1lbnRzOiA2Nywgc2hhcmVzOiAzNCB9LFxuICAgICAgY29uZGl0aW9uOiAnZXhjZWxsZW50JyxcbiAgICAgIGlzTGlrZWQ6IHRydWUsXG4gICAgICBjcmVhdGVkQXQ6ICcyMDI0LTAxLTIwVDEyOjQ1OjAwWidcbiAgICB9LFxuICAgIHtcbiAgICAgIGlkOiAnYmVhdXR5LTgnLFxuICAgICAgdGl0bGU6ICdGYWNlIE1hc2sgU2V0JyxcbiAgICAgIGJyYW5kOiAnR2xhbUdsb3cnLFxuICAgICAgcHJpY2U6ICckMzUnLFxuICAgICAgb3JpZ2luYWxQcmljZTogJyQ1NScsXG4gICAgICBzaXplOiAnU2V0IG9mIDUnLFxuICAgICAgaW1hZ2VzOiBbJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTcwNTU0ODg2MTExLWU4MGZjY2E2YTAyOT93PTQwMCZoPTQwMCZmaXQ9Y3JvcCddLFxuICAgICAgc2VsbGVyOiB7XG4gICAgICAgIGlkOiAnc2VsbGVyMzQnLFxuICAgICAgICB1c2VybmFtZTogJ21hc2tfbG92ZXInLFxuICAgICAgICBhdmF0YXI6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTQ5NDc5MDEwODc1NS0yNjE2YjYxMmIwYzU/dz0xMDAmaD0xMDAmZml0PWNyb3AnXG4gICAgICB9LFxuICAgICAgc3RhdHM6IHsgbGlrZXM6IDEyMywgY29tbWVudHM6IDI4LCBzaGFyZXM6IDE1IH0sXG4gICAgICBjb25kaXRpb246ICduZXdfd2l0aF90YWdzJyxcbiAgICAgIGlzTGlrZWQ6IGZhbHNlLFxuICAgICAgY3JlYXRlZEF0OiAnMjAyNC0wMS0xOVQxMDoyMDowMFonXG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogJ2JlYXV0eS05JyxcbiAgICAgIHRpdGxlOiAnTWFrZXVwIEJydXNoZXMnLFxuICAgICAgYnJhbmQ6ICdNb3JwaGUnLFxuICAgICAgcHJpY2U6ICckMjUnLFxuICAgICAgb3JpZ2luYWxQcmljZTogJyQzOCcsXG4gICAgICBzaXplOiAnU2V0IG9mIDgnLFxuICAgICAgaW1hZ2VzOiBbJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTg2NDk1Nzc3NzQ0LTQ0MTNmMjEwNjJmYT93PTQwMCZoPTQwMCZmaXQ9Y3JvcCddLFxuICAgICAgc2VsbGVyOiB7XG4gICAgICAgIGlkOiAnc2VsbGVyMzUnLFxuICAgICAgICB1c2VybmFtZTogJ2JydXNoX2NvbGxlY3RvcicsXG4gICAgICAgIGF2YXRhcjogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTE3ODQxOTA1MjQwLTQ3Mjk4OGJhYmRmOT93PTEwMCZoPTEwMCZmaXQ9Y3JvcCdcbiAgICAgIH0sXG4gICAgICBzdGF0czogeyBsaWtlczogMTU2LCBjb21tZW50czogMzQsIHNoYXJlczogMTggfSxcbiAgICAgIGNvbmRpdGlvbjogJ2V4Y2VsbGVudCcsXG4gICAgICBpc0xpa2VkOiB0cnVlLFxuICAgICAgY3JlYXRlZEF0OiAnMjAyNC0wMS0xOFQxNToxNTowMFonXG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogJ2JlYXV0eS0xMCcsXG4gICAgICB0aXRsZTogJ0Vzc2VudGlhbCBPaWwgU2V0JyxcbiAgICAgIGJyYW5kOiAnZG9URVJSQScsXG4gICAgICBwcmljZTogJyQ4NScsXG4gICAgICBvcmlnaW5hbFByaWNlOiAnJDEyNScsXG4gICAgICBzaXplOiAnU2V0IG9mIDYnLFxuICAgICAgaW1hZ2VzOiBbJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTQxNjQzNjAwOTE0LTc4YjA4NDY4MzYwMT93PTQwMCZoPTQwMCZmaXQ9Y3JvcCddLFxuICAgICAgc2VsbGVyOiB7XG4gICAgICAgIGlkOiAnc2VsbGVyMzYnLFxuICAgICAgICB1c2VybmFtZTogJ3dlbGxuZXNzX2V4cGVydCcsXG4gICAgICAgIGF2YXRhcjogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNDg4NDI2ODYyMDI2LTNlZTM0YTdkNjZkZj93PTEwMCZoPTEwMCZmaXQ9Y3JvcCdcbiAgICAgIH0sXG4gICAgICBzdGF0czogeyBsaWtlczogMjM0LCBjb21tZW50czogNDUsIHNoYXJlczogMjMgfSxcbiAgICAgIGNvbmRpdGlvbjogJ2V4Y2VsbGVudCcsXG4gICAgICBpc0xpa2VkOiBmYWxzZSxcbiAgICAgIGNyZWF0ZWRBdDogJzIwMjQtMDEtMTdUMTM6MzA6MDBaJ1xuICAgIH0sXG4gICAge1xuICAgICAgaWQ6ICdiZWF1dHktMTEnLFxuICAgICAgdGl0bGU6ICdTdW5zY3JlZW4gU1BGIDUwJyxcbiAgICAgIGJyYW5kOiAnTmV1dHJvZ2VuYScsXG4gICAgICBwcmljZTogJyQxMicsXG4gICAgICBvcmlnaW5hbFByaWNlOiAnJDE4JyxcbiAgICAgIHNpemU6ICc4OG1sJyxcbiAgICAgIGltYWdlczogWydodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU3MDU1NDg4NjExMS1lODBmY2NhNmEwMjk/dz00MDAmaD00MDAmZml0PWNyb3AnXSxcbiAgICAgIHNlbGxlcjoge1xuICAgICAgICBpZDogJ3NlbGxlcjM3JyxcbiAgICAgICAgdXNlcm5hbWU6ICdzdW5fcHJvdGVjdGlvbicsXG4gICAgICAgIGF2YXRhcjogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTA3MDAzMjExMTY5LTBhMWRkNzIyOGYyZD93PTEwMCZoPTEwMCZmaXQ9Y3JvcCdcbiAgICAgIH0sXG4gICAgICBzdGF0czogeyBsaWtlczogODksIGNvbW1lbnRzOiAyMSwgc2hhcmVzOiAxMiB9LFxuICAgICAgY29uZGl0aW9uOiAnbmV3X3dpdGhfdGFncycsXG4gICAgICBpc0xpa2VkOiB0cnVlLFxuICAgICAgY3JlYXRlZEF0OiAnMjAyNC0wMS0xNlQxMTo0NTowMFonXG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogJ2JlYXV0eS0xMicsXG4gICAgICB0aXRsZTogJ05haWwgUG9saXNoIENvbGxlY3Rpb24nLFxuICAgICAgYnJhbmQ6ICdPUEknLFxuICAgICAgcHJpY2U6ICckMTgnLFxuICAgICAgb3JpZ2luYWxQcmljZTogJyQyNScsXG4gICAgICBzaXplOiAnU2V0IG9mIDMnLFxuICAgICAgaW1hZ2VzOiBbJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTg2NDk1Nzc3NzQ0LTQ0MTNmMjEwNjJmYT93PTQwMCZoPTQwMCZmaXQ9Y3JvcCddLFxuICAgICAgc2VsbGVyOiB7XG4gICAgICAgIGlkOiAnc2VsbGVyMzgnLFxuICAgICAgICB1c2VybmFtZTogJ25haWxfYXJ0aXN0JyxcbiAgICAgICAgYXZhdGFyOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE0OTQ3OTAxMDg3NTUtMjYxNmI2MTJiMGM1P3c9MTAwJmg9MTAwJmZpdD1jcm9wJ1xuICAgICAgfSxcbiAgICAgIHN0YXRzOiB7IGxpa2VzOiA2NywgY29tbWVudHM6IDE2LCBzaGFyZXM6IDggfSxcbiAgICAgIGNvbmRpdGlvbjogJ2dvb2QnLFxuICAgICAgaXNMaWtlZDogZmFsc2UsXG4gICAgICBjcmVhdGVkQXQ6ICcyMDI0LTAxLTE1VDE0OjIwOjAwWidcbiAgICB9LFxuICAgIHtcbiAgICAgIGlkOiAnYmVhdXR5LTEzJyxcbiAgICAgIHRpdGxlOiAnRmFjaWFsIENsZWFuc2VyJyxcbiAgICAgIGJyYW5kOiAnQ2V0YXBoaWwnLFxuICAgICAgcHJpY2U6ICckMTUnLFxuICAgICAgb3JpZ2luYWxQcmljZTogJyQyMicsXG4gICAgICBzaXplOiAnMjUwbWwnLFxuICAgICAgaW1hZ2VzOiBbJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTcwNTU0ODg2MTExLWU4MGZjY2E2YTAyOT93PTQwMCZoPTQwMCZmaXQ9Y3JvcCddLFxuICAgICAgc2VsbGVyOiB7XG4gICAgICAgIGlkOiAnc2VsbGVyMzknLFxuICAgICAgICB1c2VybmFtZTogJ2dlbnRsZV9za2luY2FyZScsXG4gICAgICAgIGF2YXRhcjogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTE3ODQxOTA1MjQwLTQ3Mjk4OGJhYmRmOT93PTEwMCZoPTEwMCZmaXQ9Y3JvcCdcbiAgICAgIH0sXG4gICAgICBzdGF0czogeyBsaWtlczogMTQ1LCBjb21tZW50czogMzIsIHNoYXJlczogMTggfSxcbiAgICAgIGNvbmRpdGlvbjogJ2V4Y2VsbGVudCcsXG4gICAgICBpc0xpa2VkOiB0cnVlLFxuICAgICAgY3JlYXRlZEF0OiAnMjAyNC0wMS0xNFQxNjozMDowMFonXG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogJ2JlYXV0eS0xNCcsXG4gICAgICB0aXRsZTogJ01hc2NhcmEnLFxuICAgICAgYnJhbmQ6ICdUb28gRmFjZWQnLFxuICAgICAgcHJpY2U6ICckMjQnLFxuICAgICAgb3JpZ2luYWxQcmljZTogJyQzMicsXG4gICAgICBzaXplOiAnMTBtbCcsXG4gICAgICBpbWFnZXM6IFsnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1ODY0OTU3Nzc3NDQtNDQxM2YyMTA2MmZhP3c9NDAwJmg9NDAwJmZpdD1jcm9wJ10sXG4gICAgICBzZWxsZXI6IHtcbiAgICAgICAgaWQ6ICdzZWxsZXI0MCcsXG4gICAgICAgIHVzZXJuYW1lOiAnbGFzaF9sb3ZlcicsXG4gICAgICAgIGF2YXRhcjogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNDg4NDI2ODYyMDI2LTNlZTM0YTdkNjZkZj93PTEwMCZoPTEwMCZmaXQ9Y3JvcCdcbiAgICAgIH0sXG4gICAgICBzdGF0czogeyBsaWtlczogMTc4LCBjb21tZW50czogMzgsIHNoYXJlczogMjAgfSxcbiAgICAgIGNvbmRpdGlvbjogJ25ld193aXRoX3RhZ3MnLFxuICAgICAgaXNMaWtlZDogZmFsc2UsXG4gICAgICBjcmVhdGVkQXQ6ICcyMDI0LTAxLTEzVDEyOjE1OjAwWidcbiAgICB9LFxuICAgIHtcbiAgICAgIGlkOiAnYmVhdXR5LTE1JyxcbiAgICAgIHRpdGxlOiAnSGFpciBTZXJ1bScsXG4gICAgICBicmFuZDogJ09sYXBsZXgnLFxuICAgICAgcHJpY2U6ICckMjgnLFxuICAgICAgb3JpZ2luYWxQcmljZTogJyQ0MicsXG4gICAgICBzaXplOiAnMTAwbWwnLFxuICAgICAgaW1hZ2VzOiBbJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTIyMzM4MTQwMjYzLWY0NmY1OTEzNjE4YT93PTQwMCZoPTQwMCZmaXQ9Y3JvcCddLFxuICAgICAgc2VsbGVyOiB7XG4gICAgICAgIGlkOiAnc2VsbGVyNDEnLFxuICAgICAgICB1c2VybmFtZTogJ2hhaXJfcmVwYWlyJyxcbiAgICAgICAgYXZhdGFyOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1MDcwMDMyMTExNjktMGExZGQ3MjI4ZjJkP3c9MTAwJmg9MTAwJmZpdD1jcm9wJ1xuICAgICAgfSxcbiAgICAgIHN0YXRzOiB7IGxpa2VzOiAyMzQsIGNvbW1lbnRzOiA0NSwgc2hhcmVzOiAyMyB9LFxuICAgICAgY29uZGl0aW9uOiAnZXhjZWxsZW50JyxcbiAgICAgIGlzTGlrZWQ6IHRydWUsXG4gICAgICBjcmVhdGVkQXQ6ICcyMDI0LTAxLTEyVDEwOjQ1OjAwWidcbiAgICB9LFxuICAgIHtcbiAgICAgIGlkOiAnYmVhdXR5LTE2JyxcbiAgICAgIHRpdGxlOiAnRm91bmRhdGlvbicsXG4gICAgICBicmFuZDogJ0ZlbnR5IEJlYXV0eScsXG4gICAgICBwcmljZTogJyQzNScsXG4gICAgICBvcmlnaW5hbFByaWNlOiAnJDQ4JyxcbiAgICAgIHNpemU6ICczMG1sJyxcbiAgICAgIGltYWdlczogWydodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU4NjQ5NTc3Nzc0NC00NDEzZjIxMDYyZmE/dz00MDAmaD00MDAmZml0PWNyb3AnXSxcbiAgICAgIHNlbGxlcjoge1xuICAgICAgICBpZDogJ3NlbGxlcjQyJyxcbiAgICAgICAgdXNlcm5hbWU6ICdpbmNsdXNpdmVfYmVhdXR5JyxcbiAgICAgICAgYXZhdGFyOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE0OTQ3OTAxMDg3NTUtMjYxNmI2MTJiMGM1P3c9MTAwJmg9MTAwJmZpdD1jcm9wJ1xuICAgICAgfSxcbiAgICAgIHN0YXRzOiB7IGxpa2VzOiAxOTgsIGNvbW1lbnRzOiA0MSwgc2hhcmVzOiAyNSB9LFxuICAgICAgY29uZGl0aW9uOiAnZXhjZWxsZW50JyxcbiAgICAgIGlzTGlrZWQ6IGZhbHNlLFxuICAgICAgY3JlYXRlZEF0OiAnMjAyNC0wMS0xMVQxNToyMDowMFonXG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogJ2JlYXV0eS0xNycsXG4gICAgICB0aXRsZTogJ0ZhY2UgVG9uZXInLFxuICAgICAgYnJhbmQ6ICdQYXVsYVxcJ3MgQ2hvaWNlJyxcbiAgICAgIHByaWNlOiAnJDIyJyxcbiAgICAgIG9yaWdpbmFsUHJpY2U6ICckMzInLFxuICAgICAgc2l6ZTogJzExOG1sJyxcbiAgICAgIGltYWdlczogWydodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU3MDU1NDg4NjExMS1lODBmY2NhNmEwMjk/dz00MDAmaD00MDAmZml0PWNyb3AnXSxcbiAgICAgIHNlbGxlcjoge1xuICAgICAgICBpZDogJ3NlbGxlcjQzJyxcbiAgICAgICAgdXNlcm5hbWU6ICdza2luY2FyZV9zY2llbnRpc3QnLFxuICAgICAgICBhdmF0YXI6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTUxNzg0MTkwNTI0MC00NzI5ODhiYWJkZjk/dz0xMDAmaD0xMDAmZml0PWNyb3AnXG4gICAgICB9LFxuICAgICAgc3RhdHM6IHsgbGlrZXM6IDE2NywgY29tbWVudHM6IDM1LCBzaGFyZXM6IDE4IH0sXG4gICAgICBjb25kaXRpb246ICduZXdfd2l0aF90YWdzJyxcbiAgICAgIGlzTGlrZWQ6IHRydWUsXG4gICAgICBjcmVhdGVkQXQ6ICcyMDI0LTAxLTEwVDEzOjMwOjAwWidcbiAgICB9LFxuICAgIHtcbiAgICAgIGlkOiAnYmVhdXR5LTE4JyxcbiAgICAgIHRpdGxlOiAnRXllbGluZXInLFxuICAgICAgYnJhbmQ6ICdTdGlsYScsXG4gICAgICBwcmljZTogJyQxOCcsXG4gICAgICBvcmlnaW5hbFByaWNlOiAnJDI1JyxcbiAgICAgIHNpemU6ICcwLjVtbCcsXG4gICAgICBpbWFnZXM6IFsnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1ODY0OTU3Nzc3NDQtNDQxM2YyMTA2MmZhP3c9NDAwJmg9NDAwJmZpdD1jcm9wJ10sXG4gICAgICBzZWxsZXI6IHtcbiAgICAgICAgaWQ6ICdzZWxsZXI0NCcsXG4gICAgICAgIHVzZXJuYW1lOiAnd2luZ19sb3ZlcicsXG4gICAgICAgIGF2YXRhcjogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNDg4NDI2ODYyMDI2LTNlZTM0YTdkNjZkZj93PTEwMCZoPTEwMCZmaXQ9Y3JvcCdcbiAgICAgIH0sXG4gICAgICBzdGF0czogeyBsaWtlczogMTIzLCBjb21tZW50czogMjgsIHNoYXJlczogMTUgfSxcbiAgICAgIGNvbmRpdGlvbjogJ2dvb2QnLFxuICAgICAgaXNMaWtlZDogZmFsc2UsXG4gICAgICBjcmVhdGVkQXQ6ICcyMDI0LTAxLTA5VDExOjE1OjAwWidcbiAgICB9LFxuICAgIHtcbiAgICAgIGlkOiAnYmVhdXR5LTE5JyxcbiAgICAgIHRpdGxlOiAnQm9keSBMb3Rpb24nLFxuICAgICAgYnJhbmQ6ICdBdmVlbm8nLFxuICAgICAgcHJpY2U6ICckMTQnLFxuICAgICAgb3JpZ2luYWxQcmljZTogJyQyMCcsXG4gICAgICBzaXplOiAnMzU0bWwnLFxuICAgICAgaW1hZ2VzOiBbJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTcwNTU0ODg2MTExLWU4MGZjY2E2YTAyOT93PTQwMCZoPTQwMCZmaXQ9Y3JvcCddLFxuICAgICAgc2VsbGVyOiB7XG4gICAgICAgIGlkOiAnc2VsbGVyNDUnLFxuICAgICAgICB1c2VybmFtZTogJ2JvZHlfY2FyZScsXG4gICAgICAgIGF2YXRhcjogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTA3MDAzMjExMTY5LTBhMWRkNzIyOGYyZD93PTEwMCZoPTEwMCZmaXQ9Y3JvcCdcbiAgICAgIH0sXG4gICAgICBzdGF0czogeyBsaWtlczogODksIGNvbW1lbnRzOiAyMSwgc2hhcmVzOiAxMiB9LFxuICAgICAgY29uZGl0aW9uOiAnZXhjZWxsZW50JyxcbiAgICAgIGlzTGlrZWQ6IHRydWUsXG4gICAgICBjcmVhdGVkQXQ6ICcyMDI0LTAxLTA4VDE0OjQ1OjAwWidcbiAgICB9LFxuICAgIHtcbiAgICAgIGlkOiAnYmVhdXR5LTIwJyxcbiAgICAgIHRpdGxlOiAnTWFrZXVwIE1pcnJvcicsXG4gICAgICBicmFuZDogJ1NpbXBsZWh1bWFuJyxcbiAgICAgIHByaWNlOiAnJDk1JyxcbiAgICAgIG9yaWdpbmFsUHJpY2U6ICckMTQ1JyxcbiAgICAgIHNpemU6ICdPbmUgU2l6ZScsXG4gICAgICBpbWFnZXM6IFsnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1ODY0OTU3Nzc3NDQtNDQxM2YyMTA2MmZhP3c9NDAwJmg9NDAwJmZpdD1jcm9wJ10sXG4gICAgICBzZWxsZXI6IHtcbiAgICAgICAgaWQ6ICdzZWxsZXI0NicsXG4gICAgICAgIHVzZXJuYW1lOiAnYmVhdXR5X3Rvb2xzJyxcbiAgICAgICAgYXZhdGFyOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE0OTQ3OTAxMDg3NTUtMjYxNmI2MTJiMGM1P3c9MTAwJmg9MTAwJmZpdD1jcm9wJ1xuICAgICAgfSxcbiAgICAgIHN0YXRzOiB7IGxpa2VzOiAyMzQsIGNvbW1lbnRzOiA0NSwgc2hhcmVzOiAyMyB9LFxuICAgICAgY29uZGl0aW9uOiAnZXhjZWxsZW50JyxcbiAgICAgIGlzTGlrZWQ6IGZhbHNlLFxuICAgICAgY3JlYXRlZEF0OiAnMjAyNC0wMS0wN1QxNjoyMDowMFonXG4gICAgfVxuICBdXG59OyJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7SUFzQlU7SUFBQUEsYUFBQSxZQUFBQSxDQUFBO01BQUEsT0FBQUMsY0FBQTtJQUFBO0VBQUE7RUFBQSxPQUFBQSxjQUFBO0FBQUE7QUFBQUQsYUFBQTtBQXRCVjs7Ozs7Ozs7QUFTQSxTQUFTRSxDQUFDLFFBQVEsS0FBSztBQU92Qjs7OztBQUlBLE9BQU8sTUFBTUMsbUJBQW1CO0FBQUE7QUFBQSxDQUFBSCxhQUFBLEdBQUFJLENBQUEsT0FBK0I7RUFDN0RDLFFBQVEsRUFBRSxTQUFTO0VBQ25CQyxRQUFRLEVBQUU7SUFDUkMsS0FBSyxFQUFFLG1CQUFtQjtJQUMxQkMsV0FBVyxFQUFFLDREQUE0RDtJQUN6RUMsUUFBUSxFQUFFLHlDQUF5QztJQUNuREMsV0FBVyxFQUFFO0dBQ2Q7RUFDREMsbUJBQW1CLEVBQUU7SUFDbkJDLGdCQUFnQixFQUFFLENBQUMsYUFBYSxFQUFFLFdBQVcsRUFBRSxZQUFZLEVBQUUsVUFBVSxFQUFFLE9BQU8sRUFBRSxXQUFXLEVBQUUsY0FBYyxDQUFDO0lBQzlHQyx1QkFBdUIsRUFBRSxDQUN2QjtNQUNFQyxFQUFFLEVBQUUsbUJBQW1CO01BQ3ZCQyxJQUFJLEVBQUUsbUJBQW1CO01BQ3pCQyxJQUFJLEVBQUUsVUFBVTtNQUNoQkMsT0FBTyxFQUFFLENBQ1A7UUFBRUgsRUFBRSxFQUFFLFVBQVU7UUFBRUMsSUFBSSxFQUFFO01BQVUsQ0FBRSxFQUNwQztRQUFFRCxFQUFFLEVBQUUsUUFBUTtRQUFFQyxJQUFJLEVBQUU7TUFBUSxDQUFFLEVBQ2hDO1FBQUVELEVBQUUsRUFBRSxXQUFXO1FBQUVDLElBQUksRUFBRTtNQUFXLENBQUUsRUFDdEM7UUFBRUQsRUFBRSxFQUFFLFdBQVc7UUFBRUMsSUFBSSxFQUFFO01BQVcsQ0FBRSxFQUN0QztRQUFFRCxFQUFFLEVBQUUsVUFBVTtRQUFFQyxJQUFJLEVBQUU7TUFBVSxDQUFFLEVBQ3BDO1FBQUVELEVBQUUsRUFBRSxPQUFPO1FBQUVDLElBQUksRUFBRTtNQUFjLENBQUUsQ0FDdEM7TUFDREcsVUFBVSxFQUFFaEIsQ0FBQyxDQUFDaUIsS0FBSyxDQUFDakIsQ0FBQyxDQUFDa0IsTUFBTSxFQUFFO0tBQy9CLEVBQ0Q7TUFDRU4sRUFBRSxFQUFFLFlBQVk7TUFDaEJDLElBQUksRUFBRSxZQUFZO01BQ2xCQyxJQUFJLEVBQUUsVUFBVTtNQUNoQkMsT0FBTyxFQUFFLENBQ1A7UUFBRUgsRUFBRSxFQUFFLFVBQVU7UUFBRUMsSUFBSSxFQUFFO01BQWdCLENBQUUsRUFDMUM7UUFBRUQsRUFBRSxFQUFFLEtBQUs7UUFBRUMsSUFBSSxFQUFFO01BQVUsQ0FBRSxFQUMvQjtRQUFFRCxFQUFFLEVBQUUsTUFBTTtRQUFFQyxJQUFJLEVBQUU7TUFBVyxDQUFFLEVBQ2pDO1FBQUVELEVBQUUsRUFBRSxhQUFhO1FBQUVDLElBQUksRUFBRTtNQUFhLENBQUUsRUFDMUM7UUFBRUQsRUFBRSxFQUFFLFdBQVc7UUFBRUMsSUFBSSxFQUFFO01BQVcsQ0FBRSxFQUN0QztRQUFFRCxFQUFFLEVBQUUsUUFBUTtRQUFFQyxJQUFJLEVBQUU7TUFBYSxDQUFFLENBQ3RDO01BQ0RHLFVBQVUsRUFBRWhCLENBQUMsQ0FBQ2lCLEtBQUssQ0FBQ2pCLENBQUMsQ0FBQ2tCLE1BQU0sRUFBRTtLQUMvQixDQUNGO0lBQ0RDLGNBQWMsRUFBRTtNQUNkQyxTQUFTLEVBQUUsQ0FBQyxlQUFlLEVBQUUsV0FBVyxDQUFDO01BQ3pDQyxZQUFZLEVBQUUsQ0FBQyxXQUFXO0tBQzNCO0lBQ0RDLHFCQUFxQixFQUFFO01BQ3JCLGlCQUFpQixFQUFFdEIsQ0FBQyxDQUFDaUIsS0FBSyxDQUFDakIsQ0FBQyxDQUFDa0IsTUFBTSxFQUFFLENBQUM7TUFDdEMsV0FBVyxFQUFFbEIsQ0FBQyxDQUFDaUIsS0FBSyxDQUFDakIsQ0FBQyxDQUFDa0IsTUFBTSxFQUFFLENBQUM7TUFDaENLLEtBQUssRUFBRXZCLENBQUMsQ0FBQ2lCLEtBQUssQ0FBQ2pCLENBQUMsQ0FBQ2tCLE1BQU0sRUFBRTs7R0FFNUI7RUFDRE0sY0FBYyxFQUFFLENBQ2Q7SUFDRVosRUFBRSxFQUFFLFVBQVU7SUFDZFAsS0FBSyxFQUFFLGlCQUFpQjtJQUN4QmtCLEtBQUssRUFBRSxjQUFjO0lBQ3JCRSxLQUFLLEVBQUUsSUFBSTtJQUNYQyxhQUFhLEVBQUUsS0FBSztJQUNwQkMsSUFBSSxFQUFFLE1BQU07SUFDWkMsTUFBTSxFQUFFLENBQUMsbUZBQW1GLENBQUM7SUFDN0ZDLE1BQU0sRUFBRTtNQUNOakIsRUFBRSxFQUFFLFVBQVU7TUFDZGtCLFFBQVEsRUFBRSxlQUFlO01BQ3pCQyxNQUFNLEVBQUU7S0FDVDtJQUNEQyxLQUFLLEVBQUU7TUFBRUMsS0FBSyxFQUFFLEdBQUc7TUFBRUMsUUFBUSxFQUFFLEVBQUU7TUFBRUMsTUFBTSxFQUFFO0lBQUUsQ0FBRTtJQUMvQ2YsU0FBUyxFQUFFLGVBQWU7SUFDMUJnQixPQUFPLEVBQUUsSUFBSTtJQUNiQyxTQUFTLEVBQUU7R0FDWixFQUNEO0lBQ0V6QixFQUFFLEVBQUUsVUFBVTtJQUNkUCxLQUFLLEVBQUUscUJBQXFCO0lBQzVCa0IsS0FBSyxFQUFFLG1CQUFtQjtJQUMxQkUsS0FBSyxFQUFFLEtBQUs7SUFDWkMsYUFBYSxFQUFFLE1BQU07SUFDckJDLElBQUksRUFBRSxVQUFVO0lBQ2hCQyxNQUFNLEVBQUUsQ0FBQyxtRkFBbUYsQ0FBQztJQUM3RkMsTUFBTSxFQUFFO01BQ05qQixFQUFFLEVBQUUsVUFBVTtNQUNka0IsUUFBUSxFQUFFLGVBQWU7TUFDekJDLE1BQU0sRUFBRTtLQUNUO0lBQ0RDLEtBQUssRUFBRTtNQUFFQyxLQUFLLEVBQUUsR0FBRztNQUFFQyxRQUFRLEVBQUUsRUFBRTtNQUFFQyxNQUFNLEVBQUU7SUFBRSxDQUFFO0lBQy9DZixTQUFTLEVBQUUsV0FBVztJQUN0QmdCLE9BQU8sRUFBRSxLQUFLO0lBQ2RDLFNBQVMsRUFBRTtHQUNaLEVBQ0Q7SUFDRXpCLEVBQUUsRUFBRSxVQUFVO0lBQ2RQLEtBQUssRUFBRSw2QkFBNkI7SUFDcENrQixLQUFLLEVBQUUsUUFBUTtJQUNmRSxLQUFLLEVBQUUsS0FBSztJQUNaQyxhQUFhLEVBQUUsS0FBSztJQUNwQkMsSUFBSSxFQUFFLE1BQU07SUFDWkMsTUFBTSxFQUFFLENBQUMsbUZBQW1GLENBQUM7SUFDN0ZDLE1BQU0sRUFBRTtNQUNOakIsRUFBRSxFQUFFLFVBQVU7TUFDZGtCLFFBQVEsRUFBRSx3QkFBd0I7TUFDbENDLE1BQU0sRUFBRTtLQUNUO0lBQ0RDLEtBQUssRUFBRTtNQUFFQyxLQUFLLEVBQUUsR0FBRztNQUFFQyxRQUFRLEVBQUUsRUFBRTtNQUFFQyxNQUFNLEVBQUU7SUFBRSxDQUFFO0lBQy9DZixTQUFTLEVBQUUsZUFBZTtJQUMxQmdCLE9BQU8sRUFBRSxJQUFJO0lBQ2JDLFNBQVMsRUFBRTtHQUNaLEVBQ0Q7SUFDRXpCLEVBQUUsRUFBRSxVQUFVO0lBQ2RQLEtBQUssRUFBRSw2QkFBNkI7SUFDcENrQixLQUFLLEVBQUUsYUFBYTtJQUNwQkUsS0FBSyxFQUFFLEtBQUs7SUFDWkMsYUFBYSxFQUFFLEtBQUs7SUFDcEJDLElBQUksRUFBRSxXQUFXO0lBQ2pCQyxNQUFNLEVBQUUsQ0FBQyxtRkFBbUYsQ0FBQztJQUM3RkMsTUFBTSxFQUFFO01BQ05qQixFQUFFLEVBQUUsVUFBVTtNQUNka0IsUUFBUSxFQUFFLG9CQUFvQjtNQUM5QkMsTUFBTSxFQUFFO0tBQ1Q7SUFDREMsS0FBSyxFQUFFO01BQUVDLEtBQUssRUFBRSxHQUFHO01BQUVDLFFBQVEsRUFBRSxFQUFFO01BQUVDLE1BQU0sRUFBRTtJQUFFLENBQUU7SUFDL0NmLFNBQVMsRUFBRSxXQUFXO0lBQ3RCZ0IsT0FBTyxFQUFFLEtBQUs7SUFDZEMsU0FBUyxFQUFFO0dBQ1osRUFDRDtJQUNFekIsRUFBRSxFQUFFLFVBQVU7SUFDZFAsS0FBSyxFQUFFLHFCQUFxQjtJQUM1QmtCLEtBQUssRUFBRSxnQkFBZ0I7SUFDdkJFLEtBQUssRUFBRSxLQUFLO0lBQ1pDLGFBQWEsRUFBRSxLQUFLO0lBQ3BCQyxJQUFJLEVBQUUsTUFBTTtJQUNaQyxNQUFNLEVBQUUsQ0FBQyxtRkFBbUYsQ0FBQztJQUM3RkMsTUFBTSxFQUFFO01BQ05qQixFQUFFLEVBQUUsVUFBVTtNQUNka0IsUUFBUSxFQUFFLG1CQUFtQjtNQUM3QkMsTUFBTSxFQUFFO0tBQ1Q7SUFDREMsS0FBSyxFQUFFO01BQUVDLEtBQUssRUFBRSxHQUFHO01BQUVDLFFBQVEsRUFBRSxFQUFFO01BQUVDLE1BQU0sRUFBRTtJQUFFLENBQUU7SUFDL0NmLFNBQVMsRUFBRSxXQUFXO0lBQ3RCZ0IsT0FBTyxFQUFFLElBQUk7SUFDYkMsU0FBUyxFQUFFO0dBQ1osRUFDRDtJQUNFekIsRUFBRSxFQUFFLFVBQVU7SUFDZFAsS0FBSyxFQUFFLG1CQUFtQjtJQUMxQmtCLEtBQUssRUFBRSxXQUFXO0lBQ2xCRSxLQUFLLEVBQUUsTUFBTTtJQUNiQyxhQUFhLEVBQUUsTUFBTTtJQUNyQkMsSUFBSSxFQUFFLE9BQU87SUFDYkMsTUFBTSxFQUFFLENBQUMsbUZBQW1GLENBQUM7SUFDN0ZDLE1BQU0sRUFBRTtNQUNOakIsRUFBRSxFQUFFLFVBQVU7TUFDZGtCLFFBQVEsRUFBRSxtQkFBbUI7TUFDN0JDLE1BQU0sRUFBRTtLQUNUO0lBQ0RDLEtBQUssRUFBRTtNQUFFQyxLQUFLLEVBQUUsR0FBRztNQUFFQyxRQUFRLEVBQUUsRUFBRTtNQUFFQyxNQUFNLEVBQUU7SUFBRSxDQUFFO0lBQy9DZixTQUFTLEVBQUUsZUFBZTtJQUMxQmdCLE9BQU8sRUFBRSxLQUFLO0lBQ2RDLFNBQVMsRUFBRTtHQUNaLEVBQ0Q7SUFDRXpCLEVBQUUsRUFBRSxVQUFVO0lBQ2RQLEtBQUssRUFBRSxZQUFZO0lBQ25Ca0IsS0FBSyxFQUFFLE9BQU87SUFDZEUsS0FBSyxFQUFFLE1BQU07SUFDYkMsYUFBYSxFQUFFLE1BQU07SUFDckJDLElBQUksRUFBRSxVQUFVO0lBQ2hCQyxNQUFNLEVBQUUsQ0FBQyxtRkFBbUYsQ0FBQztJQUM3RkMsTUFBTSxFQUFFO01BQ05qQixFQUFFLEVBQUUsVUFBVTtNQUNka0IsUUFBUSxFQUFFLGtCQUFrQjtNQUM1QkMsTUFBTSxFQUFFO0tBQ1Q7SUFDREMsS0FBSyxFQUFFO01BQUVDLEtBQUssRUFBRSxHQUFHO01BQUVDLFFBQVEsRUFBRSxFQUFFO01BQUVDLE1BQU0sRUFBRTtJQUFFLENBQUU7SUFDL0NmLFNBQVMsRUFBRSxXQUFXO0lBQ3RCZ0IsT0FBTyxFQUFFLElBQUk7SUFDYkMsU0FBUyxFQUFFO0dBQ1osRUFDRDtJQUNFekIsRUFBRSxFQUFFLFVBQVU7SUFDZFAsS0FBSyxFQUFFLGVBQWU7SUFDdEJrQixLQUFLLEVBQUUsVUFBVTtJQUNqQkUsS0FBSyxFQUFFLEtBQUs7SUFDWkMsYUFBYSxFQUFFLEtBQUs7SUFDcEJDLElBQUksRUFBRSxVQUFVO0lBQ2hCQyxNQUFNLEVBQUUsQ0FBQyxtRkFBbUYsQ0FBQztJQUM3RkMsTUFBTSxFQUFFO01BQ05qQixFQUFFLEVBQUUsVUFBVTtNQUNka0IsUUFBUSxFQUFFLFlBQVk7TUFDdEJDLE1BQU0sRUFBRTtLQUNUO0lBQ0RDLEtBQUssRUFBRTtNQUFFQyxLQUFLLEVBQUUsR0FBRztNQUFFQyxRQUFRLEVBQUUsRUFBRTtNQUFFQyxNQUFNLEVBQUU7SUFBRSxDQUFFO0lBQy9DZixTQUFTLEVBQUUsZUFBZTtJQUMxQmdCLE9BQU8sRUFBRSxLQUFLO0lBQ2RDLFNBQVMsRUFBRTtHQUNaLEVBQ0Q7SUFDRXpCLEVBQUUsRUFBRSxVQUFVO0lBQ2RQLEtBQUssRUFBRSxnQkFBZ0I7SUFDdkJrQixLQUFLLEVBQUUsUUFBUTtJQUNmRSxLQUFLLEVBQUUsS0FBSztJQUNaQyxhQUFhLEVBQUUsS0FBSztJQUNwQkMsSUFBSSxFQUFFLFVBQVU7SUFDaEJDLE1BQU0sRUFBRSxDQUFDLG1GQUFtRixDQUFDO0lBQzdGQyxNQUFNLEVBQUU7TUFDTmpCLEVBQUUsRUFBRSxVQUFVO01BQ2RrQixRQUFRLEVBQUUsaUJBQWlCO01BQzNCQyxNQUFNLEVBQUU7S0FDVDtJQUNEQyxLQUFLLEVBQUU7TUFBRUMsS0FBSyxFQUFFLEdBQUc7TUFBRUMsUUFBUSxFQUFFLEVBQUU7TUFBRUMsTUFBTSxFQUFFO0lBQUUsQ0FBRTtJQUMvQ2YsU0FBUyxFQUFFLFdBQVc7SUFDdEJnQixPQUFPLEVBQUUsSUFBSTtJQUNiQyxTQUFTLEVBQUU7R0FDWixFQUNEO0lBQ0V6QixFQUFFLEVBQUUsV0FBVztJQUNmUCxLQUFLLEVBQUUsbUJBQW1CO0lBQzFCa0IsS0FBSyxFQUFFLFNBQVM7SUFDaEJFLEtBQUssRUFBRSxLQUFLO0lBQ1pDLGFBQWEsRUFBRSxNQUFNO0lBQ3JCQyxJQUFJLEVBQUUsVUFBVTtJQUNoQkMsTUFBTSxFQUFFLENBQUMsbUZBQW1GLENBQUM7SUFDN0ZDLE1BQU0sRUFBRTtNQUNOakIsRUFBRSxFQUFFLFVBQVU7TUFDZGtCLFFBQVEsRUFBRSxpQkFBaUI7TUFDM0JDLE1BQU0sRUFBRTtLQUNUO0lBQ0RDLEtBQUssRUFBRTtNQUFFQyxLQUFLLEVBQUUsR0FBRztNQUFFQyxRQUFRLEVBQUUsRUFBRTtNQUFFQyxNQUFNLEVBQUU7SUFBRSxDQUFFO0lBQy9DZixTQUFTLEVBQUUsV0FBVztJQUN0QmdCLE9BQU8sRUFBRSxLQUFLO0lBQ2RDLFNBQVMsRUFBRTtHQUNaLEVBQ0Q7SUFDRXpCLEVBQUUsRUFBRSxXQUFXO0lBQ2ZQLEtBQUssRUFBRSxrQkFBa0I7SUFDekJrQixLQUFLLEVBQUUsWUFBWTtJQUNuQkUsS0FBSyxFQUFFLEtBQUs7SUFDWkMsYUFBYSxFQUFFLEtBQUs7SUFDcEJDLElBQUksRUFBRSxNQUFNO0lBQ1pDLE1BQU0sRUFBRSxDQUFDLG1GQUFtRixDQUFDO0lBQzdGQyxNQUFNLEVBQUU7TUFDTmpCLEVBQUUsRUFBRSxVQUFVO01BQ2RrQixRQUFRLEVBQUUsZ0JBQWdCO01BQzFCQyxNQUFNLEVBQUU7S0FDVDtJQUNEQyxLQUFLLEVBQUU7TUFBRUMsS0FBSyxFQUFFLEVBQUU7TUFBRUMsUUFBUSxFQUFFLEVBQUU7TUFBRUMsTUFBTSxFQUFFO0lBQUUsQ0FBRTtJQUM5Q2YsU0FBUyxFQUFFLGVBQWU7SUFDMUJnQixPQUFPLEVBQUUsSUFBSTtJQUNiQyxTQUFTLEVBQUU7R0FDWixFQUNEO0lBQ0V6QixFQUFFLEVBQUUsV0FBVztJQUNmUCxLQUFLLEVBQUUsd0JBQXdCO0lBQy9Ca0IsS0FBSyxFQUFFLEtBQUs7SUFDWkUsS0FBSyxFQUFFLEtBQUs7SUFDWkMsYUFBYSxFQUFFLEtBQUs7SUFDcEJDLElBQUksRUFBRSxVQUFVO0lBQ2hCQyxNQUFNLEVBQUUsQ0FBQyxtRkFBbUYsQ0FBQztJQUM3RkMsTUFBTSxFQUFFO01BQ05qQixFQUFFLEVBQUUsVUFBVTtNQUNka0IsUUFBUSxFQUFFLGFBQWE7TUFDdkJDLE1BQU0sRUFBRTtLQUNUO0lBQ0RDLEtBQUssRUFBRTtNQUFFQyxLQUFLLEVBQUUsRUFBRTtNQUFFQyxRQUFRLEVBQUUsRUFBRTtNQUFFQyxNQUFNLEVBQUU7SUFBQyxDQUFFO0lBQzdDZixTQUFTLEVBQUUsTUFBTTtJQUNqQmdCLE9BQU8sRUFBRSxLQUFLO0lBQ2RDLFNBQVMsRUFBRTtHQUNaLEVBQ0Q7SUFDRXpCLEVBQUUsRUFBRSxXQUFXO0lBQ2ZQLEtBQUssRUFBRSxpQkFBaUI7SUFDeEJrQixLQUFLLEVBQUUsVUFBVTtJQUNqQkUsS0FBSyxFQUFFLEtBQUs7SUFDWkMsYUFBYSxFQUFFLEtBQUs7SUFDcEJDLElBQUksRUFBRSxPQUFPO0lBQ2JDLE1BQU0sRUFBRSxDQUFDLG1GQUFtRixDQUFDO0lBQzdGQyxNQUFNLEVBQUU7TUFDTmpCLEVBQUUsRUFBRSxVQUFVO01BQ2RrQixRQUFRLEVBQUUsaUJBQWlCO01BQzNCQyxNQUFNLEVBQUU7S0FDVDtJQUNEQyxLQUFLLEVBQUU7TUFBRUMsS0FBSyxFQUFFLEdBQUc7TUFBRUMsUUFBUSxFQUFFLEVBQUU7TUFBRUMsTUFBTSxFQUFFO0lBQUUsQ0FBRTtJQUMvQ2YsU0FBUyxFQUFFLFdBQVc7SUFDdEJnQixPQUFPLEVBQUUsSUFBSTtJQUNiQyxTQUFTLEVBQUU7R0FDWixFQUNEO0lBQ0V6QixFQUFFLEVBQUUsV0FBVztJQUNmUCxLQUFLLEVBQUUsU0FBUztJQUNoQmtCLEtBQUssRUFBRSxXQUFXO0lBQ2xCRSxLQUFLLEVBQUUsS0FBSztJQUNaQyxhQUFhLEVBQUUsS0FBSztJQUNwQkMsSUFBSSxFQUFFLE1BQU07SUFDWkMsTUFBTSxFQUFFLENBQUMsbUZBQW1GLENBQUM7SUFDN0ZDLE1BQU0sRUFBRTtNQUNOakIsRUFBRSxFQUFFLFVBQVU7TUFDZGtCLFFBQVEsRUFBRSxZQUFZO01BQ3RCQyxNQUFNLEVBQUU7S0FDVDtJQUNEQyxLQUFLLEVBQUU7TUFBRUMsS0FBSyxFQUFFLEdBQUc7TUFBRUMsUUFBUSxFQUFFLEVBQUU7TUFBRUMsTUFBTSxFQUFFO0lBQUUsQ0FBRTtJQUMvQ2YsU0FBUyxFQUFFLGVBQWU7SUFDMUJnQixPQUFPLEVBQUUsS0FBSztJQUNkQyxTQUFTLEVBQUU7R0FDWixFQUNEO0lBQ0V6QixFQUFFLEVBQUUsV0FBVztJQUNmUCxLQUFLLEVBQUUsWUFBWTtJQUNuQmtCLEtBQUssRUFBRSxTQUFTO0lBQ2hCRSxLQUFLLEVBQUUsS0FBSztJQUNaQyxhQUFhLEVBQUUsS0FBSztJQUNwQkMsSUFBSSxFQUFFLE9BQU87SUFDYkMsTUFBTSxFQUFFLENBQUMsbUZBQW1GLENBQUM7SUFDN0ZDLE1BQU0sRUFBRTtNQUNOakIsRUFBRSxFQUFFLFVBQVU7TUFDZGtCLFFBQVEsRUFBRSxhQUFhO01BQ3ZCQyxNQUFNLEVBQUU7S0FDVDtJQUNEQyxLQUFLLEVBQUU7TUFBRUMsS0FBSyxFQUFFLEdBQUc7TUFBRUMsUUFBUSxFQUFFLEVBQUU7TUFBRUMsTUFBTSxFQUFFO0lBQUUsQ0FBRTtJQUMvQ2YsU0FBUyxFQUFFLFdBQVc7SUFDdEJnQixPQUFPLEVBQUUsSUFBSTtJQUNiQyxTQUFTLEVBQUU7R0FDWixFQUNEO0lBQ0V6QixFQUFFLEVBQUUsV0FBVztJQUNmUCxLQUFLLEVBQUUsWUFBWTtJQUNuQmtCLEtBQUssRUFBRSxjQUFjO0lBQ3JCRSxLQUFLLEVBQUUsS0FBSztJQUNaQyxhQUFhLEVBQUUsS0FBSztJQUNwQkMsSUFBSSxFQUFFLE1BQU07SUFDWkMsTUFBTSxFQUFFLENBQUMsbUZBQW1GLENBQUM7SUFDN0ZDLE1BQU0sRUFBRTtNQUNOakIsRUFBRSxFQUFFLFVBQVU7TUFDZGtCLFFBQVEsRUFBRSxrQkFBa0I7TUFDNUJDLE1BQU0sRUFBRTtLQUNUO0lBQ0RDLEtBQUssRUFBRTtNQUFFQyxLQUFLLEVBQUUsR0FBRztNQUFFQyxRQUFRLEVBQUUsRUFBRTtNQUFFQyxNQUFNLEVBQUU7SUFBRSxDQUFFO0lBQy9DZixTQUFTLEVBQUUsV0FBVztJQUN0QmdCLE9BQU8sRUFBRSxLQUFLO0lBQ2RDLFNBQVMsRUFBRTtHQUNaLEVBQ0Q7SUFDRXpCLEVBQUUsRUFBRSxXQUFXO0lBQ2ZQLEtBQUssRUFBRSxZQUFZO0lBQ25Ca0IsS0FBSyxFQUFFLGlCQUFpQjtJQUN4QkUsS0FBSyxFQUFFLEtBQUs7SUFDWkMsYUFBYSxFQUFFLEtBQUs7SUFDcEJDLElBQUksRUFBRSxPQUFPO0lBQ2JDLE1BQU0sRUFBRSxDQUFDLG1GQUFtRixDQUFDO0lBQzdGQyxNQUFNLEVBQUU7TUFDTmpCLEVBQUUsRUFBRSxVQUFVO01BQ2RrQixRQUFRLEVBQUUsb0JBQW9CO01BQzlCQyxNQUFNLEVBQUU7S0FDVDtJQUNEQyxLQUFLLEVBQUU7TUFBRUMsS0FBSyxFQUFFLEdBQUc7TUFBRUMsUUFBUSxFQUFFLEVBQUU7TUFBRUMsTUFBTSxFQUFFO0lBQUUsQ0FBRTtJQUMvQ2YsU0FBUyxFQUFFLGVBQWU7SUFDMUJnQixPQUFPLEVBQUUsSUFBSTtJQUNiQyxTQUFTLEVBQUU7R0FDWixFQUNEO0lBQ0V6QixFQUFFLEVBQUUsV0FBVztJQUNmUCxLQUFLLEVBQUUsVUFBVTtJQUNqQmtCLEtBQUssRUFBRSxPQUFPO0lBQ2RFLEtBQUssRUFBRSxLQUFLO0lBQ1pDLGFBQWEsRUFBRSxLQUFLO0lBQ3BCQyxJQUFJLEVBQUUsT0FBTztJQUNiQyxNQUFNLEVBQUUsQ0FBQyxtRkFBbUYsQ0FBQztJQUM3RkMsTUFBTSxFQUFFO01BQ05qQixFQUFFLEVBQUUsVUFBVTtNQUNka0IsUUFBUSxFQUFFLFlBQVk7TUFDdEJDLE1BQU0sRUFBRTtLQUNUO0lBQ0RDLEtBQUssRUFBRTtNQUFFQyxLQUFLLEVBQUUsR0FBRztNQUFFQyxRQUFRLEVBQUUsRUFBRTtNQUFFQyxNQUFNLEVBQUU7SUFBRSxDQUFFO0lBQy9DZixTQUFTLEVBQUUsTUFBTTtJQUNqQmdCLE9BQU8sRUFBRSxLQUFLO0lBQ2RDLFNBQVMsRUFBRTtHQUNaLEVBQ0Q7SUFDRXpCLEVBQUUsRUFBRSxXQUFXO0lBQ2ZQLEtBQUssRUFBRSxhQUFhO0lBQ3BCa0IsS0FBSyxFQUFFLFFBQVE7SUFDZkUsS0FBSyxFQUFFLEtBQUs7SUFDWkMsYUFBYSxFQUFFLEtBQUs7SUFDcEJDLElBQUksRUFBRSxPQUFPO0lBQ2JDLE1BQU0sRUFBRSxDQUFDLG1GQUFtRixDQUFDO0lBQzdGQyxNQUFNLEVBQUU7TUFDTmpCLEVBQUUsRUFBRSxVQUFVO01BQ2RrQixRQUFRLEVBQUUsV0FBVztNQUNyQkMsTUFBTSxFQUFFO0tBQ1Q7SUFDREMsS0FBSyxFQUFFO01BQUVDLEtBQUssRUFBRSxFQUFFO01BQUVDLFFBQVEsRUFBRSxFQUFFO01BQUVDLE1BQU0sRUFBRTtJQUFFLENBQUU7SUFDOUNmLFNBQVMsRUFBRSxXQUFXO0lBQ3RCZ0IsT0FBTyxFQUFFLElBQUk7SUFDYkMsU0FBUyxFQUFFO0dBQ1osRUFDRDtJQUNFekIsRUFBRSxFQUFFLFdBQVc7SUFDZlAsS0FBSyxFQUFFLGVBQWU7SUFDdEJrQixLQUFLLEVBQUUsYUFBYTtJQUNwQkUsS0FBSyxFQUFFLEtBQUs7SUFDWkMsYUFBYSxFQUFFLE1BQU07SUFDckJDLElBQUksRUFBRSxVQUFVO0lBQ2hCQyxNQUFNLEVBQUUsQ0FBQyxtRkFBbUYsQ0FBQztJQUM3RkMsTUFBTSxFQUFFO01BQ05qQixFQUFFLEVBQUUsVUFBVTtNQUNka0IsUUFBUSxFQUFFLGNBQWM7TUFDeEJDLE1BQU0sRUFBRTtLQUNUO0lBQ0RDLEtBQUssRUFBRTtNQUFFQyxLQUFLLEVBQUUsR0FBRztNQUFFQyxRQUFRLEVBQUUsRUFBRTtNQUFFQyxNQUFNLEVBQUU7SUFBRSxDQUFFO0lBQy9DZixTQUFTLEVBQUUsV0FBVztJQUN0QmdCLE9BQU8sRUFBRSxLQUFLO0lBQ2RDLFNBQVMsRUFBRTtHQUNaO0NBRUoiLCJpZ25vcmVMaXN0IjpbXX0=

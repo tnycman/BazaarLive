@@ -5,22 +5,9 @@
  */
 
 import type { UniversalPageConfiguration } from '../UniversalCategoryPageFactory';
+import { CONFIG_MANIFEST, type ConfigKey } from './generated/configManifest';
 import { dynamicConfigurationLoader, LoadStrategy } from '../loaders/DynamicConfigurationLoader';
-
-// Fashion category imports - UPDATED TO USE INHERITANCE
-import { womenFashionConfigOverride } from './fashion/women-optimized';
-import { womenFashionConfig } from './fashion/women';
-import { menFashionConfig } from './fashion/men';
-import { kidsFashionConfig } from './fashion/kids';
-import { fashionHomeConfig } from './fashion/home';
-import { fashionElectronicsConfig } from './fashion/electronics';
-import { fashionPetsConfig } from './fashion/pets';
-import { fashionBeautyConfig } from './fashion/beauty';
-import { fashionSportsConfig } from './fashion/sports';
-import { womenAccessoriesConfig } from './fashion/women-accessories';
-
-// Import merge utility
-import { configurationMergeUtility, MergeStrategy } from '../utils/ConfigurationMergeUtility';
+import { configurationMetrics } from '../metrics/ConfigurationMetrics';
 
 /**
  * Configuration Registry Interface
@@ -37,36 +24,20 @@ export interface ConfigurationRegistry {
  * Configuration Mapping Table
  * Maps configuration keys to their respective modular configuration objects
  */
-const CONFIGURATION_MAP: Record<string, UniversalPageConfiguration> = {
-  // Fashion configurations - Direct mapping for all categories
-  'fashion-women': womenFashionConfig,
-  'fashion-men': menFashionConfig,
-  'fashion-kids': kidsFashionConfig,
-  'fashion-home': fashionHomeConfig,
-  'fashion-electronics': fashionElectronicsConfig,
-  'fashion-pets': fashionPetsConfig,
-  'fashion-beauty': fashionBeautyConfig,
-  'fashion-sports': fashionSportsConfig,
-  'fashion-women-accessories': womenAccessoriesConfig,
-
-  // Placeholder for future configurations
-  // 'marketplace-cars': carsMarketplaceConfig,
-  // 'marketplace-jobs': jobsMarketplaceConfig,
-  // 'electronics-computers': computersElectronicsConfig,
-  // 'services-professional': professionalServicesConfig,
-} as const;
+// Generated manifest is the single source of truth. We keep a small runtime cache.
 
 /**
  * Enterprise Configuration Registry Implementation
  * Provides centralized access to all modular category configurations
  */
+let policyOverride: ('dynamic-first' | 'static-first') | null = null;
+
 class EnterpriseConfigurationRegistry implements ConfigurationRegistry {
-  private readonly configurations: Record<string, UniversalPageConfiguration>;
   private readonly configurationKeys: readonly string[];
+  private readonly cache: Map<string, UniversalPageConfiguration> = new Map();
 
   constructor() {
-    this.configurations = { ...CONFIGURATION_MAP };
-    this.configurationKeys = Object.keys(this.configurations);
+    this.configurationKeys = Object.keys(CONFIG_MANIFEST);
   }
 
   /**
@@ -74,41 +45,109 @@ class EnterpriseConfigurationRegistry implements ConfigurationRegistry {
    * HYBRID APPROACH: Simplified direct mapping for reliability
    */
   public async getConfiguration(key: string): Promise<UniversalPageConfiguration | null> {
-    // Direct mapping approach for hybrid solution
-    if (key in this.configurations) {
-      return this.configurations[key];
+    const isDev = (process.env.NODE_ENV || 'development') === 'development';
+    const envPolicy = (process.env.CONFIG_RESOLUTION_POLICY as 'dynamic-first' | 'static-first' | undefined)
+      || (isDev ? 'dynamic-first' : 'static-first');
+    const resolutionPolicy = policyOverride ?? envPolicy;
+    if (this.cache.has(key)) {
+      const start = performance.now();
+      const value = this.cache.get(key)!;
+      configurationMetrics.record({ key, pathTried: 'cache', durationMs: performance.now() - start, success: true, timestamp: Date.now() });
+      return value;
     }
-    
-    // Fallback: Try enterprise strategy pattern if direct mapping fails
-    try {
-      const { unifiedConfigurationAPI } = await import('../enterprise/integration/StrategyPatternIntegration');
-      return await unifiedConfigurationAPI.getConfiguration(key);
-    } catch (error) {
-      console.warn(`Configuration not found for key: ${key}, error:`, error);
+
+    const hasManifest = (CONFIG_MANIFEST as Record<string, unknown>)[key] !== undefined;
+    const tryManifestLoad = async (): Promise<UniversalPageConfiguration | null> => {
+      if (!hasManifest) return null;
+      try {
+        const start = performance.now();
+        const loader = (CONFIG_MANIFEST as Record<string, () => Promise<any>>)[key as ConfigKey];
+        const mod = await loader();
+        const config = (mod.default || mod) as UniversalPageConfiguration;
+        if (config) {
+          this.cache.set(key, config);
+          configurationMetrics.record({ key, pathTried: 'manifest', durationMs: performance.now() - start, success: true, timestamp: Date.now() });
+          return config;
+        }
+      } catch (e) {
+        const err = e instanceof Error ? e.message : String(e);
+        console.warn(`[ConfigRegistry] Manifest load failed for ${key}:`, err);
+        configurationMetrics.record({ key, pathTried: 'manifest', durationMs: 0, success: false, timestamp: Date.now(), errorMessage: err });
+      }
+      return null;
+    };
+
+    const tryApiLoad = async (): Promise<UniversalPageConfiguration | null> => {
+      try {
+        const start = performance.now();
+        const { unifiedConfigurationAPI } = await import('../enterprise/integration/StrategyPatternIntegration');
+        // Hardened API load with retries/backoff via strategy options
+        const cfg = await unifiedConfigurationAPI.getConfiguration(key, {
+          timeout: 8000,
+          retryAttempts: 3,
+          fallbackEnabled: true,
+          cachingEnabled: true,
+          validationRequired: true,
+          environment: isDev ? 'development' : 'production'
+        });
+        configurationMetrics.record({ key, pathTried: 'api', durationMs: performance.now() - start, success: !!cfg, timestamp: Date.now(), errorMessage: cfg ? undefined : 'null' });
+        return cfg;
+      } catch (error) {
+        const err = error instanceof Error ? error.message : String(error);
+        console.warn(`[ConfigRegistry] API fallback failed for ${key}:`, err);
+        configurationMetrics.record({ key, pathTried: 'api', durationMs: 0, success: false, timestamp: Date.now(), errorMessage: err });
+        return null;
+      }
+    };
+
+    if (resolutionPolicy === 'dynamic-first') {
+      const apiCfg = await tryApiLoad();
+      if (apiCfg) return apiCfg;
+      const manifestCfg = await tryManifestLoad();
+      if (manifestCfg) return manifestCfg;
       return null;
     }
+
+    // static-first
+    const manifestCfg = await tryManifestLoad();
+    if (manifestCfg) return manifestCfg;
+    const apiCfg = await tryApiLoad();
+    if (apiCfg) return apiCfg;
+    return null;
+  }
+
+  /** DEV-ONLY: Clear in-memory configuration cache */
+  public __clearCache(): void {
+    this.cache.clear();
+  }
+
+  /** DEV-ONLY: Get current resolution policy (with override if set) */
+  public __getResolutionPolicy(): 'dynamic-first' | 'static-first' {
+    const isDev = (process.env.NODE_ENV || 'development') === 'development';
+    const envPolicy = (process.env.CONFIG_RESOLUTION_POLICY as 'dynamic-first' | 'static-first' | undefined)
+      || (isDev ? 'dynamic-first' : 'static-first');
+    return policyOverride ?? envPolicy;
+  }
+
+  /** DEV-ONLY: Override resolution policy at runtime */
+  public __setResolutionPolicyOverride(policy: 'dynamic-first' | 'static-first' | null): void {
+    policyOverride = policy;
   }
 
   /**
    * Get all available configuration keys
    */
-  public getAllKeys(): readonly string[] {
-    return this.configurationKeys;
-  }
+  public getAllKeys(): readonly string[] { return this.configurationKeys; }
 
   /**
    * Check if configuration exists for given key
    */
-  public hasConfiguration(key: string): boolean {
-    return key in this.configurations;
-  }
+  public hasConfiguration(key: string): boolean { return (CONFIG_MANIFEST as Record<string, unknown>)[key] !== undefined; }
 
   /**
    * Get total number of registered configurations
    */
-  public getConfigurationCount(): number {
-    return this.configurationKeys.length;
-  }
+  public getConfigurationCount(): number { return this.configurationKeys.length; }
 
   /**
    * Get configuration statistics
@@ -134,6 +173,8 @@ class EnterpriseConfigurationRegistry implements ConfigurationRegistry {
  * Single source of truth for all category configurations
  */
 export const configurationRegistry = new EnterpriseConfigurationRegistry();
+// Start periodic dev reporter (no-op in production)
+configurationMetrics.startDevReporter(60000);
 
 /**
  * Configuration Loader Utility Functions
