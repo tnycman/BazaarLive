@@ -10,7 +10,7 @@ import {
   decimal,
   boolean,
   pgEnum,
-  vector,
+  // vector, // Temporarily disabled for compatibility
 } from "drizzle-orm/pg-core";
 // import { createInsertSchema } from "drizzle-zod"; // Temporarily disabled
 import { z } from "zod";
@@ -111,9 +111,9 @@ export const listings = pgTable("listings", {
   commentsCount: integer("comments_count").default(0),
   location: varchar("location"),
   // Vector embeddings for AI-powered search
-  titleEmbedding: vector("title_embedding", { dimensions: 1536 }),
-  descriptionEmbedding: vector("description_embedding", { dimensions: 1536 }),
-  combinedEmbedding: vector("combined_embedding", { dimensions: 1536 }),
+  // titleEmbedding: vector("title_embedding", { dimensions: 1536 }),
+  // descriptionEmbedding: vector("description_embedding", { dimensions: 1536 }),
+  // combinedEmbedding: vector("combined_embedding", { dimensions: 1536 }),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
 });
@@ -172,7 +172,7 @@ export const transactions = pgTable("transactions", {
 export const productEmbeddings = pgTable("product_embeddings", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
   listingId: varchar("listing_id").notNull().references(() => listings.id, { onDelete: 'cascade' }),
-  embedding: vector("embedding", { dimensions: 1536 }).notNull(),
+  // embedding: vector("embedding", { dimensions: 1536 }).notNull(), // Temporarily disabled
   embeddingType: varchar("embedding_type").notNull(), // 'title', 'description', 'combined'
   model: varchar("model").default('text-embedding-ada-002'),
   createdAt: timestamp("created_at").defaultNow(),
@@ -183,7 +183,7 @@ export const productEmbeddings = pgTable("product_embeddings", {
 export const userPreferenceEmbeddings = pgTable("user_preference_embeddings", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
   userId: varchar("user_id").notNull().references(() => users.id, { onDelete: 'cascade' }),
-  preferenceEmbedding: vector("preference_embedding", { dimensions: 1536 }).notNull(),
+  // preferenceEmbedding: vector("preference_embedding", { dimensions: 1536 }).notNull(), // Temporarily disabled
   interactionWeights: jsonb("interaction_weights"), // weights for likes, views, purchases, etc.
   categoryPreferences: jsonb("category_preferences"), // category-specific preferences
   priceRange: jsonb("price_range"), // preferred price ranges by category
@@ -197,7 +197,7 @@ export const semanticSearchQueries = pgTable("semantic_search_queries", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
   userId: varchar("user_id").references(() => users.id, { onDelete: 'set null' }),
   query: text("query").notNull(),
-  queryEmbedding: vector("query_embedding", { dimensions: 1536 }).notNull(),
+  // queryEmbedding: vector("query_embedding", { dimensions: 1536 }).notNull(), // Temporarily disabled
   results: jsonb("results"), // search results and relevance scores
   clickedResults: jsonb("clicked_results"), // which results were clicked
   sessionId: varchar("session_id"),
@@ -368,75 +368,115 @@ export const aiMessagesRelations = relations(aiMessages, ({ one }) => ({
   }),
 }));
 
-// Insert schemas
+// Insert schemas - temporarily disabled due to drizzle-zod compatibility
 // export const insertUserSchema = createInsertSchema(users).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true,
-});
+//   id: true,
+//   createdAt: true,
+//   updatedAt: true,
+// });
 
 // export const upsertUserSchema = createInsertSchema(users).pick({
-  id: true,
-  email: true,
-  firstName: true,
-  lastName: true,
-  profileImageUrl: true,
-});
+//   id: true,
+//   email: true,
+//   firstName: true,
+//   lastName: true,
+//   profileImageUrl: true,
+// });
 
 // export const insertListingSchema = createInsertSchema(listings).omit({
-  id: true,
-  sellerId: true,
-  viewsCount: true,
-  likesCount: true,
-  sharesCount: true,
-  commentsCount: true,
-  titleEmbedding: true,
-  descriptionEmbedding: true,
-  combinedEmbedding: true,
-  createdAt: true,
-  updatedAt: true,
-});
+//   id: true,
+//   sellerId: true,
+//   viewsCount: true,
+//   likesCount: true,
+//   sharesCount: true,
+//   commentsCount: true,
+//   titleEmbedding: true,
+//   descriptionEmbedding: true,
+//   combinedEmbedding: true,
+//   createdAt: true,
+//   updatedAt: true,
+// });
 
 // export const insertFollowSchema = createInsertSchema(follows).omit({
-  id: true,
-  createdAt: true,
-});
+//   id: true,
+//   createdAt: true,
+// });
 
 // export const insertLikeSchema = createInsertSchema(likes).omit({
-  id: true,
-  createdAt: true,
-});
+//   id: true,
+//   createdAt: true,
+// });
 
 // export const insertCommentSchema = createInsertSchema(comments).omit({
-  id: true,
-  createdAt: true,
-});
+//   id: true,
+//   createdAt: true,
+// });
 
 // export const insertMessageSchema = createInsertSchema(messages).omit({
-  id: true,
-  isRead: true,
-  createdAt: true,
+//   id: true,
+//   isRead: true,
+//   createdAt: true,
+// });
+
+// Temporary basic schemas until drizzle-zod compatibility is restored
+export const insertUserSchema = z.object({
+  email: z.string().email().optional(),
+  firstName: z.string().optional(),
+  lastName: z.string().optional(),
+  username: z.string().optional(),
+  bio: z.string().optional()
 });
 
-// Types
-export type UpsertUser = z.infer<typeof upsertUserSchema>;
+export const insertListingSchema = z.object({
+  title: z.string(),
+  description: z.string().optional(),
+  category: z.string(),
+  subcategory: z.string().optional(),
+  price: z.string(),
+  condition: z.string(),
+  images: z.array(z.string())
+});
+
+export const insertCommentSchema = z.object({
+  content: z.string(),
+  listingId: z.string(),
+  userId: z.string()
+});
+
+export const insertLikeSchema = z.object({
+  listingId: z.string(),
+  userId: z.string()
+});
+
+export const insertFollowSchema = z.object({
+  followerId: z.string(),
+  followingId: z.string()
+});
+
+export const insertMessageSchema = z.object({
+  content: z.string(),
+  senderId: z.string(),
+  receiverId: z.string()
+});
+
+// Types - using $inferSelect and $inferInsert for now
 export type User = typeof users.$inferSelect;
-export type InsertUser = z.infer<typeof insertUserSchema>;
+export type InsertUser = typeof users.$inferInsert;
 
 export type Listing = typeof listings.$inferSelect;
-export type InsertListing = z.infer<typeof insertListingSchema>;
+export type InsertListing = typeof listings.$inferInsert;
 
 export type Follow = typeof follows.$inferSelect;
-export type InsertFollow = z.infer<typeof insertFollowSchema>;
+export type InsertFollow = typeof follows.$inferInsert;
 
 export type Like = typeof likes.$inferSelect;
-export type InsertLike = z.infer<typeof insertLikeSchema>;
+export type InsertLike = typeof likes.$inferInsert;
 
 export type Comment = typeof comments.$inferSelect;
-export type InsertComment = z.infer<typeof insertCommentSchema>;
+export type InsertComment = typeof comments.$inferInsert;
 
 export type Message = typeof messages.$inferSelect;
-export type InsertMessage = z.infer<typeof insertMessageSchema>;
+export type InsertMessage = typeof messages.$inferInsert;
 
 export type Transaction = typeof transactions.$inferSelect;
 
@@ -450,23 +490,23 @@ export type InsertUserPreferenceEmbedding = typeof userPreferenceEmbeddings.$inf
 export type SemanticSearchQuery = typeof semanticSearchQueries.$inferSelect;
 export type InsertSemanticSearchQuery = typeof semanticSearchQueries.$inferInsert;
 
-// AI Assistant schemas and types
+// AI Assistant schemas and types - temporarily disabled
 // export const insertAiConversationSchema = createInsertSchema(aiConversations).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true,
-});
+//   id: true,
+//   createdAt: true,
+//   updatedAt: true,
+// });
 
 // export const insertAiMessageSchema = createInsertSchema(aiMessages).omit({
-  id: true,
-  createdAt: true,
-});
+//   id: true,
+//   createdAt: true,
+// });
 
 export type AiConversation = typeof aiConversations.$inferSelect;
-export type InsertAiConversation = z.infer<typeof insertAiConversationSchema>;
+export type InsertAiConversation = typeof aiConversations.$inferInsert;
 
 export type AiMessage = typeof aiMessages.$inferSelect;
-export type InsertAiMessage = z.infer<typeof insertAiMessageSchema>;
+export type InsertAiMessage = typeof aiMessages.$inferInsert;
 
 // Export analytics tables
 export * from './analytics-schema';

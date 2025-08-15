@@ -251,7 +251,7 @@ export class LegacyCompatibilityMiddleware {
 
       // Forward the request internally
       req.url = newUrl;
-      req.path = newUrl.split('?')[0];
+      // Cannot directly modify req.path as it's read-only
 
       this.logger.debug('Redirected legacy API request', {
         oldPath: req.originalUrl,
