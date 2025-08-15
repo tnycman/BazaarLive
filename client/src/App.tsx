@@ -85,13 +85,17 @@ function Router() {
 }
 
 function App() {
+  // Simple test without complex dependencies
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Router />
-      </TooltipProvider>
-    </QueryClientProvider>
+    <div style={{ padding: '20px', background: '#f0f0f0', minHeight: '100vh' }}>
+      <h1>BazaarLive Test Page</h1>
+      <p>If you can see this, React is working!</p>
+      <div style={{ marginTop: '20px' }}>
+        <button style={{ padding: '10px 20px', background: '#6366f1', color: 'white', border: 'none', borderRadius: '5px' }}>
+          Test Button
+        </button>
+      </div>
+    </div>
   );
 }
 
