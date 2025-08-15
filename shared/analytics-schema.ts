@@ -1,6 +1,6 @@
 // Analytics schema definitions with comprehensive metrics tracking
 import { pgTable, varchar, integer, timestamp, decimal, jsonb, index, text } from "drizzle-orm/pg-core";
-import { createInsertSchema, createSelectSchema } from "drizzle-zod";
+// import { createInsertSchema, createSelectSchema } from "drizzle-zod"; // Temporarily disabled
 import { z } from "zod";
 
 // User analytics and engagement metrics
@@ -216,7 +216,12 @@ export type InsertCategoryAnalytics = typeof categoryAnalytics.$inferInsert;
 
 export type AnalyticsEvent = typeof analyticsEvents.$inferSelect;
 export type InsertAnalyticsEvent = typeof analyticsEvents.$inferInsert;
-// export const insertAnalyticsEventSchema = createInsertSchema(analyticsEvents);
+// Temporarily create a basic schema until drizzle-zod is fixed
+export const insertAnalyticsEventSchema = z.object({
+  eventType: z.string(),
+  userId: z.string().optional(),
+  metadata: z.any().optional()
+});
 
 export type UserSession = typeof userSessions.$inferSelect;
 export type InsertUserSession = typeof userSessions.$inferInsert;

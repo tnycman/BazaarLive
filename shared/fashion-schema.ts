@@ -11,7 +11,7 @@ import {
   decimal,
   boolean,
   pgEnum,
-  vector,
+  // vector, // Temporarily disabled for compatibility
   uuid,
 } from "drizzle-orm/pg-core";
 // import { createInsertSchema, createSelectSchema } from "drizzle-zod"; // Temporarily disabled
@@ -87,9 +87,9 @@ export const fashionListings = pgTable("fashion_listings", {
   isPromoted: boolean("is_promoted").default(false),
   
   // AI/Search vectors for semantic search
-  titleEmbedding: vector("title_embedding", { dimensions: 1536 }),
-  descriptionEmbedding: vector("description_embedding", { dimensions: 1536 }),
-  combinedEmbedding: vector("combined_embedding", { dimensions: 1536 }),
+  // titleEmbedding: vector("title_embedding", { dimensions: 1536 }),
+  // descriptionEmbedding: vector("description_embedding", { dimensions: 1536 }),
+  // combinedEmbedding: vector("combined_embedding", { dimensions: 1536 }),
   
   // Timestamps
   createdAt: timestamp("created_at").defaultNow(),
@@ -303,51 +303,51 @@ export const fashionTransactionsRelations = relations(fashionTransactions, ({ on
 
 // Validation schemas
 // export const insertFashionListingSchema = createInsertSchema(fashionListings).omit({
-  id: true,
-  sellerId: true,
-  viewsCount: true,
-  likesCount: true,
-  sharesCount: true,
-  commentsCount: true,
-  titleEmbedding: true,
-  descriptionEmbedding: true,
-  combinedEmbedding: true,
-  createdAt: true,
-  updatedAt: true,
-});
+//   id: true,
+//   sellerId: true,
+//   viewsCount: true,
+//   likesCount: true,
+//   sharesCount: true,
+//   commentsCount: true,
+//   titleEmbedding: true,
+//   descriptionEmbedding: true,
+//   combinedEmbedding: true,
+//   createdAt: true,
+//   updatedAt: true,
+// });
 
-export const selectFashionListingSchema = createSelectSchema(fashionListings);
+// export const selectFashionListingSchema = createSelectSchema(fashionListings);
 
 // export const fashionListingUpdateSchema = createInsertSchema(fashionListings).omit({
-  id: true,
-  sellerId: true,
-  viewsCount: true,
-  likesCount: true,
-  sharesCount: true,
-  commentsCount: true,
-  titleEmbedding: true,
-  descriptionEmbedding: true,
-  combinedEmbedding: true,
-  createdAt: true,
-  updatedAt: true,
-}).partial();
+//   id: true,
+//   sellerId: true,
+//   viewsCount: true,
+//   likesCount: true,
+//   sharesCount: true,
+//   commentsCount: true,
+//   titleEmbedding: true,
+//   descriptionEmbedding: true,
+//   combinedEmbedding: true,
+//   createdAt: true,
+//   updatedAt: true,
+// }).partial();
 
 // export const insertFashionLikeSchema = createInsertSchema(fashionLikes).omit({
-  id: true,
-  createdAt: true,
-});
+//   id: true,
+//   createdAt: true,
+// });
 
 // export const insertFashionCommentSchema = createInsertSchema(fashionComments).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true,
-});
+//   id: true,
+//   createdAt: true,
+//   updatedAt: true,
+// });
 
 // export const insertFashionMessageSchema = createInsertSchema(fashionMessages).omit({
-  id: true,
-  isRead: true,
-  createdAt: true,
-});
+//   id: true,
+//   isRead: true,
+//   createdAt: true,
+// });
 
 // Fashion category constants and types
 export const FASHION_CATEGORIES = [
