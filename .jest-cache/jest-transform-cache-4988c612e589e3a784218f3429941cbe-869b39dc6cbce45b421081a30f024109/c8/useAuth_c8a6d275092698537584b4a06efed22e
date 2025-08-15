@@ -1,0 +1,113 @@
+8838b768600329d0ee2efd22cff66e48
+/* istanbul ignore next */
+function cov_zy0fnpc9u() {
+  var path = "/home/runner/workspace/client/src/hooks/useAuth.ts";
+  var hash = "16210baeab8eceb0537de8547accf8fba37325fa";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/home/runner/workspace/client/src/hooks/useAuth.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 3,
+          column: 38
+        },
+        end: {
+          line: 6,
+          column: 6
+        }
+      },
+      "1": {
+        start: {
+          line: 7,
+          column: 4
+        },
+        end: {
+          line: 11,
+          column: 6
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "useAuth",
+        decl: {
+          start: {
+            line: 2,
+            column: 16
+          },
+          end: {
+            line: 2,
+            column: 23
+          }
+        },
+        loc: {
+          start: {
+            line: 2,
+            column: 26
+          },
+          end: {
+            line: 12,
+            column: 1
+          }
+        },
+        line: 2
+      }
+    },
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0
+    },
+    f: {
+      "0": 0
+    },
+    b: {},
+    inputSourceMap: {
+      file: "/home/runner/workspace/client/src/hooks/useAuth.ts",
+      mappings: "AAAA,OAAO,EAAE,QAAQ,EAAE,MAAM,uBAAuB,CAAC;AAEjD,MAAM,UAAU,OAAO;IACrB,MAAM,EAAE,IAAI,EAAE,IAAI,EAAE,SAAS,EAAE,GAAG,QAAQ,CAAC;QACzC,QAAQ,EAAE,CAAC,gBAAgB,CAAC;QAC5B,KAAK,EAAE,KAAK;KACb,CAAC,CAAC;IAEH,OAAO;QACL,IAAI;QACJ,SAAS;QACT,eAAe,EAAE,CAAC,CAAC,IAAI;KACxB,CAAC;AACJ,CAAC",
+      names: [],
+      sources: ["/home/runner/workspace/client/src/hooks/useAuth.ts"],
+      sourcesContent: ["import { useQuery } from \"@tanstack/react-query\";\n\nexport function useAuth() {\n  const { data: user, isLoading } = useQuery({\n    queryKey: [\"/api/auth/user\"],\n    retry: false,\n  });\n\n  return {\n    user,\n    isLoading,\n    isAuthenticated: !!user,\n  };\n}\n"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "16210baeab8eceb0537de8547accf8fba37325fa"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_zy0fnpc9u = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_zy0fnpc9u();
+import { useQuery } from "@tanstack/react-query";
+export function useAuth() {
+  /* istanbul ignore next */
+  cov_zy0fnpc9u().f[0]++;
+  const {
+    data: user,
+    isLoading
+  } =
+  /* istanbul ignore next */
+  (cov_zy0fnpc9u().s[0]++, useQuery({
+    queryKey: ["/api/auth/user"],
+    retry: false
+  }));
+  /* istanbul ignore next */
+  cov_zy0fnpc9u().s[1]++;
+  return {
+    user,
+    isLoading,
+    isAuthenticated: !!user
+  };
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJ1c2VRdWVyeSIsInVzZUF1dGgiLCJjb3ZfenkwZm5wYzl1IiwiZiIsImRhdGEiLCJ1c2VyIiwiaXNMb2FkaW5nIiwicyIsInF1ZXJ5S2V5IiwicmV0cnkiLCJpc0F1dGhlbnRpY2F0ZWQiXSwic291cmNlcyI6WyIvaG9tZS9ydW5uZXIvd29ya3NwYWNlL2NsaWVudC9zcmMvaG9va3MvdXNlQXV0aC50cyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyB1c2VRdWVyeSB9IGZyb20gXCJAdGFuc3RhY2svcmVhY3QtcXVlcnlcIjtcblxuZXhwb3J0IGZ1bmN0aW9uIHVzZUF1dGgoKSB7XG4gIGNvbnN0IHsgZGF0YTogdXNlciwgaXNMb2FkaW5nIH0gPSB1c2VRdWVyeSh7XG4gICAgcXVlcnlLZXk6IFtcIi9hcGkvYXV0aC91c2VyXCJdLFxuICAgIHJldHJ5OiBmYWxzZSxcbiAgfSk7XG5cbiAgcmV0dXJuIHtcbiAgICB1c2VyLFxuICAgIGlzTG9hZGluZyxcbiAgICBpc0F1dGhlbnRpY2F0ZWQ6ICEhdXNlcixcbiAgfTtcbn1cbiJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUEsU0FBU0EsUUFBUSxRQUFRLHVCQUF1QjtBQUVoRCxPQUFNLFNBQVVDLE9BQU9BLENBQUE7RUFBQTtFQUFBQyxhQUFBLEdBQUFDLENBQUE7RUFDckIsTUFBTTtJQUFFQyxJQUFJLEVBQUVDLElBQUk7SUFBRUM7RUFBUyxDQUFFO0VBQUE7RUFBQSxDQUFBSixhQUFBLEdBQUFLLENBQUEsT0FBR1AsUUFBUSxDQUFDO0lBQ3pDUSxRQUFRLEVBQUUsQ0FBQyxnQkFBZ0IsQ0FBQztJQUM1QkMsS0FBSyxFQUFFO0dBQ1IsQ0FBQztFQUFDO0VBQUFQLGFBQUEsR0FBQUssQ0FBQTtFQUVILE9BQU87SUFDTEYsSUFBSTtJQUNKQyxTQUFTO0lBQ1RJLGVBQWUsRUFBRSxDQUFDLENBQUNMO0dBQ3BCO0FBQ0giLCJpZ25vcmVMaXN0IjpbXX0=

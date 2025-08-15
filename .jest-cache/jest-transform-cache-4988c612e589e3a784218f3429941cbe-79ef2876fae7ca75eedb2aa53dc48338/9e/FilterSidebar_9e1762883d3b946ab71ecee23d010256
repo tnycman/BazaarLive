@@ -1,0 +1,88 @@
+7f145c7834206ca2f3dce1e50c9c722a
+/* istanbul ignore next */
+function cov_21yv4pa3a5() {
+  var path = "/home/runner/workspace/client/src/components/filters/FilterSidebar.tsx";
+  var hash = "06c708b80d7852a748d8b7b64ae78be4d25f26ed";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/home/runner/workspace/client/src/components/filters/FilterSidebar.tsx",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 4
+        },
+        end: {
+          line: 2,
+          column: 16
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "FilterSidebar",
+        decl: {
+          start: {
+            line: 1,
+            column: 16
+          },
+          end: {
+            line: 1,
+            column: 29
+          }
+        },
+        loc: {
+          start: {
+            line: 1,
+            column: 38
+          },
+          end: {
+            line: 3,
+            column: 1
+          }
+        },
+        line: 1
+      }
+    },
+    branchMap: {},
+    s: {
+      "0": 0
+    },
+    f: {
+      "0": 0
+    },
+    b: {},
+    inputSourceMap: {
+      file: "/home/runner/workspace/client/src/components/filters/FilterSidebar.tsx",
+      mappings: "AAWA,MAAM,UAAU,aAAa,CAAC,MAA0B;IACtD,OAAO,IAAI,CAAC;AACd,CAAC;AAED,eAAe,aAAa,CAAC",
+      names: [],
+      sources: ["/home/runner/workspace/client/src/components/filters/FilterSidebar.tsx"],
+      sourcesContent: ["// Compatibility stub for legacy FilterSidebar to satisfy dev server HMR.\n// Use EnterpriseFilterSidebar or the integration adapter instead.\nimport React from 'react';\n\nexport interface FilterSidebarProps {\n  onFilterChange: (criteria: any) => void;\n  appliedFiltersCount?: number;\n  isLoading?: boolean;\n  category?: string;\n}\n\nexport function FilterSidebar(_props: FilterSidebarProps) {\n  return null;\n}\n\nexport default FilterSidebar;\n\n\n\n\n\n\n"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "06c708b80d7852a748d8b7b64ae78be4d25f26ed"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_21yv4pa3a5 = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_21yv4pa3a5();
+export function FilterSidebar(_props) {
+  /* istanbul ignore next */
+  cov_21yv4pa3a5().f[0]++;
+  cov_21yv4pa3a5().s[0]++;
+  return null;
+}
+export default FilterSidebar;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJGaWx0ZXJTaWRlYmFyIiwiX3Byb3BzIiwiY292XzIxeXY0cGEzYTUiLCJmIiwicyJdLCJzb3VyY2VzIjpbIi9ob21lL3J1bm5lci93b3Jrc3BhY2UvY2xpZW50L3NyYy9jb21wb25lbnRzL2ZpbHRlcnMvRmlsdGVyU2lkZWJhci50c3giXSwic291cmNlc0NvbnRlbnQiOlsiLy8gQ29tcGF0aWJpbGl0eSBzdHViIGZvciBsZWdhY3kgRmlsdGVyU2lkZWJhciB0byBzYXRpc2Z5IGRldiBzZXJ2ZXIgSE1SLlxuLy8gVXNlIEVudGVycHJpc2VGaWx0ZXJTaWRlYmFyIG9yIHRoZSBpbnRlZ3JhdGlvbiBhZGFwdGVyIGluc3RlYWQuXG5pbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuXG5leHBvcnQgaW50ZXJmYWNlIEZpbHRlclNpZGViYXJQcm9wcyB7XG4gIG9uRmlsdGVyQ2hhbmdlOiAoY3JpdGVyaWE6IGFueSkgPT4gdm9pZDtcbiAgYXBwbGllZEZpbHRlcnNDb3VudD86IG51bWJlcjtcbiAgaXNMb2FkaW5nPzogYm9vbGVhbjtcbiAgY2F0ZWdvcnk/OiBzdHJpbmc7XG59XG5cbmV4cG9ydCBmdW5jdGlvbiBGaWx0ZXJTaWRlYmFyKF9wcm9wczogRmlsdGVyU2lkZWJhclByb3BzKSB7XG4gIHJldHVybiBudWxsO1xufVxuXG5leHBvcnQgZGVmYXVsdCBGaWx0ZXJTaWRlYmFyO1xuXG5cblxuXG5cblxuIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBV0EsT0FBTSxTQUFVQSxhQUFhQSxDQUFDQyxNQUEwQjtFQUFBO0VBQUFDLGNBQUEsR0FBQUMsQ0FBQTtFQUFBRCxjQUFBLEdBQUFFLENBQUE7RUFDdEQsT0FBTyxJQUFJO0FBQ2I7QUFFQSxlQUFlSixhQUFhIiwiaWdub3JlTGlzdCI6W119

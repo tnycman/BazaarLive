@@ -1,0 +1,37 @@
+nohup: ignoring input
+
+> rest-express@1.0.0 predev
+> node scripts/generate-config-manifest.mjs
+
+Config manifest generated: client/src/services/category/configs/generated/configManifest.ts with 41 entries.
+
+> rest-express@1.0.0 dev
+> NODE_ENV=development concurrently -k -n manifest,server -c yellow,cyan "node scripts/watch-config-manifest.mjs" "tsx server/index.ts"
+
+[manifest] [manifest:watch] watching /home/runner/workspace/client/src/services/category/configs
+[server] [SIMPLE-AUTH] Setting up basic authentication...
+[server] [SIMPLE-AUTH] Simple authentication setup completed successfully
+[server] [AI-ASSISTANT] Routes registered successfully
+[server] node:events:502
+[server]       throw er; // Unhandled 'error' event
+[server]       ^
+[server] 
+[server] Error: listen EADDRINUSE: address already in use 0.0.0.0:5000
+[server]     at Server.setupListenHandle [as _listen2] (node:net:1908:16)
+[server]     at listenInCluster (node:net:1965:12)
+[server]     at doListen (node:net:2139:7)
+[server]     at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+[server] Emitted 'error' event on Server instance at:
+[server]     at emitErrorNT (node:net:1944:8)
+[server]     at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+[server]   code: 'EADDRINUSE',
+[server]   errno: -98,
+[server]   syscall: 'listen',
+[server]   address: '0.0.0.0',
+[server]   port: 5000
+[server] }
+[server] 
+[server] Node.js v20.19.3
+[server] tsx server/index.ts exited with code 1
+--> Sending SIGTERM to other processes..
+[manifest] node scripts/watch-config-manifest.mjs exited with code SIGTERM

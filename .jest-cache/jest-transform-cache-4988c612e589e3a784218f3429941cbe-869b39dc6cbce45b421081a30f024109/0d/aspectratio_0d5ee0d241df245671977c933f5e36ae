@@ -1,0 +1,59 @@
+25b13798e488438f4c9c677e2e8bd322
+/* istanbul ignore next */
+function cov_277it5alzn() {
+  var path = "/home/runner/workspace/client/src/components/ui/aspect-ratio.tsx";
+  var hash = "fffb51308b2fdffc3091f1f5121167b69932c7d5";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/home/runner/workspace/client/src/components/ui/aspect-ratio.tsx",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 20
+        },
+        end: {
+          line: 2,
+          column: 45
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0
+    },
+    f: {},
+    b: {},
+    inputSourceMap: {
+      file: "/home/runner/workspace/client/src/components/ui/aspect-ratio.tsx",
+      mappings: "AAAA,OAAO,KAAK,oBAAoB,MAAM,8BAA8B,CAAA;AAEpE,MAAM,WAAW,GAAG,oBAAoB,CAAC,IAAI,CAAA;AAE7C,OAAO,EAAE,WAAW,EAAE,CAAA",
+      names: [],
+      sources: ["/home/runner/workspace/client/src/components/ui/aspect-ratio.tsx"],
+      sourcesContent: ["import * as AspectRatioPrimitive from \"@radix-ui/react-aspect-ratio\"\n\nconst AspectRatio = AspectRatioPrimitive.Root\n\nexport { AspectRatio }\n"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "fffb51308b2fdffc3091f1f5121167b69932c7d5"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_277it5alzn = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_277it5alzn();
+import * as AspectRatioPrimitive from "@radix-ui/react-aspect-ratio";
+const AspectRatio =
+/* istanbul ignore next */
+(cov_277it5alzn().s[0]++, AspectRatioPrimitive.Root);
+export { AspectRatio };
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJBc3BlY3RSYXRpb1ByaW1pdGl2ZSIsIkFzcGVjdFJhdGlvIiwiY292XzI3N2l0NWFsem4iLCJzIiwiUm9vdCJdLCJzb3VyY2VzIjpbIi9ob21lL3J1bm5lci93b3Jrc3BhY2UvY2xpZW50L3NyYy9jb21wb25lbnRzL3VpL2FzcGVjdC1yYXRpby50c3giXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0ICogYXMgQXNwZWN0UmF0aW9QcmltaXRpdmUgZnJvbSBcIkByYWRpeC11aS9yZWFjdC1hc3BlY3QtcmF0aW9cIlxuXG5jb25zdCBBc3BlY3RSYXRpbyA9IEFzcGVjdFJhdGlvUHJpbWl0aXZlLlJvb3RcblxuZXhwb3J0IHsgQXNwZWN0UmF0aW8gfVxuIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUEsT0FBTyxLQUFLQSxvQkFBb0IsTUFBTSw4QkFBOEI7QUFFcEUsTUFBTUMsV0FBVztBQUFBO0FBQUEsQ0FBQUMsY0FBQSxHQUFBQyxDQUFBLE9BQUdILG9CQUFvQixDQUFDSSxJQUFJO0FBRTdDLFNBQVNILFdBQVciLCJpZ25vcmVMaXN0IjpbXX0=

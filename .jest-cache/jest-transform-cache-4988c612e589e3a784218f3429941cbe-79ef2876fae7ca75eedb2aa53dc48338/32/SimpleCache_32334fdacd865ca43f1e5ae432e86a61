@@ -1,0 +1,519 @@
+be1bb141aa53ade5fda6645234c79832
+/* istanbul ignore next */
+function cov_1om8slrqn7() {
+  var path = "/home/runner/workspace/server/services/SimpleCache.ts";
+  var hash = "6940d6761bd08d97c230ba482c88b0a7618917bb";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/home/runner/workspace/server/services/SimpleCache.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 3,
+          column: 8
+        },
+        end: {
+          line: 3,
+          column: 41
+        }
+      },
+      "1": {
+        start: {
+          line: 4,
+          column: 8
+        },
+        end: {
+          line: 4,
+          column: 31
+        }
+      },
+      "2": {
+        start: {
+          line: 7,
+          column: 22
+        },
+        end: {
+          line: 7,
+          column: 41
+        }
+      },
+      "3": {
+        start: {
+          line: 8,
+          column: 8
+        },
+        end: {
+          line: 9,
+          column: 29
+        }
+      },
+      "4": {
+        start: {
+          line: 9,
+          column: 12
+        },
+        end: {
+          line: 9,
+          column: 29
+        }
+      },
+      "5": {
+        start: {
+          line: 10,
+          column: 8
+        },
+        end: {
+          line: 13,
+          column: 9
+        }
+      },
+      "6": {
+        start: {
+          line: 11,
+          column: 12
+        },
+        end: {
+          line: 11,
+          column: 35
+        }
+      },
+      "7": {
+        start: {
+          line: 12,
+          column: 12
+        },
+        end: {
+          line: 12,
+          column: 29
+        }
+      },
+      "8": {
+        start: {
+          line: 14,
+          column: 8
+        },
+        end: {
+          line: 14,
+          column: 27
+        }
+      },
+      "9": {
+        start: {
+          line: 17,
+          column: 26
+        },
+        end: {
+          line: 17,
+          column: 94
+        }
+      },
+      "10": {
+        start: {
+          line: 18,
+          column: 8
+        },
+        end: {
+          line: 18,
+          column: 50
+        }
+      },
+      "11": {
+        start: {
+          line: 21,
+          column: 8
+        },
+        end: {
+          line: 21,
+          column: 31
+        }
+      },
+      "12": {
+        start: {
+          line: 24,
+          column: 8
+        },
+        end: {
+          line: 24,
+          column: 27
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 2,
+            column: 4
+          },
+          end: {
+            line: 2,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 2,
+            column: 38
+          },
+          end: {
+            line: 5,
+            column: 5
+          }
+        },
+        line: 2
+      },
+      "1": {
+        name: "(anonymous_1)",
+        decl: {
+          start: {
+            line: 6,
+            column: 4
+          },
+          end: {
+            line: 6,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 6,
+            column: 13
+          },
+          end: {
+            line: 15,
+            column: 5
+          }
+        },
+        line: 6
+      },
+      "2": {
+        name: "(anonymous_2)",
+        decl: {
+          start: {
+            line: 16,
+            column: 4
+          },
+          end: {
+            line: 16,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 16,
+            column: 27
+          },
+          end: {
+            line: 19,
+            column: 5
+          }
+        },
+        line: 16
+      },
+      "3": {
+        name: "(anonymous_3)",
+        decl: {
+          start: {
+            line: 20,
+            column: 4
+          },
+          end: {
+            line: 20,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 20,
+            column: 16
+          },
+          end: {
+            line: 22,
+            column: 5
+          }
+        },
+        line: 20
+      },
+      "4": {
+        name: "(anonymous_4)",
+        decl: {
+          start: {
+            line: 23,
+            column: 4
+          },
+          end: {
+            line: 23,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 23,
+            column: 12
+          },
+          end: {
+            line: 25,
+            column: 5
+          }
+        },
+        line: 23
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 2,
+            column: 16
+          },
+          end: {
+            line: 2,
+            column: 36
+          }
+        },
+        type: "default-arg",
+        locations: [{
+          start: {
+            line: 2,
+            column: 31
+          },
+          end: {
+            line: 2,
+            column: 36
+          }
+        }],
+        line: 2
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 8,
+            column: 8
+          },
+          end: {
+            line: 9,
+            column: 29
+          }
+        },
+        type: "if",
+        locations: [{
+          start: {
+            line: 8,
+            column: 8
+          },
+          end: {
+            line: 9,
+            column: 29
+          }
+        }, {
+          start: {
+            line: undefined,
+            column: undefined
+          },
+          end: {
+            line: undefined,
+            column: undefined
+          }
+        }],
+        line: 8
+      },
+      "2": {
+        loc: {
+          start: {
+            line: 10,
+            column: 8
+          },
+          end: {
+            line: 13,
+            column: 9
+          }
+        },
+        type: "if",
+        locations: [{
+          start: {
+            line: 10,
+            column: 8
+          },
+          end: {
+            line: 13,
+            column: 9
+          }
+        }, {
+          start: {
+            line: undefined,
+            column: undefined
+          },
+          end: {
+            line: undefined,
+            column: undefined
+          }
+        }],
+        line: 10
+      },
+      "3": {
+        loc: {
+          start: {
+            line: 17,
+            column: 40
+          },
+          end: {
+            line: 17,
+            column: 93
+          }
+        },
+        type: "cond-expr",
+        locations: [{
+          start: {
+            line: 17,
+            column: 68
+          },
+          end: {
+            line: 17,
+            column: 73
+          }
+        }, {
+          start: {
+            line: 17,
+            column: 76
+          },
+          end: {
+            line: 17,
+            column: 93
+          }
+        }],
+        line: 17
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0
+    },
+    b: {
+      "0": [0],
+      "1": [0, 0],
+      "2": [0, 0],
+      "3": [0, 0]
+    },
+    inputSourceMap: {
+      file: "/home/runner/workspace/server/services/SimpleCache.ts",
+      mappings: "AAEA,MAAM,OAAO,WAAW;IAGtB,YAAoB,eAAuB,KAAM;QAA7B,iBAAY,GAAZ,YAAY,CAAiB;QAFzC,UAAK,GAAG,IAAI,GAAG,EAAyB,CAAC;IAEG,CAAC;IAE9C,GAAG,CAAC,GAAW;QACpB,MAAM,KAAK,GAAG,IAAI,CAAC,KAAK,CAAC,GAAG,CAAC,GAAG,CAAC,CAAC;QAClC,IAAI,CAAC,KAAK;YAAE,OAAO,SAAS,CAAC;QAC7B,IAAI,IAAI,CAAC,GAAG,EAAE,GAAG,KAAK,CAAC,SAAS,EAAE,CAAC;YACjC,IAAI,CAAC,KAAK,CAAC,MAAM,CAAC,GAAG,CAAC,CAAC;YACvB,OAAO,SAAS,CAAC;QACnB,CAAC;QACD,OAAO,KAAK,CAAC,KAAK,CAAC;IACrB,CAAC;IAEM,GAAG,CAAC,GAAW,EAAE,KAAQ,EAAE,KAAc;QAC9C,MAAM,SAAS,GAAG,IAAI,CAAC,GAAG,EAAE,GAAG,CAAC,OAAO,KAAK,KAAK,QAAQ,CAAC,CAAC,CAAC,KAAK,CAAC,CAAC,CAAC,IAAI,CAAC,YAAY,CAAC,CAAC;QACvF,IAAI,CAAC,KAAK,CAAC,GAAG,CAAC,GAAG,EAAE,EAAE,KAAK,EAAE,SAAS,EAAE,CAAC,CAAC;IAC5C,CAAC;IAEM,MAAM,CAAC,GAAW;QACvB,IAAI,CAAC,KAAK,CAAC,MAAM,CAAC,GAAG,CAAC,CAAC;IACzB,CAAC;IAEM,KAAK;QACV,IAAI,CAAC,KAAK,CAAC,KAAK,EAAE,CAAC;IACrB,CAAC;CACF",
+      names: [],
+      sources: ["/home/runner/workspace/server/services/SimpleCache.ts"],
+      sourcesContent: ["type CacheValue<T> = { value: T; expiresAt: number };\n\nexport class SimpleCache<T = unknown> {\n  private store = new Map<string, CacheValue<T>>();\n\n  constructor(private defaultTtlMs: number = 30_000) {}\n\n  public get(key: string): T | undefined {\n    const entry = this.store.get(key);\n    if (!entry) return undefined;\n    if (Date.now() > entry.expiresAt) {\n      this.store.delete(key);\n      return undefined;\n    }\n    return entry.value;\n  }\n\n  public set(key: string, value: T, ttlMs?: number): void {\n    const expiresAt = Date.now() + (typeof ttlMs === 'number' ? ttlMs : this.defaultTtlMs);\n    this.store.set(key, { value, expiresAt });\n  }\n\n  public delete(key: string): void {\n    this.store.delete(key);\n  }\n\n  public clear(): void {\n    this.store.clear();\n  }\n}\n\n\n"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "6940d6761bd08d97c230ba482c88b0a7618917bb"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_1om8slrqn7 = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_1om8slrqn7();
+export class SimpleCache {
+  constructor(defaultTtlMs =
+  /* istanbul ignore next */
+  (cov_1om8slrqn7().b[0][0]++, 30000)) {
+    /* istanbul ignore next */
+    cov_1om8slrqn7().f[0]++;
+    cov_1om8slrqn7().s[0]++;
+    this.defaultTtlMs = defaultTtlMs;
+    /* istanbul ignore next */
+    cov_1om8slrqn7().s[1]++;
+    this.store = new Map();
+  }
+  get(key) {
+    /* istanbul ignore next */
+    cov_1om8slrqn7().f[1]++;
+    const entry =
+    /* istanbul ignore next */
+    (cov_1om8slrqn7().s[2]++, this.store.get(key));
+    /* istanbul ignore next */
+    cov_1om8slrqn7().s[3]++;
+    if (!entry) {
+      /* istanbul ignore next */
+      cov_1om8slrqn7().b[1][0]++;
+      cov_1om8slrqn7().s[4]++;
+      return undefined;
+    } else
+    /* istanbul ignore next */
+    {
+      cov_1om8slrqn7().b[1][1]++;
+    }
+    cov_1om8slrqn7().s[5]++;
+    if (Date.now() > entry.expiresAt) {
+      /* istanbul ignore next */
+      cov_1om8slrqn7().b[2][0]++;
+      cov_1om8slrqn7().s[6]++;
+      this.store.delete(key);
+      /* istanbul ignore next */
+      cov_1om8slrqn7().s[7]++;
+      return undefined;
+    } else
+    /* istanbul ignore next */
+    {
+      cov_1om8slrqn7().b[2][1]++;
+    }
+    cov_1om8slrqn7().s[8]++;
+    return entry.value;
+  }
+  set(key, value, ttlMs) {
+    /* istanbul ignore next */
+    cov_1om8slrqn7().f[2]++;
+    const expiresAt =
+    /* istanbul ignore next */
+    (cov_1om8slrqn7().s[9]++, Date.now() + (typeof ttlMs === 'number' ?
+    /* istanbul ignore next */
+    (cov_1om8slrqn7().b[3][0]++, ttlMs) :
+    /* istanbul ignore next */
+    (cov_1om8slrqn7().b[3][1]++, this.defaultTtlMs)));
+    /* istanbul ignore next */
+    cov_1om8slrqn7().s[10]++;
+    this.store.set(key, {
+      value,
+      expiresAt
+    });
+  }
+  delete(key) {
+    /* istanbul ignore next */
+    cov_1om8slrqn7().f[3]++;
+    cov_1om8slrqn7().s[11]++;
+    this.store.delete(key);
+  }
+  clear() {
+    /* istanbul ignore next */
+    cov_1om8slrqn7().f[4]++;
+    cov_1om8slrqn7().s[12]++;
+    this.store.clear();
+  }
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3ZfMW9tOHNscnFuNyIsImFjdHVhbENvdmVyYWdlIiwiU2ltcGxlQ2FjaGUiLCJjb25zdHJ1Y3RvciIsImRlZmF1bHRUdGxNcyIsImIiLCJmIiwicyIsInN0b3JlIiwiTWFwIiwiZ2V0Iiwia2V5IiwiZW50cnkiLCJ1bmRlZmluZWQiLCJEYXRlIiwibm93IiwiZXhwaXJlc0F0IiwiZGVsZXRlIiwidmFsdWUiLCJzZXQiLCJ0dGxNcyIsImNsZWFyIl0sInNvdXJjZXMiOlsiL2hvbWUvcnVubmVyL3dvcmtzcGFjZS9zZXJ2ZXIvc2VydmljZXMvU2ltcGxlQ2FjaGUudHMiXSwic291cmNlc0NvbnRlbnQiOlsidHlwZSBDYWNoZVZhbHVlPFQ+ID0geyB2YWx1ZTogVDsgZXhwaXJlc0F0OiBudW1iZXIgfTtcblxuZXhwb3J0IGNsYXNzIFNpbXBsZUNhY2hlPFQgPSB1bmtub3duPiB7XG4gIHByaXZhdGUgc3RvcmUgPSBuZXcgTWFwPHN0cmluZywgQ2FjaGVWYWx1ZTxUPj4oKTtcblxuICBjb25zdHJ1Y3Rvcihwcml2YXRlIGRlZmF1bHRUdGxNczogbnVtYmVyID0gMzBfMDAwKSB7fVxuXG4gIHB1YmxpYyBnZXQoa2V5OiBzdHJpbmcpOiBUIHwgdW5kZWZpbmVkIHtcbiAgICBjb25zdCBlbnRyeSA9IHRoaXMuc3RvcmUuZ2V0KGtleSk7XG4gICAgaWYgKCFlbnRyeSkgcmV0dXJuIHVuZGVmaW5lZDtcbiAgICBpZiAoRGF0ZS5ub3coKSA+IGVudHJ5LmV4cGlyZXNBdCkge1xuICAgICAgdGhpcy5zdG9yZS5kZWxldGUoa2V5KTtcbiAgICAgIHJldHVybiB1bmRlZmluZWQ7XG4gICAgfVxuICAgIHJldHVybiBlbnRyeS52YWx1ZTtcbiAgfVxuXG4gIHB1YmxpYyBzZXQoa2V5OiBzdHJpbmcsIHZhbHVlOiBULCB0dGxNcz86IG51bWJlcik6IHZvaWQge1xuICAgIGNvbnN0IGV4cGlyZXNBdCA9IERhdGUubm93KCkgKyAodHlwZW9mIHR0bE1zID09PSAnbnVtYmVyJyA/IHR0bE1zIDogdGhpcy5kZWZhdWx0VHRsTXMpO1xuICAgIHRoaXMuc3RvcmUuc2V0KGtleSwgeyB2YWx1ZSwgZXhwaXJlc0F0IH0pO1xuICB9XG5cbiAgcHVibGljIGRlbGV0ZShrZXk6IHN0cmluZyk6IHZvaWQge1xuICAgIHRoaXMuc3RvcmUuZGVsZXRlKGtleSk7XG4gIH1cblxuICBwdWJsaWMgY2xlYXIoKTogdm9pZCB7XG4gICAgdGhpcy5zdG9yZS5jbGVhcigpO1xuICB9XG59XG5cblxuIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7SUFpQndCO0lBQUFBLGNBQUEsWUFBQUEsQ0FBQTtNQUFBLE9BQUFDLGNBQUE7SUFBQTtFQUFBO0VBQUEsT0FBQUEsY0FBQTtBQUFBO0FBQUFELGNBQUE7QUFmeEIsT0FBTSxNQUFPRSxXQUFXO0VBR3RCQyxZQUFvQkMsWUFBQTtFQUFBO0VBQUEsQ0FBQUosY0FBQSxHQUFBSyxDQUFBLFVBQXVCLEtBQU07SUFBQTtJQUFBTCxjQUFBLEdBQUFNLENBQUE7SUFBQU4sY0FBQSxHQUFBTyxDQUFBO0lBQTdCLEtBQUFILFlBQVksR0FBWkEsWUFBWTtJQUFpQjtJQUFBSixjQUFBLEdBQUFPLENBQUE7SUFGekMsS0FBQUMsS0FBSyxHQUFHLElBQUlDLEdBQUcsRUFBeUI7RUFFSTtFQUU3Q0MsR0FBR0EsQ0FBQ0MsR0FBVztJQUFBO0lBQUFYLGNBQUEsR0FBQU0sQ0FBQTtJQUNwQixNQUFNTSxLQUFLO0lBQUE7SUFBQSxDQUFBWixjQUFBLEdBQUFPLENBQUEsT0FBRyxJQUFJLENBQUNDLEtBQUssQ0FBQ0UsR0FBRyxDQUFDQyxHQUFHLENBQUM7SUFBQztJQUFBWCxjQUFBLEdBQUFPLENBQUE7SUFDbEMsSUFBSSxDQUFDSyxLQUFLLEVBQUU7TUFBQTtNQUFBWixjQUFBLEdBQUFLLENBQUE7TUFBQUwsY0FBQSxHQUFBTyxDQUFBO01BQUEsT0FBT00sU0FBUztJQUFBLENBQUM7SUFBQTtJQUFBO01BQUFiLGNBQUEsR0FBQUssQ0FBQTtJQUFBO0lBQUFMLGNBQUEsR0FBQU8sQ0FBQTtJQUM3QixJQUFJTyxJQUFJLENBQUNDLEdBQUcsRUFBRSxHQUFHSCxLQUFLLENBQUNJLFNBQVMsRUFBRTtNQUFBO01BQUFoQixjQUFBLEdBQUFLLENBQUE7TUFBQUwsY0FBQSxHQUFBTyxDQUFBO01BQ2hDLElBQUksQ0FBQ0MsS0FBSyxDQUFDUyxNQUFNLENBQUNOLEdBQUcsQ0FBQztNQUFDO01BQUFYLGNBQUEsR0FBQU8sQ0FBQTtNQUN2QixPQUFPTSxTQUFTO0lBQ2xCLENBQUM7SUFBQTtJQUFBO01BQUFiLGNBQUEsR0FBQUssQ0FBQTtJQUFBO0lBQUFMLGNBQUEsR0FBQU8sQ0FBQTtJQUNELE9BQU9LLEtBQUssQ0FBQ00sS0FBSztFQUNwQjtFQUVPQyxHQUFHQSxDQUFDUixHQUFXLEVBQUVPLEtBQVEsRUFBRUUsS0FBYztJQUFBO0lBQUFwQixjQUFBLEdBQUFNLENBQUE7SUFDOUMsTUFBTVUsU0FBUztJQUFBO0lBQUEsQ0FBQWhCLGNBQUEsR0FBQU8sQ0FBQSxPQUFHTyxJQUFJLENBQUNDLEdBQUcsRUFBRSxJQUFJLE9BQU9LLEtBQUssS0FBSyxRQUFRO0lBQUE7SUFBQSxDQUFBcEIsY0FBQSxHQUFBSyxDQUFBLFVBQUdlLEtBQUs7SUFBQTtJQUFBLENBQUFwQixjQUFBLEdBQUFLLENBQUEsVUFBRyxJQUFJLENBQUNELFlBQVksRUFBQztJQUFDO0lBQUFKLGNBQUEsR0FBQU8sQ0FBQTtJQUN2RixJQUFJLENBQUNDLEtBQUssQ0FBQ1csR0FBRyxDQUFDUixHQUFHLEVBQUU7TUFBRU8sS0FBSztNQUFFRjtJQUFTLENBQUUsQ0FBQztFQUMzQztFQUVPQyxNQUFNQSxDQUFDTixHQUFXO0lBQUE7SUFBQVgsY0FBQSxHQUFBTSxDQUFBO0lBQUFOLGNBQUEsR0FBQU8sQ0FBQTtJQUN2QixJQUFJLENBQUNDLEtBQUssQ0FBQ1MsTUFBTSxDQUFDTixHQUFHLENBQUM7RUFDeEI7RUFFT1UsS0FBS0EsQ0FBQTtJQUFBO0lBQUFyQixjQUFBLEdBQUFNLENBQUE7SUFBQU4sY0FBQSxHQUFBTyxDQUFBO0lBQ1YsSUFBSSxDQUFDQyxLQUFLLENBQUNhLEtBQUssRUFBRTtFQUNwQiIsImlnbm9yZUxpc3QiOltdfQ==

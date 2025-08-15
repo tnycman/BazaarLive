@@ -204,27 +204,27 @@ export const performanceMetrics = pgTable("performance_metrics", {
 // Schema exports
 export type UserAnalytics = typeof userAnalytics.$inferSelect;
 export type InsertUserAnalytics = typeof userAnalytics.$inferInsert;
-export const insertUserAnalyticsSchema = createInsertSchema(userAnalytics);
+// export const insertUserAnalyticsSchema = createInsertSchema(userAnalytics);
 
 export type PlatformAnalytics = typeof platformAnalytics.$inferSelect;
 export type InsertPlatformAnalytics = typeof platformAnalytics.$inferInsert;
-export const insertPlatformAnalyticsSchema = createInsertSchema(platformAnalytics);
+// export const insertPlatformAnalyticsSchema = createInsertSchema(platformAnalytics);
 
 export type CategoryAnalytics = typeof categoryAnalytics.$inferSelect;
 export type InsertCategoryAnalytics = typeof categoryAnalytics.$inferInsert;
-export const insertCategoryAnalyticsSchema = createInsertSchema(categoryAnalytics);
+// export const insertCategoryAnalyticsSchema = createInsertSchema(categoryAnalytics);
 
 export type AnalyticsEvent = typeof analyticsEvents.$inferSelect;
 export type InsertAnalyticsEvent = typeof analyticsEvents.$inferInsert;
-export const insertAnalyticsEventSchema = createInsertSchema(analyticsEvents);
+// export const insertAnalyticsEventSchema = createInsertSchema(analyticsEvents);
 
 export type UserSession = typeof userSessions.$inferSelect;
 export type InsertUserSession = typeof userSessions.$inferInsert;
-export const insertUserSessionSchema = createInsertSchema(userSessions);
+// export const insertUserSessionSchema = createInsertSchema(userSessions);
 
 export type PerformanceMetrics = typeof performanceMetrics.$inferSelect;
 export type InsertPerformanceMetrics = typeof performanceMetrics.$inferInsert;
-export const insertPerformanceMetricsSchema = createInsertSchema(performanceMetrics);
+// export const insertPerformanceMetricsSchema = createInsertSchema(performanceMetrics);
 
 // Analytics period enum
 export const AnalyticsPeriod = z.enum(['hourly', 'daily', 'weekly', 'monthly', 'quarterly', 'yearly']);

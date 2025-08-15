@@ -1,0 +1,97 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "client/typecheck-stubs.d.ts",
+    "client/typecheck-stubs/**/*.d.ts",
+    "client/src/components/universal/UniversalCategoryPage.tsx",
+    "client/src/components/universal/CategoryDirectory.tsx",
+    "client/src/services/routing/NavigationService.ts"
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/types/*": [
+        "client/src/types/*"
+      ],
+      "@/components/filters/EnterpriseFilterSidebar": [
+        "client/typecheck-stubs/EnterpriseFilterSidebar"
+      ],
+      "@/components/ui/*": [
+        "client/typecheck-stubs/ui/*"
+      ],
+      "@/components/Header": [
+        "client/typecheck-stubs/Header"
+      ],
+      "@/components/Navigation": [
+        "client/typecheck-stubs/Navigation"
+      ],
+      "@/components/grid/EnterpriseProductGrid": [
+        "client/typecheck-stubs/EnterpriseProductGrid"
+      ],
+      "@/components/grid/EnterpriseGridHeader": [
+        "client/typecheck-stubs/EnterpriseGridHeader"
+      ],
+      "@/components/sidebar/EnterpriseRightSidebar": [
+        "client/typecheck-stubs/EnterpriseRightSidebar"
+      ],
+      "@/components/layout/EnterprisePageLayout": [
+        "client/typecheck-stubs/components/layout/EnterprisePageLayout"
+      ],
+      "@/services/aop/LayoutSpacingAspect": [
+        "client/typecheck-stubs/services/aop/LayoutSpacingAspect"
+      ],
+      "@/services/category/utils/ProductDisplayUtils": [
+        "client/typecheck-stubs/services/category/utils/ProductDisplayUtils"
+      ],
+      "@/services/category/utils/SampleCatalogService": [
+        "client/typecheck-stubs/services/category/utils/SampleCatalogService"
+      ],
+      "@/services/category/utils/LayoutPolicy": [
+        "client/typecheck-stubs/services/category/utils/LayoutPolicy"
+      ],
+      "@/services/category/UniversalCategoryPageFactory": [
+        "client/typecheck-stubs/services/category/UniversalCategoryPageFactory"
+      ],
+      "@/services/category/metrics/LayoutMetrics": [
+        "client/typecheck-stubs/services/category/metrics/LayoutMetrics"
+      ],
+      "@/services/filtering/HierarchicalCategoryData": [
+        "client/typecheck-stubs/services/filtering/HierarchicalCategoryData"
+      ],
+      "@/services/category/CategoryTaxonomyService": [
+        "client/typecheck-stubs/services/category/CategoryTaxonomyService"
+      ],
+      "@/services/routing/FashionRouteService": [
+        "client/typecheck-stubs/services/routing/FashionRouteService"
+      ],
+      "@/hooks/useCategoryProducts": [
+        "client/typecheck-stubs/hooks/useCategoryProducts"
+      ],
+      "@/services/analytics/NavigationAnalytics": [
+        "client/typecheck-stubs/services/analytics/NavigationAnalytics"
+      ],
+      "@/debug/ProductSizeComparison": [
+        "client/typecheck-stubs/debug/ProductSizeComparison"
+      ],
+      "@/services/perf/HeadPrefetch": [
+        "client/typecheck-stubs/services/perf/HeadPrefetch"
+      ]
+    }
+  },
+  "exclude": [
+    
+    "client/src/pages/**",
+    "client/src/components/universal/CategoryBreadcrumbs.tsx",
+    "client/src/components/analytics/**",
+    "client/src/components/analytics/**/__tests__/**",
+    "client/src/components/filters/**",
+    "client/src/components/integration/**",
+    "client/src/components/mobile/**",
+    "client/src/components/navigation/NavigationFilterConsumer.tsx",
+    "client/src/tests/**",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ]
+}
+
+

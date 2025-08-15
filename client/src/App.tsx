@@ -1,25 +1,37 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, useLocation } from "wouter";
+import { useEffect } from "react";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { useAuth } from "@/hooks/useAuth";
-import { routeConfigService } from "@/services/routing/RouteConfigService";
+// import { routeConfigService } from "@/services/routing/RouteConfigService";
 import NotFound from "@/pages/not-found";
 import Landing from "@/pages/landing";
 import Feed from "@/pages/feed";
 import Home from "@/pages/home";
 import HomePageEnterprise from "@/pages/HomePageEnterprise";
-import Marketplace from "@/pages/marketplace";
+// import Marketplace from "@/pages/marketplace";
 import CreateListing from "@/pages/create-listing";
 import Profile from "@/pages/profile";
-import VerticalPage from "@/pages/marketplace/VerticalPage";
 import AnalyticsDashboard from "@/pages/analytics/AnalyticsDashboard";
 import AIAssistant from "@/pages/ai-assistant";
+import BrandsIndex from "@/pages/brands/index";
+import BrandSegmentPage from "@/pages/brands/segments/[segment]";
+import BrandUniversalAdapter from "@/components/universal/BrandUniversalAdapter";
 // Universal Category Page Component - Single unified component for ALL categories
 import UniversalCategoryPage from "@/components/universal/UniversalCategoryPage";
-import { SimpleCategoryPage } from "@/components/SimpleCategoryPage";
-import { TestFashionPage } from "@/components/TestFashionPage";
+// Removed legacy test/simple pages to prevent regressions
+import MetricsDashboard from "@/pages/dev/MetricsDashboard";
+
+// Redirect `/fashion` root to a default section to avoid 404s and ensure UX consistency
+const FashionRootRedirect: React.FC = () => {
+  const [, navigate] = useLocation();
+  useEffect(() => {
+    navigate('/fashion/women', { replace: true });
+  }, [navigate]);
+  return null;
+};
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
@@ -27,53 +39,31 @@ function Router() {
   return (
     <Switch>
       {/* Universal Category Routes - Unified routing architecture using UniversalCategoryPage */}
-      <Route path="/test-fashion" component={() => <TestFashionPage />} />
-      <Route path="/fashion/women" component={() => <UniversalCategoryPage category="fashion" subcategory="women" />} />
-      <Route path="/fashion/men" component={() => <UniversalCategoryPage category="fashion" subcategory="men" />} />
-      <Route path="/fashion/kids" component={() => <UniversalCategoryPage category="fashion" subcategory="kids" />} />
-      <Route path="/fashion/home" component={() => <UniversalCategoryPage category="fashion" subcategory="home" />} />
-      <Route path="/fashion/electronics" component={() => <UniversalCategoryPage category="fashion" subcategory="electronics" />} />
-      <Route path="/fashion/pets" component={() => <UniversalCategoryPage category="fashion" subcategory="pets" />} />
-      <Route path="/fashion/beauty" component={() => <UniversalCategoryPage category="fashion" subcategory="beauty" />} />
-      <Route path="/fashion/sports" component={() => <UniversalCategoryPage category="fashion" subcategory="sports" />} />
+      {import.meta.env.MODE === 'development' && (
+        <Route path="/__metrics" component={() => <MetricsDashboard />} />
+      )}
+      {/* Handle fashion root explicitly to prevent unmatched route */}
+      <Route path="/fashion" component={FashionRootRedirect} />
+      <Route path="/fashion/brands" component={BrandsIndex} />
+      <Route path="/fashion/brands/segments/:segment" component={BrandSegmentPage} />
+      <Route path="/fashion/brands/:brand" component={BrandUniversalAdapter} />
+      <Route path="/fashion/:section" component={({ params }) => {
+        const section = (params?.section || '').toLowerCase();
+        return <UniversalCategoryPage category="fashion" subcategory={section} />;
+      }} />
+      <Route path="/fashion/:section/:subsection" component={({ params }) => {
+        const section = (params?.section || '').toLowerCase();
+        const subsection = (params?.subsection || '').toLowerCase();
+        return <UniversalCategoryPage category="fashion" subcategory={section} subSubcategory={subsection} />;
+      }} />
+      <Route path="/fashion/:section/:subsection/:leaf" component={({ params }) => {
+        const section = (params?.section || '').toLowerCase();
+        const subsection = (params?.subsection || '').toLowerCase();
+        const leaf = (params?.leaf || '').toLowerCase();
+        return <UniversalCategoryPage category="fashion" subcategory={section} subSubcategory={subsection} leaf={leaf} />;
+      }} />
       
-      {/* Unified subcategory routes using UniversalCategoryPage - Enterprise AOP pattern */}
-      <Route path="/fashion/:category/:subcategory" component={({ params }) => (
-        <UniversalCategoryPage 
-          category="fashion" 
-          subcategory={params?.category} 
-          subSubcategory={params?.subcategory} 
-        />
-      )} />
-      <Route path="/marketplace/:vertical/:category/:subcategory?" component={({ params }) => (
-        <UniversalCategoryPage 
-          category={params?.vertical || "marketplace"} 
-          subcategory={params?.category} 
-          subSubcategory={params?.subcategory} 
-        />
-      )} />
-      <Route path="/marketplace" component={Marketplace} />
-      
-      {/* Dynamic marketplace vertical routes - public */}
-      {routeConfigService.getAllVerticalRoutes().map(verticalRoute => (
-        <Route 
-          key={verticalRoute.vertical}
-          path={`/marketplace/${verticalRoute.vertical}`}
-          component={() => <VerticalPage vertical={verticalRoute.vertical} />}
-        />
-      ))}
-      
-      {/* Catch-all dynamic routes - public */}
-      <Route 
-        path="/marketplace/:vertical"
-        component={({ params }) => {
-          const vertical = params?.vertical;
-          if (vertical && routeConfigService.getVerticalRoute(vertical)) {
-            return <VerticalPage vertical={vertical} />;
-          }
-          return <NotFound />;
-        }}
-      />
+      {/* Marketplace root deprecated for category navigation */}
       
       {/* Authentication-based routing */}
       {isLoading || !isAuthenticated ? (

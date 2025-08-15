@@ -1,0 +1,468 @@
+8bdd9eee0a52f125969c78064ccf623b
+/* istanbul ignore next */
+function cov_1yxh1gctp8() {
+  var path = "/home/runner/workspace/server/services/Tracing.ts";
+  var hash = "6c2d1f5d7d1720b25789c3e1a92fad3d8c6d6bf7";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/home/runner/workspace/server/services/Tracing.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 9,
+          column: 8
+        },
+        end: {
+          line: 30,
+          column: 9
+        }
+      },
+      "1": {
+        start: {
+          line: 10,
+          column: 26
+        },
+        end: {
+          line: 10,
+          column: 36
+        }
+      },
+      "2": {
+        start: {
+          line: 11,
+          column: 12
+        },
+        end: {
+          line: 15,
+          column: 13
+        }
+      },
+      "3": {
+        start: {
+          line: 14,
+          column: 16
+        },
+        end: {
+          line: 14,
+          column: 144
+        }
+      },
+      "4": {
+        start: {
+          line: 16,
+          column: 12
+        },
+        end: {
+          line: 26,
+          column: 14
+        }
+      },
+      "5": {
+        start: {
+          line: 19,
+          column: 20
+        },
+        end: {
+          line: 19,
+          column: 109
+        }
+      },
+      "6": {
+        start: {
+          line: 22,
+          column: 32
+        },
+        end: {
+          line: 22,
+          column: 42
+        }
+      },
+      "7": {
+        start: {
+          line: 24,
+          column: 20
+        },
+        end: {
+          line: 24,
+          column: 152
+        }
+      },
+      "8": {
+        start: {
+          line: 29,
+          column: 12
+        },
+        end: {
+          line: 29,
+          column: 34
+        }
+      },
+      "9": {
+        start: {
+          line: 36,
+          column: 4
+        },
+        end: {
+          line: 36,
+          column: 30
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 3,
+            column: 4
+          },
+          end: {
+            line: 3,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 3,
+            column: 31
+          },
+          end: {
+            line: 3,
+            column: 34
+          }
+        },
+        line: 3
+      },
+      "1": {
+        name: "(anonymous_1)",
+        decl: {
+          start: {
+            line: 5,
+            column: 4
+          },
+          end: {
+            line: 5,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 5,
+            column: 17
+          },
+          end: {
+            line: 5,
+            column: 20
+          }
+        },
+        line: 5
+      },
+      "2": {
+        name: "(anonymous_2)",
+        decl: {
+          start: {
+            line: 8,
+            column: 4
+          },
+          end: {
+            line: 8,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 8,
+            column: 27
+          },
+          end: {
+            line: 31,
+            column: 5
+          }
+        },
+        line: 8
+      },
+      "3": {
+        name: "(anonymous_3)",
+        decl: {
+          start: {
+            line: 17,
+            column: 30
+          },
+          end: {
+            line: 17,
+            column: 31
+          }
+        },
+        loc: {
+          start: {
+            line: 17,
+            column: 46
+          },
+          end: {
+            line: 20,
+            column: 17
+          }
+        },
+        line: 17
+      },
+      "4": {
+        name: "(anonymous_4)",
+        decl: {
+          start: {
+            line: 21,
+            column: 21
+          },
+          end: {
+            line: 21,
+            column: 22
+          }
+        },
+        loc: {
+          start: {
+            line: 21,
+            column: 33
+          },
+          end: {
+            line: 25,
+            column: 17
+          }
+        },
+        line: 21
+      },
+      "5": {
+        name: "getTracer",
+        decl: {
+          start: {
+            line: 34,
+            column: 16
+          },
+          end: {
+            line: 34,
+            column: 25
+          }
+        },
+        loc: {
+          start: {
+            line: 34,
+            column: 28
+          },
+          end: {
+            line: 37,
+            column: 1
+          }
+        },
+        line: 34
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 11,
+            column: 12
+          },
+          end: {
+            line: 15,
+            column: 13
+          }
+        },
+        type: "if",
+        locations: [{
+          start: {
+            line: 11,
+            column: 12
+          },
+          end: {
+            line: 15,
+            column: 13
+          }
+        }, {
+          start: {
+            line: undefined,
+            column: undefined
+          },
+          end: {
+            line: undefined,
+            column: undefined
+          }
+        }],
+        line: 11
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 24,
+            column: 99
+          },
+          end: {
+            line: 24,
+            column: 113
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 24,
+            column: 99
+          },
+          end: {
+            line: 24,
+            column: 105
+          }
+        }, {
+          start: {
+            line: 24,
+            column: 109
+          },
+          end: {
+            line: 24,
+            column: 113
+          }
+        }],
+        line: 24
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0
+    },
+    b: {
+      "0": [0, 0],
+      "1": [0, 0]
+    },
+    inputSourceMap: {
+      file: "/home/runner/workspace/server/services/Tracing.ts",
+      mappings: "AAKA,MAAM,QAAQ;IACZ,6DAA6D;IAC7D,YAAY,CAAC,IAAY,EAAE,MAAiC,IAAS,CAAC;IACtE,6DAA6D;IAC7D,GAAG,CAAC,OAAwB,IAAS,CAAC;CACvC;AAMD,MAAM,YAAY;IAChB,SAAS,CAAC,IAAY,EAAE,KAAiD;QACvE,IAAI,CAAC;YACH,MAAM,KAAK,GAAG,IAAI,CAAC,GAAG,EAAE,CAAC;YACzB,IAAI,KAAK,EAAE,CAAC;gBACV,uCAAuC;gBACvC,sCAAsC;gBACtC,OAAO,CAAC,GAAG,CAAC,IAAI,CAAC,SAAS,+BAAG,KAAK,EAAE,OAAO,EAAE,IAAI,EAAE,IAAI,EAAE,KAAK,EAAE,OAAO,IAAK,KAAK,KAAE,EAAE,EAAE,KAAK,IAAG,CAAC,CAAC;YACnG,CAAC;YACD,OAAO;gBACL,YAAY,EAAE,CAAC,GAAG,EAAE,KAAK,EAAE,EAAE;oBAC3B,sCAAsC;oBACtC,OAAO,CAAC,GAAG,CAAC,IAAI,CAAC,SAAS,CAAC,EAAE,KAAK,EAAE,OAAO,EAAE,IAAI,EAAE,IAAI,EAAE,KAAK,EAAE,MAAM,EAAE,CAAC,GAAG,CAAC,EAAE,KAAK,EAAE,CAAC,CAAC,CAAC;gBAC3F,CAAC;gBACD,GAAG,EAAE,CAAC,MAAM,EAAE,EAAE;oBACd,MAAM,GAAG,GAAG,IAAI,CAAC,GAAG,EAAE,CAAC;oBACvB,sCAAsC;oBACtC,OAAO,CAAC,GAAG,CAAC,IAAI,CAAC,SAAS,CAAC,EAAE,KAAK,EAAE,OAAO,EAAE,IAAI,EAAE,IAAI,EAAE,KAAK,EAAE,KAAK,EAAE,MAAM,EAAE,MAAM,IAAI,IAAI,EAAE,UAAU,EAAE,GAAG,GAAG,KAAK,EAAE,EAAE,EAAE,GAAG,EAAE,CAAC,CAAC,CAAC;gBACtI,CAAC;aACM,CAAC;QACZ,CAAC;QAAC,WAAM,CAAC;YACP,OAAO,IAAI,QAAQ,EAAE,CAAC;QACxB,CAAC;IACH,CAAC;CACF;AAED,+CAA+C;AAC/C,MAAM,UAAU,SAAS;IACvB,sDAAsD;IACtD,OAAO,IAAI,YAAY,EAAE,CAAC;AAC5B,CAAC",
+      names: [],
+      sources: ["/home/runner/workspace/server/services/Tracing.ts"],
+      sourcesContent: ["export interface Span {\n  setAttribute(key: string, value: string | number | boolean): void;\n  end(status?: 'ok' | 'error'): void;\n}\n\nclass NoopSpan implements Span {\n  // eslint-disable-next-line @typescript-eslint/no-unused-vars\n  setAttribute(_key: string, _value: string | number | boolean): void {}\n  // eslint-disable-next-line @typescript-eslint/no-unused-vars\n  end(_status?: 'ok' | 'error'): void {}\n}\n\nexport interface Tracer {\n  startSpan(name: string, attrs?: Record<string, string | number | boolean>): Span;\n}\n\nclass SimpleTracer implements Tracer {\n  startSpan(name: string, attrs?: Record<string, string | number | boolean>): Span {\n    try {\n      const start = Date.now();\n      if (attrs) {\n        // lightweight structured log for spans\n        // eslint-disable-next-line no-console\n        console.log(JSON.stringify({ level: 'debug', span: name, phase: 'start', ...attrs, ts: start }));\n      }\n      return {\n        setAttribute: (key, value) => {\n          // eslint-disable-next-line no-console\n          console.log(JSON.stringify({ level: 'debug', span: name, phase: 'attr', [key]: value }));\n        },\n        end: (status) => {\n          const end = Date.now();\n          // eslint-disable-next-line no-console\n          console.log(JSON.stringify({ level: 'debug', span: name, phase: 'end', status: status || 'ok', durationMs: end - start, ts: end }));\n        }\n      } as Span;\n    } catch {\n      return new NoopSpan();\n    }\n  }\n}\n\n// Factory for future OpenTelemetry integration\nexport function getTracer(): Tracer {\n  // In the future, inspect env to return an OTEL tracer\n  return new SimpleTracer();\n}\n\n\n\n"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "6c2d1f5d7d1720b25789c3e1a92fad3d8c6d6bf7"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_1yxh1gctp8 = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_1yxh1gctp8();
+class NoopSpan {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  setAttribute(_key, _value) {
+    /* istanbul ignore next */
+    cov_1yxh1gctp8().f[0]++;
+  }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  end(_status) {
+    /* istanbul ignore next */
+    cov_1yxh1gctp8().f[1]++;
+  }
+}
+class SimpleTracer {
+  startSpan(name, attrs) {
+    /* istanbul ignore next */
+    cov_1yxh1gctp8().f[2]++;
+    cov_1yxh1gctp8().s[0]++;
+    try {
+      const start =
+      /* istanbul ignore next */
+      (cov_1yxh1gctp8().s[1]++, Date.now());
+      /* istanbul ignore next */
+      cov_1yxh1gctp8().s[2]++;
+      if (attrs) {
+        /* istanbul ignore next */
+        cov_1yxh1gctp8().b[0][0]++;
+        cov_1yxh1gctp8().s[3]++;
+        // lightweight structured log for spans
+        // eslint-disable-next-line no-console
+        console.log(JSON.stringify(Object.assign(Object.assign({
+          level: 'debug',
+          span: name,
+          phase: 'start'
+        }, attrs), {
+          ts: start
+        })));
+      } else
+      /* istanbul ignore next */
+      {
+        cov_1yxh1gctp8().b[0][1]++;
+      }
+      cov_1yxh1gctp8().s[4]++;
+      return {
+        setAttribute: (key, value) => {
+          /* istanbul ignore next */
+          cov_1yxh1gctp8().f[3]++;
+          cov_1yxh1gctp8().s[5]++;
+          // eslint-disable-next-line no-console
+          console.log(JSON.stringify({
+            level: 'debug',
+            span: name,
+            phase: 'attr',
+            [key]: value
+          }));
+        },
+        end: status => {
+          /* istanbul ignore next */
+          cov_1yxh1gctp8().f[4]++;
+          const end =
+          /* istanbul ignore next */
+          (cov_1yxh1gctp8().s[6]++, Date.now());
+          // eslint-disable-next-line no-console
+          /* istanbul ignore next */
+          cov_1yxh1gctp8().s[7]++;
+          console.log(JSON.stringify({
+            level: 'debug',
+            span: name,
+            phase: 'end',
+            status:
+            /* istanbul ignore next */
+            (cov_1yxh1gctp8().b[1][0]++, status) ||
+            /* istanbul ignore next */
+            (cov_1yxh1gctp8().b[1][1]++, 'ok'),
+            durationMs: end - start,
+            ts: end
+          }));
+        }
+      };
+    } catch (_a) {
+      /* istanbul ignore next */
+      cov_1yxh1gctp8().s[8]++;
+      return new NoopSpan();
+    }
+  }
+}
+// Factory for future OpenTelemetry integration
+export function getTracer() {
+  /* istanbul ignore next */
+  cov_1yxh1gctp8().f[5]++;
+  cov_1yxh1gctp8().s[9]++;
+  // In the future, inspect env to return an OTEL tracer
+  return new SimpleTracer();
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3ZfMXl4aDFnY3RwOCIsImFjdHVhbENvdmVyYWdlIiwiTm9vcFNwYW4iLCJzZXRBdHRyaWJ1dGUiLCJfa2V5IiwiX3ZhbHVlIiwiZiIsImVuZCIsIl9zdGF0dXMiLCJTaW1wbGVUcmFjZXIiLCJzdGFydFNwYW4iLCJuYW1lIiwiYXR0cnMiLCJzIiwic3RhcnQiLCJEYXRlIiwibm93IiwiYiIsImNvbnNvbGUiLCJsb2ciLCJKU09OIiwic3RyaW5naWZ5IiwiT2JqZWN0IiwiYXNzaWduIiwibGV2ZWwiLCJzcGFuIiwicGhhc2UiLCJ0cyIsImtleSIsInZhbHVlIiwic3RhdHVzIiwiZHVyYXRpb25NcyIsIl9hIiwiZ2V0VHJhY2VyIl0sInNvdXJjZXMiOlsiL2hvbWUvcnVubmVyL3dvcmtzcGFjZS9zZXJ2ZXIvc2VydmljZXMvVHJhY2luZy50cyJdLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgaW50ZXJmYWNlIFNwYW4ge1xuICBzZXRBdHRyaWJ1dGUoa2V5OiBzdHJpbmcsIHZhbHVlOiBzdHJpbmcgfCBudW1iZXIgfCBib29sZWFuKTogdm9pZDtcbiAgZW5kKHN0YXR1cz86ICdvaycgfCAnZXJyb3InKTogdm9pZDtcbn1cblxuY2xhc3MgTm9vcFNwYW4gaW1wbGVtZW50cyBTcGFuIHtcbiAgLy8gZXNsaW50LWRpc2FibGUtbmV4dC1saW5lIEB0eXBlc2NyaXB0LWVzbGludC9uby11bnVzZWQtdmFyc1xuICBzZXRBdHRyaWJ1dGUoX2tleTogc3RyaW5nLCBfdmFsdWU6IHN0cmluZyB8IG51bWJlciB8IGJvb2xlYW4pOiB2b2lkIHt9XG4gIC8vIGVzbGludC1kaXNhYmxlLW5leHQtbGluZSBAdHlwZXNjcmlwdC1lc2xpbnQvbm8tdW51c2VkLXZhcnNcbiAgZW5kKF9zdGF0dXM/OiAnb2snIHwgJ2Vycm9yJyk6IHZvaWQge31cbn1cblxuZXhwb3J0IGludGVyZmFjZSBUcmFjZXIge1xuICBzdGFydFNwYW4obmFtZTogc3RyaW5nLCBhdHRycz86IFJlY29yZDxzdHJpbmcsIHN0cmluZyB8IG51bWJlciB8IGJvb2xlYW4+KTogU3Bhbjtcbn1cblxuY2xhc3MgU2ltcGxlVHJhY2VyIGltcGxlbWVudHMgVHJhY2VyIHtcbiAgc3RhcnRTcGFuKG5hbWU6IHN0cmluZywgYXR0cnM/OiBSZWNvcmQ8c3RyaW5nLCBzdHJpbmcgfCBudW1iZXIgfCBib29sZWFuPik6IFNwYW4ge1xuICAgIHRyeSB7XG4gICAgICBjb25zdCBzdGFydCA9IERhdGUubm93KCk7XG4gICAgICBpZiAoYXR0cnMpIHtcbiAgICAgICAgLy8gbGlnaHR3ZWlnaHQgc3RydWN0dXJlZCBsb2cgZm9yIHNwYW5zXG4gICAgICAgIC8vIGVzbGludC1kaXNhYmxlLW5leHQtbGluZSBuby1jb25zb2xlXG4gICAgICAgIGNvbnNvbGUubG9nKEpTT04uc3RyaW5naWZ5KHsgbGV2ZWw6ICdkZWJ1ZycsIHNwYW46IG5hbWUsIHBoYXNlOiAnc3RhcnQnLCAuLi5hdHRycywgdHM6IHN0YXJ0IH0pKTtcbiAgICAgIH1cbiAgICAgIHJldHVybiB7XG4gICAgICAgIHNldEF0dHJpYnV0ZTogKGtleSwgdmFsdWUpID0+IHtcbiAgICAgICAgICAvLyBlc2xpbnQtZGlzYWJsZS1uZXh0LWxpbmUgbm8tY29uc29sZVxuICAgICAgICAgIGNvbnNvbGUubG9nKEpTT04uc3RyaW5naWZ5KHsgbGV2ZWw6ICdkZWJ1ZycsIHNwYW46IG5hbWUsIHBoYXNlOiAnYXR0cicsIFtrZXldOiB2YWx1ZSB9KSk7XG4gICAgICAgIH0sXG4gICAgICAgIGVuZDogKHN0YXR1cykgPT4ge1xuICAgICAgICAgIGNvbnN0IGVuZCA9IERhdGUubm93KCk7XG4gICAgICAgICAgLy8gZXNsaW50LWRpc2FibGUtbmV4dC1saW5lIG5vLWNvbnNvbGVcbiAgICAgICAgICBjb25zb2xlLmxvZyhKU09OLnN0cmluZ2lmeSh7IGxldmVsOiAnZGVidWcnLCBzcGFuOiBuYW1lLCBwaGFzZTogJ2VuZCcsIHN0YXR1czogc3RhdHVzIHx8ICdvaycsIGR1cmF0aW9uTXM6IGVuZCAtIHN0YXJ0LCB0czogZW5kIH0pKTtcbiAgICAgICAgfVxuICAgICAgfSBhcyBTcGFuO1xuICAgIH0gY2F0Y2gge1xuICAgICAgcmV0dXJuIG5ldyBOb29wU3BhbigpO1xuICAgIH1cbiAgfVxufVxuXG4vLyBGYWN0b3J5IGZvciBmdXR1cmUgT3BlblRlbGVtZXRyeSBpbnRlZ3JhdGlvblxuZXhwb3J0IGZ1bmN0aW9uIGdldFRyYWNlcigpOiBUcmFjZXIge1xuICAvLyBJbiB0aGUgZnV0dXJlLCBpbnNwZWN0IGVudiB0byByZXR1cm4gYW4gT1RFTCB0cmFjZXJcbiAgcmV0dXJuIG5ldyBTaW1wbGVUcmFjZXIoKTtcbn1cblxuXG5cbiJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7SUF5Qk07SUFBQUEsY0FBQSxZQUFBQSxDQUFBO01BQUEsT0FBQUMsY0FBQTtJQUFBO0VBQUE7RUFBQSxPQUFBQSxjQUFBO0FBQUE7QUFBQUQsY0FBQTtBQXBCTixNQUFNRSxRQUFRO0VBQ1o7RUFDQUMsWUFBWUEsQ0FBQ0MsSUFBWSxFQUFFQyxNQUFpQztJQUFBO0lBQUFMLGNBQUEsR0FBQU0sQ0FBQTtFQUFTO0VBQ3JFO0VBQ0FDLEdBQUdBLENBQUNDLE9BQXdCO0lBQUE7SUFBQVIs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

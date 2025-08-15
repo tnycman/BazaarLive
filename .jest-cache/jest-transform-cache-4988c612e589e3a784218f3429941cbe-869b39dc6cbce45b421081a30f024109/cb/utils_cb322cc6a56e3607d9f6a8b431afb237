@@ -1,0 +1,89 @@
+2243cbb57d17ec9d5a64a3d650eeba01
+/* istanbul ignore next */
+function cov_2nj767hy26() {
+  var path = "/home/runner/workspace/client/src/lib/utils.ts";
+  var hash = "72fe7c2f1558210043fc3f66deb0a70df826a5d2";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/home/runner/workspace/client/src/lib/utils.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 4,
+          column: 4
+        },
+        end: {
+          line: 4,
+          column: 33
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "cn",
+        decl: {
+          start: {
+            line: 3,
+            column: 16
+          },
+          end: {
+            line: 3,
+            column: 18
+          }
+        },
+        loc: {
+          start: {
+            line: 3,
+            column: 30
+          },
+          end: {
+            line: 5,
+            column: 1
+          }
+        },
+        line: 3
+      }
+    },
+    branchMap: {},
+    s: {
+      "0": 0
+    },
+    f: {
+      "0": 0
+    },
+    b: {},
+    inputSourceMap: {
+      file: "/home/runner/workspace/client/src/lib/utils.ts",
+      mappings: "AAAA,OAAO,EAAE,IAAI,EAAmB,MAAM,MAAM,CAAA;AAC5C,OAAO,EAAE,OAAO,EAAE,MAAM,gBAAgB,CAAA;AAExC,MAAM,UAAU,EAAE,CAAC,GAAG,MAAoB;IACxC,OAAO,OAAO,CAAC,IAAI,CAAC,MAAM,CAAC,CAAC,CAAA;AAC9B,CAAC",
+      names: [],
+      sources: ["/home/runner/workspace/client/src/lib/utils.ts"],
+      sourcesContent: ["import { clsx, type ClassValue } from \"clsx\"\nimport { twMerge } from \"tailwind-merge\"\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs))\n}\n"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "72fe7c2f1558210043fc3f66deb0a70df826a5d2"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_2nj767hy26 = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_2nj767hy26();
+import { clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+export function cn(...inputs) {
+  /* istanbul ignore next */
+  cov_2nj767hy26().f[0]++;
+  cov_2nj767hy26().s[0]++;
+  return twMerge(clsx(inputs));
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjbHN4IiwidHdNZXJnZSIsImNuIiwiaW5wdXRzIiwiY292XzJuajc2N2h5MjYiLCJmIiwicyJdLCJzb3VyY2VzIjpbIi9ob21lL3J1bm5lci93b3Jrc3BhY2UvY2xpZW50L3NyYy9saWIvdXRpbHMudHMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgY2xzeCwgdHlwZSBDbGFzc1ZhbHVlIH0gZnJvbSBcImNsc3hcIlxuaW1wb3J0IHsgdHdNZXJnZSB9IGZyb20gXCJ0YWlsd2luZC1tZXJnZVwiXG5cbmV4cG9ydCBmdW5jdGlvbiBjbiguLi5pbnB1dHM6IENsYXNzVmFsdWVbXSkge1xuICByZXR1cm4gdHdNZXJnZShjbHN4KGlucHV0cykpXG59XG4iXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQSxTQUFTQSxJQUFJLFFBQXlCLE1BQU07QUFDNUMsU0FBU0MsT0FBTyxRQUFRLGdCQUFnQjtBQUV4QyxPQUFNLFNBQVVDLEVBQUVBLENBQUMsR0FBR0MsTUFBb0I7RUFBQTtFQUFBQyxjQUFBLEdBQUFDLENBQUE7RUFBQUQsY0FBQSxHQUFBRSxDQUFBO0VBQ3hDLE9BQU9MLE9BQU8sQ0FBQ0QsSUFBSSxDQUFDRyxNQUFNLENBQUMsQ0FBQztBQUM5QiIsImlnbm9yZUxpc3QiOltdfQ==

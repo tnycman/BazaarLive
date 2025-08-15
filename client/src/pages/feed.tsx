@@ -9,8 +9,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Heart, MessageCircle, Share2, Eye, ShoppingBag, TrendingUp, Users, Calendar } from "lucide-react";
-import { Link } from "wouter";
+import { Heart, MessageCircle, Share2, Eye, ShoppingBag, TrendingUp, Users, Calendar, Plus } from "lucide-react";
+import { Link, useLocation } from "wouter";
 import type { Listing, User } from "@shared/schema";
 
 interface ListingWithSeller extends Listing {
@@ -30,6 +30,7 @@ interface FeedData {
 export default function Feed() {
   const { user } = useAuth();
   const [activeTab, setActiveTab] = useState<"for-you" | "following">("for-you");
+  const [, setLocation] = useLocation();
 
   const { data: feedData, isLoading } = useQuery<FeedData>({
     queryKey: ["/api/feed"],
@@ -55,6 +56,24 @@ export default function Feed() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           {/* Left Sidebar */}
           <div className="lg:col-span-1 space-y-6">
+            {/* Temporary Add Listing Button */}
+            <Card className="glass-card border-2 border-dashed border-primary/30 bg-primary/5">
+              <CardContent className="p-4">
+                <Button 
+                  onClick={() => setLocation('/create-listing')}
+                  className="w-full gradient-primary text-white font-semibold py-3"
+                  size="lg"
+                  data-testid="temp-add-listing-button"
+                >
+                  <Plus className="w-5 h-5 mr-2" />
+                  Add Listing (Temp)
+                </Button>
+                <p className="text-xs text-gray-600 dark:text-gray-400 mt-2 text-center">
+                  Temporary button for testing create listing page
+                </p>
+              </CardContent>
+            </Card>
+
             {/* Brand Collections */}
             <Card className="glass-card">
               <CardContent className="p-4">

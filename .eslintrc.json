@@ -1,0 +1,27 @@
+{
+  "root": true,
+  "overrides": [
+    {
+      "files": ["client/src/**/*.{ts,tsx,js,jsx}"],
+      "excludedFiles": [
+        "client/src/services/routing/FashionRouteService.ts",
+        "client/src/services/navigation/**",
+        "client/src/**/__tests__/**",
+        "client/src/tests/**"
+      ],
+      "rules": {
+        "no-restricted-syntax": [
+          "error",
+          {
+            "selector": "Literal[value=/^\\/fashion\\//]",
+            "message": "Use fashionRouteService.generateFashionUrl(...) instead of hardcoding '/fashion/...'."
+          }
+        ]
+      }
+    }
+  ]
+}
+
+
+
+

@@ -12,7 +12,7 @@ import {
   pgEnum,
   vector,
 } from "drizzle-orm/pg-core";
-import { createInsertSchema } from "drizzle-zod";
+// import { createInsertSchema } from "drizzle-zod"; // Temporarily disabled
 import { z } from "zod";
 
 // Session storage table.
@@ -369,13 +369,13 @@ export const aiMessagesRelations = relations(aiMessages, ({ one }) => ({
 }));
 
 // Insert schemas
-export const insertUserSchema = createInsertSchema(users).omit({
+// export const insertUserSchema = createInsertSchema(users).omit({
   id: true,
   createdAt: true,
   updatedAt: true,
 });
 
-export const upsertUserSchema = createInsertSchema(users).pick({
+// export const upsertUserSchema = createInsertSchema(users).pick({
   id: true,
   email: true,
   firstName: true,
@@ -383,7 +383,7 @@ export const upsertUserSchema = createInsertSchema(users).pick({
   profileImageUrl: true,
 });
 
-export const insertListingSchema = createInsertSchema(listings).omit({
+// export const insertListingSchema = createInsertSchema(listings).omit({
   id: true,
   sellerId: true,
   viewsCount: true,
@@ -397,22 +397,22 @@ export const insertListingSchema = createInsertSchema(listings).omit({
   updatedAt: true,
 });
 
-export const insertFollowSchema = createInsertSchema(follows).omit({
+// export const insertFollowSchema = createInsertSchema(follows).omit({
   id: true,
   createdAt: true,
 });
 
-export const insertLikeSchema = createInsertSchema(likes).omit({
+// export const insertLikeSchema = createInsertSchema(likes).omit({
   id: true,
   createdAt: true,
 });
 
-export const insertCommentSchema = createInsertSchema(comments).omit({
+// export const insertCommentSchema = createInsertSchema(comments).omit({
   id: true,
   createdAt: true,
 });
 
-export const insertMessageSchema = createInsertSchema(messages).omit({
+// export const insertMessageSchema = createInsertSchema(messages).omit({
   id: true,
   isRead: true,
   createdAt: true,
@@ -451,13 +451,13 @@ export type SemanticSearchQuery = typeof semanticSearchQueries.$inferSelect;
 export type InsertSemanticSearchQuery = typeof semanticSearchQueries.$inferInsert;
 
 // AI Assistant schemas and types
-export const insertAiConversationSchema = createInsertSchema(aiConversations).omit({
+// export const insertAiConversationSchema = createInsertSchema(aiConversations).omit({
   id: true,
   createdAt: true,
   updatedAt: true,
 });
 
-export const insertAiMessageSchema = createInsertSchema(aiMessages).omit({
+// export const insertAiMessageSchema = createInsertSchema(aiMessages).omit({
   id: true,
   createdAt: true,
 });

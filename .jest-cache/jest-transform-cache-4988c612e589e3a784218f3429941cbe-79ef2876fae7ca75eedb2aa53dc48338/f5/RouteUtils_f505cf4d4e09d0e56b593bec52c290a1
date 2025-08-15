@@ -1,0 +1,201 @@
+bf16ebad5597e99feb493a8c3647ff4f
+/* istanbul ignore next */
+function cov_2roe0h1154() {
+  var path = "/home/runner/workspace/client/src/services/routing/RouteUtils.ts";
+  var hash = "e63f49a07e25dc131701734ed43facaa347a1c33";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/home/runner/workspace/client/src/services/routing/RouteUtils.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 5,
+          column: 4
+        },
+        end: {
+          line: 11,
+          column: 31
+        }
+      },
+      "1": {
+        start: {
+          line: 14,
+          column: 4
+        },
+        end: {
+          line: 15,
+          column: 20
+        }
+      },
+      "2": {
+        start: {
+          line: 15,
+          column: 8
+        },
+        end: {
+          line: 15,
+          column: 20
+        }
+      },
+      "3": {
+        start: {
+          line: 16,
+          column: 4
+        },
+        end: {
+          line: 16,
+          column: 56
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "slugify",
+        decl: {
+          start: {
+            line: 4,
+            column: 16
+          },
+          end: {
+            line: 4,
+            column: 23
+          }
+        },
+        loc: {
+          start: {
+            line: 4,
+            column: 30
+          },
+          end: {
+            line: 12,
+            column: 1
+          }
+        },
+        line: 4
+      },
+      "1": {
+        name: "capitalize",
+        decl: {
+          start: {
+            line: 13,
+            column: 16
+          },
+          end: {
+            line: 13,
+            column: 26
+          }
+        },
+        loc: {
+          start: {
+            line: 13,
+            column: 33
+          },
+          end: {
+            line: 17,
+            column: 1
+          }
+        },
+        line: 13
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 14,
+            column: 4
+          },
+          end: {
+            line: 15,
+            column: 20
+          }
+        },
+        type: "if",
+        locations: [{
+          start: {
+            line: 14,
+            column: 4
+          },
+          end: {
+            line: 15,
+            column: 20
+          }
+        }, {
+          start: {
+            line: undefined,
+            column: undefined
+          },
+          end: {
+            line: undefined,
+            column: undefined
+          }
+        }],
+        line: 14
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0
+    },
+    b: {
+      "0": [0, 0]
+    },
+    inputSourceMap: {
+      file: "/home/runner/workspace/client/src/services/routing/RouteUtils.ts",
+      mappings: "AAAA;;GAEG;AACH,MAAM,UAAU,OAAO,CAAC,IAAY;IAClC,OAAO,IAAI;SACR,WAAW,EAAE;SACb,IAAI,EAAE;SACN,OAAO,CAAC,eAAe,EAAE,EAAE,CAAC;SAC5B,OAAO,CAAC,MAAM,EAAE,GAAG,CAAC;SACpB,OAAO,CAAC,KAAK,EAAE,GAAG,CAAC;SACnB,OAAO,CAAC,QAAQ,EAAE,EAAE,CAAC,CAAC;AAC3B,CAAC;AAED,MAAM,UAAU,UAAU,CAAC,IAAY;IACrC,IAAI,CAAC,IAAI;QAAE,OAAO,IAAI,CAAC;IACvB,OAAO,IAAI,CAAC,MAAM,CAAC,CAAC,CAAC,CAAC,WAAW,EAAE,GAAG,IAAI,CAAC,KAAK,CAAC,CAAC,CAAC,CAAC;AACtD,CAAC",
+      names: [],
+      sources: ["/home/runner/workspace/client/src/services/routing/RouteUtils.ts"],
+      sourcesContent: ["/**\n * Routing utilities shared across services to avoid duplication/divergence\n */\nexport function slugify(text: string): string {\n  return text\n    .toLowerCase()\n    .trim()\n    .replace(/[^a-z0-9\\s-]/g, '')\n    .replace(/\\s+/g, '-')\n    .replace(/-+/g, '-')\n    .replace(/^-|-$/g, '');\n}\n\nexport function capitalize(text: string): string {\n  if (!text) return text;\n  return text.charAt(0).toUpperCase() + text.slice(1);\n}\n\n\n\n"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "e63f49a07e25dc131701734ed43facaa347a1c33"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_2roe0h1154 = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_2roe0h1154();
+/**
+ * Routing utilities shared across services to avoid duplication/divergence
+ */
+export function slugify(text) {
+  /* istanbul ignore next */
+  cov_2roe0h1154().f[0]++;
+  cov_2roe0h1154().s[0]++;
+  return text.toLowerCase().trim().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+}
+export function capitalize(text) {
+  /* istanbul ignore next */
+  cov_2roe0h1154().f[1]++;
+  cov_2roe0h1154().s[1]++;
+  if (!text) {
+    /* istanbul ignore next */
+    cov_2roe0h1154().b[0][0]++;
+    cov_2roe0h1154().s[2]++;
+    return text;
+  } else
+  /* istanbul ignore next */
+  {
+    cov_2roe0h1154().b[0][1]++;
+  }
+  cov_2roe0h1154().s[3]++;
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3ZfMnJvZTBoMTE1NCIsImFjdHVhbENvdmVyYWdlIiwic2x1Z2lmeSIsInRleHQiLCJmIiwicyIsInRvTG93ZXJDYXNlIiwidHJpbSIsInJlcGxhY2UiLCJjYXBpdGFsaXplIiwiYiIsImNoYXJBdCIsInRvVXBwZXJDYXNlIiwic2xpY2UiXSwic291cmNlcyI6WyIvaG9tZS9ydW5uZXIvd29ya3NwYWNlL2NsaWVudC9zcmMvc2VydmljZXMvcm91dGluZy9Sb3V0ZVV0aWxzLnRzIl0sInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogUm91dGluZyB1dGlsaXRpZXMgc2hhcmVkIGFjcm9zcyBzZXJ2aWNlcyB0byBhdm9pZCBkdXBsaWNhdGlvbi9kaXZlcmdlbmNlXG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBzbHVnaWZ5KHRleHQ6IHN0cmluZyk6IHN0cmluZyB7XG4gIHJldHVybiB0ZXh0XG4gICAgLnRvTG93ZXJDYXNlKClcbiAgICAudHJpbSgpXG4gICAgLnJlcGxhY2UoL1teYS16MC05XFxzLV0vZywgJycpXG4gICAgLnJlcGxhY2UoL1xccysvZywgJy0nKVxuICAgIC5yZXBsYWNlKC8tKy9nLCAnLScpXG4gICAgLnJlcGxhY2UoL14tfC0kL2csICcnKTtcbn1cblxuZXhwb3J0IGZ1bmN0aW9uIGNhcGl0YWxpemUodGV4dDogc3RyaW5nKTogc3RyaW5nIHtcbiAgaWYgKCF0ZXh0KSByZXR1cm4gdGV4dDtcbiAgcmV0dXJuIHRleHQuY2hhckF0KDApLnRvVXBwZXJDYXNlKCkgKyB0ZXh0LnNsaWNlKDEpO1xufVxuXG5cblxuIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7SUFlUztJQUFBQSxjQUFBLFlBQUFBLENBQUE7TUFBQSxPQUFBQyxjQUFBO0lBQUE7RUFBQTtFQUFBLE9BQUFBLGNBQUE7QUFBQTtBQUFBRCxjQUFBO0FBZlQ7OztBQUdBLE9BQU0sU0FBVUUsT0FBT0EsQ0FBQ0MsSUFBWTtFQUFBO0VBQUFILGNBQUEsR0FBQUksQ0FBQTtFQUFBSixjQUFBLEdBQUFLLENBQUE7RUFDbEMsT0FBT0YsSUFBSSxDQUNSRyxXQUFXLEVBQUUsQ0FDYkMsSUFBSSxFQUFFLENBQ05DLE9BQU8sQ0FBQyxlQUFlLEVBQUUsRUFBRSxDQUFDLENBQzVCQSxPQUFPLENBQUMsTUFBTSxFQUFFLEdBQUcsQ0FBQyxDQUNwQkEsT0FBTyxDQUFDLEtBQUssRUFBRSxHQUFHLENBQUMsQ0FDbkJBLE9BQU8sQ0FBQyxRQUFRLEVBQUUsRUFBRSxDQUFDO0FBQzFCO0FBRUEsT0FBTSxTQUFVQyxVQUFVQSxDQUFDTixJQUFZO0VBQUE7RUFBQUgsY0FBQSxHQUFBSSxDQUFBO0VBQUFKLGNBQUEsR0FBQUssQ0FBQTtFQUNyQyxJQUFJLENBQUNGLElBQUksRUFBRTtJQUFBO0lBQUFILGNBQUEsR0FBQVUsQ0FBQTtJQUFBVixjQUFBLEdBQUFLLENBQUE7SUFBQSxPQUFPRixJQUFJO0VBQUEsQ0FBQztFQUFBO0VBQUE7SUFBQUgsY0FBQSxHQUFBVSxDQUFBO0VBQUE7RUFBQVYsY0FBQSxHQUFBSyxDQUFBO0VBQ3ZCLE9BQU9GLElBQUksQ0FBQ1EsTUFBTSxDQUFDLENBQUMsQ0FBQyxDQUFDQyxXQUFXLEVBQUUsR0FBR1QsSUFBSSxDQUFDVSxLQUFLLENBQUMsQ0FBQyxDQUFDO0FBQ3JEIiwiaWdub3JlTGlzdCI6W119

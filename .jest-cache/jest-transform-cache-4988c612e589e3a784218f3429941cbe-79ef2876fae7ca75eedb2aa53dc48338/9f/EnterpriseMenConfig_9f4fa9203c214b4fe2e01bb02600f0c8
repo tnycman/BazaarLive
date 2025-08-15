@@ -1,0 +1,493 @@
+061a3e1aecc4ab0e4f025f926c7d2b1a
+/* istanbul ignore next */
+function cov_1rxlqq4k0b() {
+  var path = "/home/runner/workspace/client/src/services/category/enterprise/configs/EnterpriseMenConfig.ts";
+  var hash = "254e422fa32160a3d1d2c58b278cedd4a2a89d57";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/home/runner/workspace/client/src/services/category/enterprise/configs/EnterpriseMenConfig.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 9,
+          column: 23
+        },
+        end: {
+          line: 9,
+          column: 121
+        }
+      },
+      "1": {
+        start: {
+          line: 10,
+          column: 30
+        },
+        end: {
+          line: 14,
+          column: 2
+        }
+      },
+      "2": {
+        start: {
+          line: 16,
+          column: 34
+        },
+        end: {
+          line: 62,
+          column: 1
+        }
+      },
+      "3": {
+        start: {
+          line: 63,
+          column: 27
+        },
+        end: {
+          line: 69,
+          column: 1
+        }
+      },
+      "4": {
+        start: {
+          line: 70,
+          column: 36
+        },
+        end: {
+          line: 114,
+          column: 1
+        }
+      },
+      "5": {
+        start: {
+          line: 116,
+          column: 35
+        },
+        end: {
+          line: 222,
+          column: 1
+        }
+      },
+      "6": {
+        start: {
+          line: 225,
+          column: 25
+        },
+        end: {
+          line: 225,
+          column: 88
+        }
+      },
+      "7": {
+        start: {
+          line: 226,
+          column: 0
+        },
+        end: {
+          line: 229,
+          column: 1
+        }
+      },
+      "8": {
+        start: {
+          line: 227,
+          column: 4
+        },
+        end: {
+          line: 227,
+          column: 96
+        }
+      },
+      "9": {
+        start: {
+          line: 228,
+          column: 4
+        },
+        end: {
+          line: 228,
+          column: 83
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 226,
+            column: 0
+          },
+          end: {
+            line: 229,
+            column: 1
+          }
+        },
+        type: "if",
+        locations: [{
+          start: {
+            line: 226,
+            column: 0
+          },
+          end: {
+            line: 229,
+            column: 1
+          }
+        }, {
+          start: {
+            line: undefined,
+            column: undefined
+          },
+          end: {
+            line: undefined,
+            column: undefined
+          }
+        }],
+        line: 226
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0
+    },
+    f: {},
+    b: {
+      "0": [0, 0]
+    },
+    inputSourceMap: {
+      file: "/home/runner/workspace/client/src/services/category/enterprise/configs/EnterpriseMenConfig.ts",
+      mappings: "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",
+      names: [],
+      sources: ["/home/runner/workspace/client/src/services/category/enterprise/configs/EnterpriseMenConfig.ts"],
+      sourcesContent: ["/**\n * Enterprise Men's Fashion Configuration\n * Migrated to strict enterprise schemas with zero z.any() violations\n * 100% type-safe, zero shortcuts, complete AOP compliance\n */\n\nimport { z } from 'zod';\nimport { \n  UniversalPageConfigurationSchema,\n  type UniversalPageConfiguration,\n  type DefaultFiltersConfig,\n  type CategoryFilter,\n  ConditionTypeSchema,\n  AvailabilityTypeSchema,\n  ColorTypeSchema\n} from '../schemas/ConfigurationSchemas';\n\n// ===== MEN'S SPECIFIC FILTER SCHEMAS =====\n\nconst MensSizeSchema = z.enum(['xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl', '28', '30', '32', '34', '36', '38', '40', '42']);\n\nconst MensSubcategorySchema = z.enum([\n  'shirts', 'pants', 'jeans', 'shorts', 'suits', 'blazers', 'sweaters', 'hoodies',\n  'jackets', 'coats', 'activewear', 'underwear', 'socks', 'swimwear',\n  'shoes', 'sneakers', 'boots', 'accessories', 'bags', 'watches', 'ties'\n]);\n\n// ===== MEN'S FILTER CONFIGURATION =====\n\nconst mensFilterValidationRules = {\n  size: {\n    fieldName: 'size',\n    validationType: 'array' as const,\n    schema: z.array(MensSizeSchema),\n    required: false,\n    errorMessage: 'Invalid men\\'s size selection'\n  },\n  brand: {\n    fieldName: 'brand',\n    validationType: 'array' as const,\n    schema: z.array(z.string().min(1)),\n    required: false,\n    errorMessage: 'Invalid brand selection'\n  },\n  color: {\n    fieldName: 'color',\n    validationType: 'array' as const,\n    schema: z.array(ColorTypeSchema),\n    required: false,\n    errorMessage: 'Invalid color selection'\n  },\n  condition: {\n    fieldName: 'condition',\n    validationType: 'array' as const,\n    schema: z.array(ConditionTypeSchema),\n    required: false,\n    errorMessage: 'Invalid condition selection'\n  },\n  subcategory: {\n    fieldName: 'subcategory',\n    validationType: 'array' as const,\n    schema: z.array(MensSubcategorySchema),\n    required: false,\n    errorMessage: 'Invalid subcategory selection'\n  },\n  priceRange: {\n    fieldName: 'priceRange',\n    validationType: 'object' as const,\n    schema: z.object({\n      min: z.number().min(0),\n      max: z.number().min(0)\n    }),\n    required: false,\n    errorMessage: 'Invalid price range'\n  }\n};\n\nconst mensDefaultFilters: DefaultFiltersConfig = {\n  condition: ['new_with_tags', 'excellent'],\n  availability: ['all-items'],\n  colors: [],\n  brands: [],\n  sizes: []\n};\n\nconst mensCategorySpecificFilters: CategoryFilter[] = [\n  {\n    id: 'men-sizes',\n    name: 'Men\\'s Sizes',\n    type: 'checkbox',\n    options: [\n      { id: 'xs', name: 'XS' },\n      { id: 's', name: 'S' },\n      { id: 'm', name: 'M' },\n      { id: 'l', name: 'L' },\n      { id: 'xl', name: 'XL' },\n      { id: 'xxl', name: 'XXL' },\n      { id: 'xxxl', name: 'XXXL' }\n    ],\n    validation: z.array(MensSizeSchema),\n    required: false,\n    displayOrder: 1,\n    grouping: 'sizing',\n    placeholder: 'Select sizes...',\n    helpText: 'Choose one or more sizes'\n  },\n  {\n    id: 'men-subcategories',\n    name: 'Category',\n    type: 'checkbox',\n    options: [\n      { id: 'shirts', name: 'Shirts', count: 1890 },\n      { id: 'pants', name: 'Pants', count: 1456 },\n      { id: 'jeans', name: 'Jeans', count: 1234 },\n      { id: 'suits', name: 'Suits & Blazers', count: 678 },\n      { id: 'sweaters', name: 'Sweaters', count: 890 },\n      { id: 'jackets', name: 'Jackets & Coats', count: 1120 },\n      { id: 'shoes', name: 'Shoes', count: 2340 },\n      { id: 'sneakers', name: 'Sneakers', count: 1567 },\n      { id: 'accessories', name: 'Accessories', count: 1890 },\n      { id: 'watches', name: 'Watches', count: 567 }\n    ],\n    validation: z.array(MensSubcategorySchema),\n    required: false,\n    displayOrder: 0,\n    grouping: 'category',\n    placeholder: 'Select categories...',\n    helpText: 'Filter by clothing and accessory types'\n  }\n];\n\n// ===== ENTERPRISE MEN'S CONFIGURATION =====\n\nexport const enterpriseMenConfig: UniversalPageConfiguration = {\n  category: 'fashion',\n  subcategory: 'men',\n  metadata: {\n    title: 'Men\\'s Fashion',\n    description: 'Explore men\\'s clothing, accessories, and contemporary style trends',\n    gradient: 'from-blue-50 via-indigo-100 to-blue-200',\n    placeholder: 'Search men\\'s fashion...',\n    icon: '\uD83D\uDC54',\n    seoKeywords: ['men fashion', 'menswear', 'men accessories', 'style trends'],\n    seoDescription: 'Shop premium men\\'s fashion from top brands. Find shirts, pants, suits, shoes, and accessories.',\n    canonicalUrl: '/fashion/men',\n    openGraphImage: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=1200&h=630&fit=crop'\n  },\n  filterConfiguration: {\n    availableFilters: ['subcategory', 'size', 'brand', 'color', 'price', 'condition', 'availability'],\n    categorySpecificFilters: mensCategorySpecificFilters,\n    defaultFilters: mensDefaultFilters,\n    filterValidationRules: mensFilterValidationRules,\n    maxFiltersPerQuery: 15,\n    enableAdvancedFiltering: true\n  },\n  sampleProducts: [\n    {\n      id: 'men-premium-1',\n      title: 'Classic Oxford Shirt',\n      brand: 'Brooks Brothers',\n      price: '$79',\n      originalPrice: '$120',\n      size: 'L',\n      images: ['https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller-men-1',\n        username: 'classic_style',\n        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',\n        rating: 4.7,\n        totalSales: 289,\n        verificationStatus: 'verified'\n      },\n      stats: { likes: 15, comments: 3, shares: 1, views: 89, saves: 8 },\n      condition: 'excellent',\n      isLiked: false,\n      createdAt: '2024-01-25T08:15:00Z',\n      updatedAt: '2024-01-26T10:30:00Z',\n      category: 'fashion',\n      subcategory: 'shirts',\n      tags: ['oxford', 'classic', 'professional'],\n      availability: 'available-now'\n    },\n    {\n      id: 'men-premium-2',\n      title: 'Tailored Wool Blazer',\n      brand: 'Hugo Boss',\n      price: '$245',\n      originalPrice: '$450',\n      size: 'M',\n      images: ['https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller-men-2',\n        username: 'sharp_dresser',\n        avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',\n        rating: 4.9,\n        totalSales: 156,\n        verificationStatus: 'verified'\n      },\n      stats: { likes: 38, comments: 7, shares: 4, views: 145, saves: 22 },\n      condition: 'new_with_tags',\n      isLiked: true,\n      createdAt: '2024-01-24T11:45:00Z',\n      updatedAt: '2024-01-25T15:20:00Z',\n      category: 'fashion',\n      subcategory: 'blazers',\n      tags: ['wool', 'tailored', 'formal'],\n      availability: 'available-now'\n    },\n    {\n      id: 'men-premium-3',\n      title: 'Premium Denim Jeans',\n      brand: 'AG Jeans',\n      price: '$98',\n      originalPrice: '$158',\n      size: '32',\n      images: ['https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller-men-3',\n        username: 'denim_expert',\n        avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',\n        rating: 4.8,\n        totalSales: 423,\n        verificationStatus: 'verified'\n      },\n      stats: { likes: 29, comments: 9, shares: 3, views: 167, saves: 18 },\n      condition: 'excellent',\n      isLiked: false,\n      createdAt: '2024-01-23T13:30:00Z',\n      updatedAt: '2024-01-24T16:45:00Z',\n      category: 'fashion',\n      subcategory: 'jeans',\n      tags: ['premium', 'denim', 'slim-fit'],\n      availability: 'available-now'\n    }\n  ],\n  version: '2.0.0',\n  lastUpdated: new Date().toISOString(),\n  configurationId: crypto.randomUUID(),\n  isActive: true\n};\n\n// ===== VALIDATION AND EXPORT =====\n\n// Validate the configuration against the enterprise schema\nconst validationResult = UniversalPageConfigurationSchema.safeParse(enterpriseMenConfig);\n\nif (!validationResult.success) {\n  console.error('Enterprise Men\\'s Configuration Validation Failed:', validationResult.error);\n  throw new Error('Configuration validation failed - check console for details');\n}\n\nexport { enterpriseMenConfig as default };"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "254e422fa32160a3d1d2c58b278cedd4a2a89d57"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_1rxlqq4k0b = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_1rxlqq4k0b();
+/**
+ * Enterprise Men's Fashion Configuration
+ * Migrated to strict enterprise schemas with zero z.any() violations
+ * 100% type-safe, zero shortcuts, complete AOP compliance
+ */
+import { z } from 'zod';
+import { UniversalPageConfigurationSchema, ConditionTypeSchema, ColorTypeSchema } from '../schemas/ConfigurationSchemas';
+// ===== MEN'S SPECIFIC FILTER SCHEMAS =====
+const MensSizeSchema =
+/* istanbul ignore next */
+(cov_1rxlqq4k0b().s[0]++, z.enum(['xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl', '28', '30', '32', '34', '36', '38', '40', '42']));
+const MensSubcategorySchema =
+/* istanbul ignore next */
+(cov_1rxlqq4k0b().s[1]++, z.enum(['shirts', 'pants', 'jeans', 'shorts', 'suits', 'blazers', 'sweaters', 'hoodies', 'jackets', 'coats', 'activewear', 'underwear', 'socks', 'swimwear', 'shoes', 'sneakers', 'boots', 'accessories', 'bags', 'watches', 'ties']));
+// ===== MEN'S FILTER CONFIGURATION =====
+const mensFilterValidationRules =
+/* istanbul ignore next */
+(cov_1rxlqq4k0b().s[2]++, {
+  size: {
+    fieldName: 'size',
+    validationType: 'array',
+    schema: z.array(MensSizeSchema),
+    required: false,
+    errorMessage: 'Invalid men\'s size selection'
+  },
+  brand: {
+    fieldName: 'brand',
+    validationType: 'array',
+    schema: z.array(z.string().min(1)),
+    required: false,
+    errorMessage: 'Invalid brand selection'
+  },
+  color: {
+    fieldName: 'color',
+    validationType: 'array',
+    schema: z.array(ColorTypeSchema),
+    required: false,
+    errorMessage: 'Invalid color selection'
+  },
+  condition: {
+    fieldName: 'condition',
+    validationType: 'array',
+    schema: z.array(ConditionTypeSchema),
+    required: false,
+    errorMessage: 'Invalid condition selection'
+  },
+  subcategory: {
+    fieldName: 'subcategory',
+    validationType: 'array',
+    schema: z.array(MensSubcategorySchema),
+    required: false,
+    errorMessage: 'Invalid subcategory selection'
+  },
+  priceRange: {
+    fieldName: 'priceRange',
+    validationType: 'object',
+    schema: z.object({
+      min: z.number().min(0),
+      max: z.number().min(0)
+    }),
+    required: false,
+    errorMessage: 'Invalid price range'
+  }
+});
+const mensDefaultFilters =
+/* istanbul ignore next */
+(cov_1rxlqq4k0b().s[3]++, {
+  condition: ['new_with_tags', 'excellent'],
+  availability: ['all-items'],
+  colors: [],
+  brands: [],
+  sizes: []
+});
+const mensCategorySpecificFilters =
+/* istanbul ignore next */
+(cov_1rxlqq4k0b().s[4]++, [{
+  id: 'men-sizes',
+  name: 'Men\'s Sizes',
+  type: 'checkbox',
+  options: [{
+    id: 'xs',
+    name: 'XS'
+  }, {
+    id: 's',
+    name: 'S'
+  }, {
+    id: 'm',
+    name: 'M'
+  }, {
+    id: 'l',
+    name: 'L'
+  }, {
+    id: 'xl',
+    name: 'XL'
+  }, {
+    id: 'xxl',
+    name: 'XXL'
+  }, {
+    id: 'xxxl',
+    name: 'XXXL'
+  }],
+  validation: z.array(MensSizeSchema),
+  required: false,
+  displayOrder: 1,
+  grouping: 'sizing',
+  placeholder: 'Select sizes...',
+  helpText: 'Choose one or more sizes'
+}, {
+  id: 'men-subcategories',
+  name: 'Category',
+  type: 'checkbox',
+  options: [{
+    id: 'shirts',
+    name: 'Shirts',
+    count: 1890
+  }, {
+    id: 'pants',
+    name: 'Pants',
+    count: 1456
+  }, {
+    id: 'jeans',
+    name: 'Jeans',
+    count: 1234
+  }, {
+    id: 'suits',
+    name: 'Suits & Blazers',
+    count: 678
+  }, {
+    id: 'sweaters',
+    name: 'Sweaters',
+    count: 890
+  }, {
+    id: 'jackets',
+    name: 'Jackets & Coats',
+    count: 1120
+  }, {
+    id: 'shoes',
+    name: 'Shoes',
+    count: 2340
+  }, {
+    id: 'sneakers',
+    name: 'Sneakers',
+    count: 1567
+  }, {
+    id: 'accessories',
+    name: 'Accessories',
+    count: 1890
+  }, {
+    id: 'watches',
+    name: 'Watches',
+    count: 567
+  }],
+  validation: z.array(MensSubcategorySchema),
+  required: false,
+  displayOrder: 0,
+  grouping: 'category',
+  placeholder: 'Select categories...',
+  helpText: 'Filter by clothing and accessory types'
+}]);
+// ===== ENTERPRISE MEN'S CONFIGURATION =====
+export const enterpriseMenConfig =
+/* istanbul ignore next */
+(cov_1rxlqq4k0b().s[5]++, {
+  category: 'fashion',
+  subcategory: 'men',
+  metadata: {
+    title: 'Men\'s Fashion',
+    description: 'Explore men\'s clothing, accessories, and contemporary style trends',
+    gradient: 'from-blue-50 via-indigo-100 to-blue-200',
+    placeholder: 'Search men\'s fashion...',
+    icon: '👔',
+    seoKeywords: ['men fashion', 'menswear', 'men accessories', 'style trends'],
+    seoDescription: 'Shop premium men\'s fashion from top brands. Find shirts, pants, suits, shoes, and accessories.',
+    canonicalUrl: '/fashion/men',
+    openGraphImage: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=1200&h=630&fit=crop'
+  },
+  filterConfiguration: {
+    availableFilters: ['subcategory', 'size', 'brand', 'color', 'price', 'condition', 'availability'],
+    categorySpecificFilters: mensCategorySpecificFilters,
+    defaultFilters: mensDefaultFilters,
+    filterValidationRules: mensFilterValidationRules,
+    maxFiltersPerQuery: 15,
+    enableAdvancedFiltering: true
+  },
+  sampleProducts: [{
+    id: 'men-premium-1',
+    title: 'Classic Oxford Shirt',
+    brand: 'Brooks Brothers',
+    price: '$79',
+    originalPrice: '$120',
+    size: 'L',
+    images: ['https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller-men-1',
+      username: 'classic_style',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+      rating: 4.7,
+      totalSales: 289,
+      verificationStatus: 'verified'
+    },
+    stats: {
+      likes: 15,
+      comments: 3,
+      shares: 1,
+      views: 89,
+      saves: 8
+    },
+    condition: 'excellent',
+    isLiked: false,
+    createdAt: '2024-01-25T08:15:00Z',
+    updatedAt: '2024-01-26T10:30:00Z',
+    category: 'fashion',
+    subcategory: 'shirts',
+    tags: ['oxford', 'classic', 'professional'],
+    availability: 'available-now'
+  }, {
+    id: 'men-premium-2',
+    title: 'Tailored Wool Blazer',
+    brand: 'Hugo Boss',
+    price: '$245',
+    originalPrice: '$450',
+    size: 'M',
+    images: ['https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller-men-2',
+      username: 'sharp_dresser',
+      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+      rating: 4.9,
+      totalSales: 156,
+      verificationStatus: 'verified'
+    },
+    stats: {
+      likes: 38,
+      comments: 7,
+      shares: 4,
+      views: 145,
+      saves: 22
+    },
+    condition: 'new_with_tags',
+    isLiked: true,
+    createdAt: '2024-01-24T11:45:00Z',
+    updatedAt: '2024-01-25T15:20:00Z',
+    category: 'fashion',
+    subcategory: 'blazers',
+    tags: ['wool', 'tailored', 'formal'],
+    availability: 'available-now'
+  }, {
+    id: 'men-premium-3',
+    title: 'Premium Denim Jeans',
+    brand: 'AG Jeans',
+    price: '$98',
+    originalPrice: '$158',
+    size: '32',
+    images: ['https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller-men-3',
+      username: 'denim_expert',
+      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop',
+      rating: 4.8,
+      totalSales: 423,
+      verificationStatus: 'verified'
+    },
+    stats: {
+      likes: 29,
+      comments: 9,
+      shares: 3,
+      views: 167,
+      saves: 18
+    },
+    condition: 'excellent',
+    isLiked: false,
+    createdAt: '2024-01-23T13:30:00Z',
+    updatedAt: '2024-01-24T16:45:00Z',
+    category: 'fashion',
+    subcategory: 'jeans',
+    tags: ['premium', 'denim', 'slim-fit'],
+    availability: 'available-now'
+  }],
+  version: '2.0.0',
+  lastUpdated: new Date().toISOString(),
+  configurationId: crypto.randomUUID(),
+  isActive: true
+});
+// ===== VALIDATION AND EXPORT =====
+// Validate the configuration against the enterprise schema
+const validationResult =
+/* istanbul ignore next */
+(cov_1rxlqq4k0b().s[6]++, UniversalPageConfigurationSchema.safeParse(enterpriseMenConfig));
+/* istanbul ignore next */
+cov_1rxlqq4k0b().s[7]++;
+if (!validationResult.success) {
+  /* istanbul ignore next */
+  cov_1rxlqq4k0b().b[0][0]++;
+  cov_1rxlqq4k0b().s[8]++;
+  console.error('Enterprise Men\'s Configuration Validation Failed:', validationResult.error);
+  /* istanbul ignore next */
+  cov_1rxlqq4k0b().s[9]++;
+  throw new Error('Configuration validation failed - check console for details');
+} else
+/* istanbul ignore next */
+{
+  cov_1rxlqq4k0b().b[0][1]++;
+}
+export { enterpriseMenConfig as default };
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3ZfMXJ4bHFxNGswYiIsImFjdHVhbENvdmVyYWdlIiwieiIsIlVuaXZlcnNhbFBhZ2VDb25maWd1cmF0aW9uU2NoZW1hIiwiQ29uZGl0aW9uVHlwZVNjaGVtYSIsIkNvbG9yVHlwZVNjaGVtYSIsIk1lbnNTaXplU2NoZW1hIiwicyIsImVudW0iLCJNZW5zU3ViY2F0ZWdvcnlTY2hlbWEiLCJtZW5zRmlsdGVyVmFsaWRhdGlvblJ1bGVzIiwic2l6ZSIsImZpZWxkTmFtZSIsInZhbGlkYXRpb25UeXBlIiwic2NoZW1hIiwiYXJyYXkiLCJyZXF1aXJlZCIsImVycm9yTWVzc2FnZSIsImJyYW5kIiwic3RyaW5nIiwibWluIiwiY29sb3IiLCJjb25kaXRpb24iLCJzdWJjYXRlZ29yeSIsInByaWNlUmFuZ2UiLCJvYmplY3QiLCJudW1iZXIiLCJtYXgiLCJtZW5zRGVmYXVsdEZpbHRlcnMiLCJhdmFpbGFiaWxpdHkiLCJjb2xvcnMiLCJicmFuZHMiLCJzaXplcyIsIm1lbnNDYXRlZ29yeVNwZWNpZmljRmlsdGVycyIsImlkIiwibmFtZSIsInR5cGUiLCJvcHRpb25zIiwidmFsaWRhdGlvbiIsImRpc3BsYXlPcmRlciIsImdyb3VwaW5nIiwicGxhY2Vob2xkZXIiLCJoZWxwVGV4dCIsImNvdW50IiwiZW50ZXJwcmlzZU1lbkNvbmZpZyIsImNhdGVnb3J5IiwibWV0YWRhdGEiLCJ0aXRsZSIsImRlc2NyaXB0aW9uIiwiZ3JhZGllbnQiLCJpY29uIiwic2VvS2V5d29yZHMiLCJzZW9EZXNjcmlwdGlvbiIsImNhbm9uaWNhbFVybCIsIm9wZW5HcmFwaEltYWdlIiwiZmlsdGVyQ29uZmlndXJhdGlvbiIsImF2YWlsYWJsZUZpbHRlcnMiLCJjYXRlZ29yeVNwZWNpZmljRmlsdGVycyIsImRlZmF1bHRGaWx0ZXJzIiwiZmlsdGVyVmFsaWRhdGlvblJ1bGVzIiwibWF4RmlsdGVyc1BlclF1ZXJ5IiwiZW5hYmxlQWR2YW5jZWRGaWx0ZXJpbmciLCJzYW1wbGVQcm9kdWN0cyIsInByaWNlIiwib3JpZ2luYWxQcmljZSIsImltYWdlcyIsInNlbGxlciIsInVzZXJuYW1lIiwiYXZhdGFyIiwicmF0aW5nIiwidG90YWxTYWxlcyIsInZlcmlmaWNhdGlvblN0YXR1cyIsInN0YXRzIiwibGlrZXMiLCJjb21tZW50cyIsInNoYXJlcyIsInZpZXdzIiwic2F2ZXMiLCJpc0xpa2VkIiwiY3JlYXRlZEF0IiwidXBkYXRlZEF0IiwidGFncyIsInZlcnNpb24iLCJsYXN0VXBkYXRlZCIsIkRhdGUiLCJ0b0lTT1N0cmluZyIsImNvbmZpZ3VyYXRpb25JZCIsImNyeXB0byIsInJhbmRvbVVVSUQiLCJpc0FjdGl2ZSIsInZhbGlkYXRpb25SZXN1bHQiLCJzYWZlUGFyc2UiLCJzdWNjZXNzIiwiYiIsImNvbnNvbGUiLCJlcnJvciIsIkVycm9yIiwiZGVmYXVsdCJdLCJzb3VyY2VzIjpbIi9ob21lL3J1bm5lci93b3Jrc3BhY2UvY2xpZW50L3NyYy9zZXJ2aWNlcy9jYXRlZ29yeS9lbnRlcnByaXNlL2NvbmZpZ3MvRW50ZXJwcmlzZU1lbkNvbmZpZy50cyJdLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEVudGVycHJpc2UgTWVuJ3MgRmFzaGlvbiBDb25maWd1cmF0aW9uXG4gKiBNaWdyYXRlZCB0byBzdHJpY3QgZW50ZXJwcmlzZSBzY2hlbWFzIHdpdGggemVybyB6LmFueSgpIHZpb2xhdGlvbnNcbiAqIDEwMCUgdHlwZS1zYWZlLCB6ZXJvIHNob3J0Y3V0cywgY29tcGxldGUgQU9QIGNvbXBsaWFuY2VcbiAqL1xuXG5pbXBvcnQgeyB6IH0gZnJvbSAnem9kJztcbmltcG9ydCB7IFxuICBVbml2ZXJzYWxQYWdlQ29uZmlndXJhdGlvblNjaGVtYSxcbiAgdHlwZSBVbml2ZXJzYWxQYWdlQ29uZmlndXJhdGlvbixcbiAgdHlwZSBEZWZhdWx0RmlsdGVyc0NvbmZpZyxcbiAgdHlwZSBDYXRlZ29yeUZpbHRlcixcbiAgQ29uZGl0aW9uVHlwZVNjaGVtYSxcbiAgQXZhaWxhYmlsaXR5VHlwZVNjaGVtYSxcbiAgQ29sb3JUeXBlU2NoZW1hXG59IGZyb20gJy4uL3NjaGVtYXMvQ29uZmlndXJhdGlvblNjaGVtYXMnO1xuXG4vLyA9PT09PSBNRU4nUyBTUEVDSUZJQyBGSUxURVIgU0NIRU1BUyA9PT09PVxuXG5jb25zdCBNZW5zU2l6ZVNjaGVtYSA9IHouZW51bShbJ3hzJywgJ3MnLCAnbScsICdsJywgJ3hsJywgJ3h4bCcsICd4eHhsJywgJzI4JywgJzMwJywgJzMyJywgJzM0JywgJzM2JywgJzM4JywgJzQwJywgJzQyJ10pO1xuXG5jb25zdCBNZW5zU3ViY2F0ZWdvcnlTY2hlbWEgPSB6LmVudW0oW1xuICAnc2hpcnRzJywgJ3BhbnRzJywgJ2plYW5zJywgJ3Nob3J0cycsICdzdWl0cycsICdibGF6ZXJzJywgJ3N3ZWF0ZXJzJywgJ2hvb2RpZXMnLFxuICAnamFja2V0cycsICdjb2F0cycsICdhY3RpdmV3ZWFyJywgJ3VuZGVyd2VhcicsICdzb2NrcycsICdzd2ltd2VhcicsXG4gICdzaG9lcycsICdzbmVha2VycycsICdib290cycsICdhY2Nlc3NvcmllcycsICdiYWdzJywgJ3dhdGNoZXMnLCAndGllcydcbl0pO1xuXG4vLyA9PT09PSBNRU4nUyBGSUxURVIgQ09ORklHVVJBVElPTiA9PT09PVxuXG5jb25zdCBtZW5zRmlsdGVyVmFsaWRhdGlvblJ1bGVzID0ge1xuICBzaXplOiB7XG4gICAgZmllbGROYW1lOiAnc2l6ZScsXG4gICAgdmFsaWRhdGlvblR5cGU6ICdhcnJheScgYXMgY29uc3QsXG4gICAgc2NoZW1hOiB6LmFycmF5KE1lbnNTaXplU2NoZW1hKSxcbiAgICByZXF1aXJlZDogZmFsc2UsXG4gICAgZXJyb3JNZXNzYWdlOiAnSW52YWxpZCBtZW5cXCdzIHNpemUgc2VsZWN0aW9uJ1xuICB9LFxuICBicmFuZDoge1xuICAgIGZpZWxkTmFtZTogJ2JyYW5kJyxcbiAgICB2YWxpZGF0aW9uVHlwZTogJ2FycmF5JyBhcyBjb25zdCxcbiAgICBzY2hlbWE6IHouYXJyYXkoei5zdHJpbmcoKS5taW4oMSkpLFxuICAgIHJlcXVpcmVkOiBmYWxzZSxcbiAgICBlcnJvck1lc3NhZ2U6ICdJbnZhbGlkIGJyYW5kIHNlbGVjdGlvbidcbiAgfSxcbiAgY29sb3I6IHtcbiAgICBmaWVsZE5hbWU6ICdjb2xvcicsXG4gICAgdmFsaWRhdGlvblR5cGU6ICdhcnJheScgYXMgY29uc3QsXG4gICAgc2NoZW1hOiB6LmFycmF5KENvbG9yVHlwZVNjaGVtYSksXG4gICAgcmVxdWlyZWQ6IGZhbHNlLFxuICAgIGVycm9yTWVzc2FnZTogJ0ludmFsaWQgY29sb3Igc2VsZWN0aW9uJ1xuICB9LFxuICBjb25kaXRpb246IHtcbiAgICBmaWVsZE5hbWU6ICdjb25kaXRpb24nLFxuICAgIHZhbGlkYXRpb25UeXBlOiAnYXJyYXknIGFzIGNvbnN0LFxuICAgIHNjaGVtYTogei5hcnJheShDb25kaXRpb25UeXBlU2NoZW1hKSxcbiAgICByZXF1aXJlZDogZmFsc2UsXG4gICAgZXJyb3JNZXNzYWdlOiAnSW52YWxpZCBjb25kaXRpb24gc2VsZWN0aW9uJ1xuICB9LFxuICBzdWJjYXRlZ29yeToge1xuICAgIGZpZWxkTmFtZTogJ3N1YmNhdGVnb3J5JyxcbiAgICB2YWxpZGF0aW9uVHlwZTogJ2FycmF5JyBhcyBjb25zdCxcbiAgICBzY2hlbWE6IHouYXJyYXkoTWVuc1N1YmNhdGVnb3J5U2NoZW1hKSxcbiAgICByZXF1aXJlZDogZmFsc2UsXG4gICAgZXJyb3JNZXNzYWdlOiAnSW52YWxpZCBzdWJjYXRlZ29yeSBzZWxlY3Rpb24nXG4gIH0sXG4gIHByaWNlUmFuZ2U6IHtcbiAgICBmaWVsZE5hbWU6ICdwcmljZVJhbmdlJyxcbiAgICB2YWxpZGF0aW9uVHlwZTogJ29iamVjdCcgYXMgY29uc3QsXG4gICAgc2NoZW1hOiB6Lm9iamVjdCh7XG4gICAgICBtaW46IHoubnVtYmVyKCkubWluKDApLFxuICAgICAgbWF4OiB6Lm51bWJlcigpLm1pbigwKVxuICAgIH0pLFxuICAgIHJlcXVpcmVkOiBmYWxzZSxcbiAgICBlcnJvck1lc3NhZ2U6ICdJbnZhbGlkIHByaWNlIHJhbmdlJ1xuICB9XG59O1xuXG5jb25zdCBtZW5zRGVmYXVsdEZpbHRlcnM6IERlZmF1bHRGaWx0ZXJzQ29uZmlnID0ge1xuICBjb25kaXRpb246IFsnbmV3X3dpdGhfdGFncycsICdleGNlbGxlbnQnXSxcbiAgYXZhaWxhYmlsaXR5OiBbJ2FsbC1pdGVtcyddLFxuICBjb2xvcnM6IFtdLFxuICBicmFuZHM6IFtdLFxuICBzaXplczogW11cbn07XG5cbmNvbnN0IG1lbnNDYXRlZ29yeVNwZWNpZmljRmlsdGVyczogQ2F0ZWdvcnlGaWx0ZXJbXSA9IFtcbiAge1xuICAgIGlkOiAnbWVuLXNpemVzJyxcbiAgICBuYW1lOiAnTWVuXFwncyBTaXplcycsXG4gICAgdHlwZTogJ2NoZWNrYm94JyxcbiAgICBvcHRpb25zOiBbXG4gICAgICB7IGlkOiAneHMnLCBuYW1lOiAnWFMnIH0sXG4gICAgICB7IGlkOiAncycsIG5hbWU6ICdTJyB9LFxuICAgICAgeyBpZDogJ20nLCBuYW1lOiAnTScgfSxcbiAgICAgIHsgaWQ6ICdsJywgbmFtZTogJ0wnIH0sXG4gICAgICB7IGlkOiAneGwnLCBuYW1lOiAnWEwnIH0sXG4gICAgICB7IGlkOiAneHhsJywgbmFtZTogJ1hYTCcgfSxcbiAgICAgIHsgaWQ6ICd4eHhsJywgbmFtZTogJ1hYWEwnIH1cbiAgICBdLFxuICAgIHZhbGlkYXRpb246IHouYXJyYXkoTWVuc1NpemVTY2hlbWEpLFxuICAgIHJlcXVpcmVkOiBmYWxzZSxcbiAgICBkaXNwbGF5T3JkZXI6IDEsXG4gICAgZ3JvdXBpbmc6ICdzaXppbmcnLFxuICAgIHBsYWNlaG9sZGVyOiAnU2VsZWN0IHNpemVzLi4uJyxcbiAgICBoZWxwVGV4dDogJ0Nob29zZSBvbmUgb3IgbW9yZSBzaXplcydcbiAgfSxcbiAge1xuICAgIGlkOiAnbWVuLXN1YmNhdGVnb3JpZXMnLFxuICAgIG5hbWU6ICdDYXRlZ29yeScsXG4gICAgdHlwZTogJ2NoZWNrYm94JyxcbiAgICBvcHRpb25zOiBbXG4gICAgICB7IGlkOiAnc2hpcnRzJywgbmFtZTogJ1NoaXJ0cycsIGNvdW50OiAxODkwIH0sXG4gICAgICB7IGlkOiAncGFudHMnLCBuYW1lOiAnUGFudHMnLCBjb3VudDogMTQ1NiB9LFxuICAgICAgeyBpZDogJ2plYW5zJywgbmFtZTogJ0plYW5zJywgY291bnQ6IDEyMzQgfSxcbiAgICAgIHsgaWQ6ICdzdWl0cycsIG5hbWU6ICdTdWl0cyAmIEJsYXplcnMnLCBjb3VudDogNjc4IH0sXG4gICAgICB7IGlkOiAnc3dlYXRlcnMnLCBuYW1lOiAnU3dlYXRlcnMnLCBjb3VudDogODkwIH0sXG4gICAgICB7IGlkOiAnamFja2V0cycsIG5hbWU6ICdKYWNrZXRzICYgQ29hdHMnLCBjb3VudDogMTEyMCB9LFxuICAgICAgeyBpZDogJ3Nob2VzJywgbmFtZTogJ1Nob2VzJywgY291bnQ6IDIzNDAgfSxcbiAgICAgIHsgaWQ6ICdzbmVha2VycycsIG5hbWU6ICdTbmVha2VycycsIGNvdW50OiAxNTY3IH0sXG4gICAgICB7IGlkOiAnYWNjZXNzb3JpZXMnLCBuYW1lOiAnQWNjZXNzb3JpZXMnLCBjb3VudDogMTg5MCB9LFxuICAgICAgeyBpZDogJ3dhdGNoZXMnLCBuYW1lOiAnV2F0Y2hlcycsIGNvdW50OiA1NjcgfVxuICAgIF0sXG4gICAgdmFsaWRhdGlvbjogei5hcnJheShNZW5zU3ViY2F0ZWdvcnlTY2hlbWEpLFxuICAgIHJlcXVpcmVkOiBmYWxzZSxcbiAgICBkaXNwbGF5T3JkZXI6IDAsXG4gICAgZ3JvdXBpbmc6ICdjYXRlZ29yeScsXG4gICAgcGxhY2Vob2xkZXI6ICdTZWxlY3QgY2F0ZWdvcmllcy4uLicsXG4gICAgaGVscFRleHQ6ICdGaWx0ZXIgYnkgY2xvdGhpbmcgYW5kIGFjY2Vzc29yeSB0eXBlcydcbiAgfVxuXTtcblxuLy8gPT09PT0gRU5URVJQUklTRSBNRU4nUyBDT05GSUdVUkFUSU9OID09PT09XG5cbmV4cG9ydCBjb25zdCBlbnRlcnByaXNlTWVuQ29uZmlnOiBVbml2ZXJzYWxQYWdlQ29uZmlndXJhdGlvbiA9IHtcbiAgY2F0ZWdvcnk6ICdmYXNoaW9uJyxcbiAgc3ViY2F0ZWdvcnk6ICdtZW4nLFxuICBtZXRhZGF0YToge1xuICAgIHRpdGxlOiAnTWVuXFwncyBGYXNoaW9uJyxcbiAgICBkZXNjcmlwdGlvbjogJ0V4cGxvcmUgbWVuXFwncyBjbG90aGluZywgYWNjZXNzb3JpZXMsIGFuZCBjb250ZW1wb3Jhcnkgc3R5bGUgdHJlbmRzJyxcbiAgICBncmFkaWVudDogJ2Zyb20tYmx1ZS01MCB2aWEtaW5kaWdvLTEwMCB0by1ibHVlLTIwMCcsXG4gICAgcGxhY2Vob2xkZXI6ICdTZWFyY2ggbWVuXFwncyBmYXNoaW9uLi4uJyxcbiAgICBpY29uOiAn8J+RlCcsXG4gICAgc2VvS2V5d29yZHM6IFsnbWVuIGZhc2hpb24nLCAnbWVuc3dlYXInLCAnbWVuIGFjY2Vzc29yaWVzJywgJ3N0eWxlIHRyZW5kcyddLFxuICAgIHNlb0Rlc2NyaXB0aW9uOiAnU2hvcCBwcmVtaXVtIG1lblxcJ3MgZmFzaGlvbiBmcm9tIHRvcCBicmFuZHMuIEZpbmQgc2hpcnRzLCBwYW50cywgc3VpdHMsIHNob2VzLCBhbmQgYWNjZXNzb3JpZXMuJyxcbiAgICBjYW5vbmljYWxVcmw6ICcvZmFzaGlvbi9tZW4nLFxuICAgIG9wZW5HcmFwaEltYWdlOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1OTY3NTUwOTQ1MTQtZjg3ZTM0MDg1YjJjP3c9MTIwMCZoPTYzMCZmaXQ9Y3JvcCdcbiAgfSxcbiAgZmlsdGVyQ29uZmlndXJhdGlvbjoge1xuICAgIGF2YWlsYWJsZUZpbHRlcnM6IFsnc3ViY2F0ZWdvcnknLCAnc2l6ZScsICdicmFuZCcsICdjb2xvcicsICdwcmljZScsICdjb25kaXRpb24nLCAnYXZhaWxhYmlsaXR5J10sXG4gICAgY2F0ZWdvcnlTcGVjaWZpY0ZpbHRlcnM6IG1lbnNDYXRlZ29yeVNwZWNpZmljRmlsdGVycyxcbiAgICBkZWZhdWx0RmlsdGVyczogbWVuc0RlZmF1bHRGaWx0ZXJzLFxuICAgIGZpbHRlclZhbGlkYXRpb25SdWxlczogbWVuc0ZpbHRlclZhbGlkYXRpb25SdWxlcyxcbiAgICBtYXhGaWx0ZXJzUGVyUXVlcnk6IDE1LFxuICAgIGVuYWJsZUFkdmFuY2VkRmlsdGVyaW5nOiB0cnVlXG4gIH0sXG4gIHNhbXBsZVByb2R1Y3RzOiBbXG4gICAge1xuICAgICAgaWQ6ICdtZW4tcHJlbWl1bS0xJyxcbiAgICAgIHRpdGxlOiAnQ2xhc3NpYyBPeGZvcmQgU2hpcnQnLFxuICAgICAgYnJhbmQ6ICdCcm9va3MgQnJvdGhlcnMnLFxuICAgICAgcHJpY2U6ICckNzknLFxuICAgICAgb3JpZ2luYWxQcmljZTogJyQxMjAnLFxuICAgICAgc2l6ZTogJ0wnLFxuICAgICAgaW1hZ2VzOiBbJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTk2NzU1MDk0NTE0LWY4N2UzNDA4NWIyYz93PTQwMCZoPTQwMCZmaXQ9Y3JvcCddLFxuICAgICAgc2VsbGVyOiB7XG4gICAgICAgIGlkOiAnc2VsbGVyLW1lbi0xJyxcbiAgICAgICAgdXNlcm5hbWU6ICdjbGFzc2ljX3N0eWxlJyxcbiAgICAgICAgYXZhdGFyOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1MDcwMDMyMTExNjktMGExZGQ3MjI4ZjJkP3c9MTAwJmg9MTAwJmZpdD1jcm9wJyxcbiAgICAgICAgcmF0aW5nOiA0LjcsXG4gICAgICAgIHRvdGFsU2FsZXM6IDI4OSxcbiAgICAgICAgdmVyaWZpY2F0aW9uU3RhdHVzOiAndmVyaWZpZWQnXG4gICAgICB9LFxuICAgICAgc3RhdHM6IHsgbGlrZXM6IDE1LCBjb21tZW50czogMywgc2hhcmVzOiAxLCB2aWV3czogODksIHNhdmVzOiA4IH0sXG4gICAgICBjb25kaXRpb246ICdleGNlbGxlbnQnLFxuICAgICAgaXNMaWtlZDogZmFsc2UsXG4gICAgICBjcmVhdGVkQXQ6ICcyMDI0LTAxLTI1VDA4OjE1OjAwWicsXG4gICAgICB1cGRhdGVkQXQ6ICcyMDI0LTAxLTI2VDEwOjMwOjAwWicsXG4gICAgICBjYXRlZ29yeTogJ2Zhc2hpb24nLFxuICAgICAgc3ViY2F0ZWdvcnk6ICdzaGlydHMnLFxuICAgICAgdGFnczogWydveGZvcmQnLCAnY2xhc3NpYycsICdwcm9mZXNzaW9uYWwnXSxcbiAgICAgIGF2YWlsYWJpbGl0eTogJ2F2YWlsYWJsZS1ub3cnXG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogJ21lbi1wcmVtaXVtLTInLFxuICAgICAgdGl0bGU6ICdUYWlsb3JlZCBXb29sIEJsYXplcicsXG4gICAgICBicmFuZDogJ0h1Z28gQm9zcycsXG4gICAgICBwcmljZTogJyQyNDUnLFxuICAgICAgb3JpZ2luYWxQcmljZTogJyQ0NTAnLFxuICAgICAgc2l6ZTogJ00nLFxuICAgICAgaW1hZ2VzOiBbJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTk0OTM4Mjk4NjAzLWM4MTQ4YzRkYWUzNT93PTQwMCZoPTQwMCZmaXQ9Y3JvcCddLFxuICAgICAgc2VsbGVyOiB7XG4gICAgICAgIGlkOiAnc2VsbGVyLW1lbi0yJyxcbiAgICAgICAgdXNlcm5hbWU6ICdzaGFycF9kcmVzc2VyJyxcbiAgICAgICAgYXZhdGFyOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE0NzIwOTk2NDU3ODUtNTY1OGFiZjRmZjRlP3c9MTAwJmg9MTAwJmZpdD1jcm9wJyxcbiAgICAgICAgcmF0aW5nOiA0LjksXG4gICAgICAgIHRvdGFsU2FsZXM6IDE1NixcbiAgICAgICAgdmVyaWZpY2F0aW9uU3RhdHVzOiAndmVyaWZpZWQnXG4gICAgICB9LFxuICAgICAgc3RhdHM6IHsgbGlrZXM6IDM4LCBjb21tZW50czogNywgc2hhcmVzOiA0LCB2aWV3czogMTQ1LCBzYXZlczogMjIgfSxcbiAgICAgIGNvbmRpdGlvbjogJ25ld193aXRoX3RhZ3MnLFxuICAgICAgaXNMaWtlZDogdHJ1ZSxcbiAgICAgIGNyZWF0ZWRBdDogJzIwMjQtMDEtMjRUMTE6NDU6MDBaJyxcbiAgICAgIHVwZGF0ZWRBdDogJzIwMjQtMDEtMjVUMTU6MjA6MDBaJyxcbiAgICAgIGNhdGVnb3J5OiAnZmFzaGlvbicsXG4gICAgICBzdWJjYXRlZ29yeTogJ2JsYXplcnMnLFxuICAgICAgdGFnczogWyd3b29sJywgJ3RhaWxvcmVkJywgJ2Zvcm1hbCddLFxuICAgICAgYXZhaWxhYmlsaXR5OiAnYXZhaWxhYmxlLW5vdydcbiAgICB9LFxuICAgIHtcbiAgICAgIGlkOiAnbWVuLXByZW1pdW0tMycsXG4gICAgICB0aXRsZTogJ1ByZW1pdW0gRGVuaW0gSmVhbnMnLFxuICAgICAgYnJhbmQ6ICdBRyBKZWFucycsXG4gICAgICBwcmljZTogJyQ5OCcsXG4gICAgICBvcmlnaW5hbFByaWNlOiAnJDE1OCcsXG4gICAgICBzaXplOiAnMzInLFxuICAgICAgaW1hZ2VzOiBbJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTQyMjcyNjA0LTc4N2MzODM1NTM1ZD93PTQwMCZoPTQwMCZmaXQ9Y3JvcCddLFxuICAgICAgc2VsbGVyOiB7XG4gICAgICAgIGlkOiAnc2VsbGVyLW1lbi0zJyxcbiAgICAgICAgdXNlcm5hbWU6ICdkZW5pbV9leHBlcnQnLFxuICAgICAgICBhdmF0YXI6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTUwMDY0ODc2Nzc5MS0wMGRjYzk5NGE0M2U/dz0xMDAmaD0xMDAmZml0PWNyb3AnLFxuICAgICAgICByYXRpbmc6IDQuOCxcbiAgICAgICAgdG90YWxTYWxlczogNDIzLFxuICAgICAgICB2ZXJpZmljYXRpb25TdGF0dXM6ICd2ZXJpZmllZCdcbiAgICAgIH0sXG4gICAgICBzdGF0czogeyBsaWtlczogMjksIGNvbW1lbnRzOiA5LCBzaGFyZXM6IDMsIHZpZXdzOiAxNjcsIHNhdmVzOiAxOCB9LFxuICAgICAgY29uZGl0aW9uOiAnZXhjZWxsZW50JyxcbiAgICAgIGlzTGlrZWQ6IGZhbHNlLFxuICAgICAgY3JlYXRlZEF0OiAnMjAyNC0wMS0yM1QxMzozMDowMFonLFxuICAgICAgdXBkYXRlZEF0OiAnMjAyNC0wMS0yNFQxNjo0NTowMFonLFxuICAgICAgY2F0ZWdvcnk6ICdmYXNoaW9uJyxcbiAgICAgIHN1YmNhdGVnb3J5OiAnamVhbnMnLFxuICAgICAgdGFnczogWydwcmVtaXVtJywgJ2RlbmltJywgJ3NsaW0tZml0J10sXG4gICAgICBhdmFpbGFiaWxpdHk6ICdhdmFpbGFibGUtbm93J1xuICAgIH1cbiAgXSxcbiAgdmVyc2lvbjogJzIuMC4wJyxcbiAgbGFzdFVwZGF0ZWQ6IG5ldyBEYXRlKCkudG9JU09TdHJpbmcoKSxcbiAgY29uZmlndXJhdGlvbklkOiBjcnlwdG8ucmFuZG9tVVVJRCgpLFxuICBpc0FjdGl2ZTogdHJ1ZVxufTtcblxuLy8gPT09PT0gVkFMSURBVElPTiBBTkQgRVhQT1JUID09PT09XG5cbi8vIFZhbGlkYXRlIHRoZSBjb25maWd1cmF0aW9uIGFnYWluc3QgdGhlIGVudGVycHJpc2Ugc2NoZW1hXG5jb25zdCB2YWxpZGF0aW9uUmVzdWx0ID0gVW5pdmVyc2FsUGFnZUNvbmZpZ3VyYXRpb25TY2hlbWEuc2FmZVBhcnNlKGVudGVycHJpc2VNZW5Db25maWcpO1xuXG5pZiAoIXZhbGlkYXRpb25SZXN1bHQuc3VjY2Vzcykge1xuICBjb25zb2xlLmVycm9yKCdFbnRlcnByaXNlIE1lblxcJ3MgQ29uZmlndXJhdGlvbiBWYWxpZGF0aW9uIEZhaWxlZDonLCB2YWxpZGF0aW9uUmVzdWx0LmVycm9yKTtcbiAgdGhyb3cgbmV3IEVycm9yKCdDb25maWd1cmF0aW9uIHZhbGlkYXRpb24gZmFpbGVkIC0gY2hlY2sgY29uc29sZSBmb3IgZGV0YWlscycpO1xufVxuXG5leHBvcnQgeyBlbnRlcnByaXNlTWVuQ29uZmlnIGFzIGRlZmF1bHQgfTsiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7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

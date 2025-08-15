@@ -33,7 +33,15 @@ export function useRouter(): RouterContext {
     const extractedParams: RouteParams = {};
 
     // Parse dynamic route parameters
-    if (pathSegments[0] === 'marketplace' && pathSegments.length > 1) {
+    if (pathSegments[0] === 'fashion') {
+      extractedParams.vertical = 'fashion';
+      if (pathSegments.length > 1) {
+        extractedParams.category = pathSegments[1];
+      }
+      if (pathSegments.length > 2) {
+        extractedParams.subcategory = pathSegments[2];
+      }
+    } else if (pathSegments[0] === 'marketplace' && pathSegments.length > 1) {
       extractedParams.vertical = pathSegments[1];
       if (pathSegments.length > 2) {
         extractedParams.category = pathSegments[2];

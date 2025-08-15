@@ -541,64 +541,91 @@ export class ApiConfigurationStrategy implements IConfigurationLoadStrategy {
 
   public async load(context: ConfigurationLoadContext): Promise<ConfigurationResult<StrategyLoadResult>> {
     const startTime = Date.now();
-    
-    try {
-      const url = `${this.apiBaseUrl}/${context.key}`;
-      const headers: Record<string, string> = {
-        'Content-Type': 'application/json'
-      };
-      
-      if (this.apiKey) {
-        headers['Authorization'] = `Bearer ${this.apiKey}`;
+    const attempts = Math.max(1, context.retryAttempts ?? 3);
+    const url = `${this.apiBaseUrl}/${context.key}`;
+    const headers: Record<string, string> = {
+      'Content-Type': 'application/json'
+    };
+    if (this.apiKey) headers['Authorization'] = `Bearer ${this.apiKey}`;
+
+    const backoffMs: number[] = [];
+    let lastError: unknown;
+
+    for (let attempt = 1; attempt <= attempts; attempt++) {
+      try {
+        const response = await fetch(url, {
+          method: 'GET',
+          headers,
+          signal: AbortSignal.timeout(context.timeout || 10000)
+        });
+
+        if (!response.ok) {
+          if (response.status === 404) {
+            const error = ConfigurationErrorFactory.createNotFoundError(
+              context.key,
+              [],
+              context.requestId
+            );
+            return ConfigurationResultUtils.failure(error);
+          }
+          // Retry on 5xx and 429; treat 4xx (except 429) as non-retryable
+          const shouldRetry = response.status >= 500 || response.status === 429;
+          if (!shouldRetry) {
+            throw new Error(`API request failed: ${response.status} ${response.statusText}`);
+          }
+          lastError = new Error(`API request failed: ${response.status} ${response.statusText}`);
+        } else {
+          const config = await response.json();
+          const result: StrategyLoadResult = {
+            configuration: config,
+            strategy: this.name,
+            loadTime: Date.now() - startTime,
+            source: 'api',
+            cacheHit: false,
+            fallbackUsed: false,
+            metadata: {
+              apiUrl: url,
+              responseStatus: response.status,
+              environment: context.environment,
+              attemptsUsed: attempt,
+              backoffScheduleMs: backoffMs
+            }
+          };
+          return ConfigurationResultUtils.success(result);
+        }
+      } catch (err) {
+        // Network error or timeout
+        lastError = err;
       }
 
-      const response = await fetch(url, {
-        method: 'GET',
-        headers,
-        signal: AbortSignal.timeout(context.timeout || 10000)
-      });
-
-      if (!response.ok) {
-        if (response.status === 404) {
-          const error = ConfigurationErrorFactory.createNotFoundError(
-            context.key,
-            [],
-            context.requestId
-          );
-          return ConfigurationResultUtils.failure(error);
-        }
-        
-        throw new Error(`API request failed: ${response.status} ${response.statusText}`);
+      if (attempt < attempts) {
+        const delay = this.computeBackoffDelayMs(attempt);
+        backoffMs.push(delay);
+        await this.sleep(delay);
+        continue;
       }
-
-      const config = await response.json();
-
-      const result: StrategyLoadResult = {
-        configuration: config,
-        strategy: this.name,
-        loadTime: Date.now() - startTime,
-        source: 'api',
-        cacheHit: false,
-        fallbackUsed: false,
-        metadata: {
-          apiUrl: url,
-          responseStatus: response.status,
-          environment: context.environment
-        }
-      };
-
-      return ConfigurationResultUtils.success(result);
-
-    } catch (error) {
-      const configError = ConfigurationErrorFactory.createLoadError(
-        context.key,
-        this.name,
-        error as Error,
-        context.retryAttempts || 0,
-        context.requestId
-      );
-      return ConfigurationResultUtils.failure(configError);
     }
+
+    const configError = ConfigurationErrorFactory.createLoadError(
+      context.key,
+      this.name,
+      (lastError as Error) ?? new Error('Unknown API error'),
+      attempts,
+      context.requestId
+    );
+    return ConfigurationResultUtils.failure(configError);
+  }
+
+  private computeBackoffDelayMs(attempt: number, baseMs: number = 200, maxMs: number = 5000, jitter: number = 0.2): number {
+    const exp = Math.min(maxMs, baseMs * Math.pow(2, attempt - 1));
+    const rand = Math.random() * jitter * exp;
+    const sign = Math.random() < 0.5 ? -1 : 1;
+    const withJitter = Math.max(0, exp + sign * rand);
+    return Math.min(maxMs, Math.round(withJitter));
+  }
+
+  private sleep(ms: number): Promise<void> {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   public async getHealthStatus(): Promise<StrategyHealthStatus> {

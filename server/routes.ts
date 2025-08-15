@@ -6,6 +6,9 @@ import { marketplaceRouter } from "./routes/marketplace";
 import { analyticsRouter } from "./routes/analytics";
 import vectorSearchRouter from "./routes/vector-search";
 import { registerAiAssistantRoutes } from "./routes/aiAssistantRoutes";
+import fashionRouter from "./routes/fashionRoutes";
+import { createAnalyticsService } from "./services/AnalyticsService";
+import { createLegacyCompatibilityMiddleware } from "./middleware/LegacyCompatibilityMiddleware";
 import { 
   insertListingSchema, 
   insertCommentSchema, 
@@ -16,11 +19,43 @@ import {
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Simple in-memory cache for brand metadata (TTL 5 minutes)
+  const brandMetaCache = new Map<string, { data: any; expiresAt: number }>();
+  const BRAND_META_TTL_MS = 5 * 60 * 1000;
+  const humanize = (s: string) => s.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+
   // Simple Auth setup to get the app working
   await setupSimpleAuth(app);
 
   // Use simple authentication middleware
   const authMiddleware = isSimpleAuthenticated;
+
+  // Setup legacy compatibility middleware for backward compatibility
+  const analyticsService = createAnalyticsService();
+  const legacyCompatibility = createLegacyCompatibilityMiddleware(analyticsService, {
+    enableDeprecationWarnings: process.env.NODE_ENV !== 'production',
+    enableUsageTracking: true,
+    enableResponseHeaders: true,
+    migrationDeadline: new Date('2024-12-31')
+  });
+
+  // Apply legacy compatibility middleware before all routes
+  app.use(legacyCompatibility.handleLegacyRequests());
+
+  // API Migration guide endpoint
+  app.get('/api/migration-guide', async (req, res) => {
+    try {
+      const migrationGuide = legacyCompatibility.generateMigrationGuideResponse();
+      res.json({
+        success: true,
+        data: migrationGuide,
+        timestamp: new Date().toISOString()
+      });
+    } catch (error) {
+      console.error("Error fetching migration guide:", error);
+      res.status(500).json({ message: "Failed to fetch migration guide" });
+    }
+  });
 
   // Auth routes
   app.get('/api/auth/user', authMiddleware, async (req: any, res) => {
@@ -72,13 +107,29 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Listing routes
+  // Legacy listing routes (maintained for backward compatibility)
   app.post('/api/listings', authMiddleware, async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const listingData = insertListingSchema.parse(req.body);
-      const listing = await storage.createListing({ ...listingData, sellerId: userId });
-      res.json(listing);
+      
+      // Check if this is a fashion listing - redirect to fashion API
+      if (listingData.category === 'fashion') {
+        return res.status(400).json({ 
+          message: "Fashion listings should use the new fashion API",
+          newEndpoint: "POST /api/fashion/listings",
+          migrationGuide: "https://docs.bazaarlive.com/api/migration-guide",
+          deprecationNotice: "POST /api/listings for fashion items is deprecated and will be removed on 2024-12-31"
+        });
+      }
+      
+      // For non-fashion categories, return error for now
+      return res.status(400).json({
+        message: "Only fashion listings are currently supported",
+        supportedCategories: ["fashion"],
+        useEndpoint: "POST /api/fashion/listings"
+      });
+      
     } catch (error) {
       console.error("Error creating listing:", error);
       if (error instanceof z.ZodError) {
@@ -88,16 +139,67 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Brand metadata route (placeholder – replace with real data source in production)
+  app.get('/api/brands/:brandId', async (req, res) => {
+    try {
+      const brandId = String(req.params.brandId || '').toLowerCase().trim();
+      if (!brandId || brandId.length > 64) {
+        return res.status(400).json({ message: 'invalid brand id' });
+      }
+      const now = Date.now();
+      const cached = brandMetaCache.get(brandId);
+      if (cached && cached.expiresAt > now) {
+        return res.json(cached.data);
+      }
+
+      // In a real system, fetch from DB/catalog service. For now, synthesize minimal metadata.
+      const data = {
+        id: brandId,
+        name: humanize(brandId),
+        description: `Shop ${humanize(brandId)} across categories from verified sellers`,
+        logoUrl: `/assets/brands/${brandId}.svg`,
+        updatedAt: new Date().toISOString()
+      };
+      brandMetaCache.set(brandId, { data, expiresAt: now + BRAND_META_TTL_MS });
+      return res.json(data);
+    } catch (error) {
+      console.error('Error reading brand metadata:', error);
+      return res.status(500).json({ message: 'Failed to read brand metadata' });
+    }
+  });
+
   app.get('/api/listings', async (req, res) => {
     try {
-      const { category, search, sellerId, limit, offset } = req.query;
+      const { category, search, sellerId, limit, offset, brands } = req.query as Record<string, string>;
+
       const listings = await storage.getListings({
-        category: category as string,
-        search: search as string,
-        sellerId: sellerId as string,
-        limit: limit ? parseInt(limit as string) : undefined,
-        offset: offset ? parseInt(offset as string) : undefined,
+        category,
+        search,
+        sellerId,
+        limit: limit ? parseInt(String(limit)) : undefined,
+        offset: offset ? parseInt(String(offset)) : undefined,
       });
+
+      // Optional server-side brand filtering if 'brands' is provided (comma list)
+      if (brands && brands.trim()) {
+        const normalized = brands
+          .split(',')
+          .map((b) => b.trim().toLowerCase())
+          .filter(Boolean)
+          .slice(0, 50);
+        const MAX_ITEM_LEN = 64;
+        if (normalized.some((b) => b.length > MAX_ITEM_LEN)) {
+          return res.status(400).json({ message: 'brand filter value too long' });
+        }
+        const filtered = listings.filter((l) =>
+          typeof (l as any).brand === 'string' && normalized.some((b) => (l as any).brand.toLowerCase().includes(b))
+        );
+        return res.json(filtered);
+      }
+
+      // Default path without brand filter
+      
+      
       res.json(listings);
     } catch (error) {
       console.error("Error fetching listings:", error);
@@ -105,7 +207,142 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get('/api/listings/:id', async (req, res) => {
+  // Aggregate listings across multiple categories with server-side merge/sort/pagination
+  app.get('/api/listings/aggregate', async (req, res) => {
+    try {
+      const started = Date.now();
+      const traceId = (req.headers['x-trace-id'] as string) || Math.random().toString(36).slice(2);
+      const verticalRaw = String(req.query.vertical || '').trim();
+      const categoriesStrRaw = String(req.query.categories || '').trim();
+      const subcategoryRaw = req.query.subcategory ? String(req.query.subcategory) : undefined;
+      const leafRaw = req.query.leaf ? String(req.query.leaf) : undefined;
+      const sortBy = (req.query.sortBy ? String(req.query.sortBy) : 'newest') as 'newest' | 'price_low' | 'price_high' | 'most_liked';
+      const limit = Math.max(1, Math.min(100, req.query.limit ? parseInt(String(req.query.limit)) : 60));
+      const cursor = req.query.cursor ? String(req.query.cursor) : undefined;
+      // Filters
+      const { normalizeCommaList, parsePrice, validateConditions } = await import('./config/FiltersValidation');
+      const brands = normalizeCommaList(req.query.brands as any);
+      const sizes = normalizeCommaList(req.query.sizes as any);
+      const minPrice = parsePrice(req.query.minPrice);
+      const maxPrice = parsePrice(req.query.maxPrice);
+      const conditionsList = normalizeCommaList(req.query.conditions as any);
+      const condRes = validateConditions(conditionsList);
+      if (!condRes.ok) return res.status(400).json({ message: condRes.reason, traceId });
+
+      if (!verticalRaw) return res.status(400).json({ message: 'vertical is required', traceId });
+      if (!categoriesStrRaw) return res.status(400).json({ message: 'categories is required', traceId });
+
+      const { validateVertical, validateCategories, validateSubcategoryForCategories, validateLeafForCategories } = await import('./config/CategoryValidation');
+
+      const vRes = validateVertical(verticalRaw);
+      if (!vRes.ok) return res.status(400).json({ message: vRes.reason, traceId });
+      const vertical = vRes.value!;
+
+      const rawCategories = categoriesStrRaw.split(',').map((c) => c.trim()).filter(Boolean);
+      const cRes = validateCategories(vertical, rawCategories);
+      if (!cRes.ok) return res.status(400).json({ message: cRes.reason, traceId });
+      const uniqueCategories = cRes.values!;
+
+      // Security hardening: enforce sensible bounds and sizes (after uniqueCategories is defined)
+      const MAX_CATEGORIES = 8;
+      const MAX_LIST_LENGTH = 50;
+      const MAX_ITEM_LENGTH = 64;
+      const MAX_SEARCH_LEN = 100;
+
+      if (uniqueCategories.length > MAX_CATEGORIES) {
+        return res.status(400).json({ message: 'too many categories', traceId });
+      }
+      if (brands.length > MAX_LIST_LENGTH || sizes.length > MAX_LIST_LENGTH) {
+        return res.status(400).json({ message: 'too many filter values', traceId });
+      }
+      if (brands.some((b) => b.length > MAX_ITEM_LENGTH) || sizes.some((s) => s.length > MAX_ITEM_LENGTH)) {
+        return res.status(400).json({ message: 'filter value too long', traceId });
+      }
+      if (typeof minPrice === 'number' && typeof maxPrice === 'number' && minPrice > maxPrice) {
+        return res.status(400).json({ message: 'minPrice cannot exceed maxPrice', traceId });
+      }
+      if (req.query.search && String(req.query.search).length > MAX_SEARCH_LEN) {
+        return res.status(400).json({ message: 'search too long', traceId });
+      }
+
+      const sRes = validateSubcategoryForCategories(uniqueCategories, subcategoryRaw);
+      if (!sRes.ok) return res.status(400).json({ message: sRes.reason, traceId });
+      const subcategory = sRes.value;
+
+      const lRes = validateLeafForCategories(uniqueCategories, subcategory, leafRaw);
+      if (!lRes.ok) return res.status(400).json({ message: lRes.reason, traceId });
+      const leaf = lRes.value;
+
+      const { aggregateListings } = await import('./services/ListingAggregationService');
+      const { getTracer } = await import('./services/Tracing');
+      const tracer = getTracer();
+      const span = tracer.startSpan('aggregate_listings', { traceId, vertical, sortBy, limit });
+      const { items, nextCursor, apiVersion } = await aggregateListings({
+        traceId,
+        vertical,
+        categories: uniqueCategories,
+        subcategory,
+        leaf,
+        sortBy,
+        limit,
+        cursor: cursor || null,
+        // Pass filters for application at service layer
+        // Note: The current storage layer may not support these filters natively; they will be applied in memory.
+        searchQuery: req.query.search ? String(req.query.search) : undefined,
+        // @ts-expect-error: extend service signature to include filters
+        filters: { brands, sizes, minPrice, maxPrice, conditions: condRes.values }
+      });
+      // Observability: metrics and structured log
+      const { metrics } = await import('./services/Metrics');
+      const durationMs = Date.now() - started;
+      metrics.increment('listings.aggregate.rps', 1);
+      metrics.observe('listings.aggregate.duration_ms', durationMs);
+      console.log(JSON.stringify({
+        level: 'info',
+        msg: 'aggregate listings',
+        traceId,
+        vertical,
+        categories: uniqueCategories,
+        subcategory,
+        sortBy,
+        limit,
+        returned: items.length,
+        nextCursorPresent: !!nextCursor,
+        durationMs
+      }));
+
+      span.setAttribute('returned', items.length);
+      span.setAttribute('hasNext', !!nextCursor);
+      span.end('ok');
+      return res.json({ apiVersion, traceId, items, nextCursor, pageInfo: { limit, returned: items.length, hasNextPage: !!nextCursor } });
+    } catch (error) {
+      try { const { getTracer } = await import('./services/Tracing'); getTracer().startSpan('aggregate_listings').end('error'); } catch {}
+      console.error('Error aggregating listings:', error);
+      return res.status(500).json({ message: 'Failed to aggregate listings' });
+    }
+  });
+
+  // Internal metrics snapshot for observability and alerting
+  app.get('/internal/metrics', async (req, res) => {
+    try {
+      const isProd = process.env.NODE_ENV === 'production';
+      const token = process.env.INTERNAL_METRICS_TOKEN;
+      if (isProd && token && req.headers['x-internal-token'] !== token) {
+        return res.status(401).json({ message: 'unauthorized' });
+      }
+      const { metrics } = await import('./services/Metrics');
+      return res.json({
+        counters: metrics.getCounters(),
+        histograms: metrics.getHistograms()
+      });
+    } catch (error) {
+      console.error('Error serving internal metrics:', error);
+      return res.status(500).json({ message: 'Failed to read metrics' });
+    }
+  });
+
+  // Restrict :id to UUID-like tokens to avoid clobbering subpaths like 'aggregate'
+  app.get('/api/listings/:id([0-9a-fA-F\-]{8,})', async (req, res) => {
     try {
       const { id } = req.params;
       const listing = await storage.getListing(id);
@@ -437,6 +674,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Fashion routes (new domain-specific API)
+  app.use('/api/fashion', fashionRouter);
+  
   // Marketplace routes
   app.use('/api/marketplace', marketplaceRouter);
   

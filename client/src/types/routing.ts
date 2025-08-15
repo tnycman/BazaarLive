@@ -9,7 +9,6 @@ export interface RouteParams {
 
 export interface CategoryRoute {
   path: string;
-  component: string;
   params: RouteParams;
   metadata: {
     title: string;
@@ -47,13 +46,13 @@ export interface RouteConfig {
 
 // Route patterns for dynamic routing
 export const ROUTE_PATTERNS = {
-  MARKETPLACE: '/marketplace',
-  VERTICAL: '/marketplace/:vertical',
-  CATEGORY: '/marketplace/:vertical/:category',
-  SUBCATEGORY: '/marketplace/:vertical/:category/:subcategory',
-  BRAND: '/brands/:brand',
-  BRAND_CATEGORY: '/brands/:brand/:category',
-  SECTION: '/marketplace/section/:section'
+  FASHION_ROOT: '/fashion',
+  CATEGORY: '/fashion/:category',
+  SUBCATEGORY: '/fashion/:category/:subcategory',
+  BRAND: '/fashion/brands/:brand',
+  BRAND_CATEGORY: '/fashion/brands/:brand/:category',
+  BRAND_SEGMENT: '/fashion/brands/segments/:segment',
+  SECTION: '/fashion/section/:section'
 } as const;
 
 export type RoutePattern = typeof ROUTE_PATTERNS[keyof typeof ROUTE_PATTERNS];

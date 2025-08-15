@@ -1,0 +1,393 @@
+346684e456e7499eb5838abfd708cd43
+/* istanbul ignore next */
+function cov_zmnqotsdy() {
+  var path = "/home/runner/workspace/client/src/services/category/CategoryDomainTypes.ts";
+  var hash = "74895f096d0c50b7b620765c783f4bdfe28fef72";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/home/runner/workspace/client/src/services/category/CategoryDomainTypes.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 8,
+          column: 38
+        },
+        end: {
+          line: 15,
+          column: 2
+        }
+      },
+      "1": {
+        start: {
+          line: 16,
+          column: 30
+        },
+        end: {
+          line: 28,
+          column: 1
+        }
+      },
+      "2": {
+        start: {
+          line: 29,
+          column: 28
+        },
+        end: {
+          line: 41,
+          column: 1
+        }
+      },
+      "3": {
+        start: {
+          line: 42,
+          column: 29
+        },
+        end: {
+          line: 57,
+          column: 1
+        }
+      },
+      "4": {
+        start: {
+          line: 63,
+          column: 4
+        },
+        end: {
+          line: 63,
+          column: 72
+        }
+      },
+      "5": {
+        start: {
+          line: 66,
+          column: 4
+        },
+        end: {
+          line: 66,
+          column: 70
+        }
+      },
+      "6": {
+        start: {
+          line: 69,
+          column: 4
+        },
+        end: {
+          line: 69,
+          column: 71
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "isWomenFashionDomain",
+        decl: {
+          start: {
+            line: 62,
+            column: 16
+          },
+          end: {
+            line: 62,
+            column: 36
+          }
+        },
+        loc: {
+          start: {
+            line: 62,
+            column: 45
+          },
+          end: {
+            line: 64,
+            column: 1
+          }
+        },
+        line: 62
+      },
+      "1": {
+        name: "isMenFashionDomain",
+        decl: {
+          start: {
+            line: 65,
+            column: 16
+          },
+          end: {
+            line: 65,
+            column: 34
+          }
+        },
+        loc: {
+          start: {
+            line: 65,
+            column: 43
+          },
+          end: {
+            line: 67,
+            column: 1
+          }
+        },
+        line: 65
+      },
+      "2": {
+        name: "isKidsFashionDomain",
+        decl: {
+          start: {
+            line: 68,
+            column: 16
+          },
+          end: {
+            line: 68,
+            column: 35
+          }
+        },
+        loc: {
+          start: {
+            line: 68,
+            column: 44
+          },
+          end: {
+            line: 70,
+            column: 1
+          }
+        },
+        line: 68
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 63,
+            column: 11
+          },
+          end: {
+            line: 63,
+            column: 71
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 63,
+            column: 11
+          },
+          end: {
+            line: 63,
+            column: 40
+          }
+        }, {
+          start: {
+            line: 63,
+            column: 44
+          },
+          end: {
+            line: 63,
+            column: 71
+          }
+        }],
+        line: 63
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 66,
+            column: 11
+          },
+          end: {
+            line: 66,
+            column: 69
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 66,
+            column: 11
+          },
+          end: {
+            line: 66,
+            column: 40
+          }
+        }, {
+          start: {
+            line: 66,
+            column: 44
+          },
+          end: {
+            line: 66,
+            column: 69
+          }
+        }],
+        line: 66
+      },
+      "2": {
+        loc: {
+          start: {
+            line: 69,
+            column: 11
+          },
+          end: {
+            line: 69,
+            column: 70
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 69,
+            column: 11
+          },
+          end: {
+            line: 69,
+            column: 40
+          }
+        }, {
+          start: {
+            line: 69,
+            column: 44
+          },
+          end: {
+            line: 69,
+            column: 70
+          }
+        }],
+        line: 69
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0,
+      "2": 0
+    },
+    b: {
+      "0": [0, 0],
+      "1": [0, 0],
+      "2": [0, 0]
+    },
+    inputSourceMap: {
+      file: "/home/runner/workspace/client/src/services/category/CategoryDomainTypes.ts",
+      mappings: "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",
+      names: [],
+      sources: ["/home/runner/workspace/client/src/services/category/CategoryDomainTypes.ts"],
+      sourcesContent: ["/**\n * Enterprise Category Domain Types\n * Domain-Driven Design implementation for category-specific business logic\n * Maintains strict type safety and separation of concerns\n */\n\nimport { z } from 'zod';\n\n// Base Domain Entity\nexport interface CategoryDomain {\n  readonly vertical: string;\n  readonly category: string;\n  readonly metadata: CategoryMetadata;\n}\n\n// Category Metadata Schema\nexport const CategoryMetadataSchema = z.object({\n  title: z.string(),\n  description: z.string(),\n  gradient: z.string(),\n  placeholder: z.string(),\n  icon: z.string().optional(),\n  seoKeywords: z.array(z.string()).optional(),\n});\n\nexport type CategoryMetadata = z.infer<typeof CategoryMetadataSchema>;\n\n// Size Chart Definitions\nexport interface SizeChart {\n  readonly type: 'women' | 'men' | 'kids' | 'unisex';\n  readonly sizes: readonly string[];\n  readonly sizeGuide: Record<string, string>;\n}\n\nexport const WomenSizeChart: SizeChart = {\n  type: 'women',\n  sizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL', '0', '2', '4', '6', '8', '10', '12', '14', '16'],\n  sizeGuide: {\n    'XXS': 'US 0-2',\n    'XS': 'US 2-4',\n    'S': 'US 4-6',\n    'M': 'US 8-10',\n    'L': 'US 12-14',\n    'XL': 'US 16-18',\n    'XXL': 'US 20-22'\n  }\n};\n\nexport const MenSizeChart: SizeChart = {\n  type: 'men',\n  sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL', '28', '30', '32', '34', '36', '38', '40', '42'],\n  sizeGuide: {\n    'XS': 'Chest 32-34\"',\n    'S': 'Chest 34-36\"',\n    'M': 'Chest 36-38\"',\n    'L': 'Chest 40-42\"',\n    'XL': 'Chest 44-46\"',\n    'XXL': 'Chest 48-50\"',\n    'XXXL': 'Chest 52-54\"'\n  }\n};\n\nexport const KidsSizeChart: SizeChart = {\n  type: 'kids',\n  sizes: ['2T', '3T', '4T', '5T', '6', '7', '8', '10', '12', '14', '16'],\n  sizeGuide: {\n    '2T': 'Age 2-3',\n    '3T': 'Age 3-4',\n    '4T': 'Age 4-5',\n    '5T': 'Age 5-6',\n    '6': 'Age 6-7',\n    '8': 'Age 7-8',\n    '10': 'Age 9-10',\n    '12': 'Age 11-12',\n    '14': 'Age 13-14',\n    '16': 'Age 15-16'\n  }\n};\n\n// Subcategory Definitions\nexport interface SubcategoryDefinition {\n  readonly id: string;\n  readonly name: string;\n  readonly description: string;\n  readonly filterTags: readonly string[];\n}\n\n// Women Fashion Domain\nexport interface WomenFashionDomain extends CategoryDomain {\n  readonly vertical: 'fashion';\n  readonly category: 'women';\n  readonly sizeChart: typeof WomenSizeChart;\n  readonly subcategories: readonly SubcategoryDefinition[];\n  readonly preferredBrands: readonly string[];\n}\n\n// Men Fashion Domain\nexport interface MenFashionDomain extends CategoryDomain {\n  readonly vertical: 'fashion';\n  readonly category: 'men';\n  readonly sizeChart: typeof MenSizeChart;\n  readonly subcategories: readonly SubcategoryDefinition[];\n  readonly preferredBrands: readonly string[];\n}\n\n// Kids Fashion Domain\nexport interface KidsFashionDomain extends CategoryDomain {\n  readonly vertical: 'fashion';\n  readonly category: 'kids';\n  readonly sizeChart: typeof KidsSizeChart;\n  readonly subcategories: readonly SubcategoryDefinition[];\n  readonly preferredBrands: readonly string[];\n}\n\n// Domain Factory Pattern\nexport abstract class CategoryDomainFactory {\n  abstract createDomain(vertical: string, category: string): CategoryDomain;\n  abstract validateDomain(domain: CategoryDomain): boolean;\n  abstract getDomainMetadata(vertical: string, category: string): CategoryMetadata;\n}\n\n// Type Guards for Domain Validation\nexport function isWomenFashionDomain(domain: CategoryDomain): domain is WomenFashionDomain {\n  return domain.vertical === 'fashion' && domain.category === 'women';\n}\n\nexport function isMenFashionDomain(domain: CategoryDomain): domain is MenFashionDomain {\n  return domain.vertical === 'fashion' && domain.category === 'men';\n}\n\nexport function isKidsFashionDomain(domain: CategoryDomain): domain is KidsFashionDomain {\n  return domain.vertical === 'fashion' && domain.category === 'kids';\n}\n\n// Category Strategy Interface\nexport interface CategoryStrategy {\n  readonly domain: CategoryDomain;\n  getFilterConfiguration(): FilterConfiguration;\n  validateSelection(selection: CategorySelection): ValidationResult;\n  transformListingData(rawData: RawListingData[]): CategorySpecificListingData[];\n  getAnalyticsConfiguration(): AnalyticsConfiguration;\n}\n\n// Supporting Types\nexport interface FilterConfiguration {\n  readonly availableFilters: readonly string[];\n  readonly defaultFilters: Record<string, any>;\n  readonly filterValidationRules: Record<string, ValidationRule>;\n}\n\nexport interface CategorySelection {\n  readonly level1?: string;\n  readonly level2?: string;\n  readonly level3?: string;\n  readonly metadata?: Record<string, any>;\n}\n\nexport interface ValidationResult {\n  readonly isValid: boolean;\n  readonly errors: readonly string[];\n  readonly warnings: readonly string[];\n}\n\nexport interface ValidationRule {\n  readonly required: boolean;\n  readonly type: string;\n  readonly validator: (value: any) => boolean;\n  readonly errorMessage: string;\n}\n\nexport interface RawListingData {\n  readonly id?: string;\n  readonly title?: string;\n  readonly description?: string;\n  readonly price?: string;\n  readonly category?: string;\n  readonly subcategory?: string;\n  readonly brand?: string;\n  readonly size?: string;\n  readonly condition?: string;\n  readonly images?: readonly string[];\n  readonly userId?: string;\n  readonly createdAt?: string;\n  readonly updatedAt?: string;\n  readonly metadata?: Record<string, any>;\n}\n\nexport interface CategorySpecificListingData extends RawListingData {\n  readonly domainSpecificData: Record<string, any>;\n  readonly categoryValidation: ValidationResult;\n  readonly recommendedFilters: readonly string[];\n}\n\nexport interface AnalyticsConfiguration {\n  readonly trackingEvents: readonly string[];\n  readonly conversionGoals: readonly string[];\n  readonly segmentationRules: Record<string, any>;\n}\n\n// Export all domain types for use in strategies\nexport type FashionDomain = WomenFashionDomain | MenFashionDomain | KidsFashionDomain;"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "74895f096d0c50b7b620765c783f4bdfe28fef72"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_zmnqotsdy = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_zmnqotsdy();
+/**
+ * Enterprise Category Domain Types
+ * Domain-Driven Design implementation for category-specific business logic
+ * Maintains strict type safety and separation of concerns
+ */
+import { z } from 'zod';
+// Category Metadata Schema
+export const CategoryMetadataSchema =
+/* istanbul ignore next */
+(cov_zmnqotsdy().s[0]++, z.object({
+  title: z.string(),
+  description: z.string(),
+  gradient: z.string(),
+  placeholder: z.string(),
+  icon: z.string().optional(),
+  seoKeywords: z.array(z.string()).optional()
+}));
+export const WomenSizeChart =
+/* istanbul ignore next */
+(cov_zmnqotsdy().s[1]++, {
+  type: 'women',
+  sizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL', '0', '2', '4', '6', '8', '10', '12', '14', '16'],
+  sizeGuide: {
+    'XXS': 'US 0-2',
+    'XS': 'US 2-4',
+    'S': 'US 4-6',
+    'M': 'US 8-10',
+    'L': 'US 12-14',
+    'XL': 'US 16-18',
+    'XXL': 'US 20-22'
+  }
+});
+export const MenSizeChart =
+/* istanbul ignore next */
+(cov_zmnqotsdy().s[2]++, {
+  type: 'men',
+  sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL', '28', '30', '32', '34', '36', '38', '40', '42'],
+  sizeGuide: {
+    'XS': 'Chest 32-34"',
+    'S': 'Chest 34-36"',
+    'M': 'Chest 36-38"',
+    'L': 'Chest 40-42"',
+    'XL': 'Chest 44-46"',
+    'XXL': 'Chest 48-50"',
+    'XXXL': 'Chest 52-54"'
+  }
+});
+export const KidsSizeChart =
+/* istanbul ignore next */
+(cov_zmnqotsdy().s[3]++, {
+  type: 'kids',
+  sizes: ['2T', '3T', '4T', '5T', '6', '7', '8', '10', '12', '14', '16'],
+  sizeGuide: {
+    '2T': 'Age 2-3',
+    '3T': 'Age 3-4',
+    '4T': 'Age 4-5',
+    '5T': 'Age 5-6',
+    '6': 'Age 6-7',
+    '8': 'Age 7-8',
+    '10': 'Age 9-10',
+    '12': 'Age 11-12',
+    '14': 'Age 13-14',
+    '16': 'Age 15-16'
+  }
+});
+// Domain Factory Pattern
+export class CategoryDomainFactory {}
+// Type Guards for Domain Validation
+export function isWomenFashionDomain(domain) {
+  /* istanbul ignore next */
+  cov_zmnqotsdy().f[0]++;
+  cov_zmnqotsdy().s[4]++;
+  return /* istanbul ignore next */(cov_zmnqotsdy().b[0][0]++, domain.vertical === 'fashion') &&
+  /* istanbul ignore next */
+  (cov_zmnqotsdy().b[0][1]++, domain.category === 'women');
+}
+export function isMenFashionDomain(domain) {
+  /* istanbul ignore next */
+  cov_zmnqotsdy().f[1]++;
+  cov_zmnqotsdy().s[5]++;
+  return /* istanbul ignore next */(cov_zmnqotsdy().b[1][0]++, domain.vertical === 'fashion') &&
+  /* istanbul ignore next */
+  (cov_zmnqotsdy().b[1][1]++, domain.category === 'men');
+}
+export function isKidsFashionDomain(domain) {
+  /* istanbul ignore next */
+  cov_zmnqotsdy().f[2]++;
+  cov_zmnqotsdy().s[6]++;
+  return /* istanbul ignore next */(cov_zmnqotsdy().b[2][0]++, domain.vertical === 'fashion') &&
+  /* istanbul ignore next */
+  (cov_zmnqotsdy().b[2][1]++, domain.category === 'kids');
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3Zfem1ucW90c2R5IiwiYWN0dWFsQ292ZXJhZ2UiLCJ6IiwiQ2F0ZWdvcnlNZXRhZGF0YVNjaGVtYSIsInMiLCJvYmplY3QiLCJ0aXRsZSIsInN0cmluZyIsImRlc2NyaXB0aW9uIiwiZ3JhZGllbnQiLCJwbGFjZWhvbGRlciIsImljb24iLCJvcHRpb25hbCIsInNlb0tleXdvcmRzIiwiYXJyYXkiLCJXb21lblNpemVDaGFydCIsInR5cGUiLCJzaXplcyIsInNpemVHdWlkZSIsIk1lblNpemVDaGFydCIsIktpZHNTaXplQ2hhcnQiLCJDYXRlZ29yeURvbWFpbkZhY3RvcnkiLCJpc1dvbWVuRmFzaGlvbkRvbWFpbiIsImRvbWFpbiIsImYiLCJiIiwidmVydGljYWwiLCJjYXRlZ29yeSIsImlzTWVuRmFzaGlvbkRvbWFpbiIsImlzS2lkc0Zhc2hpb25Eb21haW4iXSwic291cmNlcyI6WyIvaG9tZS9ydW5uZXIvd29ya3NwYWNlL2NsaWVudC9zcmMvc2VydmljZXMvY2F0ZWdvcnkvQ2F0ZWdvcnlEb21haW5UeXBlcy50cyJdLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEVudGVycHJpc2UgQ2F0ZWdvcnkgRG9tYWluIFR5cGVzXG4gKiBEb21haW4tRHJpdmVuIERlc2lnbiBpbXBsZW1lbnRhdGlvbiBmb3IgY2F0ZWdvcnktc3BlY2lmaWMgYnVzaW5lc3MgbG9naWNcbiAqIE1haW50YWlucyBzdHJpY3QgdHlwZSBzYWZldHkgYW5kIHNlcGFyYXRpb24gb2YgY29uY2VybnNcbiAqL1xuXG5pbXBvcnQgeyB6IH0gZnJvbSAnem9kJztcblxuLy8gQmFzZSBEb21haW4gRW50aXR5XG5leHBvcnQgaW50ZXJmYWNlIENhdGVnb3J5RG9tYWluIHtcbiAgcmVhZG9ubHkgdmVydGljYWw6IHN0cmluZztcbiAgcmVhZG9ubHkgY2F0ZWdvcnk6IHN0cmluZztcbiAgcmVhZG9ubHkgbWV0YWRhdGE6IENhdGVnb3J5TWV0YWRhdGE7XG59XG5cbi8vIENhdGVnb3J5IE1ldGFkYXRhIFNjaGVtYVxuZXhwb3J0IGNvbnN0IENhdGVnb3J5TWV0YWRhdGFTY2hlbWEgPSB6Lm9iamVjdCh7XG4gIHRpdGxlOiB6LnN0cmluZygpLFxuICBkZXNjcmlwdGlvbjogei5zdHJpbmcoKSxcbiAgZ3JhZGllbnQ6IHouc3RyaW5nKCksXG4gIHBsYWNlaG9sZGVyOiB6LnN0cmluZygpLFxuICBpY29uOiB6LnN0cmluZygpLm9wdGlvbmFsKCksXG4gIHNlb0tleXdvcmRzOiB6LmFycmF5KHouc3RyaW5nKCkpLm9wdGlvbmFsKCksXG59KTtcblxuZXhwb3J0IHR5cGUgQ2F0ZWdvcnlNZXRhZGF0YSA9IHouaW5mZXI8dHlwZW9mIENhdGVnb3J5TWV0YWRhdGFTY2hlbWE+O1xuXG4vLyBTaXplIENoYXJ0IERlZmluaXRpb25zXG5leHBvcnQgaW50ZXJmYWNlIFNpemVDaGFydCB7XG4gIHJlYWRvbmx5IHR5cGU6ICd3b21lbicgfCAnbWVuJyB8ICdraWRzJyB8ICd1bmlzZXgnO1xuICByZWFkb25seSBzaXplczogcmVhZG9ubHkgc3RyaW5nW107XG4gIHJlYWRvbmx5IHNpemVHdWlkZTogUmVjb3JkPHN0cmluZywgc3RyaW5nPjtcbn1cblxuZXhwb3J0IGNvbnN0IFdvbWVuU2l6ZUNoYXJ0OiBTaXplQ2hhcnQgPSB7XG4gIHR5cGU6ICd3b21lbicsXG4gIHNpemVzOiBbJ1hYUycsICdYUycsICdTJywgJ00nLCAnTCcsICdYTCcsICdYWEwnLCAnMCcsICcyJywgJzQnLCAnNicsICc4JywgJzEwJywgJzEyJywgJzE0JywgJzE2J10sXG4gIHNpemVHdWlkZToge1xuICAgICdYWFMnOiAnVVMgMC0yJyxcbiAgICAnWFMnOiAnVVMgMi00JyxcbiAgICAnUyc6ICdVUyA0LTYnLFxuICAgICdNJzogJ1VTIDgtMTAnLFxuICAgICdMJzogJ1VTIDEyLTE0JyxcbiAgICAnWEwnOiAnVVMgMTYtMTgnLFxuICAgICdYWEwnOiAnVVMgMjAtMjInXG4gIH1cbn07XG5cbmV4cG9ydCBjb25zdCBNZW5TaXplQ2hhcnQ6IFNpemVDaGFydCA9IHtcbiAgdHlwZTogJ21lbicsXG4gIHNpemVzOiBbJ1hTJywgJ1MnLCAnTScsICdMJywgJ1hMJywgJ1hYTCcsICdYWFhMJywgJzI4JywgJzMwJywgJzMyJywgJzM0JywgJzM2JywgJzM4JywgJzQwJywgJzQyJ10sXG4gIHNpemVHdWlkZToge1xuICAgICdYUyc6ICdDaGVzdCAzMi0zNFwiJyxcbiAgICAnUyc6ICdDaGVzdCAzNC0zNlwiJyxcbiAgICAnTSc6ICdDaGVzdCAzNi0zOFwiJyxcbiAgICAnTCc6ICdDaGVzdCA0MC00MlwiJyxcbiAgICAnWEwnOiAnQ2hlc3QgNDQtNDZcIicsXG4gICAgJ1hYTCc6ICdDaGVzdCA0OC01MFwiJyxcbiAgICAnWFhYTCc6ICdDaGVzdCA1Mi01NFwiJ1xuICB9XG59O1xuXG5leHBvcnQgY29uc3QgS2lkc1NpemVDaGFydDogU2l6ZUNoYXJ0ID0ge1xuICB0eXBlOiAna2lkcycsXG4gIHNpemVzOiBbJzJUJywgJzNUJywgJzRUJywgJzVUJywgJzYnLCAnNycsICc4JywgJzEwJywgJzEyJywgJzE0JywgJzE2J10sXG4gIHNpemVHdWlkZToge1xuICAgICcyVCc6ICdBZ2UgMi0zJyxcbiAgICAnM1QnOiAnQWdlIDMtNCcsXG4gICAgJzRUJzogJ0FnZSA0LTUnLFxuICAgICc1VCc6ICdBZ2UgNS02JyxcbiAgICAnNic6ICdBZ2UgNi03JyxcbiAgICAnOCc6ICdBZ2UgNy04JyxcbiAgICAnMTAnOiAnQWdlIDktMTAnLFxuICAgICcxMic6ICdBZ2UgMTEtMTInLFxuICAgICcxNCc6ICdBZ2UgMTMtMTQnLFxuICAgICcxNic6ICdBZ2UgMTUtMTYnXG4gIH1cbn07XG5cbi8vIFN1YmNhdGVnb3J5IERlZmluaXRpb25zXG5leHBvcnQgaW50ZXJmYWNlIFN1YmNhdGVnb3J5RGVmaW5pdGlvbiB7XG4gIHJlYWRvbmx5IGlkOiBzdHJpbmc7XG4gIHJlYWRvbmx5IG5hbWU6IHN0cmluZztcbiAgcmVhZG9ubHkgZGVzY3JpcHRpb246IHN0cmluZztcbiAgcmVhZG9ubHkgZmlsdGVyVGFnczogcmVhZG9ubHkgc3RyaW5nW107XG59XG5cbi8vIFdvbWVuIEZhc2hpb24gRG9tYWluXG5leHBvcnQgaW50ZXJmYWNlIFdvbWVuRmFzaGlvbkRvbWFpbiBleHRlbmRzIENhdGVnb3J5RG9tYWluIHtcbiAgcmVhZG9ubHkgdmVydGljYWw6ICdmYXNoaW9uJztcbiAgcmVhZG9ubHkgY2F0ZWdvcnk6ICd3b21lbic7XG4gIHJlYWRvbmx5IHNpemVDaGFydDogdHlwZW9mIFdvbWVuU2l6ZUNoYXJ0O1xuICByZWFkb25seSBzdWJjYXRlZ29yaWVzOiByZWFkb25seSBTdWJjYXRlZ29yeURlZmluaXRpb25bXTtcbiAgcmVhZG9ubHkgcHJlZmVycmVkQnJhbmRzOiByZWFkb25seSBzdHJpbmdbXTtcbn1cblxuLy8gTWVuIEZhc2hpb24gRG9tYWluXG5leHBvcnQgaW50ZXJmYWNlIE1lbkZhc2hpb25Eb21haW4gZXh0ZW5kcyBDYXRlZ29yeURvbWFpbiB7XG4gIHJlYWRvbmx5IHZlcnRpY2FsOiAnZmFzaGlvbic7XG4gIHJlYWRvbmx5IGNhdGVnb3J5OiAnbWVuJztcbiAgcmVhZG9ubHkgc2l6ZUNoYXJ0OiB0eXBlb2YgTWVuU2l6ZUNoYXJ0O1xuICByZWFkb25seSBzdWJjYXRlZ29yaWVzOiByZWFkb25seSBTdWJjYXRlZ29yeURlZmluaXRpb25bXTtcbiAgcmVhZG9ubHkgcHJlZmVycmVkQnJhbmRzOiByZWFkb25seSBzdHJpbmdbXTtcbn1cblxuLy8gS2lkcyBGYXNoaW9uIERvbWFpblxuZXhwb3J0IGludGVyZmFjZSBLaWRzRmFzaGlvbkRvbWFpbiBleHRlbmRzIENhdGVnb3J5RG9tYWluIHtcbiAgcmVhZG9ubHkgdmVydGljYWw6ICdmYXNoaW9uJztcbiAgcmVhZG9ubHkgY2F0ZWdvcnk6ICdraWRzJztcbiAgcmVhZG9ubHkgc2l6ZUNoYXJ0OiB0eXBlb2YgS2lkc1NpemVDaGFydDtcbiAgcmVhZG9ubHkgc3ViY2F0ZWdvcmllczogcmVhZG9ubHkgU3ViY2F0ZWdvcnlEZWZpbml0aW9uW107XG4gIHJlYWRvbmx5IHByZWZlcnJlZEJyYW5kczogcmVhZG9ubHkgc3RyaW5nW107XG59XG5cbi8vIERvbWFpbiBGYWN0b3J5IFBhdHRlcm5cbmV4cG9ydCBhYnN0cmFjdCBjbGFzcyBDYXRlZ29yeURvbWFpbkZhY3Rvcnkge1xuICBhYnN0cmFjdCBjcmVhdGVEb21haW4odmVydGljYWw6IHN0cmluZywgY2F0ZWdvcnk6IHN0cmluZyk6IENhdGVnb3J5RG9tYWluO1xuICBhYnN0cmFjdCB2YWxpZGF0ZURvbWFpbihkb21haW46IENhdGVnb3J5RG9tYWluKTogYm9vbGVhbjtcbiAgYWJzdHJhY3QgZ2V0RG9tYWluTWV0YWRhdGEodmVydGljYWw6IHN0cmluZywgY2F0ZWdvcnk6IHN0cmluZyk6IENhdGVnb3J5TWV0YWRhdGE7XG59XG5cbi8vIFR5cGUgR3VhcmRzIGZvciBEb21haW4gVmFsaWRhdGlvblxuZXhwb3J0IGZ1bmN0aW9uIGlzV29tZW5GYXNoaW9uRG9tYWluKGRvbWFpbjogQ2F0ZWdvcnlEb21haW4pOiBkb21haW4gaXMgV29tZW5GYXNoaW9uRG9tYWluIHtcbiAgcmV0dXJuIGRvbWFpbi52ZXJ0aWNhbCA9PT0gJ2Zhc2hpb24nICYmIGRvbWFpbi5jYXRlZ29yeSA9PT0gJ3dvbWVuJztcbn1cblxuZXhwb3J0IGZ1bmN0aW9uIGlzTWVuRmFzaGlvbkRvbWFpbihkb21haW46IENhdGVnb3J5RG9tYWluKTogZG9tYWluIGlzIE1lbkZhc2hpb25Eb21haW4ge1xuICByZXR1cm4gZG9tYWluLnZlcnRpY2FsID09PSAnZmFzaGlvbicgJiYgZG9tYWluLmNhdGVnb3J5ID09PSAnbWVuJztcbn1cblxuZXhwb3J0IGZ1bmN0aW9uIGlzS2lkc0Zhc2hpb25Eb21haW4oZG9tYWluOiBDYXRlZ29yeURvbWFpbik6IGRvbWFpbiBpcyBLaWRzRmFzaGlvbkRvbWFpbiB7XG4gIHJldHVybiBkb21haW4udmVydGljYWwgPT09ICdmYXNoaW9uJyAmJiBkb21haW4uY2F0ZWdvcnkgPT09ICdraWRzJztcbn1cblxuLy8gQ2F0ZWdvcnkgU3RyYXRlZ3kgSW50ZXJmYWNlXG5leHBvcnQgaW50ZXJmYWNlIENhdGVnb3J5U3RyYXRlZ3kge1xuICByZWFkb25seSBkb21haW46IENhdGVnb3J5RG9tYWluO1xuICBnZXRGaWx0ZXJDb25maWd1cmF0aW9uKCk6IEZpbHRlckNvbmZpZ3VyYXRpb247XG4gIHZhbGlkYXRlU2VsZWN0aW9uKHNlbGVjdGlvbjogQ2F0ZWdvcnlTZWxlY3Rpb24pOiBWYWxpZGF0aW9uUmVzdWx0O1xuICB0cmFuc2Zvcm1MaXN0aW5nRGF0YShyYXdEYXRhOiBSYXdMaXN0aW5nRGF0YVtdKTogQ2F0ZWdvcnlTcGVjaWZpY0xpc3RpbmdEYXRhW107XG4gIGdldEFuYWx5dGljc0NvbmZpZ3VyYXRpb24oKTogQW5hbHl0aWNzQ29uZmlndXJhdGlvbjtcbn1cblxuLy8gU3VwcG9ydGluZyBUeXBlc1xuZXhwb3J0IGludGVyZmFjZSBGaWx0ZXJDb25maWd1cmF0aW9uIHtcbiAgcmVhZG9ubHkgYXZhaWxhYmxlRmlsdGVyczogcmVhZG9ubHkgc3RyaW5nW107XG4gIHJlYWRvbmx5IGRlZmF1bHRGaWx0ZXJzOiBSZWNvcmQ8c3RyaW5nLCBhbnk+O1xuICByZWFkb25seSBmaWx0ZXJWYWxpZGF0aW9uUnVsZXM6IFJlY29yZDxzdHJpbmcsIFZhbGlkYXRpb25SdWxlPjtcbn1cblxuZXhwb3J0IGludGVyZmFjZSBDYXRlZ29yeVNlbGVjdGlvbiB7XG4gIHJlYWRvbmx5IGxldmVsMT86IHN0cmluZztcbiAgcmVhZG9ubHkgbGV2ZWwyPzogc3RyaW5nO1xuICByZWFkb25seSBsZXZlbDM/OiBzdHJpbmc7XG4gIHJlYWRvbmx5IG1ldGFkYXRhPzogUmVjb3JkPHN0cmluZywgYW55Pjtcbn1cblxuZXhwb3J0IGludGVyZmFjZSBWYWxpZGF0aW9uUmVzdWx0IHtcbiAgcmVhZG9ubHkgaXNWYWxpZDogYm9vbGVhbjtcbiAgcmVhZG9ubHkgZXJyb3JzOiByZWFkb25seSBzdHJpbmdbXTtcbiAgcmVhZG9ubHkgd2FybmluZ3M6IHJlYWRvbmx5IHN0cmluZ1tdO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIFZhbGlkYXRpb25SdWxlIHtcbiAgcmVhZG9ubHkgcmVxdWlyZWQ6IGJvb2xlYW47XG4gIHJlYWRvbmx5IHR5cGU6IHN0cmluZztcbiAgcmVhZG9ubHkgdmFsaWRhdG9yOiAodmFsdWU6IGFueSkgPT4gYm9vbGVhbjtcbiAgcmVhZG9ubHkgZXJyb3JNZXNzYWdlOiBzdHJpbmc7XG59XG5cbmV4cG9ydCBpbnRlcmZhY2UgUmF3TGlzdGluZ0RhdGEge1xuICByZWFkb25seSBpZD86IHN0cmluZztcbiAgcmVhZG9ubHkgdGl0bGU/OiBzdHJpbmc7XG4gIHJlYWRvbmx5IGRlc2NyaXB0aW9uPzogc3RyaW5nO1xuICByZWFkb25seSBwcmljZT86IHN0cmluZztcbiAgcmVhZG9ubHkgY2F0ZWdvcnk/OiBzdHJpbmc7XG4gIHJlYWRvbmx5IHN1YmNhdGVnb3J5Pzogc3RyaW5nO1xuICByZWFkb25seSBicmFuZD86IHN0cmluZztcbiAgcmVhZG9ubHkgc2l6ZT86IHN0cmluZztcbiAgcmVhZG9ubHkgY29uZGl0aW9uPzogc3RyaW5nO1xuICByZWFkb25seSBpbWFnZXM/OiByZWFkb25seSBzdHJpbmdbXTtcbiAgcmVhZG9ubHkgdXNlcklkPzogc3RyaW5nO1xuICByZWFkb25seSBjcmVhdGVkQXQ/OiBzdHJpbmc7XG4gIHJlYWRvbmx5IHVwZGF0ZWRBdD86IHN0cmluZztcbiAgcmVhZG9ubHkgbWV0YWRhdGE/OiBSZWNvcmQ8c3RyaW5nLCBhbnk+O1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIENhdGVnb3J5U3BlY2lmaWNMaXN0aW5nRGF0YSBleHRlbmRzIFJhd0xpc3RpbmdEYXRhIHtcbiAgcmVhZG9ubHkgZG9tYWluU3BlY2lmaWNEYXRhOiBSZWNvcmQ8c3RyaW5nLCBhbnk+O1xuICByZWFkb25seSBjYXRlZ29yeVZhbGlkYXRpb246IFZhbGlkYXRpb25SZXN1bHQ7XG4gIHJlYWRvbmx5IHJlY29tbWVuZGVkRmlsdGVyczogcmVhZG9ubHkgc3RyaW5nW107XG59XG5cbmV4cG9ydCBpbnRlcmZhY2UgQW5hbHl0aWNzQ29uZmlndXJhdGlvbiB7XG4gIHJlYWRvbmx5IHRyYWNraW5nRXZlbnRzOiByZWFkb25seSBzdHJpbmdbXTtcbiAgcmVhZG9ubHkgY29udmVyc2lvbkdvYWxzOiByZWFkb25seSBzdHJpbmdbXTtcbiAgcmVhZG9ubHkgc2VnbWVudGF0aW9uUnVsZXM6IFJlY29yZDxzdHJpbmcsIGFueT47XG59XG5cbi8vIEV4cG9ydCBhbGwgZG9tYWluIHR5cGVzIGZvciB1c2UgaW4gc3RyYXRlZ2llc1xuZXhwb3J0IHR5cGUgRmFzaGlvbkRvbWFpbiA9IFdvbWVuRmFzaGlvbkRvbWFpbiB8IE1lbkZhc2hpb25Eb21haW4gfCBLaWRzRmFzaGlvbkRvbWFpbjsiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztJQWtDTztJQUFBQSxhQUFBLFlBQUFBLENBQUE7TUFBQSxPQUFBQyxjQUFBO0lBQUE7RUFBQTtFQUFBLE9BQUFBLGNBQUE7QUFBQTtBQUFBRCxhQUFBO0FBbENQOzs7OztBQU1BLFNBQVNFLENBQUMsUUFBUSxLQUFLO0FBU3ZCO0FBQ0EsT0FBTyxNQUFNQyxzQkFBc0I7QUFBQTtBQUFBLENBQUFILGFBQUEsR0FBQUksQ0FBQSxPQUFHRixDQUFDLENBQUNHLE1BQU0sQ0FBQztFQUM3Q0MsS0FBSyxFQUFFSixDQUFDLENBQUNL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

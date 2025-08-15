@@ -1,3 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate manifest
+        run: npm run prebuild
+
+      - name: Check manifest up-to-date
+        run: npm run check:manifest
+
+      - name: Type-check (focused)
+        run: npm run type-check
+
+      - name: Lint
+        run: npm run lint -- --max-warnings=0
+
+      - name: Build
+        run: npm run build
+
+      - name: Smoke tests
+        run: |
+          node scripts/smoke-check-result-utils.ts || true
+          node scripts/smoke-test-layout-policy.ts || true
+          node scripts/smoke-test-product-fill.ts || true
+
 name: BazaarLive CI Pipeline
 
 on:

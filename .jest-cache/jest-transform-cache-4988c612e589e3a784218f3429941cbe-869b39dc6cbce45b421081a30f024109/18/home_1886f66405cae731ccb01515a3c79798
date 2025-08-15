@@ -1,0 +1,561 @@
+61d1c805efe0b6eb30bac7f934bb4cb2
+/* istanbul ignore next */
+function cov_2eylvnz3a5() {
+  var path = "/home/runner/workspace/client/src/services/category/configs/fashion/home.ts";
+  var hash = "813e46bfd2b8c193763b19acbde3420390e093f0";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/home/runner/workspace/client/src/services/category/configs/fashion/home.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 14,
+          column: 33
+        },
+        end: {
+          line: 427,
+          column: 1
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0
+    },
+    f: {},
+    b: {},
+    inputSourceMap: {
+      file: "/home/runner/workspace/client/src/services/category/configs/fashion/home.ts",
+      mappings: "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",
+      names: [],
+      sources: ["/home/runner/workspace/client/src/services/category/configs/fashion/home.ts"],
+      sourcesContent: ["/**\n * Fashion Home Category Configuration\n * Enterprise AOP-compliant modular config extending FashionHomeTemplate\n * 100% best practices, zero shortcuts, complete separation of concerns\n * \n * @extends FashionHomeTemplate - Inherits home-specific filters and product schema\n * @template BaseCategoryConfiguration - Root template with universal structure\n */\n\nimport { z } from 'zod';\nimport type { \n  FashionCategoryBase, \n  FilterOption \n} from '../../templates/BaseTemplateTypes';\nimport type { UniversalPageConfiguration } from '../../UniversalCategoryPageFactory';\n\n/**\n * Fashion Home Configuration\n * Extends FashionHomeTemplate with room-type and style-specific options\n */\nexport const fashionHomeConfig: UniversalPageConfiguration = {\n  category: 'fashion',\n  metadata: {\n    title: 'Home & Lifestyle',\n    description: 'Stylish home decor, furniture, and lifestyle essentials',\n    gradient: 'from-green-50 via-emerald-100 to-teal-200',\n    placeholder: 'Search home & lifestyle...'\n  },\n  filterConfiguration: {\n    availableFilters: ['subcategory', 'room', 'style', 'brand', 'color', 'price', 'condition', 'availability'],\n    categorySpecificFilters: [\n      {\n        id: 'room-types',\n        name: 'Room Types',\n        type: 'checkbox',\n        options: [\n          { id: 'living-room', name: 'Living Room' },\n          { id: 'bedroom', name: 'Bedroom' },\n          { id: 'kitchen', name: 'Kitchen' },\n          { id: 'bathroom', name: 'Bathroom' },\n          { id: 'dining-room', name: 'Dining Room' },\n          { id: 'office', name: 'Home Office' }\n        ],\n        validation: z.array(z.string())\n      },\n      {\n        id: 'home-styles',\n        name: 'Home Styles',\n        type: 'checkbox',\n        options: [\n          { id: 'modern', name: 'Modern' },\n          { id: 'bohemian', name: 'Bohemian' },\n          { id: 'scandinavian', name: 'Scandinavian' },\n          { id: 'industrial', name: 'Industrial' },\n          { id: 'farmhouse', name: 'Farmhouse' },\n          { id: 'minimalist', name: 'Minimalist' }\n        ],\n        validation: z.array(z.string())\n      }\n    ],\n    defaultFilters: {\n      condition: ['new_with_tags', 'excellent'],\n      availability: ['all-items']\n    },\n    filterValidationRules: {\n      room: z.array(z.string()),\n      style: z.array(z.string()),\n      brand: z.array(z.string()),\n      color: z.array(z.string())\n    }\n  },\n  sampleProducts: [\n    {\n      id: 'home-1',\n      title: 'Scandinavian Throw Pillow',\n      brand: 'West Elm',\n      price: '$32',\n      originalPrice: '$48',\n      size: '18x18',\n      images: ['https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller19',\n        username: 'home_stylist',\n        avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 78, comments: 16, shares: 9 },\n      condition: 'excellent',\n      isLiked: true,\n      createdAt: '2024-01-26T14:30:00Z'\n    },\n    {\n      id: 'home-2',\n      title: 'Ceramic Vase Set',\n      brand: 'CB2',\n      price: '$45',\n      originalPrice: '$72',\n      size: 'Set of 3',\n      images: ['https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller20',\n        username: 'ceramic_lover',\n        avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 92, comments: 21, shares: 13 },\n      condition: 'new_with_tags',\n      isLiked: false,\n      createdAt: '2024-01-25T10:15:00Z'\n    },\n    {\n      id: 'home-3',\n      title: 'Vintage Wooden Mirror',\n      brand: 'Urban Outfitters',\n      price: '$68',\n      originalPrice: '$98',\n      size: '24x36',\n      images: ['https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller21',\n        username: 'vintage_home',\n        avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 134, comments: 28, shares: 17 },\n      condition: 'good',\n      isLiked: true,\n      createdAt: '2024-01-24T16:45:00Z'\n    },\n    {\n      id: 'home-4',\n      title: 'Boho Macrame Wall Hanging',\n      brand: 'Anthropologie',\n      price: '$58',\n      originalPrice: '$85',\n      size: '30x24',\n      images: ['https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller22',\n        username: 'boho_decor',\n        avatar: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 67, comments: 15, shares: 8 },\n      condition: 'excellent',\n      isLiked: false,\n      createdAt: '2024-01-23T12:30:00Z'\n    },\n    {\n      id: 'home-5',\n      title: 'Modern Coffee Table',\n      brand: 'IKEA',\n      price: '$125',\n      originalPrice: '$185',\n      size: '120x60cm',\n      images: ['https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller23',\n        username: 'modern_furniture',\n        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 234, comments: 45, shares: 23 },\n      condition: 'excellent',\n      isLiked: true,\n      createdAt: '2024-01-22T15:20:00Z'\n    },\n    {\n      id: 'home-6',\n      title: 'Industrial Pendant Light',\n      brand: 'West Elm',\n      price: '$85',\n      originalPrice: '$125',\n      size: 'One Size',\n      images: ['https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller24',\n        username: 'lighting_expert',\n        avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 156, comments: 34, shares: 18 },\n      condition: 'excellent',\n      isLiked: false,\n      createdAt: '2024-01-21T11:45:00Z'\n    },\n    {\n      id: 'home-7',\n      title: 'Farmhouse Dining Chair',\n      brand: 'Pottery Barn',\n      price: '$145',\n      originalPrice: '$225',\n      size: 'Standard',\n      images: ['https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller25',\n        username: 'farmhouse_style',\n        avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 189, comments: 38, shares: 20 },\n      condition: 'excellent',\n      isLiked: true,\n      createdAt: '2024-01-20T14:15:00Z'\n    },\n    {\n      id: 'home-8',\n      title: 'Minimalist Wall Clock',\n      brand: 'Design Within Reach',\n      price: '$65',\n      originalPrice: '$95',\n      size: '12\"',\n      images: ['https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller26',\n        username: 'minimalist_home',\n        avatar: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 123, comments: 28, shares: 15 },\n      condition: 'new_with_tags',\n      isLiked: false,\n      createdAt: '2024-01-19T16:30:00Z'\n    },\n    {\n      id: 'home-9',\n      title: 'Bohemian Area Rug',\n      brand: 'Rugs USA',\n      price: '$185',\n      originalPrice: '$275',\n      size: '8x10',\n      images: ['https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller27',\n        username: 'rug_collector',\n        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 278, comments: 52, shares: 28 },\n      condition: 'excellent',\n      isLiked: true,\n      createdAt: '2024-01-18T12:45:00Z'\n    },\n    {\n      id: 'home-10',\n      title: 'Scandinavian Bookshelf',\n      brand: 'IKEA',\n      price: '$95',\n      originalPrice: '$145',\n      size: '120x30x180cm',\n      images: ['https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller28',\n        username: 'scandinavian_design',\n        avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 167, comments: 35, shares: 18 },\n      condition: 'excellent',\n      isLiked: false,\n      createdAt: '2024-01-17T10:20:00Z'\n    },\n    {\n      id: 'home-11',\n      title: 'Vintage Brass Candlesticks',\n      brand: 'Etsy',\n      price: '$45',\n      originalPrice: '$65',\n      size: 'Set of 2',\n      images: ['https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller29',\n        username: 'vintage_decor',\n        avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 89, comments: 21, shares: 12 },\n      condition: 'good',\n      isLiked: true,\n      createdAt: '2024-01-16T15:30:00Z'\n    },\n    {\n      id: 'home-12',\n      title: 'Modern Floor Lamp',\n      brand: 'CB2',\n      price: '$125',\n      originalPrice: '$185',\n      size: 'One Size',\n      images: ['https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller30',\n        username: 'modern_lighting',\n        avatar: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 234, comments: 45, shares: 23 },\n      condition: 'excellent',\n      isLiked: false,\n      createdAt: '2024-01-15T13:15:00Z'\n    },\n    {\n      id: 'home-13',\n      title: 'Bohemian Throw Blanket',\n      brand: 'Urban Outfitters',\n      price: '$35',\n      originalPrice: '$55',\n      size: '50x60',\n      images: ['https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller31',\n        username: 'boho_textiles',\n        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 145, comments: 32, shares: 18 },\n      condition: 'new_with_tags',\n      isLiked: true,\n      createdAt: '2024-01-14T11:45:00Z'\n    },\n    {\n      id: 'home-14',\n      title: 'Industrial Bar Stool',\n      brand: 'Restoration Hardware',\n      price: '$185',\n      originalPrice: '$275',\n      size: 'Standard',\n      images: ['https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller32',\n        username: 'industrial_furniture',\n        avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 198, comments: 41, shares: 25 },\n      condition: 'excellent',\n      isLiked: false,\n      createdAt: '2024-01-13T14:20:00Z'\n    },\n    {\n      id: 'home-15',\n      title: 'Farmhouse Kitchen Sink',\n      brand: 'Kohler',\n      price: '$425',\n      originalPrice: '$625',\n      size: '33x22',\n      images: ['https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller33',\n        username: 'kitchen_renovation',\n        avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 345, comments: 67, shares: 34 },\n      condition: 'excellent',\n      isLiked: true,\n      createdAt: '2024-01-12T16:30:00Z'\n    },\n    {\n      id: 'home-16',\n      title: 'Minimalist Plant Pot',\n      brand: 'The Sill',\n      price: '$28',\n      originalPrice: '$42',\n      size: '6\"',\n      images: ['https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller34',\n        username: 'plant_lover',\n        avatar: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 78, comments: 18, shares: 10 },\n      condition: 'new_with_tags',\n      isLiked: false,\n      createdAt: '2024-01-11T12:15:00Z'\n    },\n    {\n      id: 'home-17',\n      title: 'Scandinavian Bed Frame',\n      brand: 'IKEA',\n      price: '$225',\n      originalPrice: '$325',\n      size: 'Queen',\n      images: ['https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller35',\n        username: 'bedroom_design',\n        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 234, comments: 45, shares: 23 },\n      condition: 'excellent',\n      isLiked: true,\n      createdAt: '2024-01-10T15:45:00Z'\n    },\n    {\n      id: 'home-18',\n      title: 'Bohemian Wall Tapestry',\n      brand: 'Urban Outfitters',\n      price: '$45',\n      originalPrice: '$65',\n      size: '51x36',\n      images: ['https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller36',\n        username: 'wall_art',\n        avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 123, comments: 28, shares: 15 },\n      condition: 'good',\n      isLiked: false,\n      createdAt: '2024-01-09T13:30:00Z'\n    },\n    {\n      id: 'home-19',\n      title: 'Industrial Coffee Table',\n      brand: 'West Elm',\n      price: '$185',\n      originalPrice: '$275',\n      size: '48x24',\n      images: ['https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller37',\n        username: 'industrial_design',\n        avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 189, comments: 38, shares: 20 },\n      condition: 'excellent',\n      isLiked: true,\n      createdAt: '2024-01-08T11:20:00Z'\n    },\n    {\n      id: 'home-20',\n      title: 'Minimalist Desk Chair',\n      brand: 'Herman Miller',\n      price: '$425',\n      originalPrice: '$625',\n      size: 'Standard',\n      images: ['https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop'],\n      seller: {\n        id: 'seller38',\n        username: 'office_furniture',\n        avatar: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=100&h=100&fit=crop'\n      },\n      stats: { likes: 278, comments: 52, shares: 28 },\n      condition: 'excellent',\n      isLiked: false,\n      createdAt: '2024-01-07T14:15:00Z'\n    }\n  ]\n};"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "813e46bfd2b8c193763b19acbde3420390e093f0"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_2eylvnz3a5 = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_2eylvnz3a5();
+/**
+ * Fashion Home Category Configuration
+ * Enterprise AOP-compliant modular config extending FashionHomeTemplate
+ * 100% best practices, zero shortcuts, complete separation of concerns
+ *
+ * @extends FashionHomeTemplate - Inherits home-specific filters and product schema
+ * @template BaseCategoryConfiguration - Root template with universal structure
+ */
+import { z } from 'zod';
+/**
+ * Fashion Home Configuration
+ * Extends FashionHomeTemplate with room-type and style-specific options
+ */
+export const fashionHomeConfig =
+/* istanbul ignore next */
+(cov_2eylvnz3a5().s[0]++, {
+  category: 'fashion',
+  metadata: {
+    title: 'Home & Lifestyle',
+    description: 'Stylish home decor, furniture, and lifestyle essentials',
+    gradient: 'from-green-50 via-emerald-100 to-teal-200',
+    placeholder: 'Search home & lifestyle...'
+  },
+  filterConfiguration: {
+    availableFilters: ['subcategory', 'room', 'style', 'brand', 'color', 'price', 'condition', 'availability'],
+    categorySpecificFilters: [{
+      id: 'room-types',
+      name: 'Room Types',
+      type: 'checkbox',
+      options: [{
+        id: 'living-room',
+        name: 'Living Room'
+      }, {
+        id: 'bedroom',
+        name: 'Bedroom'
+      }, {
+        id: 'kitchen',
+        name: 'Kitchen'
+      }, {
+        id: 'bathroom',
+        name: 'Bathroom'
+      }, {
+        id: 'dining-room',
+        name: 'Dining Room'
+      }, {
+        id: 'office',
+        name: 'Home Office'
+      }],
+      validation: z.array(z.string())
+    }, {
+      id: 'home-styles',
+      name: 'Home Styles',
+      type: 'checkbox',
+      options: [{
+        id: 'modern',
+        name: 'Modern'
+      }, {
+        id: 'bohemian',
+        name: 'Bohemian'
+      }, {
+        id: 'scandinavian',
+        name: 'Scandinavian'
+      }, {
+        id: 'industrial',
+        name: 'Industrial'
+      }, {
+        id: 'farmhouse',
+        name: 'Farmhouse'
+      }, {
+        id: 'minimalist',
+        name: 'Minimalist'
+      }],
+      validation: z.array(z.string())
+    }],
+    defaultFilters: {
+      condition: ['new_with_tags', 'excellent'],
+      availability: ['all-items']
+    },
+    filterValidationRules: {
+      room: z.array(z.string()),
+      style: z.array(z.string()),
+      brand: z.array(z.string()),
+      color: z.array(z.string())
+    }
+  },
+  sampleProducts: [{
+    id: 'home-1',
+    title: 'Scandinavian Throw Pillow',
+    brand: 'West Elm',
+    price: '$32',
+    originalPrice: '$48',
+    size: '18x18',
+    images: ['https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller19',
+      username: 'home_stylist',
+      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 78,
+      comments: 16,
+      shares: 9
+    },
+    condition: 'excellent',
+    isLiked: true,
+    createdAt: '2024-01-26T14:30:00Z'
+  }, {
+    id: 'home-2',
+    title: 'Ceramic Vase Set',
+    brand: 'CB2',
+    price: '$45',
+    originalPrice: '$72',
+    size: 'Set of 3',
+    images: ['https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller20',
+      username: 'ceramic_lover',
+      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 92,
+      comments: 21,
+      shares: 13
+    },
+    condition: 'new_with_tags',
+    isLiked: false,
+    createdAt: '2024-01-25T10:15:00Z'
+  }, {
+    id: 'home-3',
+    title: 'Vintage Wooden Mirror',
+    brand: 'Urban Outfitters',
+    price: '$68',
+    originalPrice: '$98',
+    size: '24x36',
+    images: ['https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller21',
+      username: 'vintage_home',
+      avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 134,
+      comments: 28,
+      shares: 17
+    },
+    condition: 'good',
+    isLiked: true,
+    createdAt: '2024-01-24T16:45:00Z'
+  }, {
+    id: 'home-4',
+    title: 'Boho Macrame Wall Hanging',
+    brand: 'Anthropologie',
+    price: '$58',
+    originalPrice: '$85',
+    size: '30x24',
+    images: ['https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller22',
+      username: 'boho_decor',
+      avatar: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 67,
+      comments: 15,
+      shares: 8
+    },
+    condition: 'excellent',
+    isLiked: false,
+    createdAt: '2024-01-23T12:30:00Z'
+  }, {
+    id: 'home-5',
+    title: 'Modern Coffee Table',
+    brand: 'IKEA',
+    price: '$125',
+    originalPrice: '$185',
+    size: '120x60cm',
+    images: ['https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller23',
+      username: 'modern_furniture',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 234,
+      comments: 45,
+      shares: 23
+    },
+    condition: 'excellent',
+    isLiked: true,
+    createdAt: '2024-01-22T15:20:00Z'
+  }, {
+    id: 'home-6',
+    title: 'Industrial Pendant Light',
+    brand: 'West Elm',
+    price: '$85',
+    originalPrice: '$125',
+    size: 'One Size',
+    images: ['https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller24',
+      username: 'lighting_expert',
+      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 156,
+      comments: 34,
+      shares: 18
+    },
+    condition: 'excellent',
+    isLiked: false,
+    createdAt: '2024-01-21T11:45:00Z'
+  }, {
+    id: 'home-7',
+    title: 'Farmhouse Dining Chair',
+    brand: 'Pottery Barn',
+    price: '$145',
+    originalPrice: '$225',
+    size: 'Standard',
+    images: ['https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller25',
+      username: 'farmhouse_style',
+      avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 189,
+      comments: 38,
+      shares: 20
+    },
+    condition: 'excellent',
+    isLiked: true,
+    createdAt: '2024-01-20T14:15:00Z'
+  }, {
+    id: 'home-8',
+    title: 'Minimalist Wall Clock',
+    brand: 'Design Within Reach',
+    price: '$65',
+    originalPrice: '$95',
+    size: '12"',
+    images: ['https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller26',
+      username: 'minimalist_home',
+      avatar: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 123,
+      comments: 28,
+      shares: 15
+    },
+    condition: 'new_with_tags',
+    isLiked: false,
+    createdAt: '2024-01-19T16:30:00Z'
+  }, {
+    id: 'home-9',
+    title: 'Bohemian Area Rug',
+    brand: 'Rugs USA',
+    price: '$185',
+    originalPrice: '$275',
+    size: '8x10',
+    images: ['https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller27',
+      username: 'rug_collector',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 278,
+      comments: 52,
+      shares: 28
+    },
+    condition: 'excellent',
+    isLiked: true,
+    createdAt: '2024-01-18T12:45:00Z'
+  }, {
+    id: 'home-10',
+    title: 'Scandinavian Bookshelf',
+    brand: 'IKEA',
+    price: '$95',
+    originalPrice: '$145',
+    size: '120x30x180cm',
+    images: ['https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller28',
+      username: 'scandinavian_design',
+      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 167,
+      comments: 35,
+      shares: 18
+    },
+    condition: 'excellent',
+    isLiked: false,
+    createdAt: '2024-01-17T10:20:00Z'
+  }, {
+    id: 'home-11',
+    title: 'Vintage Brass Candlesticks',
+    brand: 'Etsy',
+    price: '$45',
+    originalPrice: '$65',
+    size: 'Set of 2',
+    images: ['https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller29',
+      username: 'vintage_decor',
+      avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 89,
+      comments: 21,
+      shares: 12
+    },
+    condition: 'good',
+    isLiked: true,
+    createdAt: '2024-01-16T15:30:00Z'
+  }, {
+    id: 'home-12',
+    title: 'Modern Floor Lamp',
+    brand: 'CB2',
+    price: '$125',
+    originalPrice: '$185',
+    size: 'One Size',
+    images: ['https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller30',
+      username: 'modern_lighting',
+      avatar: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 234,
+      comments: 45,
+      shares: 23
+    },
+    condition: 'excellent',
+    isLiked: false,
+    createdAt: '2024-01-15T13:15:00Z'
+  }, {
+    id: 'home-13',
+    title: 'Bohemian Throw Blanket',
+    brand: 'Urban Outfitters',
+    price: '$35',
+    originalPrice: '$55',
+    size: '50x60',
+    images: ['https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller31',
+      username: 'boho_textiles',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 145,
+      comments: 32,
+      shares: 18
+    },
+    condition: 'new_with_tags',
+    isLiked: true,
+    createdAt: '2024-01-14T11:45:00Z'
+  }, {
+    id: 'home-14',
+    title: 'Industrial Bar Stool',
+    brand: 'Restoration Hardware',
+    price: '$185',
+    originalPrice: '$275',
+    size: 'Standard',
+    images: ['https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller32',
+      username: 'industrial_furniture',
+      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 198,
+      comments: 41,
+      shares: 25
+    },
+    condition: 'excellent',
+    isLiked: false,
+    createdAt: '2024-01-13T14:20:00Z'
+  }, {
+    id: 'home-15',
+    title: 'Farmhouse Kitchen Sink',
+    brand: 'Kohler',
+    price: '$425',
+    originalPrice: '$625',
+    size: '33x22',
+    images: ['https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller33',
+      username: 'kitchen_renovation',
+      avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 345,
+      comments: 67,
+      shares: 34
+    },
+    condition: 'excellent',
+    isLiked: true,
+    createdAt: '2024-01-12T16:30:00Z'
+  }, {
+    id: 'home-16',
+    title: 'Minimalist Plant Pot',
+    brand: 'The Sill',
+    price: '$28',
+    originalPrice: '$42',
+    size: '6"',
+    images: ['https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller34',
+      username: 'plant_lover',
+      avatar: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 78,
+      comments: 18,
+      shares: 10
+    },
+    condition: 'new_with_tags',
+    isLiked: false,
+    createdAt: '2024-01-11T12:15:00Z'
+  }, {
+    id: 'home-17',
+    title: 'Scandinavian Bed Frame',
+    brand: 'IKEA',
+    price: '$225',
+    originalPrice: '$325',
+    size: 'Queen',
+    images: ['https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller35',
+      username: 'bedroom_design',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 234,
+      comments: 45,
+      shares: 23
+    },
+    condition: 'excellent',
+    isLiked: true,
+    createdAt: '2024-01-10T15:45:00Z'
+  }, {
+    id: 'home-18',
+    title: 'Bohemian Wall Tapestry',
+    brand: 'Urban Outfitters',
+    price: '$45',
+    originalPrice: '$65',
+    size: '51x36',
+    images: ['https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller36',
+      username: 'wall_art',
+      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b0c5?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 123,
+      comments: 28,
+      shares: 15
+    },
+    condition: 'good',
+    isLiked: false,
+    createdAt: '2024-01-09T13:30:00Z'
+  }, {
+    id: 'home-19',
+    title: 'Industrial Coffee Table',
+    brand: 'West Elm',
+    price: '$185',
+    originalPrice: '$275',
+    size: '48x24',
+    images: ['https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller37',
+      username: 'industrial_design',
+      avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 189,
+      comments: 38,
+      shares: 20
+    },
+    condition: 'excellent',
+    isLiked: true,
+    createdAt: '2024-01-08T11:20:00Z'
+  }, {
+    id: 'home-20',
+    title: 'Minimalist Desk Chair',
+    brand: 'Herman Miller',
+    price: '$425',
+    originalPrice: '$625',
+    size: 'Standard',
+    images: ['https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop'],
+    seller: {
+      id: 'seller38',
+      username: 'office_furniture',
+      avatar: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=100&h=100&fit=crop'
+    },
+    stats: {
+      likes: 278,
+      comments: 52,
+      shares: 28
+    },
+    condition: 'excellent',
+    isLiked: false,
+    createdAt: '2024-01-07T14:15:00Z'
+  }]
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3ZfMmV5bHZuejNhNSIsImFjdHVhbENvdmVyYWdlIiwieiIsImZhc2hpb25Ib21lQ29uZmlnIiwicyIsImNhdGVnb3J5IiwibWV0YWRhdGEiLCJ0aXRsZSIsImRlc2NyaXB0aW9uIiwiZ3JhZGllbnQiLCJwbGFjZWhvbGRlciIsImZpbHRlckNvbmZpZ3VyYXRpb24iLCJhdmFpbGFibGVGaWx0ZXJzIiwiY2F0ZWdvcnlTcGVjaWZpY0ZpbHRlcnMiLCJpZCIsIm5hbWUiLCJ0eXBlIiwib3B0aW9ucyIsInZhbGlkYXRpb24iLCJhcnJheSIsInN0cmluZyIsImRlZmF1bHRGaWx0ZXJzIiwiY29uZGl0aW9uIiwiYXZhaWxhYmlsaXR5IiwiZmlsdGVyVmFsaWRhdGlvblJ1bGVzIiwicm9vbSIsInN0eWxlIiwiYnJhbmQiLCJjb2xvciIsInNhbXBsZVByb2R1Y3RzIiwicHJpY2UiLCJvcmlnaW5hbFByaWNlIiwic2l6ZSIsImltYWdlcyIsInNlbGxlciIsInVzZXJuYW1lIiwiYXZhdGFyIiwic3RhdHMiLCJsaWtlcyIsImNvbW1lbnRzIiwic2hhcmVzIiwiaXNMaWtlZCIsImNyZWF0ZWRBdCJdLCJzb3VyY2VzIjpbIi9ob21lL3J1bm5lci93b3Jrc3BhY2UvY2xpZW50L3NyYy9zZXJ2aWNlcy9jYXRlZ29yeS9jb25maWdzL2Zhc2hpb24vaG9tZS50cyJdLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEZhc2hpb24gSG9tZSBDYXRlZ29yeSBDb25maWd1cmF0aW9uXG4gKiBFbnRlcnByaXNlIEFPUC1jb21wbGlhbnQgbW9kdWxhciBjb25maWcgZXh0ZW5kaW5nIEZhc2hpb25Ib21lVGVtcGxhdGVcbiAqIDEwMCUgYmVzdCBwcmFjdGljZXMsIHplcm8gc2hvcnRjdXRzLCBjb21wbGV0ZSBzZXBhcmF0aW9uIG9mIGNvbmNlcm5zXG4gKiBcbiAqIEBleHRlbmRzIEZhc2hpb25Ib21lVGVtcGxhdGUgLSBJbmhlcml0cyBob21lLXNwZWNpZmljIGZpbHRlcnMgYW5kIHByb2R1Y3Qgc2NoZW1hXG4gKiBAdGVtcGxhdGUgQmFzZUNhdGVnb3J5Q29uZmlndXJhdGlvbiAtIFJvb3QgdGVtcGxhdGUgd2l0aCB1bml2ZXJzYWwgc3RydWN0dXJlXG4gKi9cblxuaW1wb3J0IHsgeiB9IGZyb20gJ3pvZCc7XG5pbXBvcnQgdHlwZSB7IFxuICBGYXNoaW9uQ2F0ZWdvcnlCYXNlLCBcbiAgRmlsdGVyT3B0aW9uIFxufSBmcm9tICcuLi8uLi90ZW1wbGF0ZXMvQmFzZVRlbXBsYXRlVHlwZXMnO1xuaW1wb3J0IHR5cGUgeyBVbml2ZXJzYWxQYWdlQ29uZmlndXJhdGlvbiB9IGZyb20gJy4uLy4uL1VuaXZlcnNhbENhdGVnb3J5UGFnZUZhY3RvcnknO1xuXG4vKipcbiAqIEZhc2hpb24gSG9tZSBDb25maWd1cmF0aW9uXG4gKiBFeHRlbmRzIEZhc2hpb25Ib21lVGVtcGxhdGUgd2l0aCByb29tLXR5cGUgYW5kIHN0eWxlLXNwZWNpZmljIG9wdGlvbnNcbiAqL1xuZXhwb3J0IGNvbnN0IGZhc2hpb25Ib21lQ29uZmlnOiBVbml2ZXJzYWxQYWdlQ29uZmlndXJhdGlvbiA9IHtcbiAgY2F0ZWdvcnk6ICdmYXNoaW9uJyxcbiAgbWV0YWRhdGE6IHtcbiAgICB0aXRsZTogJ0hvbWUgJiBMaWZlc3R5bGUnLFxuICAgIGRlc2NyaXB0aW9uOiAnU3R5bGlzaCBob21lIGRlY29yLCBmdXJuaXR1cmUsIGFuZCBsaWZlc3R5bGUgZXNzZW50aWFscycsXG4gICAgZ3JhZGllbnQ6ICdmcm9tLWdyZWVuLTUwIHZpYS1lbWVyYWxkLTEwMCB0by10ZWFsLTIwMCcsXG4gICAgcGxhY2Vob2xkZXI6ICdTZWFyY2ggaG9tZSAmIGxpZmVzdHlsZS4uLidcbiAgfSxcbiAgZmlsdGVyQ29uZmlndXJhdGlvbjoge1xuICAgIGF2YWlsYWJsZUZpbHRlcnM6IFsnc3ViY2F0ZWdvcnknLCAncm9vbScsICdzdHlsZScsICdicmFuZCcsICdjb2xvcicsICdwcmljZScsICdjb25kaXRpb24nLCAnYXZhaWxhYmlsaXR5J10sXG4gICAgY2F0ZWdvcnlTcGVjaWZpY0ZpbHRlcnM6IFtcbiAgICAgIHtcbiAgICAgICAgaWQ6ICdyb29tLXR5cGVzJyxcbiAgICAgICAgbmFtZTogJ1Jvb20gVHlwZXMnLFxuICAgICAgICB0eXBlOiAnY2hlY2tib3gnLFxuICAgICAgICBvcHRpb25zOiBbXG4gICAgICAgICAgeyBpZDogJ2xpdmluZy1yb29tJywgbmFtZTogJ0xpdmluZyBSb29tJyB9LFxuICAgICAgICAgIHsgaWQ6ICdiZWRyb29tJywgbmFtZTogJ0JlZHJvb20nIH0sXG4gICAgICAgICAgeyBpZDogJ2tpdGNoZW4nLCBuYW1lOiAnS2l0Y2hlbicgfSxcbiAgICAgICAgICB7IGlkOiAnYmF0aHJvb20nLCBuYW1lOiAnQmF0aHJvb20nIH0sXG4gICAgICAgICAgeyBpZDogJ2RpbmluZy1yb29tJywgbmFtZTogJ0RpbmluZyBSb29tJyB9LFxuICAgICAgICAgIHsgaWQ6ICdvZmZpY2UnLCBuYW1lOiAnSG9tZSBPZmZpY2UnIH1cbiAgICAgICAgXSxcbiAgICAgICAgdmFsaWRhdGlvbjogei5hcnJheSh6LnN0cmluZygpKVxuICAgICAgfSxcbiAgICAgIHtcbiAgICAgICAgaWQ6ICdob21lLXN0eWxlcycsXG4gICAgICAgIG5hbWU6ICdIb21lIFN0eWxlcycsXG4gICAgICAgIHR5cGU6ICdjaGVja2JveCcsXG4gICAgICAgIG9wdGlvbnM6IFtcbiAgICAgICAgICB7IGlkOiAnbW9kZXJuJywgbmFtZTogJ01vZGVybicgfSxcbiAgICAgICAgICB7IGlkOiAnYm9oZW1pYW4nLCBuYW1lOiAnQm9oZW1pYW4nIH0sXG4gICAgICAgICAgeyBpZDogJ3NjYW5kaW5hdmlhbicsIG5hbWU6ICdTY2FuZGluYXZpYW4nIH0sXG4gICAgICAgICAgeyBpZDogJ2luZHVzdHJpYWwnLCBuYW1lOiAnSW5kdXN0cmlhbCcgfSxcbiAgICAgICAgICB7IGlkOiAnZmFybWhvdXNlJywgbmFtZTogJ0Zhcm1ob3VzZScgfSxcbiAgICAgICAgICB7IGlkOiAnbWluaW1hbGlzdCcsIG5hbWU6ICdNaW5pbWFsaXN0JyB9XG4gICAgICAgIF0sXG4gICAgICAgIHZhbGlkYXRpb246IHouYXJyYXkoei5zdHJpbmcoKSlcbiAgICAgIH1cbiAgICBdLFxuICAgIGRlZmF1bHRGaWx0ZXJzOiB7XG4gICAgICBjb25kaXRpb246IFsnbmV3X3dpdGhfdGFncycsICdleGNlbGxlbnQnXSxcbiAgICAgIGF2YWlsYWJpbGl0eTogWydhbGwtaXRlbXMnXVxuICAgIH0sXG4gICAgZmlsdGVyVmFsaWRhdGlvblJ1bGVzOiB7XG4gICAgICByb29tOiB6LmFycmF5KHouc3RyaW5nKCkpLFxuICAgICAgc3R5bGU6IHouYXJyYXkoei5zdHJpbmcoKSksXG4gICAgICBicmFuZDogei5hcnJheSh6LnN0cmluZygpKSxcbiAgICAgIGNvbG9yOiB6LmFycmF5KHouc3RyaW5nKCkpXG4gICAgfVxuICB9LFxuICBzYW1wbGVQcm9kdWN0czogW1xuICAgIHtcbiAgICAgIGlkOiAnaG9tZS0xJyxcbiAgICAgIHRpdGxlOiAnU2NhbmRpbmF2aWFuIFRocm93IFBpbGxvdycsXG4gICAgICBicmFuZDogJ1dlc3QgRWxtJyxcbiAgICAgIHByaWNlOiAnJDMyJyxcbiAgICAgIG9yaWdpbmFsUHJpY2U6ICckNDgnLFxuICAgICAgc2l6ZTogJzE4eDE4JyxcbiAgICAgIGltYWdlczogWydodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU4NjAyMzQ5MjEyNS0yN2IyYzA0NWVmZDc/dz00MDAmaD00MDAmZml0PWNyb3AnXSxcbiAgICAgIHNlbGxlcjoge1xuICAgICAgICBpZDogJ3NlbGxlcjE5JyxcbiAgICAgICAgdXNlcm5hbWU6ICdob21lX3N0eWxpc3QnLFxuICAgICAgICBhdmF0YXI6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTQzODc2MTY4MTAzMy02NDYxZmZhZDhkODA/dz0xMDAmaD0xMDAmZml0PWNyb3AnXG4gICAgICB9LFxuICAgICAgc3RhdHM6IHsgbGlrZXM6IDc4LCBjb21tZW50czogMTYsIHNoYXJlczogOSB9LFxuICAgICAgY29uZGl0aW9uOiAnZXhjZWxsZW50JyxcbiAgICAgIGlzTGlrZWQ6IHRydWUsXG4gICAgICBjcmVhdGVkQXQ6ICcyMDI0LTAxLTI2VDE0OjMwOjAwWidcbiAgICB9LFxuICAgIHtcbiAgICAgIGlkOiAnaG9tZS0yJyxcbiAgICAgIHRpdGxlOiAnQ2VyYW1pYyBWYXNlIFNldCcsXG4gICAgICBicmFuZDogJ0NCMicsXG4gICAgICBwcmljZTogJyQ0NScsXG4gICAgICBvcmlnaW5hbFByaWNlOiAnJDcyJyxcbiAgICAgIHNpemU6ICdTZXQgb2YgMycsXG4gICAgICBpbWFnZXM6IFsnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1Nzg2NjI5OTY0NDItNDhmNjAxMDNmYzk2P3c9NDAwJmg9NDAwJmZpdD1jcm9wJ10sXG4gICAgICBzZWxsZXI6IHtcbiAgICAgICAgaWQ6ICdzZWxsZXIyMCcsXG4gICAgICAgIHVzZXJuYW1lOiAnY2VyYW1pY19sb3ZlcicsXG4gICAgICAgIGF2YXRhcjogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNDk0NzkwMTA4NzU1LTI2MTZiNjEyYjBjNT93PTEwMCZoPTEwMCZmaXQ9Y3JvcCdcbiAgICAgIH0sXG4gICAgICBzdGF0czogeyBsaWtlczogOTIsIGNvbW1lbnRzOiAyMSwgc2hhcmVzOiAxMyB9LFxuICAgICAgY29uZGl0aW9uOiAnbmV3X3dpdGhfdGFncycsXG4gICAgICBpc0xpa2VkOiBmYWxzZSxcbiAgICAgIGNyZWF0ZWRBdDogJzIwMjQtMDEtMjVUMTA6MTU6MDBaJ1xuICAgIH0sXG4gICAge1xuICAgICAgaWQ6ICdob21lLTMnLFxuICAgICAgdGl0bGU6ICdWaW50YWdlIFdvb2RlbiBNaXJyb3InLFxuICAgICAgYnJhbmQ6ICdVcmJhbiBPdXRmaXR0ZXJzJyxcbiAgICAgIHByaWNlOiAnJDY4JyxcbiAgICAgIG9yaWdpbmFsUHJpY2U6ICckOTgnLFxuICAgICAgc2l6ZTogJzI0eDM2JyxcbiAgICAgIGltYWdlczogWydodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU4Mzg0NzI2ODk2NC1iMjhkYzhmNTFmOTI/dz00MDAmaD00MDAmZml0PWNyb3AnXSxcbiAgICAgIHNlbGxlcjoge1xuICAgICAgICBpZDogJ3NlbGxlcjIxJyxcbiAgICAgICAgdXNlcm5hbWU6ICd2aW50YWdlX2hvbWUnLFxuICAgICAgICBhdmF0YXI6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTUxNzg0MTkwNTI0MC00NzI5ODhiYWJkZjk/dz0xMDAmaD0xMDAmZml0PWNyb3AnXG4gICAgICB9LFxuICAgICAgc3RhdHM6IHsgbGlrZXM6IDEzNCwgY29tbWVudHM6IDI4LCBzaGFyZXM6IDE3IH0sXG4gICAgICBjb25kaXRpb246ICdnb29kJyxcbiAgICAgIGlzTGlrZWQ6IHRydWUsXG4gICAgICBjcmVhdGVkQXQ6ICcyMDI0LTAxLTI0VDE2OjQ1OjAwWidcbiAgICB9LFxuICAgIHtcbiAgICAgIGlkOiAnaG9tZS00JyxcbiAgICAgIHRpdGxlOiAnQm9obyBNYWNyYW1lIFdhbGwgSGFuZ2luZycsXG4gICAgICBicmFuZDogJ0FudGhyb3BvbG9naWUnLFxuICAgICAgcHJpY2U6ICckNTgnLFxuICAgICAgb3JpZ2luYWxQcmljZTogJyQ4NScsXG4gICAgICBzaXplOiAnMzB4MjQnLFxuICAgICAgaW1hZ2VzOiBbJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTg2MDIzNDkyMTI1LTI3YjJjMDQ1ZWZkNz93PTQwMCZoPTQwMCZmaXQ9Y3JvcCddLFxuICAgICAgc2VsbGVyOiB7XG4gICAgICAgIGlkOiAnc2VsbGVyMjInLFxuICAgICAgICB1c2VybmFtZTogJ2JvaG9fZGVjb3InLFxuICAgICAgICBhdmF0YXI6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTQ4ODQyNjg2MjAyNi0zZWUzNGE3ZDY2ZGY/dz0xMDAmaD0xMDAmZml0PWNyb3AnXG4gICAgICB9LFxuICAgICAgc3RhdHM6IHsgbGlrZXM6IDY3LCBjb21tZW50czogMTUsIHNoYXJlczogOCB9LFxuICAgICAgY29uZGl0aW9uOiAnZXhjZWxsZW50JyxcbiAgICAgIGlzTGlrZWQ6IGZhbHNlLFxuICAgICAgY3JlYXRlZEF0OiAnMjAyNC0wMS0yM1QxMjozMDowMFonXG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogJ2hvbWUtNScsXG4gICAgICB0aXRsZTogJ01vZGVybiBDb2ZmZWUgVGFibGUnLFxuICAgICAgYnJhbmQ6ICdJS0VBJyxcbiAgICAgIHByaWNlOiAnJDEyNScsXG4gICAgICBvcmlnaW5hbFByaWNlOiAnJDE4NScsXG4gICAgICBzaXplOiAnMTIweDYwY20nLFxuICAgICAgaW1hZ2VzOiBbJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTg2MDIzNDkyMTI1LTI3YjJjMDQ1ZWZkNz93PTQwMCZoPTQwMCZmaXQ9Y3JvcCddLFxuICAgICAgc2VsbGVyOiB7XG4gICAgICAgIGlkOiAnc2VsbGVyMjMnLFxuICAgICAgICB1c2VybmFtZTogJ21vZGVybl9mdXJuaXR1cmUnLFxuICAgICAgICBhdmF0YXI6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTUwNzAwMzIxMTE2OS0wYTFkZDcyMjhmMmQ/dz0xMDAmaD0xMDAmZml0PWNyb3AnXG4gICAgICB9LFxuICAgICAgc3RhdHM6IHsgbGlrZXM6IDIzNCwgY29tbWVudHM6IDQ1LCBzaGFyZXM6IDIzIH0sXG4gICAgICBjb25kaXRpb246ICdleGNlbGxlbnQnLFxuICAgICAgaXNMaWtlZDogdHJ1ZSxcbiAgICAgIGNyZWF0ZWRBdDogJzIwMjQtMDEtMjJUMTU6MjA6MDBaJ1xuICAgIH0sXG4gICAge1xuICAgICAgaWQ6ICdob21lLTYnLFxuICAgICAgdGl0bGU6ICdJbmR1c3RyaWFsIFBlbmRhbnQgTGlnaHQnLFxuICAgICAgYnJhbmQ6ICdXZXN0IEVsbScsXG4gICAgICBwcmljZTogJyQ4NScsXG4gICAgICBvcmlnaW5hbFByaWNlOiAnJDEyNScsXG4gICAgICBzaXplOiAnT25lIFNpemUnLFxuICAgICAgaW1hZ2VzOiBbJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTc4NjYyOTk2NDQyLTQ4ZjYwMTAzZmM5Nj93PTQwMCZoPTQwMCZmaXQ9Y3JvcCddLFxuICAgICAgc2VsbGVyOiB7XG4gICAgICAgIGlkOiAnc2VsbGVyMjQnLFxuICAgICAgICB1c2VybmFtZTogJ2xpZ2h0aW5nX2V4cGVydCcsXG4gICAgICAgIGF2YXRhcjogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNDk0NzkwMTA4NzU1LTI2MTZiNjEyYjBjNT93PTEwMCZoPTEwMCZmaXQ9Y3JvcCdcbiAgICAgIH0sXG4gICAgICBzdGF0czogeyBsaWtlczogMTU2LCBjb21tZW50czogMzQsIHNoYXJlczogMTggfSxcbiAgICAgIGNvbmRpdGlvbjogJ2V4Y2VsbGVudCcsXG4gICAgICBpc0xpa2VkOiBmYWxzZSxcbiAgICAgIGNyZWF0ZWRBdDogJzIwMjQtMDEtMjFUMTE6NDU6MDBaJ1xuICAgIH0sXG4gICAge1xuICAgICAgaWQ6ICdob21lLTcnLFxuICAgICAgdGl0bGU6ICdGYXJtaG91c2UgRGluaW5nIENoYWlyJyxcbiAgICAgIGJyYW5kOiAnUG90dGVyeSBCYXJuJyxcbiAgICAgIHByaWNlOiAnJDE0NScsXG4gICAgICBvcmlnaW5hbFByaWNlOiAnJDIyNScsXG4gICAgICBzaXplOiAnU3RhbmRhcmQnLFxuICAgICAgaW1hZ2VzOiBbJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTgzODQ3MjY4OTY0LWIyOGRjOGY1MWY5Mj93PTQwMCZoPTQwMCZmaXQ9Y3JvcCddLFxuICAgICAgc2VsbGVyOiB7XG4gICAgICAgIGlkOiAnc2VsbGVyMjUnLFxuICAgICAgICB1c2VybmFtZTogJ2Zhcm1ob3VzZV9zdHlsZScsXG4gICAgICAgIGF2YXRhcjogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTE3ODQxOTA1MjQwLTQ3Mjk4OGJhYmRmOT93PTEwMCZoPTEwMCZmaXQ9Y3JvcCdcbiAgICAgIH0sXG4gICAgICBzdGF0czogeyBsaWtlczogMTg5LCBjb21tZW50czogMzgsIHNoYXJlczogMjAgfSxcbiAgICAgIGNvbmRpdGlvbjogJ2V4Y2VsbGVudCcsXG4gICAgICBpc0xpa2VkOiB0cnVlLFxuICAgICAgY3JlYXRlZEF0OiAnMjAyNC0wMS0yMFQxNDoxNTowMFonXG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogJ2hvbWUtOCcsXG4gICAgICB0aXRsZTogJ01pbmltYWxpc3QgV2FsbCBDbG9jaycsXG4gICAgICBicmFuZDogJ0Rlc2lnbiBXaXRoaW4gUmVhY2gnLFxuICAgICAgcHJpY2U6ICckNjUnLFxuICAgICAgb3JpZ2luYWxQcmljZTogJyQ5NScsXG4gICAgICBzaXplOiAnMTJcIicsXG4gICAgICBpbWFnZXM6IFsnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1ODYwMjM0OTIxMjUtMjdiMmMwNDVlZmQ3P3c9NDAwJmg9NDAwJmZpdD1jcm9wJ10sXG4gICAgICBzZWxsZXI6IHtcbiAgICAgICAgaWQ6ICdzZWxsZXIyNicsXG4gICAgICAgIHVzZXJuYW1lOiAnbWluaW1hbGlzdF9ob21lJyxcbiAgICAgICAgYXZhdGFyOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE0ODg0MjY4NjIwMjYtM2VlMzRhN2Q2NmRmP3c9MTAwJmg9MTAwJmZpdD1jcm9wJ1xuICAgICAgfSxcbiAgICAgIHN0YXRzOiB7IGxpa2VzOiAxMjMsIGNvbW1lbnRzOiAyOCwgc2hhcmVzOiAxNSB9LFxuICAgICAgY29uZGl0aW9uOiAnbmV3X3dpdGhfdGFncycsXG4gICAgICBpc0xpa2VkOiBmYWxzZSxcbiAgICAgIGNyZWF0ZWRBdDogJzIwMjQtMDEtMTlUMTY6MzA6MDBaJ1xuICAgIH0sXG4gICAge1xuICAgICAgaWQ6ICdob21lLTknLFxuICAgICAgdGl0bGU6ICdCb2hlbWlhbiBBcmVhIFJ1ZycsXG4gICAgICBicmFuZDogJ1J1Z3MgVVNBJyxcbiAgICAgIHByaWNlOiAnJDE4NScsXG4gICAgICBvcmlnaW5hbFByaWNlOiAnJDI3NScsXG4gICAgICBzaXplOiAnOHgxMCcsXG4gICAgICBpbWFnZXM6IFsnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1ODYwMjM0OTIxMjUtMjdiMmMwNDVlZmQ3P3c9NDAwJmg9NDAwJmZpdD1jcm9wJ10sXG4gICAgICBzZWxsZXI6IHtcbiAgICAgICAgaWQ6ICdzZWxsZXIyNycsXG4gICAgICAgIHVzZXJuYW1lOiAncnVnX2NvbGxlY3RvcicsXG4gICAgICAgIGF2YXRhcjogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTA3MDAzMjExMTY5LTBhMWRkNzIyOGYyZD93PTEwMCZoPTEwMCZmaXQ9Y3JvcCdcbiAgICAgIH0sXG4gICAgICBzdGF0czogeyBsaWtlczogMjc4LCBjb21tZW50czogNTIsIHNoYXJlczogMjggfSxcbiAgICAgIGNvbmRpdGlvbjogJ2V4Y2VsbGVudCcsXG4gICAgICBpc0xpa2VkOiB0cnVlLFxuICAgICAgY3JlYXRlZEF0OiAnMjAyNC0wMS0xOFQxMjo0NTowMFonXG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogJ2hvbWUtMTAnLFxuICAgICAgdGl0bGU6ICdTY2FuZGluYXZpYW4gQm9va3NoZWxmJyxcbiAgICAgIGJyYW5kOiAnSUtFQScsXG4gICAgICBwcmljZTogJyQ5NScsXG4gICAgICBvcmlnaW5hbFByaWNlOiAnJDE0NScsXG4gICAgICBzaXplOiAnMTIweDMweDE4MGNtJyxcbiAgICAgIGltYWdlczogWydodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU3ODY2Mjk5NjQ0Mi00OGY2MDEwM2ZjOTY/dz00MDAmaD00MDAmZml0PWNyb3AnXSxcbiAgICAgIHNlbGxlcjoge1xuICAgICAgICBpZDogJ3NlbGxlcjI4JyxcbiAgICAgICAgdXNlcm5hbWU6ICdzY2FuZGluYXZpYW5fZGVzaWduJyxcbiAgICAgICAgYXZhdGFyOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE0OTQ3OTAxMDg3NTUtMjYxNmI2MTJiMGM1P3c9MTAwJmg9MTAwJmZpdD1jcm9wJ1xuICAgICAgfSxcbiAgICAgIHN0YXRzOiB7IGxpa2VzOiAxNjcsIGNvbW1lbnRzOiAzNSwgc2hhcmVzOiAxOCB9LFxuICAgICAgY29uZGl0aW9uOiAnZXhjZWxsZW50JyxcbiAgICAgIGlzTGlrZWQ6IGZhbHNlLFxuICAgICAgY3JlYXRlZEF0OiAnMjAyNC0wMS0xN1QxMDoyMDowMFonXG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogJ2hvbWUtMTEnLFxuICAgICAgdGl0bGU6ICdWaW50YWdlIEJyYXNzIENhbmRsZXN0aWNrcycsXG4gICAgICBicmFuZDogJ0V0c3knLFxuICAgICAgcHJpY2U6ICckNDUnLFxuICAgICAgb3JpZ2luYWxQcmljZTogJyQ2NScsXG4gICAgICBzaXplOiAnU2V0IG9mIDInLFxuICAgICAgaW1hZ2VzOiBbJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTgzODQ3MjY4OTY0LWIyOGRjOGY1MWY5Mj93PTQwMCZoPTQwMCZmaXQ9Y3JvcCddLFxuICAgICAgc2VsbGVyOiB7XG4gICAgICAgIGlkOiAnc2VsbGVyMjknLFxuICAgICAgICB1c2VybmFtZTogJ3ZpbnRhZ2VfZGVjb3InLFxuICAgICAgICBhdmF0YXI6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTUxNzg0MTkwNTI0MC00NzI5ODhiYWJkZjk/dz0xMDAmaD0xMDAmZml0PWNyb3AnXG4gICAgICB9LFxuICAgICAgc3RhdHM6IHsgbGlrZXM6IDg5LCBjb21tZW50czogMjEsIHNoYXJlczogMTIgfSxcbiAgICAgIGNvbmRpdGlvbjogJ2dvb2QnLFxuICAgICAgaXNMaWtlZDogdHJ1ZSxcbiAgICAgIGNyZWF0ZWRBdDogJzIwMjQtMDEtMTZUMTU6MzA6MDBaJ1xuICAgIH0sXG4gICAge1xuICAgICAgaWQ6ICdob21lLTEyJyxcbiAgICAgIHRpdGxlOiAnTW9kZXJuIEZsb29yIExhbXAnLFxuICAgICAgYnJhbmQ6ICdDQjInLFxuICAgICAgcHJpY2U6ICckMTI1JyxcbiAgICAgIG9yaWdpbmFsUHJpY2U6ICckMTg1JyxcbiAgICAgIHNpemU6ICdPbmUgU2l6ZScsXG4gICAgICBpbWFnZXM6IFsnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1ODYwMjM0OTIxMjUtMjdiMmMwNDVlZmQ3P3c9NDAwJmg9NDAwJmZpdD1jcm9wJ10sXG4gICAgICBzZWxsZXI6IHtcbiAgICAgICAgaWQ6ICdzZWxsZXIzMCcsXG4gICAgICAgIHVzZXJuYW1lOiAnbW9kZXJuX2xpZ2h0aW5nJyxcbiAgICAgICAgYXZhdGFyOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE0ODg0MjY4NjIwMjYtM2VlMzRhN2Q2NmRmP3c9MTAwJmg9MTAwJmZpdD1jcm9wJ1xuICAgICAgfSxcbiAgICAgIHN0YXRzOiB7IGxpa2VzOiAyMzQsIGNvbW1lbnRzOiA0NSwgc2hhcmVzOiAyMyB9LFxuICAgICAgY29uZGl0aW9uOiAnZXhjZWxsZW50JyxcbiAgICAgIGlzTGlrZWQ6IGZhbHNlLFxuICAgICAgY3JlYXRlZEF0OiAnMjAyNC0wMS0xNVQxMzoxNTowMFonXG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogJ2hvbWUtMTMnLFxuICAgICAgdGl0bGU6ICdCb2hlbWlhbiBUaHJvdyBCbGFua2V0JyxcbiAgICAgIGJyYW5kOiAnVXJiYW4gT3V0Zml0dGVycycsXG4gICAgICBwcmljZTogJyQzNScsXG4gICAgICBvcmlnaW5hbFByaWNlOiAnJDU1JyxcbiAgICAgIHNpemU6ICc1MHg2MCcsXG4gICAgICBpbWFnZXM6IFsnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1ODYwMjM0OTIxMjUtMjdiMmMwNDVlZmQ3P3c9NDAwJmg9NDAwJmZpdD1jcm9wJ10sXG4gICAgICBzZWxsZXI6IHtcbiAgICAgICAgaWQ6ICdzZWxsZXIzMScsXG4gICAgICAgIHVzZXJuYW1lOiAnYm9ob190ZXh0aWxlcycsXG4gICAgICAgIGF2YXRhcjogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTA3MDAzMjExMTY5LTBhMWRkNzIyOGYyZD93PTEwMCZoPTEwMCZmaXQ9Y3JvcCdcbiAgICAgIH0sXG4gICAgICBzdGF0czogeyBsaWtlczogMTQ1LCBjb21tZW50czogMzIsIHNoYXJlczogMTggfSxcbiAgICAgIGNvbmRpdGlvbjogJ25ld193aXRoX3RhZ3MnLFxuICAgICAgaXNMaWtlZDogdHJ1ZSxcbiAgICAgIGNyZWF0ZWRBdDogJzIwMjQtMDEtMTRUMTE6NDU6MDBaJ1xuICAgIH0sXG4gICAge1xuICAgICAgaWQ6ICdob21lLTE0JyxcbiAgICAgIHRpdGxlOiAnSW5kdXN0cmlhbCBCYXIgU3Rvb2wnLFxuICAgICAgYnJhbmQ6ICdSZXN0b3JhdGlvbiBIYXJkd2FyZScsXG4gICAgICBwcmljZTogJyQxODUnLFxuICAgICAgb3JpZ2luYWxQcmljZTogJyQyNzUnLFxuICAgICAgc2l6ZTogJ1N0YW5kYXJkJyxcbiAgICAgIGltYWdlczogWydodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU3ODY2Mjk5NjQ0Mi00OGY2MDEwM2ZjOTY/dz00MDAmaD00MDAmZml0PWNyb3AnXSxcbiAgICAgIHNlbGxlcjoge1xuICAgICAgICBpZDogJ3NlbGxlcjMyJyxcbiAgICAgICAgdXNlcm5hbWU6ICdpbmR1c3RyaWFsX2Z1cm5pdHVyZScsXG4gICAgICAgIGF2YXRhcjogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNDk0NzkwMTA4NzU1LTI2MTZiNjEyYjBjNT93PTEwMCZoPTEwMCZmaXQ9Y3JvcCdcbiAgICAgIH0sXG4gICAgICBzdGF0czogeyBsaWtlczogMTk4LCBjb21tZW50czogNDEsIHNoYXJlczogMjUgfSxcbiAgICAgIGNvbmRpdGlvbjogJ2V4Y2VsbGVudCcsXG4gICAgICBpc0xpa2VkOiBmYWxzZSxcbiAgICAgIGNyZWF0ZWRBdDogJzIwMjQtMDEtMTNUMTQ6MjA6MDBaJ1xuICAgIH0sXG4gICAge1xuICAgICAgaWQ6ICdob21lLTE1JyxcbiAgICAgIHRpdGxlOiAnRmFybWhvdXNlIEtpdGNoZW4gU2luaycsXG4gICAgICBicmFuZDogJ0tvaGxlcicsXG4gICAgICBwcmljZTogJyQ0MjUnLFxuICAgICAgb3JpZ2luYWxQcmljZTogJyQ2MjUnLFxuICAgICAgc2l6ZTogJzMzeDIyJyxcbiAgICAgIGltYWdlczogWydodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU4Mzg0NzI2ODk2NC1iMjhkYzhmNTFmOTI/dz00MDAmaD00MDAmZml0PWNyb3AnXSxcbiAgICAgIHNlbGxlcjoge1xuICAgICAgICBpZDogJ3NlbGxlcjMzJyxcbiAgICAgICAgdXNlcm5hbWU6ICdraXRjaGVuX3Jlbm92YXRpb24nLFxuICAgICAgICBhdmF0YXI6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTUxNzg0MTkwNTI0MC00NzI5ODhiYWJkZjk/dz0xMDAmaD0xMDAmZml0PWNyb3AnXG4gICAgICB9LFxuICAgICAgc3RhdHM6IHsgbGlrZXM6IDM0NSwgY29tbWVudHM6IDY3LCBzaGFyZXM6IDM0IH0sXG4gICAgICBjb25kaXRpb246ICdleGNlbGxlbnQnLFxuICAgICAgaXNMaWtlZDogdHJ1ZSxcbiAgICAgIGNyZWF0ZWRBdDogJzIwMjQtMDEtMTJUMTY6MzA6MDBaJ1xuICAgIH0sXG4gICAge1xuICAgICAgaWQ6ICdob21lLTE2JyxcbiAgICAgIHRpdGxlOiAnTWluaW1hbGlzdCBQbGFudCBQb3QnLFxuICAgICAgYnJhbmQ6ICdUaGUgU2lsbCcsXG4gICAgICBwcmljZTogJyQyOCcsXG4gICAgICBvcmlnaW5hbFByaWNlOiAnJDQyJyxcbiAgICAgIHNpemU6ICc2XCInLFxuICAgICAgaW1hZ2VzOiBbJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTg2MDIzNDkyMTI1LTI3YjJjMDQ1ZWZkNz93PTQwMCZoPTQwMCZmaXQ9Y3JvcCddLFxuICAgICAgc2VsbGVyOiB7XG4gICAgICAgIGlkOiAnc2VsbGVyMzQnLFxuICAgICAgICB1c2VybmFtZTogJ3BsYW50X2xvdmVyJyxcbiAgICAgICAgYXZhdGFyOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE0ODg0MjY4NjIwMjYtM2VlMzRhN2Q2NmRmP3c9MTAwJmg9MTAwJmZpdD1jcm9wJ1xuICAgICAgfSxcbiAgICAgIHN0YXRzOiB7IGxpa2VzOiA3OCwgY29tbWVudHM6IDE4LCBzaGFyZXM6IDEwIH0sXG4gICAgICBjb25kaXRpb246ICduZXdfd2l0aF90YWdzJyxcbiAgICAgIGlzTGlrZWQ6IGZhbHNlLFxuICAgICAgY3JlYXRlZEF0OiAnMjAyNC0wMS0xMVQxMjoxNTowMFonXG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogJ2hvbWUtMTcnLFxuICAgICAgdGl0bGU6ICdTY2FuZGluYXZpYW4gQmVkIEZyYW1lJyxcbiAgICAgIGJyYW5kOiAnSUtFQScsXG4gICAgICBwcmljZTogJyQyMjUnLFxuICAgICAgb3JpZ2luYWxQcmljZTogJyQzMjUnLFxuICAgICAgc2l6ZTogJ1F1ZWVuJyxcbiAgICAgIGltYWdlczogWydodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTU3ODY2Mjk5NjQ0Mi00OGY2MDEwM2ZjOTY/dz00MDAmaD00MDAmZml0PWNyb3AnXSxcbiAgICAgIHNlbGxlcjoge1xuICAgICAgICBpZDogJ3NlbGxlcjM1JyxcbiAgICAgICAgdXNlcm5hbWU6ICdiZWRyb29tX2Rlc2lnbicsXG4gICAgICAgIGF2YXRhcjogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTA3MDAzMjExMTY5LTBhMWRkNzIyOGYyZD93PTEwMCZoPTEwMCZmaXQ9Y3JvcCdcbiAgICAgIH0sXG4gICAgICBzdGF0czogeyBsaWtlczogMjM0LCBjb21tZW50czogNDUsIHNoYXJlczogMjMgfSxcbiAgICAgIGNvbmRpdGlvbjogJ2V4Y2VsbGVudCcsXG4gICAgICBpc0xpa2VkOiB0cnVlLFxuICAgICAgY3JlYXRlZEF0OiAnMjAyNC0wMS0xMFQxNTo0NTowMFonXG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogJ2hvbWUtMTgnLFxuICAgICAgdGl0bGU6ICdCb2hlbWlhbiBXYWxsIFRhcGVzdHJ5JyxcbiAgICAgIGJyYW5kOiAnVXJiYW4gT3V0Zml0dGVycycsXG4gICAgICBwcmljZTogJyQ0NScsXG4gICAgICBvcmlnaW5hbFByaWNlOiAnJDY1JyxcbiAgICAgIHNpemU6ICc1MXgzNicsXG4gICAgICBpbWFnZXM6IFsnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1ODYwMjM0OTIxMjUtMjdiMmMwNDVlZmQ3P3c9NDAwJmg9NDAwJmZpdD1jcm9wJ10sXG4gICAgICBzZWxsZXI6IHtcbiAgICAgICAgaWQ6ICdzZWxsZXIzNicsXG4gICAgICAgIHVzZXJuYW1lOiAnd2FsbF9hcnQnLFxuICAgICAgICBhdmF0YXI6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTQ5NDc5MDEwODc1NS0yNjE2YjYxMmIwYzU/dz0xMDAmaD0xMDAmZml0PWNyb3AnXG4gICAgICB9LFxuICAgICAgc3RhdHM6IHsgbGlrZXM6IDEyMywgY29tbWVudHM6IDI4LCBzaGFyZXM6IDE1IH0sXG4gICAgICBjb25kaXRpb246ICdnb29kJyxcbiAgICAgIGlzTGlrZWQ6IGZhbHNlLFxuICAgICAgY3JlYXRlZEF0OiAnMjAyNC0wMS0wOVQxMzozMDowMFonXG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogJ2hvbWUtMTknLFxuICAgICAgdGl0bGU6ICdJbmR1c3RyaWFsIENvZmZlZSBUYWJsZScsXG4gICAgICBicmFuZDogJ1dlc3QgRWxtJyxcbiAgICAgIHByaWNlOiAnJDE4NScsXG4gICAgICBvcmlnaW5hbFByaWNlOiAnJDI3NScsXG4gICAgICBzaXplOiAnNDh4MjQnLFxuICAgICAgaW1hZ2VzOiBbJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNTgzODQ3MjY4OTY0LWIyOGRjOGY1MWY5Mj93PTQwMCZoPTQwMCZmaXQ9Y3JvcCddLFxuICAgICAgc2VsbGVyOiB7XG4gICAgICAgIGlkOiAnc2VsbGVyMzcnLFxuICAgICAgICB1c2VybmFtZTogJ2luZHVzdHJpYWxfZGVzaWduJyxcbiAgICAgICAgYXZhdGFyOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1MTc4NDE5MDUyNDAtNDcyOTg4YmFiZGY5P3c9MTAwJmg9MTAwJmZpdD1jcm9wJ1xuICAgICAgfSxcbiAgICAgIHN0YXRzOiB7IGxpa2VzOiAxODksIGNvbW1lbnRzOiAzOCwgc2hhcmVzOiAyMCB9LFxuICAgICAgY29uZGl0aW9uOiAnZXhjZWxsZW50JyxcbiAgICAgIGlzTGlrZWQ6IHRydWUsXG4gICAgICBjcmVhdGVkQXQ6ICcyMDI0LTAxLTA4VDExOjIwOjAwWidcbiAgICB9LFxuICAgIHtcbiAgICAgIGlkOiAnaG9tZS0yMCcsXG4gICAgICB0aXRsZTogJ01pbmltYWxpc3QgRGVzayBDaGFpcicsXG4gICAgICBicmFuZDogJ0hlcm1hbiBNaWxsZXInLFxuICAgICAgcHJpY2U6ICckNDI1JyxcbiAgICAgIG9yaWdpbmFsUHJpY2U6ICckNjI1JyxcbiAgICAgIHNpemU6ICdTdGFuZGFyZCcsXG4gICAgICBpbWFnZXM6IFsnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE1ODYwMjM0OTIxMjUtMjdiMmMwNDVlZmQ3P3c9NDAwJmg9NDAwJmZpdD1jcm9wJ10sXG4gICAgICBzZWxsZXI6IHtcbiAgICAgICAgaWQ6ICdzZWxsZXIzOCcsXG4gICAgICAgIHVzZXJuYW1lOiAnb2ZmaWNlX2Z1cm5pdHVyZScsXG4gICAgICAgIGF2YXRhcjogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNDg4NDI2ODYyMDI2LTNlZTM0YTdkNjZkZj93PTEwMCZoPTEwMCZmaXQ9Y3JvcCdcbiAgICAgIH0sXG4gICAgICBzdGF0czogeyBsaWtlczogMjc4LCBjb21tZW50czogNTIsIHNoYXJlczogMjggfSxcbiAgICAgIGNvbmRpdGlvbjogJ2V4Y2VsbGVudCcsXG4gICAgICBpc0xpa2VkOiBmYWxzZSxcbiAgICAgIGNyZWF0ZWRBdDogJzIwMjQtMDEtMDdUMTQ6MTU6MDBaJ1xuICAgIH1cbiAgXVxufTsiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0lBc0JVO0lBQUFBLGNBQUEsWUFBQUEsQ0FBQTtNQUFBLE9BQUFDLGNBQUE7SUFBQTtFQUFBO0VBQUEsT0FBQUEsY0FBQTtBQUFBO0FBQUFELGNBQUE7QUF0QlY7Ozs7Ozs7O0FBU0EsU0FBU0UsQ0FBQyxRQUFRLEtBQUs7QUFPdkI7Ozs7QUFJQSxPQUFPLE1BQU1DLGlCQUFpQjtBQUFBO0FBQUEsQ0FBQUgsY0FBQSxHQUFBSSxDQUFBLE9BQStCO0VBQzNEQyxRQUFRLEVBQUUsU0FBUztFQUNuQkMsUUFBUSxFQUFFO0lBQ1JDLEtBQUssRUFBRSxrQkFBa0I7SUFDekJDLFdBQVcsRUFBRSx5REFBeUQ7SUFDdEVDLFFBQVEsRUFBRSwyQ0FBMkM7SUFDckRDLFdBQVcsRUFBRTtHQUNkO0VBQ0RDLG1CQUFtQixFQUFFO0lBQ25CQyxnQkFBZ0IsRUFBRSxDQUFDLGFBQWEsRUFBRSxNQUFNLEVBQUUsT0FBTyxFQUFFLE9BQU8sRUFBRSxPQUFPLEVBQUUsT0FBTyxFQUFFLFdBQVcsRUFBRSxjQUFjLENBQUM7SUFDMUdDLHVCQUF1QixFQUFFLENBQ3ZCO01BQ0VDLEVBQUUsRUFBRSxZQUFZO01BQ2hCQyxJQUFJLEVBQUUsWUFBWTtNQUNsQkMsSUFBSSxFQUFFLFVBQVU7TUFDaEJDLE9BQU8sRUFBRSxDQUNQO1FBQUVILEVBQUUsRUFBRSxhQUFhO1FBQUVDLElBQUksRUFBRTtNQUFhLENBQUUsRUFD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
